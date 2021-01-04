@@ -1,0 +1,7 @@
+name: "BIOL 497/597"
+output_dir: "."
+navbar:
+  title: "Genomics & Bioinformatics"
+  left:
+    - text: "Home"
+      href: index.html
