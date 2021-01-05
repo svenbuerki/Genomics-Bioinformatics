@@ -1,7 +1,7 @@
 ---
 title: "BIOL 497/597 - Genomics & Bioinformatics"
 subtitle: "Syllabus & Timetable"
-author: "Sven Buerki"
+author: "Sven Buerki - Boise State University"
 output:
   bookdown::html_document2: 
     toc: TRUE
