@@ -2,10 +2,13 @@
 title: "BIOL 497/597 - Genomics & Bioinformatics"
 subtitle: "Syllabus & Timetable"
 author: "Sven Buerki - Boise State University"
+date: "`r Sys.Date()`"
 output:
   bookdown::html_document2: 
     toc: TRUE
     toc_float: TRUE
+  bookdown::pdf_document2:
+    toc: TRUE
 link-citations: yes
 fontsize: 12pt
 urlcolor: blue
@@ -16,16 +19,23 @@ editor_options:
     wrap: sentence
 ---
 
-```{r echo=FALSE, include=FALSE}
-#Load the bibliography settings
-library("knitcitations")
-library("bookdown")
-library("kfigr")
+```{r packages, echo=FALSE, warning=FALSE, include=FALSE}
+library(knitr)
+library(rmarkdown)
+library(bookdown)
+#library(distill)
+library(knitcitations)
+library(formatR)
+library(devtools)
+library(kfigr)
 library(dplyr)
 library(kableExtra)
-cleanbib()
-options("citation_format" = "pandoc")
+
+#Generate BibTex citation file for all R packages used to produce report
+knitr::write_bib(.packages(), file = 'packages.bib')
 ```
+
+<div style="text-align: right"> [Download pdf version](index.pdf) </div>
 
 # Instructor
 
@@ -548,14 +558,26 @@ rownames(timetable) <- rep("", nrow(timetable))
 ###~~~
 #Plot timetable in doc
 ###~~~
-#landscape, stripped and fit width of page
-knitr::kable(timetable, caption = "Tentative timetable for the Genomics & Bioinformatics course during the Spring semester 2021.") %>%
+knitr::kable(timetable, caption = "Tentative timetable for the Genomics and Bioinformatics course during the Spring semester 2021.") %>%
   kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
+
+#PDF
+#landscape(knitr::kable(timetable, caption = "Tentative timetable for the Genomics and Bioinformatics course during the Spring semester 2021.", booktabs = T, "latex") %>% kable_styling(latex_options = c("striped","scale_down"))
+ #         )
 ```
 
 
 # References
 
-```{r echo=FALSE, include=FALSE}
-#write.bibtex(file="Bibliography_Reproducible_Science.bib")
-```
+<div id="refs"></div>
+
+# Appendix 1 {.appendix}
+
+Citations of all R packages used to generate this report. 
+
+```{r generateBibliography, eval = T, results="asis", cache = F, echo=F, warning = FALSE, message=FALSE}
+library("knitcitations")
+cleanbib()
+options("citation_format" = "pandoc")
+read.bibtex(file = "packages.bib")
+``` 
