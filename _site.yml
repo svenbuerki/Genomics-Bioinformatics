@@ -4,4 +4,4 @@ navbar:
   title: "Genomics & Bioinformatics"
   left:
     - text: "Home"
-      href: Index.html
+      href: index.html
