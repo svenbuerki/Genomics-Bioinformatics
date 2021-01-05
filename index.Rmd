@@ -36,6 +36,7 @@ knitr::write_bib(.packages(), file = 'packages.bib')
 ```
 
 <div style="text-align: right"> [Download pdf version](index.pdf) </div>
+<div style="text-align: right"> [Raw data on GitHub](https://github.com/svenbuerki/Genomics-Bioinformatics) </div>
 
 # Instructor
 
