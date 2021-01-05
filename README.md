@@ -1,4 +1,4 @@
-BIOL 497/597 - Genomics & Bioinformatics
+# BIOL 497/597 - Genomics & Bioinformatics
 
 # Instructor
 

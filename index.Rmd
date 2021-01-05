@@ -21,6 +21,8 @@ editor_options:
 library("knitcitations")
 library("bookdown")
 library("kfigr")
+library(dplyr)
+library(kableExtra)
 cleanbib()
 options("citation_format" = "pandoc")
 ```
@@ -52,6 +54,8 @@ To accommodate physical distancing and other safety measures necessitated by the
 -   **Lecture sessions:** Wednesdays from 9:00-10:50 AM.
 -   **Laboratory sessions:** Fridays from 9:00-10:30 AM.
 
+Please see section \@ref(timetable) for tentative timetable for this course.
+
 ## Zoom information
 
 Class will take place remotely using the [Zoom](https://boisestate.zoom.us) platform.
@@ -64,7 +68,7 @@ Please see the following Zoom webpages for more details on:
 -   Remote support session: <https://support.zoom.us/hc/en-us/articles/208072316-Remote-Support-Session>
 -   Requesting or giving remote control: <https://support.zoom.us/hc/en-us/articles/201362673-Requesting-or-giving-remote-control#heading=h.bdhzh38o7ljq>
 
-Details to join the Zoom meetings and find URLs to recordings are provided [here](https://docs.google.com/document/d/1y79tlH-shdh68kUuYv6A9ZGmqyj5mwB2opmGR3V6A78/edit?usp=sharing). Students will be granted access to this document prior to the start of the semester.
+Details to join the Zoom meetings and find URLs of class recordings are provided [here](https://docs.google.com/document/d/1y79tlH-shdh68kUuYv6A9ZGmqyj5mwB2opmGR3V6A78/edit?usp=sharing). Students will be granted access to this document prior to the start of the semester.
 
 ## Class location
 
@@ -78,7 +82,7 @@ The goal of this course is to provide students with the theoretical and applied 
 knitr::include_graphics("Images/Flowchart_course_crop.png")
 ```
 
-A suite of unix-based open source software will be used to perform genomic analyses (see Figure \@ref(fig:BioinfoWorkflow). In addition to learning how to execute programs, students will also be taught procedures to install them therefore gaining critical expertise for their career. Finally, students will produce scientific reports and present their results.
+A suite of unix-based open source software will be used to perform genomic analyses (see Figure \@ref(fig:BioinfoWorkflow)). In addition to learning how to execute programs, students will also be taught procedures to install them therefore gaining critical expertise for their career. Finally, students will produce scientific reports and present their results.
 Reports together with documents provided by the instructor will provide students with a framework allowing them to analyze their own genomic data.
 
 ```{r BioinfoWorkflow, echo=FALSE, fig.cap="Overview of an example of an approach applied to produce a draft genome assembly. In this course, students will become accustomed with such approach and master some specific key steps.", out.width = '100%'}
@@ -132,7 +136,7 @@ Please find below a non-exhaustive list of learning outcomes associated to the c
 **Chapter 2: Next-generation sequencing**
 
 -   Learn the next-generation sequencing (NGS) jargon underpinning genome assembly and annotation.
--   Understand the general principle of genome sequencing (wet-lab) and assembly (bioinformatics workflow) (see Figure \@ref(fig:BioinfoWorkflow).
+-   Understand the general principle of genome sequencing (wet-lab) and assembly (bioinformatics workflow) (see Figure \@ref(fig:BioinfoWorkflow)).
 -   Be familiar and know the limitations of the following NGS platforms:
     -   Illumina.
     -   PacBio.
@@ -209,6 +213,8 @@ In this chapter, we will be using data produced by the sagebrush [GEM3](https://
 - Mine scaffolds in an Illumina draft genome containing target genes.
 - Validate mining by locating Open Reading Frames (ORFs), reconstructing protein sequences and inferring gene phylogenetic trees.
 - Annotate validated genes.
+
+Please see section \@ref(timetable) for tentative timetable associated to these chapters.
 
 # Pre-requisite
 
@@ -293,19 +299,18 @@ Please find below two documents providing a comprehensive introduction to R:
 
 # Journal club
 
-The aim of the journal club (taking place on weeks 4, 8 and 13) is to train students to read scientific papers related to genomic data.
-Journal clubs will also provide opportunities for students to learn how to present their scientific papers on week 16.
+The aim of the journal club is to train students to read scientific publications related to genomic data.
+Journal clubs will also provide opportunities for students to learn how to present their scientific publications.
 
-Students are expected to have read the scientific papers before coming to class.
+Students are expected to have read the scientific publications before coming to class.
 The instructor will start by briefly summarizing the methodology and main outcomes of the study and the rest of the class will be devoted to general discussion (please come with some questions and have a critical, but positive mid set).
 
-Please find below the list of papers that we will discuss in class:
+Please find below the list of publications that we will discuss in class (see section \@ref(timetable) for information on dates):
 
--   **Week 4:** @Li2009 published a draft genome of the giant panda and screened for genes responsible for the detoxification of cyanide produced by bamboos.
--   **Week 8:** TBD. The instructor will be selecting a scientific paper and sharing it two weeks in advance.
--   **Week 13:** @Ming2015 published the draft genome of the pineapple and investigated the origin of CAM photosynthesis in this lineage.
+-   **Publication 1:** @Li2009 published a draft genome of the giant panda and screened for genes responsible for the detoxification of cyanide produced by bamboos.
+-   **Publication 2:** @Ming2015 published the draft genome of the pineapple and investigated the origin of CAM photosynthesis in this lineage.
 
-If you are not familiar with approaches to read scientific papers, please come and seek advice.
+If you are not familiar with approaches to read scientific publications, please come and seek advice.
 For undergraduate students, there is a class BIOL 306 that you could take next semester.
 Please find below the details of this class:
 
@@ -318,34 +323,34 @@ PREREQ: BIOL 304 and ENGL 101, 102.
 ## Tests conducted during the class
 
 -   3 mini-reports (2x 25 points and 1x 50 points, TOTAL: 100 points).
--   1 individual oral paper presentation (50 points).
+-   1 individual oral publication presentation (50 points).
 -   1 lab report (150 points).
 -   1 lab presentation (50 points).
 
-Exams are summing to a total of **350 points** and grading will follow the scale presented in Table \@ref(tab:mygrade).
+Exams are summing to a total of **350 points** and grading will follow the scale presented in Table \@ref(tab:mygrade). Please see section \@ref(timetable) for information on dates when exams are due.
 
 ```{r mygrade, echo=FALSE}
 library(bookdown)
 #
 grades <- data.frame("Percentage" = c("100-98","97.9-93", "92.9-90", "89.9-88", "87.9-83", "82.9-80", "79.9-78", "77.9-73", "72.9-70", "69.9-68", "67.9-60", "59.9-0"), Grade = c("A+","A","A-","B+","B","B-","C+","C","C-","D+","D","F"))
-knitr::kable(grades, caption = "Grading scale applied in this course.")
+knitr::kable(grades, caption = "Grading scale applied in this course.") %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
 ```
-
 
 ## Mini-reports (TOTAL: 100 points)
 
 To further gain expertise in this field, students will be producing three mini-reports on the following topics (see Figure \@ref(fig:flowchart)):
 
-- Sequencing technologies (25 points; this task is related to Chapter 2).
-- Molecular biology databases (25 points; this task is related to Chapter 3).
-- Use knowledge from the previous mini-reports to review plant genomes available on GenBank database (50 points). Here, we will be using `R` to mine and analyze data.
+- **Mini-Report 1**: Sequencing technologies (25 points; this task is related to Chapter 2).
+- **Mini-Report 2**: Molecular biology databases (25 points; this task is related to Chapter 3).
+- **Mini-Report 3**: Use knowledge from the previous mini-reports to review plant genomes available on GenBank database (50 points). Here, we will be using `R` to mine and analyze data.
 
 Time will be allocated in class to work on these mini-reports, but the instructor expects students to complete those on their own time.
 
-## Individual oral paper presentation (TOTAL: 50 points)
+## Individual oral publication presentation (TOTAL: 50 points)
 
-Each student will have to present a scientific paper on week 16 related to material presented in Chapter 8.
-Time will be allocated on week 15 to select a paper and work on presentations, but the instructor strongly advise students to start this endeavor sooner.
+Each student will have to present a scientific publication at the end of the semester related to material presented in Chapter 8.
+Time will be allocated to select a paper and work on presentations, but the instructor strongly advise students to start this endeavor sooner.
 **The presentation should not exceed 4 minutes (plus 2 minutes for questions) and contain a maximum of 5 slides.**
 
 ## Lab report (TOTAL: 150 points)
@@ -482,6 +487,72 @@ Among these are:
     -   Programs and events.
 
 -   Food assistance: If you are hungry and cannot afford to purchase food, the campus has some resources to help you. You can visit the [campus food pantry](https://www.boisestate.edu/deanofstudents/student-support/food-help/food-pantry/) or [get free meals in the campus dining hall](https://www.boisestate.edu/deanofstudents/student-support/food-help/meal-assistance/).
+
+# Timetable {#timetable}
+
+A tentative timetable for the Spring semester 2021 is presented in Table \@ref(tab:timetab).
+
+```{r timetab, echo=FALSE}
+###~~~
+# Build a data frame with all dates from beginning to end of Fall semester
+###~~~
+#From <- "2021/01/11"
+#To <- "2021/04/30"
+dates <- data.frame(seq.Date(from=as.Date("2021/01/11"), to=as.Date("2021/04/30"), by="day"))
+#Assign a name to the col (allows using $)
+colnames(dates) <- "Date"
+
+###~~~
+# Find weekdays associated to dates
+###~~~
+#Add a col to dataframe with weekday
+dates$Weekday <- weekdays(dates$Date)
+
+###~~~
+# Classes only take place on Wed and Fri. So, extract dates matching class weekdays
+###~~~
+#Subset dates based on selected weekdays
+datesclass <- subset(dates, dates$Weekday %in% c("Wednesday", "Friday"))
+
+###~~~
+# Add week ID (from 1 to 16) to object from step 4
+###~~~
+#Create weekID vector and add it in front of dataframe
+datesclass <- data.frame(WeekID = sort(rep(seq(from=1, to=16, by=1), 2)), datesclass)
+
+###~~~
+# Exclude dates falling during holiday break
+###~~~
+#Establish vector of dates related to holidays
+#From <- "2021/04/12"
+#To <- "2021/04/16"
+holiday <- seq.Date(from=as.Date("2021/04/12"), to=as.Date("2021/04/16"), by="day")
+
+#Find and exclude holidays
+datesclass <- datesclass[-which(datesclass$Date %in% holiday),]
+
+###~~~
+#Read in csv with topics and tasks
+###~~~
+topic <- read.csv("Data/topics_classes.csv") 
+
+###~~~
+#Produce final timetable
+###~~~
+
+timetable <- data.frame(datesclass, topic)
+#Some editing to better print table in pdf doc
+timetable <- as.matrix(timetable)
+rownames(timetable) <- rep("", nrow(timetable))
+#colnames(timetable)[5] <- "Task/Deadline"
+###~~~
+#Plot timetable in doc
+###~~~
+#landscape, stripped and fit width of page
+knitr::kable(timetable, caption = "Tentative timetable for the Genomics & Bioinformatics course during the Spring semester 2021.") %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
+```
+
 
 # References
 
