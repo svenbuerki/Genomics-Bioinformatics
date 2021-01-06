@@ -47,10 +47,17 @@ knitr::write_bib(.packages(), file = 'packages.bib')
 
 # Course delivery type
 
-To accommodate physical distancing and other safety measures necessitated by the coronavirus pandemic, the university is making changes to its Spring 2021 course schedule.
-**This course will be mostly taught remotely; however we might have opportunities to meet in-person for computing laboratory sessions (see below).** This means that courses meet virtually via technology (here Zoom) at scheduled class meeting times (see below).
+To accommodate physical distancing and other safety measures necessitated by the coronavirus pandemic, the university is making changes to its Spring 2021 course schedule. 
+
+> This course applies a hybrid teaching mode, which means that it will mostly be taught remotely; however we will have opportunities to meet in-person for computing laboratory sessions (see [Timetable](#timetable)). 
+
+This means that courses meet virtually via technology (here Zoom) at scheduled class meeting times and will also meet in-person for bioinformatic analyses (mostly on Fridays, but bioinformatic tutorials are scheduled for [Chapter 4](#timetable)). 
+
+To respect social distancing in the computer laboratory (see class location [here](#class)), students will be divided into four groups (or pods) to work on bioinformatic analyses. Each bioinformatic class session will be split in half and two groups will be attending at the same time. This will give opportunities for students to meet and learn computing skills on the Linux boxes. Groups will be defined during the first two weeks of the semester. Please see the [logistic](#logistic) section below for more details.
 
 ## What technology do you need?
+
+Here are some key points for remote teaching:
 
 -   You will need reliable access to a computer with an internet connection and a webcam.
 -   You will need to install a suite of software on your computer ([Zoom](https://boisestate.zoom.us), [R](https://cran.r-project.org), [RStudio](https://www.rstudio.com)). Please see [the computing tools of reproducible science](#software) section below for more details.
@@ -65,7 +72,7 @@ To accommodate physical distancing and other safety measures necessitated by the
 -   **Lecture sessions:** Wednesdays from 9:00-10:50 AM.
 -   **Laboratory sessions:** Fridays from 9:00-10:30 AM.
 
-Please see section \@ref(timetable) for tentative timetable for this course.
+Please see section \@ref(timetable) for tentative timetable for this course. The teaching mode associated to each class is also provided to improve communication.
 
 ## Zoom information
 
@@ -81,7 +88,7 @@ Please see the following Zoom webpages for more details on:
 
 Details to join the Zoom meetings and find URLs of class recordings are provided [here](https://docs.google.com/document/d/1y79tlH-shdh68kUuYv6A9ZGmqyj5mwB2opmGR3V6A78/edit?usp=sharing). Students will be granted access to this document prior to the start of the semester.
 
-## Class location
+## Class location {#class}
 
 We might be able to schedule in-person laboratory classes to use the Linux computers. These sessions will take place in the Science building in the computer laboratory: **SCNC149**. Further information will be provided by the instructor.
 
@@ -370,9 +377,17 @@ Time will be allocated to select a paper and work on presentations, but the inst
 
 ## Lab report (TOTAL: 150 points)
 
-Students will be working individually or in groups to produce a report associated to the following research question:
+### Research topic
+
+Students will be working in groups to produce a report associated to the following research question:
 
 - What Aquaporin genes are encoded in the sagebrush genome (*Artemisia tridentata*) and what are their functions?
+
+### Logistic {#logistic}
+
+Due to room COVID capacity, students will be split into 4 groups (or pods): A, B, C and D. Each group will be composed of 4 to 5 students. Groups A and B will attend class on Fridays from 9:00 to 9:50 am and groups C and D between 10:00 to 10:50 am. The ten minute gap between sessions will allow for group rotation and sanitizing of work stations. A similar approach will be applied when we will be teaching material presented in Chapter 4.   
+
+### Details on reporting
 
 Lab reports will be formal documents written in the form of scientific manuscripts (Introduction, Material & Methods, Results, Discussion and References sections).
 
@@ -559,15 +574,15 @@ timetable <- data.frame(datesclass, topic)
 #Some editing to better print table in pdf doc
 timetable <- as.matrix(timetable)
 rownames(timetable) <- rep("", nrow(timetable))
-#colnames(timetable)[5] <- "Task/Deadline"
+colnames(timetable)[6] <- "Teaching mode"
 ###~~~
 #Plot timetable in doc
 ###~~~
-knitr::kable(timetable, caption = "Tentative timetable for the Genomics and Bioinformatics course during the Spring semester 2021.") %>%
+knitr::kable(timetable, caption = "Tentative timetable for the Genomics and Bioinformatics course during the Spring semester 2021. Teaching mode is also provided to facilitate communication.") %>%
   kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
 
 #PDF
-#landscape(knitr::kable(timetable, caption = "Tentative timetable for the Genomics and Bioinformatics course during the Spring semester 2021.", booktabs = T, "latex") %>% kable_styling(latex_options = c("striped","scale_down"))
+#landscape(knitr::kable(timetable, caption = "Tentative timetable for the Genomics and Bioinformatics course during the Spring semester 2021. Teaching mode is also provided to facilitate communication.", booktabs = T, "latex") %>% kable_styling(latex_options = c("striped","scale_down"))
  #         )
 ```
 
