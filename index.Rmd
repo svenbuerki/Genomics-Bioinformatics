@@ -7,8 +7,8 @@ output:
   bookdown::html_document2: 
     toc: TRUE
     toc_float: TRUE
-  bookdown::pdf_document2:
-    toc: TRUE
+#  bookdown::pdf_document2:
+#    toc: TRUE
 link-citations: yes
 fontsize: 12pt
 urlcolor: blue
@@ -268,11 +268,13 @@ As shown above, **R** and **RStudio** are at the core of this course and will ha
 - **R**: https://www.r-project.org
 - **RStudio**: https://www.rstudio.com/products/rstudio/download/
 
+There is a preview release of RStudio including a new visual Markdown editing mode, which is handy when you are using this program extensively. You can download it [here](https://rstudio.github.io/visual-markdown-editing/#/), but this version might not be as stable as the other version made available on the main webpage (see above). 
+
 The download webpages for these software have comprehensive information on how to install them, so please refer to those pages for more information.
 
-## Installing markup languages
+## Installing Markup languages
 
-If you are planning to create LaTeX documents, you will need to install a Tex distribution. Please refer to this website for more details: https://www.latex-project.org/get/
+If you are planning to create `LaTeX` documents, you will need to install a `Tex` distribution. Please refer to this website for more details: https://www.latex-project.org/get/
 
 If you want to create Markdown documents you can separately install the *rmarkdown* package in R (see [below](#Rpack) for more details).
 
@@ -358,6 +360,8 @@ To further gain expertise in this field, students will be producing three mini-r
 
 Time will be allocated in class to work on these mini-reports, but the instructor expects students to complete those on their own time.
 
+Click [here](Mini_reports.html) to access the Mini Reports webpage. 
+
 ## Individual oral publication presentation (TOTAL: 50 points)
 
 Each student will have to present a scientific publication at the end of the semester related to material presented in Chapter 8.
@@ -378,7 +382,7 @@ Please make sure that you present all evidence allowing an external reviewer to 
 
 Please note that if students are working in group then each student should contribute equally to the project. If participation is not judge adequate within a group, then the instructor will grade students individually.
 
-## Lab presentations (TOTAL: 50 points)
+## Lab presentation (TOTAL: 50 points)
 
 Students will use their lab reports to prepare 10 minutes presentations (+ 5 minutes for questions) taking place during the final weeks of the semester.
 

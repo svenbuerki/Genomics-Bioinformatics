@@ -5,3 +5,5 @@ navbar:
   left:
     - text: "Home"
       href: index.html
+    - text: "Mini-reports"
+      href: Mini_reports.html

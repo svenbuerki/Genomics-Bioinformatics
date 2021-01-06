@@ -1,0 +1,94 @@
+---
+title: "BIOL 497/597 - Genomics & Bioinformatics"
+subtitle: "Mini-reports"
+author: "Sven Buerki - Boise State University"
+date: "`r Sys.Date()`"
+output:
+  bookdown::html_document2: 
+    toc: TRUE
+    toc_float: TRUE
+link-citations: yes
+fontsize: 12pt
+urlcolor: blue
+csl: AmJBot.csl
+bibliography: References.bib
+editor_options: 
+  markdown: 
+    wrap: sentence
+---
+
+# Introduction
+
+To further gain expertise in the field of genomics, students are producing three mini-reports on the following topics:
+
+- [**Mini-Report 1**](#mini1): Sequencing technologies (25 points; this task is related to Chapter 2).
+- **Mini-Report 2**: Molecular biology databases (25 points; this task is related to Chapter 3).
+- **Mini-Report 3**: Use knowledge from the previous mini-reports to review plant genomes available on GenBank database (50 points). Here, we will be using `R` to mine and analyze data.
+
+Time will be allocated in class to work on these mini-reports, but the instructor expects students to complete those on their own time.
+
+# Mini-report 1 -- Sequencing platforms & technologies {#mini1}
+
+To have a full overview of available sequencing platforms, students are tasked to produce individual mini-reports on the following sequencing platforms and their associated technologies:
+
+- **Sequencing platform 1:** Illumina.
+- **Sequencing platform 2:** PacBio.
+- **Sequencing platform 3:** Oxford Nanopore.
+
+## Background information
+
+Each student was assigned a sequencing platform to work on (please see [Google spreadsheet](https://docs.google.com/spreadsheets/d/1cRM1yasUfDa98ecyz_-RxUOw8cU4wkQx4O5Wxw3y4yU/edit?usp=sharing) for more information). 
+
+The assignment is mandatory and will be graded. Please see this task as an opportunity to consolidate your knowledge on next-generation sequencing technologies and writing scientific reports.   
+
+Time will be allocated in class on the 27th of January 2021 to allow students to work on their assignments. Reports are due on **the 5th of February 2021** and should be uploaded on the shared [Google Drive](https://drive.google.com/drive/folders/1BFZFJeR8tW8N7QLfngqIVbjqEkDuIyWj?usp=sharing) in the `Mini_Reports` folder.
+
+
+## Structure of mini-reports
+
+Please structure your reports to ensure covering the following aspects:
+
+- Introduce the sequencing technology (incl. library preparation and DNA requirements).
+- Provide an overview of available sequencing systems.
+- Outline the research potential/applicability of the sequencing platform. 
+- Provide any additional information such as e.g. price, accessibility, technical support, that you feel are relevant to your sequencing platform. 
+
+## Reporting format
+
+Maximum two pages, single spaced, using either Arial 11 pt or Times New Roman 12 pt and with all margins set to 1 inch. The two pages do not include a title page and references. The title page should include: name of the sequencing platform as title and names of students contributing the report. Please keep in mind that a figure can convey a lot more information than a long text! Your reports should follow the structure presented in the Content section (see above). 
+
+Upload your reports on the shared Google drive by the 5th of February before 5 pm. Entitle your reports following this pattern: `Sequencing platform_Surname`.
+
+## Resources
+
+The instructor has provided `pdf` documents devoted to each sequencing platform provided below to support students in starting their assignments. 
+
+In addition, please use information available from manufacturers' websites, publications, online NGS training sites (e.g. EMBL-EBI Training), Google, YouTube and Wikipedia to prepare your reports and presentations. Do not forget to provide citations supporting your claims in your reports. I let you decide which reference style you want to use (look at your favorite journals for examples).  
+
+<button class="btn btn-primary" data-toggle="collapse" data-target="#Illumina">Data on Illumina</button>
+<div id="Illumina" class="collapse">    
+<object data="Images/Seq_1_Illumina.pdf" width="750px" height="750px">
+    <embed src="Images/Seq_1_Illumina.pdf">
+    </embed>
+</object>
+</div>
+
+<button class="btn btn-primary" data-toggle="collapse" data-target="#PacBio">Data on PacBio</button>
+<div id="PacBio" class="collapse">    
+<object data="Images/Seq_2_PacBio.pdf" width="750px" height="750px">
+    <embed src="Images/Seq_2_PacBio.pdf">
+    </embed>
+</object>
+</div>
+
+<button class="btn btn-primary" data-toggle="collapse" data-target="#Nanopore">Data on Nanopore</button>
+<div id="Nanopore" class="collapse">    
+<object data="Images/Seq_3_Oxford_Nanopore.pdf" width="750px" height="750px">
+    <embed src="Images/Seq_3_Oxford_Nanopore.pdf">
+    </embed>
+</object>
+</div>
+
+
+
+
