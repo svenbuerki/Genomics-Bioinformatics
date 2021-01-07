@@ -30,6 +30,7 @@ library(devtools)
 library(kfigr)
 library(dplyr)
 library(kableExtra)
+library(tufte)
 
 #Generate BibTex citation file for all R packages used to produce report
 knitr::write_bib(.packages(), file = 'packages.bib')
@@ -44,6 +45,13 @@ knitr::write_bib(.packages(), file = 'packages.bib')
 -   Office: Science building, office 114 (ground floor).
 -   Email: [svenbuerki\@boisestate.edu](mailto:svenbuerki@boisestate.edu){.email}
 -   Office hours: By appointment.
+
+# Our Research/class Ethos
+
+> Everyone here is smart; distinguish yourself by being kind.
+>
+> `r tufte::quote_footer('Kindness in Science is an inclusive approach that fosters diversity, 	respect, wellbeing & openness leading to better science outcomes.')`
+
 
 # Course delivery type
 
