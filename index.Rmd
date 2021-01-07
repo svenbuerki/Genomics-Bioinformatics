@@ -253,6 +253,8 @@ The URL to the shared Google drive is (the instructor will grant you access to t
 The reading material at the basis of this class is composed of a mixture of publications and chapters from four textbooks [@Brown2017; @Lesk2017; @Dale2012; @deSalle2013].
 The instructor has copies of these textbooks and students are welcome to consult them at anytime.
 
+A list of references used in this course is provided [here](References.html).
+
 In addition, there is also a plethora of website devoted to genomic and transcriptomic data.
 Please find a selection below:
 
