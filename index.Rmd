@@ -19,6 +19,13 @@ editor_options:
     wrap: sentence
 ---
 
+```{js logo-js, echo=FALSE}
+$(document).ready(function() {
+  $('#header').parent().prepend('<div id=\"logo\"><img src=\"Images/boisestate-primarylogo-2color-rgb.png\" style=\"position:absolute; top:0; right:0; padding:10px; height:120px\"></div>');
+  $('#header').css('margin-right', '120px')
+});
+```
+
 ```{r packages, echo=FALSE, warning=FALSE, include=FALSE}
 library(knitr)
 library(rmarkdown)
@@ -46,7 +53,7 @@ knitr::write_bib(.packages(), file = 'packages.bib')
 -   Email: [svenbuerki\@boisestate.edu](mailto:svenbuerki@boisestate.edu){.email}
 -   Office hours: By appointment.
 
-# Our Class Ethos
+# Our class ethos
 
 > Everyone here is smart; distinguish yourself by being kind.
 >
