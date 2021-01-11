@@ -4,11 +4,11 @@ subtitle: "Syllabus & Timetable"
 author: "Sven Buerki - Boise State University"
 date: "`r Sys.Date()`"
 output:
+#  bookdown::pdf_document2:
+#    toc: TRUE
   bookdown::html_document2: 
     toc: TRUE
     toc_float: TRUE
-#  bookdown::pdf_document2:
-#    toc: TRUE
 link-citations: yes
 fontsize: 12pt
 urlcolor: blue
@@ -598,12 +598,13 @@ colnames(timetable)[6] <- "Teaching mode"
 ###~~~
 #Plot timetable in doc
 ###~~~
+
 knitr::kable(timetable, caption = "Tentative timetable for the Genomics and Bioinformatics course during the Spring semester 2021. Teaching mode is also provided to facilitate communication.") %>%
   kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
 
 #PDF
 #landscape(knitr::kable(timetable, caption = "Tentative timetable for the Genomics and Bioinformatics course during the Spring semester 2021. Teaching mode is also provided to facilitate communication.", booktabs = T, "latex") %>% kable_styling(latex_options = c("striped","scale_down"))
- #         )
+#          )
 ```
 
 
