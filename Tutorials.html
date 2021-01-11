@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+<meta name="date" content="2021-01-11" />
+
+<title>Tutorials</title>
+
+<script src="site_libs/header-attrs-2.6/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Genomics & Bioinformatics</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="Mini_reports.html">Mini-reports</a>
+</li>
+<li>
+  <a href="Tutorials.html">Tutorials</a>
+</li>
+<li>
+  <a href="References.html">References</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Tutorials</h1>
+<h4 class="date">2021-01-11</h4>
+
+</div>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+  $('#header').parent().prepend('<div id=\"logo\"><img src=\"Images/boisestate-primarylogo-2color-rgb.png\" style=\"position:absolute; top:0; right:0; padding:10px; height:120px\"></div>');
+  $('#header').css('margin-right', '120px')
+});
+</script>
+<div id="group-accounts-and-ip-addresses" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> Group accounts and IP addresses</h1>
+<p>Details on lab groups, Linux computer accounts and IP addresses are summarized in this <a href="https://docs.google.com/document/d/1t0DdQBes42Gzo8XWgc9JL2xEGjv1kbfoVE7Vznx6C9I/edit?usp=sharing">Google document</a>.</p>
+</div>
+<div id="remotely-accessing-linux-computers" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Remotely accessing Linux computers</h1>
+<p>To remotely access your assigned computer you need to know:</p>
+<ol style="list-style-type: lower-roman">
+<li>your user ID and password (see <a href="https://docs.google.com/document/d/1t0DdQBes42Gzo8XWgc9JL2xEGjv1kbfoVE7Vznx6C9I/edit?usp=sharing">Google document</a>.</li>
+<li>the IP address of the computer you want to connect to. If you want to remotely access the lab computers from a Windows machine, please read the protocol described <a href="#Putty">below</a> before going any further into this document.</li>
+<li>If you are accessing the Linux computers outside of BSU campus, you will need to use the VPN protocol.</li>
+</ol>
+<div id="how-to-find-the-ip-address-of-your-computer" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> How to find the IP address of your computer</h2>
+<p>The procedure summarized here allows retrieving the computer IP address on the Ubuntu operating system (16.04 LTS; Figure <a href="#fig:IP">2.1</a>):</p>
+<ol style="list-style-type: decimal">
+<li>Open the <code>System Settings</code> app located on the left side bar of the desktop.</li>
+<li>Select the <code>Network</code> tab located under the Hardware section.</li>
+<li>Select the second <code>Wired</code> tab (related to WiFi connection) located on the left side of the window.</li>
+<li>The computer IP address is found under the <code>IPv4 Address</code> argument located on the left side of the window.</li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:IP"></span>
+<img src="Images/IP_Ubuntu.png" alt="Screenshot of Ubuntu desktop showing how to retrieve IP address." width="100%" />
+<p class="caption">
+Figure 2.1: Screenshot of Ubuntu desktop showing how to retrieve IP address.
+</p>
+</div>
+</div>
+<div id="the-ssh-protocol" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> The ssh protocol</h2>
+<p>Once you have gathered all required information (and installed <a href="#Putty">Putty</a> on Windows), please open a <code>Terminal</code> or command prompt window and type the following command to remotely access your account (see Figure <a href="#fig:ssh">2.2</a>):</p>
+<pre class="bash"><code># General command
+$ ssh USER_ID@IP
+
+# Remotely access computer from Group Z 
+# You will also have to enter your password when prompted
+$ ssh bioinformatics@132.178.143.53</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:ssh"></span>
+<img src="Images/ssh_screen.png" alt="Screenshot of Terminal showing commands to remotely access computer of group 3." width="80%" />
+<p class="caption">
+Figure 2.2: Screenshot of Terminal showing commands to remotely access computer of group 3.
+</p>
+</div>
+</div>
+<div id="Putty" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> Install Putty on Windows to ssh</h2>
+<p>Putty is one of the best software used on Windows to remotely access computers. Download the program at this URL <a href="http://www.putty.org" class="uri">http://www.putty.org</a> and follow instructions to install it on your computer.</p>
+</div>
+</div>
+<div id="running-bioinformatic-analyses---tmux" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Running bioinformatic analyses - <code>tmux</code></h1>
+<p>Some of the analyses that we will be conducted in course will take several days to be completed. In this case, it is paramount to run those analyses in a safe environment. By safe, we mean making sure that analyses will not be inadvertently cut either by yourself or by other users (and trust me it happens!). In this section, we will be reviewing protocols implemented in <code>tmux</code> to run and access multiple parallel terminal sessions.</p>
+<p>As long as the user knows the unique ID of the <code>tmux</code> session, the <code>tmux</code> session will be accessible by anybody and remain open after closing your <code>ssh</code> connection. For those reasons, <strong>the <code>tmux</code> protocol is very useful when multiple users are sharing the same account (here <code>bioinformatics</code>) and want to work remotely</strong>.</p>
+<div id="how-to-create-exit-rename-list-access-terminate-tmux-sessions" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> How to create, exit, rename, list, access &amp; terminate tmux sessions</h2>
+<p>To <strong>create</strong> a new <code>tmux</code> session using the <code>Terminal</code> type:</p>
+<pre class="bash"><code>$ tmux</code></pre>
+<p>To <strong>exit</strong> the ’tmux` session (after executing your job) type the following combination of keystrokes:</p>
+<pre class="bash"><code>Ctrl+b and d</code></pre>
+<p>At this point, you could safely log off of your remote session (by typing <code>exit</code> in the Terminal), while knowing that your analysis would keep running safely inside the <code>tmux</code> session.</p>
+<p>To <strong>access</strong> a <code>tmux</code> session and check the status of your analysis, do it as follows:</p>
+<pre class="bash"><code>$ tmux attach</code></pre>
+<p>The command executed above implies that there is only one <code>tmux</code> session running on your computer. If you intend to <strong>run multiple side-by-side sessions, you should name each session</strong> using the following command:</p>
+<pre class="bash"><code># Create the session
+$ tmux 
+
+# Rename the session for future access (type this combination of keystrokes)
+Ctrl+b and $</code></pre>
+<p>One you have executed the commands, you will be able to <strong>rename your session</strong> as wished (Figure <a href="#fig:tmuxrename">3.1</a>).</p>
+<div class="figure" style="text-align: center"><span id="fig:tmuxrename"></span>
+<img src="Images/tmux_rename.png" alt="Screenshot of Terminal showing procedure to rename a tmux session (here JOB1)." width="80%" />
+<p class="caption">
+Figure 3.1: Screenshot of Terminal showing procedure to rename a tmux session (here JOB1).
+</p>
+</div>
+<p>You can get a <strong>list of all running <code>tmux</code> sessions</strong> by using the following command (<a href="#fig:tmuxsession">3.2</a>):</p>
+<pre class="bash"><code>$ tmux list-sessions </code></pre>
+<div class="figure" style="text-align: center"><span id="fig:tmuxsession"></span>
+<img src="Images/tmux_access_session.png" alt="Screenshot of Terminal showing tmux command to access a specific session, here JOB1." width="80%" />
+<p class="caption">
+Figure 3.2: Screenshot of Terminal showing tmux command to access a specific session, here JOB1.
+</p>
+</div>
+<p>To access a <code>tmux</code> session type the following command (Figure <a href="#fig:tmuxsession">3.2</a>):</p>
+<pre class="bash"><code>#General command
+$ tmux attach -t ID_Session 
+#To access JOB1 do
+$ tmux attach -t JOB1</code></pre>
+<p>You can <strong>terminate</strong> a <code>tmux</code> session by accessing it using commands provided above and then type the inline <code>exit</code> command. This will bring you back to the main Terminal and show that your <code>tmux</code> session was terminated as shown in Figure <a href="#fig:tmuxterm">3.3</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:tmuxterm"></span>
+<img src="Images/tmux_terminate.png" alt="Screenshot of Terminal showing tmux command to access a specific session (here JOB1) and the result after terminating the session (using the exit command)." width="80%" />
+<p class="caption">
+Figure 3.3: Screenshot of Terminal showing tmux command to access a specific session (here JOB1) and the result after terminating the session (using the exit command).
+</p>
+</div>
+</div>
+<div id="exercises" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Exercises</h2>
+<p>Please do the following short exercises on your assigned computers (see ) to get accustomed with the material presented in this document.</p>
+<ol style="list-style-type: decimal">
+<li>Retrieve your computer’s IP address.</li>
+<li>Remotely connect to another computer in the computer room using <code>ssh</code> protocol.</li>
+<li>Create a new <code>tmux</code> session and rename it <code>Bio1</code>.</li>
+<li>Access the <code>Bio1 tmux</code> session.</li>
+<li>Terminate the <code>Bio1 tmux</code> session and confirm that it has been properly terminated (using a learned <code>tmux</code> command).</li>
+</ol>
+</div>
+</div>
+<div id="linux-commands-cheat-sheet" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Linux Commands Cheat Sheet</h1>
+<p>Please find below common linux commands. These commands will help you navigate in the Terminal and support your bioinformatic analyses.</p>
+<div id="file-system" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> <a name="file-system"></a>File System</h2>
+<p><code>ls</code> — list items in current directory.<br />
+<code>ls -l</code> — list items in current directory and show in long format to see permissions, size, and modification date.<br />
+<code>ls -a</code> — list all items in current directory, including hidden files.<br />
+<code>ls -F</code> — list all items in current directory and show directories with a slash and executable with a star.<br />
+<code>ls dir</code> — list all items in directory dir.<br />
+<code>cd dir</code> — change directory to dir.<br />
+<code>cd ..</code> — go up one directory.<br />
+<code>cd /</code> — go to the root directory.<br />
+<code>cd ~</code> — go to to your home directory.<br />
+<code>cd -</code> — go to the last directory you were just in.<br />
+<code>pwd</code> — show present working directory.<br />
+<code>mkdir dir</code> — make new directory called dir.<br />
+<code>rm file</code> — remove file.<br />
+<code>rm -r dir</code> — remove directory dir recursively.<br />
+<code>cp file1 file2</code> — copy file1 to file2.<br />
+<code>cp -r dir1 dir2</code> — copy directory dir1 to dir2 recursively.<br />
+<code>mv file1 file2</code> — move (rename) file1 to file2.<br />
+<code>mv file1 ~/file1</code> — move file1 from the current directory to user’s home directory.<br />
+<code>cat file</code> — output the contents of file.<br />
+<code>less file</code> — view file with page navigation.<br />
+<code>head file</code> — output the first 10 lines of file.<br />
+<code>tail file</code> — output the last 10 lines of file.<br />
+<code>tail -f file</code> — output the contents of file as it grows, starting with the last 10 lines.<br />
+<code>vim file</code> — edit file using vim text editor.</p>
+</div>
+<div id="system" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> <a name="system"></a>System</h2>
+<p><code>shutdown</code> — shut down machine.<br />
+<code>reboot</code> — restart machine.<br />
+<code>exit</code> — exit terminal session.<br />
+<code>date</code> — show the current date and time.<br />
+<code>whoami</code> — who you are logged in as.<br />
+<code>man</code> command — show the manual for command.<br />
+<code>df</code> — show disk usage.<br />
+<code>du</code> — show directory space usage.<br />
+<code>free</code> — show memory and swap usage.<br />
+<code>whereis app</code> — show possible locations of app.<br />
+<code>which app</code> — show which app will be run by default.</p>
+</div>
+<div id="process-management" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> Process Management</h2>
+<p><code>ps</code> — display your currently active processes.<br />
+<code>top</code> — display all running processes.<br />
+<code>kill PID</code> — kill process id PID. Use <code>top</code> to identify PID.<br />
+<code>kill -9 PID</code> — force kill process id PID.</p>
+</div>
+<div id="permissions" class="section level2" number="4.4">
+<h2><span class="header-section-number">4.4</span> Permissions</h2>
+<p><code>ls -l</code> — list items in current directory and show permissions.<br />
+<code>chmod ugo file</code> — change permissions of file to ugo -  is the user’s permissions,  is the group’s permissions, and  is everyone else’s permissions. The values of , , and  can be any number between 0 and 7.</p>
+<ul>
+<li>7 — full permissions.</li>
+<li>6 — read and write only.</li>
+<li>5 — read and execute only.</li>
+<li>4 — read only.</li>
+<li>3 — write and execute only.</li>
+<li>2 — write only.</li>
+<li>1 — execute only.</li>
+<li>0 — no permissions.</li>
+</ul>
+<p>Examples of <code>chmod</code> settings:</p>
+<ul>
+<li><code>chmod 600 file</code> — you can read and write - good for files.</li>
+<li><code>chmod 700 file</code> — you can read, write, and execute - good for scripts.</li>
+<li><code>chmod 644 file</code> — you can read and write, and everyone else can only read - good for web pages.</li>
+<li><code>chmod 755 file</code> — you can read, write, and execute, and everyone else can read and execute - good for programs that you want to share.</li>
+</ul>
+</div>
+<div id="networking" class="section level2" number="4.5">
+<h2><span class="header-section-number">4.5</span> Networking</h2>
+<p><code>wget file</code> — download a file. It can also be a file deposited on a website.<br />
+<code>curl file</code> — download a file.<br />
+<code>scp user@host:file dir</code> — secure copy a file from remote server to the dir directory on your machine.<br />
+<code>scp file user@host:dir</code> — secure copy a file from your machine to the dir directory on a remote server.<br />
+<code>scp -r user@host:dir dir</code> — secure copy the directory dir from remote server to the directory dir on your machine.<br />
+<code>ssh user@host</code> — connect to host (IP address) as user.<br />
+<code>ping host</code> — ping host and output results.<br />
+<code>whois domain</code> — get information for domain.<br />
+<code>lsof -i tcp:1337</code> — list all processes running on port 1337.</p>
+</div>
+<div id="searching" class="section level2" number="4.6">
+<h2><span class="header-section-number">4.6</span> Searching</h2>
+<p><code>grep pattern files</code> — search for pattern in files.<br />
+<code>grep -r pattern dir</code> — search recursively for pattern in dir.<br />
+<code>grep -rn pattern dir</code> — search recursively for pattern in dir and show the line number found.<br />
+<code>grep -r pattern dir --include='*.ext</code> — search recursively for pattern in dir and only search in files with .ext extension.<br />
+<code>find file</code> — find all instances of file in real system.<br />
+<code>locate file</code> — find all instances of file using indexed database built from the updatedb command. Much faster than find.<br />
+<code>sed -i 's/day/night/g' file</code> — find all occurrences of day in a file and replace them with night - s means substitute and g means global - sed also supports regular expressions.</p>
+</div>
+<div id="compression" class="section level2" number="4.7">
+<h2><span class="header-section-number">4.7</span> Compression</h2>
+<p><code>tar cf file.tar files</code> — create a tar named file.tar containing files.<br />
+<code>tar xf file.tar</code> — extract the files from file.tar.<br />
+<code>tar czf file.tar.gz files</code> — create a tar with Gzip compression.<br />
+<code>tar xzf file.tar.gz</code> — extract a tar using Gzip.<br />
+<code>gzip file</code> — compresses file and renames it to file.gz.<br />
+<code>gzip -d file.gz</code> — decompresses file.gz back to file.</p>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

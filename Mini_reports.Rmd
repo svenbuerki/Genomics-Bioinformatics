@@ -17,6 +17,13 @@ editor_options:
     wrap: sentence
 ---
 
+```{js logo-js, echo=FALSE}
+$(document).ready(function() {
+  $('#header').parent().prepend('<div id=\"logo\"><img src=\"Images/boisestate-primarylogo-2color-rgb.png\" style=\"position:absolute; top:0; right:0; padding:10px; height:120px\"></div>');
+  $('#header').css('margin-right', '120px')
+});
+```
+
 # Introduction
 
 To further gain expertise in the field of genomics, students are producing three mini-reports on the following topics:

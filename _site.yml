@@ -7,5 +7,7 @@ navbar:
       href: index.html
     - text: "Mini-reports"
       href: Mini_reports.html
+    - text: "Tutorials"
+      href: Tutorials.html
     - text: "References"
       href: References.html
