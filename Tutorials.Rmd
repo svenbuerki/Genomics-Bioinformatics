@@ -49,7 +49,7 @@ Details on lab groups, Linux computer accounts and IP addresses are summarized i
 
 To remotely access your assigned computer you need to know:
 
-i) your user ID and password (see [Google document](https://docs.google.com/document/d/1t0DdQBes42Gzo8XWgc9JL2xEGjv1kbfoVE7Vznx6C9I/edit?usp=sharing).
+i) your user ID and password (see [Google document](https://docs.google.com/document/d/1t0DdQBes42Gzo8XWgc9JL2xEGjv1kbfoVE7Vznx6C9I/edit?usp=sharing)).
 ii) the IP address of the computer you want to connect to. If you want to remotely access the lab computers from a Windows machine, please read the protocol described [below](#Putty) before going any further into this document.
 iii) If you are accessing the Linux computers outside of BSU campus, you will need to use the VPN protocol.
 
