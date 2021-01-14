@@ -1,0 +1,57 @@
+---
+title: "Lexicon"
+date: "`r Sys.Date()`"
+output:
+  bookdown::html_document2: 
+    toc: FALSE
+    toc_float: TRUE
+link-citations: yes
+fontsize: 12pt
+urlcolor: blue
+csl: AmJBot.csl
+bibliography: References.bib
+editor_options: 
+  markdown: 
+    wrap: sentence
+---
+
+```{r packages, echo=FALSE, warning=FALSE, include=FALSE}
+library(knitr)
+library(rmarkdown)
+library(bookdown)
+#library(distill)
+library(knitcitations)
+library(formatR)
+library(devtools)
+library(kfigr)
+library(dplyr)
+library(kableExtra)
+
+#Generate BibTex citation file for all R packages used to produce report
+#knitr::write_bib(.packages(), file = 'packages.bib')
+```
+
+
+```{r lexicon, eval = T, echo=F, warning = FALSE, message=FALSE}
+###~~~
+#Read in csv with lexicon
+###~~~
+lex <- read.csv("Data/Lexicon.csv") 
+
+###~~~
+#Produce final table
+###~~~
+
+#Order table (alphabetically)
+lex <- lex[order(lex$Term),]
+rownames(lex) <- NULL
+###~~~
+#Plot timetable in doc
+###~~~
+#Plot table
+DT::datatable(lex, extensions = 'Buttons', options = list(dom = 'Blfrtip', buttons = c('copy', 'csv', 'excel', 'pdf', 'print')), rownames= FALSE)
+
+#knitr::kable(as.data.frame(lex), caption = "Lexicon of terms used in this course.") %>%
+#  kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
+
+``` 

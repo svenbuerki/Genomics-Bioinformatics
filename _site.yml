@@ -9,5 +9,7 @@ navbar:
       href: Mini_reports.html
     - text: "Tutorials"
       href: Tutorials.html
+    - text: "Lexicon"
+      href: Lexicon.html
     - text: "References"
       href: References.html

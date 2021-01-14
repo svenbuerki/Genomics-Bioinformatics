@@ -599,7 +599,7 @@ colnames(timetable)[6] <- "Teaching mode"
 #Plot timetable in doc
 ###~~~
 
-knitr::kable(timetable, caption = "Tentative timetable for the Genomics and Bioinformatics course during the Spring semester 2021. Teaching mode is also provided to facilitate communication.") %>%
+knitr::kable(timetable,  caption = "Tentative timetable for the Genomics and Bioinformatics course during the Spring semester 2021. Teaching mode is also provided to facilitate communication.") %>%
   kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
 
 #PDF
