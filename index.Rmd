@@ -87,10 +87,13 @@ Here are some key points for remote teaching:
 
 ## Meeting days & times
 
--   **Lecture sessions:** Wednesdays from 9:00-10:50 AM.
--   **Laboratory sessions:** Fridays from 9:00-10:30 AM.
+-   **Lecture sessions:** Wednesdays from 9:00-10:30 AM.
+-   **Laboratory sessions:** Fridays from 9:00-10:50 AM.
+
+Since Zoom meetings can be more tiring, a 5 min. break will be taken at 10 AM during each class.  
 
 Please see section \@ref(timetable) for tentative timetable for this course. The teaching mode associated to each class is also provided to improve communication.
+
 
 ## Zoom information
 
@@ -105,6 +108,8 @@ Please see the following Zoom webpages for more details on:
 -   Requesting or giving remote control: <https://support.zoom.us/hc/en-us/articles/201362673-Requesting-or-giving-remote-control#heading=h.bdhzh38o7ljq>
 
 Details to join the Zoom meetings and find URLs of class recordings are provided [here](https://docs.google.com/document/d/1y79tlH-shdh68kUuYv6A9ZGmqyj5mwB2opmGR3V6A78/edit?usp=sharing). Students will be granted access to this document prior to the start of the semester.
+
+**Please join Zoom calls ON TIME**. The instructor will start Zoom calls 5 min. prior to the start of class. This will allow admitting people and making sure that we respect our schedule.
 
 ## Class location {#class}
 
