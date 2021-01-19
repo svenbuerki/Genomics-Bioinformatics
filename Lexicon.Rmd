@@ -32,6 +32,7 @@ library(DT)
 #knitr::write_bib(.packages(), file = 'packages.bib')
 ```
 
+A non-exclusive list of terms and their definitions used in this course is provided in the table below. Please feel free to contact the instructor to add terms to this list or make any corrections.
 
 ```{r lexicon, eval = T, echo=F, warning = FALSE, message=FALSE}
 ###~~~
