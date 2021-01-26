@@ -51,7 +51,7 @@ The assignment is mandatory and will be graded. Please see this task as an oppor
 Time will be allocated in class on the 27th of January 2021 to allow students to work on their assignments. Reports are due on **the 5th of February 2021** and should be uploaded on the shared [Google Drive](https://drive.google.com/drive/folders/1BFZFJeR8tW8N7QLfngqIVbjqEkDuIyWj?usp=sharing) in the `Mini_Reports` folder.
 
 
-## Structure of mini-reports
+## Structure of mini-reports {#structure}
 
 Please structure your reports to ensure covering the following aspects:
 
@@ -62,9 +62,9 @@ Please structure your reports to ensure covering the following aspects:
 
 ## Reporting format
 
-Maximum two pages, single spaced, using either Arial 11 pt or Times New Roman 12 pt and with all margins set to 1 inch. The two pages do not include a title page and references. The title page should include: name of the sequencing platform as title and names of students contributing the report. Please keep in mind that a figure can convey a lot more information than a long text! Your reports should follow the structure presented in the Content section (see above). 
+Maximum two pages, single spaced, using either Arial 11 pt or Times New Roman 12 pt and with all margins set to 1 inch. The two pages do not include a title page and references. The title page should include: name of the sequencing platform as title and name of student contributing the report. Please keep in mind that a figure can convey a lot more information than a long text! Your reports should follow the structure presented in section \@ref(structure). 
 
-Upload your reports on the shared Google drive by the 5th of February before 5 pm. Entitle your reports following this pattern: `Sequencing platform_Surname`.
+Upload your reports on the shared Google drive by the 5th of February before 5 pm. Name your report documents following this pattern: `Sequencing platform_Surname`.
 
 ## Resources
 
