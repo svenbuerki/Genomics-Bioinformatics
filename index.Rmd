@@ -113,7 +113,23 @@ Details to join the Zoom meetings and find URLs of class recordings are provided
 
 ## Class location {#class}
 
-We might be able to schedule in-person laboratory classes to use the Linux computers. These sessions will take place in the Science building in the computer laboratory: **SCNC149**. Further information will be provided by the instructor.
+We are scheduling in-person laboratory classes to use the Linux computers. These sessions will take place in the Science building in the computer laboratory: **SCNC149**. 
+
+### Class rules and seating chart
+
+The following rules apply for in-person classes:
+
+1. Wear masks and maintain physical distancing.
+2. Scan the QR code located at entrance of classroom. Since there is only one QR code, the instructor will keep a record of stations where students seated in class (see Figure \@ref(fig:seatingchart)). 
+3. Use sanitizing wipes to clean surfaces (desk and keyboard) at beginning and end of class.
+
+```{r seatingchart, echo=FALSE, fig.cap="Laboratory seating chart for SCNC149.", out.width = '100%'}
+knitr::include_graphics("Images/Lab_seating_chart.jpg")
+```
+
+**Why is it important for students to scan their QR codes every class period?**
+
+The information that is gathered is the foundation for contact tracing. With QR code information, the tracers can focus on a small number of students in seats adjacent to a student who tests positive.  Without QR code info, the contact tracers must deal with the entire class, making what is already a challenging task even more difficult.
 
 # Course goal and description
 
