@@ -20,3 +20,7 @@ Holoploid 1C-value (abbreviated to 1C-value),"This term refers to the
 amount of DNA in the unreplicated gametic nucleus (e.g.,
 pollen or egg cell of angiosperms) regardless of the ploidy
 level of the cell."
+Synteny,Conservation of blocks of genes/DNA between two or more sets of chromosomes belonging to different species.
+N50,Measure to describe the quality of assembled genomes that are fragmented in contigs/scaffolds of different length. The N50 is defined as the minimum contig/scaffold length needed to cover 50% of the genome. 
+Orthologous genes,Genes diverging after evolution gives rise to different species (i.e. they follow speciation events).
+"Umami, or savory taste","One of the five basic tastes, which has been described as brothy or meaty and is associated with glutamate."
