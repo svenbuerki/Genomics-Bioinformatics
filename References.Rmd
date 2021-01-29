@@ -31,7 +31,14 @@ library(kableExtra)
 #knitr::write_bib(.packages(), file = 'packages.bib')
 ```
 
-References used in the BIOL 497/597 - Genomics & Bioinformatics course are cited here. The citation of references supports transparency in science as well as provides opportunities for students to further their knowledge by accessing articles and books used to develop this course. The `BibTex` document is accessible [here](References.bib). Please contact the instructor (svenbuerki@boisestate.edu) to add missing references to this document.
+References (web resources and publications) used in the BIOL 497/597 - Genomics & Bioinformatics course are cited here. The citation of references supports transparency in science as well as provides opportunities for students to further their knowledge by accessing articles and books used to develop this course. The `BibTex` document is accessible [here](References.bib). Please contact the instructor (svenbuerki@boisestate.edu) to add missing references to this document.
+
+# Web resources
+
+- **Human Genome Project**: Visit this Scitable [webpage](https://www.nature.com/scitable/topicpage/dna-sequencing-technologies-key-to-the-human-828/) to obtain more details on this project, especially sequencing strategy.
+
+
+# Publications
 
 ```{r references, eval = T, results="asis", cache = F, echo=F, warning = FALSE, message=FALSE}
 library("knitcitations")
