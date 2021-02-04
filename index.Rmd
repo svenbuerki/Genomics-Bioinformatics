@@ -404,7 +404,7 @@ To further gain expertise in this field, students will be producing three mini-r
 
 - **Mini-Report 1**: Sequencing technologies (25 points; this task is related to Chapter 2).
 - **Mini-Report 2**: Molecular biology databases (25 points; this task is related to Chapter 3).
-- **Mini-Report 3**: Use knowledge from the previous mini-reports to review plant genomes available on GenBank database (50 points). Here, we will be using `R` to mine and analyze data.
+- **Mini-Report 3**: Apply a DNA barcoding approach coupled with phylogenetics to identify species and infer their evolutionary history (50 points). This report provides students with an introduction to methods applied in the laboratory sessions and expertise to select a comparative article (Chapter 8).
 
 Time will be allocated in class to work on these mini-reports, but the instructor expects students to complete those on their own time.
 
