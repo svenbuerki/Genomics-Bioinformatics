@@ -404,13 +404,13 @@ To further gain expertise in this field, students will be producing three mini-r
 
 - **Mini-Report 1**: Sequencing technologies (25 points; this task is related to Chapter 2).
 - **Mini-Report 2**: Molecular biology databases (25 points; this task is related to Chapter 3).
-- **Mini-Report 3**: Apply a DNA barcoding approach coupled with phylogenetics to identify species and infer their evolutionary history (50 points). This report provides students with an introduction to methods applied in the laboratory sessions and expertise to select a comparative article (Chapter 8).
+- **Mini-Report 3**: Apply a coupled DNA barcoding and phylogenetic approach to identify species and infer their evolutionary history (50 points). This report provides students with an introduction to methods applied in the laboratory sessions and expertise to select their comparative article ([Chapter 8](#chap8)).
 
 Time will be allocated in class to work on these mini-reports, but the instructor expects students to complete those on their own time.
 
 Click [here](Mini_reports.html) to access the Mini Reports webpage. 
 
-## Individual oral publication presentation (TOTAL: 50 points)
+## Individual oral publication presentation (TOTAL: 50 points) {#chap8}
 
 Each student will have to present a scientific publication at the end of the semester related to material presented in Chapter 8.
 Time will be allocated to select a paper and work on presentations, but the instructor strongly advise students to start this endeavor sooner.
