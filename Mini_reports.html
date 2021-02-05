@@ -11,7 +11,7 @@
 
 <meta name="author" content="Sven Buerki - Boise State University" />
 
-<meta name="date" content="2021-02-02" />
+<meta name="date" content="2021-02-05" />
 
 <title>BIOL 497/597 - Genomics &amp; Bioinformatics</title>
 
@@ -83,6 +83,28 @@ h6 {
 }
 </style>
 
+<style type="text/css">
+/* for pandoc --citeproc since 2.11 */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 
 
@@ -390,7 +412,7 @@ div.tocify {
 <h1 class="title toc-ignore">BIOL 497/597 - Genomics &amp; Bioinformatics</h1>
 <h3 class="subtitle">Mini-reports</h3>
 <h4 class="author">Sven Buerki - Boise State University</h4>
-<h4 class="date">2021-02-02</h4>
+<h4 class="date">2021-02-05</h4>
 
 </div>
 
@@ -407,7 +429,7 @@ $(document).ready(function() {
 <ul>
 <li><a href="#mini1"><strong>Mini-Report 1</strong></a>: Sequencing technologies (25 points; this task is related to Chapter 2).</li>
 <li><a href="#mini2"><strong>Mini-Report 2</strong></a>: Molecular biology databases (25 points; this task is related to Chapter 3).</li>
-<li><strong>Mini-Report 3</strong>: Use knowledge from the previous mini-reports to review plant genomes available on GenBank database (50 points). Here, we will be using <code>R</code> to mine and analyze data.</li>
+<li><a href="#mini3"><strong>Mini-Report 3</strong></a>: Apply a coupled DNA barcoding and phylogenetic approach to identify species and infer their evolutionary history (50 points). This report provides students with an introduction to methods applied in the laboratory sessions and expertise to select a comparative article (Chapter 8).</li>
 </ul>
 <p>Time will be allocated in class to work on these mini-reports, but the instructor expects students to complete those on their own time.</p>
 </div>
@@ -539,6 +561,458 @@ Other useful tool to perform gene annotations: </p>
 <li>Orthologue tables.</li>
 </ul>
 <p>The catalogs of chemical compounds and genes contain information about particular molecules or sequences. Genome maps integrate the genes themselves according to their chromosomal position. Pathway maps describe potential networks of molecular activities, both metabolic and regulatory. One enzyme in one organism would be referred to in KEGG in its orthologue tables, which link the enzyme to related ones in other organisms. This permits analysis of relationships between the metabolic pathways of different organisms.</p>
+</div>
+</div>
+</div>
+<div id="mini3" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Mini-report 3 – Apply a coupled DNA barcoding and phylogenetic approach to identify species and infer their evolutionary history</h1>
+<div id="background-information-2" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Background Information</h2>
+<div id="how-many-species-are-there-on-earth" class="section level3" number="4.1.1">
+<h3><span class="header-section-number">4.1.1</span> How many species are there on Earth?</h3>
+<p>Projections of global biodiversity have ranged from 2 to 100 million species <span class="citation">(<a href="#ref-Larsen2017" role="doc-biblioref">Larsen et al., 2017</a>)</span>.</p>
+<p>But these estimations are without accounting for cryptic species! See for instance <span class="citation"><a href="#ref-dentinger2014s" role="doc-biblioref">Dentinger and Suz</a> (<a href="#ref-dentinger2014s" role="doc-biblioref">2014</a>)</span> for an example on porcini. In this study, the authors used DNA-sequencing to identify three species of mushroom contained within a commercial packet of dried Chinese porcini purchased in London. Surprisingly, all three have never been formally described by science and required new scientific names.</p>
+<p><span class="citation"><a href="#ref-Larsen2017" role="doc-biblioref">Larsen et al.</a> (<a href="#ref-Larsen2017" role="doc-biblioref">2017</a>)</span> recently published a keystone paper where they predicted 1 to 6 billion species on Earth! This prediction was based on an average of 6 cryptic species per described species.</p>
+<p>Overall, data presented here demonstrate that most species on this planet are either poorly known or pending description.</p>
+<p>In this context, the fields of genetics/genomics (more specifically <a href="#barcode">DNA barcoding</a>) and phylogenetics have the potential to contribute to:</p>
+<ul>
+<li>species identifications and naming (taxonomy).</li>
+<li>inferring evolutionary frameworks allowing developing working hypotheses on species relationships and their spatio-temporal histories (e.g. knowing how did species cope with past climatic conditions will provide insights into their adaptive capacity to forecasted conditions).</li>
+</ul>
+<p>Approaches combining these two objectives were applied across lineages. See for instance, an article describing a new species belonging to the soapberry family (Sapindaceae) endemic to Fiji <span class="citation">(<a href="#ref-buerki2017alectryon" role="doc-biblioref">Buerki et al., 2017</a>)</span>. In this study, the phylogeny is used to confirm the new taxon and place it within a larger evolutionary and biogeographical framework. Finally, this evidence is coupled with occurrence data to infer a species extinction risk following IUCN guidelines.</p>
+</div>
+<div id="barcode" class="section level3" number="4.1.2">
+<h3><span class="header-section-number">4.1.2</span> DNA barcoding: Species identification</h3>
+<p>The Consortium for the Barcode of Life (<a href="https://www.ibol.org/phase1/cbol/">CBOL</a>) is an international initiative devoted to developing DNA barcoding as a global standard for the identification of biological species. CBOL has more than 130 Member Organizations from more than 40 countries <span class="citation">(<a href="#ref-CBOL" role="doc-biblioref">CBOL, 2021</a>)</span>.</p>
+<p><strong>DNA barcoding</strong> is a method of species identification using a short section of DNA from a specific gene or genes. The premise of DNA barcoding is that, by comparison with a reference library of such DNA sections, an individual DNA sequence can be used to uniquely identify an organism to species, in the same way that a supermarket scanner uses the familiar black stripes of the UPC barcode to identify an item in its stock against its reference database <span class="citation">(<a href="#ref-CBOL" role="doc-biblioref">CBOL, 2021</a>)</span>. These DNA barcodes are sometimes used in an effort to identify unknown species, parts of an organism, or simply to catalog as many taxa as possible, or to compare with traditional taxonomy in an effort to determine species boundaries. For mode details on DNA barcodes applied in plants, please see section <a href="#vanbarcode">below</a> dedicated to vanilla.</p>
+<p>DNA barcoding has a wide range of applications from biodiversity surveys <span class="citation">(e.g. <a href="#ref-telfer2015biodiversity" role="doc-biblioref">Telfer et al., 2015</a>)</span>, illegal trade of wildlife <span class="citation">(e.g. <a href="#ref-gonccalves2015dna" role="doc-biblioref">Gonçalves et al., 2015</a>)</span> to food security <span class="citation">(e.g. <a href="#ref-quinto2016dna" role="doc-biblioref">Quinto et al., 2016</a>)</span>.</p>
+<div id="procedure" class="section level4" number="4.1.2.1">
+<h4><span class="header-section-number">4.1.2.1</span> Procedure</h4>
+<p>A DNA barcoding approach is subdivided into 4 steps:</p>
+<ol style="list-style-type: decimal">
+<li>Isolate DNA from the target sample.</li>
+<li>Amplify the target DNA barcode region using PCR.</li>
+<li>Sequence the PCR products using either Sanger sequencing or NGS (mostly on Illumina platform).</li>
+<li>Compare the resulting sequences against reference databases to find the matching species. Here we will be using DNA sequences from <a href="https://www.ncbi.nlm.nih.gov/genbank/">GenBank</a> as our reference.</li>
+</ol>
+</div>
+</div>
+<div id="phylogenetic-inference" class="section level3" number="4.1.3">
+<h3><span class="header-section-number">4.1.3</span> Phylogenetic inference</h3>
+<p>As described in <span class="citation"><a href="#ref-Masters2017" role="doc-biblioref">Masters and Pozzi</a> (<a href="#ref-Masters2017" role="doc-biblioref">2017</a>)</span>, phylogenetic inference is the practice of reconstructing the evolutionary history of related species by grouping them in successively more inclusive sets based on shared ancestry. Homologous characters in independent lineages are similar because they have been inherited from a common ancestor, and they alone should be used in phylogenetic reconstructions. Homoplasies are characters that appear similar, but have evolved from different ancestral states. They may mislead interpretations of evolutionary history. Both molecular and morphological datasets are subject to obfuscation by homoplasy. Methods of phylogenetic inference aim to distinguish between homologous (signal) and homoplastic (noise) resemblance. Molecular datasets tend to be very large and are analyzed using statistical techniques that fit the data to models of molecular evolution. These methods are not well suited to morphological data, and combined analyses including both kinds of data tend to obscure the morphological signal. Rates of molecular change may be used to estimate divergence ages.</p>
+<p>In this mini-report, we will be focusing on inferring phylogenetic trees based on DNA sequences obtained through the DNA barcoding approach described <a href="#barcode">above</a>.</p>
+<div id="procedure-1" class="section level4" number="4.1.3.1">
+<h4><span class="header-section-number">4.1.3.1</span> Procedure</h4>
+<p>A phylogenetic analysis is subdivided into 4 steps:</p>
+<ol style="list-style-type: decimal">
+<li>Produce DNA sequences following steps 1 to 3 as described in <a href="#barcode">DNA barcoding section</a>.</li>
+<li>Produce DNA multiple sequence alignments.</li>
+<li>Test for best-fit model reflecting evolution of DNA region.</li>
+<li>Infer phylogenetic tree analysis (usually based either on Maximum Likelihood and/or Bayesian criteria).</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="learning-outcomes" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Learning outcomes</h2>
+<p>The following learning outcomes will be taught as part of this Mini-report:</p>
+<ol style="list-style-type: decimal">
+<li>Process and clean DNA sequence electropherograms generated using the <a href="https://dnalc.cshl.edu/resources/animations/cycseq.html">Sanger sequencing approach</a> (based on PCR amplifications).</li>
+<li>Validate DNA sequence and provide species working hypothesis by conducting a BLAST similarity DNA sequences analysis coupled with a distance tree inference. This will be based on DNA sequences deposited on GenBank.</li>
+<li>Query GenBank and download DNA sequences for phylogenetic analyses using R packages.</li>
+<li>Produce DNA multiple sequence alignments (containing your target DNA sequences and DNA sequences deposited on GenBank) using freely available algorithms.</li>
+<li>Infer phylogenetic analysis based on Maximum Likelihood (ML) criterion as implemented in RAxML <span class="citation">(<a href="#ref-Stamatakis2014" role="doc-biblioref">Stamatakis, 2014</a>)</span>. This phylogenetic framework will be used to test and refine species working hypotheses (as inferred in learning outcome #2).</li>
+<li>Visualize and produce phylogenetic tree figures using R packages.</li>
+</ol>
+<p>To support learning these skills, we will be using a DNA dataset focusing on the <a href="#vanilla">vanilla</a> spice (from the Orchidaceae family).</p>
+</div>
+<div id="vanilla" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> Vanilla as model for this report</h2>
+<p>Like porcini <span class="citation">(<a href="#ref-dentinger2014s" role="doc-biblioref">Dentinger and Suz, 2014</a>)</span>, vanilla is one of our most beloved spice, but we still know very little about its biology, taxonomy and evolution. As part of a study aiming at inferring domestication processes in the genus <em>Vanilla</em> and species adaptation to drought, fieldwork was conducted in Mexico by Paige Ellestad (an EEB Ph.D. student at BSU) and her in-country partners.</p>
+<p>For her Ph.D. dissertation, Paige is applying a DNA barcoding approach coupled with phylogenetic inference (and ecological niche modeling) to answer the following questions:</p>
+<blockquote>
+<p>Q1: What species of vanilla are cultivated in Mexico?</p>
+<p>Q2: How are those species related and is there evidence of gene flow/hybridization?</p>
+<p>Q3: What level of genetic diversity is there among each species?</p>
+</blockquote>
+<div id="vanbarcode" class="section level3" number="4.3.1">
+<h3><span class="header-section-number">4.3.1</span> Summary of DNA barcode generation for project</h3>
+<p>To answer these questions, she sampled &gt;30 locations (mostly plantations, but also wild populations) representing &gt;60 samples and sequenced two DNA barcode regions widely used in plants: one chloroplastic (the coding <em>rbcL</em> region) and one nuclear ribosomal (the ITS region, which stands for for “Internal Transcribed Spacer”). These two DNA regions are traditionally used by researchers as DNA barcodes supporting species delimitation and identifications. Since you are already familiar with <em>rbcL</em> <span class="citation">(see <a href="#ref-Hollingsworth2009" role="doc-biblioref">Hollingsworth et al., 2009</a> for more details)</span>, we will be providing more details on the ITS region. The nuclear ribosomal ITS region includes part of 18S, ITS1, 5.8S, ITS2 and part of 26S <span class="citation">(see Figure <a href="#fig:ITS">4.1</a>, <a href="#ref-Cheng2016" role="doc-biblioref">Cheng et al., 2016</a>)</span>. This region is repeated in tandem 1000 of times and duplicated across chromosomes in order to produce ribosomes, which are key to produce proteins. This latter DNA region is shared across kingdoms and plant specific primers have to be used otherwise we may be at risk of amplifying this region for symbiotic organisms <span class="citation">(e.g. fungi; see <a href="#ref-Cheng2016" role="doc-biblioref">Cheng et al., 2016</a>)</span>.</p>
+<div class="figure" style="text-align: center"><span id="fig:ITS"></span>
+<img src="Images/ITS.png" alt="Map of the ITS nuclear ribsomal region with primers (from Cheng et al, 2016)." width="100%" />
+<p class="caption">
+Figure 4.1: Map of the ITS nuclear ribsomal region with primers (from Cheng et al, 2016).
+</p>
+</div>
+<p>DNA extractions of leaf material were conducted at BSU using the Qiagen Plant Mini kit followed by PCR amplifications using plant specific primers <span class="citation">(for instance, the IT4p and ITS5p primers for the ITS region; see <a href="#ref-Cheng2016" role="doc-biblioref">Cheng et al., 2016</a>)</span>. Sequencing was outsourced to <a href="https://www.genewiz.com">GENEWIZ</a> and performed using Sanger sequencing technology. PCR amplicons/fragments were only sequenced using forward primers. As per provider, we are expecting high quality DNA sequencing read lengths of up to ca. 1000 bases. The company also mentions that a typical read would provide 800 bases with Phred score of 20.</p>
+</div>
+</div>
+<div id="data-and-project-structure-for-mini-report" class="section level2" number="4.4">
+<h2><span class="header-section-number">4.4</span> Data and project structure for mini-report</h2>
+<p>For the purpose of this mini-report, <strong>we will be focusing on four samples of vanilla (see Figure <a href="#fig:van">4.2</a>) and their associated ITS sequence data</strong>.</p>
+<div class="figure" style="text-align: center"><span id="fig:van"></span>
+<img src="Images/Vanilla_samples.png" alt="Images of the four samples of vanilla collected in Mexico studied in this project." width="100%" />
+<p class="caption">
+Figure 4.2: Images of the four samples of vanilla collected in Mexico studied in this project.
+</p>
+</div>
+<p>Throughout this project, we will be referring to these vanilla samples as follows (see Figure <a href="#fig:van">4.2</a>):</p>
+<ul>
+<li><em>PE25</em>, <em>PE44</em>, <em>PE49</em> and <em>PE50</em>.</li>
+</ul>
+<p>The data are deposited on the shared <a href="https://drive.google.com/drive/folders/1BFZFJeR8tW8N7QLfngqIVbjqEkDuIyWj?usp=sharing">Google Drive</a> in a folder entitled <code>DNA_barcoding</code>. All students enrolled in this class have been granted access to this folder. The folder is subdivided into four sub-folders (see Figure <a href="#fig:datastr">4.3</a>) and contains a master spreadsheet <code>Vanilla_samples_records.xlsx</code> at its root:</p>
+<ul>
+<li><code>01_Field_images</code>: <code>jpeg</code> images of samples.</li>
+<li><code>02_Raw_ITS_data_ab1</code>: <code>.ab1</code> sequence electropherograms of ITS sequences.</li>
+<li><code>03_Processed_ITS_data_FASTA</code>: Folder where cleaned ITS sequences will be saved in <code>FASTA</code> format.</li>
+<li><code>04_Data_analyses</code>: Folder where we will be saving outputs of analyses conducted in this project.</li>
+</ul>
+<p>Finally, <code>Vanilla_samples_records.xlsx</code> contains meta-data information about the samples. We will also update this file with information on species hypotheses.</p>
+<div class="figure" style="text-align: center"><span id="fig:datastr"></span>
+<img src="Images/DNA_barcoding_str.png" alt="Screenshot of the DNA_barcoding folder showing data structure for this project." width="90%" />
+<p class="caption">
+Figure 4.3: Screenshot of the DNA_barcoding folder showing data structure for this project.
+</p>
+</div>
+</div>
+<div id="scientific-questions-associated-to-the-mini-report" class="section level2" number="4.5">
+<h2><span class="header-section-number">4.5</span> Scientific questions associated to the mini-report</h2>
+<p>Students will thrive at answering the following questions:</p>
+<blockquote>
+<p>Q1: To what species do the individuals presented in Figure <a href="#fig:van">4.2</a> belong to?</p>
+<p>Q2: How are those individuals related to each other?</p>
+</blockquote>
+<p>To answer these questions, we will be analyzing the <code>.ab1</code> ITS data and use DNA sequences available on GenBank as our reference library.</p>
+</div>
+</div>
+<div id="schedule" class="section level1" number="5">
+<h1><span class="header-section-number">5</span> Schedule</h1>
+<p>Analyses for this report are subdivided into two parts. Please find below a preliminary agenda for completion of each part:</p>
+<ul>
+<li><strong>Part 1:</strong> Process and clean ITS DNA sequence electropherograms using <a href="https://digitalworldbiology.com/FinchTV"><code>FinchTV</code></a>. Validate DNA sequence and provide species working hypothesis by conducting a BLAST similarity DNA sequences analysis coupled with a distance tree inference. This will be based on DNA sequences deposited on GenBank.</li>
+<li><strong>Part 2:</strong> Perform DNA multiple sequence alignments using <code>MAFFT</code> and infer ML analysis using <code>RAxML</code>. Finally, visualize and produce phylogenetic tree figures showing positions and relationships of individuals using <code>R</code>.</li>
+</ul>
+<div id="part-1" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Part 1</h2>
+<div id="bioinformatic-tools" class="section level3" number="5.1.1">
+<h3><span class="header-section-number">5.1.1</span> Bioinformatic tools</h3>
+<p>The bioinformatic tools used in part 1 are as follows:</p>
+<ol style="list-style-type: decimal">
+<li><code>FinchTV</code>: A popular desktop software developed by Geospiza, Inc. for viewing trace data from Sanger DNA Sequencing. <code>FinchTV</code> is freely available and operates on Windows and Mac platforms. Start by downloading and installing the software on your computers at this URL: <a href="https://digitalworldbiology.com/FinchTV" class="uri">https://digitalworldbiology.com/FinchTV</a></li>
+<li><code>BLAST</code>: The Basic Local Alignment Search Tool <span class="citation">(BLAST, <a href="#ref-ALTSCHUL1990403" role="doc-biblioref">Altschul et al., 1990</a>)</span> will be applied onto cleaned DNA sequences to:
+<ul>
+<li>Confirm that the DNA sequences correspond to the correct DNA region (here ITS region).</li>
+<li>Validate that DNA sequences belong to the right taxon (here belonging to the genus <em>Vanilla</em>) and are therefore not contaminated.</li>
+<li>Provide species working hypotheses using the distance-tree approach implemented on the online version of BLAST.</li>
+</ul></li>
+</ol>
+<p>Although <code>BLAST</code> can be run locally, we will be using the web portal available here: <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi" class="uri">https://blast.ncbi.nlm.nih.gov/Blast.cgi</a></p>
+</div>
+<div id="overview-of-the-dna-sequence-data-cleaning-procedure" class="section level3" number="5.1.2">
+<h3><span class="header-section-number">5.1.2</span> Overview of the DNA sequence data cleaning procedure</h3>
+<p>When evaluating <code>.ab1</code> files, you should first see the electropherogram and come to a conclusion whether your data can be considered of good quality or not.</p>
+<p>Good quality sequencing data/positions are characterized by:</p>
+<ul>
+<li>Well-defined peak resolution (bad resolution of the first 10-25 bases is acceptable; see Figure <a href="#fig:finchtv">5.1</a>). The Phred score is displayed at top of the window (see bars on Figure <a href="#fig:finchtv">5.1</a>).</li>
+<li>Uniform peak spacing.</li>
+<li>High signal-to-noise ratios.</li>
+</ul>
+<p>Bad quality sequencing data/positions are characterized by:</p>
+<ul>
+<li>Presence of “N”s in the sequence. Indeed, when the base-calling software is unable to accurately identify a nucleotide, it will score it as “N” (meaning that it can be any base; see Figure <a href="#fig:finchtv">5.1</a>). In this tutorial, we will open files individually and search for peaks scored as “N”s. If we can confidently correct those peaks/positions (to either "A/T/C/G or any other IUPAC code; see below) then we will edit the sequence accordingly. To keep track of changes, it is standard procedure to identify edited peaks/positions by using lower cases letters (instead of capital letters as set by default). See below for more details on cases of base polymorphism.</li>
+</ul>
+<p>We will be discussing this topic further during our Zoom meeting.</p>
+<div class="figure" style="text-align: center"><span id="fig:finchtv"></span>
+<img src="Images/FinchTV_snapshot.png" alt="Screenshot of FinchTV app." width="100%" />
+<p class="caption">
+Figure 5.1: Screenshot of FinchTV app.
+</p>
+</div>
+</div>
+</div>
+<div id="iupac-codes" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> IUPAC codes</h2>
+<p>Nuclear DNA regions such as ITS could show evidence of recombination. This means that there could be polymorphism at a specific base <span class="citation">(also know as single-nucleotide polymorphism or SNP; see <a href="#ref-Poplin2018" role="doc-biblioref">Poplin et al., 2018</a> for bioinformatics technics to identify SNPs based on NGS data)</span>. The signature of recombination in an electropherogram would be recognized by the occurrence of “peak under peak” (Figure <a href="#fig:peakunderpeak">5.2</a>). The International Union of Pure and Applied Chemistry (IUPAC) has defined a standard representation of DNA bases by single characters that specify either a single base (e.g. G for guanine, A for adenine) or a set of bases (e.g. R for either G or A). UCSC uses these single character codes to represent multiple observed alleles of single-base polymorphisms (Table <a href="#tab:IUPAC">5.1</a>).</p>
+<div class="figure" style="text-align: center"><span id="fig:peakunderpeak"></span>
+<img src="Images/peak_under_peak.png" alt="Screenshot of DNA sequence electropherogram showing signature of peak under peak suggesting recombination." width="20%" />
+<p class="caption">
+Figure 5.2: Screenshot of DNA sequence electropherogram showing signature of peak under peak suggesting recombination.
+</p>
+</div>
+<table>
+<caption>
+<span id="tab:IUPAC">Table 5.1: </span>IUPAC codes used to score base polymorphism. This is especially useful when analyzing nuclear DNA regions.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+IUPAC nucleotide code
+</th>
+<th style="text-align:left;">
+Base
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:left;">
+Adenine
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+C
+</td>
+<td style="text-align:left;">
+Cytosine
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:left;">
+Guanine
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+T (or U)
+</td>
+<td style="text-align:left;">
+Thymine (or Uracil)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+R
+</td>
+<td style="text-align:left;">
+A or G
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Y
+</td>
+<td style="text-align:left;">
+C or T
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+S
+</td>
+<td style="text-align:left;">
+G or C
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+W
+</td>
+<td style="text-align:left;">
+A or T
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+K
+</td>
+<td style="text-align:left;">
+G or T
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+M
+</td>
+<td style="text-align:left;">
+A or C
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+B
+</td>
+<td style="text-align:left;">
+C or G or T
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+D
+</td>
+<td style="text-align:left;">
+A or G or T
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+H
+</td>
+<td style="text-align:left;">
+A or C or T
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+V
+</td>
+<td style="text-align:left;">
+A or C or G
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+N
+</td>
+<td style="text-align:left;">
+any base
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+. or -
+</td>
+<td style="text-align:left;">
+gap
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="step-by-step-protocol" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> Step-by-step protocol</h2>
+<p>Here, we will be using <code>its25-ITSp4.ab1</code> as an example for the analysis. This file is located in <code>DNA_barcoding/02_Raw_ITS_data_ab1</code>.</p>
+<ol style="list-style-type: decimal">
+<li>Copy the <code>DNA_barcoding/</code> folder onto your computers.</li>
+<li>Launch <code>FinchTV</code>.</li>
+<li>Open <code>.ab1</code> file (one at a time) using the <code>Open</code> tab or the folder icon.</li>
+<li>Make sure that the <code>Base Position Numbers</code>, <code>Base Calls</code> and <code>Quality Values</code> settings are ticked using the <code>View</code> tab (Figure <a href="#fig:finchtv">5.1</a>).</li>
+<li>Trim the first 10-20 bp of the sequence. This is done by selecting bases using the <code>Shift</code> command and then pressing <code>Delete</code> (Figure <a href="#fig:finchtvtrim">5.3</a>).</li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:finchtvtrim"></span>
+<img src="Images/Trimming_seq.png" alt="Screenshot of FinchTV app showing trimming procedure." width="90%" />
+<p class="caption">
+Figure 5.3: Screenshot of FinchTV app showing trimming procedure.
+</p>
+</div>
+<ol start="6" style="list-style-type: decimal">
+<li>Scroll through the sequence and edit “N” peaks/positions by replacing those with lower cases “a/t/c/g.” If you are unable to call the nucleotide, do not edit the position. In the example, position 10 was edited to “g” (Figure <a href="#fig:finchtedit">5.4</a>).</li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:finchtedit"></span>
+<img src="Images/Edit_sequence.png" alt="Screenshot of FinchTV app showing editing procedure." width="90%" />
+<p class="caption">
+Figure 5.4: Screenshot of FinchTV app showing editing procedure.
+</p>
+</div>
+<ol start="7" style="list-style-type: decimal">
+<li>Peaks at the end of the sequences will become more rounded and harder to call. It is therefore standard procedure to trim the last 10-30 bp/positions. Please trim these bp following the procedure explained above. In the example, the quality drops around position 670 (see Figure <a href="#fig:finchtvtrimend">5.5</a>).</li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:finchtvtrimend"></span>
+<img src="Images/Trim_end_sequence.png" alt="Screenshot of FinchTV app showing trimming procedure at the end of the sequence." width="90%" />
+<p class="caption">
+Figure 5.5: Screenshot of FinchTV app showing trimming procedure at the end of the sequence.
+</p>
+</div>
+<ol start="8" style="list-style-type: decimal">
+<li>Save cleaned sequence in <code>FASTA</code> format in <code>03_Processed_ITS_data_FASTA</code>. Exporting the cleaned sequence is done by pressing <code>File -&gt; Export -&gt; DNA Sequence: FASTA</code>. Please do not rename file, leave it as proposed by <code>FinchTV</code>. The file is saved in interleaved FASTA format as shown in Figure <a href="#fig:fasta">5.6</a>.</li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:fasta"></span>
+<img src="Images/FASTA.png" alt="Screenshot of cleaned FASTA sequence as outputted by FinchTV." width="80%" />
+<p class="caption">
+Figure 5.6: Screenshot of cleaned FASTA sequence as outputted by FinchTV.
+</p>
+</div>
+<ol start="9" style="list-style-type: decimal">
+<li>Open fasta file in a text editor and copy DNA sequence (including header starting with <code>&gt;</code>; see Figure <a href="#fig:blast1">5.7</a>).</li>
+<li>Go on the BLAST website by clicking <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastn&amp;PAGE_TYPE=BlastSearch&amp;LINK_LOC=blasthome">here</a> and copy your DNA sequence as shown in Figure <a href="#fig:blast1">5.7</a>. Click on the <code>BLAST</code> button to start your query.</li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:blast1"></span>
+<img src="Images/BLAST1.png" alt="Screenshot of BLAST form where you copy content of its25-ITSp4.seq" width="90%" />
+<p class="caption">
+Figure 5.7: Screenshot of BLAST form where you copy content of its25-ITSp4.seq
+</p>
+</div>
+<ol start="11" style="list-style-type: decimal">
+<li>Inspect the BLAST output to make sure that the top hits are associated to <em>Vanilla</em> and refer to the right DNA region (Figure <a href="#fig:blastres">5.8</a>).</li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:blastres"></span>
+<img src="Images/BLAST.png" alt="Screenshot of BLAST search based on its25-ITSp4. Note that top hits are ITS sequences of Vanilla species." width="90%" />
+<p class="caption">
+Figure 5.8: Screenshot of BLAST search based on its25-ITSp4. Note that top hits are ITS sequences of Vanilla species.
+</p>
+</div>
+<ol start="12" style="list-style-type: decimal">
+<li><p>Click on the <code>Distance tree of results</code> link to perform phylogenetic distance analysis showing position of your sequence compared to sequences available on GenBank (see Figure <a href="#fig:blastres">5.8</a>). This will open a new window.</p></li>
+<li><p>Expand tree to locate your DNA sequence by following procedure in Figure <a href="#fig:expandtree">5.9</a>.</p></li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:expandtree"></span>
+<img src="Images/ExpandTree.png" alt="Procedure to expand tree to show position of your DNA sequence in phylogeny." width="90%" />
+<p class="caption">
+Figure 5.9: Procedure to expand tree to show position of your DNA sequence in phylogeny.
+</p>
+</div>
+<ol start="14" style="list-style-type: decimal">
+<li>Use the Zoom toggle to locate your DNA sequence on the tree (see Figure <a href="#fig:DNAtree">5.10</a>).</li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:DNAtree"></span>
+<img src="Images/DNAtree.png" alt="Position of your DNA sequence on tree." width="90%" />
+<p class="caption">
+Figure 5.10: Position of your DNA sequence on tree.
+</p>
+</div>
+<ol start="15" style="list-style-type: decimal">
+<li><p>Open <code>Vanilla_samples_records.xlsx</code> and update <code>Species_BLAST</code> column with a species name (your first working hypothesis). Don’t forget to save the file.</p></li>
+<li><p>Repeat this procedure until you analyzed all the <code>ab1</code> files.</p></li>
+</ol>
+</div>
+</div>
+<div id="references" class="section level1 unnumbered">
+<h1>References</h1>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-ALTSCHUL1990403" class="csl-entry">
+<span class="smallcaps">Altschul, S.F.</span>, <span class="smallcaps">W. Gish</span>, <span class="smallcaps">W. Miller</span>, <span class="smallcaps">E.W. Myers</span>, and <span class="smallcaps">D.J. Lipman</span>. 1990. Basic local alignment search tool. <em>Journal of Molecular Biology</em> 215: 403–410. Available at: <a href="http://www.sciencedirect.com/science/article/pii/S0022283605803602">http://www.sciencedirect.com/science/article/pii/S0022283605803602</a>.
+</div>
+<div id="ref-buerki2017alectryon" class="csl-entry">
+<span class="smallcaps">Buerki, S.</span>, <span class="smallcaps">P.P. Lowry II</span>, <span class="smallcaps">J. Munzinger</span>, <span class="smallcaps">M. Tuiwawa</span>, <span class="smallcaps">A. Naikatini</span>, and <span class="smallcaps">M.W. Callmander</span>. 2017. Alectryon vitiensis: A new species of sapindaceae endemic to fiji. <em>Novon: A Journal for Botanical Nomenclature</em> 25: 421–429.
+</div>
+<div id="ref-CBOL" class="csl-entry">
+<span class="smallcaps">CBOL</span>. 2021. International barcode of life: DNA barcoding. Available at: <a href="https://ibol.org/about/dna-barcoding/">https://ibol.org/about/dna-barcoding/</a>.
+</div>
+<div id="ref-Cheng2016" class="csl-entry">
+<span class="smallcaps">Cheng, T.</span>, <span class="smallcaps">C. Xu</span>, <span class="smallcaps">L. Lei</span>, <span class="smallcaps">C. Li</span>, <span class="smallcaps">Y. Zhang</span>, and <span class="smallcaps">S. Zhou</span>. 2016. Barcoding the kingdom plantae: New PCR primers for ITS regions of plants with improved universality and specificity. <em>Molecular Ecology Resources</em> 16: 138–149. Available at: <a href="https://onlinelibrary.wiley.com/doi/abs/10.1111/1755-0998.12438">https://onlinelibrary.wiley.com/doi/abs/10.1111/1755-0998.12438</a>.
+</div>
+<div id="ref-dentinger2014s" class="csl-entry">
+<span class="smallcaps">Dentinger, B.T.</span>, and <span class="smallcaps">L.M. Suz</span>. 2014. What’s for dinner? Undescribed species of porcini in a commercial packet. <em>PeerJ</em> 2: e570.
+</div>
+<div id="ref-gonccalves2015dna" class="csl-entry">
+<span class="smallcaps">Gonçalves, P.F.</span>, <span class="smallcaps">A.R. Oliveira-Marques</span>, <span class="smallcaps">T.E. Matsumoto</span>, and <span class="smallcaps">C.Y. Miyaki</span>. 2015. DNA barcoding identifies illegal parrot trade. <em>Journal of Heredity</em> 106: 560–564.
+</div>
+<div id="ref-Hollingsworth2009" class="csl-entry">
+<span class="smallcaps">Hollingsworth, P.M.</span>, <span class="smallcaps">L.L. Forrest</span>, <span class="smallcaps">J.L. Spouge</span>, <span class="smallcaps">M. Hajibabaei</span>, <span class="smallcaps">S. Ratnasingham</span>, <span class="smallcaps">M. van der Bank</span>, <span class="smallcaps">M.W. Chase</span>, et al. 2009. A DNA barcode for land plants. <em>Proceedings of the National Academy of Sciences</em> 106: 12794–12797. Available at: <a href="https://www.pnas.org/content/106/31/12794">https://www.pnas.org/content/106/31/12794</a>.
+</div>
+<div id="ref-Larsen2017" class="csl-entry">
+<span class="smallcaps">Larsen, B.B.</span>, <span class="smallcaps">E.C. Miller</span>, <span class="smallcaps">M.K. Rhodes</span>, and <span class="smallcaps">J.J. Wiens</span>. 2017. Inordinate fondness multiplied and redistributed: The number of species on earth and the new pie of life. <em>The Quarterly Review of Biology</em> 92: 229–265.
+</div>
+<div id="ref-Masters2017" class="csl-entry">
+<span class="smallcaps">Masters, J.C.</span>, and <span class="smallcaps">L. Pozzi</span>. 2017. Phylogenetic inference. <em>In</em> The international encyclopedia of primatology, 1–6. American Cancer Society. Available at: <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/9781119179313.wbprim0419">https://onlinelibrary.wiley.com/doi/abs/10.1002/9781119179313.wbprim0419</a>.
+</div>
+<div id="ref-Poplin2018" class="csl-entry">
+<span class="smallcaps">Poplin, R.</span>, <span class="smallcaps">P.-C. Chang</span>, <span class="smallcaps">D. Alexander</span>, <span class="smallcaps">S. Schwartz</span>, <span class="smallcaps">T. Colthurst</span>, <span class="smallcaps">A. Ku</span>, <span class="smallcaps">D. Newburger</span>, et al. 2018. A universal SNP and small-indel variant caller using deep neural networks. <em>Nature Biotechnology</em> 36: 983–987. Available at: <a href="https://doi.org/10.1038/nbt.4235">https://doi.org/10.1038/nbt.4235</a>.
+</div>
+<div id="ref-quinto2016dna" class="csl-entry">
+<span class="smallcaps">Quinto, C.A.</span>, <span class="smallcaps">R. Tinoco</span>, and <span class="smallcaps">R.S. Hellberg</span>. 2016. DNA barcoding reveals mislabeling of game meat species on the US commercial market. <em>Food Control</em> 59: 386–392.
+</div>
+<div id="ref-Stamatakis2014" class="csl-entry">
+<span class="smallcaps">Stamatakis, A.</span> 2014. RAxML version 8: A tool for phylogenetic analysis and post-analysis of large phylogenies. <em>Bioinformatics (Oxford, England)</em> 30: 1312–1313. Available at: <a href="https://doi.org/10.1093/bioinformatics/btu033">https://doi.org/10.1093/bioinformatics/btu033</a>.
+</div>
+<div id="ref-telfer2015biodiversity" class="csl-entry">
+<span class="smallcaps">Telfer, A.C.</span>, <span class="smallcaps">M.R. Young</span>, <span class="smallcaps">J. Quinn</span>, <span class="smallcaps">K. Perez</span>, <span class="smallcaps">C.N. Sobel</span>, <span class="smallcaps">J.E. Sones</span>, <span class="smallcaps">V. Levesque-Beaudin</span>, et al. 2015. Biodiversity inventories in high gear: DNA barcoding facilitates a rapid biotic survey of a temperate nature reserve. <em>Biodiversity data journal</em>.
 </div>
 </div>
 </div>
