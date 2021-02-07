@@ -11,7 +11,7 @@
 
 <meta name="author" content="Sven Buerki - Boise State University" />
 
-<meta name="date" content="2021-02-05" />
+<meta name="date" content="2021-02-07" />
 
 <title>BIOL 497/597 - Genomics &amp; Bioinformatics</title>
 
@@ -412,7 +412,7 @@ div.tocify {
 <h1 class="title toc-ignore">BIOL 497/597 - Genomics &amp; Bioinformatics</h1>
 <h3 class="subtitle">Mini-reports</h3>
 <h4 class="author">Sven Buerki - Boise State University</h4>
-<h4 class="date">2021-02-05</h4>
+<h4 class="date">2021-02-07</h4>
 
 </div>
 
@@ -584,8 +584,8 @@ Other useful tool to perform gene annotations: </p>
 <div id="barcode" class="section level3" number="4.1.2">
 <h3><span class="header-section-number">4.1.2</span> DNA barcoding: Species identification</h3>
 <p>The Consortium for the Barcode of Life (<a href="https://www.ibol.org/phase1/cbol/">CBOL</a>) is an international initiative devoted to developing DNA barcoding as a global standard for the identification of biological species. CBOL has more than 130 Member Organizations from more than 40 countries <span class="citation">(<a href="#ref-CBOL" role="doc-biblioref">CBOL, 2021</a>)</span>.</p>
-<p><strong>DNA barcoding</strong> is a method of species identification using a short section of DNA from a specific gene or genes. The premise of DNA barcoding is that, by comparison with a reference library of such DNA sections, an individual DNA sequence can be used to uniquely identify an organism to species, in the same way that a supermarket scanner uses the familiar black stripes of the UPC barcode to identify an item in its stock against its reference database <span class="citation">(<a href="#ref-CBOL" role="doc-biblioref">CBOL, 2021</a>)</span>. These DNA barcodes are sometimes used in an effort to identify unknown species, parts of an organism, or simply to catalog as many taxa as possible, or to compare with traditional taxonomy in an effort to determine species boundaries. For mode details on DNA barcodes applied in plants, please see section <a href="#vanbarcode">below</a> dedicated to vanilla.</p>
-<p>DNA barcoding has a wide range of applications from biodiversity surveys <span class="citation">(e.g. <a href="#ref-telfer2015biodiversity" role="doc-biblioref">Telfer et al., 2015</a>)</span>, illegal trade of wildlife <span class="citation">(e.g. <a href="#ref-gonccalves2015dna" role="doc-biblioref">Gonçalves et al., 2015</a>)</span> to food security <span class="citation">(e.g. <a href="#ref-quinto2016dna" role="doc-biblioref">Quinto et al., 2016</a>)</span>.</p>
+<p><strong>DNA barcoding</strong> is a method of species identification using a short section of DNA from a specific gene or genes. The premise of DNA barcoding is that, by comparison with a reference library of such DNA sections, an individual DNA sequence can be used to uniquely identify an organism to species, in the same way that a supermarket scanner uses the familiar black stripes of the UPC barcode to identify an item in its stock against its reference database <span class="citation">(<a href="#ref-CBOL" role="doc-biblioref">CBOL, 2021</a>)</span>. These DNA barcodes are sometimes used in an effort to identify unknown species, parts of an organism, or simply to catalog as many taxa as possible, or to compare with traditional taxonomy in an effort to determine species boundaries. For more details on DNA barcodes applied to plants, please see section <a href="#vanbarcode">below</a> dedicated to vanilla.</p>
+<p>DNA barcoding has a wide range of applications from biodiversity surveys <span class="citation">(e.g. <a href="#ref-telfer2015biodiversity" role="doc-biblioref">Telfer et al., 2015</a>)</span>, illegal trade of wildlife <span class="citation">(e.g. <a href="#ref-gonccalves2015dna" role="doc-biblioref">Gonçalves et al., 2015</a>)</span> to food security <span class="citation">(e.g. <a href="#ref-quinto2016dna" role="doc-biblioref">Quinto et al., 2016</a>)</span>. The DNA barcoding approach has been recently reviewer by <span class="citation"><a href="#ref-deSalle2019" role="doc-biblioref">DeSalle and Goldstein</a> (<a href="#ref-deSalle2019" role="doc-biblioref">2019</a>)</span>.</p>
 <div id="procedure" class="section level4" number="4.1.2.1">
 <h4><span class="header-section-number">4.1.2.1</span> Procedure</h4>
 <p>A DNA barcoding approach is subdivided into 4 steps:</p>
@@ -622,7 +622,8 @@ Other useful tool to perform gene annotations: </p>
 <li>Query GenBank and download DNA sequences for phylogenetic analyses using R packages.</li>
 <li>Produce DNA multiple sequence alignments (containing your target DNA sequences and DNA sequences deposited on GenBank) using freely available algorithms.</li>
 <li>Infer phylogenetic analysis based on Maximum Likelihood (ML) criterion as implemented in RAxML <span class="citation">(<a href="#ref-Stamatakis2014" role="doc-biblioref">Stamatakis, 2014</a>)</span>. This phylogenetic framework will be used to test and refine species working hypotheses (as inferred in learning outcome #2).</li>
-<li>Visualize and produce phylogenetic tree figures using R packages.</li>
+<li>Visualize and interpret phylogenetic analysis.</li>
+<li>Learn the terminology associated to DNA barcoding and phylogenetic analyses. Several definitions associated to the most used terms is available in the <a href="Lexicon.html">Lexicon</a>.</li>
 </ol>
 <p>To support learning these skills, we will be using a DNA dataset focusing on the <a href="#vanilla">vanilla</a> spice (from the Orchidaceae family).</p>
 </div>
@@ -636,7 +637,7 @@ Other useful tool to perform gene annotations: </p>
 <p>Q3: What level of genetic diversity is there among each species?</p>
 </blockquote>
 <div id="vanbarcode" class="section level3" number="4.3.1">
-<h3><span class="header-section-number">4.3.1</span> Summary of DNA barcode generation for project</h3>
+<h3><span class="header-section-number">4.3.1</span> DNA barcodes generated for vanilla project</h3>
 <p>To answer these questions, she sampled &gt;30 locations (mostly plantations, but also wild populations) representing &gt;60 samples and sequenced two DNA barcode regions widely used in plants: one chloroplastic (the coding <em>rbcL</em> region) and one nuclear ribosomal (the ITS region, which stands for for “Internal Transcribed Spacer”). These two DNA regions are traditionally used by researchers as DNA barcodes supporting species delimitation and identifications. Since you are already familiar with <em>rbcL</em> <span class="citation">(see <a href="#ref-Hollingsworth2009" role="doc-biblioref">Hollingsworth et al., 2009</a> for more details)</span>, we will be providing more details on the ITS region. The nuclear ribosomal ITS region includes part of 18S, ITS1, 5.8S, ITS2 and part of 26S <span class="citation">(see Figure <a href="#fig:ITS">4.1</a>, <a href="#ref-Cheng2016" role="doc-biblioref">Cheng et al., 2016</a>)</span>. This region is repeated in tandem 1000 of times and duplicated across chromosomes in order to produce ribosomes, which are key to produce proteins. This latter DNA region is shared across kingdoms and plant specific primers have to be used otherwise we may be at risk of amplifying this region for symbiotic organisms <span class="citation">(e.g. fungi; see <a href="#ref-Cheng2016" role="doc-biblioref">Cheng et al., 2016</a>)</span>.</p>
 <div class="figure" style="text-align: center"><span id="fig:ITS"></span>
 <img src="Images/ITS.png" alt="Map of the ITS nuclear ribsomal region with primers (from Cheng et al, 2016)." width="100%" />
@@ -649,14 +650,14 @@ Figure 4.1: Map of the ITS nuclear ribsomal region with primers (from Cheng et a
 </div>
 <div id="data-and-project-structure-for-mini-report" class="section level2" number="4.4">
 <h2><span class="header-section-number">4.4</span> Data and project structure for mini-report</h2>
-<p>For the purpose of this mini-report, <strong>we will be focusing on four samples of vanilla (see Figure <a href="#fig:van">4.2</a>) and their associated ITS sequence data</strong>.</p>
+<p>For the purpose of this mini-report, <strong>we will be focusing on four samples/individuals of vanilla (see Figure <a href="#fig:van">4.2</a>) and their associated ITS sequence data</strong>.</p>
 <div class="figure" style="text-align: center"><span id="fig:van"></span>
 <img src="Images/Vanilla_samples.png" alt="Images of the four samples of vanilla collected in Mexico studied in this project." width="100%" />
 <p class="caption">
 Figure 4.2: Images of the four samples of vanilla collected in Mexico studied in this project.
 </p>
 </div>
-<p>Throughout this project, we will be referring to these vanilla samples as follows (see Figure <a href="#fig:van">4.2</a>):</p>
+<p>Throughout this project, we will be referring to these vanilla samples/individuals as follows (see Figure <a href="#fig:van">4.2</a>):</p>
 <ul>
 <li><em>PE25</em>, <em>PE44</em>, <em>PE49</em> and <em>PE50</em>.</li>
 </ul>
@@ -684,18 +685,19 @@ Figure 4.3: Screenshot of the DNA_barcoding folder showing data structure for th
 </blockquote>
 <p>To answer these questions, we will be analyzing the <code>.ab1</code> ITS data and use DNA sequences available on GenBank as our reference library.</p>
 </div>
-</div>
-<div id="schedule" class="section level1" number="5">
-<h1><span class="header-section-number">5</span> Schedule</h1>
+<div id="schedule" class="section level2" number="4.6">
+<h2><span class="header-section-number">4.6</span> Schedule</h2>
 <p>Analyses for this report are subdivided into two parts. Please find below a preliminary agenda for completion of each part:</p>
 <ul>
 <li><strong>Part 1:</strong> Process and clean ITS DNA sequence electropherograms using <a href="https://digitalworldbiology.com/FinchTV"><code>FinchTV</code></a>. Validate DNA sequence and provide species working hypothesis by conducting a BLAST similarity DNA sequences analysis coupled with a distance tree inference. This will be based on DNA sequences deposited on GenBank.</li>
+<li><strong>Part 2:</strong> GenBank query and preparing data.</li>
 <li><strong>Part 2:</strong> Perform DNA multiple sequence alignments using <code>MAFFT</code> and infer ML analysis using <code>RAxML</code>. Finally, visualize and produce phylogenetic tree figures showing positions and relationships of individuals using <code>R</code>.</li>
 </ul>
-<div id="part-1" class="section level2" number="5.1">
-<h2><span class="header-section-number">5.1</span> Part 1</h2>
-<div id="bioinformatic-tools" class="section level3" number="5.1.1">
-<h3><span class="header-section-number">5.1.1</span> Bioinformatic tools</h3>
+</div>
+<div id="part-1-processing-dna-electropherograms-and-inferring-working-species-hypothesis" class="section level2" number="4.7">
+<h2><span class="header-section-number">4.7</span> Part 1: Processing DNA electropherograms and inferring working species hypothesis</h2>
+<div id="bioinformatic-tools" class="section level3" number="4.7.1">
+<h3><span class="header-section-number">4.7.1</span> Bioinformatic tools</h3>
 <p>The bioinformatic tools used in part 1 are as follows:</p>
 <ol style="list-style-type: decimal">
 <li><code>FinchTV</code>: A popular desktop software developed by Geospiza, Inc. for viewing trace data from Sanger DNA Sequencing. <code>FinchTV</code> is freely available and operates on Windows and Mac platforms. Start by downloading and installing the software on your computers at this URL: <a href="https://digitalworldbiology.com/FinchTV" class="uri">https://digitalworldbiology.com/FinchTV</a></li>
@@ -708,267 +710,504 @@ Figure 4.3: Screenshot of the DNA_barcoding folder showing data structure for th
 </ol>
 <p>Although <code>BLAST</code> can be run locally, we will be using the web portal available here: <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi" class="uri">https://blast.ncbi.nlm.nih.gov/Blast.cgi</a></p>
 </div>
-<div id="overview-of-the-dna-sequence-data-cleaning-procedure" class="section level3" number="5.1.2">
-<h3><span class="header-section-number">5.1.2</span> Overview of the DNA sequence data cleaning procedure</h3>
+<div id="overview-of-the-dna-sequence-data-cleaning-procedure" class="section level3" number="4.7.2">
+<h3><span class="header-section-number">4.7.2</span> Overview of the DNA sequence data cleaning procedure</h3>
 <p>When evaluating <code>.ab1</code> files, you should first see the electropherogram and come to a conclusion whether your data can be considered of good quality or not.</p>
 <p>Good quality sequencing data/positions are characterized by:</p>
 <ul>
-<li>Well-defined peak resolution (bad resolution of the first 10-25 bases is acceptable; see Figure <a href="#fig:finchtv">5.1</a>). The Phred score is displayed at top of the window (see bars on Figure <a href="#fig:finchtv">5.1</a>).</li>
+<li>Well-defined peak resolution (bad resolution of the first 10-25 bases is acceptable; see Figure <a href="#fig:finchtv">4.4</a>). The Phred score is displayed at top of the window (see bars on Figure <a href="#fig:finchtv">4.4</a>).</li>
 <li>Uniform peak spacing.</li>
 <li>High signal-to-noise ratios.</li>
 </ul>
 <p>Bad quality sequencing data/positions are characterized by:</p>
 <ul>
-<li>Presence of “N”s in the sequence. Indeed, when the base-calling software is unable to accurately identify a nucleotide, it will score it as “N” (meaning that it can be any base; see Figure <a href="#fig:finchtv">5.1</a>). In this tutorial, we will open files individually and search for peaks scored as “N”s. If we can confidently correct those peaks/positions (to either "A/T/C/G or any other IUPAC code; see below) then we will edit the sequence accordingly. To keep track of changes, it is standard procedure to identify edited peaks/positions by using lower cases letters (instead of capital letters as set by default). See below for more details on cases of base polymorphism.</li>
+<li>Presence of “N”s in the sequence. Indeed, when the base-calling software is unable to accurately identify a nucleotide, it will score it as “N” (meaning that it can be any base; see Figure <a href="#fig:finchtv">4.4</a>). In this tutorial, we will open files individually and search for peaks scored as “N”s. If we can confidently correct those peaks/positions (to either "A/T/C/G or any other IUPAC code; see below) then we will edit the sequence accordingly. To keep track of changes, it is standard procedure to identify edited peaks/positions by using lower cases letters (instead of capital letters as set by default). See below for more details on cases of base polymorphism.</li>
 </ul>
 <p>We will be discussing this topic further during our Zoom meeting.</p>
 <div class="figure" style="text-align: center"><span id="fig:finchtv"></span>
 <img src="Images/FinchTV_snapshot.png" alt="Screenshot of FinchTV app." width="100%" />
 <p class="caption">
-Figure 5.1: Screenshot of FinchTV app.
+Figure 4.4: Screenshot of FinchTV app.
 </p>
 </div>
 </div>
-</div>
-<div id="iupac-codes" class="section level2" number="5.2">
-<h2><span class="header-section-number">5.2</span> IUPAC codes</h2>
-<p>Nuclear DNA regions such as ITS could show evidence of recombination. This means that there could be polymorphism at a specific base <span class="citation">(also know as single-nucleotide polymorphism or SNP; see <a href="#ref-Poplin2018" role="doc-biblioref">Poplin et al., 2018</a> for bioinformatics technics to identify SNPs based on NGS data)</span>. The signature of recombination in an electropherogram would be recognized by the occurrence of “peak under peak” (Figure <a href="#fig:peakunderpeak">5.2</a>). The International Union of Pure and Applied Chemistry (IUPAC) has defined a standard representation of DNA bases by single characters that specify either a single base (e.g. G for guanine, A for adenine) or a set of bases (e.g. R for either G or A). UCSC uses these single character codes to represent multiple observed alleles of single-base polymorphisms (Table <a href="#tab:IUPAC">5.1</a>).</p>
+<div id="iupac-codes" class="section level3" number="4.7.3">
+<h3><span class="header-section-number">4.7.3</span> IUPAC codes</h3>
+<p>Nuclear DNA regions such as ITS could show evidence of recombination. This means that there could be polymorphism at a specific base <span class="citation">(also know as single-nucleotide polymorphism or SNP; see <a href="#ref-Poplin2018" role="doc-biblioref">Poplin et al., 2018</a> for bioinformatics technics to identify SNPs based on NGS data)</span>. The signature of recombination in an electropherogram would be recognized by the occurrence of “peak under peak” (Figure <a href="#fig:peakunderpeak">4.5</a>). The International Union of Pure and Applied Chemistry (IUPAC) has defined a standard representation of DNA bases by single characters that specify either a single base (e.g. G for guanine, A for adenine) or a set of bases (e.g. R for either G or A). UCSC uses these single character codes to represent multiple observed alleles of single-base polymorphisms (Table <a href="#tab:IUPAC">4.1</a>).</p>
 <div class="figure" style="text-align: center"><span id="fig:peakunderpeak"></span>
 <img src="Images/peak_under_peak.png" alt="Screenshot of DNA sequence electropherogram showing signature of peak under peak suggesting recombination." width="20%" />
 <p class="caption">
-Figure 5.2: Screenshot of DNA sequence electropherogram showing signature of peak under peak suggesting recombination.
+Figure 4.5: Screenshot of DNA sequence electropherogram showing signature of peak under peak suggesting recombination.
 </p>
 </div>
 <table>
-<caption>
-<span id="tab:IUPAC">Table 5.1: </span>IUPAC codes used to score base polymorphism. This is especially useful when analyzing nuclear DNA regions.
-</caption>
+<caption><span id="tab:IUPAC">Table 4.1: </span>IUPAC codes used to score base polymorphism. This is especially useful when analyzing nuclear DNA regions.</caption>
 <thead>
-<tr>
-<th style="text-align:left;">
-IUPAC nucleotide code
-</th>
-<th style="text-align:left;">
-Base
-</th>
+<tr class="header">
+<th align="left">IUPAC nucleotide code</th>
+<th align="left">Base</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-A
-</td>
-<td style="text-align:left;">
-Adenine
-</td>
+<tr class="odd">
+<td align="left">A</td>
+<td align="left">Adenine</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-C
-</td>
-<td style="text-align:left;">
-Cytosine
-</td>
+<tr class="even">
+<td align="left">C</td>
+<td align="left">Cytosine</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-G
-</td>
-<td style="text-align:left;">
-Guanine
-</td>
+<tr class="odd">
+<td align="left">G</td>
+<td align="left">Guanine</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-T (or U)
-</td>
-<td style="text-align:left;">
-Thymine (or Uracil)
-</td>
+<tr class="even">
+<td align="left">T (or U)</td>
+<td align="left">Thymine (or Uracil)</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-R
-</td>
-<td style="text-align:left;">
-A or G
-</td>
+<tr class="odd">
+<td align="left">R</td>
+<td align="left">A or G</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Y
-</td>
-<td style="text-align:left;">
-C or T
-</td>
+<tr class="even">
+<td align="left">Y</td>
+<td align="left">C or T</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-S
-</td>
-<td style="text-align:left;">
-G or C
-</td>
+<tr class="odd">
+<td align="left">S</td>
+<td align="left">G or C</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-W
-</td>
-<td style="text-align:left;">
-A or T
-</td>
+<tr class="even">
+<td align="left">W</td>
+<td align="left">A or T</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-K
-</td>
-<td style="text-align:left;">
-G or T
-</td>
+<tr class="odd">
+<td align="left">K</td>
+<td align="left">G or T</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-M
-</td>
-<td style="text-align:left;">
-A or C
-</td>
+<tr class="even">
+<td align="left">M</td>
+<td align="left">A or C</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-B
-</td>
-<td style="text-align:left;">
-C or G or T
-</td>
+<tr class="odd">
+<td align="left">B</td>
+<td align="left">C or G or T</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-D
-</td>
-<td style="text-align:left;">
-A or G or T
-</td>
+<tr class="even">
+<td align="left">D</td>
+<td align="left">A or G or T</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-H
-</td>
-<td style="text-align:left;">
-A or C or T
-</td>
+<tr class="odd">
+<td align="left">H</td>
+<td align="left">A or C or T</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-V
-</td>
-<td style="text-align:left;">
-A or C or G
-</td>
+<tr class="even">
+<td align="left">V</td>
+<td align="left">A or C or G</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-N
-</td>
-<td style="text-align:left;">
-any base
-</td>
+<tr class="odd">
+<td align="left">N</td>
+<td align="left">any base</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-. or -
-</td>
-<td style="text-align:left;">
-gap
-</td>
+<tr class="even">
+<td align="left">. or -</td>
+<td align="left">gap</td>
 </tr>
 </tbody>
 </table>
 </div>
-<div id="step-by-step-protocol" class="section level2" number="5.3">
-<h2><span class="header-section-number">5.3</span> Step-by-step protocol</h2>
+<div id="step-by-step-protocol" class="section level3" number="4.7.4">
+<h3><span class="header-section-number">4.7.4</span> Step-by-step protocol</h3>
 <p>Here, we will be using <code>its25-ITSp4.ab1</code> as an example for the analysis. This file is located in <code>DNA_barcoding/02_Raw_ITS_data_ab1</code>.</p>
 <ol style="list-style-type: decimal">
 <li>Copy the <code>DNA_barcoding/</code> folder onto your computers.</li>
 <li>Launch <code>FinchTV</code>.</li>
 <li>Open <code>.ab1</code> file (one at a time) using the <code>Open</code> tab or the folder icon.</li>
-<li>Make sure that the <code>Base Position Numbers</code>, <code>Base Calls</code> and <code>Quality Values</code> settings are ticked using the <code>View</code> tab (Figure <a href="#fig:finchtv">5.1</a>).</li>
-<li>Trim the first 10-20 bp of the sequence. This is done by selecting bases using the <code>Shift</code> command and then pressing <code>Delete</code> (Figure <a href="#fig:finchtvtrim">5.3</a>).</li>
+<li>Make sure that the <code>Base Position Numbers</code>, <code>Base Calls</code> and <code>Quality Values</code> settings are ticked using the <code>View</code> tab (Figure <a href="#fig:finchtv">4.4</a>).</li>
+<li>Trim the first 10-20 bp of the sequence. This is done by selecting bases using the <code>Shift</code> command and then pressing <code>Delete</code> (Figure <a href="#fig:finchtvtrim">4.6</a>).</li>
 </ol>
 <div class="figure" style="text-align: center"><span id="fig:finchtvtrim"></span>
 <img src="Images/Trimming_seq.png" alt="Screenshot of FinchTV app showing trimming procedure." width="90%" />
 <p class="caption">
-Figure 5.3: Screenshot of FinchTV app showing trimming procedure.
+Figure 4.6: Screenshot of FinchTV app showing trimming procedure.
 </p>
 </div>
 <ol start="6" style="list-style-type: decimal">
-<li>Scroll through the sequence and edit “N” peaks/positions by replacing those with lower cases “a/t/c/g.” If you are unable to call the nucleotide, do not edit the position. In the example, position 10 was edited to “g” (Figure <a href="#fig:finchtedit">5.4</a>).</li>
+<li>Scroll through the sequence and edit “N” peaks/positions by replacing those with lower cases “a/t/c/g.” If you are unable to call the nucleotide, do not edit the position. In the example, position 10 was edited to “g” (Figure <a href="#fig:finchtedit">4.7</a>).</li>
 </ol>
 <div class="figure" style="text-align: center"><span id="fig:finchtedit"></span>
 <img src="Images/Edit_sequence.png" alt="Screenshot of FinchTV app showing editing procedure." width="90%" />
 <p class="caption">
-Figure 5.4: Screenshot of FinchTV app showing editing procedure.
+Figure 4.7: Screenshot of FinchTV app showing editing procedure.
 </p>
 </div>
 <ol start="7" style="list-style-type: decimal">
-<li>Peaks at the end of the sequences will become more rounded and harder to call. It is therefore standard procedure to trim the last 10-30 bp/positions. Please trim these bp following the procedure explained above. In the example, the quality drops around position 670 (see Figure <a href="#fig:finchtvtrimend">5.5</a>).</li>
+<li>Peaks at the end of the sequences will become more rounded and harder to call. It is therefore standard procedure to trim the last 10-30 bp/positions. Please trim these bp following the procedure explained above. In the example, the quality drops around position 670 (see Figure <a href="#fig:finchtvtrimend">4.8</a>).</li>
 </ol>
 <div class="figure" style="text-align: center"><span id="fig:finchtvtrimend"></span>
 <img src="Images/Trim_end_sequence.png" alt="Screenshot of FinchTV app showing trimming procedure at the end of the sequence." width="90%" />
 <p class="caption">
-Figure 5.5: Screenshot of FinchTV app showing trimming procedure at the end of the sequence.
+Figure 4.8: Screenshot of FinchTV app showing trimming procedure at the end of the sequence.
 </p>
 </div>
 <ol start="8" style="list-style-type: decimal">
-<li>Save cleaned sequence in <code>FASTA</code> format in <code>03_Processed_ITS_data_FASTA</code>. Exporting the cleaned sequence is done by pressing <code>File -&gt; Export -&gt; DNA Sequence: FASTA</code>. Please do not rename file, leave it as proposed by <code>FinchTV</code>. The file is saved in interleaved FASTA format as shown in Figure <a href="#fig:fasta">5.6</a>.</li>
+<li>Save cleaned sequence in <code>FASTA</code> format in <code>03_Processed_ITS_data_FASTA</code>. Exporting the cleaned sequence is done by pressing <code>File -&gt; Export -&gt; DNA Sequence: FASTA</code>. Please do not rename file, leave it as proposed by <code>FinchTV</code>. The file is saved in interleaved FASTA format as shown in Figure <a href="#fig:fasta">4.9</a>.</li>
 </ol>
 <div class="figure" style="text-align: center"><span id="fig:fasta"></span>
 <img src="Images/FASTA.png" alt="Screenshot of cleaned FASTA sequence as outputted by FinchTV." width="80%" />
 <p class="caption">
-Figure 5.6: Screenshot of cleaned FASTA sequence as outputted by FinchTV.
+Figure 4.9: Screenshot of cleaned FASTA sequence as outputted by FinchTV.
 </p>
 </div>
 <ol start="9" style="list-style-type: decimal">
-<li>Open fasta file in a text editor and copy DNA sequence (including header starting with <code>&gt;</code>; see Figure <a href="#fig:blast1">5.7</a>).</li>
-<li>Go on the BLAST website by clicking <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastn&amp;PAGE_TYPE=BlastSearch&amp;LINK_LOC=blasthome">here</a> and copy your DNA sequence as shown in Figure <a href="#fig:blast1">5.7</a>. Click on the <code>BLAST</code> button to start your query.</li>
+<li>Open fasta file in a text editor and copy DNA sequence (including header starting with <code>&gt;</code>; see Figure <a href="#fig:blast1">4.10</a>).</li>
+<li>Go on the BLAST website by clicking <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastn&amp;PAGE_TYPE=BlastSearch&amp;LINK_LOC=blasthome">here</a> and copy your DNA sequence as shown in Figure <a href="#fig:blast1">4.10</a>. Click on the <code>BLAST</code> button to start your query.</li>
 </ol>
 <div class="figure" style="text-align: center"><span id="fig:blast1"></span>
 <img src="Images/BLAST1.png" alt="Screenshot of BLAST form where you copy content of its25-ITSp4.seq" width="90%" />
 <p class="caption">
-Figure 5.7: Screenshot of BLAST form where you copy content of its25-ITSp4.seq
+Figure 4.10: Screenshot of BLAST form where you copy content of its25-ITSp4.seq
 </p>
 </div>
 <ol start="11" style="list-style-type: decimal">
-<li>Inspect the BLAST output to make sure that the top hits are associated to <em>Vanilla</em> and refer to the right DNA region (Figure <a href="#fig:blastres">5.8</a>).</li>
+<li>Inspect the BLAST output to make sure that the top hits are associated to <em>Vanilla</em> and refer to the right DNA region (Figure <a href="#fig:blastres">4.11</a>).</li>
 </ol>
 <div class="figure" style="text-align: center"><span id="fig:blastres"></span>
 <img src="Images/BLAST.png" alt="Screenshot of BLAST search based on its25-ITSp4. Note that top hits are ITS sequences of Vanilla species." width="90%" />
 <p class="caption">
-Figure 5.8: Screenshot of BLAST search based on its25-ITSp4. Note that top hits are ITS sequences of Vanilla species.
+Figure 4.11: Screenshot of BLAST search based on its25-ITSp4. Note that top hits are ITS sequences of Vanilla species.
 </p>
 </div>
 <ol start="12" style="list-style-type: decimal">
-<li><p>Click on the <code>Distance tree of results</code> link to perform phylogenetic distance analysis showing position of your sequence compared to sequences available on GenBank (see Figure <a href="#fig:blastres">5.8</a>). This will open a new window.</p></li>
-<li><p>Expand tree to locate your DNA sequence by following procedure in Figure <a href="#fig:expandtree">5.9</a>.</p></li>
+<li><p>Click on the <code>Distance tree of results</code> link to perform phylogenetic distance analysis showing position of your sequence compared to sequences available on GenBank (see Figure <a href="#fig:blastres">4.11</a>). This will open a new window.</p></li>
+<li><p>Expand tree to locate your DNA sequence by following procedure in Figure <a href="#fig:expandtree">4.12</a>.</p></li>
 </ol>
 <div class="figure" style="text-align: center"><span id="fig:expandtree"></span>
 <img src="Images/ExpandTree.png" alt="Procedure to expand tree to show position of your DNA sequence in phylogeny." width="90%" />
 <p class="caption">
-Figure 5.9: Procedure to expand tree to show position of your DNA sequence in phylogeny.
+Figure 4.12: Procedure to expand tree to show position of your DNA sequence in phylogeny.
 </p>
 </div>
 <ol start="14" style="list-style-type: decimal">
-<li>Use the Zoom toggle to locate your DNA sequence on the tree (see Figure <a href="#fig:DNAtree">5.10</a>).</li>
+<li>Use the Zoom toggle to locate your DNA sequence on the tree (see Figure <a href="#fig:DNAtree">4.13</a>).</li>
 </ol>
 <div class="figure" style="text-align: center"><span id="fig:DNAtree"></span>
 <img src="Images/DNAtree.png" alt="Position of your DNA sequence on tree." width="90%" />
 <p class="caption">
-Figure 5.10: Position of your DNA sequence on tree.
+Figure 4.13: Position of your DNA sequence on tree.
 </p>
 </div>
 <ol start="15" style="list-style-type: decimal">
 <li><p>Open <code>Vanilla_samples_records.xlsx</code> and update <code>Species_BLAST</code> column with a species name (your first working hypothesis). Don’t forget to save the file.</p></li>
 <li><p>Repeat this procedure until you analyzed all the <code>ab1</code> files.</p></li>
+</ol>
+</div>
+</div>
+<div id="part-2-genbank-query-and-preparing-data" class="section level2" number="4.8">
+<h2><span class="header-section-number">4.8</span> Part 2: GenBank query and preparing data</h2>
+<div id="bioinformatic-tools-1" class="section level3" number="4.8.1">
+<h3><span class="header-section-number">4.8.1</span> Bioinformatic tools</h3>
+<p>To execute Part 2 you need to install the following software and R packages on your computer:</p>
+<ul>
+<li><code>R</code>: <a href="https://www.r-project.org" class="uri">https://www.r-project.org</a></li>
+<li><code>RStudio</code>: <a href="https://rstudio.com" class="uri">https://rstudio.com</a></li>
+<li><code>R</code> package:
+<ul>
+<li><em>rentrez</em> <span class="citation">(<a href="#ref-rentrez" role="doc-biblioref">Winter, 2017</a>)</span>: <a href="https://cran.r-project.org/web/packages/rentrez/index.html" class="uri">https://cran.r-project.org/web/packages/rentrez/index.html</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="analytical-workflow" class="section level3" number="4.8.2">
+<h3><span class="header-section-number">4.8.2</span> Analytical workflow</h3>
+<p>To infer the ML phylogenetic analysis, the following workflow will be executed: implemented:</p>
+<ol style="list-style-type: decimal">
+<li>Expand sampling for phylogenetic analyses by downloading ITS DNA sequences of <em>Vanilla</em> species deposited on GenBank. This will be done by using the <em>rentrez</em> <code>R</code> package. A table with species taxonomy associated to GenBank accessions will also be built. We will also clean the data and save outputs in <code>FASTA</code> and <code>csv</code> formats.</li>
+<li>Format and merge individual <code>.seq</code> files from Part 1 into a <code>FASTA</code> object/file. This will be done by creating a list of all <code>.seq</code> files, opening them individually and merging them into one object using a <code>for</code> loop.</li>
+<li>Merge <code>FASTA</code> objects/files from steps 1 and 2 to perform a multiple sequence alignment (msa).</li>
+</ol>
+<p>Protocols associated to each step within the workflow are detailed below.</p>
+</div>
+<div id="download-and-write-dna-sequences-and-retrieve-taxonomy" class="section level3" number="4.8.3">
+<h3><span class="header-section-number">4.8.3</span> Download and write DNA sequences and retrieve taxonomy</h3>
+<p>Here, we are demonstrating an approach to search GenBank for ITS sequences of <em>Vanilla</em> species using <em>rentrez</em> <span class="citation">(<a href="#ref-rentrez" role="doc-biblioref">Winter, 2017</a>)</span>. Students are tasked to study/examine and execute the code and finally adapt it to search for ITS sequences. The code is subdivided into the following steps:</p>
+<ol style="list-style-type: decimal">
+<li>Build a GenBank query.</li>
+<li>Retrieve DNA sequences matching query deposited on GenBank.</li>
+<li>Fetch meta-data associated to sequences.</li>
+<li>Tidy dataset based on meta-data.</li>
+<li>Write results in <code>FASTA</code> and <code>csv</code> formats.</li>
+</ol>
+<p>Before delving into the code, start by creating an <code>.R</code> file in <code>RStudio</code> and save it in the same working directory as where you want to save the output files (e.g. <code>DNA_barcoding/04_Data_analyses</code>).</p>
+</div>
+<div id="build-a-genbank-query" class="section level3" number="4.8.4">
+<h3><span class="header-section-number">4.8.4</span> Build a GenBank query</h3>
+<pre class="r"><code>###~~~
+#Load package
+###~~~
+library(rentrez)
+
+###~~~
+#Build a query
+###~~~
+
+#Taxon
+sp &lt;- &quot;Vanilla&quot;
+
+#DNA region: here rbcL
+DNA &lt;- &quot;internal transcribed spacer&quot;
+
+#Organism
+org &lt;- &quot;Plants&quot;
+
+#Build query: sp AND DNA region
+query &lt;- paste0(sp,&quot;[All Fields] AND &quot;, DNA,&quot;[All Fields]&quot;, org, &quot;[filter]&quot;)</code></pre>
+</div>
+<div id="retrieve-genbank-dna-sequences-matching-query" class="section level3" number="4.8.5">
+<h3><span class="header-section-number">4.8.5</span> Retrieve GenBank DNA sequences matching query</h3>
+<pre class="r"><code>###~~~
+#Retrieve DNA accessions in GenBank
+###~~~
+GBresults &lt;- rentrez::entrez_search(db=&quot;nuccore&quot;,term = query, retmax=50000)</code></pre>
+</div>
+<div id="fetch-meta-data-associated-to-sequences" class="section level3" number="4.8.6">
+<h3><span class="header-section-number">4.8.6</span> Fetch meta-data associated to sequences</h3>
+<p>Even when you execute a query directly on the GenBank portal, there will always be sequences that do neither match your target taxon (here <em>Vanilla</em>) nor your target DNA region. In this context, it is paramount to retrieve meta-data associated to the DNA accessions (stored in <code>GBresults</code>) in order to clean-up your dataset prior to analyses (see next step).</p>
+<p>For each DNA sequence the following meta-data are gathered using functions implemented in <em>rentrez</em>:</p>
+<ul>
+<li>GenBank DNA accession number.</li>
+<li>Taxonomy.</li>
+<li>Sequence definition line as displayed on GenBank.</li>
+<li>Sequence length (in bp).</li>
+<li>DNA sequence.</li>
+</ul>
+<p>Please see the <code>R</code> code below for more details on the procedure to retrieve the meta-data.</p>
+<pre class="r"><code>###~~~
+#Fetch meta-data associated to sequences
+###~~~
+
+#Use loop to automatically retrieve species, 
+# seq definition line, seq length and DNA sequence associated 
+# to each DNA accession
+
+#Create empty matrix to be populated
+OUT &lt;- matrix(ncol=5, nrow=length(GBresults$ids))
+colnames(OUT) &lt;- c(&quot;GenBankID&quot;, &quot;Species&quot;, &quot;Definition&quot;, &quot;Seq_length&quot;, &quot;Sequence&quot;)
+
+#Add GenBank ID
+OUT[,1] &lt;- GBresults$ids
+print(&quot;Processing sequences: fetching meta-data&quot;)
+#Set a progress bar
+pb &lt;- txtProgressBar(min = 0, max = length(GBresults$ids), style = 3)
+for(i in 1:length(GBresults$ids)){
+  #print(paste(i, &quot;in&quot;, length(GBresults$ids), sep= &#39; &#39;))
+  #Download sequence
+  seq &lt;- entrez_fetch(db=&#39;nuccore&#39;, id=GBresults$ids[i], rettype=&#39;fasta&#39;, retmode = &quot;text&quot;)
+  
+  #Extract definition line
+  OUT[i,3] &lt;- strsplit(seq, split=&quot;\n&quot;)[[1]][1]
+  
+  #Infer seq length
+  nbp &lt;- strsplit(seq, split=&quot;\n&quot;)
+  OUT[i,4] &lt;- as.numeric(length(strsplit(paste(nbp[[1]][2:length(nbp[[1]])], 
+                                               collapse=&#39;&#39;),&quot;&quot;)[[1]]))
+  
+  #Extract sequence
+  OUT[i,5] &lt;- as.vector(paste(nbp[[1]][2:length(nbp[[1]])], collapse=&#39;&#39;)[1])
+  
+  #Fetch taxon ID associated to GenBank accessions
+  taxID &lt;- entrez_link(dbfrom=&#39;nuccore&#39;, id=GBresults$ids[i], db=&#39;taxonomy&#39;)
+
+  #Extract taxonomy: genus and species epithet
+  tmp &lt;- strsplit(
+    strsplit(entrez_fetch(db=&#39;taxonomy&#39;, id=taxID$links, rettype = &quot;native&quot;), 
+             split = &#39;\n&#39;)[[1]][1]
+    , split = &#39; &#39;)
+  
+  OUT[i,2] &lt;- paste(tmp[[1]][2:length(tmp[[1]])], collapse = &#39; &#39;)
+  
+  # update progress bar
+  setTxtProgressBar(pb, i)
+}
+close(pb)
+
+SEQ &lt;- as.data.frame(OUT)
+
+###~~~
+#Write raw data in 04_Data_analyses
+###~~~
+FileIDRawcsv &lt;- paste(sp, DNA, gsub(&quot;-&quot;, &quot;_&quot;, Sys.Date()), &quot;Raw_GenBank.csv&quot;, sep=&#39;_&#39;)
+#Write FASTA file
+write.table(SEQ, 
+            paste(&quot;04_Data_analyses/&quot;, 
+                  FileIDRawcsv, sep=&#39;&#39;), row.names = F, col.names=T, quote = T)</code></pre>
+</div>
+<div id="tidy-dataset-based-on-meta-data" class="section level3" number="4.8.7">
+<h3><span class="header-section-number">4.8.7</span> Tidy dataset based on meta-data</h3>
+<p>Here we apply filters to discard DNA sequences that are:</p>
+<ul>
+<li>NEITHER <em>Vanilla</em> NOR <em>ITS</em>.</li>
+<li>Contaminated. Previous analysis showed that the <em>V. mexicana</em> ITS sequence is corrupted. We are therefore discarding it from our dataset.</li>
+<li>Identified at genus level. Since these sequences cannot be used as reference to identify species and infer relationships with confidence.</li>
+<li>Either too short (&lt; 500 bp) or too long (&gt;= 1000 bp).</li>
+</ul>
+<p>Finally, we are preparing/formatting data for the production of the <code>FASTA</code> file.</p>
+<pre class="r"><code>###~~~
+#Tidy dataset
+###~~~
+
+##
+#1. The search retrieved sequences that are NEITHER ITS, NOR Vanilla
+##
+# Use grep to search for internal (more used than ITS) in definition
+# Use grep to search for Vanilla in species
+gene &lt;- SEQ[grep(&quot;internal&quot;, SEQ$Definition),]
+gene &lt;- gene[grep(&quot;Vanilla&quot;, gene$Species),]
+
+##
+#2. Previous analysis showed that the V. mexicana sequence is contaminated/corrupted.
+##
+# We are therefore discarding it from our dataset
+gene &lt;- gene[-which(gene$Species == &quot;Vanilla mexicana&quot;),]
+
+##
+#3. Discard DNA sequences identified at genus level
+##
+#Create vector with names of taxa in dataset
+taxaVan &lt;- unique(as.vector(gene$Species))
+#Find DNA accessions identified at genus level
+spVan &lt;- taxaVan[grep(&quot;sp.&quot;, taxaVan)]
+#Subset gene to only keep DNA sequences id at species level
+gene &lt;- subset(gene, !(gene$Species %in% spVan))
+
+##
+#4. Discard DNA sequences &lt; 500 OR &gt;= 1000 bp
+##
+gene &lt;- gene[-which(as.numeric(as.vector(gene$Seq_length)) &lt; 500 | as.numeric(as.vector(gene$Seq_length)) &gt;= 1000),]
+
+###~~~
+#Prepare dataset for FASTA format
+###~~~
+# FASTA first line contains GenBank ID and species. 
+# Want these fields to be separated by &quot;_&quot; 
+# and need to include those in species field
+gene$Species &lt;- gsub(&quot; &quot;, &quot;_&quot;, gene$Species)</code></pre>
+</div>
+<div id="write-results-of-query-in-a-fasta-and-csv-formats" class="section level3" number="4.8.8">
+<h3><span class="header-section-number">4.8.8</span> Write results of query in a <code>FASTA</code> and <code>csv</code> formats</h3>
+<p>We are using <code>R</code> to generate a <code>FASTA</code> file with the DNA sequences from our GenBank query. To do that we are concatenating information from 3 columns in the <code>gene</code> object:
+- <code>gene$GenBankID</code>: Contains unique GenBank ID for DNA sequence.
+- <code>gene$Species</code>: Contains species taxonomy associated to sequence.
+- <code>gene$Sequence</code>: Contains the DNA sequence.</p>
+<pre class="r"><code>###~~~
+#Create FASTA
+###~~~
+FASTAGB &lt;- paste(paste(&quot;&gt;&quot;, as.vector(gene$GenBankID), &quot;_&quot;, 
+                         as.vector(gene$Species), sep=&quot;&quot;), 
+                   as.vector(gene$Sequence), sep=&#39;\n&#39;)
+
+###~~~
+#Write FASTA &amp; table with meta-data
+###~~~
+
+##File name FASTA
+FileIDFASTA &lt;- paste(sp, DNA, gsub(&quot;-&quot;, &quot;_&quot;, Sys.Date()), &quot;GenBank.fasta&quot;, sep=&#39;_&#39;)
+#Write FASTA file in DNA_barcoding/04_Data_analyses/
+write.table(FASTAGB, 
+            paste(&quot;04_Data_analyses/&quot;, 
+                  FileIDFASTA, sep=&#39;&#39;), row.names = F, col.names=F, quote = F)
+
+#File name CSV
+FileIDcsv &lt;- paste(sp, DNA, gsub(&quot;-&quot;, &quot;_&quot;, Sys.Date()), &quot;GenBank.csv&quot;, sep=&#39;_&#39;)
+#Write CSV file
+write.table(gene, 
+            paste(&quot;04_Data_analyses/&quot;, 
+                  FileIDcsv, sep=&#39;&#39;), row.names = F, col.names=T, quote = T)</code></pre>
+</div>
+<div id="format-and-merge-individual-.seq-files-from-part-1-into-a-fasta-file" class="section level3" number="4.8.9">
+<h3><span class="header-section-number">4.8.9</span> Format and merge individual <code>.seq</code> files from Part 1 into a <code>FASTA</code> file</h3>
+<p>In this section, we are focusing on developing an <code>R</code> code to format and merge our clean sequences from Part 1 by using the following approach:</p>
+<ol style="list-style-type: decimal">
+<li>Establish a list of all <code>.seq</code> files in folder <code>03_Processed_ITS_data_FASTA/</code> using <code>list.files()</code>.</li>
+<li>Open/read files individually using <code>readLines()</code>,</li>
+<li>Convert format of <code>FASTA</code> file from interleave to sequential.</li>
+<li>Merge individual <code>FASTA</code> objects using <code>rbind()</code>.</li>
+<li>Write output <code>FASTA</code> object into file using <code>write.table()</code>.</li>
+</ol>
+<p>Please notice that steps 2 to 4 will take place within a <code>for</code> loop.</p>
+<pre class="r"><code>###~~~
+#List of .seq files
+###~~~
+
+#Please adapt path to your working directory/project
+Files &lt;- list.files(&quot;03_Processed_ITS_data_FASTA/&quot;, pattern=&#39;.seq&#39;, full.names = T)
+
+###~~~
+#Format and merge all files into one file
+###~~~
+
+#This is done by using a loop
+seqOUT &lt;- NULL
+for(i in 1:length(Files)){
+  #Read FASTA
+  tmp &lt;- readLines(Files[i])
+  #Edit FASTA to have only one object/line (=sequential format)
+  tmp &lt;- paste(tmp[1], paste(tmp[2:length(tmp)], collapse = &#39;&#39;), sep=&#39;\n&#39;)
+  #Merge objects
+  seqOUT &lt;- rbind(seqOUT, tmp)
+}
+
+###~~~
+#Write data
+###~~~
+
+#File name
+FileIDfastaSeq &lt;- paste(sp, DNA, gsub(&quot;-&quot;, &quot;_&quot;, Sys.Date()), &quot;msa_input.fasta&quot;, sep=&#39;_&#39;)
+#Write file (= input for msa analysis)
+write.table(seqOUT, file = 
+              paste(&quot;04_Data_analyses/&quot;, 
+                    FileIDfastaSeq, sep=&#39;&#39;), col.names = F, row.names = F, quote = F)</code></pre>
+<p>Please check that the format of your output file is as expected using a text editor (see Figure <a href="#fig:fastaall">4.14</a>).</p>
+<div class="figure" style="text-align: center"><span id="fig:fastaall"></span>
+<img src="Images/FASTA_single-gene.png" alt="Screenshot of merged FASTA file used as input for msa analysis." width="90%" />
+<p class="caption">
+Figure 4.14: Screenshot of merged FASTA file used as input for msa analysis.
+</p>
+</div>
+</div>
+<div id="merge-fasta-objectsfiles-to-perform-multiple-sequence-alignment" class="section level3" number="4.8.10">
+<h3><span class="header-section-number">4.8.10</span> Merge <code>FASTA</code> objects/files to perform multiple sequence alignment</h3>
+<p>Here, we are aiming at merging <code>FASTA</code> outputs to produce the input of the multiple sequence alignment. This step is pretty straightforward and involves using the <em>c()</em> function and writing the output.</p>
+<p>The objects containg the GenBank DNA sequences and your DNA sequences are <code>FASTAGB</code> and <code>seqOUT</code>, respectively.</p>
+<pre class="r"><code>###~~~
+#Start by merging datasets (S1: GenBank and S2: your newly produced seq.)
+###~~~
+
+#If your FASTA objects are still in R
+# merge FASTA into one object
+FASTAall &lt;- c(FASTAGB, seqOUT)
+
+#Else, you will have to load fasta files using readLines() before merging them
+
+###~~~
+#Write data
+###~~~
+
+#File name
+FileIDfastaALL &lt;- paste(sp, DNA, gsub(&quot;-&quot;, &quot;_&quot;, Sys.Date()), &quot;GenBank_seq_msa_input.fasta&quot;, sep=&#39;_&#39;)
+
+#Write file (= input for msa analysis)
+write.table(FASTAall, file = 
+              paste(&quot;04_Data_analyses/&quot;, 
+                    FileIDfastaALL, sep=&#39;&#39;), col.names = F, row.names = F, quote = F)</code></pre>
+</div>
+</div>
+<div id="part-3" class="section level2" number="4.9">
+<h2><span class="header-section-number">4.9</span> Part 3</h2>
+<ol start="4" style="list-style-type: decimal">
+<li>Conduct the msa analysis using the <code>MAFFT</code> algorithm (available on a web platform).</li>
+<li>Check and manually edit msa. This will be done by using either <code>MEGA</code> or <code>AliView</code> software.</li>
+<li>Infer ML phylogenetic tree based on cleaned msa files. This will be done using the <code>RAxML</code> algorithm (available on a web platform).</li>
+<li>Visualize phylogenetic tree and interpret results.</li>
 </ol>
 </div>
 </div>
@@ -989,6 +1228,9 @@ Figure 5.10: Position of your DNA sequence on tree.
 </div>
 <div id="ref-dentinger2014s" class="csl-entry">
 <span class="smallcaps">Dentinger, B.T.</span>, and <span class="smallcaps">L.M. Suz</span>. 2014. What’s for dinner? Undescribed species of porcini in a commercial packet. <em>PeerJ</em> 2: e570.
+</div>
+<div id="ref-deSalle2019" class="csl-entry">
+<span class="smallcaps">DeSalle, R.</span>, and <span class="smallcaps">P. Goldstein</span>. 2019. Review and interpretation of trends in DNA barcoding. <em>Frontiers in Ecology and Evolution</em> 7: 302. Available at: <a href="https://www.frontiersin.org/article/10.3389/fevo.2019.00302">https://www.frontiersin.org/article/10.3389/fevo.2019.00302</a>.
 </div>
 <div id="ref-gonccalves2015dna" class="csl-entry">
 <span class="smallcaps">Gonçalves, P.F.</span>, <span class="smallcaps">A.R. Oliveira-Marques</span>, <span class="smallcaps">T.E. Matsumoto</span>, and <span class="smallcaps">C.Y. Miyaki</span>. 2015. DNA barcoding identifies illegal parrot trade. <em>Journal of Heredity</em> 106: 560–564.
@@ -1013,6 +1255,9 @@ Figure 5.10: Position of your DNA sequence on tree.
 </div>
 <div id="ref-telfer2015biodiversity" class="csl-entry">
 <span class="smallcaps">Telfer, A.C.</span>, <span class="smallcaps">M.R. Young</span>, <span class="smallcaps">J. Quinn</span>, <span class="smallcaps">K. Perez</span>, <span class="smallcaps">C.N. Sobel</span>, <span class="smallcaps">J.E. Sones</span>, <span class="smallcaps">V. Levesque-Beaudin</span>, et al. 2015. Biodiversity inventories in high gear: DNA barcoding facilitates a rapid biotic survey of a temperate nature reserve. <em>Biodiversity data journal</em>.
+</div>
+<div id="ref-rentrez" class="csl-entry">
+<span class="smallcaps">Winter, D.J.</span> 2017. <span class="nocase">rentrez</span>: An r package for the NCBI eUtils API. <em>The R Journal</em> 9: 520–526.
 </div>
 </div>
 </div>

@@ -194,9 +194,9 @@ Approaches combining these two objectives were applied across lineages. See for 
 
 The Consortium for the Barcode of Life ([CBOL](https://www.ibol.org/phase1/cbol/)) is an international initiative devoted to developing DNA barcoding as a global standard for the identification of biological species. CBOL has more than 130 Member Organizations from more than 40 countries [@CBOL].
 
-**DNA barcoding** is a method of species identification using a short section of DNA from a specific gene or genes. The premise of DNA barcoding is that, by comparison with a reference library of such DNA sections, an individual DNA sequence can be used to uniquely identify an organism to species, in the same way that a supermarket scanner uses the familiar black stripes of the UPC barcode to identify an item in its stock against its reference database [@CBOL]. These DNA barcodes are sometimes used in an effort to identify unknown species, parts of an organism, or simply to catalog as many taxa as possible, or to compare with traditional taxonomy in an effort to determine species boundaries. For mode details on DNA barcodes applied in plants, please see section [below](#vanbarcode) dedicated to vanilla.
+**DNA barcoding** is a method of species identification using a short section of DNA from a specific gene or genes. The premise of DNA barcoding is that, by comparison with a reference library of such DNA sections, an individual DNA sequence can be used to uniquely identify an organism to species, in the same way that a supermarket scanner uses the familiar black stripes of the UPC barcode to identify an item in its stock against its reference database [@CBOL]. These DNA barcodes are sometimes used in an effort to identify unknown species, parts of an organism, or simply to catalog as many taxa as possible, or to compare with traditional taxonomy in an effort to determine species boundaries. For more details on DNA barcodes applied to plants, please see section [below](#vanbarcode) dedicated to vanilla.
 
-DNA barcoding has a wide range of applications from biodiversity surveys [e.g. @telfer2015biodiversity], illegal trade of wildlife [e.g. @gonccalves2015dna] to food security [e.g. @quinto2016dna]. 
+DNA barcoding has a wide range of applications from biodiversity surveys [e.g. @telfer2015biodiversity], illegal trade of wildlife [e.g. @gonccalves2015dna] to food security [e.g. @quinto2016dna]. The DNA barcoding approach has been recently reviewer by @deSalle2019. 
 
 #### Procedure
 
@@ -231,7 +231,8 @@ The following learning outcomes will be taught as part of this Mini-report:
 3. Query GenBank and download DNA sequences for phylogenetic analyses using R packages.
 4. Produce DNA multiple sequence alignments (containing your target DNA sequences and DNA sequences deposited on GenBank) using freely available algorithms.
 5. Infer phylogenetic analysis based on Maximum Likelihood (ML) criterion as implemented in RAxML [@Stamatakis2014]. This phylogenetic framework will be used to test and refine species working hypotheses (as inferred in learning outcome #2).
-6. Visualize and produce phylogenetic tree figures using R packages.
+6. Visualize and interpret phylogenetic analysis.
+7. Learn the terminology associated to DNA barcoding and phylogenetic analyses. Several definitions associated to the most used terms is available in the [Lexicon](Lexicon.html).
 
 To support learning these skills, we will be using a DNA dataset focusing on the [vanilla](#vanilla) spice (from the Orchidaceae family). 
 
@@ -247,7 +248,7 @@ For her Ph.D. dissertation, Paige is applying a DNA barcoding approach coupled w
 >
 > Q3: What level of genetic diversity is there among each species?
 
-### Summary of DNA barcode generation for project {#vanbarcode}
+### DNA barcodes generated for vanilla project {#vanbarcode}
 
 To answer these questions, she sampled >30 locations (mostly plantations, but also wild populations) representing >60 samples and sequenced two DNA barcode regions widely used in plants: one chloroplastic (the coding *rbcL* region) and one nuclear ribosomal (the ITS region, which stands for for "Internal Transcribed Spacer"). These two DNA regions are traditionally used by researchers as DNA barcodes supporting species delimitation and identifications. Since you are already familiar with *rbcL* [see @Hollingsworth2009 for more details], we will be providing more details on the ITS region. The nuclear ribosomal ITS region includes part of 18S, ITS1, 5.8S, ITS2 and part of 26S [see Figure \@ref(fig:ITS), @Cheng2016]. This region is repeated in tandem 1000 of times and duplicated across chromosomes in order to produce ribosomes, which are key to produce proteins. This latter DNA region is shared across kingdoms and plant specific primers have to be used otherwise we may be at risk of amplifying this region for symbiotic organisms [e.g. fungi; see @Cheng2016].
 
@@ -257,16 +258,15 @@ knitr::include_graphics("Images/ITS.png")
 
 DNA extractions of leaf material were conducted at BSU using the Qiagen Plant Mini kit followed by PCR amplifications using plant specific primers [for instance, the IT4p and ITS5p primers for the ITS region; see @Cheng2016]. Sequencing was outsourced to [GENEWIZ](https://www.genewiz.com) and performed using Sanger sequencing technology. PCR amplicons/fragments were only sequenced using forward primers. As per provider, we are expecting high quality DNA sequencing read lengths of up to ca. 1000 bases. The company also mentions that a typical read would provide 800 bases with Phred score of 20.
 
-
 ## Data and project structure for mini-report
 
-For the purpose of this mini-report, **we will be focusing on four samples of vanilla (see Figure \@ref(fig:van)) and their associated ITS sequence data**.
+For the purpose of this mini-report, **we will be focusing on four samples/individuals of vanilla (see Figure \@ref(fig:van)) and their associated ITS sequence data**.
 
 ```{r van, echo=FALSE, fig.align="center", fig.cap="Images of the four samples of vanilla collected in Mexico studied in this project.", fig.show="asis", out.width = '100%'}
 knitr::include_graphics("Images/Vanilla_samples.png")
 ```
 
-Throughout this project, we will be referring to these vanilla samples as follows (see Figure \@ref(fig:van)):
+Throughout this project, we will be referring to these vanilla samples/individuals as follows (see Figure \@ref(fig:van)):
 
 - *PE25*, *PE44*, *PE49* and *PE50*.
 
@@ -293,14 +293,15 @@ Students will thrive at answering the following questions:
 
 To answer these questions, we will be analyzing the `.ab1` ITS data and use DNA sequences available on GenBank as our reference library.
 
-# Schedule
+## Schedule
 
 Analyses for this report are subdivided into two parts. Please find below a preliminary agenda for completion of each part:
 
 - **Part 1:** Process and clean ITS DNA sequence electropherograms using [`FinchTV`](https://digitalworldbiology.com/FinchTV). Validate DNA sequence and provide species working hypothesis by conducting a BLAST similarity DNA sequences analysis coupled with a distance tree inference. This will be based on DNA sequences deposited on GenBank.
+- **Part 2:** GenBank query and preparing data.
 - **Part 2:** Perform DNA multiple sequence alignments using `MAFFT` and infer ML analysis using `RAxML`. Finally, visualize and produce phylogenetic tree figures showing positions and relationships of individuals using `R`.
 
-## Part 1
+## Part 1: Processing DNA electropherograms and inferring working species hypothesis
 
 ### Bioinformatic tools
 
@@ -334,7 +335,7 @@ We will be discussing this topic further during our Zoom meeting.
 knitr::include_graphics("Images/FinchTV_snapshot.png")
 ```
 
-## IUPAC codes
+### IUPAC codes
 
 Nuclear DNA regions such as ITS could show evidence of recombination. This means that there could be polymorphism at a specific base [also know as single-nucleotide polymorphism or SNP; see @Poplin2018 for bioinformatics technics to identify SNPs based on NGS data]. The signature of recombination in an electropherogram would be recognized by the occurrence of "peak under peak" (Figure \@ref(fig:peakunderpeak)). The International Union of Pure and Applied Chemistry (IUPAC) has defined a standard representation of DNA bases by single characters that specify either a single base (e.g. G for guanine, A for adenine) or a set of bases (e.g. R for either G or A). UCSC uses these single character codes to represent multiple observed alleles of single-base polymorphisms (Table \@ref(tab:IUPAC)).
 
@@ -350,7 +351,7 @@ colnames(IUPAC)[1] <- gsub("[.]", " ", colnames(IUPAC)[1])
 knitr::kable(IUPAC, caption = "IUPAC codes used to score base polymorphism. This is especially useful when analyzing nuclear DNA regions.")
 ```
 
-## Step-by-step protocol
+### Step-by-step protocol
 
 Here, we will be using `its25-ITSp4.ab1` as an example for the analysis. This file is located in `DNA_barcoding/02_Raw_ITS_data_ab1`.  
 
@@ -414,6 +415,325 @@ knitr::include_graphics("Images/DNAtree.png")
 
 16. Repeat this procedure until you analyzed all the `ab1` files.
 
+## Part 2: GenBank query and preparing data
 
+### Bioinformatic tools
+
+To execute Part 2 you need to install the following software and R packages on your computer:
+
+- `R`: https://www.r-project.org
+- `RStudio`: https://rstudio.com
+- `R` package: 
+  - *rentrez* [@rentrez]: https://cran.r-project.org/web/packages/rentrez/index.html
+
+### Analytical workflow 
+
+To infer the ML phylogenetic analysis, the following workflow will be executed: implemented:
+
+1. Expand sampling for phylogenetic analyses by downloading ITS DNA sequences of *Vanilla* species deposited on GenBank. This will be done by using the *rentrez* `R` package. A table with species taxonomy associated to GenBank accessions will also be built. We will also clean the data and save outputs in `FASTA` and `csv` formats.
+2. Format and merge individual `.seq` files from Part 1 into a `FASTA` object/file. This will be done by creating a list of all `.seq` files, opening them individually and merging them into one object using a `for` loop.
+3. Merge `FASTA` objects/files from steps 1 and 2 to perform a multiple sequence alignment (msa).
+
+Protocols associated to each step within the workflow are detailed below.
+
+### Download and write DNA sequences and retrieve taxonomy
+
+Here, we are demonstrating an approach to search GenBank for ITS sequences of *Vanilla* species using *rentrez* [@rentrez]. Students are tasked to study/examine and execute the code and finally adapt it to search for ITS sequences. The code is subdivided into the following steps:
+
+1. Build a GenBank query.
+2. Retrieve DNA sequences matching query deposited on GenBank.
+3. Fetch meta-data associated to sequences.
+4. Tidy dataset based on meta-data.
+5. Write results in `FASTA` and `csv` formats.
+
+Before delving into the code, start by creating an `.R` file in `RStudio` and save it in the same working directory as where you want to save the output files (e.g. `DNA_barcoding/04_Data_analyses`).
+
+### Build a GenBank query
+ 
+```{r query, eval=F}
+###~~~
+#Load package
+###~~~
+library(rentrez)
+
+###~~~
+#Build a query
+###~~~
+
+#Taxon
+sp <- "Vanilla"
+
+#DNA region: here rbcL
+DNA <- "internal transcribed spacer"
+
+#Organism
+org <- "Plants"
+
+#Build query: sp AND DNA region
+query <- paste0(sp,"[All Fields] AND ", DNA,"[All Fields]", org, "[filter]")
+```
+
+### Retrieve GenBank DNA sequences matching query
+
+```{r retrieve, eval=F}
+###~~~
+#Retrieve DNA accessions in GenBank
+###~~~
+GBresults <- rentrez::entrez_search(db="nuccore",term = query, retmax=50000)
+```
+
+### Fetch meta-data associated to sequences
+
+Even when you execute a query directly on the GenBank portal, there will always be sequences that do neither match your target taxon (here *Vanilla*) nor your target DNA region. In this context, it is paramount to retrieve meta-data associated to the DNA accessions (stored in `GBresults`) in order to clean-up your dataset prior to analyses (see next step).
+
+For each DNA sequence the following meta-data are gathered using functions implemented in *rentrez*:
+
+- GenBank DNA accession number.
+- Taxonomy.
+- Sequence definition line as displayed on GenBank.
+- Sequence length (in bp).
+- DNA sequence.
+
+Please see the `R` code below for more details on the procedure to retrieve the meta-data.  
+
+```{r fetch, eval=F}
+###~~~
+#Fetch meta-data associated to sequences
+###~~~
+
+#Use loop to automatically retrieve species, 
+# seq definition line, seq length and DNA sequence associated 
+# to each DNA accession
+
+#Create empty matrix to be populated
+OUT <- matrix(ncol=5, nrow=length(GBresults$ids))
+colnames(OUT) <- c("GenBankID", "Species", "Definition", "Seq_length", "Sequence")
+
+#Add GenBank ID
+OUT[,1] <- GBresults$ids
+print("Processing sequences: fetching meta-data")
+#Set a progress bar
+pb <- txtProgressBar(min = 0, max = length(GBresults$ids), style = 3)
+for(i in 1:length(GBresults$ids)){
+  #print(paste(i, "in", length(GBresults$ids), sep= ' '))
+  #Download sequence
+  seq <- entrez_fetch(db='nuccore', id=GBresults$ids[i], rettype='fasta', retmode = "text")
+  
+  #Extract definition line
+  OUT[i,3] <- strsplit(seq, split="\n")[[1]][1]
+  
+  #Infer seq length
+  nbp <- strsplit(seq, split="\n")
+  OUT[i,4] <- as.numeric(length(strsplit(paste(nbp[[1]][2:length(nbp[[1]])], 
+                                               collapse=''),"")[[1]]))
+  
+  #Extract sequence
+  OUT[i,5] <- as.vector(paste(nbp[[1]][2:length(nbp[[1]])], collapse='')[1])
+  
+  #Fetch taxon ID associated to GenBank accessions
+  taxID <- entrez_link(dbfrom='nuccore', id=GBresults$ids[i], db='taxonomy')
+
+  #Extract taxonomy: genus and species epithet
+  tmp <- strsplit(
+    strsplit(entrez_fetch(db='taxonomy', id=taxID$links, rettype = "native"), 
+             split = '\n')[[1]][1]
+    , split = ' ')
+  
+  OUT[i,2] <- paste(tmp[[1]][2:length(tmp[[1]])], collapse = ' ')
+  
+  # update progress bar
+  setTxtProgressBar(pb, i)
+}
+close(pb)
+
+SEQ <- as.data.frame(OUT)
+
+###~~~
+#Write raw data in 04_Data_analyses
+###~~~
+FileIDRawcsv <- paste(sp, DNA, gsub("-", "_", Sys.Date()), "Raw_GenBank.csv", sep='_')
+#Write FASTA file
+write.table(SEQ, 
+            paste("04_Data_analyses/", 
+                  FileIDRawcsv, sep=''), row.names = F, col.names=T, quote = T)
+```
+
+### Tidy dataset based on meta-data
+
+Here we apply filters to discard DNA sequences that are:
+
+- NEITHER *Vanilla* NOR *ITS*. 
+- Contaminated. Previous analysis showed that the *V. mexicana* ITS sequence is corrupted. We are therefore discarding it from our dataset. 
+- Identified at genus level. Since these sequences cannot be used as reference to identify species and infer relationships with confidence.
+- Either too short (< 500 bp) or too long (>= 1000 bp).
+
+Finally, we are preparing/formatting data for the production of the `FASTA` file.
+
+```{r cleanup, eval=F}
+###~~~
+#Tidy dataset
+###~~~
+
+##
+#1. The search retrieved sequences that are NEITHER ITS, NOR Vanilla
+##
+# Use grep to search for internal (more used than ITS) in definition
+# Use grep to search for Vanilla in species
+gene <- SEQ[grep("internal", SEQ$Definition),]
+gene <- gene[grep("Vanilla", gene$Species),]
+
+##
+#2. Previous analysis showed that the V. mexicana sequence is contaminated/corrupted.
+##
+# We are therefore discarding it from our dataset
+gene <- gene[-which(gene$Species == "Vanilla mexicana"),]
+
+##
+#3. Discard DNA sequences identified at genus level
+##
+#Create vector with names of taxa in dataset
+taxaVan <- unique(as.vector(gene$Species))
+#Find DNA accessions identified at genus level
+spVan <- taxaVan[grep("sp.", taxaVan)]
+#Subset gene to only keep DNA sequences id at species level
+gene <- subset(gene, !(gene$Species %in% spVan))
+
+##
+#4. Discard DNA sequences < 500 OR >= 1000 bp
+##
+gene <- gene[-which(as.numeric(as.vector(gene$Seq_length)) < 500 | as.numeric(as.vector(gene$Seq_length)) >= 1000),]
+
+###~~~
+#Prepare dataset for FASTA format
+###~~~
+# FASTA first line contains GenBank ID and species. 
+# Want these fields to be separated by "_" 
+# and need to include those in species field
+gene$Species <- gsub(" ", "_", gene$Species)
+```
+
+### Write results of query in a `FASTA` and `csv` formats 
+
+We are using `R` to generate a `FASTA` file with the DNA sequences from our GenBank query. To do that we are concatenating information from 3 columns in the `gene` object:
+- `gene$GenBankID`: Contains unique GenBank ID for DNA sequence.
+- `gene$Species`: Contains species taxonomy associated to sequence.
+- `gene$Sequence`: Contains the DNA sequence.
+
+```{r, eval=F}
+###~~~
+#Create FASTA
+###~~~
+FASTAGB <- paste(paste(">", as.vector(gene$GenBankID), "_", 
+                         as.vector(gene$Species), sep=""), 
+                   as.vector(gene$Sequence), sep='\n')
+
+###~~~
+#Write FASTA & table with meta-data
+###~~~
+
+##File name FASTA
+FileIDFASTA <- paste(sp, DNA, gsub("-", "_", Sys.Date()), "GenBank.fasta", sep='_')
+#Write FASTA file in DNA_barcoding/04_Data_analyses/
+write.table(FASTAGB, 
+            paste("04_Data_analyses/", 
+                  FileIDFASTA, sep=''), row.names = F, col.names=F, quote = F)
+
+#File name CSV
+FileIDcsv <- paste(sp, DNA, gsub("-", "_", Sys.Date()), "GenBank.csv", sep='_')
+#Write CSV file
+write.table(gene, 
+            paste("04_Data_analyses/", 
+                  FileIDcsv, sep=''), row.names = F, col.names=T, quote = T)
+```
+
+### Format and merge individual `.seq` files from Part 1 into a `FASTA` file
+
+In this section, we are focusing on developing an `R` code to format and merge our clean sequences from Part 1 by using the following approach:
+
+1. Establish a list of all `.seq` files in folder `03_Processed_ITS_data_FASTA/` using `list.files()`.
+2. Open/read files individually using `readLines()`, 
+3. Convert format of `FASTA` file from interleave to sequential.
+4. Merge individual `FASTA` objects using `rbind()`.
+5. Write output `FASTA` object into file using `write.table()`. 
+
+Please notice that steps 2 to 4 will take place within a `for` loop.
+
+```{r mergeFASTA, eval=F}
+###~~~
+#List of .seq files
+###~~~
+
+#Please adapt path to your working directory/project
+Files <- list.files("03_Processed_ITS_data_FASTA/", pattern='.seq', full.names = T)
+
+###~~~
+#Format and merge all files into one file
+###~~~
+
+#This is done by using a loop
+seqOUT <- NULL
+for(i in 1:length(Files)){
+  #Read FASTA
+  tmp <- readLines(Files[i])
+  #Edit FASTA to have only one object/line (=sequential format)
+  tmp <- paste(tmp[1], paste(tmp[2:length(tmp)], collapse = ''), sep='\n')
+  #Merge objects
+  seqOUT <- rbind(seqOUT, tmp)
+}
+
+###~~~
+#Write data
+###~~~
+
+#File name
+FileIDfastaSeq <- paste(sp, DNA, gsub("-", "_", Sys.Date()), "msa_input.fasta", sep='_')
+#Write file (= input for msa analysis)
+write.table(seqOUT, file = 
+              paste("04_Data_analyses/", 
+                    FileIDfastaSeq, sep=''), col.names = F, row.names = F, quote = F)
+```
+
+Please check that the format of your output file is as expected using a text editor (see Figure \@ref(fig:fastaall)).
+
+```{r fastaall, echo=FALSE, fig.align="center", fig.cap="Screenshot of merged FASTA file used as input for msa analysis.", fig.show="asis", out.width = '90%'}
+knitr::include_graphics("Images/FASTA_single-gene.png")
+```
+
+### Merge `FASTA` objects/files to perform multiple sequence alignment
+
+Here, we are aiming at merging `FASTA` outputs to produce the input of the multiple sequence alignment. This step is pretty straightforward and involves using the *c()* function and writing the output.
+
+The objects containg the GenBank DNA sequences and your DNA sequences are `FASTAGB` and `seqOUT`, respectively. 
+
+```{r mergefasta, eval=F}
+###~~~
+#Start by merging datasets (S1: GenBank and S2: your newly produced seq.)
+###~~~
+
+#If your FASTA objects are still in R
+# merge FASTA into one object
+FASTAall <- c(FASTAGB, seqOUT)
+
+#Else, you will have to load fasta files using readLines() before merging them
+
+###~~~
+#Write data
+###~~~
+
+#File name
+FileIDfastaALL <- paste(sp, DNA, gsub("-", "_", Sys.Date()), "GenBank_seq_msa_input.fasta", sep='_')
+
+#Write file (= input for msa analysis)
+write.table(FASTAall, file = 
+              paste("04_Data_analyses/", 
+                    FileIDfastaALL, sep=''), col.names = F, row.names = F, quote = F)
+```
+
+## Part 3
+
+4. Conduct the msa analysis using the `MAFFT` algorithm (available on a web platform).
+5. Check and manually edit msa. This will be done by using either `MEGA` or `AliView` software.
+6. Infer ML phylogenetic tree based on cleaned msa files. This will be done using the `RAxML` algorithm (available on a web platform).
+7. Visualize phylogenetic tree and interpret results. 
 
 # References
