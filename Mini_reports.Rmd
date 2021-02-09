@@ -258,9 +258,15 @@ knitr::include_graphics("Images/ITS.png")
 
 DNA extractions of leaf material were conducted at BSU using the Qiagen Plant Mini kit followed by PCR amplifications using plant specific primers [for instance, the IT4p and ITS5p primers for the ITS region; see @Cheng2016]. Sequencing was outsourced to [GENEWIZ](https://www.genewiz.com) and performed using Sanger sequencing technology. PCR amplicons/fragments were only sequenced using forward primers. As per provider, we are expecting high quality DNA sequencing read lengths of up to ca. 1000 bases. The company also mentions that a typical read would provide 800 bases with Phred score of 20.
 
-## Data and project structure for mini-report
+## Scientific questions associated to the mini-report
 
-For the purpose of this mini-report, **we will be focusing on four samples/individuals of vanilla (see Figure \@ref(fig:van)) and their associated ITS sequence data**.
+For this assignment, students will investigate the following questions:
+
+> Q1: To what species of vanilla do the individuals presented in Figure \@ref(fig:van) belong to?
+>
+> Q2: How are those individuals related to each other?
+
+To answer these questions, **we will be focusing on four samples/individuals of vanilla (see Figure \@ref(fig:van)) and their associated ITS sequence data as well as ITS sequences deposited on GenBank**.
 
 ```{r van, echo=FALSE, fig.align="center", fig.cap="Images of the four samples of vanilla collected in Mexico studied in this project.", fig.show="asis", out.width = '100%'}
 knitr::include_graphics("Images/Vanilla_samples.png")
@@ -269,6 +275,18 @@ knitr::include_graphics("Images/Vanilla_samples.png")
 Throughout this project, we will be referring to these vanilla samples/individuals as follows (see Figure \@ref(fig:van)):
 
 - *PE25*, *PE44*, *PE49* and *PE50*.
+
+## Schedule
+
+Analyses for this report are subdivided into three parts:
+
+- **Part 1 (Wed 9th Feb.):** Process and clean ITS DNA sequence electropherograms and infer species working hypothesis.
+- **Part 2 (Fri 12th Feb.):** DNA sequence retrieval and prepare data for analyses.
+- **Part 3 (Wed 17th Feb.):** DNA multiple sequence alignment and phylogenetic inference.
+
+**Individual reports are due on Wed 10th of March at 5 PM** (on Google Drive). More details on the structure and formatting of the report will be provided soon.
+
+## Data and project structure
 
 The data are deposited on the shared [Google Drive](https://drive.google.com/drive/folders/1BFZFJeR8tW8N7QLfngqIVbjqEkDuIyWj?usp=sharing) in a folder entitled `DNA_barcoding`. All students enrolled in this class have been granted access to this folder. The folder is subdivided into four sub-folders (see Figure \@ref(fig:datastr)) and contains a master spreadsheet `Vanilla_samples_records.xlsx` at its root: 
 
@@ -282,24 +300,6 @@ The data are deposited on the shared [Google Drive](https://drive.google.com/dri
 ```{r datastr, echo=FALSE, fig.align="center", fig.cap="Screenshot of the DNA_barcoding folder showing data structure for this project.", fig.show="asis", out.width = '90%'}
 knitr::include_graphics("Images/DNA_barcoding_str.png")
 ```
-
-## Scientific questions associated to the mini-report
-
-Students will thrive at answering the following questions:
-
-> Q1: To what species do the individuals presented in Figure \@ref(fig:van) belong to?
->
-> Q2: How are those individuals related to each other?
-
-To answer these questions, we will be analyzing the `.ab1` ITS data and use DNA sequences available on GenBank as our reference library.
-
-## Schedule
-
-Analyses for this report are subdivided into two parts. Please find below a preliminary agenda for completion of each part:
-
-- **Part 1:** Process and clean ITS DNA sequence electropherograms and infer species working hypothesis.
-- **Part 2:** DNA sequence retrieval and prepare data for analyses.
-- **Part 3:** DNA multiple sequence alignment and phylogenetic inference.
 
 ## Part 1: Process and clean ITS DNA sequence electropherograms and infer species working hypothesis
 
