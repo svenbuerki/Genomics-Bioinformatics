@@ -276,8 +276,8 @@ The data are deposited on the shared [Google Drive](https://drive.google.com/dri
 - `02_Raw_ITS_data_ab1`: `.ab1` sequence electropherograms of ITS sequences. 
 - `03_Processed_ITS_data_FASTA`: Folder where cleaned ITS sequences will be saved in `FASTA` format.
 - `04_Data_analyses`: Folder where we will be saving outputs of analyses conducted in this project.
-
-Finally, `Vanilla_samples_records.xlsx` contains meta-data information about the samples. We will also update this file with information on species hypotheses.
+- `Vanilla_samples_records.xlsx` contains meta-data information about the samples. We will also update this file with information on species hypotheses.
+- `PART2_Vanilla.R` is an R script containing code for the part 2 of this mini-report.
 
 ```{r datastr, echo=FALSE, fig.align="center", fig.cap="Screenshot of the DNA_barcoding folder showing data structure for this project.", fig.show="asis", out.width = '90%'}
 knitr::include_graphics("Images/DNA_barcoding_str.png")
@@ -297,11 +297,11 @@ To answer these questions, we will be analyzing the `.ab1` ITS data and use DNA 
 
 Analyses for this report are subdivided into two parts. Please find below a preliminary agenda for completion of each part:
 
-- **Part 1:** Process and clean ITS DNA sequence electropherograms using [`FinchTV`](https://digitalworldbiology.com/FinchTV). Validate DNA sequence and provide species working hypothesis by conducting a BLAST similarity DNA sequences analysis coupled with a distance tree inference. This will be based on DNA sequences deposited on GenBank.
-- **Part 2:** GenBank query and preparing data.
-- **Part 2:** Perform DNA multiple sequence alignments using `MAFFT` and infer ML analysis using `RAxML`. Finally, visualize and produce phylogenetic tree figures showing positions and relationships of individuals using `R`.
+- **Part 1:** Process and clean ITS DNA sequence electropherograms and infer species working hypothesis.
+- **Part 2:** DNA sequence retrieval and prepare data for analyses.
+- **Part 3:** DNA multiple sequence alignment and phylogenetic inference.
 
-## Part 1: Processing DNA electropherograms and inferring working species hypothesis
+## Part 1: Process and clean ITS DNA sequence electropherograms and infer species working hypothesis
 
 ### Bioinformatic tools
 
@@ -415,7 +415,7 @@ knitr::include_graphics("Images/DNAtree.png")
 
 16. Repeat this procedure until you analyzed all the `ab1` files.
 
-## Part 2: GenBank query and preparing data
+## Part 2: DNA sequence retrieval and prepare data for analyses
 
 ### Bioinformatic tools
 
@@ -554,7 +554,7 @@ SEQ <- as.data.frame(OUT)
 FileIDRawcsv <- paste(sp, DNA, gsub("-", "_", Sys.Date()), "Raw_GenBank.csv", sep='_')
 #Write FASTA file
 write.table(SEQ, 
-            paste("04_Data_analyses/", 
+            paste("04_Data_analyses/CSV/", 
                   FileIDRawcsv, sep=''), row.names = F, col.names=T, quote = T)
 ```
 
@@ -635,14 +635,14 @@ FASTAGB <- paste(paste(">", as.vector(gene$GenBankID), "_",
 FileIDFASTA <- paste(sp, DNA, gsub("-", "_", Sys.Date()), "GenBank.fasta", sep='_')
 #Write FASTA file in DNA_barcoding/04_Data_analyses/
 write.table(FASTAGB, 
-            paste("04_Data_analyses/", 
+            paste("04_Data_analyses/FASTA/", 
                   FileIDFASTA, sep=''), row.names = F, col.names=F, quote = F)
 
 #File name CSV
 FileIDcsv <- paste(sp, DNA, gsub("-", "_", Sys.Date()), "GenBank.csv", sep='_')
 #Write CSV file
 write.table(gene, 
-            paste("04_Data_analyses/", 
+            paste("04_Data_analyses/CSV/", 
                   FileIDcsv, sep=''), row.names = F, col.names=T, quote = T)
 ```
 
@@ -689,7 +689,7 @@ for(i in 1:length(Files)){
 FileIDfastaSeq <- paste(sp, DNA, gsub("-", "_", Sys.Date()), "msa_input.fasta", sep='_')
 #Write file (= input for msa analysis)
 write.table(seqOUT, file = 
-              paste("04_Data_analyses/", 
+              paste("04_Data_analyses/FASTA/", 
                     FileIDfastaSeq, sep=''), col.names = F, row.names = F, quote = F)
 ```
 
@@ -707,7 +707,7 @@ The objects containg the GenBank DNA sequences and your DNA sequences are `FASTA
 
 ```{r mergefasta, eval=F}
 ###~~~
-#Start by merging datasets (S1: GenBank and S2: your newly produced seq.)
+#Start by merging datasets (GenBank and your newly produced seq.)
 ###~~~
 
 #If your FASTA objects are still in R
@@ -725,15 +725,15 @@ FileIDfastaALL <- paste(sp, DNA, gsub("-", "_", Sys.Date()), "GenBank_seq_msa_in
 
 #Write file (= input for msa analysis)
 write.table(FASTAall, file = 
-              paste("04_Data_analyses/", 
+              paste("04_Data_analyses/FASTA/", 
                     FileIDfastaALL, sep=''), col.names = F, row.names = F, quote = F)
 ```
 
-## Part 3
+## Part 3: DNA multiple sequence alignment and phylogenetic inference
 
-4. Conduct the msa analysis using the `MAFFT` algorithm (available on a web platform).
-5. Check and manually edit msa. This will be done by using either `MEGA` or `AliView` software.
-6. Infer ML phylogenetic tree based on cleaned msa files. This will be done using the `RAxML` algorithm (available on a web platform).
-7. Visualize phylogenetic tree and interpret results. 
+1. Conduct the msa analysis using the `MAFFT` algorithm (available on a web platform). This will be done using `Vanilla_internal transcribed spacer_2021_02_09_GenBank_seq_msa_input.fasta` stored in `04_Data_analyses/FASTA/`.
+2. Check and manually edit msa. This will be done by using either `MEGA` or `AliView` software.
+3. Infer ML phylogenetic tree based on cleaned msa files. This will be done using the `RAxML` algorithm (available on a web platform).
+4. Visualize phylogenetic tree and interpret results. 
 
 # References

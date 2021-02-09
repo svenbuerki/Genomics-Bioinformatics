@@ -11,7 +11,7 @@
 
 <meta name="author" content="Sven Buerki - Boise State University" />
 
-<meta name="date" content="2021-02-07" />
+<meta name="date" content="2021-02-09" />
 
 <title>BIOL 497/597 - Genomics &amp; Bioinformatics</title>
 
@@ -412,7 +412,7 @@ div.tocify {
 <h1 class="title toc-ignore">BIOL 497/597 - Genomics &amp; Bioinformatics</h1>
 <h3 class="subtitle">Mini-reports</h3>
 <h4 class="author">Sven Buerki - Boise State University</h4>
-<h4 class="date">2021-02-07</h4>
+<h4 class="date">2021-02-09</h4>
 
 </div>
 
@@ -667,8 +667,9 @@ Figure 4.2: Images of the four samples of vanilla collected in Mexico studied in
 <li><code>02_Raw_ITS_data_ab1</code>: <code>.ab1</code> sequence electropherograms of ITS sequences.</li>
 <li><code>03_Processed_ITS_data_FASTA</code>: Folder where cleaned ITS sequences will be saved in <code>FASTA</code> format.</li>
 <li><code>04_Data_analyses</code>: Folder where we will be saving outputs of analyses conducted in this project.</li>
+<li><code>Vanilla_samples_records.xlsx</code> contains meta-data information about the samples. We will also update this file with information on species hypotheses.</li>
+<li><code>PART2_Vanilla.R</code> is an R script containing code for the part 2 of this mini-report.</li>
 </ul>
-<p>Finally, <code>Vanilla_samples_records.xlsx</code> contains meta-data information about the samples. We will also update this file with information on species hypotheses.</p>
 <div class="figure" style="text-align: center"><span id="fig:datastr"></span>
 <img src="Images/DNA_barcoding_str.png" alt="Screenshot of the DNA_barcoding folder showing data structure for this project." width="90%" />
 <p class="caption">
@@ -689,13 +690,13 @@ Figure 4.3: Screenshot of the DNA_barcoding folder showing data structure for th
 <h2><span class="header-section-number">4.6</span> Schedule</h2>
 <p>Analyses for this report are subdivided into two parts. Please find below a preliminary agenda for completion of each part:</p>
 <ul>
-<li><strong>Part 1:</strong> Process and clean ITS DNA sequence electropherograms using <a href="https://digitalworldbiology.com/FinchTV"><code>FinchTV</code></a>. Validate DNA sequence and provide species working hypothesis by conducting a BLAST similarity DNA sequences analysis coupled with a distance tree inference. This will be based on DNA sequences deposited on GenBank.</li>
-<li><strong>Part 2:</strong> GenBank query and preparing data.</li>
-<li><strong>Part 2:</strong> Perform DNA multiple sequence alignments using <code>MAFFT</code> and infer ML analysis using <code>RAxML</code>. Finally, visualize and produce phylogenetic tree figures showing positions and relationships of individuals using <code>R</code>.</li>
+<li><strong>Part 1:</strong> Process and clean ITS DNA sequence electropherograms and infer species working hypothesis.</li>
+<li><strong>Part 2:</strong> DNA sequence retrieval and prepare data for analyses.</li>
+<li><strong>Part 3:</strong> DNA multiple sequence alignment and phylogenetic inference.</li>
 </ul>
 </div>
-<div id="part-1-processing-dna-electropherograms-and-inferring-working-species-hypothesis" class="section level2" number="4.7">
-<h2><span class="header-section-number">4.7</span> Part 1: Processing DNA electropherograms and inferring working species hypothesis</h2>
+<div id="part-1-process-and-clean-its-dna-sequence-electropherograms-and-infer-species-working-hypothesis" class="section level2" number="4.7">
+<h2><span class="header-section-number">4.7</span> Part 1: Process and clean ITS DNA sequence electropherograms and infer species working hypothesis</h2>
 <div id="bioinformatic-tools" class="section level3" number="4.7.1">
 <h3><span class="header-section-number">4.7.1</span> Bioinformatic tools</h3>
 <p>The bioinformatic tools used in part 1 are as follows:</p>
@@ -741,77 +742,147 @@ Figure 4.5: Screenshot of DNA sequence electropherogram showing signature of pea
 </p>
 </div>
 <table>
-<caption><span id="tab:IUPAC">Table 4.1: </span>IUPAC codes used to score base polymorphism. This is especially useful when analyzing nuclear DNA regions.</caption>
+<caption>
+<span id="tab:IUPAC">Table 4.1: </span>IUPAC codes used to score base polymorphism. This is especially useful when analyzing nuclear DNA regions.
+</caption>
 <thead>
-<tr class="header">
-<th align="left">IUPAC nucleotide code</th>
-<th align="left">Base</th>
+<tr>
+<th style="text-align:left;">
+IUPAC nucleotide code
+</th>
+<th style="text-align:left;">
+Base
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">A</td>
-<td align="left">Adenine</td>
+<tr>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:left;">
+Adenine
+</td>
 </tr>
-<tr class="even">
-<td align="left">C</td>
-<td align="left">Cytosine</td>
+<tr>
+<td style="text-align:left;">
+C
+</td>
+<td style="text-align:left;">
+Cytosine
+</td>
 </tr>
-<tr class="odd">
-<td align="left">G</td>
-<td align="left">Guanine</td>
+<tr>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:left;">
+Guanine
+</td>
 </tr>
-<tr class="even">
-<td align="left">T (or U)</td>
-<td align="left">Thymine (or Uracil)</td>
+<tr>
+<td style="text-align:left;">
+T (or U)
+</td>
+<td style="text-align:left;">
+Thymine (or Uracil)
+</td>
 </tr>
-<tr class="odd">
-<td align="left">R</td>
-<td align="left">A or G</td>
+<tr>
+<td style="text-align:left;">
+R
+</td>
+<td style="text-align:left;">
+A or G
+</td>
 </tr>
-<tr class="even">
-<td align="left">Y</td>
-<td align="left">C or T</td>
+<tr>
+<td style="text-align:left;">
+Y
+</td>
+<td style="text-align:left;">
+C or T
+</td>
 </tr>
-<tr class="odd">
-<td align="left">S</td>
-<td align="left">G or C</td>
+<tr>
+<td style="text-align:left;">
+S
+</td>
+<td style="text-align:left;">
+G or C
+</td>
 </tr>
-<tr class="even">
-<td align="left">W</td>
-<td align="left">A or T</td>
+<tr>
+<td style="text-align:left;">
+W
+</td>
+<td style="text-align:left;">
+A or T
+</td>
 </tr>
-<tr class="odd">
-<td align="left">K</td>
-<td align="left">G or T</td>
+<tr>
+<td style="text-align:left;">
+K
+</td>
+<td style="text-align:left;">
+G or T
+</td>
 </tr>
-<tr class="even">
-<td align="left">M</td>
-<td align="left">A or C</td>
+<tr>
+<td style="text-align:left;">
+M
+</td>
+<td style="text-align:left;">
+A or C
+</td>
 </tr>
-<tr class="odd">
-<td align="left">B</td>
-<td align="left">C or G or T</td>
+<tr>
+<td style="text-align:left;">
+B
+</td>
+<td style="text-align:left;">
+C or G or T
+</td>
 </tr>
-<tr class="even">
-<td align="left">D</td>
-<td align="left">A or G or T</td>
+<tr>
+<td style="text-align:left;">
+D
+</td>
+<td style="text-align:left;">
+A or G or T
+</td>
 </tr>
-<tr class="odd">
-<td align="left">H</td>
-<td align="left">A or C or T</td>
+<tr>
+<td style="text-align:left;">
+H
+</td>
+<td style="text-align:left;">
+A or C or T
+</td>
 </tr>
-<tr class="even">
-<td align="left">V</td>
-<td align="left">A or C or G</td>
+<tr>
+<td style="text-align:left;">
+V
+</td>
+<td style="text-align:left;">
+A or C or G
+</td>
 </tr>
-<tr class="odd">
-<td align="left">N</td>
-<td align="left">any base</td>
+<tr>
+<td style="text-align:left;">
+N
+</td>
+<td style="text-align:left;">
+any base
+</td>
 </tr>
-<tr class="even">
-<td align="left">. or -</td>
-<td align="left">gap</td>
+<tr>
+<td style="text-align:left;">
+. or -
+</td>
+<td style="text-align:left;">
+gap
+</td>
 </tr>
 </tbody>
 </table>
@@ -903,8 +974,8 @@ Figure 4.13: Position of your DNA sequence on tree.
 </ol>
 </div>
 </div>
-<div id="part-2-genbank-query-and-preparing-data" class="section level2" number="4.8">
-<h2><span class="header-section-number">4.8</span> Part 2: GenBank query and preparing data</h2>
+<div id="part-2-dna-sequence-retrieval-and-prepare-data-for-analyses" class="section level2" number="4.8">
+<h2><span class="header-section-number">4.8</span> Part 2: DNA sequence retrieval and prepare data for analyses</h2>
 <div id="bioinformatic-tools-1" class="section level3" number="4.8.1">
 <h3><span class="header-section-number">4.8.1</span> Bioinformatic tools</h3>
 <p>To execute Part 2 you need to install the following software and R packages on your computer:</p>
@@ -1038,7 +1109,7 @@ SEQ &lt;- as.data.frame(OUT)
 FileIDRawcsv &lt;- paste(sp, DNA, gsub(&quot;-&quot;, &quot;_&quot;, Sys.Date()), &quot;Raw_GenBank.csv&quot;, sep=&#39;_&#39;)
 #Write FASTA file
 write.table(SEQ, 
-            paste(&quot;04_Data_analyses/&quot;, 
+            paste(&quot;04_Data_analyses/CSV/&quot;, 
                   FileIDRawcsv, sep=&#39;&#39;), row.names = F, col.names=T, quote = T)</code></pre>
 </div>
 <div id="tidy-dataset-based-on-meta-data" class="section level3" number="4.8.7">
@@ -1113,14 +1184,14 @@ FASTAGB &lt;- paste(paste(&quot;&gt;&quot;, as.vector(gene$GenBankID), &quot;_&q
 FileIDFASTA &lt;- paste(sp, DNA, gsub(&quot;-&quot;, &quot;_&quot;, Sys.Date()), &quot;GenBank.fasta&quot;, sep=&#39;_&#39;)
 #Write FASTA file in DNA_barcoding/04_Data_analyses/
 write.table(FASTAGB, 
-            paste(&quot;04_Data_analyses/&quot;, 
+            paste(&quot;04_Data_analyses/FASTA/&quot;, 
                   FileIDFASTA, sep=&#39;&#39;), row.names = F, col.names=F, quote = F)
 
 #File name CSV
 FileIDcsv &lt;- paste(sp, DNA, gsub(&quot;-&quot;, &quot;_&quot;, Sys.Date()), &quot;GenBank.csv&quot;, sep=&#39;_&#39;)
 #Write CSV file
 write.table(gene, 
-            paste(&quot;04_Data_analyses/&quot;, 
+            paste(&quot;04_Data_analyses/CSV/&quot;, 
                   FileIDcsv, sep=&#39;&#39;), row.names = F, col.names=T, quote = T)</code></pre>
 </div>
 <div id="format-and-merge-individual-.seq-files-from-part-1-into-a-fasta-file" class="section level3" number="4.8.9">
@@ -1164,7 +1235,7 @@ for(i in 1:length(Files)){
 FileIDfastaSeq &lt;- paste(sp, DNA, gsub(&quot;-&quot;, &quot;_&quot;, Sys.Date()), &quot;msa_input.fasta&quot;, sep=&#39;_&#39;)
 #Write file (= input for msa analysis)
 write.table(seqOUT, file = 
-              paste(&quot;04_Data_analyses/&quot;, 
+              paste(&quot;04_Data_analyses/FASTA/&quot;, 
                     FileIDfastaSeq, sep=&#39;&#39;), col.names = F, row.names = F, quote = F)</code></pre>
 <p>Please check that the format of your output file is as expected using a text editor (see Figure <a href="#fig:fastaall">4.14</a>).</p>
 <div class="figure" style="text-align: center"><span id="fig:fastaall"></span>
@@ -1179,7 +1250,7 @@ Figure 4.14: Screenshot of merged FASTA file used as input for msa analysis.
 <p>Here, we are aiming at merging <code>FASTA</code> outputs to produce the input of the multiple sequence alignment. This step is pretty straightforward and involves using the <em>c()</em> function and writing the output.</p>
 <p>The objects containg the GenBank DNA sequences and your DNA sequences are <code>FASTAGB</code> and <code>seqOUT</code>, respectively.</p>
 <pre class="r"><code>###~~~
-#Start by merging datasets (S1: GenBank and S2: your newly produced seq.)
+#Start by merging datasets (GenBank and your newly produced seq.)
 ###~~~
 
 #If your FASTA objects are still in R
@@ -1197,14 +1268,14 @@ FileIDfastaALL &lt;- paste(sp, DNA, gsub(&quot;-&quot;, &quot;_&quot;, Sys.Date(
 
 #Write file (= input for msa analysis)
 write.table(FASTAall, file = 
-              paste(&quot;04_Data_analyses/&quot;, 
+              paste(&quot;04_Data_analyses/FASTA/&quot;, 
                     FileIDfastaALL, sep=&#39;&#39;), col.names = F, row.names = F, quote = F)</code></pre>
 </div>
 </div>
-<div id="part-3" class="section level2" number="4.9">
-<h2><span class="header-section-number">4.9</span> Part 3</h2>
-<ol start="4" style="list-style-type: decimal">
-<li>Conduct the msa analysis using the <code>MAFFT</code> algorithm (available on a web platform).</li>
+<div id="part-3-dna-multiple-sequence-alignment-and-phylogenetic-inference" class="section level2" number="4.9">
+<h2><span class="header-section-number">4.9</span> Part 3: DNA multiple sequence alignment and phylogenetic inference</h2>
+<ol style="list-style-type: decimal">
+<li>Conduct the msa analysis using the <code>MAFFT</code> algorithm (available on a web platform). This will be done using <code>Vanilla_internal transcribed spacer_2021_02_09_GenBank_seq_msa_input.fasta</code> stored in <code>04_Data_analyses/FASTA/</code>.</li>
 <li>Check and manually edit msa. This will be done by using either <code>MEGA</code> or <code>AliView</code> software.</li>
 <li>Infer ML phylogenetic tree based on cleaned msa files. This will be done using the <code>RAxML</code> algorithm (available on a web platform).</li>
 <li>Visualize phylogenetic tree and interpret results.</li>
