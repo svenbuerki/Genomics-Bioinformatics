@@ -238,7 +238,7 @@ To support learning these skills, we will be using a DNA dataset focusing on the
 
 ## Vanilla as model for this report {#vanilla}
 
-Like porcini [@dentinger2014s], vanilla is one of our most beloved spice, but we still know very little about its biology, taxonomy and evolution. As part of a study aiming at inferring domestication processes in the genus *Vanilla* and species adaptation to drought, fieldwork was conducted in Mexico by Paige Ellestad (an EEB Ph.D. student at BSU) and her in-country partners.
+Like porcini [@dentinger2014s], vanilla is one of our most beloved spice, but we still know very little about its biology, taxonomy and evolution [see @Ellestadinpress for a review]. As part of a study aiming at inferring domestication processes in the genus *Vanilla* and species adaptation to drought, fieldwork was conducted in Mexico by Paige Ellestad (an EEB Ph.D. student at BSU) and her in-country partners.
 
 For her Ph.D. dissertation, Paige is applying a DNA barcoding approach coupled with phylogenetic inference (and ecological niche modeling) to answer the following questions:
 
