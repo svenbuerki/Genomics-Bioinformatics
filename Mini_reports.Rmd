@@ -423,6 +423,7 @@ To execute Part 2, you need to install the following software and R packages on 
 
 - `R`: https://www.r-project.org
 - `RStudio`: https://rstudio.com
+    - An overview of RStudio environment is available [here](Images/RStudio_overview.pdf).
 - `R` package: 
   - *rentrez* [@rentrez]: https://cran.r-project.org/web/packages/rentrez/index.html
 
