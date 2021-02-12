@@ -1246,12 +1246,89 @@ write.table(FASTAall, file =
 </div>
 <div id="part-3-dna-multiple-sequence-alignment-and-phylogenetic-inference" class="section level2" number="4.9">
 <h2><span class="header-section-number">4.9</span> Part 3: DNA multiple sequence alignment and phylogenetic inference</h2>
+<div id="bioinformatic-tools-2" class="section level3" number="4.9.1">
+<h3><span class="header-section-number">4.9.1</span> Bioinformatic tools</h3>
+<p>To execute Part 3, you need to install the following software and R packages on your computer:</p>
+<ul>
+<li><code>MEGA</code> <span class="citation">(<a href="#ref-kumar2018mega" role="doc-biblioref">Kumar et al., 2018</a>)</span>: Please download the GUI version of the software associated to your operating system at this URL:
+<ul>
+<li><a href="https://www.megasoftware.net/" class="uri">https://www.megasoftware.net/</a></li>
+</ul></li>
+<li><code>R</code> package:
+<ul>
+<li><em>rentrez</em> <span class="citation">(<a href="#ref-rentrez" role="doc-biblioref">Winter, 2017</a>)</span>: <a href="https://cran.r-project.org/web/packages/rentrez/index.html" class="uri">https://cran.r-project.org/web/packages/rentrez/index.html</a></li>
+</ul></li>
+</ul>
+<p>If you don’t remember how to install an R package, don’t worry, this topic was covered <a href="#query">here</a>.</p>
+</div>
+<div id="analytical-workflow-1" class="section level3" number="4.9.2">
+<h3><span class="header-section-number">4.9.2</span> Analytical workflow</h3>
+<p>To infer the ML phylogenetic analysis, the following workflow will be executed: implemented:</p>
 <ol style="list-style-type: decimal">
-<li>Conduct the msa analysis using the <code>MAFFT</code> algorithm (available on a web platform). This will be done using <code>Vanilla_internal transcribed spacer_2021_02_09_GenBank_seq_msa_input.fasta</code> stored in <code>04_Data_analyses/FASTA/</code>.</li>
-<li>Check and manually edit msa. This will be done by using either <code>MEGA</code> or <code>AliView</code> software.</li>
+<li>Conduct the msa analysis using the <code>MUSCLE</code> algorithm <span class="citation">(<a href="#ref-edgar2004muscle" role="doc-biblioref">Edgar, 2004</a>)</span>. This algorithm is implemented in <code>MEGA</code>. The input data for this analysis is <code>Vanilla_internal transcribed spacer_2021_02_09_GenBank_seq_msa_input.fasta</code>, which is stored in <code>04_Data_analyses/FASTA/</code>.</li>
+<li>Check and manually edit msa. This will be done in <code>MEGA</code>.</li>
 <li>Infer ML phylogenetic tree based on cleaned msa files. This will be done using the <code>RAxML</code> algorithm (available on a web platform).</li>
 <li>Visualize phylogenetic tree and interpret results.</li>
 </ol>
+</div>
+<div id="conduct-msa-analysis" class="section level3" number="4.9.3">
+<h3><span class="header-section-number">4.9.3</span> Conduct msa analysis</h3>
+<p>To conduct a multiple sequence alignment in <code>MEGA</code> do the following:</p>
+<ol style="list-style-type: decimal">
+<li>Launch <code>MEGA</code>.</li>
+<li>Load your input file (<code>Vanilla_internal transcribed spacer_2021_02_09_GenBank_seq_msa_input.fasta</code>) by clicking <code>File -&gt; Open A File/Session...</code> and selecting the right file.</li>
+<li>The program will ask you <code>How would you like...</code> and you will then click on the <code>Align</code> button. This will open a new window with your data (corresponding to an unaligned DNA matrix; see Figure <a href="#fig:unaligned">4.15</a>).</li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:unaligned"></span>
+<img src="Images/UnalignedMEGA.png" alt="Screenshot of DNA matrix in MEGA." width="100%" />
+<p class="caption">
+Figure 4.15: Screenshot of DNA matrix in MEGA.
+</p>
+</div>
+<p>4.To start a <code>MUSCLE</code> analysis do has shown in Figure <a href="#fig:muscle">4.16</a> (<code>Alignment -&gt; Align by MUSCLE</code>. A window will open saying <code>Nothing selected for alignment. Select all?</code>, click the <code>OK</code> button. Further details on the <code>MUSCLE</code> algorithm can be found in <span class="citation"><a href="#ref-edgar2004muscle" role="doc-biblioref">Edgar</a> (<a href="#ref-edgar2004muscle" role="doc-biblioref">2004</a>)</span>.</p>
+<div class="figure" style="text-align: center"><span id="fig:muscle"></span>
+<img src="Images/MUSCLEMega.png" alt="Screenshot showing how to start a MUSCLE analysis in MEGA." width="100%" />
+<p class="caption">
+Figure 4.16: Screenshot showing how to start a MUSCLE analysis in MEGA.
+</p>
+</div>
+<ol start="5" style="list-style-type: decimal">
+<li>A window showing settings associated with the analysis will appear as shown on Figure <a href="#fig:muscleset">4.17</a>. Please use the parameters set by default and click <code>OK</code> to start the analysis. The analysis should take ca. 5-10 minutes to complete.</li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:muscleset"></span>
+<img src="Images/MUSCLEMega_settings.png" alt="Screenshot showing MUSCLE settings in MEGA." width="100%" />
+<p class="caption">
+Figure 4.17: Screenshot showing MUSCLE settings in MEGA.
+</p>
+</div>
+<ol start="6" style="list-style-type: decimal">
+<li>Once the analysis is completed, you will be able to inspect and edit the alignment. Please see Figure <a href="#fig:muscledone">4.18</a> for an example. Notice the gaps (<code>-</code>) that had to be incorporated to accommodate for differences in DNA sequences between samples. Your DNA sequences of <em>Vanilla</em> are at the bottom of the file.</li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:muscledone"></span>
+<img src="Images/MUSCLEMega_done.png" alt="Screenshot showing MUSCLE alignment in MEGA." width="100%" />
+<p class="caption">
+Figure 4.18: Screenshot showing MUSCLE alignment in MEGA.
+</p>
+</div>
+<ol start="7" style="list-style-type: decimal">
+<li>Save the analysis in <code>FASTA</code> format by clicking <code>Data -&gt; Export Alignment -&gt; FASTA Format</code>. This procedure is also shown in Figure <a href="#fig:muscleexport">4.19</a>.</li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:muscleexport"></span>
+<img src="Images/MUSCLEMega_export.png" alt="Screenshot showing how to export MUSCLE alignment into a FASTA format in MEGA." width="100%" />
+<p class="caption">
+Figure 4.19: Screenshot showing how to export MUSCLE alignment into a FASTA format in MEGA.
+</p>
+</div>
+<ol start="8" style="list-style-type: decimal">
+<li>Save the file in <code>04_Data_analyses/FASTA/</code> and adjust file name as follows: <code>_GenBank_seq_msa_output.fas</code>. This procedure is shown in Figure <a href="#fig:musclefile">4.20</a>.</li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:musclefile"></span>
+<img src="Images/MUSCLEMega_filename.png" alt="Screenshot showing how to save file in MEGA." width="100%" />
+<p class="caption">
+Figure 4.20: Screenshot showing how to save file in MEGA.
+</p>
+</div>
+</div>
 </div>
 </div>
 <div id="references" class="section level1 unnumbered">
@@ -1275,6 +1352,9 @@ write.table(FASTAall, file =
 <div id="ref-deSalle2019" class="csl-entry">
 <span class="smallcaps">DeSalle, R.</span>, and <span class="smallcaps">P. Goldstein</span>. 2019. Review and interpretation of trends in DNA barcoding. <em>Frontiers in Ecology and Evolution</em> 7: 302. Available at: <a href="https://www.frontiersin.org/article/10.3389/fevo.2019.00302">https://www.frontiersin.org/article/10.3389/fevo.2019.00302</a>.
 </div>
+<div id="ref-edgar2004muscle" class="csl-entry">
+<span class="smallcaps">Edgar, R.C.</span> 2004. MUSCLE: Multiple sequence alignment with high accuracy and high throughput. <em>Nucleic acids research</em> 32: 1792–1797.
+</div>
 <div id="ref-Ellestadinpress" class="csl-entry">
 <span class="smallcaps">Ellestad, P.</span>, <span class="smallcaps">F. Forest</span>, <span class="smallcaps">M. Serpe</span>, <span class="smallcaps">S.J. Novak</span>, and <span class="smallcaps">S. Buerki</span>. 2021. <span class="nocase">Harnessing large-scale biodiversity data to infer the current distribution of Vanilla planifolia (Orchidaceae)</span>. <em>Botanical Journal of the Linnean Society</em>. Available at: <a href="https://doi.org/10.1093/botlinnean/boab005">https://doi.org/10.1093/botlinnean/boab005</a>.
 </div>
@@ -1283,6 +1363,9 @@ write.table(FASTAall, file =
 </div>
 <div id="ref-Hollingsworth2009" class="csl-entry">
 <span class="smallcaps">Hollingsworth, P.M.</span>, <span class="smallcaps">L.L. Forrest</span>, <span class="smallcaps">J.L. Spouge</span>, <span class="smallcaps">M. Hajibabaei</span>, <span class="smallcaps">S. Ratnasingham</span>, <span class="smallcaps">M. van der Bank</span>, <span class="smallcaps">M.W. Chase</span>, et al. 2009. A DNA barcode for land plants. <em>Proceedings of the National Academy of Sciences</em> 106: 12794–12797. Available at: <a href="https://www.pnas.org/content/106/31/12794">https://www.pnas.org/content/106/31/12794</a>.
+</div>
+<div id="ref-kumar2018mega" class="csl-entry">
+<span class="smallcaps">Kumar, S.</span>, <span class="smallcaps">G. Stecher</span>, <span class="smallcaps">M. Li</span>, <span class="smallcaps">C. Knyaz</span>, and <span class="smallcaps">K. Tamura</span>. 2018. MEGA x: Molecular evolutionary genetics analysis across computing platforms. <em>Molecular biology and evolution</em> 35: 1547–1549.
 </div>
 <div id="ref-Larsen2017" class="csl-entry">
 <span class="smallcaps">Larsen, B.B.</span>, <span class="smallcaps">E.C. Miller</span>, <span class="smallcaps">M.K. Rhodes</span>, and <span class="smallcaps">J.J. Wiens</span>. 2017. Inordinate fondness multiplied and redistributed: The number of species on earth and the new pie of life. <em>The Quarterly Review of Biology</em> 92: 229–265.

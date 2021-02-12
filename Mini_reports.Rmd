@@ -784,9 +784,66 @@ write.table(FASTAall, file =
 
 ## Part 3: DNA multiple sequence alignment and phylogenetic inference
 
-1. Conduct the msa analysis using the `MAFFT` algorithm (available on a web platform). This will be done using `Vanilla_internal transcribed spacer_2021_02_09_GenBank_seq_msa_input.fasta` stored in `04_Data_analyses/FASTA/`.
-2. Check and manually edit msa. This will be done by using either `MEGA` or `AliView` software.
+### Bioinformatic tools
+
+To execute Part 3, you need to install the following software and R packages on your computer:
+
+- `MEGA` [@kumar2018mega]: Please download the GUI version of the software associated to your operating system at this URL:
+    - https://www.megasoftware.net/
+- `R` package: 
+  - *rentrez* [@rentrez]: https://cran.r-project.org/web/packages/rentrez/index.html
+
+If you don't remember how to install an R package, don't worry, this topic was covered [here](#query).
+
+### Analytical workflow 
+
+To infer the ML phylogenetic analysis, the following workflow will be executed: implemented:
+
+1. Conduct the msa analysis using the `MUSCLE` algorithm [@edgar2004muscle]. This algorithm is implemented in `MEGA`. The input data for this analysis is `Vanilla_internal transcribed spacer_2021_02_09_GenBank_seq_msa_input.fasta`, which is stored in `04_Data_analyses/FASTA/`.
+2. Check and manually edit msa. This will be done in `MEGA`.
 3. Infer ML phylogenetic tree based on cleaned msa files. This will be done using the `RAxML` algorithm (available on a web platform).
 4. Visualize phylogenetic tree and interpret results. 
+
+### Conduct msa analysis
+
+To conduct a multiple sequence alignment in `MEGA` do the following:
+
+1. Launch `MEGA`.
+2. Load your input file (`Vanilla_internal transcribed spacer_2021_02_09_GenBank_seq_msa_input.fasta`) by clicking `File -> Open A File/Session...` and selecting the right file.
+3. The program will ask you `How would you like...` and you will then click on the `Align` button. This will open a new window with your data (corresponding to an unaligned DNA matrix; see Figure \@ref(fig:unaligned)).
+
+```{r unaligned, echo=FALSE, fig.align="center", fig.cap="Screenshot of DNA matrix in MEGA.", fig.show="asis", out.width = '100%'}
+knitr::include_graphics("Images/UnalignedMEGA.png")
+```
+
+4.To start a `MUSCLE` analysis do has shown in Figure \@ref(fig:muscle) (`Alignment -> Align by MUSCLE`. A window will open saying `Nothing selected for alignment. Select all?`, click the `OK` button. Further details on the `MUSCLE` algorithm can be found in @edgar2004muscle.
+
+```{r muscle, echo=FALSE, fig.align="center", fig.cap="Screenshot showing how to start a MUSCLE analysis in MEGA.", fig.show="asis", out.width = '100%'}
+knitr::include_graphics("Images/MUSCLEMega.png")
+```
+
+5. A window showing settings associated with the analysis will appear as shown on Figure \@ref(fig:muscleset). Please use the parameters set by default and click `OK` to start the analysis. The analysis should take ca. 5-10 minutes to complete.
+
+```{r muscleset, echo=FALSE, fig.align="center", fig.cap="Screenshot showing MUSCLE settings in MEGA.", fig.show="asis", out.width = '100%'}
+knitr::include_graphics("Images/MUSCLEMega_settings.png")
+```
+
+6. Once the analysis is completed, you will be able to inspect and edit the alignment. Please see Figure \@ref(fig:muscledone) for an example. Notice the gaps (`-`) that had to be incorporated to accommodate for differences in DNA sequences between samples. Your DNA sequences of *Vanilla* are at the bottom of the file.
+
+```{r muscledone, echo=FALSE, fig.align="center", fig.cap="Screenshot showing MUSCLE alignment in MEGA.", fig.show="asis", out.width = '100%'}
+knitr::include_graphics("Images/MUSCLEMega_done.png")
+```
+
+7. Save the analysis in `FASTA` format by clicking `Data -> Export Alignment -> FASTA Format`. This procedure is also shown in Figure \@ref(fig:muscleexport).
+
+```{r muscleexport, echo=FALSE, fig.align="center", fig.cap="Screenshot showing how to export MUSCLE alignment into a FASTA format in MEGA.", fig.show="asis", out.width = '100%'}
+knitr::include_graphics("Images/MUSCLEMega_export.png")
+```
+
+8. Save the file in `04_Data_analyses/FASTA/` and adjust file name as follows: `_GenBank_seq_msa_output.fas`. This procedure is shown in Figure \@ref(fig:musclefile).
+
+```{r musclefile, echo=FALSE, fig.align="center", fig.cap="Screenshot showing how to save file in MEGA.", fig.show="asis", out.width = '100%'}
+knitr::include_graphics("Images/MUSCLEMega_filename.png")
+```
 
 # References
