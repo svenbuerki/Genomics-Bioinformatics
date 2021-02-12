@@ -1254,6 +1254,7 @@ write.table(FASTAall, file =
 <ul>
 <li><a href="https://www.megasoftware.net/" class="uri">https://www.megasoftware.net/</a></li>
 </ul></li>
+<li><code>FigTree</code>: <a href="https://github.com/rambaut/figtree/releases" class="uri">https://github.com/rambaut/figtree/releases</a></li>
 <li><code>R</code> package:
 <ul>
 <li><em>rentrez</em> <span class="citation">(<a href="#ref-rentrez" role="doc-biblioref">Winter, 2017</a>)</span>: <a href="https://cran.r-project.org/web/packages/rentrez/index.html" class="uri">https://cran.r-project.org/web/packages/rentrez/index.html</a></li>
@@ -1267,7 +1268,7 @@ write.table(FASTAall, file =
 <ol style="list-style-type: decimal">
 <li>Conduct the msa analysis using the <code>MUSCLE</code> algorithm <span class="citation">(<a href="#ref-edgar2004muscle" role="doc-biblioref">Edgar, 2004</a>)</span>. This algorithm is implemented in <code>MEGA</code>. The input data for this analysis is <code>Vanilla_internal transcribed spacer_2021_02_09_GenBank_seq_msa_input.fasta</code>, which is stored in <code>04_Data_analyses/FASTA/</code>.</li>
 <li>Check and manually edit msa. This will be done in <code>MEGA</code>.</li>
-<li>Infer ML phylogenetic tree based on cleaned msa files. This will be done using the <code>RAxML</code> algorithm (available on a web platform).</li>
+<li>Infer ML phylogenetic tree based on msa file. This will be done using the <code>RAxML</code> algorithm (available on a web platform).</li>
 <li>Visualize phylogenetic tree and interpret results.</li>
 </ol>
 </div>
@@ -1320,7 +1321,7 @@ Figure 4.19: Screenshot showing how to export MUSCLE alignment into a FASTA form
 </p>
 </div>
 <ol start="8" style="list-style-type: decimal">
-<li>Save the file in <code>04_Data_analyses/FASTA/</code> and adjust file name as follows: <code>_GenBank_seq_msa_output.fas</code>. This procedure is shown in Figure <a href="#fig:musclefile">4.20</a>.</li>
+<li>Save the file in <code>04_Data_analyses/FASTA/</code> and adjust file name as follows: <code>_GenBank_seq_msa_output.fasta</code>. This procedure is shown in Figure <a href="#fig:musclefile">4.20</a>. Make sure to have your file extension set as <code>.fasta</code> otherwise you won’t be able to load your file during the <code>RAxML</code> analysis.</li>
 </ol>
 <div class="figure" style="text-align: center"><span id="fig:musclefile"></span>
 <img src="Images/MUSCLEMega_filename.png" alt="Screenshot showing how to save file in MEGA." width="100%" />
@@ -1328,6 +1329,20 @@ Figure 4.19: Screenshot showing how to export MUSCLE alignment into a FASTA form
 Figure 4.20: Screenshot showing how to save file in MEGA.
 </p>
 </div>
+</div>
+<div id="infer-ml-phylogenetic-tree-based-on-msa-file" class="section level3" number="4.9.4">
+<h3><span class="header-section-number">4.9.4</span> Infer ML phylogenetic tree based on msa file</h3>
+<p>The <code>RAxML</code> algorithm will be used to conduct the ML phylogenetic analysis and infer node statistical supports using the bootstrap procedure <span class="citation">(<a href="#ref-RaxML" role="doc-biblioref">Kozlov et al., 2019</a>)</span>. This algorithm has been implemented on a web service platform accessible at this URL:
+- <a href="https://raxml-ng.vital-it.ch/#/" class="uri">https://raxml-ng.vital-it.ch/#/</a></p>
+<p>To perform the ML phylogenetic analysis, please go on the webpage and follow the procedure using default parameters with the exception of the <code>Bootstrapping settings</code>. These have to be set as shown in Figure <a href="#fig:RAxML">4.21</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:RAxML"></span>
+<img src="Images/RAxML_online.png" alt="Screenshot showing Bootstrapping settings for RAxML analysis." width="100%" />
+<p class="caption">
+Figure 4.21: Screenshot showing Bootstrapping settings for RAxML analysis.
+</p>
+</div>
+<p>As input file, please use the output of the <code>MEGA</code> analysis (<code>*_GenBank_seq_msa_output.fasta</code>), which is stored in <code>04_Data_analyses/FASTA/</code>. Finally, don’t forget to provide your email before submitting the analysis. The analysis should take ca. 30 minutes to run. You will receive an email to download results.</p>
+<p>Please save the output files those we will be analyzed in PART3. If you cannot wait, download <code>FigTree</code> and open the <code>.tre</code> file to look at your phylogeny!</p>
 </div>
 </div>
 </div>
@@ -1363,6 +1378,9 @@ Figure 4.20: Screenshot showing how to save file in MEGA.
 </div>
 <div id="ref-Hollingsworth2009" class="csl-entry">
 <span class="smallcaps">Hollingsworth, P.M.</span>, <span class="smallcaps">L.L. Forrest</span>, <span class="smallcaps">J.L. Spouge</span>, <span class="smallcaps">M. Hajibabaei</span>, <span class="smallcaps">S. Ratnasingham</span>, <span class="smallcaps">M. van der Bank</span>, <span class="smallcaps">M.W. Chase</span>, et al. 2009. A DNA barcode for land plants. <em>Proceedings of the National Academy of Sciences</em> 106: 12794–12797. Available at: <a href="https://www.pnas.org/content/106/31/12794">https://www.pnas.org/content/106/31/12794</a>.
+</div>
+<div id="ref-RaxML" class="csl-entry">
+<span class="smallcaps">Kozlov, A.M.</span>, <span class="smallcaps">D. Darriba</span>, <span class="smallcaps">T. Flouri</span>, <span class="smallcaps">B. Morel</span>, and <span class="smallcaps">A. Stamatakis</span>. 2019. <span class="nocase">RAxML-NG: a fast, scalable and user-friendly tool for maximum likelihood phylogenetic inference</span>. <em>Bioinformatics</em> 35: 4453–4455. Available at: <a href="https://doi.org/10.1093/bioinformatics/btz305">https://doi.org/10.1093/bioinformatics/btz305</a>.
 </div>
 <div id="ref-kumar2018mega" class="csl-entry">
 <span class="smallcaps">Kumar, S.</span>, <span class="smallcaps">G. Stecher</span>, <span class="smallcaps">M. Li</span>, <span class="smallcaps">C. Knyaz</span>, and <span class="smallcaps">K. Tamura</span>. 2018. MEGA x: Molecular evolutionary genetics analysis across computing platforms. <em>Molecular biology and evolution</em> 35: 1547–1549.
