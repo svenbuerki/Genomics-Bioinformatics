@@ -576,7 +576,7 @@ Let's have a look at the data downloaded from GenBank:
 ###~~~
 #Load Raw GB query csv file
 ###~~~
-RawGBDat <- read.csv("~/Documents/Class_Genomics&Bioinfo_Spring/DNA_barcoding/04_Data_analyses/CSV/Instructor_files/Vanilla_internal transcribed spacer_2021_02_09_Raw_GenBank.csv", quote = "\"", sep=' ')
+RawGBDat <- read.csv("~/Documents/Class_Genomics&Bioinfo_Spring/DNA_barcoding/04_Data_analyses/CSV/Instructor_files/Vanilla_internal transcribed spacer_2021_02_11_Raw_GenBank.csv", quote = "\"", sep=' ')
 
 #How many DNA sequences did we download from GenBank?
 print(paste0("GenBank query retrieved ", dim(RawGBDat)[1], " DNA sequences."))
@@ -679,7 +679,7 @@ Let's have a look at the tidy data:
 ###~~~
 #Load Raw GB query csv file
 ###~~~
-RawGBDat2 <- read.csv("~/Documents/Class_Genomics&Bioinfo_Spring/DNA_barcoding/04_Data_analyses/CSV/Instructor_files/Vanilla_internal transcribed spacer_2021_02_09_GenBank.csv", quote = "\"", sep=' ')
+RawGBDat2 <- read.csv("~/Documents/Class_Genomics&Bioinfo_Spring/DNA_barcoding/04_Data_analyses/CSV/Instructor_files/Vanilla_internal transcribed spacer_2021_02_11_GenBank.csv", quote = "\"", sep=' ')
 
 #How many DNA sequences did we download from GenBank?
 print(paste0("After cleaning ", dim(RawGBDat2)[1], " DNA sequences remain."))
@@ -696,8 +696,9 @@ In this section, we are focusing on developing an `R` code to format and merge o
 1. Establish a list of all `.seq` files in folder `03_Processed_ITS_data_FASTA/` using `list.files()`.
 2. Open/read files individually using `readLines()`, 
 3. Convert format of `FASTA` file from interleave to sequential.
-4. Merge individual `FASTA` objects using `rbind()`.
-5. Write output `FASTA` object into file using `write.table()`. 
+4. Infer complement and reverse DNA sequences to be aligned with GenBank data. 
+5. Merge individual `FASTA` objects using `rbind()`.
+6. Write output `FASTA` object into file using `write.table()`. 
 
 Please notice that steps 2 to 4 will take place within a `for` loop.
 
@@ -718,8 +719,15 @@ seqOUT <- NULL
 for(i in 1:length(Files)){
   #Read FASTA
   tmp <- readLines(Files[i])
+  #Extract and concatenate DNA sequence
+  DNAseq <- paste(tmp[2:length(tmp)], collapse = '')
+  #Infer complementary sequence
+  DNAseqcomp <- unname(sapply(strsplit(DNAseq,"")[[1]], switch,  "A"="T", "T"="A","G"="C","C"="G"))
+  #Infer reverse and complement sequence (and collapse into one element)
+  DNAseqcomprev <- paste(rev(DNAseqcomp),collapse='')
   #Edit FASTA to have only one object/line (=sequential format)
-  tmp <- paste(tmp[1], paste(tmp[2:length(tmp)], collapse = ''), sep='\n')
+  tmp <- paste(tmp[1], DNAseqcomprev, sep='\n')
+  
   #Merge objects
   seqOUT <- rbind(seqOUT, tmp)
 }
@@ -734,6 +742,7 @@ FileIDfastaSeq <- paste(sp, DNA, gsub("-", "_", Sys.Date()), "msa_input.fasta", 
 write.table(seqOUT, file = 
               paste("04_Data_analyses/FASTA/", 
                     FileIDfastaSeq, sep=''), col.names = F, row.names = F, quote = F)
+
 ```
 
 Please check that the format of your output file is as expected using a text editor (see Figure \@ref(fig:fastaall)).

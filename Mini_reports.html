@@ -1162,6 +1162,7 @@ write.table(gene,
 <li>Establish a list of all <code>.seq</code> files in folder <code>03_Processed_ITS_data_FASTA/</code> using <code>list.files()</code>.</li>
 <li>Open/read files individually using <code>readLines()</code>,</li>
 <li>Convert format of <code>FASTA</code> file from interleave to sequential.</li>
+<li>Infer complement and reverse DNA sequences to be aligned with GenBank data.</li>
 <li>Merge individual <code>FASTA</code> objects using <code>rbind()</code>.</li>
 <li>Write output <code>FASTA</code> object into file using <code>write.table()</code>.</li>
 </ol>
@@ -1182,8 +1183,15 @@ seqOUT &lt;- NULL
 for(i in 1:length(Files)){
   #Read FASTA
   tmp &lt;- readLines(Files[i])
+  #Extract and concatenate DNA sequence
+  DNAseq &lt;- paste(tmp[2:length(tmp)], collapse = &#39;&#39;)
+  #Infer complementary sequence
+  DNAseqcomp &lt;- unname(sapply(strsplit(DNAseq,&quot;&quot;)[[1]], switch,  &quot;A&quot;=&quot;T&quot;, &quot;T&quot;=&quot;A&quot;,&quot;G&quot;=&quot;C&quot;,&quot;C&quot;=&quot;G&quot;))
+  #Infer reverse and complement sequence (and collapse into one element)
+  DNAseqcomprev &lt;- paste(rev(DNAseqcomp),collapse=&#39;&#39;)
   #Edit FASTA to have only one object/line (=sequential format)
-  tmp &lt;- paste(tmp[1], paste(tmp[2:length(tmp)], collapse = &#39;&#39;), sep=&#39;\n&#39;)
+  tmp &lt;- paste(tmp[1], DNAseqcomprev, sep=&#39;\n&#39;)
+  
   #Merge objects
   seqOUT &lt;- rbind(seqOUT, tmp)
 }
