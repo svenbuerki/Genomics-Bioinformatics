@@ -696,7 +696,7 @@ In this section, we are focusing on developing an `R` code to format and merge o
 1. Establish a list of all `.seq` files in folder `03_Processed_ITS_data_FASTA/` using `list.files()`.
 2. Open/read files individually using `readLines()`, 
 3. Convert format of `FASTA` file from interleave to sequential.
-4. Infer complement and reverse DNA sequences to be aligned with GenBank data. 
+4. Infer reverse complement DNA sequences to be formatted in the same manner as GenBank sequences. For more details on this protocol click [here](Images/Reverse_complement_DNA_seq.pdf). 
 5. Merge individual `FASTA` objects using `rbind()`.
 6. Write output `FASTA` object into file using `write.table()`. 
 
