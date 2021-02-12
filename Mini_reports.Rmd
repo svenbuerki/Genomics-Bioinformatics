@@ -419,12 +419,14 @@ knitr::include_graphics("Images/DNAtree.png")
 
 ### Bioinformatic tools
 
-To execute Part 2 you need to install the following software and R packages on your computer:
+To execute Part 2, you need to install the following software and R packages on your computer:
 
 - `R`: https://www.r-project.org
 - `RStudio`: https://rstudio.com
 - `R` package: 
   - *rentrez* [@rentrez]: https://cran.r-project.org/web/packages/rentrez/index.html
+
+If you don't know how to install an R package, don't worry, this topic is covered [here](#query).
 
 ### Analytical workflow 
 
@@ -448,9 +450,19 @@ Here, we are demonstrating an approach to search GenBank for ITS sequences of *V
 
 Before delving into the code, start by creating an `.R` file in `RStudio` and save it in the same working directory as where you want to save the output files (e.g. `DNA_barcoding/04_Data_analyses`).
 
-### Build a GenBank query
+### Build a GenBank query {#query}
  
 ```{r query, eval=F}
+###~~~
+#Check if package is installed if not then install it
+###~~~
+if("rentrez" %in% rownames(installed.packages()) == FALSE){
+  print("Install rentrez")
+  install.packages("rentrez")
+  }else{
+    print("rentrez is installed!")
+}
+
 ###~~~
 #Load package
 ###~~~
@@ -558,11 +570,26 @@ write.table(SEQ,
                   FileIDRawcsv, sep=''), row.names = F, col.names=T, quote = T)
 ```
 
+Let's have a look at the data downloaded from GenBank:
+
+```{r GenBankquerytab, echo=F, eval=T}
+###~~~
+#Load Raw GB query csv file
+###~~~
+RawGBDat <- read.csv("~/Documents/Class_Genomics&Bioinfo_Spring/DNA_barcoding/04_Data_analyses/CSV/Instructor_files/Vanilla_internal transcribed spacer_2021_02_09_Raw_GenBank.csv", quote = "\"", sep=' ')
+
+#How many DNA sequences did we download from GenBank?
+print(paste0("GenBank query retrieved ", dim(RawGBDat)[1], " DNA sequences."))
+
+#Snapshot of matrix
+head(RawGBDat, n=1)
+```
+
 ### Tidy dataset based on meta-data
 
 Here we apply filters to discard DNA sequences that are:
 
-- NEITHER *Vanilla* NOR *ITS*. 
+- Not belonging to the genus *Vanilla* OR to the target DNA barcode (here the ITS region). 
 - Contaminated. Previous analysis showed that the *V. mexicana* ITS sequence is corrupted. We are therefore discarding it from our dataset. 
 - Identified at genus level. Since these sequences cannot be used as reference to identify species and infer relationships with confidence.
 - Either too short (< 500 bp) or too long (>= 1000 bp).
@@ -645,6 +672,22 @@ write.table(gene,
             paste("04_Data_analyses/CSV/", 
                   FileIDcsv, sep=''), row.names = F, col.names=T, quote = T)
 ```
+
+Let's have a look at the tidy data:
+
+```{r GenBankquerytab2, echo=F, eval=T}
+###~~~
+#Load Raw GB query csv file
+###~~~
+RawGBDat2 <- read.csv("~/Documents/Class_Genomics&Bioinfo_Spring/DNA_barcoding/04_Data_analyses/CSV/Instructor_files/Vanilla_internal transcribed spacer_2021_02_09_GenBank.csv", quote = "\"", sep=' ')
+
+#How many DNA sequences did we download from GenBank?
+print(paste0("After cleaning ", dim(RawGBDat2)[1], " DNA sequences remain."))
+
+#Snapshot of matrix
+head(RawGBDat2, n=1)
+```
+
 
 ### Format and merge individual `.seq` files from Part 1 into a `FASTA` file
 
