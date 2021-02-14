@@ -877,5 +877,91 @@ knitr::include_graphics("Images/RAxML_results.png")
     - `result.raxml.bootstraps`: Bootstrap trees in newick format.
     - `result.raxml.support`: Best ML tree (same tree than in `result.raxml.bestTree`) with node supports (inferred from data in `result.raxml.bootstraps`) in newick format.
     - `sequenceAlignment.fasta`: Your input aligned FASTA file. 
-    
+7. You can open `result.raxml.support` in `FigTree` to visualize it and locate the four samples of vanilla from Mexico. We will learn how to process phylogenetic trees in R in the next section.
+
+### Visualize phylogenetic tree and interpret results
+
+#### Introduction to Newick tree format
+
+The Newick Standard for representing trees in computer-readable form makes use of the correspondence between trees and nested parentheses. We owe this format to the British mathematician [Arthur Cayley](https://mathshistory.st-andrews.ac.uk/Biographies/Cayley/). Here we will be providing an overview of the Newick format using the R package *ape* [@ape].
+
+To produce the "dummy" phylogenetic tree displayed in Figure \@ref(fig:intronewick), the following syntax should be applied:
+
+```{r intronewick, eval=T, echo=F, fig.align="center", fig.cap="Rooted tree showing relationsip between 4 species.", fig.show="asis", out.width = '100%', warning=F, error=F}
+###~~~
+#Load package
+###~~~
+library(ape)
+
+#First tree in Newick format
+tr1 <- "(A._speciosa,(B._dimorpha,(C._elegans,D._viridis)));"
+plot(read.tree(text=tr1))
+```
+
+```{r newick, eval=F, echo=T}
+###~~~
+#Check if package is installed if not then install it
+###~~~
+
+if("ape" %in% rownames(installed.packages()) == FALSE){
+  print("Install ape")
+  install.packages("ape")
+  }else{
+    print("ape is installed!")
+}
+
+###~~~
+#Load package
+###~~~
+library(ape)
+
+###~~~
+#Your first tree in Newick format
+###~~~
+tr1 <- "(A._speciosa,(B._dimorpha,(C._elegans,D._viridis)));"
+
+###~~~
+#Plot your tree with ape package
+###~~~
+plot(read.tree(text=tr1))
+```
+
+Some considerations associated to the syntax:
+
+- The tree ends with a semicolon (`;`). 
+- The bottommost node in the tree is an interior node, not a tip. 
+- Interior nodes are represented by a pair of matched parentheses (`()`). Between them are representations of the nodes that are immediately descended from that node, separated by commas (`,`). 
+- Tips (or samples) are represented by their names. A name can be any string of printable characters except blanks, colons, semicolons, parentheses, and square brackets. 
+- Because you may want to include a blank in a tip name, it is assumed that an underscore character (`_`) stands for a blank; any of these in a name will be converted to a blank when it is read in (see code above and Figure \@ref(fig:intronewick) for more details).
+
+Branch lengths can be incorporated into a tree by putting a real number, with or without decimal point, after a node and preceded by a colon (`:`). This represents the length of the branch immediately below that node. Thus, the above tree might have lengths represented as in Figure \@ref(fig:newickbrlens):
+
+```{r newickbrlens, eval=T, echo=T, fig.align="center", fig.cap="Rooted tree showing relationsip between 4 species with branch lengths.", fig.show="asis", out.width = '100%'}
+###~~~
+#Tree in Newick format with branch lengths
+###~~~
+tr2 <- "(A._speciosa:2.0,(B._dimorpha:4.2,(C._elegans:2.0,D._viridis:3.0):1):4.0);"
+
+###~~~
+#Plot your tree with ape package
+###~~~
+plot(read.tree(text=tr2))
+```
+
+Now, we can finally add node supports by simply adding values after each closing parenthesis. This is done as follows and displayed in Figure \@ref(fig:newickbrlensnode):
+
+```{r newickbrlensnode, eval=T, echo=T, fig.align="center", fig.cap="Rooted tree showing relationsip between 4 species with branch lengths and node supports.", fig.show="asis", out.width = '100%'}
+###~~~
+#Tree in Newick format with branch lengths
+###~~~
+tr3 <- "(A._speciosa:2.0,(B._dimorpha:4.2,(C._elegans:2.0,D._viridis:3.0)60:1)90:4.0)100;"
+
+###~~~
+#Plot your tree with ape package
+###~~~
+# Note that to display node labels, we have to set show.node.label = TRUE 
+plot(read.tree(text=tr3), show.node.label = TRUE)
+```
+
+
 # References

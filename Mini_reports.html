@@ -1366,7 +1366,88 @@ Figure 4.22: Screenshot of RAxML portal showing results of your analysis. The be
 <li><code>result.raxml.support</code>: Best ML tree (same tree than in <code>result.raxml.bestTree</code>) with node supports (inferred from data in <code>result.raxml.bootstraps</code>) in newick format.</li>
 <li><code>sequenceAlignment.fasta</code>: Your input aligned FASTA file.</li>
 </ul></li>
+<li>You can open <code>result.raxml.support</code> in <code>FigTree</code> to visualize it and locate the four samples of vanilla from Mexico. We will learn how to process phylogenetic trees in R in the next section.</li>
 </ol>
+</div>
+<div id="visualize-phylogenetic-tree-and-interpret-results" class="section level3" number="4.9.5">
+<h3><span class="header-section-number">4.9.5</span> Visualize phylogenetic tree and interpret results</h3>
+<div id="introduction-to-newick-tree-format" class="section level4" number="4.9.5.1">
+<h4><span class="header-section-number">4.9.5.1</span> Introduction to Newick tree format</h4>
+<p>The Newick Standard for representing trees in computer-readable form makes use of the correspondence between trees and nested parentheses. We owe this format to the British mathematician <a href="https://mathshistory.st-andrews.ac.uk/Biographies/Cayley/">Arthur Cayley</a>. Here we will be providing an overview of the Newick format using the R package <em>ape</em> <span class="citation">(<a href="#ref-ape" role="doc-biblioref">Paradis et al., 2004</a>)</span>.</p>
+<p>To produce the “dummy” phylogenetic tree displayed in Figure <a href="#fig:intronewick">4.23</a>, the following syntax should be applied:</p>
+<div class="figure" style="text-align: center"><span id="fig:intronewick"></span>
+<img src="Mini_reports_files/figure-html/intronewick-1.png" alt="Rooted tree showing relationsip between 4 species." width="100%" />
+<p class="caption">
+Figure 4.23: Rooted tree showing relationsip between 4 species.
+</p>
+</div>
+<pre class="r"><code>###~~~
+#Check if package is installed if not then install it
+###~~~
+
+if(&quot;ape&quot; %in% rownames(installed.packages()) == FALSE){
+  print(&quot;Install ape&quot;)
+  install.packages(&quot;ape&quot;)
+  }else{
+    print(&quot;ape is installed!&quot;)
+}
+
+###~~~
+#Load package
+###~~~
+library(ape)
+
+###~~~
+#Your first tree in Newick format
+###~~~
+tr1 &lt;- &quot;(A._speciosa,(B._dimorpha,(C._elegans,D._viridis)));&quot;
+
+###~~~
+#Plot your tree with ape package
+###~~~
+plot(read.tree(text=tr1))</code></pre>
+<p>Some considerations associated to the syntax:</p>
+<ul>
+<li>The tree ends with a semicolon (<code>;</code>).</li>
+<li>The bottommost node in the tree is an interior node, not a tip.</li>
+<li>Interior nodes are represented by a pair of matched parentheses (<code>()</code>). Between them are representations of the nodes that are immediately descended from that node, separated by commas (<code>,</code>).</li>
+<li>Tips (or samples) are represented by their names. A name can be any string of printable characters except blanks, colons, semicolons, parentheses, and square brackets.</li>
+<li>Because you may want to include a blank in a tip name, it is assumed that an underscore character (<code>_</code>) stands for a blank; any of these in a name will be converted to a blank when it is read in (see code above and Figure <a href="#fig:intronewick">4.23</a> for more details).</li>
+</ul>
+<p>Branch lengths can be incorporated into a tree by putting a real number, with or without decimal point, after a node and preceded by a colon (<code>:</code>). This represents the length of the branch immediately below that node. Thus, the above tree might have lengths represented as in Figure <a href="#fig:newickbrlens">4.24</a>:</p>
+<pre class="r"><code>###~~~
+#Tree in Newick format with branch lengths
+###~~~
+tr2 &lt;- &quot;(A._speciosa:2.0,(B._dimorpha:4.2,(C._elegans:2.0,D._viridis:3.0):1):4.0);&quot;
+
+###~~~
+#Plot your tree with ape package
+###~~~
+plot(read.tree(text=tr2))</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:newickbrlens"></span>
+<img src="Mini_reports_files/figure-html/newickbrlens-1.png" alt="Rooted tree showing relationsip between 4 species with branch lengths." width="100%" />
+<p class="caption">
+Figure 4.24: Rooted tree showing relationsip between 4 species with branch lengths.
+</p>
+</div>
+<p>Now, we can finally add node supports by simply adding values after each closing parenthesis. This is done as follows and displayed in Figure <a href="#fig:newickbrlensnode">4.25</a>:</p>
+<pre class="r"><code>###~~~
+#Tree in Newick format with branch lengths
+###~~~
+tr3 &lt;- &quot;(A._speciosa:2.0,(B._dimorpha:4.2,(C._elegans:2.0,D._viridis:3.0)60:1)90:4.0)100;&quot;
+
+###~~~
+#Plot your tree with ape package
+###~~~
+# Note that to display node labels, we have to set show.node.label = TRUE 
+plot(read.tree(text=tr3), show.node.label = TRUE)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:newickbrlensnode"></span>
+<img src="Mini_reports_files/figure-html/newickbrlensnode-1.png" alt="Rooted tree showing relationsip between 4 species with branch lengths and node supports." width="100%" />
+<p class="caption">
+Figure 4.25: Rooted tree showing relationsip between 4 species with branch lengths and node supports.
+</p>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -1414,6 +1495,12 @@ Figure 4.22: Screenshot of RAxML portal showing results of your analysis. The be
 </div>
 <div id="ref-Masters2017" class="csl-entry">
 <span class="smallcaps">Masters, J.C.</span>, and <span class="smallcaps">L. Pozzi</span>. 2017. Phylogenetic inference. <em>In</em> The international encyclopedia of primatology, 1–6. American Cancer Society. Available at: <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/9781119179313.wbprim0419">https://onlinelibrary.wiley.com/doi/abs/10.1002/9781119179313.wbprim0419</a>.
+</div>
+<div id="ref-ape" class="csl-entry">
+<span class="smallcaps">Paradis, E.</span>, <span class="smallcaps">J. Claude</span>, and <span class="smallcaps">K. Strimmer</span>. 2004. A<span>PE</span>: Analyses of phylogenetics and evolution in <span>R</span> language. <em>Bioinformatics</em> 20: 289–290.
+</div>
+<div id="ref-ape" class="csl-entry">
+<span class="smallcaps">Paradis, E.</span>, <span class="smallcaps">J. Claude</span>, and <span class="smallcaps">K. Strimmer</span>. 2004. A<span>PE</span>: Analyses of phylogenetics and evolution in <span>R</span> language. <em>Bioinformatics</em> 20: 289–290.
 </div>
 <div id="ref-Poplin2018" class="csl-entry">
 <span class="smallcaps">Poplin, R.</span>, <span class="smallcaps">P.-C. Chang</span>, <span class="smallcaps">D. Alexander</span>, <span class="smallcaps">S. Schwartz</span>, <span class="smallcaps">T. Colthurst</span>, <span class="smallcaps">A. Ku</span>, <span class="smallcaps">D. Newburger</span>, et al. 2018. A universal SNP and small-indel variant caller using deep neural networks. <em>Nature Biotechnology</em> 36: 983–987. Available at: <a href="https://doi.org/10.1038/nbt.4235">https://doi.org/10.1038/nbt.4235</a>.
