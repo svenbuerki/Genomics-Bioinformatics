@@ -852,15 +852,30 @@ knitr::include_graphics("Images/MUSCLEMega_filename.png")
 The `RAxML` algorithm will be used to conduct the ML phylogenetic analysis and infer node statistical supports using the bootstrap procedure [@RaxML]. This algorithm has been implemented on a web service platform accessible at this URL:
     - https://raxml-ng.vital-it.ch/#/
 
-To perform the ML phylogenetic analysis, please go on the webpage and follow the procedure using default parameters with the exception of the `Bootstrapping settings`. These have to be set as shown in Figure \@ref(fig:RAxML).
+To perform the ML phylogenetic analysis:
 
-```{r RAxML, echo=FALSE, fig.align="center", fig.cap="Screenshot showing Bootstrapping settings for RAxML analysis.", fig.show="asis", out.width = '100%'}
+1. Go on the [RAxML portal](https://raxml-ng.vital-it.ch/#/).
+2. Select the output of the `MEGA` analysis (`*_GenBank_seq_msa_output.fasta`) stored in `04_Data_analyses/FASTA/` as input data.
+3. For the rest of the settings use default parameters with the exception of the `Bootstrapping settings` (see below). Settings have to be set as shown in Figure \@ref(fig:RAxML).
+
+```{r RAxML, echo=FALSE, fig.align="center", fig.cap="Screenshot showing Bootstrapping settings for the RAxML analysis.", fig.show="asis", out.width = '100%'}
 knitr::include_graphics("Images/RAxML_online.png")
 ```
 
-As input file, please use the output of the `MEGA` analysis (`*_GenBank_seq_msa_output.fasta`), which is stored in `04_Data_analyses/FASTA/`. Finally, don't forget to provide your email before submitting the analysis. The analysis should take ca. 30 minutes to run. You will receive an email to download results. 
+4. Finally, don't forget to provide your email before submitting the analysis. The analysis should take 1-5 hours to run. You will receive an email to download results or you can access results by using your unique URL. 
 
-Please save the output files those we will be analyzed in PART3. If you cannot wait, download `FigTree` and open the `.tre` file to look at your phylogeny!
+5. When your analysis is completed, download results (see Figure \@ref(fig:RAxMLresults)) and save it in `04_Data_analyses/Phylogenetic_analyses/`. 
 
+```{r RAxMLresults, echo=FALSE, fig.align="center", fig.cap="Screenshot of RAxML portal showing results of your analysis. The best ML phylogenetic tree is also displayed.", fig.show="asis", out.width = '100%'}
+knitr::include_graphics("Images/RAxML_results.png")
+```
 
+6. Unzip the file and inspect output files (use a text editor to open files). Descriptions of key files is provided here:
+    - `raxmlArg.txt`: Contains RAxML command line used to conduct analysis.
+    - `result.raxml.bestModel`: Contains estimated parameters for model used for ML analysis.
+    - `result.raxml.bestTree`: Best ML tree in newick format.
+    - `result.raxml.bootstraps`: Bootstrap trees in newick format.
+    - `result.raxml.support`: Best ML tree (same tree than in `result.raxml.bestTree`) with node supports (inferred from data in `result.raxml.bootstraps`) in newick format.
+    - `sequenceAlignment.fasta`: Your input aligned FASTA file. 
+    
 # References

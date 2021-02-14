@@ -11,7 +11,7 @@
 
 <meta name="author" content="Sven Buerki - Boise State University" />
 
-<meta name="date" content="2021-02-12" />
+<meta name="date" content="2021-02-14" />
 
 <title>BIOL 497/597 - Genomics &amp; Bioinformatics</title>
 
@@ -412,7 +412,7 @@ div.tocify {
 <h1 class="title toc-ignore">BIOL 497/597 - Genomics &amp; Bioinformatics</h1>
 <h3 class="subtitle">Mini-reports</h3>
 <h4 class="author">Sven Buerki - Boise State University</h4>
-<h4 class="date">2021-02-12</h4>
+<h4 class="date">2021-02-14</h4>
 
 </div>
 
@@ -1334,15 +1334,39 @@ Figure 4.20: Screenshot showing how to save file in MEGA.
 <h3><span class="header-section-number">4.9.4</span> Infer ML phylogenetic tree based on msa file</h3>
 <p>The <code>RAxML</code> algorithm will be used to conduct the ML phylogenetic analysis and infer node statistical supports using the bootstrap procedure <span class="citation">(<a href="#ref-RaxML" role="doc-biblioref">Kozlov et al., 2019</a>)</span>. This algorithm has been implemented on a web service platform accessible at this URL:
 - <a href="https://raxml-ng.vital-it.ch/#/" class="uri">https://raxml-ng.vital-it.ch/#/</a></p>
-<p>To perform the ML phylogenetic analysis, please go on the webpage and follow the procedure using default parameters with the exception of the <code>Bootstrapping settings</code>. These have to be set as shown in Figure <a href="#fig:RAxML">4.21</a>.</p>
+<p>To perform the ML phylogenetic analysis:</p>
+<ol style="list-style-type: decimal">
+<li>Go on the <a href="https://raxml-ng.vital-it.ch/#/">RAxML portal</a>.</li>
+<li>Select the output of the <code>MEGA</code> analysis (<code>*_GenBank_seq_msa_output.fasta</code>) stored in <code>04_Data_analyses/FASTA/</code> as input data.</li>
+<li>For the rest of the settings use default parameters with the exception of the <code>Bootstrapping settings</code> (see below). Settings have to be set as shown in Figure <a href="#fig:RAxML">4.21</a>.</li>
+</ol>
 <div class="figure" style="text-align: center"><span id="fig:RAxML"></span>
-<img src="Images/RAxML_online.png" alt="Screenshot showing Bootstrapping settings for RAxML analysis." width="100%" />
+<img src="Images/RAxML_online.png" alt="Screenshot showing Bootstrapping settings for the RAxML analysis." width="100%" />
 <p class="caption">
-Figure 4.21: Screenshot showing Bootstrapping settings for RAxML analysis.
+Figure 4.21: Screenshot showing Bootstrapping settings for the RAxML analysis.
 </p>
 </div>
-<p>As input file, please use the output of the <code>MEGA</code> analysis (<code>*_GenBank_seq_msa_output.fasta</code>), which is stored in <code>04_Data_analyses/FASTA/</code>. Finally, don’t forget to provide your email before submitting the analysis. The analysis should take ca. 30 minutes to run. You will receive an email to download results.</p>
-<p>Please save the output files those we will be analyzed in PART3. If you cannot wait, download <code>FigTree</code> and open the <code>.tre</code> file to look at your phylogeny!</p>
+<ol start="4" style="list-style-type: decimal">
+<li><p>Finally, don’t forget to provide your email before submitting the analysis. The analysis should take 1-5 hours to run. You will receive an email to download results or you can access results by using your unique URL.</p></li>
+<li><p>When your analysis is completed, download results (see Figure <a href="#fig:RAxMLresults">4.22</a>) and save it in <code>04_Data_analyses/Phylogenetic_analyses/</code>.</p></li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:RAxMLresults"></span>
+<img src="Images/RAxML_results.png" alt="Screenshot of RAxML portal showing results of your analysis. The best ML phylogenetic tree is also displayed." width="100%" />
+<p class="caption">
+Figure 4.22: Screenshot of RAxML portal showing results of your analysis. The best ML phylogenetic tree is also displayed.
+</p>
+</div>
+<ol start="6" style="list-style-type: decimal">
+<li>Unzip the file and inspect output files (use a text editor to open files). Descriptions of key files is provided here:
+<ul>
+<li><code>raxmlArg.txt</code>: Contains RAxML command line used to conduct analysis.</li>
+<li><code>result.raxml.bestModel</code>: Contains estimated parameters for model used for ML analysis.</li>
+<li><code>result.raxml.bestTree</code>: Best ML tree in newick format.</li>
+<li><code>result.raxml.bootstraps</code>: Bootstrap trees in newick format.</li>
+<li><code>result.raxml.support</code>: Best ML tree (same tree than in <code>result.raxml.bestTree</code>) with node supports (inferred from data in <code>result.raxml.bootstraps</code>) in newick format.</li>
+<li><code>sequenceAlignment.fasta</code>: Your input aligned FASTA file.</li>
+</ul></li>
+</ol>
 </div>
 </div>
 </div>
