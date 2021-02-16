@@ -791,9 +791,8 @@ To execute Part 3, you need to install the following software and R packages on 
 
 - `MEGA` [@kumar2018mega]: Please download the GUI version of the software associated to your operating system at this URL:
     - https://www.megasoftware.net/
-- `FigTree`: https://github.com/rambaut/figtree/releases
-- `R` package: 
-  - *rentrez* [@rentrez]: https://cran.r-project.org/web/packages/rentrez/index.html
+- `FigTree` (a software to visualize and manipulate trees): https://github.com/rambaut/figtree/releases
+- `R` package: *ape* [@ape]
 
 If you don't remember how to install an R package, don't worry, this topic was covered [here](#query).
 
