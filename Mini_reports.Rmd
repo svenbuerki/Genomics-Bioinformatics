@@ -1022,7 +1022,7 @@ Our analyses are divided into seven steps:
 3. Rename tips to facilitate reading. Since all accessions belong to same genus, we will replace *Vanilla* by *V.*.
 4. Root phylogenetic tree with outgroup taxon. Analyses conducted by Paige showed that "1789804116_Vanilla_inodora" is suitable outgroup taxon.
 5. Ladderize and plot phylogenetic tree (Figure \@ref(fig:Vantreeall)). We will also color the tips that are matching your vanilla samples in red.
-6. Extract subtree containing our vanilla samples and plot tree (this time using the radial plotting mode; see Figure \@ref(fig:Vantreesub)). To visualize your vanilla samples we will plot a red circle next to their tips. 
+6. Extract subtree containing our vanilla samples and plot tree (this time using the radial plotting mode; see Figure \@ref(fig:Vantreesub)). To visualize your vanilla samples we will plot a red circle next to their tips and rename them based on Figure \@ref(fig:van). 
 7. Export phylogenetic tree from step 6 in `pdf` format.
 
 ```{r Vantreeall, fig.align="center", fig.cap="RaxML ITS rooted phylogenetic tree of species of Vanilla.", fig.show="asis", out.width = '100%'}
@@ -1080,10 +1080,14 @@ MRCAsamples <- getMRCA(ITS, tip=ITS$tip.label[grep("-ITSp4", ITS$tip.label)])
 #Extract subtree
 VanITS <- extract.clade(ITS, node=MRCAsamples)
 
+#Rename vanilla samples using apply and switch as learned before
+VanITS$tip.label[grep("-ITSp4", VanITS$tip.label)] <- unname(sapply(VanITS$tip.label[grep("-ITSp4", VanITS$tip.label)], switch,  "its25-ITSp4"="PE25", "its50-ITSp4"="PE50","its44-ITSp4"="PE44","its49-ITSp4"="PE49"))
+
 #Color tips: your samples in red
 tipcolVan <- rep("black", length(VanITS$tip.label))
 #Find which tips are your samples and replace color by red 
-tipcolVan[grep("-ITSp4", VanITS$tip.label)] <- "red"
+# ^ means that the search has to begin with PE
+tipcolVan[grep("^PE", VanITS$tip.label)] <- "red"
 
 #Plot tree in radial mode
 plot.phylo(VanITS, cex = .4, use.edge.length = F, tip.color = tipcolVan, type = "radial", label.offset = 0.04, no.margin = TRUE)
