@@ -11,7 +11,7 @@
 
 <meta name="author" content="Sven Buerki - Boise State University" />
 
-<meta name="date" content="2021-02-14" />
+<meta name="date" content="2021-02-15" />
 
 <title>BIOL 497/597 - Genomics &amp; Bioinformatics</title>
 
@@ -412,7 +412,7 @@ div.tocify {
 <h1 class="title toc-ignore">BIOL 497/597 - Genomics &amp; Bioinformatics</h1>
 <h3 class="subtitle">Mini-reports</h3>
 <h4 class="author">Sven Buerki - Boise State University</h4>
-<h4 class="date">2021-02-14</h4>
+<h4 class="date">2021-02-15</h4>
 
 </div>
 
@@ -1432,7 +1432,7 @@ Figure 4.24: Rooted tree showing relationsip between 4 species with branch lengt
 </div>
 <p>Now, we can finally add node supports by simply adding values after each closing parenthesis. This is done as follows and displayed in Figure <a href="#fig:newickbrlensnode">4.25</a>:</p>
 <pre class="r"><code>###~~~
-#Tree in Newick format with branch lengths
+#Tree in Newick format with branch lengths and node supports
 ###~~~
 tr3 &lt;- &quot;(A._speciosa:2.0,(B._dimorpha:4.2,(C._elegans:2.0,D._viridis:3.0)60:1)90:4.0)100;&quot;
 
@@ -1446,6 +1446,176 @@ plot(read.tree(text=tr3), show.node.label = TRUE)</code></pre>
 <p class="caption">
 Figure 4.25: Rooted tree showing relationsip between 4 species with branch lengths and node supports.
 </p>
+</div>
+</div>
+<div id="phylo-class-and-phylogenetic-tree-in-r" class="section level4" number="4.9.5.2">
+<h4><span class="header-section-number">4.9.5.2</span> <code>phylo</code> class and phylogenetic tree in R</h4>
+<p>Here, we will be introducing the <code>phylo</code> class implemented in R packages dealing with phylogenetic analyses. To study this topic, we will be using the phylogenetic tree with branch lengths and node supports (see Figure <a href="#fig:newickbrlensnode">4.25</a>).</p>
+<pre class="r"><code>###~~~
+#Tree in Newick format with branch lengths and node supports
+###~~~
+tr3 &lt;- &quot;(A._speciosa:2.0,(B._dimorpha:4.2,(C._elegans:2.0,D._viridis:3.0)60:1)90:4.0)100;&quot;
+
+###~~~
+#Create and load tree
+###~~~
+tr &lt;- ape::read.tree(text=tr3)
+tr</code></pre>
+<pre><code>## 
+## Phylogenetic tree with 4 tips and 3 internal nodes.
+## 
+## Tip labels:
+##   A._speciosa, B._dimorpha, C._elegans, D._viridis
+## Node labels:
+##   100, 90, 60
+## 
+## Rooted; includes branch lengths.</code></pre>
+<pre class="r"><code>###~~~
+#Check class
+###~~~
+class(tr)</code></pre>
+<pre><code>## [1] &quot;phylo&quot;</code></pre>
+<p><code>phylo</code> class objects (here <code>tr</code>) are lists allowing to access multiple attributes associated to the phylogenetic tree. Three of these lists are especially useful to us:</p>
+<ul>
+<li><code>tr$tip.label</code>: Vector with tip labels.</li>
+<li><code>tr$node.label</code>: Vector with node labels.</li>
+<li><code>tr$edge.length</code>: Vector with branch lengths.</li>
+</ul>
+<p>Here, are the details with our example:</p>
+<pre class="r"><code>###~~~
+#To access tip labels
+###~~~
+tr$tip.label</code></pre>
+<pre><code>## [1] &quot;A._speciosa&quot; &quot;B._dimorpha&quot; &quot;C._elegans&quot;  &quot;D._viridis&quot;</code></pre>
+<pre class="r"><code>###~~~
+#To access node labels
+###~~~
+tr$node.label</code></pre>
+<pre><code>## [1] &quot;100&quot; &quot;90&quot;  &quot;60&quot;</code></pre>
+<pre class="r"><code>###~~~
+#To access branch lengths
+###~~~
+tr$edge.length</code></pre>
+<pre><code>## [1] 2.0 4.0 4.2 1.0 2.0 3.0</code></pre>
+</div>
+<div id="vanilla-phylogenetic-tree" class="section level4" number="4.9.5.3">
+<h4><span class="header-section-number">4.9.5.3</span> Vanilla phylogenetic tree</h4>
+<p>In this section, we will be analyzing the output of the RAxML analysis focusing on <code>result.raxml.support</code>, which contains the phylogenetic tree with node supports (here obtained through the bootstrap method). The file is stored in <code>04_Data_analyses/Phylogenetic_analysis/result_raxml_45818</code>.</p>
+<p>Our analyses are divided into seven steps:</p>
+<ol style="list-style-type: decimal">
+<li>Load ITS tree using <em>read.tree</em>.</li>
+<li>Discard bootstrap values &lt; 50% since these nodes are not statistically supported. This is done by finding nodes matching this criterion (in <code>ITS$node.label</code>) and replacing their values by nothing (<code>""</code>).</li>
+<li>Rename tips to facilitate reading. Since all accessions belong to same genus, we will replace <em>Vanilla</em> by <em>V.</em>.</li>
+<li>Root phylogenetic tree with outgroup taxon. Analyses conducted by Paige showed that “1789804116_Vanilla_inodora” is suitable outgroup taxon.</li>
+<li>Ladderize and plot phylogenetic tree (Figure <a href="#fig:Vantreeall">4.26</a>). We will also color the tips that are matching your vanilla samples in red.</li>
+<li>Extract subtree containing our vanilla samples and plot tree (this time using the radial plotting mode; see Figure <a href="#fig:Vantreesub">4.27</a>). To visualize your vanilla samples we will plot a red circle next to their tips.</li>
+<li>Export phylogenetic tree from step 6 in <code>pdf</code> format.</li>
+</ol>
+<pre class="r"><code>###~~~
+#1. Load Vanilla RAxML ITS tree
+###~~~
+#Please adjust path based on your computer
+ITS &lt;- read.tree(file=&quot;Data/04_Data_analyses/Phylogenetic_analyses/result_raxml_45818/result.raxml.support&quot;)
+
+###~~~
+#2. Discard bootstrap values &lt; 50%
+###~~~
+#Find nodes with low statistical supports
+ITS$node.label[which(as.numeric(ITS$node.label) &lt; 50)]</code></pre>
+<pre><code>##  [1] &quot;17&quot; &quot;12&quot; &quot;14&quot; &quot;10&quot; &quot;4&quot;  &quot;1&quot;  &quot;3&quot;  &quot;11&quot; &quot;3&quot;  &quot;1&quot;  &quot;1&quot;  &quot;1&quot;  &quot;1&quot;  &quot;4&quot;  &quot;25&quot;
+## [16] &quot;3&quot;  &quot;0&quot;  &quot;0&quot;  &quot;3&quot;  &quot;3&quot;  &quot;43&quot; &quot;10&quot; &quot;1&quot;  &quot;1&quot;  &quot;0&quot;  &quot;4&quot;  &quot;11&quot; &quot;42&quot; &quot;48&quot; &quot;41&quot;
+## [31] &quot;40&quot; &quot;24&quot; &quot;42&quot; &quot;49&quot; &quot;45&quot; &quot;8&quot;  &quot;0&quot;  &quot;0&quot;  &quot;0&quot;  &quot;0&quot;  &quot;0&quot;  &quot;0&quot;  &quot;0&quot;  &quot;0&quot;  &quot;0&quot; 
+## [46] &quot;0&quot;  &quot;0&quot;  &quot;0&quot;  &quot;0&quot;  &quot;0&quot;  &quot;0&quot;  &quot;1&quot;  &quot;11&quot; &quot;48&quot; &quot;14&quot; &quot;18&quot; &quot;33&quot; &quot;44&quot; &quot;20&quot; &quot;15&quot;
+## [61] &quot;26&quot; &quot;24&quot; &quot;10&quot; &quot;5&quot;  &quot;41&quot; &quot;46&quot; &quot;20&quot; &quot;19&quot; &quot;38&quot; &quot;42&quot; &quot;28&quot; &quot;13&quot; &quot;2&quot;</code></pre>
+<pre class="r"><code>#Replace/overwrite values by &quot;&quot;
+ITS$node.label[which(as.numeric(ITS$node.label) &lt; 50)] &lt;- &quot;&quot;
+
+###~~~
+#3. Rename tips: Vanilla by V.
+###~~~
+#Replace/overwrite values
+ITS$tip.label &lt;- gsub(&quot;Vanilla&quot;, &quot;V.&quot;, ITS$tip.label)
+
+###~~~
+#4. Root phylogenetic tree with outgroup taxon
+###~~~
+#Re-root tree with suitable sample
+ITS &lt;- root(ITS, outgroup = &quot;1789804116_V._inodora&quot;, resolve.root=T)
+#This procedure add a node label &quot;Root&quot;, which needs to be discarded.
+ITS$node.label[which(ITS$node.label == &quot;Root&quot;)] &lt;- &quot;&quot;
+
+###~~~
+#5. Ladderize and plot tree by sorting nodes
+###~~~
+#Ladderize
+ITS &lt;- ladderize(ITS)
+
+#Color tips: your samples in red
+tipcol &lt;- rep(&quot;black&quot;, length(ITS$tip.label))
+#Find which tips are your samples and replace color by red 
+tipcol[grep(&quot;-ITSp4&quot;, ITS$tip.label)] &lt;- &quot;red&quot;
+
+#Plot
+plot.phylo(ITS, cex=.3, tip.color = tipcol, show.node.label = TRUE, align.tip.label = T, no.margin = TRUE)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:Vantreeall"></span>
+<img src="Mini_reports_files/figure-html/Vantreeall-1.png" alt="RaxML ITS rooted phylogenetic tree of species of Vanilla." width="100%" />
+<p class="caption">
+Figure 4.26: RaxML ITS rooted phylogenetic tree of species of Vanilla.
+</p>
+</div>
+<pre class="r"><code>###~~~
+#6. Extract subtree and plot tree
+###~~~
+#Find node corresponding to MRCA of our vanilla samples
+MRCAsamples &lt;- getMRCA(ITS, tip=ITS$tip.label[grep(&quot;-ITSp4&quot;, ITS$tip.label)])
+
+#Extract subtree
+VanITS &lt;- extract.clade(ITS, node=MRCAsamples)
+
+#Color tips: your samples in red
+tipcolVan &lt;- rep(&quot;black&quot;, length(VanITS$tip.label))
+#Find which tips are your samples and replace color by red 
+tipcolVan[grep(&quot;-ITSp4&quot;, VanITS$tip.label)] &lt;- &quot;red&quot;
+
+#Plot tree in radial mode
+plot.phylo(VanITS, cex = .4, use.edge.length = F, tip.color = tipcolVan, type = &quot;radial&quot;, label.offset = 0.04, no.margin = TRUE)
+#Add bootstrap supports
+nodelabels(text = VanITS$node.label, adj = c(0.5,0.5), frame = &quot;none&quot;, cex = 0.5)
+#Add circles next to your vanilla samples
+tiplabels(tip = grep(&quot;-ITSp4&quot;, VanITS$tip.label), pch = 16, col = &quot;red&quot;, offset = 0.02)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:Vantreesub"></span>
+<img src="Mini_reports_files/figure-html/Vantreesub-1.png" alt="RAxML ITS phylogenetic tree with focus on clade containing all accessions of vanilla studied here." width="100%" />
+<p class="caption">
+Figure 4.27: RAxML ITS phylogenetic tree with focus on clade containing all accessions of vanilla studied here.
+</p>
+</div>
+<pre class="r"><code>###~~~
+#7. Export tree from step 6 in pdf format 
+###~~~
+#Use the pdf function to create pdf
+pdf(&quot;Data/04_Data_analyses/Phylogenetic_analyses/result_raxml_45818/VanSubTree.pdf&quot;)
+#Plot tree in radial mode
+plot.phylo(VanITS, cex = .4, use.edge.length = F, tip.color = tipcolVan, type = &quot;radial&quot;, label.offset = 0.04, no.margin = TRUE)
+#Add bootstrap supports
+nodelabels(text = VanITS$node.label, adj = c(0.5,0.5), frame = &quot;none&quot;, cex = 0.5)
+#Add circles next to your vanilla samples
+tiplabels(tip = grep(&quot;-ITSp4&quot;, VanITS$tip.label), pch = 16, col = &quot;red&quot;, offset = 0.02)
+#This function closes the pdf
+dev.off()</code></pre>
+<pre><code>## quartz_off_screen 
+##                 2</code></pre>
+<p>Click on the button below to inspect the <em>Vanilla</em> subtree in <code>pdf</code> format. Ask yourself this question:</p>
+<blockquote>
+<p>What species do the samples of vanilla analyzed here belong to (see Figure <a href="#fig:van">4.2</a>)?</p>
+</blockquote>
+<button class="btn btn-primary" data-toggle="collapse" data-target="#VanSub">
+Vanilla subtree
+</button>
+<div id="VanSub" class="collapse">
+<object data="Data/04_Data_analyses/Phylogenetic_analyses/result_raxml_45818/VanSubTree.pdf" width="750px" height="750px">
+<embed src="Data/04_Data_analyses/Phylogenetic_analyses/result_raxml_45818/VanSubTree.pdf">
+</embed>
+</object>
 </div>
 </div>
 </div>
@@ -1566,7 +1736,7 @@ $(document).ready(function ()  {
 
     // establish options
     var options = {
-      selectors: "h1,h2,h3",
+      selectors: "h1,h2,h3,h4",
       theme: "bootstrap3",
       context: '.toc-content',
       hashGenerator: function (text) {
