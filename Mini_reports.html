@@ -1201,7 +1201,7 @@ for(i in 1:length(Files)){
   #Infer complementary sequence
   DNAseqcomp &lt;- unname(sapply(strsplit(DNAseq,&quot;&quot;)[[1]], switch,  &quot;A&quot;=&quot;T&quot;, &quot;T&quot;=&quot;A&quot;,&quot;G&quot;=&quot;C&quot;,&quot;C&quot;=&quot;G&quot;))
   #Infer reverse and complement sequence (and collapse into one element)
-  DNAseqcomprev &lt;- paste(rev(DNAseqcomp),collapse=&#39;&#39;)
+  DNAseqcomprev &lt;- paste(rev(DNAseqcomp), collapse=&#39;&#39;)
   #Edit FASTA to have only one object/line (=sequential format)
   tmp &lt;- paste(tmp[1], DNAseqcomprev, sep=&#39;\n&#39;)
   
@@ -1403,6 +1403,16 @@ if(&quot;ape&quot; %in% rownames(installed.packages()) == FALSE){
 #Load package
 ###~~~
 library(ape)
+
+###~~~
+#Set working directory
+###~~~
+#Set working directory to path leading to DNA_barcoding folder
+# WARNING: This path as to be adapted to match your computer
+setwd(&quot;~/Documents/Class_Genomics&amp;Bioinfo_Spring/DNA_barcoding/&quot;)
+
+#Check that working directory is set correctly
+getwd()
 
 ###~~~
 #Your first tree in Newick format
