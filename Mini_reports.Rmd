@@ -113,7 +113,7 @@ Each student was assigned a molecular database to work on (please see [Google sp
 
 The assignment is mandatory and will be graded. Please see this task as an opportunity to consolidate your knowledge on molecular databases and writing scientific reports.   
 
-Time will be allocated in class on the 10th of February 2021 to allow students to work on their assignments. Reports are due on **the 19th of February 2021** and should be uploaded on the shared [Google Drive](https://drive.google.com/drive/folders/1BFZFJeR8tW8N7QLfngqIVbjqEkDuIyWj?usp=sharing) in the `Mini_Reports` folder.
+Time will be allocated in class on the 10th of February 2021 to allow students to work on their assignments. Reports are due on **the 19th of February 2021** and should be uploaded on the shared [Google Drive](https://drive.google.com/drive/folders/1BFZFJeR8tW8N7QLfngqIVbjqEkDuIyWj?usp=sharing) in the `Mini_Report_2` folder.
 
 ## Structure of mini-reports {#structure2}
 
@@ -444,7 +444,7 @@ Protocols associated to each step within the workflow are detailed below.
 
 Here, we are demonstrating an approach to search GenBank for ITS sequences of *Vanilla* species using *rentrez* [@rentrez]. Students are tasked to study/examine and execute the code and finally adapt it to search for ITS sequences. The code is subdivided into the following steps:
 
-1. Build a GenBank query.
+1. Build a GenBank query. But prior to that we will load R package and set our working directory.
 2. Retrieve DNA sequences matching query deposited on GenBank.
 3. Fetch meta-data associated to sequences.
 4. Tidy dataset based on meta-data.
@@ -469,6 +469,16 @@ if("rentrez" %in% rownames(installed.packages()) == FALSE){
 #Load package
 ###~~~
 library(rentrez)
+
+###~~~
+#Set working directory
+###~~~
+#Set working directory to path leading to DNA_barcoding folder
+# WARNING: This path as to be adapted to match your computer
+setwd("~/Documents/Class_Genomics&Bioinfo_Spring/DNA_barcoding/")
+
+#Check that working directory is set correctly
+getwd()
 
 ###~~~
 #Build a query
@@ -792,7 +802,7 @@ To execute Part 3, you need to install the following software and R packages on 
 - `MEGA` [@kumar2018mega]: Please download the GUI version of the software associated to your operating system at this URL:
     - https://www.megasoftware.net/
 - `FigTree` (a software to visualize and manipulate trees): https://github.com/rambaut/figtree/releases
-- `R` package: *ape* [@ape]
+- `R` package: *ape* [@ape].
 
 If you don't remember how to install an R package, don't worry, this topic was covered [here](#query).
 

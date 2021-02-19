@@ -11,7 +11,7 @@
 
 <meta name="author" content="Sven Buerki - Boise State University" />
 
-<meta name="date" content="2021-02-16" />
+<meta name="date" content="2021-02-19" />
 
 <title>BIOL 497/597 - Genomics &amp; Bioinformatics</title>
 
@@ -412,7 +412,7 @@ div.tocify {
 <h1 class="title toc-ignore">BIOL 497/597 - Genomics &amp; Bioinformatics</h1>
 <h3 class="subtitle">Mini-reports</h3>
 <h4 class="author">Sven Buerki - Boise State University</h4>
-<h4 class="date">2021-02-16</h4>
+<h4 class="date">2021-02-19</h4>
 
 </div>
 
@@ -507,7 +507,7 @@ Data on Nanopore
 <h2><span class="header-section-number">3.1</span> Background information</h2>
 <p>Each student was assigned a molecular database to work on (please see <a href="https://docs.google.com/spreadsheets/d/1cRM1yasUfDa98ecyz_-RxUOw8cU4wkQx4O5Wxw3y4yU/edit?usp=sharing">Google spreadsheet</a> for more information).</p>
 <p>The assignment is mandatory and will be graded. Please see this task as an opportunity to consolidate your knowledge on molecular databases and writing scientific reports.</p>
-<p>Time will be allocated in class on the 10th of February 2021 to allow students to work on their assignments. Reports are due on <strong>the 19th of February 2021</strong> and should be uploaded on the shared <a href="https://drive.google.com/drive/folders/1BFZFJeR8tW8N7QLfngqIVbjqEkDuIyWj?usp=sharing">Google Drive</a> in the <code>Mini_Reports</code> folder.</p>
+<p>Time will be allocated in class on the 10th of February 2021 to allow students to work on their assignments. Reports are due on <strong>the 19th of February 2021</strong> and should be uploaded on the shared <a href="https://drive.google.com/drive/folders/1BFZFJeR8tW8N7QLfngqIVbjqEkDuIyWj?usp=sharing">Google Drive</a> in the <code>Mini_Report_2</code> folder.</p>
 </div>
 <div id="structure2" class="section level2" number="3.2">
 <h2><span class="header-section-number">3.2</span> Structure of mini-reports</h2>
@@ -936,7 +936,7 @@ Figure 4.13: Position of your DNA sequence on tree.
 <h3><span class="header-section-number">4.8.3</span> Download and write DNA sequences and retrieve taxonomy</h3>
 <p>Here, we are demonstrating an approach to search GenBank for ITS sequences of <em>Vanilla</em> species using <em>rentrez</em> <span class="citation">(<a href="#ref-rentrez" role="doc-biblioref">Winter, 2017</a>)</span>. Students are tasked to study/examine and execute the code and finally adapt it to search for ITS sequences. The code is subdivided into the following steps:</p>
 <ol style="list-style-type: decimal">
-<li>Build a GenBank query.</li>
+<li>Build a GenBank query. But prior to that we will load R package and set our working directory.</li>
 <li>Retrieve DNA sequences matching query deposited on GenBank.</li>
 <li>Fetch meta-data associated to sequences.</li>
 <li>Tidy dataset based on meta-data.</li>
@@ -960,6 +960,16 @@ if(&quot;rentrez&quot; %in% rownames(installed.packages()) == FALSE){
 #Load package
 ###~~~
 library(rentrez)
+
+###~~~
+#Set working directory
+###~~~
+#Set working directory to path leading to DNA_barcoding folder
+# WARNING: This path as to be adapted to match your computer
+setwd(&quot;~/Documents/Class_Genomics&amp;Bioinfo_Spring/DNA_barcoding/&quot;)
+
+#Check that working directory is set correctly
+getwd()
 
 ###~~~
 #Build a query
@@ -1255,7 +1265,7 @@ write.table(FASTAall, file =
 <li><a href="https://www.megasoftware.net/" class="uri">https://www.megasoftware.net/</a></li>
 </ul></li>
 <li><code>FigTree</code> (a software to visualize and manipulate trees): <a href="https://github.com/rambaut/figtree/releases" class="uri">https://github.com/rambaut/figtree/releases</a></li>
-<li><code>R</code> package: <em>ape</em> <span class="citation">(<a href="#ref-ape" role="doc-biblioref">Paradis et al., 2004</a>)</span></li>
+<li><code>R</code> package: <em>ape</em> <span class="citation">(<a href="#ref-ape" role="doc-biblioref">Paradis et al., 2004</a>)</span>.</li>
 </ul>
 <p>If you don’t remember how to install an R package, don’t worry, this topic was covered <a href="#query">here</a>.</p>
 </div>
