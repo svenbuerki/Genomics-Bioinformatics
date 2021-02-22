@@ -259,7 +259,7 @@ knitr::include_graphics("Images/ITS.png")
 
 DNA extractions of leaf material were conducted at BSU using the Qiagen Plant Mini kit followed by PCR amplifications using plant specific primers [for instance, the IT4p and ITS5p primers for the ITS region; see @Cheng2016]. Sequencing was outsourced to [GENEWIZ](https://www.genewiz.com) and performed using Sanger sequencing technology. PCR amplicons/fragments were only sequenced using forward primers. As per provider, we are expecting high quality DNA sequencing read lengths of up to ca. 1000 bases. The company also mentions that a typical read would provide 800 bases with Phred score of 20.
 
-## Scientific questions associated to the mini-report
+## Scientific questions associated to the mini-report {#sciq}
 
 For this assignment, students will investigate the following questions:
 
@@ -281,11 +281,49 @@ Throughout this project, we will be referring to these vanilla samples/individua
 
 Analyses for this report are subdivided into three parts:
 
-- **Part 1 (Wed 9th Feb.):** Process and clean ITS DNA sequence electropherograms and infer species working hypothesis.
-- **Part 2 (Fri 12th Feb.):** DNA sequence retrieval and prepare data for analyses.
-- **Part 3 (Wed 17th Feb.):** DNA multiple sequence alignment and phylogenetic inference.
+- **Part 1:** Process and clean ITS DNA sequence electropherograms and infer species working hypothesis.
+- **Part 2:** DNA sequence retrieval and prepare data for analyses.
+- **Part 3:** DNA multiple sequence alignment and phylogenetic inference.
 
-**Individual reports are due on Wed 10th of March at 5 PM** (on Google Drive). More details on the structure and formatting of the report will be provided soon.
+Please see the [Timetable](https://svenbuerki.github.io/Genomics-Bioinformatics/index.html#21_Timetable) for more details on the schedule. 
+
+**Individual reports are due on Wed 10th of March at 5 PM** (on Google Drive). Please see section \@ref(report) for more details.
+
+## Writing your report {#report}
+
+The instructor provides below information to complete the Mini-Report 3. All the material, data, code and references required to complete this report are provided here and were studies in class. In this context, students will have to focus on formatting their reports following guideline presented here as well as making sure that their `R` code is working and ready to be shared. 
+
+### Apply the IMRAD format and supply R code
+
+Your reports will be structured and organized following the **IMMRAD** format: **I**ntroduction, **M**aterial & **M**ethods, **R**esults, and **D**iscussion. This format is widely used to report experimental research in many scientific disciplines. In addition, you will be complementing your reports with an **Abstract** (see below). Finally, since this research relies heavily on bioinformatics, students will complete their reports by supplying their commented `R` scripts. 
+
+### Structure of the Mini-Report 3
+
+The instructor provides guidance on content for each section of your individual reports:
+
+1. **Title & author**: Please supply a first page containing the title and author information.
+2. **Abstract**: Provide a short text summarizing the i) objective(s), ii) methods (incl. sampling), iii) most important results and iv) major conclusions and significance of your research (maximum: 300 words).
+3. **Introduction**: Summarize challenges associated to biodiversity research and benefit of DNA barcoding approach in tackling those issues (e.g. by rapidly identifying species, this approach supports species descriptions, monitoring and development of conservation strategies). Then, move on to talk about vanilla, your model organism, and provide the scientific questions investigated in this report (see section \@ref(sciq)). Finally, finish this section with an overview of the applied methodology used to answer your questions.
+4. **Material & Methods**: This section should be subdivided into four subsections. Subsections a. and b. are associated to wet-lab analyses, whereas subsections c. and d. correspond to bioinformatic analyses. Please, make sure to cite references supporting your methods and report used bioinformatic tools (incl. references) together with their applied settings. Finally, you can also refer to your `R` code for further details. The subsections are as follows:
+    a. Sampling (see section \@ref(sciq)).
+    b. DNA extraction and sequencing (see section \@ref(vanbarcode)).
+    c. BLAST analysis.
+    d. Phylogenetic inference.  
+ 
+5. **Results**: Results should be presented in the same order as presented in the Material & Methods section. Tables, Figures and code are reported in this section (by directly embedding them in the text and providing captions). To speed-up the writing of this report, you don't have to report on results associated to Sampling (a.) and DNA extraction and sequencing (b.) subsections, but rather focus on the BLAST analysis (c.) and phylogenetic inference (d.) subsections.  
+6. **Discussion**: In your discussion, we are expecting you to collate all the evidence presented in the study to answer your scientific questions. In this context, please subdivide this section into three subsections named as follows:
+    a. To what species of vanilla do the individuals studied here belong to?
+    b. How are those individuals related to each other?
+    c. Conclusions and Perspectives. 
+7. **References**: Add a references section containing full citations of references cited in the text. Students can pick their preferred citation format, but references need to be consistently edited in the same fashion.
+8. **Appendix**: Your `R` code has to be provided as an Appendix either by directly coping your code in the main document under this section or by providing the name and location of the `R` script in the Appendix section (e.g. by providing a text similar to this: "All the R code associated to this research can be downloaded at this path."). 
+
+### Submission & deadline
+
+Individual reports should be submitted in either Google Docs, Word or Rmarkdown formats (and if you decide to submit an additional file containing your R script, submit this file as an `.R` format). These files should be uploaded on the shared Google Drive in the `Mini_Report_3` folder. Name your report documents following this pattern: `Mini_Report_3_Surname`.
+
+**Upload your reports on the shared Google drive by the 10th of March before 5 PM.** 
+
 
 ## Data and project structure
 
