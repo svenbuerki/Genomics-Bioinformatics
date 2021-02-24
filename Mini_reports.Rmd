@@ -1151,7 +1151,7 @@ ape::plot.phylo(VanITS, cex = .4, use.edge.length = F, tip.color = tipcolVan, ty
 #Add bootstrap supports
 ape::nodelabels(text = VanITS$node.label, adj = c(0.5,0.5), frame = "none", cex = 0.5)
 #Add circles next to your vanilla samples
-ape::tiplabels(tip = grep("-ITSp4", VanITS$tip.label), pch = 16, col = "red", offset = 0.02)
+ape::tiplabels(tip = grep("^PE", VanITS$tip.label), pch = 16, col = "red", offset = 0.02)
 ```
 
 ```{r}
@@ -1165,7 +1165,7 @@ ape::plot.phylo(VanITS, cex = .4, use.edge.length = F, tip.color = tipcolVan, ty
 #Add bootstrap supports
 ape::nodelabels(text = VanITS$node.label, adj = c(0.5,0.5), frame = "none", cex = 0.5)
 #Add circles next to your vanilla samples
-ape::tiplabels(tip = grep("-ITSp4", VanITS$tip.label), pch = 16, col = "red", offset = 0.02)
+ape::tiplabels(tip = grep("^PE", VanITS$tip.label), pch = 16, col = "red", offset = 0.02)
 #This function closes the pdf
 dev.off()
 ```
