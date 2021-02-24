@@ -981,7 +981,7 @@ tr1 <- "(A._speciosa,(B._dimorpha,(C._elegans,D._viridis)));"
 ###~~~
 #Plot your tree with ape package
 ###~~~
-plot(read.tree(text=tr1))
+plot(ape::read.tree(text=tr1))
 ```
 
 Some considerations associated to the syntax:
@@ -1003,7 +1003,7 @@ tr2 <- "(A._speciosa:2.0,(B._dimorpha:4.2,(C._elegans:2.0,D._viridis:3.0):1):4.0
 ###~~~
 #Plot your tree with ape package
 ###~~~
-plot(read.tree(text=tr2))
+plot(ape::read.tree(text=tr2))
 ```
 
 Now, we can finally add node supports by simply adding values after each closing parenthesis. This is done as follows and displayed in Figure \@ref(fig:newickbrlensnode):
@@ -1018,7 +1018,7 @@ tr3 <- "(A._speciosa:2.0,(B._dimorpha:4.2,(C._elegans:2.0,D._viridis:3.0)60:1)90
 #Plot your tree with ape package
 ###~~~
 # Note that to display node labels, we have to set show.node.label = TRUE 
-plot(read.tree(text=tr3), show.node.label = TRUE)
+plot(ape::read.tree(text=tr3), show.node.label = TRUE)
 ```
 
 #### `phylo` class and phylogenetic tree in R
@@ -1074,12 +1074,12 @@ In this section, we will be analyzing the output of the RAxML analysis focusing 
 
 Our analyses are divided into seven steps:
 
-1. Load ITS tree using *read.tree*.
+1. Load ITS tree using the *ape::read.tree()* function.
 2. Discard bootstrap values < 50% since these nodes are not statistically supported. This is done by finding nodes matching this criterion (in `ITS$node.label`) and replacing their values by nothing (`""`).
 3. Rename tips to facilitate reading. Since all accessions belong to same genus, we will replace *Vanilla* by *V.*.
-4. Root phylogenetic tree with outgroup taxon. Analyses conducted by Paige showed that "1789804116_Vanilla_inodora" is suitable outgroup taxon.
-5. Ladderize and plot phylogenetic tree (Figure \@ref(fig:Vantreeall)). We will also color the tips that are matching your vanilla samples in red.
-6. Extract subtree containing our vanilla samples and plot tree (this time using the radial plotting mode; see Figure \@ref(fig:Vantreesub)). To visualize your vanilla samples we will plot a red circle next to their tips and rename them based on Figure \@ref(fig:van). 
+4. Root phylogenetic tree with outgroup taxon (using the *ape::root()* function). Analyses conducted by Paige showed that *Vanilla inodora* (represented by the sample `1789804116_Vanilla_inodora`) is a suitable outgroup taxon.
+5. Ladderize and plot phylogenetic tree (using *ape::ladderize()* and *ape::plot.phylo()* functions; see Figure \@ref(fig:Vantreeall)). We will also color in red the tips associated to your vanilla samples.
+6. Extract subtree containing our vanilla samples (using *ape::getMRCA()* and *ape::extract.clade()* functions) and plot tree (this time using the radial plotting mode; see Figure \@ref(fig:Vantreesub)). To visualize your vanilla samples we will plot a red circle next to their tips (using the *ape::tiplabels()* function) and rename them based on Figure \@ref(fig:van). 
 7. Export phylogenetic tree from step 6 in `pdf` format.
 
 ```{r Vantreeall, fig.align="center", fig.cap="RaxML ITS rooted phylogenetic tree of species of Vanilla.", fig.show="asis", out.width = '100%'}
@@ -1087,7 +1087,7 @@ Our analyses are divided into seven steps:
 #1. Load Vanilla RAxML ITS tree
 ###~~~
 #Please adjust path based on your computer
-ITS <- read.tree(file="Data/04_Data_analyses/Phylogenetic_analyses/result_raxml_45818/result.raxml.support")
+ITS <- ape::read.tree(file="Data/04_Data_analyses/Phylogenetic_analyses/result_raxml_45818/result.raxml.support")
 
 ###~~~
 #2. Discard bootstrap values < 50%
@@ -1107,7 +1107,7 @@ ITS$tip.label <- gsub("Vanilla", "V.", ITS$tip.label)
 #4. Root phylogenetic tree with outgroup taxon
 ###~~~
 #Re-root tree with suitable sample
-ITS <- root(ITS, outgroup = "1789804116_V._inodora", resolve.root=T)
+ITS <- ape::root(ITS, outgroup = "1789804116_V._inodora", resolve.root=T)
 #This procedure add a node label "Root", which needs to be discarded.
 ITS$node.label[which(ITS$node.label == "Root")] <- ""
 
@@ -1115,7 +1115,7 @@ ITS$node.label[which(ITS$node.label == "Root")] <- ""
 #5. Ladderize and plot tree by sorting nodes
 ###~~~
 #Ladderize
-ITS <- ladderize(ITS)
+ITS <- ape::ladderize(ITS)
 
 #Color tips: your samples in red
 tipcol <- rep("black", length(ITS$tip.label))
@@ -1123,7 +1123,7 @@ tipcol <- rep("black", length(ITS$tip.label))
 tipcol[grep("-ITSp4", ITS$tip.label)] <- "red"
 
 #Plot
-plot.phylo(ITS, cex=.3, tip.color = tipcol, show.node.label = TRUE, align.tip.label = T, no.margin = TRUE)
+ape::plot.phylo(ITS, cex=.3, tip.color = tipcol, show.node.label = TRUE, align.tip.label = T, no.margin = TRUE)
 ```
 
 
@@ -1132,10 +1132,10 @@ plot.phylo(ITS, cex=.3, tip.color = tipcol, show.node.label = TRUE, align.tip.la
 #6. Extract subtree and plot tree
 ###~~~
 #Find node corresponding to MRCA of our vanilla samples
-MRCAsamples <- getMRCA(ITS, tip=ITS$tip.label[grep("-ITSp4", ITS$tip.label)])
+MRCAsamples <- ape::getMRCA(ITS, tip=ITS$tip.label[grep("-ITSp4", ITS$tip.label)])
 
 #Extract subtree
-VanITS <- extract.clade(ITS, node=MRCAsamples)
+VanITS <- ape::extract.clade(ITS, node=MRCAsamples)
 
 #Rename vanilla samples using apply and switch as learned before
 VanITS$tip.label[grep("-ITSp4", VanITS$tip.label)] <- unname(sapply(VanITS$tip.label[grep("-ITSp4", VanITS$tip.label)], switch,  "its25-ITSp4"="PE25", "its50-ITSp4"="PE50","its44-ITSp4"="PE44","its49-ITSp4"="PE49"))
@@ -1147,11 +1147,11 @@ tipcolVan <- rep("black", length(VanITS$tip.label))
 tipcolVan[grep("^PE", VanITS$tip.label)] <- "red"
 
 #Plot tree in radial mode
-plot.phylo(VanITS, cex = .4, use.edge.length = F, tip.color = tipcolVan, type = "radial", label.offset = 0.04, no.margin = TRUE)
+ape::plot.phylo(VanITS, cex = .4, use.edge.length = F, tip.color = tipcolVan, type = "radial", label.offset = 0.04, no.margin = TRUE)
 #Add bootstrap supports
-nodelabels(text = VanITS$node.label, adj = c(0.5,0.5), frame = "none", cex = 0.5)
+ape::nodelabels(text = VanITS$node.label, adj = c(0.5,0.5), frame = "none", cex = 0.5)
 #Add circles next to your vanilla samples
-tiplabels(tip = grep("-ITSp4", VanITS$tip.label), pch = 16, col = "red", offset = 0.02)
+ape::tiplabels(tip = grep("-ITSp4", VanITS$tip.label), pch = 16, col = "red", offset = 0.02)
 ```
 
 ```{r}
@@ -1161,11 +1161,11 @@ tiplabels(tip = grep("-ITSp4", VanITS$tip.label), pch = 16, col = "red", offset 
 #Use the pdf function to create pdf
 pdf("Data/04_Data_analyses/Phylogenetic_analyses/result_raxml_45818/VanSubTree.pdf")
 #Plot tree in radial mode
-plot.phylo(VanITS, cex = .4, use.edge.length = F, tip.color = tipcolVan, type = "radial", label.offset = 0.04, no.margin = TRUE)
+ape::plot.phylo(VanITS, cex = .4, use.edge.length = F, tip.color = tipcolVan, type = "radial", label.offset = 0.04, no.margin = TRUE)
 #Add bootstrap supports
-nodelabels(text = VanITS$node.label, adj = c(0.5,0.5), frame = "none", cex = 0.5)
+ape::nodelabels(text = VanITS$node.label, adj = c(0.5,0.5), frame = "none", cex = 0.5)
 #Add circles next to your vanilla samples
-tiplabels(tip = grep("-ITSp4", VanITS$tip.label), pch = 16, col = "red", offset = 0.02)
+ape::tiplabels(tip = grep("-ITSp4", VanITS$tip.label), pch = 16, col = "red", offset = 0.02)
 #This function closes the pdf
 dev.off()
 ```
