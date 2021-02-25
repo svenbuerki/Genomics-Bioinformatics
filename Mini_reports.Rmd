@@ -261,13 +261,11 @@ DNA extractions of leaf material were conducted at BSU using the Qiagen Plant Mi
 
 ## Scientific questions associated to the mini-report {#sciq}
 
-For this assignment, students will investigate the following questions:
+For this assignment, students will investigate the following question:
 
 > Q1: To what species of vanilla do the individuals presented in Figure \@ref(fig:van) belong to?
->
-> Q2: How are those individuals related to each other?
 
-To answer these questions, **we will be focusing on four samples/individuals of vanilla (see Figure \@ref(fig:van)) and their associated ITS sequence data as well as ITS sequences deposited on GenBank**.
+To answer these questions, **we will be focusing on four samples/individuals of vanilla (see Figure \@ref(fig:van)) and their associated ITS sequence data as well as ITS sequences deposited on GenBank**. See the [scientific process section](#sciprocess) below for more details.
 
 ```{r van, echo=FALSE, fig.align="center", fig.cap="Images of the four samples of vanilla collected in Mexico studied in this project.", fig.show="asis", out.width = '100%'}
 knitr::include_graphics("Images/Vanilla_samples.png")
@@ -277,17 +275,25 @@ Throughout this project, we will be referring to these vanilla samples/individua
 
 - *PE25*, *PE44*, *PE49* and *PE50*.
 
-## Schedule
+## Scientific process {#sciprocess}
 
-Analyses for this report are subdivided into three parts:
+The scientific process associated to this assignment can  be summarized as follows (see Figure \@ref(fig:sciproc)):
 
-- **Part 1:** Process and clean ITS DNA sequence electropherograms and infer species working hypothesis.
-- **Part 2:** DNA sequence retrieval and prepare data for analyses.
-- **Part 3:** DNA multiple sequence alignment and phylogenetic inference.
+```{r sciproc, echo=FALSE, fig.align="center", fig.cap="The scientific process.", fig.show="asis", out.width = '80%'}
+knitr::include_graphics("Images/Scientific_process.png")
+```
 
-Please see the [Timetable](https://svenbuerki.github.io/Genomics-Bioinformatics/index.html#21_Timetable) for more details on the schedule. 
-
-**Individual reports are due on Wed 10th of March at 5 PM** (on Google Drive). Please see section \@ref(report) for more details.
+1. To what species of vanilla do the individuals presented in Figure \@ref(fig:van) belong to?
+    - **Hypothesis:** Individuals belong to the same species (*V. planifolia*) and observed phenotypic variation is due to phenotypic plasticity (exhibiting responses to contrasting climates). 
+2. To test the hypothesis we are applying the **phylogenetic species concept** [@wheeler1999phylogenetic] (mainly criterion of monophyly) based on DNA sequence data analyzed using a phylogenetic approach. 
+3. ITS barcode data are sequenced for individuals in Figure \@ref(fig:van) and compared to data from GenBank (= reference data).
+4. Analyses are done in 4 steps:
+    - PCR and Sanger sequencing of ITS barcodes for target individuals.
+    - Assembly of reference ITS data available on GenBank using R.
+    - BLAST and RAxML Maximum likelihood phylogenetic analysis (including bootstrap analysis).
+    - Produce figures using R.
+5. Intersect evidence from analyses (especially phylogenetic clustering combined with node supports and taxonomy of ITS sequences from GenBank) to infer to what species do target individuals belong to. Use criterion of monophyly to help circumscribe species.
+6. See section \@ref(report) for more details.
 
 ## Writing your report {#report}
 
@@ -303,7 +309,7 @@ The instructor provides guidance on content for each section of your individual 
 
 1. **Title & author**: Please supply a first page containing the title and author information.
 2. **Abstract**: Provide a short text summarizing the i) objective(s), ii) methods (incl. sampling), iii) most important results and iv) major conclusions and significance of your research (maximum: 300 words).
-3. **Introduction**: Summarize challenges associated to biodiversity research and benefit of DNA barcoding approach in tackling those issues (e.g. by rapidly identifying species, this approach supports species descriptions, monitoring and development of conservation strategies). Then, move on to talk about vanilla, your model organism, and provide the scientific questions investigated in this report (see section \@ref(sciq)). Finally, finish this section with an overview of the applied methodology used to answer your questions.
+3. **Introduction**: Summarize challenges associated to biodiversity research and benefit of DNA barcoding approach in tackling those issues (e.g. by rapidly identifying species, this approach supports species descriptions, monitoring and development of conservation strategies). Then, move on to talk about vanilla, your model organism, and provide the scientific question and hypothesis investigated in this report (see section \@ref(sciq)). Finally, finish this section with an overview of the applied methodology used to answer your questions.
 4. **Material & Methods**: This section should be subdivided into four subsections. Subsections a. and b. are associated to wet-lab analyses, whereas subsections c. and d. correspond to bioinformatic analyses. Please, make sure to cite references supporting your methods and report used bioinformatic tools (incl. references) together with their applied settings. Finally, you can also refer to your `R` code for further details. The subsections are as follows:
     a. Sampling (see section \@ref(sciq)).
     b. DNA extraction and sequencing (see section \@ref(vanbarcode)).
@@ -324,6 +330,17 @@ Individual reports should be submitted in either Google Docs, Word or Rmarkdown 
 
 **Upload your reports on the shared Google drive by the 10th of March before 5 PM.** 
 
+## Schedule
+
+Analyses for this report are subdivided into three parts:
+
+- **Part 1:** Process and clean ITS DNA sequence electropherograms and infer species working hypothesis.
+- **Part 2:** DNA sequence retrieval and prepare data for analyses.
+- **Part 3:** DNA multiple sequence alignment and phylogenetic inference.
+
+Please see the [Timetable](https://svenbuerki.github.io/Genomics-Bioinformatics/index.html#21_Timetable) for more details on the schedule. 
+
+**Individual reports are due on Wed 10th of March at 5 PM** (on Google Drive). Please see section \@ref(report) for more details.
 
 ## Data and project structure
 
