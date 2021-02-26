@@ -872,6 +872,12 @@ To infer the ML phylogenetic analysis, the following workflow will be executed: 
 
 ### Conduct msa analysis
 
+#### Disclaimer
+
+The analysis described below relies on `MEGA`; however you might be experiencing issues with the `.fasta` file outputted by this program (especially on Windows operating system). These issues might compromise downstream analyses, more specifically the RAxML inference and R code used to generate figures. Those issues are associated to changes in file encryption and changing formatting of samples names (i.e. replacing "_" by " "). In the event that it happens to you, please switch over and use the online `MUSCLE` platform available at this URL: https://www.ebi.ac.uk/Tools/msa/muscle/
+
+#### Step-by-step protocol 
+
 To conduct a multiple sequence alignment in `MEGA` do the following:
 
 1. Launch `MEGA`.

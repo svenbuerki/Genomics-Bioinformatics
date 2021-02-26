@@ -1347,6 +1347,12 @@ write.table(FASTAall, file =
 </div>
 <div id="conduct-msa-analysis" class="section level3" number="4.11.3">
 <h3><span class="header-section-number">4.11.3</span> Conduct msa analysis</h3>
+<div id="disclaimer" class="section level4" number="4.11.3.1">
+<h4><span class="header-section-number">4.11.3.1</span> Disclaimer</h4>
+<p>The analysis described below relies on <code>MEGA</code>; however you might be experiencing issues with the <code>.fasta</code> file outputted by this program (especially on Windows operating system). These issues might compromise downstream analyses, more specifically the RAxML inference and R code used to generate figures. Those issues are associated to changes in file encryption and changing formatting of samples names (i.e. replacing "_" by " "). In the event that it happens to you, please switch over and use the online <code>MUSCLE</code> platform available at this URL: <a href="https://www.ebi.ac.uk/Tools/msa/muscle/" class="uri">https://www.ebi.ac.uk/Tools/msa/muscle/</a></p>
+</div>
+<div id="step-by-step-protocol-1" class="section level4" number="4.11.3.2">
+<h4><span class="header-section-number">4.11.3.2</span> Step-by-step protocol</h4>
 <p>To conduct a multiple sequence alignment in <code>MEGA</code> do the following:</p>
 <ol style="list-style-type: decimal">
 <li>Launch <code>MEGA</code>.</li>
@@ -1401,6 +1407,7 @@ Figure 4.20: Screenshot showing how to export MUSCLE alignment into a FASTA form
 <p class="caption">
 Figure 4.21: Screenshot showing how to save file in MEGA.
 </p>
+</div>
 </div>
 </div>
 <div id="infer-ml-phylogenetic-tree-based-on-msa-file" class="section level3" number="4.11.4">
