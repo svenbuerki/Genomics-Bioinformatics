@@ -874,7 +874,10 @@ To infer the ML phylogenetic analysis, the following workflow will be executed: 
 
 #### Disclaimer
 
-The analysis described below relies on `MEGA`; however you might be experiencing issues with the `.fasta` file outputted by this program (especially on Windows operating system). These issues might compromise downstream analyses, more specifically the RAxML inference and R code used to generate figures. Those issues are associated to changes in file encryption and changing formatting of samples names (i.e. replacing "_" by " "). In the event that it happens to you, please switch over and use the online `MUSCLE` platform available at this URL: https://www.ebi.ac.uk/Tools/msa/muscle/
+The analysis described below relies on `MEGA`; however you might be experiencing issues with the `.fasta` file outputted by this program (especially on Windows operating system). These issues might compromise downstream analyses, more specifically the RAxML inference and R code used to generate figures. Those issues are associated to changes in file encryption and changing formatting of samples names (i.e. replacing "_" by " "). In the event that it happens to you, please switch over and use the online `MUSCLE` platform available at this URL: https://www.ebi.ac.uk/Tools/msa/muscle/  
+
+**WARNING:** When you submit your job on the portal, do not forget to select `Pearson/FASTA` as output file format in step 2. In addition, the output will only be made available in a window and you will have to copy and past the whole content in a new file using your favorite text editor. The file should be saved and named as detailed in the step 8 of the section below.  
+
 
 #### Step-by-step protocol 
 
