@@ -496,7 +496,7 @@ Figure 1.2: Overview of the analytical workflow applied here to prepare/clean Il
 <li><strong>Step 4:</strong>
 <ul>
 <li><code>bwa</code> <span class="citation">(<a href="#ref-bwa2009" role="doc-biblioref">Li and Durbin, 2009</a>)</span>: <a href="http://bio-bwa.sourceforge.net" class="uri">http://bio-bwa.sourceforge.net</a>.</li>
-<li><code>samtools</code><span class="citation">(<a href="#ref-samtools2009" role="doc-biblioref">Li et al., 2009</a>)</span>: <a href="http://samtools.sourceforge.net" class="uri">http://samtools.sourceforge.net</a>.</li>
+<li><code>samtools</code><span class="citation">(<a href="#ref-samtools2009" role="doc-biblioref">Li, Handsaker, et al., 2009</a>)</span>: <a href="http://samtools.sourceforge.net" class="uri">http://samtools.sourceforge.net</a>.</li>
 </ul></li>
 <li><strong>Step 5:</strong>
 <ul>
@@ -509,10 +509,107 @@ Figure 1.2: Overview of the analytical workflow applied here to prepare/clean Il
 <div id="step-1-download-sra-file" class="section level3" number="1.4.4">
 <h3><span class="header-section-number">1.4.4</span> Step 1: Download SRA file</h3>
 <p>The SRA format (containing raw NGS data) can be quite difficult to play with. Here, we aim at downloading the WGS data, split PE reads, but store both reads (R1 and R2) in the same file using the interleaved format (Figure <a href="#fig:part1workflow">1.2</a>). This format is very convenient and is the entry point for most reads cleaning programs. This task can be done by using <code>fastq-dump</code> from the <a href="https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=software">SRA Toolkit</a>.</p>
-<p>Before starting, open a Terminal and navigate to the <code>SRA/</code> folder. Once there, execute the following command:</p>
+<p>Before starting, open a Terminal and navigate to the <code>SRA/</code> folder using the <code>cd</code> command. Once there, execute the following command:</p>
 <pre class="bash"><code>#Download PE reads (properly edited) in interleave format using SRA Toolkit
 fastq-dump --split-files --defline-seq &#39;@$ac.$si.$sg/$ri&#39; --defline-qual &#39;+&#39; -Z SRR5759389  &gt; SRR5759389_pe12.fastq</code></pre>
 <p>Downloading the file can take a while!</p>
+</div>
+<div id="Step2" class="section level3" number="1.4.5">
+<h3><span class="header-section-number">1.4.5</span> Step 2: Reads QCs</h3>
+<p>The program <code>FastQC</code> is used to obtain preliminary information about the Illumina library (see Figure <a href="#fig:SRA">1.1</a>). To run this program navigate to the <code>FastQC/</code> folder uisng <code>cd</code> and execute the following command:</p>
+<pre class="bash"><code>#Reads QCs with FastQC 
+./fastqc -o ~/Documents/Kmers_analyses/FastQC/ ~/Documents/Kmers_analyses/SRA/SRR5759389_pe12.fastq</code></pre>
+<p>Please inspect the <code>SRR5759389_pe12_fastqc.html</code> output file. We will have a group discussion to inspect this file and draw general conclusions on the quality of the raw data. This step will have to be repeated after completion of the step3 (reads cleaning) to confirm that our reads trimming and cleaning procedure was successful.</p>
+</div>
+<div id="step-3-reads-cleaning" class="section level3" number="1.4.6">
+<h3><span class="header-section-number">1.4.6</span> Step 3: Reads cleaning</h3>
+<p>This step is at the core of our analytical workflow. It is paramount to conduct thorough reads cleaning when assembling a nuclear genome due to the very nature of this genome (i.e. repetitive elements, heterozygosity, recombination, etc…). In this case, aim at minimizing the effect of PCR errors, which could jeopardize our assembly by creating false polymorphism. In addition, <em>de novo</em> genome assembly is computing intensive and by properly cleaning reads we will dramatically decrease RAM requirements.</p>
+<div id="approach-applied-here-to-clean-reads" class="section level4" number="1.4.6.1">
+<h4><span class="header-section-number">1.4.6.1</span> Approach applied here to clean reads</h4>
+<p>Reads will be cleaned/trimmed based on (see Figure <a href="#fig:part1workflow">1.2</a>):</p>
+<ul>
+<li>Phred quality scores (33) to conduct a first round of trimming.</li>
+<li>K-mer frequencies (k=21) to:
+<ul>
+<li>Normalize high coverage reads (higher than 100x) based on median reads coverage.</li>
+<li>Filter low abundance reads (where PCR errors will most likely take place).</li>
+</ul></li>
+<li>A final round of cleaning by removing low quality bases, short sequences, and non-paired reads.</li>
+</ul>
+<p>Finally, we will format the clean data for <em>de novo</em> genome assembly, which will be conducted using <code>SOAPdenovo2</code> <span class="citation">(<a href="#ref-Luo2012" role="doc-biblioref">Luo et al., 2012</a>)</span>.</p>
+</div>
+<div id="what-is-a-k-mer" class="section level4" number="1.4.6.2">
+<h4><span class="header-section-number">1.4.6.2</span> What is a k-mer?</h4>
+<p>A <code>k-mer</code> is a substring of length <span class="math inline">\(k\)</span> in a string of DNA bases. For a given sequence of length <span class="math inline">\(L\)</span>, and a k-mer size of <span class="math inline">\(k\)</span>, the total k-mer’s possible (<span class="math inline">\(n\)</span>) will be given by <span class="math inline">\((L-k) + 1\)</span>. For instance, in a sequence of length of 9 (<span class="math inline">\(L\)</span>), and a k-mer length of 2 (<span class="math inline">\(k\)</span>), the number of k-mer’s generated will be: <span class="math inline">\(n = (9-2) + 1 = 8\)</span>.</p>
+<blockquote>
+<p>All eight 2-mers of the sequence “AATTGGCCG” are:
+AA, AT, TT, TG, GG, GC, CC, CG</p>
+</blockquote>
+<p>In most studies, the authors provide an estimate of sequencing coverage prior to assembly <span class="citation">(e.g. 73 fold in the case of the giant panda genome, <a href="#ref-Li2009" role="doc-biblioref">Li, Fan, et al., 2009</a>)</span>, but the real coverage distribution will be influenced by factors including DNA quality, library preparation and local GC content. On average, you might expect most of the genome (especially the single/low copy genes) to be covered between 20 and 70x. One way of rapidly examining the coverage distribution before assembling a reference genome is to chop your cleaned sequence reads into short “k-mers” of 21 nucleotides, and count how often you get each possible k-mer. By doing so, you will find out that:</p>
+<ul>
+<li>Many sequences are extremely rare (e.g., once). These are likely to be PCR errors that appeared during library preparation or sequencing, or could be rare somatic mutations). Such sequences can confuse assembly software; eliminating them can decrease subsequent memory and CPU requirements.</li>
+<li>Other sequences may exist at 10,000x coverage. These could be pathogens or repetitive elements. Often, there is no benefit to retaining all copies of such sequences because the assembly software will be confused by them; while retaining a small proportion such reads could significantly reduce CPU, memory and space requirements.</li>
+</ul>
+<p>Please find below the plot of k-mer frequencies inferred from the trimmed library studied here (<code>SRR5759389</code>), which suggests that the haploid genome of <em>Apostasia shenzhenica</em> is sequenced at ca. 25x (Figure <a href="#fig:kmerstrimmed">1.3</a>). The methodology used to infer this graph is explained in Step 4.</p>
+<div class="figure" style="text-align: center"><span id="fig:kmerstrimmed"></span>
+<img src="Images/GenomeSize_trimmed.png" alt="Distribution of 21-mer frequencies based on the trimmed library with insert fragment size of 180 bp. Given only one peak in the k-mer distribution, we predict that the *Apostasia shenzhenica* genome has limited heterozygosity or in other words, that this genome is inbred." width="100%" />
+<p class="caption">
+Figure 1.3: Distribution of 21-mer frequencies based on the trimmed library with insert fragment size of 180 bp. Given only one peak in the k-mer distribution, we predict that the <em>Apostasia shenzhenica</em> genome has limited heterozygosity or in other words, that this genome is inbred.
+</p>
+</div>
+</div>
+<div id="k-mer-graph-and-pcr-effect" class="section level4" number="1.4.6.3">
+<h4><span class="header-section-number">1.4.6.3</span> K-mer graph and PCR effect</h4>
+<p>The peak around 25 in Figure <a href="#fig:kmerstrimmed">1.3</a> is the coverage with the highest number of different 21-mers. This means that there are <span class="math inline">\(1.4e^7\)</span> unique 21-mers (frequency) that have been observed 25 times (coverage). The normal-like distribution is due to the fact that the sequencing did not provide a perfect coverage of the whole genome. Some regions have less coverage, whereas others have a little more coverage, but the average coverage depth is around 25.</p>
+<p>The large number of unique k-mers (<span class="math inline">\(1.7e^7\)</span>) that have a frequency of 1 (right left side of the graph; Figure <a href="#fig:kmerstrimmed">1.3</a>) is most likely due to PCR errors. Please find below an example explaining how PCR errors impact on the k-mer procedure.</p>
+<p>All 3-mers of the sequence “AATTGGCCG” are:</p>
+<ul>
+<li>AAT, ATT, TTG, TGG, GGC, GCC, CCG</li>
+</ul>
+<p>Now, let’s consider that the 4th letter (<code>T</code>) in the sequence above is replaced with a <code>C</code> to simulate a PCR error. In this context, all 3-mers of this sequence “AAT<strong>C</strong>GGCCG” are:</p>
+<ul>
+<li>AAT, <strong>ATC</strong>, <strong>TCG</strong>, <strong>CGG</strong>, GGC, GCC, CCG.</li>
+</ul>
+<p>The k-mers in bold are the incorrect 3-mers that are now unique and end up at the beginning of the graph in Figure <a href="#fig:kmerstrimmed">1.3</a>.</p>
+<p>Overall, the <strong>general rule</strong> is that for a given sequence, <strong>a single PCR error will result in <span class="math inline">\(k\)</span> unique and incorrect k-mers</strong>.</p>
+</div>
+<div id="trim-reads-based-on-phred-quality-scores" class="section level4" number="1.4.6.4">
+<h4><span class="header-section-number">1.4.6.4</span> Trim reads based on Phred quality scores</h4>
+<p>Let’s start the cleaning of our interleaved PE reads by trimming reads using Phred scores (33) as implemented in <code>seqtk</code>. Before executing the commands below, <code>cd</code> to the <code>khmer/</code> folder:</p>
+<pre class="bash"><code>#Trim reads based on Phred scores (default of 33)
+seqtk trimfq ~/Documents/Kmers_analyses/SRA/SRR5759389_pe12.fastq &gt; SRR5759389_pe12.trimmed.fastq</code></pre>
+<p>Using Phred scores to clean our data is not going to deal with PCR errors and potential effects of high repeated DNA sequences on the <em>de novo</em> assembly. Below, we will use information on k-mer distributions to address these issues and clean our dataset accordingly.</p>
+</div>
+<div id="normalize-high-coverage-reads-remove-pcr-errors-and-low-quality-reads" class="section level4" number="1.4.6.5">
+<h4><span class="header-section-number">1.4.6.5</span> Normalize high coverage reads, remove PCR errors and low quality reads</h4>
+<p>In the next commands, <code>khmer</code> <span class="citation">(<a href="#ref-khmer2015" role="doc-biblioref">Crusoe et al., 2015</a>)</span> will be used to:</p>
+<ol style="list-style-type: decimal">
+<li>Normalize high coverage reads (&gt;100x) based on median coverage (to optimize RAM requirements for <em>de novo</em> genome assembly).</li>
+<li>Filter low abundance reads (most likely PCR errors).</li>
+<li>Final clean-up of reads to remove low quality bases, short sequences, and non-paired reads</li>
+</ol>
+<p>To conduct these analyses, run the following commands in the Terminal:</p>
+<pre class="bash"><code>#1. Normalize high coverage reads (&gt;100x) based on median reads coverage using k-mer frequencies
+khmer normalize-by-median.py -p --ksize 21 -C 100 -M 1e9 -s kmer.counts -o SRR5759389_pe12.max100.trimmed.fastq SRR5759389_pe12.trimmed.fastq</code></pre>
+<pre class="bash"><code>#2. Filter low abundance reads based on k-mer frequencies to minimize PCR errors
+khmer filter-abund.py -V kmer.counts -o SRR5759389_pe12.max100.trimmed.norare.fastq SRR5759389_pe12.max100.trimmed.fastq</code></pre>
+<pre class="bash"><code>#3. Final clean-up of reads (remove low quality bases, short sequences, and non-paired reads)
+seqtk seq -q 10 -N -L 80 SRR5759389_pe12.max100.trimmed.norare.fastq | seqtk dropse &gt; SRR5759389_pe12.max100.trimmed.norare.noshort.fastq</code></pre>
+</div>
+<div id="prepare-data-for-de-novo-genome-assembly" class="section level4" number="1.4.6.6">
+<h4><span class="header-section-number">1.4.6.6</span> Prepare data for <em>de novo</em> genome assembly</h4>
+<p>In this last section, our cleaned reads are prepared for the <em>de novo</em> genome assembly analysis conducted in <code>SOAPdenovo2</code> <span class="citation">(<a href="#ref-Luo2012" role="doc-biblioref">Luo et al., 2012</a>)</span> (done in PART 2). This is achieved by using <code>khmer</code> and renaming files using <code>mv</code> as follows:</p>
+<pre class="bash"><code>#De-interleave filtered reads (to be ready for de novo assembly in SOAPdenovo2)
+khmer split-paired-reads.py SRR5759389_pe12.max100.trimmed.norare.noshort.fastq
+
+#Rename output reads to something more human-friendly
+mv SRR5759389_pe12.max100.trimmed.norare.noshort.fastq.1 SRR5759389.pe1.clean.fastq
+mv SRR5759389_pe12.max100.trimmed.norare.noshort.fastq.2 SRR5759389.pe2.clean.fastq</code></pre>
+</div>
+<div id="reads-qcs-on-cleaned-reads" class="section level4" number="1.4.6.7">
+<h4><span class="header-section-number">1.4.6.7</span> Reads QCs on cleaned reads</h4>
+<p>Use <code>FastQC</code> to validate the reads cleaning conducted above. Please see <a href="#Step2">Step2</a> for more details on the methodology.</p>
+</div>
 </div>
 </div>
 </div>
@@ -530,6 +627,12 @@ fastq-dump --split-files --defline-seq &#39;@$ac.$si.$sg/$ri&#39; --defline-qual
 </div>
 <div id="ref-samtools2009" class="csl-entry">
 <span class="smallcaps">Li, H.</span>, <span class="smallcaps">B. Handsaker</span>, <span class="smallcaps">A. Wysoker</span>, <span class="smallcaps">T. Fennell</span>, <span class="smallcaps">J. Ruan</span>, <span class="smallcaps">N. Homer</span>, <span class="smallcaps">G. Marth</span>, et al. 2009. The sequence alignment/map format and SAMtools. <em>Bioinformatics</em> 25: 2078–2079. Available at: <a href="+ http://dx.doi.org/10.1093/bioinformatics/btp352">+ http://dx.doi.org/10.1093/bioinformatics/btp352</a>.
+</div>
+<div id="ref-Li2009" class="csl-entry">
+<span class="smallcaps">Li, R.</span>, <span class="smallcaps">W. Fan</span>, <span class="smallcaps">G. Tian</span>, <span class="smallcaps">H. Zhu</span>, <span class="smallcaps">L. He</span>, <span class="smallcaps">J. Cai</span>, <span class="smallcaps">Q. Huang</span>, et al. 2009. The sequence and de novo assembly of the giant panda genome. <em>Nature</em> 463: 311 EP–. Available at: <a href="http://dx.doi.org/10.1038/nature08696">http://dx.doi.org/10.1038/nature08696</a>.
+</div>
+<div id="ref-Luo2012" class="csl-entry">
+<span class="smallcaps">Luo, R.</span>, <span class="smallcaps">B. Liu</span>, <span class="smallcaps">Y. Xie</span>, <span class="smallcaps">Z. Li</span>, <span class="smallcaps">W. Huang</span>, <span class="smallcaps">J. Yuan</span>, <span class="smallcaps">G. He</span>, et al. 2012. SOAPdenovo2: An empirically improved memory-efficient short-read de novo assembler. <em>GigaScience</em> 1: 18. Available at: <a href="https://doi.org/10.1186/2047-217X-1-18">https://doi.org/10.1186/2047-217X-1-18</a>.
 </div>
 <div id="ref-Jellyfish2011" class="csl-entry">
 <span class="smallcaps">Marçais, G.</span>, and <span class="smallcaps">C. Kingsford</span>. 2011. A fast, lock-free approach for efficient parallel counting of occurrences of k-mers. <em>Bioinformatics</em> 27: 764–770. Available at: <a href="+ http://dx.doi.org/10.1093/bioinformatics/btr011">+ http://dx.doi.org/10.1093/bioinformatics/btr011</a>.
