@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Sven Buerki - Boise State University" />
+
+<meta name="date" content="2021-03-01" />
+
+<title>BIOL 497/597 - Genomics &amp; Bioinformatics</title>
+
+<script src="site_libs/header-attrs-2.6/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<style type="text/css">
+/* for pandoc --citeproc since 2.11 */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Genomics & Bioinformatics</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="Mini_reports.html">Mini-reports</a>
+</li>
+<li>
+  <a href="Chapters.html">Chapters</a>
+</li>
+<li>
+  <a href="Tutorials.html">Tutorials</a>
+</li>
+<li>
+  <a href="Lexicon.html">Lexicon</a>
+</li>
+<li>
+  <a href="References.html">References</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">BIOL 497/597 - Genomics &amp; Bioinformatics</h1>
+<h3 class="subtitle">Chapters</h3>
+<h4 class="author">Sven Buerki - Boise State University</h4>
+<h4 class="date">2021-03-01</h4>
+
+</div>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+  $('#header').parent().prepend('<div id=\"logo\"><img src=\"Images/boisestate-primarylogo-2color-rgb.png\" style=\"position:absolute; top:0; right:0; padding:10px; height:120px\"></div>');
+  $('#header').css('margin-right', '120px')
+});
+</script>
+<div id="chapter-4" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> Chapter 4</h1>
+<div id="overview" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Overview</h2>
+<p>In this chapter, we aim at training students in producing a draft nuclear genome for a non-model organism using Illumina data.</p>
+<p>The whole-genome sequencing (WGS) dataset published by <span class="citation"><a href="#ref-Zhang2017" role="doc-biblioref">Zhang et al.</a> (<a href="#ref-Zhang2017" role="doc-biblioref">2017</a>)</span> on the orchid species <em>Apostasia shenzhenica</em> is used as case-study. This dataset provides an opportunity to gain firsthand experience in analyzing NGS data. <span class="citation"><a href="#ref-Zhang2017" role="doc-biblioref">Zhang et al.</a> (<a href="#ref-Zhang2017" role="doc-biblioref">2017</a>)</span> have also produced RNA-Seq data, which were used in their study to support genome annotation.</p>
+<p>The chapter is subdivided into three parts:</p>
+<ul>
+<li><strong>PART 1:</strong> Preparing Illumina reads for <em>de novo</em> nuclear genome assembly and inferring genome size and complexity.</li>
+<li><strong>PART 2:</strong> <em>De novo</em> genome assembly.</li>
+<li><strong>PART 3:</strong> Validation of draft genome.</li>
+</ul>
+<p>Before you start tutorials associated to Chapter 4, please make sure you have completed the Tutorials available <a href="Tutorials.html">here</a>.</p>
+</div>
+<div id="presenting-the-ngs-data" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> Presenting the NGS data</h2>
+<p>Details on the WGS PE Illumina library studied here are provided in Figure <a href="#fig:SRA">1.1</a>. The SRA accession number is <a href="https://trace.ncbi.nlm.nih.gov/Traces/sra/?run=SRR5759389">SRR5759389</a> and the most important information to know about this data are that the fragments insert-size of the library is 180 bp and that the length of each PE read is 90 bp. Note that the authors have performed a round of PCR amplification during their library preparation. This step is know to potentially introduce errors in reads, which could be identified by performing k-mer analyses.</p>
+<div class="figure" style="text-align: center"><span id="fig:SRA"></span>
+<img src="Images/SRR5759389_details.png" alt="Details on the WGS library (SRA accession number: SRR5759389) used in this tutorial. " width="100%" />
+<p class="caption">
+Figure 1.1: Details on the WGS library (SRA accession number: SRR5759389) used in this tutorial.
+</p>
+</div>
+</div>
+<div id="write-your-own-scripts" class="section level2" number="1.3">
+<h2><span class="header-section-number">1.3</span> Write your own scripts</h2>
+<p>As you go along this document and perform analyses, please COPY ALL COMMAND LINES into an <code>.Rmd</code> document saved in a folder entitled <code>Report/</code> (create this folder in your working directory; see below). Remember to comment your script (using #s). This will greatly help you in repeating your analyses or using parts of your code to create new scripts. Enjoy scripting!</p>
+</div>
+<div id="part-1" class="section level2" number="1.4">
+<h2><span class="header-section-number">1.4</span> PART 1</h2>
+<div id="analytical-workflow" class="section level3" number="1.4.1">
+<h3><span class="header-section-number">1.4.1</span> Analytical workflow</h3>
+<p>The overarching objective of this tutorial is to gain theoretical and bioinformatics knowledge on the steps required to prepare PE Illumina reads for <em>de novo</em> nuclear genome assembly as well as infer genome size and complexity.</p>
+<p>The five main steps associated to these objectives are as follows (see Figure <a href="#fig:part1workflow">1.2</a>):</p>
+<ul>
+<li><strong>Step 1:</strong> Download SRA file containing raw WGS data and simultaneously convert it into an interleaved PE <code>fasqt</code> format file. This latter format (where both reads are paired and combined into one file) is the input for most bioinformatic programs.</li>
+<li><strong>Step 2:</strong> Infer reads Quality Checks (QCs) using standard statistics implemented in <code>FastQC</code> <span class="citation">(<a href="#ref-FastQC" role="doc-biblioref">Andrews, 2012</a>)</span>.</li>
+<li><strong>Step 3:</strong> Perform reads cleaning based on Phread scores and k-mer frequencies.</li>
+<li><strong>Step 4:</strong> What’s “in” the reads? This will be done in two phases as follows:
+<ul>
+<li>Infer and plot clean reads GC contents to assess potential contamination patterns.</li>
+<li>Map clean reads against reference genomes to assess the proportions of reads belonging to either nuclear or chloroplast genomes.</li>
+</ul></li>
+<li><strong>Step 5:</strong> Estimate genome size and complexity (especially looking at repetitive elements and heterozygosity rate) using k-mer frequencies.</li>
+</ul>
+<div class="figure" style="text-align: center"><span id="fig:part1workflow"></span>
+<img src="Images/Cleaning_reads.png" alt="Overview of the analytical workflow applied here to prepare/clean Illumina reads for genome assembly and inferring genome size and complexity. Details on associated bioinformatic tools (here software) and file formats are also provided." width="100%" />
+<p class="caption">
+Figure 1.2: Overview of the analytical workflow applied here to prepare/clean Illumina reads for genome assembly and inferring genome size and complexity. Details on associated bioinformatic tools (here software) and file formats are also provided.
+</p>
+</div>
+</div>
+<div id="location-of-the-data-on-linux-computers" class="section level3" number="1.4.2">
+<h3><span class="header-section-number">1.4.2</span> Location of the data on Linux computers</h3>
+<p>A folder entitled <code>Kmers_analyses/</code> (deposited onto your <code>bioinformatics</code> sessions) is located in <code>Documents/</code> and contains all the required files and programs to conduct the analyses. The instructor encourages you to explore the content of this folder using the UNIX command <code>ls -al</code>. Within each folder associated with each major step of this tutorial, there is a folder entitled <code>output/</code> containing the output files of the analyses. This is a back-up plan in case you have some troubles with the analyses or are running out of time. Finally, in the tutorial, the instructor will only refer to the name of the folder containing information about the analyses and not provide their full paths.</p>
+</div>
+<div id="bioinformatic-tools" class="section level3" number="1.4.3">
+<h3><span class="header-section-number">1.4.3</span> Bioinformatic tools</h3>
+<p>Although all the bioinformatic tools (software) necessary to complete this tutorial are already installed on your Linux computers, URLs to their repositories (incl. documentations) are provided below together with details on their publications (when available). Software are sorted by steps in our analytical workflow (see Figure <a href="#fig:part1workflow">1.2</a>):</p>
+<ul>
+<li><strong>Step 1:</strong> <code>fastq-dump</code>: <a href="https://www.ncbi.nlm.nih.gov/sra/docs/toolkitsoft/" class="uri">https://www.ncbi.nlm.nih.gov/sra/docs/toolkitsoft/</a>.</li>
+<li><strong>Step 2:</strong> <code>FastQC</code> <span class="citation">(<a href="#ref-FastQC" role="doc-biblioref">Andrews, 2012</a>)</span>: <a href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/" class="uri">https://www.bioinformatics.babraham.ac.uk/projects/fastqc/</a>.</li>
+<li><strong>Step 3:</strong>
+<ul>
+<li><code>seqtk</code>: <a href="https://github.com/lh3/seqtk" class="uri">https://github.com/lh3/seqtk</a>.</li>
+<li><code>khmer</code> <span class="citation">(<a href="#ref-khmer2015" role="doc-biblioref">Crusoe et al., 2015</a>)</span>: <a href="https://github.com/dib-lab/khmer" class="uri">https://github.com/dib-lab/khmer</a>.</li>
+</ul></li>
+<li><strong>Step 4:</strong>
+<ul>
+<li><code>bwa</code> <span class="citation">(<a href="#ref-bwa2009" role="doc-biblioref">Li and Durbin, 2009</a>)</span>: <a href="http://bio-bwa.sourceforge.net" class="uri">http://bio-bwa.sourceforge.net</a>.</li>
+<li><code>samtools</code><span class="citation">(<a href="#ref-samtools2009" role="doc-biblioref">Li et al., 2009</a>)</span>: <a href="http://samtools.sourceforge.net" class="uri">http://samtools.sourceforge.net</a>.</li>
+</ul></li>
+<li><strong>Step 5:</strong>
+<ul>
+<li><code>jellyfish</code> <span class="citation">(<a href="#ref-Jellyfish2011" role="doc-biblioref">Marçais and Kingsford, 2011</a>)</span>: <a href="http://www.genome.umd.edu/jellyfish.html" class="uri">http://www.genome.umd.edu/jellyfish.html</a>.</li>
+<li><code>GenomeScope</code> <span class="citation">(<a href="#ref-genomescope" role="doc-biblioref">Vurture et al., 2017</a>)</span>: <a href="http://qb.cshl.edu/genomescope/" class="uri">http://qb.cshl.edu/genomescope/</a>.</li>
+</ul></li>
+</ul>
+<p>The <code>R</code> software is also used in steps 4 and 5. You can find more details on this software in the <a href="index.html">Syllabus</a> and <a href="Mini_reports.html">Mini-Report</a> webpages.</p>
+</div>
+<div id="step-1-download-sra-file" class="section level3" number="1.4.4">
+<h3><span class="header-section-number">1.4.4</span> Step 1: Download SRA file</h3>
+<p>The SRA format (containing raw NGS data) can be quite difficult to play with. Here, we aim at downloading the WGS data, split PE reads, but store both reads (R1 and R2) in the same file using the interleaved format (Figure <a href="#fig:part1workflow">1.2</a>). This format is very convenient and is the entry point for most reads cleaning programs. This task can be done by using <code>fastq-dump</code> from the <a href="https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=software">SRA Toolkit</a>.</p>
+<p>Before starting, open a Terminal and navigate to the <code>SRA/</code> folder. Once there, execute the following command:</p>
+<pre class="bash"><code>#Download PE reads (properly edited) in interleave format using SRA Toolkit
+fastq-dump --split-files --defline-seq &#39;@$ac.$si.$sg/$ri&#39; --defline-qual &#39;+&#39; -Z SRR5759389  &gt; SRR5759389_pe12.fastq</code></pre>
+<p>Downloading the file can take a while!</p>
+</div>
+</div>
+</div>
+<div id="references" class="section level1 unnumbered">
+<h1>References</h1>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-FastQC" class="csl-entry">
+<span class="smallcaps">Andrews, S.</span> 2012. <span class="nocase">FastQC A Quality Control tool for High Throughput Sequence Data</span>. Available at: <a href="http://www.bioinformatics.babraham.ac.uk/projects/fastqc/">http://www.bioinformatics.babraham.ac.uk/projects/fastqc/</a>.
+</div>
+<div id="ref-khmer2015" class="csl-entry">
+<span class="smallcaps">Crusoe, M.</span>, <span class="smallcaps">H. Alameldin</span>, <span class="smallcaps">S. Awad</span>, <span class="smallcaps">E. Boucher</span>, <span class="smallcaps">A. Caldwell</span>, <span class="smallcaps">R. Cartwright</span>, <span class="smallcaps">A. Charbonneau</span>, et al. 2015. The khmer software package: Enabling efficient nucleotide sequence analysis [version 1; referees: 2 approved, 1 approved with reservations]. <em>F1000Research</em> 4:
+</div>
+<div id="ref-bwa2009" class="csl-entry">
+<span class="smallcaps">Li, H.</span>, and <span class="smallcaps">R. Durbin</span>. 2009. Fast and accurate short read alignment with burrows–wheeler transform. <em>Bioinformatics</em> 25: 1754–1760. Available at: <a href="+ http://dx.doi.org/10.1093/bioinformatics/btp324">+ http://dx.doi.org/10.1093/bioinformatics/btp324</a>.
+</div>
+<div id="ref-samtools2009" class="csl-entry">
+<span class="smallcaps">Li, H.</span>, <span class="smallcaps">B. Handsaker</span>, <span class="smallcaps">A. Wysoker</span>, <span class="smallcaps">T. Fennell</span>, <span class="smallcaps">J. Ruan</span>, <span class="smallcaps">N. Homer</span>, <span class="smallcaps">G. Marth</span>, et al. 2009. The sequence alignment/map format and SAMtools. <em>Bioinformatics</em> 25: 2078–2079. Available at: <a href="+ http://dx.doi.org/10.1093/bioinformatics/btp352">+ http://dx.doi.org/10.1093/bioinformatics/btp352</a>.
+</div>
+<div id="ref-Jellyfish2011" class="csl-entry">
+<span class="smallcaps">Marçais, G.</span>, and <span class="smallcaps">C. Kingsford</span>. 2011. A fast, lock-free approach for efficient parallel counting of occurrences of k-mers. <em>Bioinformatics</em> 27: 764–770. Available at: <a href="+ http://dx.doi.org/10.1093/bioinformatics/btr011">+ http://dx.doi.org/10.1093/bioinformatics/btr011</a>.
+</div>
+<div id="ref-genomescope" class="csl-entry">
+<span class="smallcaps">Vurture, G.W.</span>, <span class="smallcaps">F.J. Sedlazeck</span>, <span class="smallcaps">M. Nattestad</span>, <span class="smallcaps">C.J. Underwood</span>, <span class="smallcaps">H. Fang</span>, <span class="smallcaps">J. Gurtowski</span>, and <span class="smallcaps">M.C. Schatz</span>. 2017. GenomeScope: Fast reference-free genome profiling from short reads. <em>Bioinformatics</em> 33: 2202–2204. Available at: <a href="+ http://dx.doi.org/10.1093/bioinformatics/btx153">+ http://dx.doi.org/10.1093/bioinformatics/btx153</a>.
+</div>
+<div id="ref-Zhang2017" class="csl-entry">
+<span class="smallcaps">Zhang, G.-Q.</span>, <span class="smallcaps">K.-W. Liu</span>, <span class="smallcaps">Z. Li</span>, <span class="smallcaps">R. Lohaus</span>, <span class="smallcaps">Y.-Y. Hsiao</span>, <span class="smallcaps">S.-C. Niu</span>, <span class="smallcaps">J.-Y. Wang</span>, et al. 2017. The apostasia genome and the evolution of orchids. <em>Nature</em> 549: 379 EP–. Available at: <a href="http://dx.doi.org/10.1038/nature23897">http://dx.doi.org/10.1038/nature23897</a>.
+</div>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3,h4",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

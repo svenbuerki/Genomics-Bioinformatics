@@ -7,6 +7,8 @@ navbar:
       href: index.html
     - text: "Mini-reports"
       href: Mini_reports.html
+    - text: "Chapters"
+      href: Chapters.html  
     - text: "Tutorials"
       href: Tutorials.html
     - text: "Lexicon"

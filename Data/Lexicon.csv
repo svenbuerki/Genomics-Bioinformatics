@@ -59,3 +59,6 @@ Complementary DNA sequence,"Nucleic acid sequence of bases that can form a doubl
 Reverse DNA sequence,It is the sequence of the upper strand in the direction from its 3′- to its 5′-end. The reverse complement sequence is the sequence of the lower strand in the direction of its 5′- to its 3′-end.
 Phylogenetic species concept,"The concept of a species as an irreducible group whose members are descended from a common ancestor and who all possess a combination of certain defining, or derived, traits. Hence, this concept defines a species as a group having a shared and unique evolutionary history."
 Monophyly,"In cladistics for a group of organisms, monophyly is the condition of being a clade—that is, a group of taxa composed only of a common ancestor and all of its lineal descendants."
+k-mer,"In bioinformatics, k-mers are subsequences of length 
+k
+k contained within a biological sequence. "

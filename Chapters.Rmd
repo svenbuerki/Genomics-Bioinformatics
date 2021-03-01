@@ -1,0 +1,111 @@
+---
+title: "BIOL 497/597 - Genomics & Bioinformatics"
+subtitle: "Chapters"
+author: "Sven Buerki - Boise State University"
+date: "`r Sys.Date()`"
+output:
+  bookdown::html_document2: 
+    toc: TRUE
+    toc_float: TRUE
+    toc_depth: 4
+link-citations: yes
+fontsize: 12pt
+urlcolor: blue
+csl: AmJBot.csl
+bibliography: References.bib
+editor_options: 
+  markdown: 
+    wrap: sentence
+---
+
+```{js logo-js, echo=FALSE}
+$(document).ready(function() {
+  $('#header').parent().prepend('<div id=\"logo\"><img src=\"Images/boisestate-primarylogo-2color-rgb.png\" style=\"position:absolute; top:0; right:0; padding:10px; height:120px\"></div>');
+  $('#header').css('margin-right', '120px')
+});
+```
+
+# Chapter 4
+
+## Overview
+
+In this chapter, we aim at training students in producing a draft nuclear genome for a non-model organism using Illumina data.
+
+The whole-genome sequencing (WGS) dataset published by @Zhang2017 on the orchid species *Apostasia shenzhenica* is used as case-study. This dataset provides an opportunity to gain firsthand experience in analyzing NGS data. @Zhang2017 have also produced RNA-Seq data, which were used in their study to support genome annotation.
+
+The chapter is subdivided into three parts:
+
+- **PART 1:** Preparing Illumina reads for *de novo* nuclear genome assembly and inferring genome size and complexity.
+- **PART 2:** *De novo* genome assembly.
+- **PART 3:** Validation of draft genome. 
+
+Before you start tutorials associated to Chapter 4, please make sure you have completed the Tutorials available [here](Tutorials.html).
+
+## Presenting the NGS data
+
+Details on the WGS PE Illumina library studied here are provided in Figure \@ref(fig:SRA). The SRA accession number is [SRR5759389](https://trace.ncbi.nlm.nih.gov/Traces/sra/?run=SRR5759389) and the most important information to know about this data are that the fragments insert-size of the library is 180 bp and that the length of each PE read is 90 bp. Note that the authors have performed a round of PCR amplification during their library preparation. This step is know to potentially introduce errors in reads, which could be identified by performing k-mer analyses.
+
+```{r SRA, echo=FALSE, fig.align="center", fig.cap="Details on the WGS library (SRA accession number: SRR5759389) used in this tutorial. ", fig.show="asis", out.width = '100%'}
+knitr::include_graphics("Images/SRR5759389_details.png")
+```
+
+## Write your own scripts
+
+As you go along this document and perform analyses, please COPY ALL COMMAND LINES into an `.Rmd` document saved in a folder entitled `Report/` (create this folder in your working directory; see below). Remember to comment your script (using \#s). This will greatly help you in repeating your analyses or using parts of your code to create new scripts. Enjoy scripting!
+
+## PART 1
+
+### Analytical workflow
+
+The overarching objective of this tutorial is to gain theoretical and bioinformatics knowledge on the steps required to prepare PE Illumina reads for *de novo* nuclear genome assembly as well as infer genome size and complexity. 
+
+The five main steps associated to these objectives are as follows (see Figure \@ref(fig:part1workflow)):  
+
+- **Step 1:** Download SRA file containing raw WGS data and simultaneously convert it into an interleaved PE `fasqt` format file. This latter format (where both reads are paired and combined into one file) is the input for most bioinformatic programs.
+- **Step 2:** Infer reads Quality Checks (QCs) using standard statistics implemented in `FastQC` [@FastQC].
+- **Step 3:** Perform reads cleaning based on Phread scores and k-mer frequencies.
+- **Step 4:** What's "in" the reads? This will be done in two phases as follows:
+    - Infer and plot clean reads GC contents to assess potential contamination patterns.
+    - Map clean reads against reference genomes to assess the proportions of reads belonging to either nuclear or chloroplast genomes.
+- **Step 5:** Estimate genome size and complexity (especially looking at repetitive elements and heterozygosity rate) using k-mer frequencies.
+
+```{r part1workflow, echo=FALSE, fig.align="center", fig.cap="Overview of the analytical workflow applied here to prepare/clean Illumina reads for genome assembly and inferring genome size and complexity. Details on associated bioinformatic tools (here software) and file formats are also provided.", fig.show="asis", out.width = '100%'}
+knitr::include_graphics("Images/Cleaning_reads.png")
+```
+
+### Location of the data on Linux computers
+
+A folder entitled `Kmers_analyses/` (deposited onto your `bioinformatics` sessions) is located in `Documents/` and contains all the required files and programs to conduct the analyses. The instructor encourages you to explore the content of this folder using the UNIX command `ls -al`. Within each folder associated with each major step of this tutorial, there is a folder entitled `output/` containing the output files of the analyses. This is a back-up plan in case you have some troubles with the analyses or are running out of time. Finally, in the tutorial, the instructor will only refer to the name of the folder containing information about the analyses and not provide their full paths. 
+
+### Bioinformatic tools
+
+Although all the bioinformatic tools (software) necessary to complete this tutorial are already installed on your Linux computers, URLs to their repositories (incl. documentations) are provided below together with details on their publications (when available). Software are sorted by steps in our analytical workflow (see Figure \@ref(fig:part1workflow)):
+
+- **Step 1:** `fastq-dump`: https://www.ncbi.nlm.nih.gov/sra/docs/toolkitsoft/.
+- **Step 2:** `FastQC` [@FastQC]: https://www.bioinformatics.babraham.ac.uk/projects/fastqc/.
+- **Step 3:** 
+    - `seqtk`: https://github.com/lh3/seqtk.
+    - `khmer` [@khmer2015]: https://github.com/dib-lab/khmer.
+- **Step 4:**
+    - `bwa` [@bwa2009]: http://bio-bwa.sourceforge.net.
+    - `samtools`[@samtools2009]: http://samtools.sourceforge.net.
+- **Step 5:** 
+    - `jellyfish` [@Jellyfish2011]: http://www.genome.umd.edu/jellyfish.html.
+    - `GenomeScope` [@genomescope]: http://qb.cshl.edu/genomescope/.
+
+The `R` software is also used in steps 4 and 5. You can find more details on this software in the [Syllabus](index.html) and [Mini-Report](Mini_reports.html) webpages.
+
+### Step 1: Download SRA file
+
+The SRA format (containing raw NGS data) can be quite difficult to play with. Here, we aim at downloading the WGS data, split PE reads, but store both reads (R1 and R2) in the same file using the interleaved format (Figure \@ref(fig:part1workflow)). This format is very convenient and is the entry point for most reads cleaning programs. This task can be done by using `fastq-dump` from the [SRA Toolkit](https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=software).
+
+Before starting, open a Terminal and navigate to the `SRA/` folder. Once there, execute the following command:
+
+```{bash eval = F}
+#Download PE reads (properly edited) in interleave format using SRA Toolkit
+fastq-dump --split-files --defline-seq '@$ac.$si.$sg/$ri' --defline-qual '+' -Z SRR5759389 	> SRR5759389_pe12.fastq
+```
+
+Downloading the file can take a while!
+
+# References
