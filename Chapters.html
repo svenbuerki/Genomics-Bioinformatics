@@ -521,7 +521,7 @@ fastq-dump --split-files --defline-seq &#39;@$ac.$si.$sg/$ri&#39; --defline-qual
 ./fastqc -o ~/Documents/Kmers_analyses/FastQC/ ~/Documents/Kmers_analyses/SRA/SRR5759389_pe12.fastq</code></pre>
 <p>Please inspect the <code>SRR5759389_pe12_fastqc.html</code> output file. We will have a group discussion to inspect this file and draw general conclusions on the quality of the raw data. This step will have to be repeated after completion of the step3 (reads cleaning) to confirm that our reads trimming and cleaning procedure was successful.</p>
 </div>
-<div id="step-3-reads-cleaning" class="section level3" number="1.4.6">
+<div id="Step3" class="section level3" number="1.4.6">
 <h3><span class="header-section-number">1.4.6</span> Step 3: Reads cleaning</h3>
 <p>This step is at the core of our analytical workflow. It is paramount to conduct thorough reads cleaning when assembling a nuclear genome due to the very nature of this genome (i.e. repetitive elements, heterozygosity, recombination, etc…). In this case, aim at minimizing the effect of PCR errors, which could jeopardize our assembly by creating false polymorphism. In addition, <em>de novo</em> genome assembly is computing intensive and by properly cleaning reads we will dramatically decrease RAM requirements.</p>
 <div id="approach-applied-here-to-clean-reads" class="section level4" number="1.4.6.1">
@@ -608,7 +608,50 @@ mv SRR5759389_pe12.max100.trimmed.norare.noshort.fastq.2 SRR5759389.pe2.clean.fa
 </div>
 <div id="reads-qcs-on-cleaned-reads" class="section level4" number="1.4.6.7">
 <h4><span class="header-section-number">1.4.6.7</span> Reads QCs on cleaned reads</h4>
-<p>Use <code>FastQC</code> to validate the reads cleaning conducted above. Please see <a href="#Step2">Step2</a> for more details on the methodology.</p>
+<p>Use <code>FastQC</code> to validate the reads cleaning conducted above. Please see <a href="#Step2">Step 2</a> for more details on the methodology.</p>
+</div>
+</div>
+<div id="step-4-whats-in-the-reads" class="section level3" number="1.4.7">
+<h3><span class="header-section-number">1.4.7</span> Step 4: What’s “in” the reads?</h3>
+<p>Before conducting the <em>de novo</em> genome assembly (using the cleaned reads produced in <a href="#Step3">Step 3</a>, it is paramount to assess whether the data are contaminated and also to provide a first estimate of proportions of reads belonging to either nuclear or plastid genomes. To investigate these topics, the instructor proposes that we assess i) potential contamination by inferring reads GC contents and ii) map the clean reads against nuclear and chloroplast genome assemblies to assess proportions of reads belonging to either genomes in our library.</p>
+<div id="reads-gc-contents" class="section level4" number="1.4.7.1">
+<h4><span class="header-section-number">1.4.7.1</span> Reads GC contents</h4>
+<p>The GC content of a sequence library can provide evidence of contamination or the presence of sequence from multiple organisms (since most organisms have specific GC profiles). A GC plot inferred from a non-contaminated library would display a smooth, unimodal distribution. The existence of shoulders, or in more extreme cases a bimodal distribution, could be indicative of the presence of sequence reads from an organism with a different GC content, which is most likely a contaminant (see Figure <a href="#fig:part1workflow">1.2</a>).</p>
+<p>Here we infer GC contents for all clean reads using the perl script <code>GC_content.pl</code>. This script requires reads to be in <code>fasta</code> format. We will then start by converting our <code>fastq</code> file into <code>fasta</code> by using <code>seqtk</code>. Data are available in the <code>GC_content/</code> folder. Please see below for the commands to be executed:</p>
+<pre class="bash"><code>#Convert fastq to fasta
+seqtk seq -a ~/Documents/Kmers_analyses/khmer/   SRR5759389_pe12.max100.trimmed.norare.noshort.fastq &gt; SRR5759389_pe12.max100.trimmed.norare.noshort.fasta</code></pre>
+<p><strong>PLEASE DON’T EXECUTE THE COMMAND BELOW!</strong> It takes few hours to calculate reads GC contents. Use the output of this command <code>gc_out.txt</code>, which is available in the <code>GC_content/</code> folder to carry on our analyses.</p>
+<pre class="bash"><code>#Infer GC content using fasta file as input (this can take a long time)
+./GC_content.pl SRR5759389_pe12.max100.trimmed.norare.noshort.fasta &gt; gc_out.txt</code></pre>
+<p>The next command extracts the column containing the GC content per read. Since the file is very big, we use the BASH command <code>awk</code> to extract this information instead of <code>R</code>.</p>
+<pre class="bash"><code>#Extract reads GC contents (the file is big and can&#39;t be processed easily)
+awk &#39;{print$2}&#39; gc_out.txt &gt; gc_simple.txt</code></pre>
+<p>The last part of the analysis will be executed in <code>R</code> where we will load the data and create a histogram to look at the distribution of reads GC contents.</p>
+<pre class="r"><code>###~~~
+#Infer GC content per reads
+###~~~
+#Load the data in R
+gc_frac &lt;- read.table(&#39;gc_simple.txt&#39;, header=T)
+
+#Create pdf to save output of hist
+pdf(&quot;GC_content_hist.pdf&quot;)
+#Do the histogram of GC content 
+hist(as.numeric(gc_frac[,1]), main=&quot;Histogram of GC content per reads&quot;, xlab=&quot;GC fraction&quot;)
+#Close pdf file
+dev.off()</code></pre>
+<p>The histogram displaying the distribution of GC values based on cleaned reads is provided in Figure <a href="#fig:GC">1.4</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:GC"></span>
+<img src="Images/GC_content_hist.png" alt="Histogram of GC values inferred from the cleaned library of reads (SRR5759389). See text for more details." width="100%" />
+<p class="caption">
+Figure 1.4: Histogram of GC values inferred from the cleaned library of reads (SRR5759389). See text for more details.
+</p>
+</div>
+<div id="question" class="section level5" number="1.4.7.1.1">
+<h5><span class="header-section-number">1.4.7.1.1</span> Question</h5>
+<blockquote>
+<p>To your knowledge, based on data presented in Figure <a href="#fig:GC">1.4</a>, is the SRR5759389 library contaminated with alien DNA?</p>
+</blockquote>
+</div>
 </div>
 </div>
 </div>

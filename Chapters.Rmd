@@ -119,7 +119,7 @@ The program `FastQC` is used to obtain preliminary information about the Illumin
 
 Please inspect the `SRR5759389_pe12_fastqc.html` output file. We will have a group discussion to inspect this file and draw general conclusions on the quality of the raw data. This step will have to be repeated after completion of the step3 (reads cleaning) to confirm that our reads trimming and cleaning procedure was successful. 
 
-### Step 3: Reads cleaning
+### Step 3: Reads cleaning {#Step3}
 
 This step is at the core of our analytical workflow. It is paramount to conduct thorough reads cleaning when assembling a nuclear genome due to the very nature of this genome (i.e. repetitive elements, heterozygosity, recombination, etc...). In this case, aim at minimizing the effect of PCR errors, which could jeopardize our assembly by creating false polymorphism. In addition, *de novo* genome assembly is computing intensive and by properly cleaning reads we will dramatically decrease RAM requirements.
 
@@ -223,6 +223,62 @@ mv SRR5759389_pe12.max100.trimmed.norare.noshort.fastq.2 SRR5759389.pe2.clean.fa
 
 #### Reads QCs on cleaned reads
 
-Use `FastQC` to validate the reads cleaning conducted above. Please see [Step2](#Step2) for more details on the methodology. 
+Use `FastQC` to validate the reads cleaning conducted above. Please see [Step 2](#Step2) for more details on the methodology. 
+
+### Step 4: What's "in" the reads?
+
+Before conducting the *de novo* genome assembly (using the cleaned reads produced in [Step 3](#Step3), it is paramount to assess whether the data are contaminated and also to provide a first estimate of proportions of reads belonging to either nuclear or plastid genomes. To investigate these topics, the instructor proposes that we assess i) potential contamination by inferring reads GC contents and ii) map the clean reads against nuclear and chloroplast genome assemblies to assess proportions of reads belonging to either genomes in our library.
+
+#### Reads GC contents
+
+The GC content of a sequence library can provide evidence of contamination or the presence of sequence from multiple organisms (since most organisms have specific GC profiles). A GC plot inferred from a non-contaminated library would display a smooth, unimodal distribution. The existence of shoulders, or in more extreme cases a bimodal distribution, could be indicative of the presence of sequence reads from  an organism with a different GC content, which is most likely a contaminant (see Figure \@ref(fig:part1workflow)). 
+
+Here we infer GC contents for all clean reads using the perl script `GC_content.pl`. This script requires reads to be in `fasta` format. We will then start by converting our `fastq` file into `fasta` by using `seqtk`. Data are available in the `GC_content/` folder. Please see below for the commands to be executed:
+
+```{bash, eval = F}
+#Convert fastq to fasta
+seqtk seq -a ~/Documents/Kmers_analyses/khmer/	 SRR5759389_pe12.max100.trimmed.norare.noshort.fastq > SRR5759389_pe12.max100.trimmed.norare.noshort.fasta
+```
+
+**PLEASE DON'T EXECUTE THE COMMAND BELOW!** It takes few hours to calculate reads GC contents. Use the output of this command `gc_out.txt`, which is available in the `GC_content/` folder to carry on our analyses. 
+
+```{bash, eval = F}
+#Infer GC content using fasta file as input (this can take a long time)
+./GC_content.pl SRR5759389_pe12.max100.trimmed.norare.noshort.fasta > gc_out.txt
+```
+
+The next command extracts the column containing the GC content per read. Since the file is very big, we use the BASH command `awk` to extract this information instead of `R`.
+
+```{bash, eval = F}
+#Extract reads GC contents (the file is big and can't be processed easily)
+awk '{print$2}' gc_out.txt > gc_simple.txt
+```
+
+The last part of the analysis will be executed in `R` where we will load the data and create a histogram to look at the distribution of reads GC contents.
+
+```{r, eval = F}
+###~~~
+#Infer GC content per reads
+###~~~
+#Load the data in R
+gc_frac <- read.table('gc_simple.txt', header=T)
+
+#Create pdf to save output of hist
+pdf("GC_content_hist.pdf")
+#Do the histogram of GC content 
+hist(as.numeric(gc_frac[,1]), main="Histogram of GC content per reads", xlab="GC fraction")
+#Close pdf file
+dev.off()
+```
+
+The histogram displaying the distribution of GC values based on cleaned reads is provided in Figure \@ref(fig:GC).
+
+```{r GC, echo=FALSE, fig.align="center", fig.cap="Histogram of GC values inferred from the cleaned library of reads (SRR5759389). See text for more details.", fig.show="asis", out.width = '100%'}
+knitr::include_graphics("Images/GC_content_hist.png")
+```
+
+##### Question
+
+> To your knowledge, based on data presented in Figure \@ref(fig:GC), is the SRR5759389 library contaminated with alien DNA?
 
 # References
