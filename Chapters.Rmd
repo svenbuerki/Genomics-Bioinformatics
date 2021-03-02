@@ -61,9 +61,13 @@ As you go along this document and perform analyses, please COPY ALL COMMAND LINE
 
 ### Analytical workflow
 
-The overarching objective of this tutorial is to gain theoretical and bioinformatics knowledge on the steps required to prepare PE Illumina reads for *de novo* nuclear genome assembly as well as infer genome size and complexity. 
+The overarching objective of this tutorial is to gain theoretical and bioinformatics knowledge on the steps required to prepare PE Illumina reads for *de novo* nuclear genome assembly as well as infer genome size and complexity (see Figure \@ref(fig:part1)).
 
-The five main steps associated to these objectives are as follows (see Figure \@ref(fig:part1workflow)):  
+```{r part1, echo=FALSE, fig.align="center", fig.cap="Workflow applied to assemble and annotate a genome for non-model organisms. Steps associated to PART 1 are highlighted in grey.", fig.show="asis", out.width = '80%'}
+knitr::include_graphics("Images/Chapter_4_Part1_steps_covered.png")
+```
+
+The five main steps associated to the objectives of PART 1 are as follows (see Figure \@ref(fig:part1workflow)):  
 
 - **Step 1:** Download SRA file containing raw WGS data and simultaneously convert it into an interleaved PE `fasqt` format file. This latter format (where both reads are paired and combined into one file) is the input for most bioinformatic programs.
 - **Step 2:** Infer reads Quality Checks (QCs) using standard statistics implemented in `FastQC` [@FastQC].
