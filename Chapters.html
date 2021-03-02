@@ -431,10 +431,10 @@ $(document).ready(function() {
 <div id="objectives" class="section level2" number="1.1">
 <h2><span class="header-section-number">1.1</span> Objectives</h2>
 <p>In this chapter, we aim at training students in producing a draft nuclear genome for a non-model organism using Illumina data.</p>
-<p>The whole-genome sequencing (WGS) dataset published by <span class="citation"><a href="#ref-Zhang2017" role="doc-biblioref">Zhang et al.</a> (<a href="#ref-Zhang2017" role="doc-biblioref">2017</a>)</span> on the orchid species <em>Apostasia shenzhenica</em> is used as case-study. This dataset provides an opportunity to gain firsthand experience in analyzing NGS data. <span class="citation"><a href="#ref-Zhang2017" role="doc-biblioref">Zhang et al.</a> (<a href="#ref-Zhang2017" role="doc-biblioref">2017</a>)</span> have also produced RNA-Seq data, which were used in their study to support genome annotation.</p>
+<p>The whole-genome shotgun (WGS) sequencing dataset published by <span class="citation"><a href="#ref-Zhang2017" role="doc-biblioref">Zhang et al.</a> (<a href="#ref-Zhang2017" role="doc-biblioref">2017</a>)</span> on the orchid species <em>Apostasia shenzhenica</em> is used as case-study. This dataset provides an opportunity to gain firsthand experience in analyzing NGS data. <span class="citation"><a href="#ref-Zhang2017" role="doc-biblioref">Zhang et al.</a> (<a href="#ref-Zhang2017" role="doc-biblioref">2017</a>)</span> have also produced RNA-Seq data, which were used in their study to support genome annotation.</p>
 <p>The chapter is subdivided into three parts:</p>
 <ul>
-<li><strong>PART 1:</strong> Preparing Illumina reads for <em>de novo</em> nuclear genome assembly and inferring genome size and complexity.</li>
+<li><strong>PART 1:</strong> Preparing/cleaning Illumina reads for <em>de novo</em> nuclear genome assembly and inferring genome size and complexity.</li>
 <li><strong>PART 2:</strong> <em>De novo</em> genome assembly.</li>
 <li><strong>PART 3:</strong> Validation of draft genome.</li>
 </ul>
@@ -443,6 +443,8 @@ $(document).ready(function() {
 <div id="presenting-the-ngs-data" class="section level2" number="1.2">
 <h2><span class="header-section-number">1.2</span> Presenting the NGS data</h2>
 <p>Details on the WGS PE Illumina library studied here are provided in Figure <a href="#fig:SRA">1.1</a>. The SRA accession number is <a href="https://trace.ncbi.nlm.nih.gov/Traces/sra/?run=SRR5759389">SRR5759389</a> and the most important information to know about this data are that the fragments insert-size of the library is 180 bp and that the length of each PE read is 90 bp. Note that the authors have performed a round of PCR amplification during their library preparation. This step is know to potentially introduce errors in reads, which could be identified by performing k-mer analyses.</p>
+<p>The number of bases shown in Figure <a href="#fig:SRA">1.1</a> was inferred as follows: <span class="math inline">\(\text{N bases} = \text{N. spots * reads length (bp)}\)</span>. In this example, <span class="math inline">\(\text{N bases} = 84.1e6 * 180 (90 + 90) = 15.1e9bp = 15.1Gbp\)</span>.</p>
+<p>You can also obtain a rough estimate of haploid genome coverage (x) by using the following equation: <span class="math inline">\(\text{Raw haploid genome coverage (x)} = \text{N bases / Genome size (haploid)}\)</span>. In this example, <span class="math inline">\(\text{Raw haploid genome coverage (x)} = 15.1e9 / 471.0e6 = 32x\)</span>. The estimation of haploid genome size was taken from <span class="citation"><a href="#ref-Zhang2017" role="doc-biblioref">Zhang et al.</a> (<a href="#ref-Zhang2017" role="doc-biblioref">2017</a>)</span>.</p>
 <div class="figure" style="text-align: center"><span id="fig:SRA"></span>
 <img src="Images/SRR5759389_details.png" alt="Details on the WGS library (SRA accession number: SRR5759389) used in this tutorial. " width="100%" />
 <p class="caption">
@@ -641,7 +643,7 @@ hist(as.numeric(gc_frac[,1]), main=&quot;Histogram of GC content per reads&quot;
 dev.off()</code></pre>
 <p>The histogram displaying the distribution of GC values based on cleaned reads is provided in Figure <a href="#fig:GC">1.4</a>.</p>
 <div class="figure" style="text-align: center"><span id="fig:GC"></span>
-<img src="Images/GC_content_hist.png" alt="Histogram of GC values inferred from the cleaned library of reads (SRR5759389). See text for more details." width="100%" />
+<img src="Images/GC_content_hist.png" alt="Histogram of GC values inferred from the cleaned library of reads (SRR5759389). See text for more details." width="80%" />
 <p class="caption">
 Figure 1.4: Histogram of GC values inferred from the cleaned library of reads (SRR5759389). See text for more details.
 </p>

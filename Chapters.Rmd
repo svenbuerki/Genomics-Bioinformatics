@@ -31,11 +31,11 @@ $(document).ready(function() {
 
 In this chapter, we aim at training students in producing a draft nuclear genome for a non-model organism using Illumina data.
 
-The whole-genome sequencing (WGS) dataset published by @Zhang2017 on the orchid species *Apostasia shenzhenica* is used as case-study. This dataset provides an opportunity to gain firsthand experience in analyzing NGS data. @Zhang2017 have also produced RNA-Seq data, which were used in their study to support genome annotation.
+The whole-genome shotgun (WGS) sequencing dataset published by @Zhang2017 on the orchid species *Apostasia shenzhenica* is used as case-study. This dataset provides an opportunity to gain firsthand experience in analyzing NGS data. @Zhang2017 have also produced RNA-Seq data, which were used in their study to support genome annotation.
 
 The chapter is subdivided into three parts:
 
-- **PART 1:** Preparing Illumina reads for *de novo* nuclear genome assembly and inferring genome size and complexity.
+- **PART 1:** Preparing/cleaning Illumina reads for *de novo* nuclear genome assembly and inferring genome size and complexity.
 - **PART 2:** *De novo* genome assembly.
 - **PART 3:** Validation of draft genome. 
 
@@ -44,6 +44,10 @@ Before you start working on Chapter 4, please make sure that you have completed 
 ## Presenting the NGS data
 
 Details on the WGS PE Illumina library studied here are provided in Figure \@ref(fig:SRA). The SRA accession number is [SRR5759389](https://trace.ncbi.nlm.nih.gov/Traces/sra/?run=SRR5759389) and the most important information to know about this data are that the fragments insert-size of the library is 180 bp and that the length of each PE read is 90 bp. Note that the authors have performed a round of PCR amplification during their library preparation. This step is know to potentially introduce errors in reads, which could be identified by performing k-mer analyses.
+
+The number of bases shown in Figure \@ref(fig:SRA) was inferred as follows: $\text{N bases} = \text{N. spots * reads length (bp)}$. In this example, $\text{N bases} = 84.1e6 * 180 (90 + 90) = 15.1e9bp = 15.1Gbp$. 
+
+You can also obtain a rough estimate of haploid genome coverage (x) by using the following equation: $\text{Raw haploid genome coverage (x)} = \text{N bases / Genome size (haploid)}$. In this example, $\text{Raw haploid genome coverage (x)} = 15.1e9 / 471.0e6 = 32x$. The estimation of haploid genome size was taken from @Zhang2017.
 
 ```{r SRA, echo=FALSE, fig.align="center", fig.cap="Details on the WGS library (SRA accession number: SRR5759389) used in this tutorial. ", fig.show="asis", out.width = '100%'}
 knitr::include_graphics("Images/SRR5759389_details.png")
@@ -273,7 +277,7 @@ dev.off()
 
 The histogram displaying the distribution of GC values based on cleaned reads is provided in Figure \@ref(fig:GC).
 
-```{r GC, echo=FALSE, fig.align="center", fig.cap="Histogram of GC values inferred from the cleaned library of reads (SRR5759389). See text for more details.", fig.show="asis", out.width = '100%'}
+```{r GC, echo=FALSE, fig.align="center", fig.cap="Histogram of GC values inferred from the cleaned library of reads (SRR5759389). See text for more details.", fig.show="asis", out.width = '80%'}
 knitr::include_graphics("Images/GC_content_hist.png")
 ```
 
