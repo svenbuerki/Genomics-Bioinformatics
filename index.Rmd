@@ -71,7 +71,7 @@ To accommodate physical distancing and other safety measures necessitated by the
 
 This means that courses meet virtually via technology (here Zoom) at scheduled class meeting times and will also meet in-person for bioinformatic analyses (mostly on Fridays, but bioinformatic tutorials are scheduled for [Chapter 4](#timetable)). 
 
-To respect social distancing in the computer laboratory (see class location [here](#class)), students will be divided into four groups (or pods) to work on bioinformatic analyses. Each bioinformatic class session will be split in half and two groups will be attending at the same time. This will give opportunities for students to meet and learn computing skills on the Linux boxes. Groups will be defined during the first two weeks of the semester. Please see the [logistic](#logistic) section below for more details.
+To respect social distancing in the computer laboratory (see class location [here](#class)), students will be divided into four groups (or pods) to work on bioinformatic analyses. Each bioinformatic class session will be split in half and two groups will be attending at the same time. This will give opportunities for students to meet and learn computing skills on the Linux boxes. Groups will be defined during the first two weeks of the semester. Please see the [In-person groups](#logistic) section below for more details.
 
 ## What technology do you need?
 
@@ -123,13 +123,19 @@ The following rules apply for in-person classes:
 2. Scan the QR code located at entrance of classroom. Since there is only one QR code, the instructor will keep a record of stations where students seated in class (see Figure \@ref(fig:seatingchart)). 
 3. Use sanitizing wipes to clean surfaces (desk and keyboard) at beginning and end of class.
 
-```{r seatingchart, echo=FALSE, fig.cap="Laboratory seating chart for SCNC149.", out.width = '100%'}
+```{r seatingchart, echo=FALSE, fig.cap="Laboratory seating chart for SCNC149.", fig.align='center', out.width = '80%'}
 knitr::include_graphics("Images/Lab_seating_chart.jpg")
 ```
 
 **Why is it important for students to scan their QR codes every class period?**
 
 The information that is gathered is the foundation for contact tracing. With QR code information, the tracers can focus on a small number of students in seats adjacent to a student who tests positive.  Without QR code info, the contact tracers must deal with the entire class, making what is already a challenging task even more difficult.
+
+### In-person groups {#logistic}
+
+Due to room COVID capacity, students will be split into 4 groups (or pods): A, B, C and D. Each group will be composed of 4 to 5 students. **Groups A (4 students) and B (4 students)** will attend in-person classes from **9:00 to 9:50 am** and **groups C (4 students) and D (5 students)** between **10:00 to 10:50 am**. The gap between in-person sessions will allow for group rotation and sanitizing of work stations.
+
+More information on group compositions is available on our shared [Google Drive](https://docs.google.com/spreadsheets/d/1cRM1yasUfDa98ecyz_-RxUOw8cU4wkQx4O5Wxw3y4yU/edit?usp=sharing). Finally, each group has a Linux computer assigned to them. More information on log-in and IP addresses are available [here](https://docs.google.com/document/d/1t0DdQBes42Gzo8XWgc9JL2xEGjv1kbfoVE7Vznx6C9I/edit?usp=sharing).
 
 # Course goal and description
 
@@ -420,13 +426,9 @@ Time will be allocated to select a paper and work on presentations, but the inst
 
 ### Research topic
 
-Students will be working in groups to produce a report associated to the following research question:
+Students will be working in groups (see [In-person groups](#logistic) for more details) to produce a report associated to the following research question:
 
 - What Aquaporin genes are encoded in the sagebrush genome (*Artemisia tridentata*) and what are their functions?
-
-### Logistic {#logistic}
-
-Due to room COVID capacity, students will be split into 4 groups (or pods): A, B, C and D. Each group will be composed of 4 to 5 students. Groups A and B will attend class on Fridays from 9:00 to 9:50 am and groups C and D between 10:00 to 10:50 am. The ten minute gap between sessions will allow for group rotation and sanitizing of work stations. A similar approach will be applied when we will be teaching material presented in Chapter 4.   
 
 ### Details on reporting
 
@@ -619,6 +621,7 @@ timetable <- data.frame(datesclass, topic)
 #Some editing to better print table in pdf doc
 timetable <- as.matrix(timetable)
 rownames(timetable) <- rep("", nrow(timetable))
+colnames(timetable)[5] <- "Task / Deadline"
 colnames(timetable)[6] <- "Teaching mode"
 ###~~~
 #Plot timetable in doc

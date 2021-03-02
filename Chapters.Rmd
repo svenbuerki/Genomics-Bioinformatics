@@ -27,7 +27,7 @@ $(document).ready(function() {
 
 # Chapter 4
 
-## Overview
+## Objectives
 
 In this chapter, we aim at training students in producing a draft nuclear genome for a non-model organism using Illumina data.
 
@@ -39,7 +39,7 @@ The chapter is subdivided into three parts:
 - **PART 2:** *De novo* genome assembly.
 - **PART 3:** Validation of draft genome. 
 
-Before you start tutorials associated to Chapter 4, please make sure you have completed the Tutorials available [here](Tutorials.html).
+Before you start working on Chapter 4, please make sure that you have completed the tutorials available [here](Tutorials.html).
 
 ## Presenting the NGS data
 
