@@ -446,6 +446,10 @@ The instructor expects each student to take part to the presentation and to be i
 
 Presentations will have to be deposited in advance onto a shared Google drive folder or be sent to the instructor prior to the presentation.
 
+## Extra credits
+
+For students interested in getting some extra credits, the instructor will provide two opportunities to score a total of 30 extra credits. Students will be able to allocate these extra credits to any of their tests (by sending an email to the instructor with credits allocation). These two non-mandatory assignments have strict deadlines (see [Timetable](#timetable)). This means that the instructor will consider that if students have not turned-in their assignment on time that they are not interested in getting extra credits. To facilitate students' time management, credits allocated to each question will be provided. These opportunities should provide students with the ability to claim extra credits (and therefore improve their overall grade) while also learning about several aspects of genome assembly and annotation. As usual, students can work in groups, but they have to submit individual assignments.
+
 # Late work policy
 
 The instructor expects students to deliver their assignments on time and set enough time aside to work on their projects (see above for more details).
