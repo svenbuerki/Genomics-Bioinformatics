@@ -90,13 +90,20 @@ Putty is one of the best software used on Windows to remotely access computers. 
 
 # Running bioinformatic analyses - `tmux`
 
-Some of the analyses that we will be conducted in course will take several days to be completed. In this case, it is paramount to run those analyses in a safe environment. By safe, we mean making sure that analyses will not be inadvertently cut either by yourself or by other users (and trust me it happens!). In this section, we will be reviewing protocols implemented in `tmux` to run and access multiple parallel terminal sessions.
+Some of the analyses that we will be conducting in this course will take several days to be completed. In this case, it is paramount to run those analyses in a safe environment. By safe, we mean making sure that analyses will not be inadvertently cut either by yourself or by other users (and trust me it happens!). In this section, we will be reviewing protocols implemented in `tmux` to run and access multiple parallel terminal sessions. 
 
-As long as the user knows the unique ID of the `tmux` session, the `tmux` session will be accessible by anybody and remain open after closing your `ssh` connection. For those reasons, **the `tmux` protocol is very useful when multiple users are sharing the same account (here `bioinformatics`) and want to work remotely**.
+As long as the user knows the unique ID of their `tmux` session, the `tmux` session will be accessible by anybody and remain open after closing your `ssh` connection. For those reasons, **the `tmux` protocol is very useful when multiple users are sharing the same account (here `bioinformatics`) and want to work remotely**.
+
+This software is installed by default on the Linux operating system, but it can also be installed on Mac OS using the following command:
+
+```{bash eval=F}
+$ brew install tmux
+```
 
 ## How to create, exit, rename, list, access & terminate tmux sessions
 
 To **create** a new `tmux` session using the `Terminal` type:
+
 ```{bash eval=F}
 $ tmux
 ```
@@ -114,6 +121,7 @@ $ tmux attach
 ```
 
 The command executed above implies that there is only one `tmux` session running on your computer. If you intend to **run multiple side-by-side sessions, you should name each session** using the following command:
+
 ```{bash eval=F}
 # Create the session
 $ tmux 
@@ -128,7 +136,18 @@ One you have executed the commands, you will be able to **rename your session** 
 knitr::include_graphics("Images/tmux_rename.png")
 ```
 
+You can also **create a new session and directly name it** as follows:
+
+```{bash eval=F}
+#General command
+$ tmux new -s session_name
+
+#Example 
+$ tmux new -s JOB2
+```
+
 You can get a **list of all running `tmux` sessions** by using the following command (\@ref(fig:tmuxsession)):
+
 ```{bash eval=F}
 $ tmux list-sessions 
 ```
@@ -149,6 +168,16 @@ You can **terminate** a `tmux` session by accessing it using commands provided a
 
 ```{r tmuxterm, echo=FALSE, fig.align="center", fig.cap="Screenshot of Terminal showing tmux command to access a specific session (here JOB1) and the result after terminating the session (using the exit command).", fig.show="asis", out.width = '80%'}
 knitr::include_graphics("Images/tmux_terminate.png")
+```
+
+Finally, you can also **kill a session** without accession to it as follows:
+
+```{bash eval=F}
+#General command
+$ tmux kill-session -t ID_Session
+
+#To kill JOB2 do
+$ tmux kill-session -t JOB2
 ```
 
 ## Exercises

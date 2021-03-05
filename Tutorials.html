@@ -10,7 +10,7 @@
 
 
 
-<meta name="date" content="2021-03-02" />
+<meta name="date" content="2021-03-04" />
 
 <title>Tutorials</title>
 
@@ -390,7 +390,7 @@ div.tocify {
 
 
 <h1 class="title toc-ignore">Tutorials</h1>
-<h4 class="date">2021-03-02</h4>
+<h4 class="date">2021-03-04</h4>
 
 </div>
 
@@ -452,8 +452,10 @@ Figure 2.2: Screenshot of Terminal showing commands to remotely access computer 
 </div>
 <div id="running-bioinformatic-analyses---tmux" class="section level1" number="3">
 <h1><span class="header-section-number">3</span> Running bioinformatic analyses - <code>tmux</code></h1>
-<p>Some of the analyses that we will be conducted in course will take several days to be completed. In this case, it is paramount to run those analyses in a safe environment. By safe, we mean making sure that analyses will not be inadvertently cut either by yourself or by other users (and trust me it happens!). In this section, we will be reviewing protocols implemented in <code>tmux</code> to run and access multiple parallel terminal sessions.</p>
-<p>As long as the user knows the unique ID of the <code>tmux</code> session, the <code>tmux</code> session will be accessible by anybody and remain open after closing your <code>ssh</code> connection. For those reasons, <strong>the <code>tmux</code> protocol is very useful when multiple users are sharing the same account (here <code>bioinformatics</code>) and want to work remotely</strong>.</p>
+<p>Some of the analyses that we will be conducting in this course will take several days to be completed. In this case, it is paramount to run those analyses in a safe environment. By safe, we mean making sure that analyses will not be inadvertently cut either by yourself or by other users (and trust me it happens!). In this section, we will be reviewing protocols implemented in <code>tmux</code> to run and access multiple parallel terminal sessions.</p>
+<p>As long as the user knows the unique ID of their <code>tmux</code> session, the <code>tmux</code> session will be accessible by anybody and remain open after closing your <code>ssh</code> connection. For those reasons, <strong>the <code>tmux</code> protocol is very useful when multiple users are sharing the same account (here <code>bioinformatics</code>) and want to work remotely</strong>.</p>
+<p>This software is installed by default on the Linux operating system, but it can also be installed on Mac OS using the following command:</p>
+<pre class="bash"><code>$ brew install tmux</code></pre>
 <div id="how-to-create-exit-rename-list-access-terminate-tmux-sessions" class="section level2" number="3.1">
 <h2><span class="header-section-number">3.1</span> How to create, exit, rename, list, access &amp; terminate tmux sessions</h2>
 <p>To <strong>create</strong> a new <code>tmux</code> session using the <code>Terminal</code> type:</p>
@@ -476,6 +478,12 @@ Ctrl+b and $</code></pre>
 Figure 3.1: Screenshot of Terminal showing procedure to rename a tmux session (here JOB1).
 </p>
 </div>
+<p>You can also <strong>create a new session and directly name it</strong> as follows:</p>
+<pre class="bash"><code>#General command
+$ tmux new -s session_name
+
+#Example 
+$ tmux new -s JOB2</code></pre>
 <p>You can get a <strong>list of all running <code>tmux</code> sessions</strong> by using the following command (<a href="#fig:tmuxsession">3.2</a>):</p>
 <pre class="bash"><code>$ tmux list-sessions </code></pre>
 <div class="figure" style="text-align: center"><span id="fig:tmuxsession"></span>
@@ -496,6 +504,12 @@ $ tmux attach -t JOB1</code></pre>
 Figure 3.3: Screenshot of Terminal showing tmux command to access a specific session (here JOB1) and the result after terminating the session (using the exit command).
 </p>
 </div>
+<p>Finally, you can also <strong>kill a session</strong> without accession to it as follows:</p>
+<pre class="bash"><code>#General command
+$ tmux kill-session -t ID_Session
+
+#To kill JOB2 do
+$ tmux kill-session -t JOB2</code></pre>
 </div>
 <div id="exercises" class="section level2" number="3.2">
 <h2><span class="header-section-number">3.2</span> Exercises</h2>
