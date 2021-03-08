@@ -135,7 +135,10 @@ The information that is gathered is the foundation for contact tracing. With QR 
 
 Due to room COVID capacity, students will be split into 4 groups (or pods): A, B, C and D. Each group will be composed of 4 to 5 students. **Groups A (4 students) and B (4 students)** will attend in-person classes from **9:00 to 9:50 am** and **groups C (4 students) and D (5 students)** between **10:00 to 10:50 am**. The gap between in-person sessions will allow for group rotation and sanitizing of work stations.
 
-More information on group compositions is available on our shared [Google Drive](https://docs.google.com/spreadsheets/d/1cRM1yasUfDa98ecyz_-RxUOw8cU4wkQx4O5Wxw3y4yU/edit?usp=sharing). Finally, each group has a Linux computer assigned to them. More information on log-in and IP addresses are available [here](https://docs.google.com/document/d/1t0DdQBes42Gzo8XWgc9JL2xEGjv1kbfoVE7Vznx6C9I/edit?usp=sharing).
+Information on:
+
+  - Group compositions and seating positions are available on our shared [Google Drive](https://docs.google.com/spreadsheets/d/1cRM1yasUfDa98ecyz_-RxUOw8cU4wkQx4O5Wxw3y4yU/edit?usp=sharing). 
+  - Individual Linux accounts (log-in and IP addresses) are available [here](https://docs.google.com/document/d/1t0DdQBes42Gzo8XWgc9JL2xEGjv1kbfoVE7Vznx6C9I/edit?usp=sharing).
 
 # Course goal and description
 
