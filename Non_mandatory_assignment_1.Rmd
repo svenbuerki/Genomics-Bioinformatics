@@ -1,0 +1,49 @@
+---
+title: "BIOL 497/597 - Genomics & Bioinformatics"
+subtitle: "Non-mandatory assignment 1"
+author: "Sven Buerki - Boise State University"
+date: "`r Sys.Date()`"
+output:
+  bookdown::html_document2: 
+    toc: FALSE
+    toc_float: TRUE
+    toc_depth: 4
+link-citations: yes
+fontsize: 12pt
+urlcolor: blue
+csl: AmJBot.csl
+bibliography: References.bib
+editor_options: 
+  markdown: 
+    wrap: sentence
+---
+
+```{js logo-js, echo=FALSE}
+$(document).ready(function() {
+  $('#header').parent().prepend('<div id=\"logo\"><img src=\"Images/boisestate-primarylogo-2color-rgb.png\" style=\"position:absolute; top:20; right:0; padding:10px; height:120px\"></div>');
+  $('#header').css('margin-right', '120px')
+});
+```
+
+# Introduction
+
+For students interested in getting some extra credits, the instructor provides two opportunities to score a total of 30 extra credits. Students are able to allocate these extra credits to any of their tests (by sending an email to the instructor with credits allocation). These two non-mandatory assignments have strict deadlines. This means that the instructor will consider that if students have not turned-in their assignment on time that they are not interested in getting extra credits. To facilitate students' time management, credits allocated to each question is provided. These opportunities should provide students with the ability to claim extra credits (and therefore improve their overall grade) while also learning about several aspects of genome assembly and annotation. As usual, students can work in groups, but they have to submit individual assignments.
+
+# Deadline & submission information
+
+Upload your non-mandatory assignment on the shared Google drive (in `Non_mandatory_assignment_1/`) by the **19th of March before 5 pm**. Name your document following this pattern: `Non_mandatory_assignment_1_Surname`. If students are not naming their document appropriately, the instructor will penalize them by discarding 1 extra credit (therefore starting at a maximum of 14 credits instead of 15). 
+
+# Questions
+
+This extra assignment scores a total of 15 extra credits. Students answer the following four questions in a document and upload it onto the shared Google Drive as described above.
+
+**Question 1 (6 credits):** Independently of the approach used to obtain a whole-genome sequence, all sequencing projects share the same major steps. Please list the two major steps as well as their individual components.
+
+
+**Question 2 (4 credits):** What are the main four criteria that a DNA extraction should meet (in term of providing suitable genomic DNA for next-generation sequencing projects) to ensure a successful library preparation?
+
+
+**Question 3 (3 credits):** Using data on the pufferfish and human genomes we demonstrated that an organism's complexity was not correlated with its number of genes. Please explain at which step of the genome expression process complexity is most likely to take place and which mechanism(s) would underpin it?
+
+**Question 4 (2 credits):** What does the Phred quality score refer to? Why is this information useful to perform reads quality checks and cleaning/trimming?
+
