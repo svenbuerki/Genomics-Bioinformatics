@@ -433,6 +433,10 @@ Students will be working in groups (see [In-person groups](#logistic) for more d
 
 - What Aquaporin genes are encoded in the sagebrush genome (*Artemisia tridentata*) and what are their functions?
 
+### Associated scripts
+
+Students can access `bash` and `R` scripts associated to their lab report [here](Mining_draft_genome.html).
+
 ### Details on reporting
 
 Lab reports will be formal documents written in the form of scientific manuscripts (Introduction, Material & Methods, Results, Discussion and References sections).

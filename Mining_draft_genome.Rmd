@@ -1,0 +1,209 @@
+---
+title: "BIOL 497/597 - Genomics & Bioinformatics"
+subtitle: "Lab: Mining sagebrush draft genome"
+author: "Sven Buerki & Anthony Melton - Boise State University"
+date: "`r Sys.Date()`"
+output:
+  bookdown::html_document2: 
+    toc: TRUE
+    toc_float: TRUE
+    toc_depth: 4
+link-citations: yes
+fontsize: 12pt
+urlcolor: blue
+csl: AmJBot.csl
+bibliography: References.bib
+editor_options: 
+  markdown: 
+    wrap: sentence
+---
+
+```{js logo-js, echo=FALSE}
+$(document).ready(function() {
+  $('#header').parent().prepend('<div id=\"logo\"><img src=\"Images/boisestate-primarylogo-2color-rgb.png\" style=\"position:absolute; top:0; right:0; padding:10px; height:120px\"></div>');
+  $('#header').css('margin-right', '120px')
+});
+```
+
+# Introduction
+
+This webpage supports analyses aiming at mining the sagebrush draft genome for Aquaporin genes. It is subdivided into 4 modules as follows:
+
+- [**Module 1:**](#mod1) Set-up environment and conduct BLAST analysis.
+- **Module 2:** Extract scaffolds and find **O**pen **R**eading **F**rames.
+- **Module 3:** Annotate ORFs and assemble proteins.
+- **Module 4:** Alignment and phylogenetic reconstruction.
+
+## Project structure
+
+### Where are the data located?
+
+All the data associated to this project are located on your individual account in the `DraftGenomeMineR/` folder. This folder is located in `/home/bio_11/DraftGenomeMineR`. Please replace `bio_11` by your [account detail](https://docs.google.com/document/d/1t0DdQBes42Gzo8XWgc9JL2xEGjv1kbfoVE7Vznx6C9I/edit).
+
+**Key files:**
+
+- `Draft_Genome_Assembly.fasta`: Sagebrush draft genome assembly (at scaffold level).
+- `FASTAs/PIP1_3.fa`: Reference containing *PIP1* gene (AA) for BLAST analysis. This data will be used to find Aquaporin genes in the draft genome.
+- Scripts related to each module are located in `Lesson_Modules/`.
+
+### How do I access the data and run analyses?
+
+To access the data and run the analyses, please remotely connect to your dedicated computer using `ssh` protocol. Your credentials are available [here](https://docs.google.com/document/d/1t0DdQBes42Gzo8XWgc9JL2xEGjv1kbfoVE7Vznx6C9I/edit).
+
+# Module 1: Set-up environment and conduct BLAST analysis {#mod1}
+
+## Remotely connect to computer
+
+Start by using `ssh` protocol to connect to your Linux computer. This is done as follows (enter password when prompted to):
+
+```{bash, eval=F}
+#SSH with bio_11 as example
+ssh bio_11@132.178.142.214
+```
+
+## Start R session
+
+Navigate to `DraftGenomeMineR/` and start a new `R` session:
+
+```{bash, eval=F}
+#Navigate to DraftGenomeMineR/
+cd DraftGenomeMineR/
+
+#Start R session
+R-4
+```
+
+## Load R packages and user-defined functions
+
+Create an object with all the requiered R packages and load them:
+
+```{r, eval=F}
+# This will make a list of packages that another function will use to make sure they are all installed and loaded.
+list.of.packages <- c("ape",
+                      "Biostrings",
+                      "dplyr",
+                      "FastaUtils",
+                      "ORFik",
+                      "readr",
+                      "tidyr",
+                      "rBLAST",
+                      "seqinr",
+                      "stringr")
+
+# Use lapply to load all of the packages in the list.
+lapply(list.of.packages, require, character.only = TRUE)
+```
+
+Load all the user-defined function located in `Functions/`:
+
+```{r, eval=F}
+# Load all of the functions written for DraftGenomeMineR     
+files.sources <- list.files("Functions", full.names=T)
+sapply(files.sources, source)
+```
+
+## Setting environment for BLAST analysis
+
+To be able to navigate between folders within our project, we will set a object entitled `project.folder`, which contains the path to the root of the folder.
+
+To create this object, do as follows:
+
+```{r, eval=F}
+#Copy the output of getwd() in the object as follows:
+project.folder <- getwd()
+```
+
+Call `project.folder` to check that it is right. It should be:
+`"/home/bio_11/DraftGenomeMineR"` (with `bio_11` replaced by your account ID).
+
+Set working directory to `project.folder` as follows:
+
+```{r, eval=F}
+setwd(project.folder)
+```
+
+## Running BLAST analysis
+
+Set general parameters for the BLAST analysis:
+
+```{r, eval=F}
+# There are a few parameters that need to be set. Let's create some R objects to store file paths and parameters for the BLAST search.
+
+# We need a query (a fasta file of a gene you want to find in the draft genome), a draft genome assembly, BLAST databases, paths to other required folders (described in the README), and other parameters that can be used to filter results.
+query.file.path <- "FASTAs/PIP1_3.fa"
+genome.file.name <- "Draft_Genome_Assembly.fasta"
+genome.path <- "FASTAs/Draft_Genome_Assembly.fasta"
+blast.db.path <- "BlastDBs/Draft_Genome_Assembly.fasta"
+AA.BlastDB.folder <- "AA_BlastDB/"
+AA.ORF.folder <- "AA_ORFs/"
+max.e <- 5E-50
+perc.ident <- 90.000
+query.type <- "AA"
+blast.type <- "tblastn"
+make.BlastDB <- T
+BlastDB.type <- "nucl"
+```
+
+Read in the sagebrush draft genome assembly in `FASTA` format:
+
+```{r, eval=F}
+# Read in the genome assembly file
+genome <- readLines(con = genome.path)
+head(genome) # Print the top 6 lines of the fasta. There should be no spaces in what is printed. Each header should be on one line, followed by its entire scaffold on the next.
+```
+
+Make a BLAST database for query:
+
+```{r, eval=F}
+# Do you need to make a BLAST database or use an existing one?
+if(make.BlastDB == TRUE){
+  setwd("BlastDBs/")
+  makeblastdb(file = genome.file.name, dbtype = BlastDB.type)
+}
+```
+
+Read in the query file in `FASTA` format:
+
+```{r, eval=F}
+# Read in the query. What type of molecule is the query? DNA (or RNA) or amino acid sequences?
+setwd(project.folder) # Previous lines changed the wd, so we need to go back to the project folder.
+if (query.type == "DNA") {
+  query <- readDNAStringSet(filepath = query.file.path,
+                            format = "fasta")
+} else {
+  query <- readAAStringSet(filepath = query.file.path,
+                           format = "fasta")
+}
+```
+
+Perform BLAST analysis (`BLAST` needs to be installed on the computer):
+
+```{r, eval=F}
+# Now we have everything set up and can perform a BLAST search.
+bl <- blast(db = blast.db.path, type = blast.type) # Create an object with the BLAST database and the type of BLAST search to perform.
+cl <- predict(bl, query) # Perform the BLAST search
+head(cl) # Look at the top BLAST hits
+```
+
+Filter output of BLAST analysis:
+
+```{r, eval=F}
+# We can now filter out bad BLAST hits using a few thresholds and parameters. This leaves us with only the best matches to our query.
+# What parameters do you think would give you just the best candidates to be your gene of interest?
+cl.filt <- subset(x = cl, Perc.Ident >= perc.ident & E <= max.e)
+cl.filt.unique <- cl.filt[!duplicated(cl.filt[,c('SubjectID')]),] # SubjectID is the column that contains the scaffold names
+cl.filt.unique
+nrow(cl)
+nrow(cl.filt)
+nrow(cl.filt.unique)
+blast.hits.to.extract <- subset(x = cl.filt.unique, SubjectID == cl.filt.unique[1,2]) 
+```
+
+Write output of BLAST analysis in `csv` file:
+
+```{r, eval=F}
+# We have evaluated the top BLAST hits and can see a clear best hit. Let's save this data so we can extract just that scaffold later.
+write.csv(x = blast.hits.to.extract, file = "Unique_Filtered_Blast_Hit_Info.csv", row.names = F)
+```
+
+# References
