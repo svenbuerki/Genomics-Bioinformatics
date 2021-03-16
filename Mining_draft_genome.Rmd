@@ -76,7 +76,11 @@ scp DraftGenomeMineR.zip bio_11@132.178.142.214:/home/bio_11
 unzip DraftGenomeMineR.zip
 ```
 
-This procedure only works if you have a unix-based computer. If you don't have a unix-based computer, please ask instructors to transfer this file for you to your account.
+**Disclaimer:** This procedure only works if you have a unix-based computer. If you don't have a unix-based computer, please ask instructors to transfer this file for you to your account.
+
+```{r, echo=F, eval=F}
+cp in bioinformatics folder
+```
 
 ## Start R session
 
@@ -237,9 +241,11 @@ Students have to:
 
 1. Remotely connect to their computers (using their individual accounts) with `ssh` protocol.
 2. Navigate to project directory (`DraftGenomeMineR/`).
-3. Start a new `R` session using `R-4` command.
-4. Load R packages and user-defined functions.
-5. Set working directory to `DraftGenomeMineR/`.
+3. Create a new folder (`Output_FASTAs/`) using `mkdir` to store results of scaffold analysis.
+4. Create a new folder (`ORFs_report/`) using `mkdir` to store results of ORFs analysis.
+5. Start a new `R` session using `R-4` command.
+6. Load R packages and user-defined functions.
+7. Set working directory to `DraftGenomeMineR/`.
 
 ```{r, eval=F, echo=F}
 #ssh
@@ -254,6 +260,10 @@ ssh svenbuerki@132.178.142.214
 #Navigate to DraftGenomeMineR/
 cd DraftGenomeMineR/
 
+#Create new folder 
+mkdir Output_FASTAs/
+mkdir ORFs_report/
+  
 #Start R session
 R-4
 
@@ -283,7 +293,7 @@ project.folder <- getwd()
 setwd(project.folder)
 ```
 
-## Finding ORFs along scaffold(s)
+## Extracting scaffold(s) identified in module 1
 
 Open `Unique_Filtered_Blast_Hit_Info.csv` containing results of BLAST analysis and extract name of target scaffold(s).
 
@@ -309,19 +319,53 @@ Nscaff <- length(genome)/2
 
 #Extract scaffolds in a loop
 
-#Set the loop
-header <- NULL # Generate empty objects to store the headers and sequences for the scaffolds of interest
-seq <- NULL
+#Create data frame to store scaffold data
+scaffold <- data.frame("scaffoldID" = character(length(cl.filt.unique$SubjectID)), "scaffoldSeq" = character(length(cl.filt.unique$SubjectID)))
+#Start populating data frame
+scaffold$scaffoldID <- cl.filt.unique$SubjectID
 
-for(i in 1:nrow(cl.filt.unique)){
-  # Add DNA sequence adapted to strand
-  # Extract seq from FASTA file
-  header[i] <- as.character(cl.filt.unique$SubjectID[i])
-  seq[i] <- genome[c(match(paste(">", cl.filt.unique$SubjectID[i], sep=''), genome)+1, fixed = T)]
+for(i in 1:nrow(scaffold)){
+  # Find and Extract seq of each scaffold from draft genome FASTA file
+  scaffold$scaffoldSeq[i] <- genome[match(paste0(">",scaffold$scaffoldID[i]), genome)+1]
 }
 
+#Convert into FASTA format
+scaffoldFASTA <- apply(scaffold, 1, paste, collapse="\n")
 
+#Save/export FASTA file
+write.table(scaffoldFASTA, "Output_FASTAs/Scaffold151535.fa", row.names = F, col.names=F, quote = F)
 ```
 
+## Finding ORFs along scaffold(s)
+
+We will now find ORFs in scaffold(s) using *findORFsTranslateDNA2AA()*. This user-defined function relies on the *ORFik* R package. The output will be saved in `ORFs_report/`.
+
+```{r, eval=F}
+scaffold <- readLines("Output_FASTAs/Scaffold151535.fa")
+scaffoldID <- grep(pattern = "^>", x = scaffold, value = T)
+scaffoldID <- gsub(pattern = ">", replacement = "", x = scaffoldID)
+tryCatch(
+  {
+    for(i in 1:length(scaffoldID)){
+      findORFsTranslateDNA2AA(scaffold = scaffold, scaffoldID = scaffoldID[i], MinLen = 40)
+    }
+  })
+```
+
+We should now have ORF reports and FASTA files of translated ORFs. Let's check these outputs.
+
+```{r, eval=F}
+orf.report <- read.csv("ORFs_report/Scaffold151535_ORFs.csv")
+
+#How many ORFs were found?
+nrow(orf.report) 
+
+#What are the longest ORFs?
+orf.report[order(-orf.report$width),] 
+
+#Look at translated ORFs (=AA sequences)
+translated.orfs <- readLines("AA_ORFs/Scaffold151535_ORFs.fa")
+head(translated.orfs)
+```
 
 # References

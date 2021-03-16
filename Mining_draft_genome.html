@@ -450,7 +450,7 @@ scp DraftGenomeMineR.zip bio_11@132.178.142.214:/home/bio_11
 
 #unzip file
 unzip DraftGenomeMineR.zip</code></pre>
-<p>This procedure only works if you have a unix-based computer. If you don’t have a unix-based computer, please ask instructors to transfer this file for you to your account.</p>
+<p><strong>Disclaimer:</strong> This procedure only works if you have a unix-based computer. If you don’t have a unix-based computer, please ask instructors to transfer this file for you to your account.</p>
 </div>
 <div id="start-r-session" class="section level2" number="2.3">
 <h2><span class="header-section-number">2.3</span> Start R session</h2>
@@ -565,13 +565,15 @@ write.csv(x = blast.hits.to.extract, file = &quot;Unique_Filtered_Blast_Hit_Info
 <ol style="list-style-type: decimal">
 <li>Remotely connect to their computers (using their individual accounts) with <code>ssh</code> protocol.</li>
 <li>Navigate to project directory (<code>DraftGenomeMineR/</code>).</li>
+<li>Create a new folder (<code>Output_FASTAs/</code>) using <code>mkdir</code> to store results of scaffold analysis.</li>
+<li>Create a new folder (<code>ORFs_report/</code>) using <code>mkdir</code> to store results of ORFs analysis.</li>
 <li>Start a new <code>R</code> session using <code>R-4</code> command.</li>
 <li>Load R packages and user-defined functions.</li>
 <li>Set working directory to <code>DraftGenomeMineR/</code>.</li>
 </ol>
 </div>
-<div id="finding-orfs-along-scaffolds" class="section level2" number="3.2">
-<h2><span class="header-section-number">3.2</span> Finding ORFs along scaffold(s)</h2>
+<div id="extracting-scaffolds-identified-in-module-1" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Extracting scaffold(s) identified in module 1</h2>
 <p>Open <code>Unique_Filtered_Blast_Hit_Info.csv</code> containing results of BLAST analysis and extract name of target scaffold(s).</p>
 <pre class="r"><code>#Open BLAST file
 cl.filt.unique &lt;- read.csv(file = &quot;Unique_Filtered_Blast_Hit_Info.csv&quot;) # Output of module 1
@@ -590,16 +592,46 @@ Nscaff &lt;- length(genome)/2
 
 #Extract scaffolds in a loop
 
-#Set the loop
-header &lt;- NULL # Generate empty objects to store the headers and sequences for the scaffolds of interest
-seq &lt;- NULL
+#Create data frame to store scaffold data
+scaffold &lt;- data.frame(&quot;scaffoldID&quot; = character(length(cl.filt.unique$SubjectID)), &quot;scaffoldSeq&quot; = character(length(cl.filt.unique$SubjectID)))
+#Start populating data frame
+scaffold$scaffoldID &lt;- cl.filt.unique$SubjectID
 
-for(i in 1:nrow(cl.filt.unique)){
-  # Add DNA sequence adapted to strand
-  # Extract seq from FASTA file
-  header[i] &lt;- as.character(cl.filt.unique$SubjectID[i])
-  seq[i] &lt;- genome[c(match(paste(&quot;&gt;&quot;, cl.filt.unique$SubjectID[i], sep=&#39;&#39;), genome)+1, fixed = T)]
-}</code></pre>
+for(i in 1:nrow(scaffold)){
+  # Find and Extract seq of each scaffold from draft genome FASTA file
+  scaffold$scaffoldSeq[i] &lt;- genome[match(paste0(&quot;&gt;&quot;,scaffold$scaffoldID[i]), genome)+1]
+}
+
+#Convert into FASTA format
+scaffoldFASTA &lt;- apply(scaffold, 1, paste, collapse=&quot;\n&quot;)
+
+#Save/export FASTA file
+write.table(scaffoldFASTA, &quot;Output_FASTAs/Scaffold151535.fa&quot;, row.names = F, col.names=F, quote = F)</code></pre>
+</div>
+<div id="finding-orfs-along-scaffolds" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Finding ORFs along scaffold(s)</h2>
+<p>We will now find ORFs in scaffold(s) using <em>findORFsTranslateDNA2AA()</em>. This user-defined function relies on the <em>ORFik</em> R package. The output will be saved in <code>ORFs_report/</code>.</p>
+<pre class="r"><code>scaffold &lt;- readLines(&quot;Output_FASTAs/Scaffold151535.fa&quot;)
+scaffoldID &lt;- grep(pattern = &quot;^&gt;&quot;, x = scaffold, value = T)
+scaffoldID &lt;- gsub(pattern = &quot;&gt;&quot;, replacement = &quot;&quot;, x = scaffoldID)
+tryCatch(
+  {
+    for(i in 1:length(scaffoldID)){
+      findORFsTranslateDNA2AA(scaffold = scaffold, scaffoldID = scaffoldID[i], MinLen = 40)
+    }
+  })</code></pre>
+<p>We should now have ORF reports and FASTA files of translated ORFs. Let’s check these outputs.</p>
+<pre class="r"><code>orf.report &lt;- read.csv(&quot;ORFs_report/Scaffold151535_ORFs.csv&quot;)
+
+#How many ORFs were found?
+nrow(orf.report) 
+
+#What are the longest ORFs?
+orf.report[order(-orf.report$width),] 
+
+#Look at translated ORFs (=AA sequences)
+translated.orfs &lt;- readLines(&quot;AA_ORFs/Scaffold151535_ORFs.fa&quot;)
+head(translated.orfs)</code></pre>
 </div>
 </div>
 <div id="references" class="section level1" number="4">
