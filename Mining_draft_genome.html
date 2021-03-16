@@ -553,24 +553,68 @@ write.csv(x = blast.hits.to.extract, file = &quot;Unique_Filtered_Blast_Hit_Info
 </div>
 </div>
 <div id="mod2" class="section level1" number="3">
-<h1><span class="header-section-number">3</span> Module 2: Extract scaffolds and find <strong>O</strong>pen <strong>R</strong>eading <strong>F</strong>rames</h1>
-<p>Here, we are:</p>
-<ol style="list-style-type: decimal">
+<h1><span class="header-section-number">3</span> Module 2: Extract scaffolds and find Open Reading Frames</h1>
+<p>In this module, we are conducting the following tasks:</p>
+<ul>
 <li>Extracting scaffold(s) identified in <a href="#mod1">module 1</a> from the draft genome assembly (in <code>FASTAs/Draft_Genome_Assembly.fasta</code>) and saving the output as a <code>FASTA</code> object/file.</li>
 <li>Finding ORFs along scaffold(s) using the user-defined function <em>findORFsTranslateDNA2AA()</em> and saving the output into a <code>FASTA</code> object/file. In molecular genetics, an <strong>O</strong>pen <strong>R</strong>eading <strong>F</strong>rame (ORF) is the part of a reading frame that has the ability to be translated. An ORF is a continuous stretch of codons that begins with a start codon (usually AUG) and ends at a stop codon (usually UAA, UAG or UGA). We will study the code implemented in <em>findORFsTranslateDNA2AA()</em> to fully understand the applied approach.</li>
-</ol>
+</ul>
 <div id="getting-ready" class="section level2" number="3.1">
 <h2><span class="header-section-number">3.1</span> Getting ready!</h2>
-<p>Students have to:</p>
+<p>Before starting analyses in <code>R</code>, students have to complete these following tasks:</p>
 <ol style="list-style-type: decimal">
 <li>Remotely connect to their computers (using their individual accounts) with <code>ssh</code> protocol.</li>
-<li>Navigate to project directory (<code>DraftGenomeMineR/</code>).</li>
-<li>Create a new folder (<code>Output_FASTAs/</code>) using <code>mkdir</code> to store results of scaffold analysis.</li>
+<li>Navigate to project directory (<code>DraftGenomeMineR/</code>) using <code>cd</code>.</li>
+<li>Create a new folder (<code>Output_FASTAs/</code>) using <code>mkdir</code> to store results of BLAST scaffold analysis.</li>
 <li>Create a new folder (<code>ORFs_report/</code>) using <code>mkdir</code> to store results of ORFs analysis.</li>
 <li>Start a new <code>R</code> session using <code>R-4</code> command.</li>
 <li>Load R packages and user-defined functions.</li>
 <li>Set working directory to <code>DraftGenomeMineR/</code>.</li>
 </ol>
+<p>For an example of code, see below:</p>
+<pre class="r"><code>#1. ssh
+ssh svenbuerki@132.178.142.214
+
+#scp file
+#scp DraftGenomeMineR.zip svenbuerki@132.178.142.214:/home/svenbuerki
+
+#unzip file
+#unzip DraftGenomeMineR.zip
+
+#2. Navigate to DraftGenomeMineR/
+cd DraftGenomeMineR/
+
+#3. &amp; 4. Create new folders 
+mkdir Output_FASTAs/
+mkdir ORFs_report/
+  
+#5. Start R session
+R-4
+
+#6. This will make a list of packages that another function will use to make sure they are all installed and loaded.
+list.of.packages &lt;- c(&quot;ape&quot;,
+                      &quot;Biostrings&quot;,
+                      &quot;dplyr&quot;,
+                      &quot;FastaUtils&quot;,
+                      &quot;ORFik&quot;,
+                      &quot;readr&quot;,
+                      &quot;tidyr&quot;,
+                      &quot;rBLAST&quot;,
+                      &quot;seqinr&quot;,
+                      &quot;stringr&quot;)
+
+# Use lapply to load all of the packages in the list.
+lapply(list.of.packages, require, character.only = TRUE)
+
+# Load all of the functions written for DraftGenomeMineR     
+files.sources &lt;- list.files(&quot;Functions&quot;, full.names=T)
+sapply(files.sources, source)
+
+#7. Copy the output of getwd() in the object as follows:
+project.folder &lt;- getwd()
+
+#Set wd
+setwd(project.folder)</code></pre>
 </div>
 <div id="extracting-scaffolds-identified-in-module-1" class="section level2" number="3.2">
 <h2><span class="header-section-number">3.2</span> Extracting scaffold(s) identified in module 1</h2>
@@ -620,7 +664,7 @@ tryCatch(
       findORFsTranslateDNA2AA(scaffold = scaffold, scaffoldID = scaffoldID[i], MinLen = 40)
     }
   })</code></pre>
-<p>We should now have ORF reports and FASTA files of translated ORFs. Let’s check these outputs.</p>
+<p>We should now have ORFs reports and <code>FASTA</code> files of translated ORFs. Let’s check these outputs.</p>
 <pre class="r"><code>orf.report &lt;- read.csv(&quot;ORFs_report/Scaffold151535_ORFs.csv&quot;)
 
 #How many ORFs were found?
@@ -634,8 +678,14 @@ translated.orfs &lt;- readLines(&quot;AA_ORFs/Scaffold151535_ORFs.fa&quot;)
 head(translated.orfs)</code></pre>
 </div>
 </div>
-<div id="references" class="section level1" number="4">
-<h1><span class="header-section-number">4</span> References</h1>
+<div id="module-3-annotate-orfs-and-assemble-proteins" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Module 3: Annotate ORFs and assemble proteins</h1>
+</div>
+<div id="module-4-alignment-and-phylogenetic-reconstruction" class="section level1" number="5">
+<h1><span class="header-section-number">5</span> Module 4: Alignment and phylogenetic reconstruction</h1>
+</div>
+<div id="references" class="section level1" number="6">
+<h1><span class="header-section-number">6</span> References</h1>
 </div>
 
 

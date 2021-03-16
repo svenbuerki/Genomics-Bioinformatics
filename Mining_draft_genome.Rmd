@@ -228,27 +228,29 @@ write.csv(x = blast.hits.to.extract, file = "Unique_Filtered_Blast_Hit_Info.csv"
 ```
 
 
-# Module 2: Extract scaffolds and find **O**pen **R**eading **F**rames {#mod2}
+# Module 2: Extract scaffolds and find Open Reading Frames {#mod2}
 
-Here, we are:
+In this module, we are conducting the following tasks:
 
-1. Extracting scaffold(s) identified in [module 1](#mod1) from the draft genome assembly (in `FASTAs/Draft_Genome_Assembly.fasta`) and saving the output as a `FASTA` object/file.
-2. Finding ORFs along scaffold(s) using the user-defined function *findORFsTranslateDNA2AA()* and saving the output into a `FASTA` object/file. In molecular genetics, an **O**pen **R**eading **F**rame (ORF) is the part of a reading frame that has the ability to be translated. An ORF is a continuous stretch of codons that begins with a start codon (usually AUG) and ends at a stop codon (usually UAA, UAG or UGA). We will study the code implemented in *findORFsTranslateDNA2AA()* to fully understand the applied approach. 
+- Extracting scaffold(s) identified in [module 1](#mod1) from the draft genome assembly (in `FASTAs/Draft_Genome_Assembly.fasta`) and saving the output as a `FASTA` object/file.
+- Finding ORFs along scaffold(s) using the user-defined function *findORFsTranslateDNA2AA()* and saving the output into a `FASTA` object/file. In molecular genetics, an **O**pen **R**eading **F**rame (ORF) is the part of a reading frame that has the ability to be translated. An ORF is a continuous stretch of codons that begins with a start codon (usually AUG) and ends at a stop codon (usually UAA, UAG or UGA). We will study the code implemented in *findORFsTranslateDNA2AA()* to fully understand the applied approach. 
 
 ## Getting ready!
 
-Students have to:
+Before starting analyses in `R`, students have to complete these following tasks:
 
 1. Remotely connect to their computers (using their individual accounts) with `ssh` protocol.
-2. Navigate to project directory (`DraftGenomeMineR/`).
-3. Create a new folder (`Output_FASTAs/`) using `mkdir` to store results of scaffold analysis.
+2. Navigate to project directory (`DraftGenomeMineR/`) using `cd`.
+3. Create a new folder (`Output_FASTAs/`) using `mkdir` to store results of BLAST scaffold analysis.
 4. Create a new folder (`ORFs_report/`) using `mkdir` to store results of ORFs analysis.
 5. Start a new `R` session using `R-4` command.
 6. Load R packages and user-defined functions.
 7. Set working directory to `DraftGenomeMineR/`.
 
-```{r, eval=F, echo=F}
-#ssh
+For an example of code, see below:
+
+```{r, eval=F}
+#1. ssh
 ssh svenbuerki@132.178.142.214
 
 #scp file
@@ -257,17 +259,17 @@ ssh svenbuerki@132.178.142.214
 #unzip file
 #unzip DraftGenomeMineR.zip
 
-#Navigate to DraftGenomeMineR/
+#2. Navigate to DraftGenomeMineR/
 cd DraftGenomeMineR/
 
-#Create new folder 
+#3. & 4. Create new folders 
 mkdir Output_FASTAs/
 mkdir ORFs_report/
   
-#Start R session
+#5. Start R session
 R-4
 
-# This will make a list of packages that another function will use to make sure they are all installed and loaded.
+#6. This will make a list of packages that another function will use to make sure they are all installed and loaded.
 list.of.packages <- c("ape",
                       "Biostrings",
                       "dplyr",
@@ -286,7 +288,7 @@ lapply(list.of.packages, require, character.only = TRUE)
 files.sources <- list.files("Functions", full.names=T)
 sapply(files.sources, source)
 
-#Copy the output of getwd() in the object as follows:
+#7. Copy the output of getwd() in the object as follows:
 project.folder <- getwd()
 
 #Set wd
@@ -352,7 +354,7 @@ tryCatch(
   })
 ```
 
-We should now have ORF reports and FASTA files of translated ORFs. Let's check these outputs.
+We should now have ORFs reports and `FASTA` files of translated ORFs. Let's check these outputs.
 
 ```{r, eval=F}
 orf.report <- read.csv("ORFs_report/Scaffold151535_ORFs.csv")
@@ -367,5 +369,9 @@ orf.report[order(-orf.report$width),]
 translated.orfs <- readLines("AA_ORFs/Scaffold151535_ORFs.fa")
 head(translated.orfs)
 ```
+
+# Module 3: Annotate ORFs and assemble proteins
+
+# Module 4: Alignment and phylogenetic reconstruction
 
 # References
