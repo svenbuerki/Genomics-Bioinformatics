@@ -60,3 +60,4 @@ Reverse DNA sequence,It is the sequence of the upper strand in the direction fro
 Phylogenetic species concept,"The concept of a species as an irreducible group whose members are descended from a common ancestor and who all possess a combination of certain defining, or derived, traits. Hence, this concept defines a species as a group having a shared and unique evolutionary history."
 Monophyly,"In cladistics for a group of organisms, monophyly is the condition of being a clade—that is, a group of taxa composed only of a common ancestor and all of its lineal descendants."
 k-mer,"In bioinformatics, k-mers are subsequences of length k contained within a biological sequence. "
+Open Reading Frame (ORF) ,"In molecular genetics, an open reading frame (ORF) is the part of a reading frame that has the ability to be translated. An ORF is a continuous stretch of codons that begins with a start codon (usually AUG) and ends at a stop codon (usually UAA, UAG or UGA)."

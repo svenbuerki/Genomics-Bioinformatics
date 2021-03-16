@@ -11,7 +11,7 @@
 
 <meta name="author" content="Sven Buerki &amp; Anthony Melton - Boise State University" />
 
-<meta name="date" content="2021-03-15" />
+<meta name="date" content="2021-03-16" />
 
 <title>BIOL 497/597 - Genomics &amp; Bioinformatics</title>
 
@@ -393,7 +393,7 @@ div.tocify {
 <h1 class="title toc-ignore">BIOL 497/597 - Genomics &amp; Bioinformatics</h1>
 <h3 class="subtitle">Lab: Mining sagebrush draft genome</h3>
 <h4 class="author">Sven Buerki &amp; Anthony Melton - Boise State University</h4>
-<h4 class="date">2021-03-15</h4>
+<h4 class="date">2021-03-16</h4>
 
 </div>
 
@@ -409,7 +409,7 @@ $(document).ready(function() {
 <p>This webpage supports analyses aiming at mining the sagebrush draft genome for Aquaporin genes. It is subdivided into 4 modules as follows:</p>
 <ul>
 <li><a href="#mod1"><strong>Module 1:</strong></a> Set-up environment and conduct BLAST analysis.</li>
-<li><strong>Module 2:</strong> Extract scaffolds and find <strong>O</strong>pen <strong>R</strong>eading <strong>F</strong>rames.</li>
+<li><a href="#mod2"><strong>Module 2:</strong></a> Extract scaffolds and find <strong>O</strong>pen <strong>R</strong>eading <strong>F</strong>rames.</li>
 <li><strong>Module 3:</strong> Annotate ORFs and assemble proteins.</li>
 <li><strong>Module 4:</strong> Alignment and phylogenetic reconstruction.</li>
 </ul>
@@ -439,8 +439,21 @@ $(document).ready(function() {
 <pre class="bash"><code>#SSH with bio_11 as example
 ssh bio_11@132.178.142.214</code></pre>
 </div>
-<div id="start-r-session" class="section level2" number="2.2">
-<h2><span class="header-section-number">2.2</span> Start R session</h2>
+<div id="copy-project-folder-to-remote-computer" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> Copy project folder to remote computer</h2>
+<p>After downloading the <code>zip</code> file from our shared Google Drive to your personal computer, please copy this file to your Linux computer (on your personal account) as follows:</p>
+<pre class="bash"><code>#scp file: general syntax
+scp file user@host:dir
+
+#Example
+scp DraftGenomeMineR.zip bio_11@132.178.142.214:/home/bio_11
+
+#unzip file
+unzip DraftGenomeMineR.zip</code></pre>
+<p>This procedure only works if you have a unix-based computer. If you don’t have a unix-based computer, please ask instructors to transfer this file for you to your account.</p>
+</div>
+<div id="start-r-session" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> Start R session</h2>
 <p>Navigate to <code>DraftGenomeMineR/</code> and start a new <code>R</code> session:</p>
 <pre class="bash"><code>#Navigate to DraftGenomeMineR/
 cd DraftGenomeMineR/
@@ -448,8 +461,8 @@ cd DraftGenomeMineR/
 #Start R session
 R-4</code></pre>
 </div>
-<div id="load-r-packages-and-user-defined-functions" class="section level2" number="2.3">
-<h2><span class="header-section-number">2.3</span> Load R packages and user-defined functions</h2>
+<div id="load-r-packages-and-user-defined-functions" class="section level2" number="2.4">
+<h2><span class="header-section-number">2.4</span> Load R packages and user-defined functions</h2>
 <p>Create an object with all the requiered R packages and load them:</p>
 <pre class="r"><code># This will make a list of packages that another function will use to make sure they are all installed and loaded.
 list.of.packages &lt;- c(&quot;ape&quot;,
@@ -470,8 +483,8 @@ lapply(list.of.packages, require, character.only = TRUE)</code></pre>
 files.sources &lt;- list.files(&quot;Functions&quot;, full.names=T)
 sapply(files.sources, source)</code></pre>
 </div>
-<div id="setting-environment-for-blast-analysis" class="section level2" number="2.4">
-<h2><span class="header-section-number">2.4</span> Setting environment for BLAST analysis</h2>
+<div id="setting-environment-for-blast-analysis" class="section level2" number="2.5">
+<h2><span class="header-section-number">2.5</span> Setting environment for BLAST analysis</h2>
 <p>To be able to navigate between folders within our project, we will set a object entitled <code>project.folder</code>, which contains the path to the root of the folder.</p>
 <p>To create this object, do as follows:</p>
 <pre class="r"><code>#Copy the output of getwd() in the object as follows:
@@ -481,8 +494,8 @@ project.folder &lt;- getwd()</code></pre>
 <p>Set working directory to <code>project.folder</code> as follows:</p>
 <pre class="r"><code>setwd(project.folder)</code></pre>
 </div>
-<div id="running-blast-analysis" class="section level2" number="2.5">
-<h2><span class="header-section-number">2.5</span> Running BLAST analysis</h2>
+<div id="running-blast-analysis" class="section level2" number="2.6">
+<h2><span class="header-section-number">2.6</span> Running BLAST analysis</h2>
 <p>Set general parameters for the BLAST analysis:</p>
 <pre class="r"><code># There are a few parameters that need to be set. Let&#39;s create some R objects to store file paths and parameters for the BLAST search.
 
@@ -539,8 +552,58 @@ blast.hits.to.extract &lt;- subset(x = cl.filt.unique, SubjectID == cl.filt.uniq
 write.csv(x = blast.hits.to.extract, file = &quot;Unique_Filtered_Blast_Hit_Info.csv&quot;, row.names = F)</code></pre>
 </div>
 </div>
-<div id="references" class="section level1" number="3">
-<h1><span class="header-section-number">3</span> References</h1>
+<div id="mod2" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Module 2: Extract scaffolds and find <strong>O</strong>pen <strong>R</strong>eading <strong>F</strong>rames</h1>
+<p>Here, we are:</p>
+<ol style="list-style-type: decimal">
+<li>Extracting scaffold(s) identified in <a href="#mod1">module 1</a> from the draft genome assembly (in <code>FASTAs/Draft_Genome_Assembly.fasta</code>) and saving the output as a <code>FASTA</code> object/file.</li>
+<li>Finding ORFs along scaffold(s) using the user-defined function <em>findORFsTranslateDNA2AA()</em> and saving the output into a <code>FASTA</code> object/file. In molecular genetics, an <strong>O</strong>pen <strong>R</strong>eading <strong>F</strong>rame (ORF) is the part of a reading frame that has the ability to be translated. An ORF is a continuous stretch of codons that begins with a start codon (usually AUG) and ends at a stop codon (usually UAA, UAG or UGA). We will study the code implemented in <em>findORFsTranslateDNA2AA()</em> to fully understand the applied approach.</li>
+</ol>
+<div id="getting-ready" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Getting ready!</h2>
+<p>Students have to:</p>
+<ol style="list-style-type: decimal">
+<li>Remotely connect to their computers (using their individual accounts) with <code>ssh</code> protocol.</li>
+<li>Navigate to project directory (<code>DraftGenomeMineR/</code>).</li>
+<li>Start a new <code>R</code> session using <code>R-4</code> command.</li>
+<li>Load R packages and user-defined functions.</li>
+<li>Set working directory to <code>DraftGenomeMineR/</code>.</li>
+</ol>
+</div>
+<div id="finding-orfs-along-scaffolds" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Finding ORFs along scaffold(s)</h2>
+<p>Open <code>Unique_Filtered_Blast_Hit_Info.csv</code> containing results of BLAST analysis and extract name of target scaffold(s).</p>
+<pre class="r"><code>#Open BLAST file
+cl.filt.unique &lt;- read.csv(file = &quot;Unique_Filtered_Blast_Hit_Info.csv&quot;) # Output of module 1
+
+#Scaffold IDs
+cl.filt.unique$SubjectID</code></pre>
+<p>Extract scaffold(s) sequences from draft genome file (<code>FASTAs/Draft_Genome_Assembly.fasta</code>).</p>
+<pre class="r"><code>#Open draft genome file
+genome &lt;- readLines(&quot;FASTAs/Draft_Genome_Assembly.fasta&quot;)
+
+#Check formatting of file
+head(genome)
+
+#How many scaffolds?
+Nscaff &lt;- length(genome)/2
+
+#Extract scaffolds in a loop
+
+#Set the loop
+header &lt;- NULL # Generate empty objects to store the headers and sequences for the scaffolds of interest
+seq &lt;- NULL
+
+for(i in 1:nrow(cl.filt.unique)){
+  # Add DNA sequence adapted to strand
+  # Extract seq from FASTA file
+  header[i] &lt;- as.character(cl.filt.unique$SubjectID[i])
+  seq[i] &lt;- genome[c(match(paste(&quot;&gt;&quot;, cl.filt.unique$SubjectID[i], sep=&#39;&#39;), genome)+1, fixed = T)]
+}</code></pre>
+</div>
+</div>
+<div id="references" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> References</h1>
 </div>
 
 

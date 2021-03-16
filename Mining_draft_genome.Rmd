@@ -30,7 +30,7 @@ $(document).ready(function() {
 This webpage supports analyses aiming at mining the sagebrush draft genome for Aquaporin genes. It is subdivided into 4 modules as follows:
 
 - [**Module 1:**](#mod1) Set-up environment and conduct BLAST analysis.
-- **Module 2:** Extract scaffolds and find **O**pen **R**eading **F**rames.
+- [**Module 2:**](#mod2) Extract scaffolds and find **O**pen **R**eading **F**rames.
 - **Module 3:** Annotate ORFs and assemble proteins.
 - **Module 4:** Alignment and phylogenetic reconstruction.
 
@@ -60,6 +60,23 @@ Start by using `ssh` protocol to connect to your Linux computer. This is done as
 #SSH with bio_11 as example
 ssh bio_11@132.178.142.214
 ```
+
+## Copy project folder to remote computer
+
+After downloading the `zip` file from our shared Google Drive to your personal computer, please copy this file to your Linux computer (on your personal account) as follows:
+
+```{bash, eval=F}
+#scp file: general syntax
+scp file user@host:dir
+
+#Example
+scp DraftGenomeMineR.zip bio_11@132.178.142.214:/home/bio_11
+
+#unzip file
+unzip DraftGenomeMineR.zip
+```
+
+This procedure only works if you have a unix-based computer. If you don't have a unix-based computer, please ask instructors to transfer this file for you to your account.
 
 ## Start R session
 
@@ -205,5 +222,106 @@ Write output of BLAST analysis in `csv` file:
 # We have evaluated the top BLAST hits and can see a clear best hit. Let's save this data so we can extract just that scaffold later.
 write.csv(x = blast.hits.to.extract, file = "Unique_Filtered_Blast_Hit_Info.csv", row.names = F)
 ```
+
+
+# Module 2: Extract scaffolds and find **O**pen **R**eading **F**rames {#mod2}
+
+Here, we are:
+
+1. Extracting scaffold(s) identified in [module 1](#mod1) from the draft genome assembly (in `FASTAs/Draft_Genome_Assembly.fasta`) and saving the output as a `FASTA` object/file.
+2. Finding ORFs along scaffold(s) using the user-defined function *findORFsTranslateDNA2AA()* and saving the output into a `FASTA` object/file. In molecular genetics, an **O**pen **R**eading **F**rame (ORF) is the part of a reading frame that has the ability to be translated. An ORF is a continuous stretch of codons that begins with a start codon (usually AUG) and ends at a stop codon (usually UAA, UAG or UGA). We will study the code implemented in *findORFsTranslateDNA2AA()* to fully understand the applied approach. 
+
+## Getting ready!
+
+Students have to:
+
+1. Remotely connect to their computers (using their individual accounts) with `ssh` protocol.
+2. Navigate to project directory (`DraftGenomeMineR/`).
+3. Start a new `R` session using `R-4` command.
+4. Load R packages and user-defined functions.
+5. Set working directory to `DraftGenomeMineR/`.
+
+```{r, eval=F, echo=F}
+#ssh
+ssh svenbuerki@132.178.142.214
+
+#scp file
+#scp DraftGenomeMineR.zip svenbuerki@132.178.142.214:/home/svenbuerki
+
+#unzip file
+#unzip DraftGenomeMineR.zip
+
+#Navigate to DraftGenomeMineR/
+cd DraftGenomeMineR/
+
+#Start R session
+R-4
+
+# This will make a list of packages that another function will use to make sure they are all installed and loaded.
+list.of.packages <- c("ape",
+                      "Biostrings",
+                      "dplyr",
+                      "FastaUtils",
+                      "ORFik",
+                      "readr",
+                      "tidyr",
+                      "rBLAST",
+                      "seqinr",
+                      "stringr")
+
+# Use lapply to load all of the packages in the list.
+lapply(list.of.packages, require, character.only = TRUE)
+
+# Load all of the functions written for DraftGenomeMineR     
+files.sources <- list.files("Functions", full.names=T)
+sapply(files.sources, source)
+
+#Copy the output of getwd() in the object as follows:
+project.folder <- getwd()
+
+#Set wd
+setwd(project.folder)
+```
+
+## Finding ORFs along scaffold(s)
+
+Open `Unique_Filtered_Blast_Hit_Info.csv` containing results of BLAST analysis and extract name of target scaffold(s).
+
+```{r, eval=F}
+#Open BLAST file
+cl.filt.unique <- read.csv(file = "Unique_Filtered_Blast_Hit_Info.csv") # Output of module 1
+
+#Scaffold IDs
+cl.filt.unique$SubjectID
+```
+
+Extract scaffold(s) sequences from draft genome file (`FASTAs/Draft_Genome_Assembly.fasta`).
+
+```{r, eval=F}
+#Open draft genome file
+genome <- readLines("FASTAs/Draft_Genome_Assembly.fasta")
+
+#Check formatting of file
+head(genome)
+
+#How many scaffolds?
+Nscaff <- length(genome)/2
+
+#Extract scaffolds in a loop
+
+#Set the loop
+header <- NULL # Generate empty objects to store the headers and sequences for the scaffolds of interest
+seq <- NULL
+
+for(i in 1:nrow(cl.filt.unique)){
+  # Add DNA sequence adapted to strand
+  # Extract seq from FASTA file
+  header[i] <- as.character(cl.filt.unique$SubjectID[i])
+  seq[i] <- genome[c(match(paste(">", cl.filt.unique$SubjectID[i], sep=''), genome)+1, fixed = T)]
+}
+
+
+```
+
 
 # References
