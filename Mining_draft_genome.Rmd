@@ -78,7 +78,7 @@ unzip DraftGenomeMineR.zip
 
 **Disclaimer:** This procedure only works if you have a unix-based computer. If you don't have a unix-based computer, please ask instructors to transfer this file for you to your account. However, students can `cp` this file by copying it from the `bioinformatics` account onto their Linux computer as follows:
 
-```{r, echo=F, eval=F}
+```{r, echo=T, eval=F}
 #Navigate where the zip file should reside (adjust path to your account ID)
 cd /home/bio_11
 
