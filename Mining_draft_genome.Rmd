@@ -76,10 +76,17 @@ scp DraftGenomeMineR.zip bio_11@132.178.142.214:/home/bio_11
 unzip DraftGenomeMineR.zip
 ```
 
-**Disclaimer:** This procedure only works if you have a unix-based computer. If you don't have a unix-based computer, please ask instructors to transfer this file for you to your account.
+**Disclaimer:** This procedure only works if you have a unix-based computer. If you don't have a unix-based computer, please ask instructors to transfer this file for you to your account. However, students can `cp` this file by copying it from the `bioinformatics` account onto their Linux computer as follows:
 
 ```{r, echo=F, eval=F}
-cp in bioinformatics folder
+#Navigate where the zip file should reside (adjust path to your account ID)
+cd /home/bio_11
+
+#Copy the zip file (containing all data for project) on your Linux account
+cp /home/bioinformatics/GenomeMining_Bioinformatics_2021/DraftGenomeMineR.zip .
+
+#unzip file
+unzip DraftGenomeMineR.zip
 ```
 
 ## Start R session
@@ -96,7 +103,7 @@ R-4
 
 ## Load R packages and user-defined functions
 
-Create an object with all the requiered R packages and load them:
+Create an object with all the required R packages and load them:
 
 ```{r, eval=F}
 # This will make a list of packages that another function will use to make sure they are all installed and loaded.
