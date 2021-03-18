@@ -406,17 +406,28 @@ $(document).ready(function() {
 </script>
 <div id="introduction" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> Introduction</h1>
-<p>This webpage supports analyses aiming at mining the sagebrush draft genome for Aquaporin genes. It is subdivided into 4 modules as follows:</p>
+<p>This webpage supports analyses aiming at mining the sagebrush draft genome for Aquaporin genes. Aquaporin genes are multi-exon genes (see Figure <a href="#fig:multigene">1.1</a>). As a reminder, exons are pieces of coding DNA that encode proteins. Different exons code for different domains of a protein. The domains may be encoded by a single exon or multiple exons spliced together. Ijn the case of multi-exon genes, the presence of exons and introns allows for greater molecular evolution through the process of exon shuffling and alternative splicing. Exon shuffling occurs when exons on sister chromosomes are exchanged during recombination. This allows for the formation of new genes. On the other hand, exons also allow for multiple proteins to be translated from the same gene through alternative splicing. This process allows the exons to be arranged in different combinations when the introns are removed/spliced (see Figure <a href="#fig:multigene">1.1</a>). The different configurations can include the complete removal of an exon, the inclusion of part of an exon, or the inclusion of part of an intron. Alternative splicing can occur in the same location to produce different variants of a gene with a similar role, such as the human <em>slo</em> gene, or it can occur in different cell or tissue types, such as the mouse <em>alpha-amylase</em> gene. Alternative splicing, and defects in alternative splicing, can result in a number of diseases including cancer.</p>
+<p>The processes described above will have to be accounted for when students will be assembling protein sequences from their predicted Open Reading Frames (see modules 2 and 3).</p>
+<div class="figure"><span id="fig:multigene"></span>
+<img src="Images/multi_exon_gene.png" alt="Flowchart showing the structure of a multi-exon gene and different resulting proteins. See text for more details." width="80%" />
+<p class="caption">
+Figure 1.1: Flowchart showing the structure of a multi-exon gene and different resulting proteins. See text for more details.
+</p>
+</div>
+<div id="analytical-workflow" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Analytical workflow</h2>
+<p>Overall, our analytical workflow is subdivided into 4 modules as follows:</p>
 <ul>
 <li><a href="#mod1"><strong>Module 1:</strong></a> Set-up environment and conduct BLAST analysis.</li>
 <li><a href="#mod2"><strong>Module 2:</strong></a> Extract scaffolds and find <strong>O</strong>pen <strong>R</strong>eading <strong>F</strong>rames.</li>
 <li><strong>Module 3:</strong> Annotate ORFs and assemble proteins.</li>
 <li><strong>Module 4:</strong> Alignment and phylogenetic reconstruction.</li>
 </ul>
-<div id="project-structure" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> Project structure</h2>
-<div id="where-are-the-data-located" class="section level3" number="1.1.1">
-<h3><span class="header-section-number">1.1.1</span> Where are the data located?</h3>
+</div>
+<div id="project-structure" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> Project structure</h2>
+<div id="where-are-the-data-located" class="section level3" number="1.2.1">
+<h3><span class="header-section-number">1.2.1</span> Where are the data located?</h3>
 <p>All the data associated to this project are located on your individual account in the <code>DraftGenomeMineR/</code> folder. This folder is located in <code>/home/bio_11/DraftGenomeMineR</code>. Please replace <code>bio_11</code> by your <a href="https://docs.google.com/document/d/1t0DdQBes42Gzo8XWgc9JL2xEGjv1kbfoVE7Vznx6C9I/edit">account detail</a>.</p>
 <p><strong>Key files:</strong></p>
 <ul>
@@ -425,8 +436,8 @@ $(document).ready(function() {
 <li>Scripts related to each module are located in <code>Lesson_Modules/</code>.</li>
 </ul>
 </div>
-<div id="how-do-i-access-the-data-and-run-analyses" class="section level3" number="1.1.2">
-<h3><span class="header-section-number">1.1.2</span> How do I access the data and run analyses?</h3>
+<div id="how-do-i-access-the-data-and-run-analyses" class="section level3" number="1.2.2">
+<h3><span class="header-section-number">1.2.2</span> How do I access the data and run analyses?</h3>
 <p>To access the data and run the analyses, please remotely connect to your dedicated computer using <code>ssh</code> protocol. Your credentials are available <a href="https://docs.google.com/document/d/1t0DdQBes42Gzo8XWgc9JL2xEGjv1kbfoVE7Vznx6C9I/edit">here</a>.</p>
 </div>
 </div>

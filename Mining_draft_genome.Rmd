@@ -27,7 +27,17 @@ $(document).ready(function() {
 
 # Introduction
 
-This webpage supports analyses aiming at mining the sagebrush draft genome for Aquaporin genes. It is subdivided into 4 modules as follows:
+This webpage supports analyses aiming at mining the sagebrush draft genome for Aquaporin genes. Aquaporin genes are multi-exon genes (see Figure \@ref(fig:multigene)). As a reminder, exons are pieces of coding DNA that encode proteins. Different exons code for different domains of a protein. The domains may be encoded by a single exon or multiple exons spliced together. Ijn the case of multi-exon genes, the presence of exons and introns allows for greater molecular evolution through the process of exon shuffling and alternative splicing. Exon shuffling occurs when exons on sister chromosomes are exchanged during recombination. This allows for the formation of new genes. On the other hand, exons also allow for multiple proteins to be translated from the same gene through alternative splicing. This process allows the exons to be arranged in different combinations when the introns are removed/spliced (see Figure \@ref(fig:multigene)). The different configurations can include the complete removal of an exon, the inclusion of part of an exon, or the inclusion of part of an intron. Alternative splicing can occur in the same location to produce different variants of a gene with a similar role, such as the human *slo* gene, or it can occur in different cell or tissue types, such as the mouse *alpha-amylase* gene. Alternative splicing, and defects in alternative splicing, can result in a number of diseases including cancer.
+
+The processes described above will have to be accounted for when students will be assembling protein sequences from their predicted Open Reading Frames (see modules 2 and 3).  
+
+```{r multigene, echo=FALSE, fig.cap="Flowchart showing the structure of a multi-exon gene and different resulting proteins. See text for more details.", out.width = '80%', fig.pos= "h"}
+knitr::include_graphics("Images/multi_exon_gene.png")
+```
+
+## Analytical workflow
+
+Overall, our analytical workflow is subdivided into 4 modules as follows:
 
 - [**Module 1:**](#mod1) Set-up environment and conduct BLAST analysis.
 - [**Module 2:**](#mod2) Extract scaffolds and find **O**pen **R**eading **F**rames.
