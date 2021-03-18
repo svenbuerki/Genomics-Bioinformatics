@@ -240,7 +240,8 @@ write.csv(x = blast.hits.to.extract, file = "Unique_Filtered_Blast_Hit_Info.csv"
 In this module, we are conducting the following tasks:
 
 - Extracting scaffold(s) identified in [module 1](#mod1) from the draft genome assembly (in `FASTAs/Draft_Genome_Assembly.fasta`) and saving the output as a `FASTA` object/file.
-- Finding ORFs along scaffold(s) using the user-defined function *findORFsTranslateDNA2AA()* and saving the output into a `FASTA` object/file. In molecular genetics, an **O**pen **R**eading **F**rame (ORF) is the part of a reading frame that has the ability to be translated. An ORF is a continuous stretch of codons that begins with a start codon (usually AUG) and ends at a stop codon (usually UAA, UAG or UGA). We will study the code implemented in *findORFsTranslateDNA2AA()* to fully understand the applied approach. 
+- Finding ORFs along scaffold(s) using the user-defined function *findORFsTranslateDNA2AA()* and saving the output into a `FASTA` object/file. In molecular genetics, an **O**pen **R**eading **F**rame (ORF) is the part of a reading frame that has the ability to be translated. An ORF is a continuous stretch of codons that begins with a start codon (usually AUG) and ends at a stop codon (usually UAA, UAG or UGA). We will study the code implemented in *findORFsTranslateDNA2AA()* to fully understand the applied approach.
+- Produce maps of recovered ORFs along scaffold(s). These `pdf` maps will be saved in `ORFs_map/`.
 
 ## Getting ready!
 
@@ -377,7 +378,90 @@ translated.orfs <- readLines("AA_ORFs/Scaffold151535_ORFs.fa")
 head(translated.orfs)
 ```
 
+
+## Produce maps of recovered ORFs along scaffold(s)
+
+Here, we are visualizing the ORFs recovered by our analysis along each scaffold by producing maps saved in `pdf` format in `ORFs_map/`. The code also checks if the folder `ORFs_map/` where files will be saved exists and if not creates it.  
+
+```{r, eval=F}
+###
+#Build map of scaffold with ORFs
+###
+
+#Read scaffold FASTA file (line by line)
+scaffold <- readLines("Output_FASTAs/Scaffold151535.fa")
+
+#List all files with ORFs
+ORFfiles <- list.files(path = "ORFs_report", pattern = ".csv", full.names = T)
+
+#Check if folder where ORF maps will be saved exists
+# if not then creates it
+output_dir <- file.path(paste0(getwd(), "/ORFs_map/"))
+
+if(dir.exists(output_dir)){
+  print(paste0("Dir", output_dir, " already exists!"))
+}else{
+  print(paste0("Created ", output_dir))
+  dir.create(output_dir)  
+}
+
+#Produce a map (in pdf format) for each scaffold
+for(i in 1:length(ORFfiles)){
+  print(ORFfiles[i])
+  #Read file in
+  ORF <- read.csv(ORFfiles[i])
+  
+  #Process FASTA scaffold sequence
+  seq <- strsplit(scaffold[grep(paste(">", ORF$scaffoldID[1], sep=''), scaffold)+1], split='')
+  
+  #Separate ORFs by strand
+  ORFplus <- subset(ORF, ORF$strand == "+")
+  ORFneg <- subset(ORF, ORF$strand == "-")
+  
+  #Create plot
+  pdf(paste("ORFs_map/", ORF$scaffoldID[1], "_ORFs_annotated.pdf", sep=''))
+  
+  #Initiate plot
+  plot(x=1, y=1, xlim=c(0,length(seq[[1]])), ylim=c(0,2), type='n', bty="n", axes=F, xlab = "", ylab='')
+  #Add title
+  text(x=5, y=2, paste(ORF$scaffoldID[1], " (strand: + in grey and - in blue)", sep=''), adj=0, cex=.8)
+    
+  #Create a segment with length of scaffold
+  segments(x0=0, x1=length(seq[[1]]), y0=1, y1=1, col='black', lwd=3)
+    
+  #Add ORFs: rectangles (grey: +, blue: -)
+  rect(xleft=ORFplus$start, xright=ORFplus$end, ybottom=0.75, ytop=1.25, col='grey')
+  rect(xleft=ORFneg$start, xright=ORFneg$end, ybottom=0.75, ytop=1.25, col='blue')
+  text(x=(ORFneg$start + ORFneg$end)/2, y=0.7, paste(ORFneg$ORFID, " (", ORFneg$start, ":", ORFneg$end, ")", sep=''), srt=90, col='blue', adj=1, cex=0.4)
+  text(x=(ORFplus$start + ORFplus$end)/2, y=1.3, paste(ORFplus$ORFID, " (", ORFplus$start, ":", ORFplus$end, ")", sep=''), srt=90, col='black', adj=0, cex=0.4)
+    
+  #Add x axis
+  axis(side = 1)
+  mtext("Sequence (bp)", pos = c(0,0.5), side=1, line=2, cex.lab=0.6,las=1)
+  #Close pdf
+  dev.off()
+}
+```
+Figure \@ref(fig:scaffmap) shows the location of predicted ORFs along `Scaffold151535` inferred by the code displayed above. 
+
+```{r scaffmap, echo=FALSE, fig.cap="Map of predicted ORFs along scaffold151535.", out.width = '100%', fig.pos= "h"}
+knitr::include_graphics("Images/Scaffold151535_ORFs_annotated.png")
+```
+
 # Module 3: Annotate ORFs and assemble proteins
+
+In this module, we are working on code to annotate the ORFs inferred in module 2 and assemble protein sequences. The annotation will be carried out by performing a BLAST analysis.
+
+## Getting ready!
+
+Before starting analyses in `R`, students have to complete these following tasks:
+
+1. Remotely connect to their computers (using their individual accounts) with `ssh` protocol.
+2. Navigate to project directory (`DraftGenomeMineR/`) using `cd`.
+3. Start a new `R` session using `R-4` command.
+4. Load R packages and user-defined functions.
+5. Set working directory to `DraftGenomeMineR/`.
+
 
 # Module 4: Alignment and phylogenetic reconstruction
 

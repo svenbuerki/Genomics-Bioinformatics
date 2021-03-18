@@ -11,7 +11,7 @@
 
 <meta name="author" content="Sven Buerki &amp; Anthony Melton - Boise State University" />
 
-<meta name="date" content="2021-03-17" />
+<meta name="date" content="2021-03-18" />
 
 <title>BIOL 497/597 - Genomics &amp; Bioinformatics</title>
 
@@ -393,7 +393,7 @@ div.tocify {
 <h1 class="title toc-ignore">BIOL 497/597 - Genomics &amp; Bioinformatics</h1>
 <h3 class="subtitle">Lab: Mining sagebrush draft genome</h3>
 <h4 class="author">Sven Buerki &amp; Anthony Melton - Boise State University</h4>
-<h4 class="date">2021-03-17</h4>
+<h4 class="date">2021-03-18</h4>
 
 </div>
 
@@ -566,6 +566,7 @@ write.csv(x = blast.hits.to.extract, file = &quot;Unique_Filtered_Blast_Hit_Info
 <ul>
 <li>Extracting scaffold(s) identified in <a href="#mod1">module 1</a> from the draft genome assembly (in <code>FASTAs/Draft_Genome_Assembly.fasta</code>) and saving the output as a <code>FASTA</code> object/file.</li>
 <li>Finding ORFs along scaffold(s) using the user-defined function <em>findORFsTranslateDNA2AA()</em> and saving the output into a <code>FASTA</code> object/file. In molecular genetics, an <strong>O</strong>pen <strong>R</strong>eading <strong>F</strong>rame (ORF) is the part of a reading frame that has the ability to be translated. An ORF is a continuous stretch of codons that begins with a start codon (usually AUG) and ends at a stop codon (usually UAA, UAG or UGA). We will study the code implemented in <em>findORFsTranslateDNA2AA()</em> to fully understand the applied approach.</li>
+<li>Produce maps of recovered ORFs along scaffold(s). These <code>pdf</code> maps will be saved in <code>ORFs_map/</code>.</li>
 </ul>
 <div id="getting-ready" class="section level2" number="3.1">
 <h2><span class="header-section-number">3.1</span> Getting ready!</h2>
@@ -685,9 +686,89 @@ orf.report[order(-orf.report$width),]
 translated.orfs &lt;- readLines(&quot;AA_ORFs/Scaffold151535_ORFs.fa&quot;)
 head(translated.orfs)</code></pre>
 </div>
+<div id="produce-maps-of-recovered-orfs-along-scaffolds" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> Produce maps of recovered ORFs along scaffold(s)</h2>
+<p>Here, we are visualizing the ORFs recovered by our analysis along each scaffold by producing maps saved in <code>pdf</code> format in <code>ORFs_map/</code>. The code also checks if the folder <code>ORFs_map/</code> where files will be saved exists and if not creates it.</p>
+<pre class="r"><code>###
+#Build map of scaffold with ORFs
+###
+
+#Read scaffold FASTA file (line by line)
+scaffold &lt;- readLines(&quot;Output_FASTAs/Scaffold151535.fa&quot;)
+
+#List all files with ORFs
+ORFfiles &lt;- list.files(path = &quot;ORFs_report&quot;, pattern = &quot;.csv&quot;, full.names = T)
+
+#Check if folder where ORF maps will be saved exists
+# if not then creates it
+output_dir &lt;- file.path(paste0(getwd(), &quot;/ORFs_map/&quot;))
+
+if(dir.exists(output_dir)){
+  print(paste0(&quot;Dir&quot;, output_dir, &quot; already exists!&quot;))
+}else{
+  print(paste0(&quot;Created &quot;, output_dir))
+  dir.create(output_dir)  
+}
+
+#Produce a map (in pdf format) for each scaffold
+for(i in 1:length(ORFfiles)){
+  print(ORFfiles[i])
+  #Read file in
+  ORF &lt;- read.csv(ORFfiles[i])
+  
+  #Process FASTA scaffold sequence
+  seq &lt;- strsplit(scaffold[grep(paste(&quot;&gt;&quot;, ORF$scaffoldID[1], sep=&#39;&#39;), scaffold)+1], split=&#39;&#39;)
+  
+  #Separate ORFs by strand
+  ORFplus &lt;- subset(ORF, ORF$strand == &quot;+&quot;)
+  ORFneg &lt;- subset(ORF, ORF$strand == &quot;-&quot;)
+  
+  #Create plot
+  pdf(paste(&quot;ORFs_map/&quot;, ORF$scaffoldID[1], &quot;_ORFs_annotated.pdf&quot;, sep=&#39;&#39;))
+  
+  #Initiate plot
+  plot(x=1, y=1, xlim=c(0,length(seq[[1]])), ylim=c(0,2), type=&#39;n&#39;, bty=&quot;n&quot;, axes=F, xlab = &quot;&quot;, ylab=&#39;&#39;)
+  #Add title
+  text(x=5, y=2, paste(ORF$scaffoldID[1], &quot; (strand: + in grey and - in blue)&quot;, sep=&#39;&#39;), adj=0, cex=.8)
+    
+  #Create a segment with length of scaffold
+  segments(x0=0, x1=length(seq[[1]]), y0=1, y1=1, col=&#39;black&#39;, lwd=3)
+    
+  #Add ORFs: rectangles (grey: +, blue: -)
+  rect(xleft=ORFplus$start, xright=ORFplus$end, ybottom=0.75, ytop=1.25, col=&#39;grey&#39;)
+  rect(xleft=ORFneg$start, xright=ORFneg$end, ybottom=0.75, ytop=1.25, col=&#39;blue&#39;)
+  text(x=(ORFneg$start + ORFneg$end)/2, y=0.7, paste(ORFneg$ORFID, &quot; (&quot;, ORFneg$start, &quot;:&quot;, ORFneg$end, &quot;)&quot;, sep=&#39;&#39;), srt=90, col=&#39;blue&#39;, adj=1, cex=0.4)
+  text(x=(ORFplus$start + ORFplus$end)/2, y=1.3, paste(ORFplus$ORFID, &quot; (&quot;, ORFplus$start, &quot;:&quot;, ORFplus$end, &quot;)&quot;, sep=&#39;&#39;), srt=90, col=&#39;black&#39;, adj=0, cex=0.4)
+    
+  #Add x axis
+  axis(side = 1)
+  mtext(&quot;Sequence (bp)&quot;, pos = c(0,0.5), side=1, line=2, cex.lab=0.6,las=1)
+  #Close pdf
+  dev.off()
+}</code></pre>
+<p>Figure <a href="#fig:scaffmap">3.1</a> shows the location of predicted ORFs along <code>Scaffold151535</code> inferred by the code displayed above.</p>
+<div class="figure"><span id="fig:scaffmap"></span>
+<img src="Images/Scaffold151535_ORFs_annotated.png" alt="Map of predicted ORFs along scaffold151535." width="100%" />
+<p class="caption">
+Figure 3.1: Map of predicted ORFs along scaffold151535.
+</p>
+</div>
+</div>
 </div>
 <div id="module-3-annotate-orfs-and-assemble-proteins" class="section level1" number="4">
 <h1><span class="header-section-number">4</span> Module 3: Annotate ORFs and assemble proteins</h1>
+<p>In this module, we are working on code to annotate the ORFs inferred in module 2 and assemble protein sequences. The annotation will be carried out by performing a BLAST analysis.</p>
+<div id="getting-ready-1" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Getting ready!</h2>
+<p>Before starting analyses in <code>R</code>, students have to complete these following tasks:</p>
+<ol style="list-style-type: decimal">
+<li>Remotely connect to their computers (using their individual accounts) with <code>ssh</code> protocol.</li>
+<li>Navigate to project directory (<code>DraftGenomeMineR/</code>) using <code>cd</code>.</li>
+<li>Start a new <code>R</code> session using <code>R-4</code> command.</li>
+<li>Load R packages and user-defined functions.</li>
+<li>Set working directory to <code>DraftGenomeMineR/</code>.</li>
+</ol>
+</div>
 </div>
 <div id="module-4-alignment-and-phylogenetic-reconstruction" class="section level1" number="5">
 <h1><span class="header-section-number">5</span> Module 4: Alignment and phylogenetic reconstruction</h1>
