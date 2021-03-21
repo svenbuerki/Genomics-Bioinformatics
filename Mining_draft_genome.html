@@ -420,7 +420,7 @@ Figure 1.1: Flowchart showing the structure of a multi-exon gene and different r
 <ul>
 <li><a href="#mod1"><strong>Module 1:</strong></a> Set-up environment and conduct BLAST analysis.</li>
 <li><a href="#mod2"><strong>Module 2:</strong></a> Extract scaffolds and find <strong>O</strong>pen <strong>R</strong>eading <strong>F</strong>rames.</li>
-<li><strong>Module 3:</strong> Annotate ORFs and assemble proteins.</li>
+<li><a href="#mod3"><strong>Module 3:</strong></a> Annotate ORFs and assemble proteins.</li>
 <li><strong>Module 4:</strong> Alignment and phylogenetic reconstruction.</li>
 </ul>
 </div>
@@ -768,181 +768,52 @@ Figure 3.1: Map of predicted ORFs along scaffold151535.
 </div>
 <div id="mod3" class="section level1" number="4">
 <h1><span class="header-section-number">4</span> Module 3: Annotate ORFs and assemble proteins</h1>
-<p>In this module, we are working on a workflow to annotate the ORFs inferred in <a href="#mod2">module 2</a> and assemble protein sequence(s).</p>
-<p>To reach this objectives, we are conducting the following tasks:</p>
-<ul>
-<li>Setting our working environment.</li>
-<li>Making BLAST database(s) of AA sequences associated to inferred ORFs.</li>
-<li>Annotate ORFs of interest (predicted in each scaffold) and write them to their own <code>FASTA</code> files.</li>
-</ul>
-<div id="setting-our-working-environment" class="section level2" number="4.1">
-<h2><span class="header-section-number">4.1</span> Setting our working environment</h2>
-<p>Before starting analyses in <code>R</code>, students have to complete these following tasks to set our working environment:</p>
+<div id="objectives" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Objectives</h2>
+<p>In this module, students are working to:</p>
 <ol style="list-style-type: decimal">
-<li>Remotely connect to their computers (using their individual accounts) with <code>ssh</code> protocol.</li>
-<li>Navigate to project directory (<code>DraftGenomeMineR/</code>) using <code>cd</code>.</li>
-<li>Start a new <code>R</code> session using <code>R-4</code> command.</li>
-<li>Load R packages and user-defined functions.</li>
-<li>Set working directory to <code>DraftGenomeMineR/</code>.</li>
-<li>Create two objects (<code>AA.ORF.folder</code> and <code>AA.BlastDB.folder</code>) containing paths to <code>AA_ORFs/</code> and <code>AA_BlastDB/</code> folders.</li>
+<li>Annotate ORFs inferred in <a href="#mod2">module 2</a> using online protein <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastp&amp;PAGE_TYPE=BlastSearch&amp;LINK_LOC=blasthome">BLAST</a> tool. Students will use the output of the protein BLAST analysis to identify ORF(s) coding for Aquaporin genes.</li>
+<li>Extract DNA and AA sequences from ORF(s) identified by protein BLAST analysis. Students will provide DNA sequence of Aquaporin gene located on scaffold and its associated protein sequence.</li>
 </ol>
-<ul>
-<li><code>AA_ORFs/</code>: contains AA sequences of all ORFs inferred per scaffold in <code>FASTA</code> format. There is one <code>FASTA</code> file per scaffold (see Figure <a href="#fig:scafAAseqFASTA">4.1</a>).</li>
-<li><code>AA_BlastDB/</code>: folder dedicated to the BLAST analysis (all output files will be written there).</li>
-</ul>
+</div>
+<div id="annotate-orfs-using-online-protein-blast-tool" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Annotate ORFs using online protein BLAST tool</h2>
+<div id="input-file-for-protein-blast-analysis" class="section level3" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> Input file for protein BLAST analysis</h3>
+<p>The <code>FASTA</code> file <code>Scaffold151535_ORFs.fa</code> (see Figure <a href="#fig:scafAAseqFASTA">4.1</a>) containing AA sequences of ORFs identified in <a href="#mod2">module 2</a> is available on the shared Google Drive <a href="https://drive.google.com/drive/folders/1d0TSt_M-wAVmNPPfMnXtxD8_fnfK7jQr?usp=sharing">here</a>.</p>
 <div class="figure"><span id="fig:scafAAseqFASTA"></span>
 <img src="Images/Scaffolds_AA_seq_ORFs.png" alt="FASTA file containing all AA sequences for ORFs inferred along scaffold. See module 2 for more details." width="100%" />
 <p class="caption">
 Figure 4.1: FASTA file containing all AA sequences for ORFs inferred along scaffold. See module 2 for more details.
 </p>
 </div>
-<p>Here is the code associated to this section:</p>
-<pre class="r"><code>#1. ssh
-ssh svenbuerki@132.178.142.214
-
-#2. Navigate to DraftGenomeMineR/
-cd DraftGenomeMineR/
-
-#3. Start R session
-R-4
-
-#4. This will make a list of packages that another function will use to make sure they are all installed and loaded.
-list.of.packages &lt;- c(&quot;ape&quot;,
-                      &quot;Biostrings&quot;,
-                      &quot;dplyr&quot;,
-                      &quot;FastaUtils&quot;,
-                      &quot;ORFik&quot;,
-                      &quot;readr&quot;,
-                      &quot;tidyr&quot;,
-                      &quot;rBLAST&quot;,
-                      &quot;seqinr&quot;,
-                      &quot;stringr&quot;)
-
-# Use lapply to load all of the packages in the list.
-lapply(list.of.packages, require, character.only = TRUE)
-
-# Load all of the functions written for DraftGenomeMineR     
-files.sources &lt;- list.files(&quot;Functions&quot;, full.names=T)
-sapply(files.sources, source)
-
-#5. Copy the output of getwd() in the object as follows:
-project.folder &lt;- getwd()
-
-#Set wd
-setwd(project.folder)
-
-#6. Create two objects (AA.ORF.folder and AA.BlastDB.folder) containing paths to AA_ORFs/ and AA_BlastDB/ folders
-AA.ORF.folder &lt;- &quot;AA_ORFs/&quot;
-AA.BlastDB.folder &lt;- &quot;AA_BlastDB/&quot;</code></pre>
 </div>
-<div id="making-blast-databases-of-aa-sequences-associated-to-inferred-orfs" class="section level2" number="4.2">
-<h2><span class="header-section-number">4.2</span> Making BLAST database(s) of AA sequences associated to inferred ORFs</h2>
-<p>In this section, BLAST database are built for all the AA sequences associated to ORFs inferred in each scaffold. This is done in a five step process described in the code below:</p>
-<pre class="r"><code>#Step 1. Set wd to right directory (containing all AA seq for inferred ORFs along scaffold)
-setwd(paste(project.folder, AA.ORF.folder, sep=&quot;/&quot;))
-
-#Step 2. List all FASTA files with AA seq of ORFs along scaffold
-orf.files &lt;- list.files()
-
-#Step 3. BLAST parameters for database
-BlastDB.type &lt;- &quot;prot&quot; #here set as protein!
-blast.type &lt;- &quot;blastp&quot; #version of blast developed for protein/AA sequences
-perc.ident &lt;- 100.00
-
-#Step 4. Copy orf.files into BLAST folder (a folder dedicated to BLAST analysis)
-file.copy(orf.files, paste(project.folder, AA.BlastDB.folder, sep = &quot;/&quot;))
-
-#Step 5. Generate a BLAST database for each scaffold, which will be used to annotate the ORFs
-setwd(paste(project.folder, AA.BlastDB.folder, sep=&quot;/&quot;))
-for(i in 1:length(orf.files)){
-  makeblastdb(file = paste(project.folder, AA.BlastDB.folder, orf.files[i], sep = &quot;/&quot;), dbtype = BlastDB.type)
-}</code></pre>
+<div id="protein-blast-analysis" class="section level3" number="4.2.2">
+<h3><span class="header-section-number">4.2.2</span> Protein BLAST analysis</h3>
+<ol style="list-style-type: decimal">
+<li>Students download input file on their personal computers and open it in their favorite text editor.</li>
+<li>Go on the online protein <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastp&amp;PAGE_TYPE=BlastSearch&amp;LINK_LOC=blasthome">BLAST</a> platform.</li>
+<li>Copy content of <code>Scaffold151535_ORFs.fa</code> as shwon in Figure <a href="#fig:protBLASTinput">4.2</a> and press <code>BLAST</code> button to send the query.
+<div class="figure"><span id="fig:protBLASTinput"></span>
+<img src="Images/proteinBLASTinputform.png" alt="Online protein BLAST form." width="100%" />
+<p class="caption">
+Figure 4.2: Online protein BLAST form.
+</p>
+</div></li>
+<li>Inspect output of protein BLAST analysis and identified ORF(s) along scaffold coding for Aquaporin genes (see <a href="#fig:protBLASToutput">4.3</a>).
+<div class="figure"><span id="fig:protBLASToutput"></span>
+<img src="Images/proteinBLASToutput.png" alt="Output of the protein BLAST analysis. Use the dropdown button to select each ORF and identify their gene products." width="100%" />
+<p class="caption">
+Figure 4.3: Output of the protein BLAST analysis. Use the dropdown button to select each ORF and identify their gene products.
+</p>
+</div></li>
+<li>What ORFs are coding for Aquaporin gene products?</li>
+</ol>
 </div>
-<div id="annotate-orfs-of-interest-and-write-them-to-their-own-fasta-files" class="section level2" number="4.3">
-<h2><span class="header-section-number">4.3</span> Annotate ORFs of interest and write them to their own <code>FASTA</code> files</h2>
-<p>The annotation of ORFs sequences (those coding for our target gene) is carried out using a BLAST analysis done in three steps as follows:</p>
-<pre class="r"><code>#Step 1. Set parameters for BLAST analysis
-annotated.genes.file &lt;- &quot;Scaffold151535_ORFs.fa&quot; ###ISSUES HERE!!!### What is the right target file? Shouldn&#39;t it be the first AA blast reference from module 1
-AA.FASTA.out.folder &lt;- &quot;AA_FASTA/&quot;
-
-#Check if &quot;AA_FASTA/&quot; exists
-# if not then creates it
-output_dir &lt;- file.path(paste0(project.folder, &quot;/AA_FASTA/&quot;))
-
-if(dir.exists(output_dir)){
-  print(paste0(&quot;Dir&quot;, output_dir, &quot; already exists!&quot;))
-}else{
-  print(paste0(&quot;Created &quot;, output_dir))
-  dir.create(output_dir)  
-}
-
-BlastDB.type &lt;- &quot;prot&quot;
-blast.type &lt;- &quot;blastp&quot;
-
-#Step 2. Set wd and list orf.files
-setwd(paste(project.folder, AA.ORF.folder, sep = &quot;/&quot;))
-#orf.files &lt;- list.files(full.names = T)
-
-#Step 3. Conduct BLAST analysis for each scaffold and write results
-for(i in 1:length(orf.files)){
-  setwd(paste(project.folder, AA.BlastDB.folder, sep = &quot;/&quot;))
-  blast.db.path &lt;- orf.files[i]
-  annotated.fasta &lt;- readAAStringSet(filepath = annotated.genes.file) #ISSUE HERE?##
-  bl &lt;- blast(db = blast.db.path, type = blast.type)
-  cl &lt;- predict(bl, annotated.fasta) #annotated.fasta[1,]
-  blast.csv.filename &lt;- paste0(orf.files[i], &quot;_BlastOut.csv&quot;)
-  write.csv(x = cl, file = blast.csv.filename, row.names = F)
-  
-  cl.filt &lt;- subset(x = cl, Perc.Ident &gt;= perc.ident)
-  blast.csv.filename &lt;- paste0(orf.files[i], &quot;_FILTERED_BlastOut.csv&quot;)
-  write.csv(x = cl.filt, file = blast.csv.filename, row.names = F)
-}  </code></pre>
 </div>
-<div id="extract-and-annotate-orfs" class="section level2" number="4.4">
-<h2><span class="header-section-number">4.4</span> Extract and annotate ORFs</h2>
-<pre class="r"><code># Extract and Annotate ORFs
-genes.seq &lt;- readLines(con = orf.files[i])
-header &lt;- NULL
-seq &lt;- NULL
-
-
-setwd(paste(project.folder, AA.FASTA.out.folder, sep=&quot;/&quot;))
-for(i in 1:nrow(cl.filt)){
-  header &lt;- as.character(cl.filt$SubjectID[i])
-  seq &lt;- genes.seq[c(match(paste(&quot;&gt;&quot;, cl$SubjectID[i], sep=&#39;&#39;), genes.seq)+1)] 
-  filename &lt;- paste0(as.character(cl$SubjectID[i]), &quot;.fasta&quot;)
-  x &lt;- dplyr::tibble(name = header, seq = seq)
-  writeFasta(data = x, filename = filename)
-}
-
-protein.fasta.folder &lt;- &quot;Protein_FASTAs/&quot;
-
-#Check if &quot;Protein_FASTAs/&quot; exists
-# if not then creates it
-output_dir &lt;- file.path(paste0(project.folder, &quot;/Protein_FASTAs/&quot;))
-
-if(dir.exists(output_dir)){
-  print(paste0(&quot;Dir&quot;, output_dir, &quot; already exists!&quot;))
-}else{
-  print(paste0(&quot;Created &quot;, output_dir))
-  dir.create(output_dir)  
-}
-
-setwd(paste(project.folder, AA.FASTA.out.folder, sep=&quot;/&quot;))
-
-AA.orf.files &lt;- list.files()
-
-AA.orfs &lt;- sapply(AA.orf.files, readLines)
-
-orfs &lt;- AA.orfs[c(grep(&quot;&gt;&quot;, AA.orfs)+1)] 
-
-protein &lt;- paste(orfs, collapse=&quot;&quot;)
-protein &lt;- str_replace_all(protein, &quot;[[:punct:]]&quot;, &quot;&quot;)
-
-header &lt;- &quot;&gt;PIP1-3&quot;
-x &lt;- dplyr::tibble(name = header, seq = protein)
-setwd(&quot;../Protein_FASTAs/&quot;)
-writeFasta(data = x, filename = &quot;PIP1-3_Scaffold151535.fa&quot;)</code></pre>
+<div id="extract-dna-and-aa-sequences-from-orfs-identified-by-protein-blast-analysis" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> Extract DNA and AA sequences from ORF(s) identified by protein BLAST analysis</h2>
+<p>Students are tasked to develop an R code producing the DNA sequence of Aquaporin gene located on identified scaffold and its associated protein sequence.</p>
 </div>
 </div>
 <div id="module-4-alignment-and-phylogenetic-reconstruction" class="section level1" number="5">
