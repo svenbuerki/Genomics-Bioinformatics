@@ -481,11 +481,11 @@ knitr::include_graphics("Images/Scaffolds_AA_seq_ORFs.png")
 
 1. Students download input file on their personal computers and open it in their favorite text editor.
 2. Go on the online protein [BLAST](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastp&PAGE_TYPE=BlastSearch&LINK_LOC=blasthome) platform.
-3. Copy content of `Scaffold151535_ORFs.fa` as shwon in Figure \@ref(fig:protBLASTinput) and press `BLAST` button to send the query.
+3. Copy content of `Scaffold151535_ORFs.fa` as shown in Figure \@ref(fig:protBLASTinput) and press `BLAST` button to send the query.
 ```{r protBLASTinput, echo=FALSE, fig.cap="Online protein BLAST form.", out.width = '100%', fig.pos= "h"}
 knitr::include_graphics("Images/proteinBLASTinputform.png")
 ```
-4. Inspect output of protein BLAST analysis and identified ORF(s) along scaffold coding for Aquaporin genes (see \@ref(fig:protBLASToutput)).
+4. Inspect output of protein BLAST analysis and identified ORF(s) along scaffold coding for Aquaporin gene products (see \@ref(fig:protBLASToutput)).
 ```{r protBLASToutput, echo=FALSE, fig.cap="Output of the protein BLAST analysis. Use the dropdown button to select each ORF and identify their gene products.", out.width = '100%', fig.pos= "h"}
 knitr::include_graphics("Images/proteinBLASToutput.png")
 ```
