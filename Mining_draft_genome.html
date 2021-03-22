@@ -854,7 +854,7 @@ Figure 7.1: FASTA file containing all AA sequences for ORFs inferred along scaff
 <h3><span class="header-section-number">7.2.2</span> Protein BLAST analysis</h3>
 <ol style="list-style-type: decimal">
 <li>Students download input file on their personal computers and open it in their favorite text editor.</li>
-<li>Go on the online protein <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastp&amp;PAGE_TYPE=BlastSearch&amp;LINK_LOC=blasthome">BLAST</a> platform.</li>
+<li>Go on the online protein <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastp&amp;PAGE_TYPE=BlastSearch&amp;LINK_LOC=blasthome">BLAST</a> platform <span class="citation">(described in <a href="#ref-altschul1997gapped" role="doc-biblioref">Altschul et al., 1997</a>)</span>.</li>
 <li>Copy content of <code>Scaffold151535_ORFs.fa</code> as shown in Figure <a href="#fig:protBLASTinput">7.2</a> and press <code>BLAST</code> button to send the query.
 <div class="figure"><span id="fig:protBLASTinput"></span>
 <img src="Images/proteinBLASTinputform.png" alt="Online protein BLAST form." width="100%" />
@@ -886,7 +886,7 @@ Figure 7.3: Output of the protein BLAST analysis. Use the dropdown button to sel
 <ol style="list-style-type: decimal">
 <li>Prediction of protein transmembrane helices based on the approach implemented in <a href="http://www.cbs.dtu.dk/services/TMHMM/">TMHMM</a> <span class="citation">(<a href="#ref-krogh2001predicting" role="doc-biblioref">Krogh et al., 2001</a>)</span>. This approach relies on <a href="https://www.sciencedirect.com/topics/biochemistry-genetics-and-molecular-biology/hidden-markov-model">Hidden Markov Models</a>.</li>
 <li>Identifying NPA motifs using R script relying on <em>Biostring</em> <span class="citation">(<a href="#ref-Biostrings" role="doc-biblioref">Pagès et al., 2019</a>)</span> package.</li>
-<li>Model 3D AQP protein using approach implemented in <a href="http://www.sbg.bio.ic.ac.uk/~phyre2/html/page.cgi?id=index">Phyre2</a> and predict protein (therefore its function). The approach for protein modeling, prediction and analysis is presented in <span class="citation"><a href="#ref-kelley2015phyre2" role="doc-biblioref">Kelley et al.</a> (<a href="#ref-kelley2015phyre2" role="doc-biblioref">2015</a>)</span>.</li>
+<li>Model 3D AQP protein using approach implemented in <a href="http://www.sbg.bio.ic.ac.uk/~phyre2/html/page.cgi?id=index">Phyre<sup>2</sup></a> and predict protein (therefore its function). The approach for protein modeling, prediction and analysis is presented in <span class="citation"><a href="#ref-kelley2015phyre2" role="doc-biblioref">Kelley et al.</a> (<a href="#ref-kelley2015phyre2" role="doc-biblioref">2015</a>)</span>.</li>
 </ol>
 <div id="predictions" class="section level3" number="8.1.1">
 <h3><span class="header-section-number">8.1.1</span> Predictions</h3>
@@ -912,7 +912,7 @@ Figure 8.1: Snapshot of TMHMM website showing how to submit job.
 </div></li>
 <li>Inspect output of TMHMM analysis (see Figure <a href="#fig:TMHMMoutput">8.2</a>). For AQP proteins, we expect:
 <ul>
-<li>Number of predicted TMHs: 6.</li>
+<li>Number of predicted TMHs (= <strong>T</strong>rans-<strong>M</strong>embrane <strong>H</strong>elix): 6.</li>
 <li>Outside loops: 2.
 <div class="figure"><span id="fig:TMHMMoutput"></span>
 <img src="Images/TMHMM_results.png" alt="Snapshot of TMHMM results." width="100%" />
@@ -930,7 +930,7 @@ Figure 8.2: Snapshot of TMHMM results.
 <h2><span class="header-section-number">8.4</span> Model 3D AQP protein</h2>
 <p>To model 3D structure of AQP protein and predict its function do the following (here based on <code>&gt;Scaffold151535_ORF_26</code>):</p>
 <ol style="list-style-type: decimal">
-<li>Go to Phyre2 website: <a href="http://www.sbg.bio.ic.ac.uk/~phyre2/html/page.cgi?id=index" class="uri">http://www.sbg.bio.ic.ac.uk/~phyre2/html/page.cgi?id=index</a></li>
+<li>Go to Phyre<sup>2</sup> website: <a href="http://www.sbg.bio.ic.ac.uk/~phyre2/html/page.cgi?id=index" class="uri">http://www.sbg.bio.ic.ac.uk/~phyre2/html/page.cgi?id=index</a></li>
 <li>Copy <code>FASTA</code> AA sequence and fill form as shown in Figure <a href="#fig:phyreinput">8.3</a>. Once completed, please submit job by pressing <code>Phyre Search</code>. The job will take ca. 50 minutes to run.
 <div class="figure"><span id="fig:phyreinput"></span>
 <img src="Images/Phyre2_input.png" alt="Snapshot of Phyre2 website used to model 3D structure of protein and predict its function." width="100%" />
@@ -938,12 +938,23 @@ Figure 8.2: Snapshot of TMHMM results.
 Figure 8.3: Snapshot of Phyre2 website used to model 3D structure of protein and predict its function.
 </p>
 </div></li>
+<li>You will relieve an email when the analysis is completed. A link to the output of the Phyre<sup>2</sup> analysis will send you to the report page as shown in Figure <a href="#fig:phyreoutput">8.4</a>.
+<div class="figure"><span id="fig:phyreoutput"></span>
+<img src="Images/Phyre2_output.png" alt="Results of Phyre2 analysis." width="100%" />
+<p class="caption">
+Figure 8.4: Results of Phyre2 analysis.
+</p>
+</div></li>
+<li>Note that although the AQP protein sequence is not complete, the analysis still modeled it correctly and predicts that it belong to the <em>PIP</em> subfamily (see Figure <a href="#fig:phyreoutput">8.4</a>).</li>
 </ol>
 </div>
 </div>
 <div id="references" class="section level1 unnumbered">
 <h1>References</h1>
 <div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-altschul1997gapped" class="csl-entry">
+<span class="smallcaps">Altschul, S.F.</span>, <span class="smallcaps">T.L. Madden</span>, <span class="smallcaps">A.A. Schäffer</span>, <span class="smallcaps">J. Zhang</span>, <span class="smallcaps">Z. Zhang</span>, <span class="smallcaps">W. Miller</span>, and <span class="smallcaps">D.J. Lipman</span>. 1997. Gapped BLAST and PSI-BLAST: A new generation of protein database search programs. <em>Nucleic acids research</em> 25: 3389–3402.
+</div>
 <div id="ref-chaumont2005regulation" class="csl-entry">
 <span class="smallcaps">Chaumont, F.</span>, <span class="smallcaps">M. Moshelion</span>, and <span class="smallcaps">M.J. Daniels</span>. 2005. Regulation of plant aquaporin activity. <em>Biology of the Cell</em> 97: 749–764.
 </div>
