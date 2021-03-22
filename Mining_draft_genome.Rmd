@@ -532,9 +532,9 @@ Students are tasked to develop an R code producing the DNA sequence of Aquaporin
 
 ## Objectives
 
-The overarching objectives of this module are to validate the AQP protein sequences and infer their functions. This will be done conducting the following analyses:
+The objectives of this module are to validate the AQP protein sequences obtained in [module 3](#mod3) and infer its function. This will be done by conducting the following analyses:
 
-1. Prediction of transmembrane helices in proteins based on the approach implemented in [TMHMM](http://www.cbs.dtu.dk/services/TMHMM/) [@krogh2001predicting]. This approach relies on [Hidden Markov Models](https://www.sciencedirect.com/topics/biochemistry-genetics-and-molecular-biology/hidden-markov-model).
+1. Prediction of protein transmembrane helices based on the approach implemented in [TMHMM](http://www.cbs.dtu.dk/services/TMHMM/) [@krogh2001predicting]. This approach relies on [Hidden Markov Models](https://www.sciencedirect.com/topics/biochemistry-genetics-and-molecular-biology/hidden-markov-model).
 2. Identifying NPA motifs using R script relying on *Biostring* [@Biostrings] package. 
 3. Model 3D AQP protein using approach implemented in [Phyre2](http://www.sbg.bio.ic.ac.uk/~phyre2/html/page.cgi?id=index) and predict protein (therefore its function). The approach for protein modeling, prediction and analysis is presented in @kelley2015phyre2. 
 
@@ -545,5 +545,25 @@ To be valid, the AQP protein sequence should have:
   1. Six transmembrane helices and two loops.
   2. Each loop should contain an NPA motif.
   3. Mutations in NPA motifs will indicate changes in the channeled molecule (therefore changing its function).
-  
+
+## Prediction of protein transmembrane helices (and outside loops)
+
+To conduct this analysis (based on `>Scaffold151535_ORF_26`) do the following:
+
+1. Go to the TMHMM website: http://www.cbs.dtu.dk/services/TMHMM/
+2. Paste the `FASTA` AA sequence generated in [module 3](#mod3), here corresponding to `Scaffold151535_ORF_26` as shown in Figure \@ref(fig:TMHMMinput) and submit the analysis.
+```{r TMHMMinput, echo=FALSE, fig.cap="Snapshot of TMHMM website showing how to submit job.", out.width = '100%', fig.pos= "h"}
+knitr::include_graphics("Images/TMHMM_input.png")
+```
+3. Inspect output of TMHMM analysis (see Figure \@ref(fig:TMHMMoutput)). For AQP proteins, we expect:
+    - Number of predicted TMHs:  6.
+    - Outside loops: 2.
+```{r TMHMMoutput, echo=FALSE, fig.cap="Snapshot of TMHMM results.", out.width = '100%', fig.pos= "h"}
+knitr::include_graphics("Images/TMHMM_results.png")
+```
+
+## Identifying NPA motifs
+
+
+
 # References

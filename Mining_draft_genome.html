@@ -882,9 +882,9 @@ Figure 7.3: Output of the protein BLAST analysis. Use the dropdown button to sel
 <h1><span class="header-section-number">8</span> Module 4</h1>
 <div id="objectives-4" class="section level2" number="8.1">
 <h2><span class="header-section-number">8.1</span> Objectives</h2>
-<p>The overarching objectives of this module are to validate the AQP protein sequences and infer their functions. This will be done conducting the following analyses:</p>
+<p>The objectives of this module are to validate the AQP protein sequences obtained in <a href="#mod3">module 3</a> and infer its function. This will be done by conducting the following analyses:</p>
 <ol style="list-style-type: decimal">
-<li>Prediction of transmembrane helices in proteins based on the approach implemented in <a href="http://www.cbs.dtu.dk/services/TMHMM/">TMHMM</a> <span class="citation">(<a href="#ref-krogh2001predicting" role="doc-biblioref">Krogh et al., 2001</a>)</span>. This approach relies on <a href="https://www.sciencedirect.com/topics/biochemistry-genetics-and-molecular-biology/hidden-markov-model">Hidden Markov Models</a>.</li>
+<li>Prediction of protein transmembrane helices based on the approach implemented in <a href="http://www.cbs.dtu.dk/services/TMHMM/">TMHMM</a> <span class="citation">(<a href="#ref-krogh2001predicting" role="doc-biblioref">Krogh et al., 2001</a>)</span>. This approach relies on <a href="https://www.sciencedirect.com/topics/biochemistry-genetics-and-molecular-biology/hidden-markov-model">Hidden Markov Models</a>.</li>
 <li>Identifying NPA motifs using R script relying on <em>Biostring</em> <span class="citation">(<a href="#ref-Biostrings" role="doc-biblioref">Pagès et al., 2019</a>)</span> package.</li>
 <li>Model 3D AQP protein using approach implemented in <a href="http://www.sbg.bio.ic.ac.uk/~phyre2/html/page.cgi?id=index">Phyre2</a> and predict protein (therefore its function). The approach for protein modeling, prediction and analysis is presented in <span class="citation"><a href="#ref-kelley2015phyre2" role="doc-biblioref">Kelley et al.</a> (<a href="#ref-kelley2015phyre2" role="doc-biblioref">2015</a>)</span>.</li>
 </ol>
@@ -897,6 +897,34 @@ Figure 7.3: Output of the protein BLAST analysis. Use the dropdown button to sel
 <li>Mutations in NPA motifs will indicate changes in the channeled molecule (therefore changing its function).</li>
 </ol>
 </div>
+</div>
+<div id="prediction-of-protein-transmembrane-helices-and-outside-loops" class="section level2" number="8.2">
+<h2><span class="header-section-number">8.2</span> Prediction of protein transmembrane helices (and outside loops)</h2>
+<p>To conduct this analysis (based on <code>&gt;Scaffold151535_ORF_26</code>) do the following:</p>
+<ol style="list-style-type: decimal">
+<li>Go to the TMHMM website: <a href="http://www.cbs.dtu.dk/services/TMHMM/" class="uri">http://www.cbs.dtu.dk/services/TMHMM/</a></li>
+<li>Paste the <code>FASTA</code> AA sequence generated in <a href="#mod3">module 3</a>, here corresponding to <code>Scaffold151535_ORF_26</code> as shown in Figure <a href="#fig:TMHMMinput">8.1</a> and submit the analysis.
+<div class="figure"><span id="fig:TMHMMinput"></span>
+<img src="Images/TMHMM_input.png" alt="Snapshot of TMHMM website showing how to submit job." width="100%" />
+<p class="caption">
+Figure 8.1: Snapshot of TMHMM website showing how to submit job.
+</p>
+</div></li>
+<li>Inspect output of TMHMM analysis (see Figure <a href="#fig:TMHMMoutput">8.2</a>). For AQP proteins, we expect:
+<ul>
+<li>Number of predicted TMHs: 6.</li>
+<li>Outside loops: 2.
+<div class="figure"><span id="fig:TMHMMoutput"></span>
+<img src="Images/TMHMM_results.png" alt="Snapshot of TMHMM results." width="100%" />
+<p class="caption">
+Figure 8.2: Snapshot of TMHMM results.
+</p>
+</div></li>
+</ul></li>
+</ol>
+</div>
+<div id="identifying-npa-motifs" class="section level2" number="8.3">
+<h2><span class="header-section-number">8.3</span> Identifying NPA motifs</h2>
 </div>
 </div>
 <div id="references" class="section level1 unnumbered">
