@@ -9,6 +9,7 @@ output:
   bookdown::html_document2: 
     toc: TRUE
     toc_float: TRUE
+    self_contained: TRUE
 link-citations: yes
 fontsize: 12pt
 urlcolor: blue
