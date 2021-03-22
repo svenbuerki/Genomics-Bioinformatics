@@ -11,7 +11,7 @@
 
 <meta name="author" content="Sven Buerki &amp; Anthony Melton - Boise State University" />
 
-<meta name="date" content="2021-03-20" />
+<meta name="date" content="2021-03-22" />
 
 <title>BIOL 497/597 - Genomics &amp; Bioinformatics</title>
 
@@ -83,6 +83,28 @@ h6 {
 }
 </style>
 
+<style type="text/css">
+/* for pandoc --citeproc since 2.11 */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 
 
@@ -370,6 +392,9 @@ div.tocify {
   <a href="Chapters.html">Chapters</a>
 </li>
 <li>
+  <a href="Mining_draft_genome.html">Lab.</a>
+</li>
+<li>
   <a href="Tutorials.html">Tutorials</a>
 </li>
 <li>
@@ -393,7 +418,7 @@ div.tocify {
 <h1 class="title toc-ignore">BIOL 497/597 - Genomics &amp; Bioinformatics</h1>
 <h3 class="subtitle">Lab: Mining sagebrush draft genome</h3>
 <h4 class="author">Sven Buerki &amp; Anthony Melton - Boise State University</h4>
-<h4 class="date">2021-03-20</h4>
+<h4 class="date">2021-03-22</h4>
 
 </div>
 
@@ -406,28 +431,57 @@ $(document).ready(function() {
 </script>
 <div id="introduction" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> Introduction</h1>
-<p>This webpage supports analyses aiming at mining the sagebrush draft genome for Aquaporin genes. Aquaporin genes are multi-exon genes (see Figure <a href="#fig:multigene">1.1</a>). As a reminder, exons are pieces of coding DNA that encode proteins. Different exons code for different domains of a protein. The domains may be encoded by a single exon or multiple exons spliced together. Ijn the case of multi-exon genes, the presence of exons and introns allows for greater molecular evolution through the process of exon shuffling and alternative splicing. Exon shuffling occurs when exons on sister chromosomes are exchanged during recombination. This allows for the formation of new genes. On the other hand, exons also allow for multiple proteins to be translated from the same gene through alternative splicing. This process allows the exons to be arranged in different combinations when the introns are removed/spliced (see Figure <a href="#fig:multigene">1.1</a>). The different configurations can include the complete removal of an exon, the inclusion of part of an exon, or the inclusion of part of an intron. Alternative splicing can occur in the same location to produce different variants of a gene with a similar role, such as the human <em>slo</em> gene, or it can occur in different cell or tissue types, such as the mouse <em>alpha-amylase</em> gene. Alternative splicing, and defects in alternative splicing, can result in a number of diseases including cancer.</p>
-<p>The processes described above will have to be accounted for when students will be assembling protein sequences from their predicted Open Reading Frames (see modules 2 and 3).</p>
+<p>This document supports analyses aiming at mining the sagebrush (<em>Artemisia tridentata</em> Nutt; Asteraceae) draft genome for Aquaporin (AQP) genes. AQPs are multi-exon genes (see Figure <a href="#fig:multigene">1.1</a>) encoding for a large family of proteins known to function in the transport of water and other molecules across cell membranes <span class="citation">(reviewed in <a href="#ref-li2014plant" role="doc-biblioref">Li et al., 2014</a>)</span>.</p>
 <div class="figure"><span id="fig:multigene"></span>
-<img src="Images/multi_exon_gene.png" alt="Flowchart showing the structure of a multi-exon gene and different resulting proteins. See text for more details." width="80%" />
+<img src="Images/multi_exon_gene.png" alt="Flowchart showing the structure of a multi-exon gene and different resulting proteins. As a reminder, exons are pieces of coding DNA that encode proteins. Different exons code for different domains of a protein. The domains may be encoded by a single exon or multiple exons spliced together. In the case of multi-exon genes, the presence of exons and introns allows for greater molecular evolution through the process of exon shuffling and alternative splicing. Exon shuffling occurs when exons on sister chromosomes are exchanged during recombination. This allows for the formation of new genes. On the other hand, exons also allow for multiple proteins to be translated from the same gene through alternative splicing. This process allows the exons to be arranged in different combinations when the introns are removed/spliced. The different configurations can include the complete removal of an exon, the inclusion of part of an exon, or the inclusion of part of an intron. Alternative splicing can occur in the same location to produce different variants of a gene with a similar role, such as the human slo gene, or it can occur in different cell or tissue types, such as the mouse alpha-amylase gene. Alternative splicing, and defects in alternative splicing, can result in a number of diseases including cancer." width="80%" />
 <p class="caption">
-Figure 1.1: Flowchart showing the structure of a multi-exon gene and different resulting proteins. See text for more details.
+Figure 1.1: Flowchart showing the structure of a multi-exon gene and different resulting proteins. As a reminder, exons are pieces of coding DNA that encode proteins. Different exons code for different domains of a protein. The domains may be encoded by a single exon or multiple exons spliced together. In the case of multi-exon genes, the presence of exons and introns allows for greater molecular evolution through the process of exon shuffling and alternative splicing. Exon shuffling occurs when exons on sister chromosomes are exchanged during recombination. This allows for the formation of new genes. On the other hand, exons also allow for multiple proteins to be translated from the same gene through alternative splicing. This process allows the exons to be arranged in different combinations when the introns are removed/spliced. The different configurations can include the complete removal of an exon, the inclusion of part of an exon, or the inclusion of part of an intron. Alternative splicing can occur in the same location to produce different variants of a gene with a similar role, such as the human slo gene, or it can occur in different cell or tissue types, such as the mouse alpha-amylase gene. Alternative splicing, and defects in alternative splicing, can result in a number of diseases including cancer.
 </p>
 </div>
-<div id="analytical-workflow" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> Analytical workflow</h2>
+<p>The defining characteristics of AQP proteins include having six membrane-spanning alpha-helices and two hydrophobic loops containing conserved asparagine-proline-alanine (NPA) motif which form a barrel surrounding a central pore-like region that contains additional protein density (see Figure <a href="#fig:AQPex">1.2</a>). While the NPA motifs are generally highly conserved, there are some AQP genes that have undergone mutations of the alanine residue in the NPA motif <span class="citation">(<a href="#ref-ishibashi2006aquaporin" role="doc-biblioref">Ishibashi, 2006</a>)</span>. AQPs in flowering plants comprise five subfamilies: (1) NOD26-like intrinsic proteins (NIPs), (2) plasma membrane intrinsic proteins (PIPs), (3) small basic intrinsic proteins (SIPs), (4) tonoplast intrinsic proteins (TIPs), and (5) X intrinsic proteins (XIPs) <span class="citation">(<a href="#ref-danielson2008unexpected" role="doc-biblioref">Danielson and Johanson, 2008</a>)</span>. Genes from each subfamily tend to move water or other substrate depending on their NPA motifs. Some AQPs, such as NIPs, have acquired a mutation in their NPA motif, such as alanine to leucine, which confer the ability to move substrates such as urea or ammonium <span class="citation">(reviewed in <a href="#ref-chaumont2005regulation" role="doc-biblioref">Chaumont et al., 2005</a>)</span>.</p>
+<div class="figure" style="text-align: center"><span id="fig:AQPex"></span>
+<img src="Images/NIP5-1_At_Sc466867.png" alt="Example of a 3D model of an Aquaporin protein recovered in the sagebrush genome. NPA motifs are shown by red/orange colors" width="50%" />
+<p class="caption">
+Figure 1.2: Example of a 3D model of an Aquaporin protein recovered in the sagebrush genome. NPA motifs are shown by red/orange colors
+</p>
+</div>
+</div>
+<div id="learning-outcomes" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Learning outcomes</h1>
+<p>As part of this lab, students will gain the following learning outcomes:</p>
+<ol style="list-style-type: decimal">
+<li>Learn protocol to remotely access to a unix-based computer (see <a href="Tutorials.html">Tutorials</a>).</li>
+<li>Learn unix-based commands to organize projects and execute code (see <a href="Tutorials.html">Tutorials</a>).</li>
+<li>Provide introduction to running R code and developing your own R code (this topic was also partially covered in <a href="Mini_reports.html">Mini-Report 3</a>).</li>
+<li>Study protocols to mine Illumina <em>de novo</em> draft genome (at scaffold level) for target genes.</li>
+<li>Predict and annotate genes recovered from genome mining process.</li>
+<li>Reconstruct protein sequences of annotated genes.</li>
+<li>Validate protein sequence and predict function.</li>
+</ol>
+</div>
+<div id="analytical-workflow" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Analytical workflow</h1>
 <p>Overall, our analytical workflow is subdivided into 4 modules as follows:</p>
 <ul>
-<li><a href="#mod1"><strong>Module 1:</strong></a> Set-up environment and conduct BLAST analysis.</li>
-<li><a href="#mod2"><strong>Module 2:</strong></a> Extract scaffolds and find <strong>O</strong>pen <strong>R</strong>eading <strong>F</strong>rames.</li>
-<li><a href="#mod3"><strong>Module 3:</strong></a> Annotate ORFs and assemble proteins.</li>
-<li><strong>Module 4:</strong> Alignment and phylogenetic reconstruction.</li>
+<li><a href="#mod1"><strong>Module 1:</strong></a> Set-up environment and identify scaffolds containing AQP genes.</li>
+<li><a href="#mod2"><strong>Module 2:</strong></a> Extract scaffolds identified in module 1 and find <strong>O</strong>pen <strong>R</strong>eading <strong>F</strong>rames.</li>
+<li><a href="#mod3"><strong>Module 3:</strong></a> Annotate ORFs and assemble AQP protein(s).</li>
+<li><a href="#mod4"><strong>Module 4:</strong></a> Validate AQP protein sequences and infer their function(s).</li>
 </ul>
 </div>
-<div id="project-structure" class="section level2" number="1.2">
-<h2><span class="header-section-number">1.2</span> Project structure</h2>
-<div id="where-are-the-data-located" class="section level3" number="1.2.1">
-<h3><span class="header-section-number">1.2.1</span> Where are the data located?</h3>
+<div id="objectives" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Objectives</h1>
+<p>Instructors teach students to conduct analyses by going over each module in class demonstrating the approach to mine genome for target gene and go over steps to assemble and validate protein product. Then, each group will be given a scaffold and they will have to conduct analyses described in modules 2 to 4 on their own to:</p>
+<ol style="list-style-type: decimal">
+<li>Predict, annotate and identify AQP genes along scaffold.</li>
+<li>Reconstruct and validate AQP protein sequences.</li>
+<li>Predict AQP protein function.</li>
+</ol>
+<p>Fridays of weeks #12 and 13 will be dedicated to group work using Zoom breakout rooms.</p>
+<div id="project-structure" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Project structure</h2>
+<div id="where-are-the-data-located" class="section level3" number="4.1.1">
+<h3><span class="header-section-number">4.1.1</span> Where are the data located?</h3>
 <p>All the data associated to this project are located on your individual account in the <code>DraftGenomeMineR/</code> folder. This folder is located in <code>/home/bio_11/DraftGenomeMineR</code>. Please replace <code>bio_11</code> by your <a href="https://docs.google.com/document/d/1t0DdQBes42Gzo8XWgc9JL2xEGjv1kbfoVE7Vznx6C9I/edit">account detail</a>.</p>
 <p><strong>Key files:</strong></p>
 <ul>
@@ -436,22 +490,26 @@ Figure 1.1: Flowchart showing the structure of a multi-exon gene and different r
 <li>Scripts related to each module are located in <code>Lesson_Modules/</code>.</li>
 </ul>
 </div>
-<div id="how-do-i-access-the-data-and-run-analyses" class="section level3" number="1.2.2">
-<h3><span class="header-section-number">1.2.2</span> How do I access the data and run analyses?</h3>
+<div id="how-do-i-access-the-data-and-run-analyses" class="section level3" number="4.1.2">
+<h3><span class="header-section-number">4.1.2</span> How do I access the data and run analyses?</h3>
 <p>To access the data and run the analyses, please remotely connect to your dedicated computer using <code>ssh</code> protocol. Your credentials are available <a href="https://docs.google.com/document/d/1t0DdQBes42Gzo8XWgc9JL2xEGjv1kbfoVE7Vznx6C9I/edit">here</a>.</p>
 </div>
 </div>
 </div>
-<div id="mod1" class="section level1" number="2">
-<h1><span class="header-section-number">2</span> Module 1: Set-up environment and conduct BLAST analysis</h1>
-<div id="remotely-connect-to-computer" class="section level2" number="2.1">
-<h2><span class="header-section-number">2.1</span> Remotely connect to computer</h2>
+<div id="mod1" class="section level1" number="5">
+<h1><span class="header-section-number">5</span> Module 1</h1>
+<div id="objectives-1" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Objectives</h2>
+<p>This module is dedicated to presenting approach to set-up your working environment and then to identify scaffolds in the <em>de novo</em> genome assembly containing AQP genes (using BLAST).</p>
+</div>
+<div id="remotely-connect-to-computer" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Remotely connect to computer</h2>
 <p>Start by using <code>ssh</code> protocol to connect to your Linux computer. This is done as follows (enter password when prompted to):</p>
 <pre class="bash"><code>#SSH with bio_11 as example
 ssh bio_11@132.178.142.214</code></pre>
 </div>
-<div id="copy-project-folder-to-remote-computer" class="section level2" number="2.2">
-<h2><span class="header-section-number">2.2</span> Copy project folder to remote computer</h2>
+<div id="copy-project-folder-to-remote-computer" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> Copy project folder to remote computer</h2>
 <p>After downloading the <code>zip</code> file from our shared Google Drive to your personal computer, please copy this file to your Linux computer (on your personal account) as follows:</p>
 <pre class="bash"><code>#scp file: general syntax
 scp file user@host:dir
@@ -471,8 +529,8 @@ cp /home/bioinformatics/GenomeMining_Bioinformatics_2021/DraftGenomeMineR.zip .
 #unzip file
 unzip DraftGenomeMineR.zip</code></pre>
 </div>
-<div id="start-r-session" class="section level2" number="2.3">
-<h2><span class="header-section-number">2.3</span> Start R session</h2>
+<div id="start-r-session" class="section level2" number="5.4">
+<h2><span class="header-section-number">5.4</span> Start R session</h2>
 <p>Navigate to <code>DraftGenomeMineR/</code> and start a new <code>R</code> session:</p>
 <pre class="bash"><code>#Navigate to DraftGenomeMineR/
 cd DraftGenomeMineR/
@@ -480,8 +538,8 @@ cd DraftGenomeMineR/
 #Start R session
 R-4</code></pre>
 </div>
-<div id="load-r-packages-and-user-defined-functions" class="section level2" number="2.4">
-<h2><span class="header-section-number">2.4</span> Load R packages and user-defined functions</h2>
+<div id="load-r-packages-and-user-defined-functions" class="section level2" number="5.5">
+<h2><span class="header-section-number">5.5</span> Load R packages and user-defined functions</h2>
 <p>Create an object with all the required R packages and load them:</p>
 <pre class="r"><code># This will make a list of packages that another function will use to make sure they are all installed and loaded.
 list.of.packages &lt;- c(&quot;ape&quot;,
@@ -502,8 +560,8 @@ lapply(list.of.packages, require, character.only = TRUE)</code></pre>
 files.sources &lt;- list.files(&quot;Functions&quot;, full.names=T)
 sapply(files.sources, source)</code></pre>
 </div>
-<div id="setting-environment-for-blast-analysis" class="section level2" number="2.5">
-<h2><span class="header-section-number">2.5</span> Setting environment for BLAST analysis</h2>
+<div id="setting-environment-for-blast-analysis" class="section level2" number="5.6">
+<h2><span class="header-section-number">5.6</span> Setting environment for BLAST analysis</h2>
 <p>To be able to navigate between folders within our project, we will set a object entitled <code>project.folder</code>, which contains the path to the root of the folder.</p>
 <p>To create this object, do as follows:</p>
 <pre class="r"><code>#Copy the output of getwd() in the object as follows:
@@ -513,8 +571,8 @@ project.folder &lt;- getwd()</code></pre>
 <p>Set working directory to <code>project.folder</code> as follows:</p>
 <pre class="r"><code>setwd(project.folder)</code></pre>
 </div>
-<div id="running-blast-analysis" class="section level2" number="2.6">
-<h2><span class="header-section-number">2.6</span> Running BLAST analysis</h2>
+<div id="running-blast-analysis" class="section level2" number="5.7">
+<h2><span class="header-section-number">5.7</span> Running BLAST analysis</h2>
 <p>Set general parameters for the BLAST analysis:</p>
 <pre class="r"><code># There are a few parameters that need to be set. Let&#39;s create some R objects to store file paths and parameters for the BLAST search.
 
@@ -571,16 +629,20 @@ blast.hits.to.extract &lt;- subset(x = cl.filt.unique, SubjectID == cl.filt.uniq
 write.csv(x = blast.hits.to.extract, file = &quot;Unique_Filtered_Blast_Hit_Info.csv&quot;, row.names = F)</code></pre>
 </div>
 </div>
-<div id="mod2" class="section level1" number="3">
-<h1><span class="header-section-number">3</span> Module 2: Extract scaffolds and find Open Reading Frames</h1>
+<div id="mod2" class="section level1" number="6">
+<h1><span class="header-section-number">6</span> Module 2</h1>
+<div id="objectives-2" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> Objectives</h2>
 <p>In this module, we are conducting the following tasks:</p>
 <ul>
-<li>Extracting scaffold(s) identified in <a href="#mod1">module 1</a> from the draft genome assembly (in <code>FASTAs/Draft_Genome_Assembly.fasta</code>) and saving the output as a <code>FASTA</code> object/file.</li>
+<li>Setting up your working environment (as shown in <a href="#mod1.">module 1</a>)</li>
+<li>Extracting scaffold(s) identified in <a href="#mod1">module 1</a> from the <em>de novo</em> draft genome assembly (in <code>FASTAs/Draft_Genome_Assembly.fasta</code>) and saving the output as a <code>FASTA</code> object/file.</li>
 <li>Finding ORFs along scaffold(s) using the user-defined function <em>findORFsTranslateDNA2AA()</em> and saving the output into a <code>FASTA</code> object/file. In molecular genetics, an <strong>O</strong>pen <strong>R</strong>eading <strong>F</strong>rame (ORF) is the part of a reading frame that has the ability to be translated. An ORF is a continuous stretch of codons that begins with a start codon (usually AUG) and ends at a stop codon (usually UAA, UAG or UGA). We will study the code implemented in <em>findORFsTranslateDNA2AA()</em> to fully understand the applied approach.</li>
 <li>Produce maps of recovered ORFs along scaffold(s). These <code>pdf</code> maps will be saved in <code>ORFs_map/</code>.</li>
 </ul>
-<div id="getting-ready" class="section level2" number="3.1">
-<h2><span class="header-section-number">3.1</span> Getting ready!</h2>
+</div>
+<div id="setting-up-your-working-environment" class="section level2" number="6.2">
+<h2><span class="header-section-number">6.2</span> Setting up your working environment</h2>
 <p>Before starting analyses in <code>R</code>, students have to complete these following tasks:</p>
 <ol style="list-style-type: decimal">
 <li>Remotely connect to their computers (using their individual accounts) with <code>ssh</code> protocol.</li>
@@ -636,8 +698,8 @@ project.folder &lt;- getwd()
 #Set wd
 setwd(project.folder)</code></pre>
 </div>
-<div id="extracting-scaffolds-identified-in-module-1" class="section level2" number="3.2">
-<h2><span class="header-section-number">3.2</span> Extracting scaffold(s) identified in module 1</h2>
+<div id="extracting-scaffolds-in-de-novo-assembly" class="section level2" number="6.3">
+<h2><span class="header-section-number">6.3</span> Extracting scaffold(s) in <em>de novo</em> assembly</h2>
 <p>Open <code>Unique_Filtered_Blast_Hit_Info.csv</code> containing results of BLAST analysis and extract name of target scaffold(s).</p>
 <pre class="r"><code>#Open BLAST file
 cl.filt.unique &lt;- read.csv(file = &quot;Unique_Filtered_Blast_Hit_Info.csv&quot;) # Output of module 1
@@ -672,8 +734,8 @@ scaffoldFASTA &lt;- apply(scaffold, 1, paste, collapse=&quot;\n&quot;)
 #Save/export FASTA file
 write.table(scaffoldFASTA, &quot;Output_FASTAs/Scaffold151535.fa&quot;, row.names = F, col.names=F, quote = F)</code></pre>
 </div>
-<div id="finding-orfs-along-scaffolds" class="section level2" number="3.3">
-<h2><span class="header-section-number">3.3</span> Finding ORFs along scaffold(s)</h2>
+<div id="finding-orfs-along-scaffolds" class="section level2" number="6.4">
+<h2><span class="header-section-number">6.4</span> Finding ORFs along scaffold(s)</h2>
 <p>We will now find ORFs in scaffold(s) using <em>findORFsTranslateDNA2AA()</em>. This user-defined function relies on the <em>ORFik</em> R package. The output will be saved in <code>ORFs_report/</code>.</p>
 <pre class="r"><code>scaffold &lt;- readLines(&quot;Output_FASTAs/Scaffold151535.fa&quot;)
 scaffoldID &lt;- grep(pattern = &quot;^&gt;&quot;, x = scaffold, value = T)
@@ -697,8 +759,8 @@ orf.report[order(-orf.report$width),]
 translated.orfs &lt;- readLines(&quot;AA_ORFs/Scaffold151535_ORFs.fa&quot;)
 head(translated.orfs)</code></pre>
 </div>
-<div id="produce-maps-of-recovered-orfs-along-scaffolds" class="section level2" number="3.4">
-<h2><span class="header-section-number">3.4</span> Produce maps of recovered ORFs along scaffold(s)</h2>
+<div id="produce-maps-of-recovered-orfs-along-scaffolds" class="section level2" number="6.5">
+<h2><span class="header-section-number">6.5</span> Produce maps of recovered ORFs along scaffold(s)</h2>
 <p>Here, we are visualizing the ORFs recovered by our analysis along each scaffold by producing maps saved in <code>pdf</code> format in <code>ORFs_map/</code>. The code also checks if the folder <code>ORFs_map/</code> where files will be saved exists and if not creates it.</p>
 <pre class="r"><code>###
 #Build map of scaffold with ORFs
@@ -757,70 +819,111 @@ for(i in 1:length(ORFfiles)){
   #Close pdf
   dev.off()
 }</code></pre>
-<p>Figure <a href="#fig:scaffmap">3.1</a> shows the location of predicted ORFs along <code>Scaffold151535</code> inferred by the code displayed above.</p>
+<p>Figure <a href="#fig:scaffmap">6.1</a> shows the location of predicted ORFs along <code>Scaffold151535</code> inferred by the code displayed above.</p>
 <div class="figure"><span id="fig:scaffmap"></span>
 <img src="Images/Scaffold151535_ORFs_annotated.png" alt="Map of predicted ORFs along scaffold151535." width="100%" />
 <p class="caption">
-Figure 3.1: Map of predicted ORFs along scaffold151535.
+Figure 6.1: Map of predicted ORFs along scaffold151535.
 </p>
 </div>
 </div>
 </div>
-<div id="mod3" class="section level1" number="4">
-<h1><span class="header-section-number">4</span> Module 3: Annotate ORFs and assemble proteins</h1>
-<div id="objectives" class="section level2" number="4.1">
-<h2><span class="header-section-number">4.1</span> Objectives</h2>
-<p>In this module, students are working to:</p>
+<div id="mod3" class="section level1" number="7">
+<h1><span class="header-section-number">7</span> Module 3</h1>
+<div id="objectives-3" class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> Objectives</h2>
+<p>In this module, we are conducting the following tasks:</p>
 <ol style="list-style-type: decimal">
 <li>Annotate ORFs inferred in <a href="#mod2">module 2</a> using online protein <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastp&amp;PAGE_TYPE=BlastSearch&amp;LINK_LOC=blasthome">BLAST</a> tool. Students will use the output of the protein BLAST analysis to identify ORF(s) coding for Aquaporin genes.</li>
 <li>Extract ORF(s) identified by protein BLAST analysis to reconstruct Aquaporin gene sequence. Students will provide DNA sequence of Aquaporin gene located on scaffold and its associated protein sequence.</li>
 </ol>
 </div>
-<div id="annotate-orfs-using-online-protein-blast-tool" class="section level2" number="4.2">
-<h2><span class="header-section-number">4.2</span> Annotate ORFs using online protein BLAST tool</h2>
-<div id="input-file-for-protein-blast-analysis" class="section level3" number="4.2.1">
-<h3><span class="header-section-number">4.2.1</span> Input file for protein BLAST analysis</h3>
-<p>The <code>FASTA</code> file <code>Scaffold151535_ORFs.fa</code> (see Figure <a href="#fig:scafAAseqFASTA">4.1</a>) containing AA sequences of ORFs identified in <a href="#mod2">module 2</a> is available on the shared Google Drive <a href="https://drive.google.com/drive/folders/1d0TSt_M-wAVmNPPfMnXtxD8_fnfK7jQr?usp=sharing">here</a>.</p>
+<div id="annotate-orfs-using-online-protein-blast-tool" class="section level2" number="7.2">
+<h2><span class="header-section-number">7.2</span> Annotate ORFs using online protein BLAST tool</h2>
+<div id="input-file-for-protein-blast-analysis" class="section level3" number="7.2.1">
+<h3><span class="header-section-number">7.2.1</span> Input file for protein BLAST analysis</h3>
+<p>The <code>FASTA</code> file <code>Scaffold151535_ORFs.fa</code> (see Figure <a href="#fig:scafAAseqFASTA">7.1</a>) containing AA sequences of ORFs identified in <a href="#mod2">module 2</a> is available on the shared Google Drive <a href="https://drive.google.com/drive/folders/1d0TSt_M-wAVmNPPfMnXtxD8_fnfK7jQr?usp=sharing">here</a>.</p>
 <div class="figure"><span id="fig:scafAAseqFASTA"></span>
 <img src="Images/Scaffolds_AA_seq_ORFs.png" alt="FASTA file containing all AA sequences for ORFs inferred along scaffold. See module 2 for more details." width="100%" />
 <p class="caption">
-Figure 4.1: FASTA file containing all AA sequences for ORFs inferred along scaffold. See module 2 for more details.
+Figure 7.1: FASTA file containing all AA sequences for ORFs inferred along scaffold. See module 2 for more details.
 </p>
 </div>
 </div>
-<div id="protein-blast-analysis" class="section level3" number="4.2.2">
-<h3><span class="header-section-number">4.2.2</span> Protein BLAST analysis</h3>
+<div id="protein-blast-analysis" class="section level3" number="7.2.2">
+<h3><span class="header-section-number">7.2.2</span> Protein BLAST analysis</h3>
 <ol style="list-style-type: decimal">
 <li>Students download input file on their personal computers and open it in their favorite text editor.</li>
 <li>Go on the online protein <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastp&amp;PAGE_TYPE=BlastSearch&amp;LINK_LOC=blasthome">BLAST</a> platform.</li>
-<li>Copy content of <code>Scaffold151535_ORFs.fa</code> as shown in Figure <a href="#fig:protBLASTinput">4.2</a> and press <code>BLAST</code> button to send the query.
+<li>Copy content of <code>Scaffold151535_ORFs.fa</code> as shown in Figure <a href="#fig:protBLASTinput">7.2</a> and press <code>BLAST</code> button to send the query.
 <div class="figure"><span id="fig:protBLASTinput"></span>
 <img src="Images/proteinBLASTinputform.png" alt="Online protein BLAST form." width="100%" />
 <p class="caption">
-Figure 4.2: Online protein BLAST form.
+Figure 7.2: Online protein BLAST form.
 </p>
 </div></li>
-<li>Inspect output of protein BLAST analysis and identified ORF(s) along scaffold coding for Aquaporin gene products (see <a href="#fig:protBLASToutput">4.3</a>).
+<li>Inspect output of protein BLAST analysis and identified ORF(s) along scaffold coding for Aquaporin gene products (see <a href="#fig:protBLASToutput">7.3</a>).
 <div class="figure"><span id="fig:protBLASToutput"></span>
 <img src="Images/proteinBLASToutput.png" alt="Output of the protein BLAST analysis. Use the dropdown button to select each ORF and identify their gene products." width="100%" />
 <p class="caption">
-Figure 4.3: Output of the protein BLAST analysis. Use the dropdown button to select each ORF and identify their gene products.
+Figure 7.3: Output of the protein BLAST analysis. Use the dropdown button to select each ORF and identify their gene products.
 </p>
 </div></li>
 <li>What ORFs are coding for Aquaporin gene products?</li>
 </ol>
 </div>
 </div>
-<div id="extract-orfs-identified-by-protein-blast-analysis-to-reconstruct-aquaporin-gene-sequence" class="section level2" number="4.3">
-<h2><span class="header-section-number">4.3</span> Extract ORF(s) identified by protein BLAST analysis to reconstruct Aquaporin gene sequence</h2>
+<div id="extract-orfs-identified-by-protein-blast-analysis-to-reconstruct-aquaporin-gene-sequence" class="section level2" number="7.3">
+<h2><span class="header-section-number">7.3</span> Extract ORF(s) identified by protein BLAST analysis to reconstruct Aquaporin gene sequence</h2>
 <p>Students are tasked to develop an R code producing the DNA sequence of Aquaporin gene located on identified scaffold and its associated protein sequence.</p>
 </div>
 </div>
-<div id="module-4-alignment-and-phylogenetic-reconstruction" class="section level1" number="5">
-<h1><span class="header-section-number">5</span> Module 4: Alignment and phylogenetic reconstruction</h1>
+<div id="mod4" class="section level1" number="8">
+<h1><span class="header-section-number">8</span> Module 4</h1>
+<div id="objectives-4" class="section level2" number="8.1">
+<h2><span class="header-section-number">8.1</span> Objectives</h2>
+<p>The overarching objectives of this module are to validate the AQP protein sequences and infer their functions. This will be done conducting the following analyses:</p>
+<ol style="list-style-type: decimal">
+<li>Prediction of transmembrane helices in proteins based on the approach implemented in <a href="http://www.cbs.dtu.dk/services/TMHMM/">TMHMM</a> <span class="citation">(<a href="#ref-krogh2001predicting" role="doc-biblioref">Krogh et al., 2001</a>)</span>. This approach relies on <a href="https://www.sciencedirect.com/topics/biochemistry-genetics-and-molecular-biology/hidden-markov-model">Hidden Markov Models</a>.</li>
+<li>Identifying NPA motifs using R script relying on <em>Biostring</em> <span class="citation">(<a href="#ref-Biostrings" role="doc-biblioref">Pagès et al., 2019</a>)</span> package.</li>
+<li>Model 3D AQP protein using approach implemented in <a href="http://www.sbg.bio.ic.ac.uk/~phyre2/html/page.cgi?id=index">Phyre2</a> and predict protein (therefore its function). The approach for protein modeling, prediction and analysis is presented in <span class="citation"><a href="#ref-kelley2015phyre2" role="doc-biblioref">Kelley et al.</a> (<a href="#ref-kelley2015phyre2" role="doc-biblioref">2015</a>)</span>.</li>
+</ol>
+<div id="predictions" class="section level3" number="8.1.1">
+<h3><span class="header-section-number">8.1.1</span> Predictions</h3>
+<p>To be valid, the AQP protein sequence should have:</p>
+<ol style="list-style-type: decimal">
+<li>Six transmembrane helices and two loops.</li>
+<li>Each loop should contain an NPA motif.</li>
+<li>Mutations in NPA motifs will indicate changes in the channeled molecule (therefore changing its function).</li>
+</ol>
 </div>
-<div id="references" class="section level1" number="6">
-<h1><span class="header-section-number">6</span> References</h1>
+</div>
+</div>
+<div id="references" class="section level1 unnumbered">
+<h1>References</h1>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-chaumont2005regulation" class="csl-entry">
+<span class="smallcaps">Chaumont, F.</span>, <span class="smallcaps">M. Moshelion</span>, and <span class="smallcaps">M.J. Daniels</span>. 2005. Regulation of plant aquaporin activity. <em>Biology of the Cell</em> 97: 749–764.
+</div>
+<div id="ref-danielson2008unexpected" class="csl-entry">
+<span class="smallcaps">Danielson, J.Å.</span>, and <span class="smallcaps">U. Johanson</span>. 2008. Unexpected complexity of the aquaporin gene family in the moss physcomitrella patens. <em>BMC plant biology</em> 8: 1–15.
+</div>
+<div id="ref-ishibashi2006aquaporin" class="csl-entry">
+<span class="smallcaps">Ishibashi, K.</span> 2006. Aquaporin subfamily with unusual NPA boxes. <em>Biochimica et Biophysica Acta (BBA)-Biomembranes</em> 1758: 989–993.
+</div>
+<div id="ref-kelley2015phyre2" class="csl-entry">
+<span class="smallcaps">Kelley, L.A.</span>, <span class="smallcaps">S. Mezulis</span>, <span class="smallcaps">C.M. Yates</span>, <span class="smallcaps">M.N. Wass</span>, and <span class="smallcaps">M.J. Sternberg</span>. 2015. The Phyre2 web portal for protein modeling, prediction and analysis. <em>Nature protocols</em> 10: 845–858.
+</div>
+<div id="ref-krogh2001predicting" class="csl-entry">
+<span class="smallcaps">Krogh, A.</span>, <span class="smallcaps">B. Larsson</span>, <span class="smallcaps">G. Von Heijne</span>, and <span class="smallcaps">E.L. Sonnhammer</span>. 2001. Predicting transmembrane protein topology with a hidden markov model: Application to complete genomes. <em>Journal of molecular biology</em> 305: 567–580.
+</div>
+<div id="ref-li2014plant" class="csl-entry">
+<span class="smallcaps">Li, G.</span>, <span class="smallcaps">V. Santoni</span>, and <span class="smallcaps">C. Maurel</span>. 2014. Plant aquaporins: Roles in plant physiology. <em>Biochimica et Biophysica Acta (BBA)-General Subjects</em> 1840: 1574–1582.
+</div>
+<div id="ref-Biostrings" class="csl-entry">
+<span class="smallcaps">Pagès, H.</span>, <span class="smallcaps">P. Aboyoun</span>, <span class="smallcaps">R. Gentleman</span>, and <span class="smallcaps">S. DebRoy</span>. 2019. Biostrings: Efficient manipulation of biological strings.
+</div>
+</div>
 </div>
 
 

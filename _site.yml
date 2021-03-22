@@ -8,7 +8,9 @@ navbar:
     - text: "Mini-reports"
       href: Mini_reports.html
     - text: "Chapters"
-      href: Chapters.html  
+      href: Chapters.html 
+    - text: "Lab."
+      href: Mining_draft_genome.html  
     - text: "Tutorials"
       href: Tutorials.html
     - text: "Lexicon"

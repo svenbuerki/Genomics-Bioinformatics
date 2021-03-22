@@ -27,22 +27,48 @@ $(document).ready(function() {
 
 # Introduction
 
-This webpage supports analyses aiming at mining the sagebrush draft genome for Aquaporin genes. Aquaporin genes are multi-exon genes (see Figure \@ref(fig:multigene)). As a reminder, exons are pieces of coding DNA that encode proteins. Different exons code for different domains of a protein. The domains may be encoded by a single exon or multiple exons spliced together. Ijn the case of multi-exon genes, the presence of exons and introns allows for greater molecular evolution through the process of exon shuffling and alternative splicing. Exon shuffling occurs when exons on sister chromosomes are exchanged during recombination. This allows for the formation of new genes. On the other hand, exons also allow for multiple proteins to be translated from the same gene through alternative splicing. This process allows the exons to be arranged in different combinations when the introns are removed/spliced (see Figure \@ref(fig:multigene)). The different configurations can include the complete removal of an exon, the inclusion of part of an exon, or the inclusion of part of an intron. Alternative splicing can occur in the same location to produce different variants of a gene with a similar role, such as the human *slo* gene, or it can occur in different cell or tissue types, such as the mouse *alpha-amylase* gene. Alternative splicing, and defects in alternative splicing, can result in a number of diseases including cancer.
+This document supports analyses aiming at mining the sagebrush (*Artemisia tridentata* Nutt; Asteraceae) draft genome for Aquaporin (AQP) genes. AQPs are multi-exon genes (see Figure \@ref(fig:multigene)) encoding for a large family of proteins known to function in the transport of water and other molecules across cell membranes [reviewed in @li2014plant]. 
 
-The processes described above will have to be accounted for when students will be assembling protein sequences from their predicted Open Reading Frames (see modules 2 and 3).  
-
-```{r multigene, echo=FALSE, fig.cap="Flowchart showing the structure of a multi-exon gene and different resulting proteins. See text for more details.", out.width = '80%', fig.pos= "h"}
+```{r multigene, echo=FALSE, fig.cap="Flowchart showing the structure of a multi-exon gene and different resulting proteins. As a reminder, exons are pieces of coding DNA that encode proteins. Different exons code for different domains of a protein. The domains may be encoded by a single exon or multiple exons spliced together. In the case of multi-exon genes, the presence of exons and introns allows for greater molecular evolution through the process of exon shuffling and alternative splicing. Exon shuffling occurs when exons on sister chromosomes are exchanged during recombination. This allows for the formation of new genes. On the other hand, exons also allow for multiple proteins to be translated from the same gene through alternative splicing. This process allows the exons to be arranged in different combinations when the introns are removed/spliced. The different configurations can include the complete removal of an exon, the inclusion of part of an exon, or the inclusion of part of an intron. Alternative splicing can occur in the same location to produce different variants of a gene with a similar role, such as the human slo gene, or it can occur in different cell or tissue types, such as the mouse alpha-amylase gene. Alternative splicing, and defects in alternative splicing, can result in a number of diseases including cancer.", out.width = '80%', fig.pos= "h"}
 knitr::include_graphics("Images/multi_exon_gene.png")
 ```
 
-## Analytical workflow
+The defining characteristics of AQP proteins include having six membrane-spanning alpha-helices and two hydrophobic loops containing conserved asparagine-proline-alanine (NPA) motif which form a barrel surrounding a central pore-like region that contains additional protein density (see Figure \@ref(fig:AQPex)). While the NPA motifs are generally highly conserved, there are some AQP genes that have undergone mutations of the alanine residue in the NPA motif [@ishibashi2006aquaporin]. AQPs in flowering plants comprise five subfamilies: (1) NOD26-like intrinsic proteins (NIPs), (2) plasma membrane intrinsic proteins (PIPs), (3) small basic intrinsic proteins (SIPs), (4) tonoplast intrinsic proteins (TIPs), and (5) X intrinsic proteins (XIPs) [@danielson2008unexpected]. Genes from each subfamily tend to move water or other substrate depending on their NPA motifs. Some AQPs, such as NIPs, have acquired a mutation in their NPA motif, such as alanine to leucine, which confer the ability to move substrates such as urea or ammonium [reviewed in @chaumont2005regulation]. 
+
+```{r AQPex, echo=FALSE, fig.cap="Example of a 3D model of an Aquaporin protein recovered in the sagebrush genome. NPA motifs are shown by red/orange colors", fig.align='center', out.width = '50%', fig.pos= "h"}
+knitr::include_graphics("Images/NIP5-1_At_Sc466867.png")
+```
+
+# Learning outcomes
+
+As part of this lab, students will gain the following learning outcomes:
+
+1. Learn protocol to remotely access to a unix-based computer (see [Tutorials](Tutorials.html)).
+2. Learn unix-based commands to organize projects and execute code (see [Tutorials](Tutorials.html)).
+3. Provide introduction to running R code and developing your own R code (this topic was also partially covered in [Mini-Report 3](Mini_reports.html)).
+4. Study protocols to mine Illumina *de novo* draft genome (at scaffold level) for target genes.
+5. Predict and annotate genes recovered from genome mining process.
+6. Reconstruct protein sequences of annotated genes.
+7. Validate protein sequence and predict function. 
+
+# Analytical workflow
 
 Overall, our analytical workflow is subdivided into 4 modules as follows:
 
-- [**Module 1:**](#mod1) Set-up environment and conduct BLAST analysis.
-- [**Module 2:**](#mod2) Extract scaffolds and find **O**pen **R**eading **F**rames.
-- [**Module 3:**](#mod3) Annotate ORFs and assemble proteins.
-- **Module 4:** Alignment and phylogenetic reconstruction.
+- [**Module 1:**](#mod1) Set-up environment and identify scaffolds containing AQP genes.
+- [**Module 2:**](#mod2) Extract scaffolds identified in module 1 and find **O**pen **R**eading **F**rames.
+- [**Module 3:**](#mod3) Annotate ORFs and assemble AQP protein(s).
+- [**Module 4:**](#mod4) Validate AQP protein sequences and infer their function(s).
+
+# Objectives
+
+Instructors teach students to conduct analyses by going over each module in class demonstrating the approach to mine genome for target gene and go over steps to assemble and validate protein product. Then, each group will be given a scaffold and they will have to conduct analyses described in modules 2 to 4 on their own to:
+
+  1. Predict, annotate and identify AQP genes along scaffold.
+  2. Reconstruct and validate AQP protein sequences.
+  3. Predict AQP protein function.  
+
+Fridays of weeks #12 and 13 will be dedicated to group work using Zoom breakout rooms.
 
 ## Project structure
 
@@ -60,7 +86,11 @@ All the data associated to this project are located on your individual account i
 
 To access the data and run the analyses, please remotely connect to your dedicated computer using `ssh` protocol. Your credentials are available [here](https://docs.google.com/document/d/1t0DdQBes42Gzo8XWgc9JL2xEGjv1kbfoVE7Vznx6C9I/edit).
 
-# Module 1: Set-up environment and conduct BLAST analysis {#mod1}
+# Module 1 {#mod1}
+
+## Objectives
+
+This module is dedicated to presenting approach to set-up your working environment and then to identify scaffolds in the *de novo* genome assembly containing AQP genes (using BLAST).
 
 ## Remotely connect to computer
 
@@ -245,15 +275,18 @@ write.csv(x = blast.hits.to.extract, file = "Unique_Filtered_Blast_Hit_Info.csv"
 ```
 
 
-# Module 2: Extract scaffolds and find Open Reading Frames {#mod2}
+# Module 2 {#mod2}
+
+## Objectives
 
 In this module, we are conducting the following tasks:
 
-- Extracting scaffold(s) identified in [module 1](#mod1) from the draft genome assembly (in `FASTAs/Draft_Genome_Assembly.fasta`) and saving the output as a `FASTA` object/file.
+- Setting up your working environment (as shown in [module 1](#mod1.))
+- Extracting scaffold(s) identified in [module 1](#mod1) from the *de novo* draft genome assembly (in `FASTAs/Draft_Genome_Assembly.fasta`) and saving the output as a `FASTA` object/file.
 - Finding ORFs along scaffold(s) using the user-defined function *findORFsTranslateDNA2AA()* and saving the output into a `FASTA` object/file. In molecular genetics, an **O**pen **R**eading **F**rame (ORF) is the part of a reading frame that has the ability to be translated. An ORF is a continuous stretch of codons that begins with a start codon (usually AUG) and ends at a stop codon (usually UAA, UAG or UGA). We will study the code implemented in *findORFsTranslateDNA2AA()* to fully understand the applied approach.
 - Produce maps of recovered ORFs along scaffold(s). These `pdf` maps will be saved in `ORFs_map/`.
 
-## Getting ready!
+## Setting up your working environment
 
 Before starting analyses in `R`, students have to complete these following tasks:
 
@@ -313,7 +346,7 @@ project.folder <- getwd()
 setwd(project.folder)
 ```
 
-## Extracting scaffold(s) identified in module 1
+## Extracting scaffold(s) in *de novo* assembly
 
 Open `Unique_Filtered_Blast_Hit_Info.csv` containing results of BLAST analysis and extract name of target scaffold(s).
 
@@ -458,11 +491,11 @@ Figure \@ref(fig:scaffmap) shows the location of predicted ORFs along `Scaffold1
 knitr::include_graphics("Images/Scaffold151535_ORFs_annotated.png")
 ```
 
-# Module 3: Annotate ORFs and assemble proteins {#mod3}
+# Module 3 {#mod3}
 
 ## Objectives
 
-In this module, students are working to:
+In this module, we are conducting the following tasks:
 
 1. Annotate ORFs inferred in [module 2](#mod2) using online protein [BLAST](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastp&PAGE_TYPE=BlastSearch&LINK_LOC=blasthome) tool. Students will use the output of the protein BLAST analysis to identify ORF(s) coding for Aquaporin genes.
 2. Extract ORF(s) identified by protein BLAST analysis to reconstruct Aquaporin gene sequence. Students will provide DNA sequence of Aquaporin gene located on scaffold and its associated protein sequence. 
@@ -495,6 +528,22 @@ knitr::include_graphics("Images/proteinBLASToutput.png")
 
 Students are tasked to develop an R code producing the DNA sequence of Aquaporin gene located on identified scaffold and its associated protein sequence.
 
-# Module 4: Alignment and phylogenetic reconstruction
+# Module 4 {#mod4}
 
+## Objectives
+
+The overarching objectives of this module are to validate the AQP protein sequences and infer their functions. This will be done conducting the following analyses:
+
+1. Prediction of transmembrane helices in proteins based on the approach implemented in [TMHMM](http://www.cbs.dtu.dk/services/TMHMM/) [@krogh2001predicting]. This approach relies on [Hidden Markov Models](https://www.sciencedirect.com/topics/biochemistry-genetics-and-molecular-biology/hidden-markov-model).
+2. Identifying NPA motifs using R script relying on *Biostring* [@Biostrings] package. 
+3. Model 3D AQP protein using approach implemented in [Phyre2](http://www.sbg.bio.ic.ac.uk/~phyre2/html/page.cgi?id=index) and predict protein (therefore its function). The approach for protein modeling, prediction and analysis is presented in @kelley2015phyre2. 
+
+### Predictions
+
+To be valid, the AQP protein sequence should have: 
+
+  1. Six transmembrane helices and two loops.
+  2. Each loop should contain an NPA motif.
+  3. Mutations in NPA motifs will indicate changes in the channeled molecule (therefore changing its function).
+  
 # References
