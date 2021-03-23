@@ -25,7 +25,7 @@ $(document).ready(function() {
 });
 ```
 
-# Introduction
+# Introduction {#intro}
 
 This document supports analyses aiming at mining the sagebrush (*Artemisia tridentata* Nutt; Asteraceae) draft genome for Aquaporin (AQP) genes. AQPs are multi-exon genes (see Figure \@ref(fig:multigene)) encoding for a large family of proteins known to function in the transport of water and other molecules across cell membranes [reviewed in @li2014plant]. 
 
@@ -62,13 +62,26 @@ Overall, our analytical workflow is subdivided into 4 modules as follows:
 
 # Objectives
 
-Instructors teach students to conduct analyses by going over each module in class demonstrating the approach to mine genome for target gene and go over steps to assemble and validate protein product. Then, each group will be given a scaffold and they will have to conduct analyses described in modules 2 to 4 on their own to:
+Instructors teach students to conduct analyses by going over each module in class demonstrating the approach to mine genome for target gene and go over steps to assemble and validate protein product. Then, each group will be given a scaffold and they will have to conduct analyses described in modules 2 to 4 on their own to answer the following question:
+
+> What Aquaporin protein coding sequence is "hidden" in your assigned scaffold?
+
+Very much the same as with the "Where's waldo?" children books, students will be able to make predictions to "find" their Aquaporin protein coding sequence based on material presented in the [Introduction section](#intro) and further developed in modules [2](#mod2), [3](#mod3) and [4](#mod4). These evidence will allowing students to design their analytical workflow covering the following steps:
 
   1. Predict, annotate and identify AQP genes along scaffold.
   2. Reconstruct and validate AQP protein sequences.
   3. Predict AQP protein function.  
 
-Fridays of weeks #12 and 13 will be dedicated to group work using Zoom breakout rooms.
+## Scaffolds assigned to groups
+
+The `FASTA` file with scaffolds sequences can be downloaded [here](Data/Scaffolds_groups.fasta). The scaffolds assigned to each group are as followed:
+
+- **Group A**: Scaffold106379.
+- **Group B**: Scaffold254734.
+- **Group C**: Scaffold348135.
+- **Group D**: Scaffold355053.
+
+Let's complete the training first going by through each module and then students will be working in groups to replicate this approach to their assigned scaffold. Fridays of weeks #12 and 13 will be dedicated to group work using Zoom breakout rooms.
 
 ## Project structure
 

@@ -429,7 +429,7 @@ $(document).ready(function() {
   $('#header').css('margin-right', '120px')
 });
 </script>
-<div id="introduction" class="section level1" number="1">
+<div id="intro" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> Introduction</h1>
 <p>This document supports analyses aiming at mining the sagebrush (<em>Artemisia tridentata</em> Nutt; Asteraceae) draft genome for Aquaporin (AQP) genes. AQPs are multi-exon genes (see Figure <a href="#fig:multigene">1.1</a>) encoding for a large family of proteins known to function in the transport of water and other molecules across cell membranes <span class="citation">(reviewed in <a href="#ref-li2014plant" role="doc-biblioref">Li et al., 2014</a>)</span>.</p>
 <div class="figure"><span id="fig:multigene"></span>
@@ -471,17 +471,31 @@ Figure 1.2: Example of a 3D model of an Aquaporin protein recovered in the sageb
 </div>
 <div id="objectives" class="section level1" number="4">
 <h1><span class="header-section-number">4</span> Objectives</h1>
-<p>Instructors teach students to conduct analyses by going over each module in class demonstrating the approach to mine genome for target gene and go over steps to assemble and validate protein product. Then, each group will be given a scaffold and they will have to conduct analyses described in modules 2 to 4 on their own to:</p>
+<p>Instructors teach students to conduct analyses by going over each module in class demonstrating the approach to mine genome for target gene and go over steps to assemble and validate protein product. Then, each group will be given a scaffold and they will have to conduct analyses described in modules 2 to 4 on their own to answer the following question:</p>
+<blockquote>
+<p>What Aquaporin protein coding sequence is “hidden” in your assigned scaffold?</p>
+</blockquote>
+<p>Very much the same as with the “Where’s waldo?” children books, students will be able to make predictions to “find” their Aquaporin protein coding sequence based on material presented in the <a href="#intro">Introduction section</a> and further developed in modules <a href="#mod2">2</a>, <a href="#mod3">3</a> and <a href="#mod4">4</a>. These evidence will allowing students to design their analytical workflow covering the following steps:</p>
 <ol style="list-style-type: decimal">
 <li>Predict, annotate and identify AQP genes along scaffold.</li>
 <li>Reconstruct and validate AQP protein sequences.</li>
 <li>Predict AQP protein function.</li>
 </ol>
-<p>Fridays of weeks #12 and 13 will be dedicated to group work using Zoom breakout rooms.</p>
-<div id="project-structure" class="section level2" number="4.1">
-<h2><span class="header-section-number">4.1</span> Project structure</h2>
-<div id="where-are-the-data-located" class="section level3" number="4.1.1">
-<h3><span class="header-section-number">4.1.1</span> Where are the data located?</h3>
+<div id="scaffolds-assigned-to-groups" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Scaffolds assigned to groups</h2>
+<p>The <code>FASTA</code> file with scaffolds sequences can be downloaded <a href="Data/Scaffolds_groups.fasta">here</a>. The scaffolds assigned to each group are as followed:</p>
+<ul>
+<li><strong>Group A</strong>: Scaffold106379.</li>
+<li><strong>Group B</strong>: Scaffold254734.</li>
+<li><strong>Group C</strong>: Scaffold348135.</li>
+<li><strong>Group D</strong>: Scaffold355053.</li>
+</ul>
+<p>Let’s complete the training first going by through each module and then students will be working in groups to replicate this approach to their assigned scaffold. Fridays of weeks #12 and 13 will be dedicated to group work using Zoom breakout rooms.</p>
+</div>
+<div id="project-structure" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Project structure</h2>
+<div id="where-are-the-data-located" class="section level3" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> Where are the data located?</h3>
 <p>All the data associated to this project are located on your individual account in the <code>DraftGenomeMineR/</code> folder. This folder is located in <code>/home/bio_11/DraftGenomeMineR</code>. Please replace <code>bio_11</code> by your <a href="https://docs.google.com/document/d/1t0DdQBes42Gzo8XWgc9JL2xEGjv1kbfoVE7Vznx6C9I/edit">account detail</a>.</p>
 <p><strong>Key files:</strong></p>
 <ul>
@@ -490,8 +504,8 @@ Figure 1.2: Example of a 3D model of an Aquaporin protein recovered in the sageb
 <li>Scripts related to each module are located in <code>Lesson_Modules/</code>.</li>
 </ul>
 </div>
-<div id="how-do-i-access-the-data-and-run-analyses" class="section level3" number="4.1.2">
-<h3><span class="header-section-number">4.1.2</span> How do I access the data and run analyses?</h3>
+<div id="how-do-i-access-the-data-and-run-analyses" class="section level3" number="4.2.2">
+<h3><span class="header-section-number">4.2.2</span> How do I access the data and run analyses?</h3>
 <p>To access the data and run the analyses, please remotely connect to your dedicated computer using <code>ssh</code> protocol. Your credentials are available <a href="https://docs.google.com/document/d/1t0DdQBes42Gzo8XWgc9JL2xEGjv1kbfoVE7Vznx6C9I/edit">here</a>.</p>
 </div>
 </div>
