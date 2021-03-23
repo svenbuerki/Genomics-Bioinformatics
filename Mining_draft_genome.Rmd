@@ -517,7 +517,7 @@ In this module, we are conducting the following tasks:
 
 ### Input file for protein BLAST analysis
 
-The `FASTA` file `Scaffold151535_ORFs.fa` (see Figure \@ref(fig:scafAAseqFASTA)) containing AA sequences of ORFs identified in [module 2](#mod2) is available on the shared Google Drive [here](https://drive.google.com/drive/folders/1d0TSt_M-wAVmNPPfMnXtxD8_fnfK7jQr?usp=sharing).  
+The `FASTA` file `Scaffold151535_ORFs.fa` (see Figure \@ref(fig:scafAAseqFASTA)) containing AA sequences of ORFs identified in [module 2](#mod2) is available on the shared [Google Drive](https://drive.google.com/drive/folders/1d0TSt_M-wAVmNPPfMnXtxD8_fnfK7jQr?usp=sharing) or on [GitHub](Data/Scaffold151535_ORFs.fa).  
 
 ```{r scafAAseqFASTA, echo=FALSE, fig.cap="FASTA file containing all AA sequences for ORFs inferred along scaffold. See module 2 for more details.", out.width = '100%', fig.pos= "h"}
 knitr::include_graphics("Images/Scaffolds_AA_seq_ORFs.png")
