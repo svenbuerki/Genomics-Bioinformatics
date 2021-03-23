@@ -51,15 +51,6 @@ As part of this lab, students will gain the following learning outcomes:
 6. Reconstruct protein sequences of annotated genes.
 7. Validate protein sequence and predict function. 
 
-# Analytical workflow
-
-Overall, our analytical workflow is subdivided into 4 modules as follows:
-
-- [**Module 1:**](#mod1) Set-up environment and identify scaffolds containing AQP genes.
-- [**Module 2:**](#mod2) Extract scaffolds identified in module 1 and find **O**pen **R**eading **F**rames.
-- [**Module 3:**](#mod3) Annotate ORFs and assemble AQP protein(s).
-- [**Module 4:**](#mod4) Validate AQP protein sequences and infer their function(s).
-
 # Objectives and scientific question
 
 Instructors teach students to conduct analyses by going over each module in class demonstrating the approach to mine genome for target gene and go over steps to assemble and validate protein product. Then, each group will be assigned a scaffold (from the *de novo* genome assembly) and they will have to conduct analyses presented in modules 2 to 4 on their own to answer the following question:
@@ -83,9 +74,18 @@ The `FASTA` file with scaffolds sequences can be downloaded [here](Data/Scaffold
 
 Let's complete the training first going by through each module and then students will be working in groups to replicate this approach to their assigned scaffold. Fridays of weeks #12 and 13 will be dedicated to group work using Zoom breakout rooms.
 
-## Project structure
+# Analytical workflow
 
-### Where are the data located?
+Overall, our analytical workflow is subdivided into 4 modules as follows:
+
+- [**Module 1:**](#mod1) Set-up environment and identify scaffolds containing AQP genes.
+- [**Module 2:**](#mod2) Extract scaffolds identified in module 1 and find **O**pen **R**eading **F**rames.
+- [**Module 3:**](#mod3) Annotate ORFs and assemble AQP protein(s).
+- [**Module 4:**](#mod4) Validate AQP protein sequences and infer their function(s).
+
+# Project structure
+
+## Where are the data located?
 
 All the data associated to this project are located on your individual account in the `DraftGenomeMineR/` folder. This folder is located in `/home/bio_11/DraftGenomeMineR`. Please replace `bio_11` by your [account detail](https://docs.google.com/document/d/1t0DdQBes42Gzo8XWgc9JL2xEGjv1kbfoVE7Vznx6C9I/edit).
 
@@ -95,7 +95,7 @@ All the data associated to this project are located on your individual account i
 - `FASTAs/PIP1_3.fa`: Reference containing *PIP1* gene (AA) for BLAST analysis. This data will be used to find Aquaporin genes in the draft genome.
 - Scripts related to each module are located in `Lesson_Modules/`.
 
-### How do I access the data and run analyses?
+## How do I access the data and run analyses?
 
 To access the data and run the analyses, please remotely connect to your dedicated computer using `ssh` protocol. Your credentials are available [here](https://docs.google.com/document/d/1t0DdQBes42Gzo8XWgc9JL2xEGjv1kbfoVE7Vznx6C9I/edit).
 
@@ -590,6 +590,6 @@ knitr::include_graphics("Images/Phyre2_input.png")
 ```{r phyreoutput, echo=FALSE, fig.cap="Results of Phyre2 analysis.", out.width = '100%', fig.pos= "h"}
 knitr::include_graphics("Images/Phyre2_output.png")
 ```
-4. Note that although the AQP protein sequence is not complete, the analysis still modeled it correctly and predicts that it belong to the *PIP* subfamily (see Figure \@ref(fig:phyreoutput)). 
+4. Note that although the AQP protein sequence is not complete, the analysis still modeled it correctly and predicted that it belongs to the PIP subfamily (see Figure \@ref(fig:phyreoutput)). 
 
 # References
