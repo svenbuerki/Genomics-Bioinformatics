@@ -60,17 +60,17 @@ Overall, our analytical workflow is subdivided into 4 modules as follows:
 - [**Module 3:**](#mod3) Annotate ORFs and assemble AQP protein(s).
 - [**Module 4:**](#mod4) Validate AQP protein sequences and infer their function(s).
 
-# Objectives
+# Objectives and scientific question
 
-Instructors teach students to conduct analyses by going over each module in class demonstrating the approach to mine genome for target gene and go over steps to assemble and validate protein product. Then, each group will be given a scaffold and they will have to conduct analyses described in modules 2 to 4 on their own to answer the following question:
+Instructors teach students to conduct analyses by going over each module in class demonstrating the approach to mine genome for target gene and go over steps to assemble and validate protein product. Then, each group will be assigned a scaffold (from the *de novo* genome assembly) and they will have to conduct analyses presented in modules 2 to 4 on their own to answer the following question:
 
 > What Aquaporin protein coding sequence is "hidden" in your assigned scaffold?
 
-Very much the same as with the "Where's waldo?" children books, students will be able to make predictions to "find" their Aquaporin protein coding sequence based on material presented in the [Introduction section](#intro) and further developed in modules [2](#mod2), [3](#mod3) and [4](#mod4). These evidence will allowing students to design their analytical workflow covering the following steps:
+Very much the same as with the "Where's waldo?" children books, students will be able to make predictions to "find" their Aquaporin protein coding sequence based on material presented in the [Introduction](#intro) and further developed in modules [2](#mod2), [3](#mod3) and [4](#mod4). These material will allow students to design their analytical workflow covering the following major steps:
 
   1. Predict, annotate and identify AQP genes along scaffold.
   2. Reconstruct and validate AQP protein sequences.
-  3. Predict AQP protein function.  
+  3. Predict AQP protein function (by intersecting evidence recovered from the previous steps).  
 
 ## Scaffolds assigned to groups
 
