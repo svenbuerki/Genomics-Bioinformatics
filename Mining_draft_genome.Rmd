@@ -548,7 +548,7 @@ Students are tasked to develop an R code producing the DNA sequence of Aquaporin
 The objectives of this module are to validate the AQP protein sequences obtained in [module 3](#mod3) and infer its function. This will be done by conducting the following analyses:
 
 1. Prediction of protein transmembrane helices based on the approach implemented in [TMHMM](http://www.cbs.dtu.dk/services/TMHMM/) [@krogh2001predicting]. This approach relies on [Hidden Markov Models](https://www.sciencedirect.com/topics/biochemistry-genetics-and-molecular-biology/hidden-markov-model).
-2. Identifying NPA motifs using R script relying on *Biostring* [@Biostrings] package. 
+2. Identifying NPA motifs using R script relying on *Biostring* [@Biostrings] and *IRanges* [@IRanges] packages. 
 3. Model 3D AQP protein using approach implemented in [Phyre^2^](http://www.sbg.bio.ic.ac.uk/~phyre2/html/page.cgi?id=index) and predict protein (therefore its function). The approach for protein modeling, prediction and analysis is presented in @kelley2015phyre2. 
 
 ### Predictions
@@ -577,6 +577,64 @@ knitr::include_graphics("Images/TMHMM_results.png")
 
 ## Identifying NPA motifs
 
+In this section, we are identifying the location and type of NPA motif along the AQP protein sequence. The instructors provide a template of R code (based on `Scaffold151535_ORF_26`) to conduct this task relying on *Biostring* [@Biostrings] and *IRanges* [@IRanges] packages:
+
+```{r, eval=T}
+##
+#AA sequence
+##
+#User copy AA sequence in the object below
+# Here, associated to Scaffold151535_ORF_26
+AAseq <- "MEGKEEDVKLGANKYSERQPIGTSAQTDKDYKEPPPAPLFEPGELSSWSFYRAGIAEFIATFLFLYITVLTVMGVVKSPTKCGTVGIQGIAWAFGGMIFALVYCTAGISGIFSEKPLFQLSF*"
+
+##
+#Create a data.frame to store data on
+# - N_NPA: Number of NPA motifs
+# - NPA_motif: NPA motif
+# - StartNPA: Starting position of NPA motif in AA seq
+##
+NPAdat <- data.frame("N_NPA" = numeric(length(AAseq)), "NPA_motif" = character(length(AAseq)), "StartNPA" = numeric(length(AAseq)))
+
+
+#Start by matching to find NP motif and locations along sequence
+tmp <- Biostrings::matchPattern(pattern = "NP", Biostrings::AAString(AAseq)) 
+tmp <- as.data.frame(IRanges::ranges(tmp))
+    
+if(nrow(tmp) > 0){
+  #There is an NP motif
+  #N NP
+  NPAdat$N_NPA <- nrow(tmp)
+  #Infer motifs
+  NPAdat$NPA_motif <- paste(paste(rep("NP", nrow(tmp)), strsplit(as.vector(AAseq), split='')[[1]][as.numeric(tmp[,2]+1)], sep = ''), collapse = '/')
+  #Start motifs
+  NPAdat$StartNPA <- paste(tmp[,1], collapse = '/')
+  }else{
+    #There isn't an NP motif, so we look for a PA motif
+  tmp <- Biostrings::matchPattern(pattern = "PA", Biostrings::AAString(AAseq))
+  tmp <- as.data.frame(IRanges::ranges(tmp))
+      if(nrow(tmp) > 0){
+      #N NP
+      NPAdat$N_NPA <- nrow(tmp)
+      #Infer motifs
+      NPAdat$NPA_motif <- paste(paste(strsplit(as.vector(AAseq), split='')[[1]][as.numeric(tmp[,1]-1)], rep("PA", nrow(tmp)), sep = ''), collapse = '/')
+      #Start motifs
+      NPAdat$StartNPA <- paste(tmp[,1]-1, collapse = '/')
+      }else{
+        next
+      }
+}
+
+print(paste("The following NPA motifs were found for AA sequence:", AAseq, sep=" "))
+print(NPAdat)
+
+##
+#Write data out
+##
+# If you want to write the data, execute the following command (don't forget to adjust your path)
+#write.csv(NPAdat, file='Scaffold151535_ORF_26_NPA_motifs.csv', row.names = F, quote = F)
+```
+
+
 ## Model 3D AQP protein
 
 To model 3D structure of AQP protein and predict its function do the following (here based on `>Scaffold151535_ORF_26`):
@@ -590,6 +648,6 @@ knitr::include_graphics("Images/Phyre2_input.png")
 ```{r phyreoutput, echo=FALSE, fig.cap="Results of Phyre2 analysis.", out.width = '100%', fig.pos= "h"}
 knitr::include_graphics("Images/Phyre2_output.png")
 ```
-4. Note that although the AQP protein sequence is not complete, the analysis still modeled it correctly and predicted that it belongs to the PIP subfamily (see Figure \@ref(fig:phyreoutput)). 
+4. Note that although the AQP protein sequence is not complete, the analysis still modeled it correctly and predicted that it belonged to the PIP subfamily (see Figure \@ref(fig:phyreoutput)). 
 
 # References
