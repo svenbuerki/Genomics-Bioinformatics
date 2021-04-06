@@ -595,12 +595,13 @@ AAseq <- "MEGKEEDVKLGANKYSERQPIGTSAQTDKDYKEPPPAPLFEPGELSSWSFYRAGIAEFIATFLFLYITVL
 ##
 NPAdat <- data.frame("N_NPA" = numeric(length(AAseq)), "NPA_motif" = character(length(AAseq)), "StartNPA" = numeric(length(AAseq)))
 
-
 #Start by matching to find NP motif and locations along sequence
 tmp <- Biostrings::matchPattern(pattern = "NP", Biostrings::AAString(AAseq)) 
 tmp <- as.data.frame(IRanges::ranges(tmp))
     
 if(nrow(tmp) > 0){
+  #Print that it found NP motif
+  print("NP found")
   #There is an NP motif
   #N NP
   NPAdat$N_NPA <- nrow(tmp)
@@ -613,6 +614,8 @@ if(nrow(tmp) > 0){
   tmp <- Biostrings::matchPattern(pattern = "PA", Biostrings::AAString(AAseq))
   tmp <- as.data.frame(IRanges::ranges(tmp))
       if(nrow(tmp) > 0){
+      #Print that it found PA motif
+      print("PA found")
       #N NP
       NPAdat$N_NPA <- nrow(tmp)
       #Infer motifs

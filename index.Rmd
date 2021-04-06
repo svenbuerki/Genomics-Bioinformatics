@@ -463,7 +463,7 @@ For students interested in getting some extra credits, the instructor will provi
 The non-mandatory assignments can be accessed here:
 
 - [Non-mandatory assignment 1](Non_mandatory_assignment_1.html).
-- Non-mandatory assignment 2.
+- [Non-mandatory assignment 2](Non_mandatory_assignment_2.html).
 
 # Late work policy
 
