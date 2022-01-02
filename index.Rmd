@@ -68,7 +68,7 @@ knitr::include_graphics("Images/Kindness.png")
 
 ## Teaching mode
 
-In-person.
+This course will be taught in-person.
 
 ## Class location
 
