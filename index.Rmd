@@ -64,82 +64,33 @@ knitr::write_bib(.packages(), file = 'packages.bib')
 knitr::include_graphics("Images/Kindness.png")
 ```
 
-# Course delivery type
+# Class details
 
-To accommodate physical distancing and other safety measures necessitated by the coronavirus pandemic, the university is making changes to its Spring 2021 course schedule. 
+## Teaching mode
 
-> This course applies a hybrid teaching mode, which means that it will mostly be taught remotely; however we will have opportunities to meet in-person for computing laboratory sessions (see [Timetable](#timetable)). 
+In-person.
 
-This means that courses meet virtually via technology (here Zoom) at scheduled class meeting times and will also meet in-person for bioinformatic analyses (mostly on Fridays, but bioinformatic tutorials are scheduled for [Chapter 4](#timetable)). 
+## Class location
 
-To respect social distancing in the computer laboratory (see class location [here](#class)), students will be divided into four groups (or pods) to work on bioinformatic analyses. Each bioinformatic class session will be split in half and two groups will be attending at the same time. This will give opportunities for students to meet and learn computing skills on the Linux boxes. Groups will be defined during the first two weeks of the semester. Please see the [In-person groups](#logistic) section below for more details.
-
-## What technology do you need?
-
-Here are some key points for remote teaching:
-
--   You will need reliable access to a computer with an internet connection and a webcam.
--   You will need to install a suite of software on your computer ([Zoom](https://boisestate.zoom.us), [R](https://cran.r-project.org), [RStudio](https://www.rstudio.com)). Please see [the computing tools of reproducible science](#software) section below for more details.
--   More information on Zoom provided by BSU is available [here](https://www.boisestate.edu/oit-learning/video/zoom/).
--   VPN access using [Cisco AnyConnect Secure Mobility Client](https://www.cisco.com/c/en/us/support/security/anyconnect-secure-mobility-client-v4-x/model.html#~tab-downloads). This software will facilitate remote access to Linux boxes for bioinformatic analyses. Students using Windows operating systems will have to download Putty or a similar software to remotely access Linux computer using `ssh` protocol. Putty can be downloaded at this URL <http://www.putty.org> (follow instructions to install it on your computer).
--   If you have concerns about access to technology needed for your courses this fall, the [Help Desk](https://www.boisestate.edu/oit/assistance/) is the place to begin to discuss your needs. The instructor would also gladly help you with any technology needs.
-
-# Class schedule
+[Science Bldg, Rm 149](https://maps.boisestate.edu/?id=715#!m/89069).
 
 ## Meeting days & times
 
--   **Lecture sessions:** Wednesdays from 9:00-10:30 AM.
--   **Laboratory sessions:** Fridays from 9:00-10:50 AM.
-
-Since Zoom meetings can be more tiring, a 5 min. break will be taken at 10 AM during each class.  
+-   **Lecture sessions:** Wednesdays from 9:00-10:50 AM.
+-   **Laboratory sessions:** Fridays from 9:00-10:30 AM.
 
 Please see section \@ref(timetable) for tentative timetable for this course. The teaching mode associated to each class is also provided to improve communication.
 
+## Class health and safety
 
-## Zoom information
-
-Class will take place remotely using the [Zoom](https://boisestate.zoom.us) platform.
-A fully-licensed Zoom account is available to all faculty, staff, and students at Boise State.
-Zoom is a great tool for conducting remote meetings that allows you to see and hear one another, chat, share your computer screen, and more.
-In our case, we will be taking advantage of the remote control feature allowing users to take control of another participant's screen in a meeting.
-This is especially useful to help working on and debugging R code.
-Please see the following Zoom webpages for more details on:
-
--   Remote support session: <https://support.zoom.us/hc/en-us/articles/208072316-Remote-Support-Session>
--   Requesting or giving remote control: <https://support.zoom.us/hc/en-us/articles/201362673-Requesting-or-giving-remote-control#heading=h.bdhzh38o7ljq>
-
-Details to join the Zoom meetings and find URLs of class recordings are provided [here](https://docs.google.com/document/d/1y79tlH-shdh68kUuYv6A9ZGmqyj5mwB2opmGR3V6A78/edit?usp=sharing). Students will be granted access to this document prior to the start of the semester.
-
-**Please join Zoom calls ON TIME**. The instructor will start Zoom calls 5 min. prior to the start of class. This will allow admitting people and making sure that we respect our schedule.
-
-## Class location {#class}
-
-We are scheduling in-person laboratory classes to use the Linux computers. These sessions will take place in the Science building in the computer laboratory: **SCNC149**. **The COVID capacity of this room is 11 students + instructor.**
-
-### Class rules and seating chart
+**Our priority is your safety!**
 
 The following rules apply for in-person classes:
 
-1. Wear masks and maintain physical distancing.
-2. Scan the QR code located at entrance of classroom. Since there is only one QR code, the instructor will keep a record of stations where students seated in class (see Figure \@ref(fig:seatingchart)). 
-3. Use sanitizing wipes to clean surfaces (desk and keyboard) at beginning and end of class.
+- Wear masks and maintain physical distancing.
+- Use sanitizing wipes to clean surfaces (desk and keyboard) at beginning and end of class.
 
-```{r seatingchart, echo=FALSE, fig.cap="Laboratory seating chart for SCNC149.", fig.align='center', out.width = '80%'}
-knitr::include_graphics("Images/Lab_seating_chart.jpg")
-```
-
-**Why is it important for students to scan their QR codes every class period?**
-
-The information that is gathered is the foundation for contact tracing. With QR code information, the tracers can focus on a small number of students in seats adjacent to a student who tests positive.  Without QR code info, the contact tracers must deal with the entire class, making what is already a challenging task even more difficult.
-
-### In-person groups {#logistic}
-
-Due to room COVID capacity, students will be split into 4 groups (or pods): A, B, C and D. Each group will be composed of 4 to 5 students. **Groups A (4 students) and B (4 students)** will attend in-person classes from **9:00 to 9:50 am** and **groups C (4 students) and D (5 students)** between **10:00 to 10:50 am**. The gap between in-person sessions will allow for group rotation and sanitizing of work stations.
-
-Information on:
-
-  - Group compositions and seating positions are available on our shared [Google Drive](https://docs.google.com/spreadsheets/d/1cRM1yasUfDa98ecyz_-RxUOw8cU4wkQx4O5Wxw3y4yU/edit?usp=sharing). 
-  - Individual Linux accounts (log-in and IP addresses) are available [here](https://docs.google.com/document/d/1t0DdQBes42Gzo8XWgc9JL2xEGjv1kbfoVE7Vznx6C9I/edit?usp=sharing).
+For more information consult the [BSU campus guidelines](https://www.boisestate.edu/coronavirus-response/).
 
 # Course goal and description
 
