@@ -66,22 +66,18 @@ knitr::include_graphics("Images/Kindness.png")
 
 # Class details
 
-## Teaching mode
+## Teaching mode and class location
 
-This course will be taught in-person.
+In-person in [Science Bldg, Rm 149](https://maps.boisestate.edu/?id=715#!m/89069).
 
-## Class location
-
-[Science Bldg, Rm 149](https://maps.boisestate.edu/?id=715#!m/89069).
-
-## Meeting days & times
+## Meeting days and times
 
 -   **Lecture sessions:** Wednesdays from 9:00-10:50 AM.
 -   **Laboratory sessions:** Fridays from 9:00-10:30 AM.
 
-Please see section \@ref(timetable) for tentative timetable for this course. The teaching mode associated to each class is also provided to improve communication.
+Please see section \@ref(timetable) for tentative timetable for this course.
 
-## Class health and safety
+## Health and safety protocols
 
 **Our priority is your safety!**
 
@@ -89,19 +85,19 @@ The following rules apply for in-person classes:
 
 - Wear masks and maintain physical distancing.
 - Use sanitizing wipes to clean surfaces (desk and keyboard) at beginning and end of class.
+- Try to keep the using the same desk throughout the semester.
 
 For more information consult the [BSU campus guidelines](https://www.boisestate.edu/coronavirus-response/).
 
 # Course goal and description
 
-The goal of this course is to provide students with the theoretical and applied knowledge in genomics and bioinformatics to sequence, assemble and annotate genomes, especially for non-model organisms (see Figure \@ref(fig:flowchart)).
+The goal of this course is to provide students with the theoretical and applied knowledge in genomics and bioinformatics to sequence, assemble and annotate genomes, especially for non-model organisms (see Figure \@ref(fig:flowchart)). To provide an authentic research experience, we will be using examples from the instructor's research on sagebrush (*Artemisia tridentata*; Asteraceae) genomics [e.g. @Melton2021].
 
 ```{r flowchart, echo=FALSE, fig.cap="Overview of the structure of the course. See text for more details.", out.width = '100%', fig.pos= "h"}
 knitr::include_graphics("Images/Flowchart_course_crop.png")
 ```
 
-A suite of unix-based open source software will be used to perform genomic analyses (see Figure \@ref(fig:BioinfoWorkflow)). In addition to learning how to execute programs, students will also be taught procedures to install them therefore gaining critical expertise for their career. Finally, students will produce scientific reports and present their results.
-Reports together with documents provided by the instructor will provide students with a framework allowing them to analyze their own genomic data.
+A suite of unix-based open source software will be used to perform genomic analyses (see Figure \@ref(fig:BioinfoWorkflow)). In addition to learning how to execute these programs, students will also be taught procedures to install them therefore gaining critical expertise for their career. Finally, students will produce scientific reports and present their results therefore promoting developing their dissemination skills. Reports together with documents provided by the instructor will provide students with a framework allowing them to analyze their own genomic data.
 
 ```{r BioinfoWorkflow, echo=FALSE, fig.cap="Overview of an example of an approach applied to produce a draft genome assembly. In this course, students will become accustomed with such approach and master some specific key steps.", out.width = '100%'}
 knitr::include_graphics("Images/Workflow_Bioinformatics.png")
@@ -111,10 +107,10 @@ knitr::include_graphics("Images/Workflow_Bioinformatics.png")
 
 This course provides a mixture of classic lectures together with more applied, hands-on bioinformatic tutorials (conducted both during lecture and lab sessions). Tutorials are designed to support students in mastering theoretical genomic concepts through their implementations in bioinformatic protocols. As mentioned above, the genomic field heavily relies on bioinformatic expertise, especially related to unix-based software.
 
-We will be working on computers running the Ubuntu Linux operating system.
-This operating system is widely used in genomics. Using these computers will provide opportunities for students to become familiar with `bash/shell`, `Python` and `R`. Finally, lecture sessions will also serve as a platform to: 
-    i) work on graded mini-reports. 
-    ii) study genomic literature through a journal club (see below). 
+We will be working on computers running the [Ubuntu Linux operating system](https://ubuntu.com/). This operating system is widely used in genomic research. Using these computers will provide opportunities for students to become familiar with `bash/shell`, `Python` and `R` and they provide an on-ramp to using research computing clusters (e.g. [BSU Borah research cluster](https://www.boisestate.edu/rcs/2020/10/12/boise-state-university-launches-borah-a-new-peak-computing-system-for-idaho/)). Finally, lecture sessions will also serve as a platform to:
+
+- Work on graded [mini-reports](#minireport). 
+- Study the genomic literature through a [journal club](#journalclub). 
 
 While reading scientific papers, we will be focusing on mastering methodological concepts allowing students to assess the quality and reproducibility of published genomic studies.
 
@@ -223,9 +219,12 @@ Please find below a non-exhaustive list of learning outcomes associated to the c
 -   Learn to read and present a scientific paper reporting new genomic or transcriptomic data.
 -   Complement expertise by reading and discussing scientific publications during the mini journal club sessions (see below for more details).
 
-**Chapter 9: Applied Bioinformatics** (corresponding to material taught during laboratory sessions)
-In this chapter, we will be using data produced by the sagebrush [GEM3](https://www.idahogem3.org) project to learn protocols to: 
+**Chapter 9: Applied Bioinformatics** 
 
+In this chapter, we will be using data produced by the instructor's lab to learn protocols to: 
+
+- Analyze Sanger sequence data.
+- Conduct phylogenetic analyses.
 - Clean Illumina reads.
 - Assemble draft genome.
 - Mine scaffolds in an Illumina draft genome containing target genes.
@@ -242,13 +241,19 @@ PRE/COREQ: CHEM 301 or 307.
 
 # Sharing teaching material
 
-Teaching material will be shared with students on GitHub and Google drive. Google drive will mostly be used to share sensitive material (e.g. IP addresses and passwords of lab computers, Zoom details and recordings), post publications and to allow students sharing their assignments.
+Teaching material will be shared with students on [GitHub](https://github.com/svenbuerki/Genomics-Bioinformatics) and Google drive. Google drive will mostly be used to share:
+
+- Sensitive material (e.g. IP addresses and passwords of lab computers). 
+- Scientific publications.
+- Documents related to class assignments.
+
+Students will also be uploading their assignments on Google Drive. 
 
 The URL to the shared Google drive is (the instructor will grant you access to this folder prior to the start of the semester): 
 
 - https://drive.google.com/drive/folders/1BFZFJeR8tW8N7QLfngqIVbjqEkDuIyWj?usp=sharing
 
-# Publications, textbooks & websites supporting this course
+# Publications, textbooks and websites supporting this course
 
 The reading material at the basis of this class is composed of a mixture of publications and chapters from four textbooks [@Brown2017; @Lesk2017; @Dale2012; @deSalle2013].
 The instructor has copies of these textbooks and students are welcome to consult them at anytime.
@@ -319,7 +324,7 @@ Please find below two documents providing a comprehensive introduction to R:
 - R for beginners (a tutorial by Emmanuel Paradis): https://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf
 - An introduction to R: https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf
 
-# Journal club
+# Journal club {#journalclub}
 
 The aim of the journal club is to train students to read scientific publications related to genomic data.
 Journal clubs will also provide opportunities for students to learn how to present their scientific publications.
@@ -332,9 +337,7 @@ Please find below the list of publications that we will discuss in class (see se
 -   **Publication 1:** @Li2009 published a draft genome of the giant panda and screened for genes responsible for the detoxification of cyanide produced by bamboos.
 -   **Publication 2:** @Ming2015 published the draft genome of the pineapple and investigated the origin of CAM photosynthesis in this lineage.
 
-If you are not familiar with approaches to read scientific publications, please come and seek advice.
-For undergraduate students, there is a class BIOL 306 that you could take next semester.
-Please find below the details of this class:
+If you are not familiar with approaches to read scientific publications, please come and seek advice. For undergraduate students, there is a class BIOL 306 that you could take next semester. Please find below the details of this class:
 
 **BIOL 306 COMMUNICATION IN THE BIOLOGICAL SCIENCES (3-0-3)(F,S)(CID)** Development of written and oral communication skills necessary for future careers in the biological sciences.
 Skills include summarizing and evaluating scientific research, and communicating scientific information to targeted audiences.
@@ -359,7 +362,7 @@ knitr::kable(grades, caption = "Grading scale applied in this course.") %>%
   kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
 ```
 
-## Mini-reports (TOTAL: 100 points)
+## Mini-reports (TOTAL: 100 points) {#minireport}
 
 To further gain expertise in this field, students will be producing three mini-reports on the following topics (see Figure \@ref(fig:flowchart)):
 
