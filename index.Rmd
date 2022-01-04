@@ -85,7 +85,8 @@ The following rules apply for in-person classes:
 
 - Wear masks and maintain physical distancing.
 - Use sanitizing wipes to clean surfaces (desk and keyboard) at beginning and end of class.
-- Try to keep the using the same desk throughout the semester.
+- Keep using the same seat throughout the semester. This information should be entered into MyBoiseState.
+- Do not attend class if you are sick.
 
 For more information consult the [BSU campus guidelines](https://www.boisestate.edu/coronavirus-response/).
 
