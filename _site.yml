@@ -5,10 +5,10 @@ navbar:
   left:
     - text: "Home"
       href: index.html
-    - text: "Mini-reports"
-      href: Mini_reports.html
     - text: "Chapters"
       href: Chapters.html 
+    - text: "Mini-reports"
+      href: Mini_reports.html
     - text: "Lab."
       href: Mining_draft_genome.html  
     - text: "Tutorials"

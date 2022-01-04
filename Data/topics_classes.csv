@@ -1,31 +1,31 @@
-﻿Topic,Task / Deadline,Teaching mode
-Syllabus,,Zoom
-Chapter 1,,Zoom
-Chapter 1 / Chapter 2,,Zoom
-Chapter 2,,Zoom
-Mini-Report 1,Read publication for journal club,Zoom
-Journal Club,,Zoom
-Chapter 3,,Zoom
-Chapter 3 / Mini-Report 2,Turn-in Mini-Report 1,Zoom
-Mini-Report 3 - PART1,[Install FinchTV](https://digitalworldbiology.com/FinchTV),Zoom
-Mini-Report 3 - PART2,,Zoom
-Mini-Report 3 - PARTS 2-3,[Install MEGA](https://www.megasoftware.net),Zoom
-Mini-Report 3 - PARTS 2-3,Turn-in Mini-Report 2,Zoom
-Mini-Report 3 - PART3,,Zoom
-Mini-Report 3 - PART3 & [Reports](https://svenbuerki.github.io/Genomics-Bioinformatics/Mini_reports.html#46_Writing_your_report),,Zoom
-Chapter 4 - Introduction to *de novo* genome assembly,,Zoom
-[Remote computer access](https://svenbuerki.github.io/Genomics-Bioinformatics/Tutorials.html),If you have a PC: [Install Putty](http://www.putty.org),In-person
-Mining genome: Set-up project,Instructor hands out [non-mandatory assignment 1](Non_mandatory_assignment_1.html) (15 credits),In-person
-Mining genome: BLAST analysis,,In-person
-Mining genome: Extract scaffolds & identify ORFs,Students turn-in Mini-Report 3 (by 5PM),In-person
-Mining genome: Annotating ORFs & identifying ORFs associated to target genes,Students turn-in non-mandatory assignment 1 (by 5PM) & Read publication for journal club,In-person
-Mining genome: Annotating ORFs & identifying ORFs associated to target genes,Groups submit preliminary lab reports for comment,In-person
-Mining genome: Validate AQP protein sequences and infer their function(s),,In-person
-Chapter 4 - PARTS 1-2,Students submit selected publications for approval by instructor,Zoom
-Mining genome: Group work,Read pubs. for chapters 5 & 6,Zoom
-Chapter 4 - PART3 & Chapter 7,Instructor hands out non-mandatory assignment 2 (15 credits),Zoom
-Mining genome: Group work,,Zoom
-Finalize group reports & work on ind. oral presentations (chapter 8),,Zoom
-Students oral presentations (on comparative genomics; chapter 8),Students turn-in non-mandatory assignment 2 (by 5PM),Zoom
-Students oral presentations (on comparative genomics; chapter 8),,Zoom
-Mining genome - Oral group presentations,Students turn-in lab reports (by 5PM),Zoom
+﻿Topic,Task / Deadline
+Syllabus,
+Chapter 1,
+Chapter 1 / Chapter 2,
+Chapter 2,
+Mini-Report 1,Read publication for journal club
+Journal Club,
+Chapter 3,
+Chapter 3 / Mini-Report 2,Turn-in Mini-Report 1
+Mini-Report 3 - PART1,[Install FinchTV](https://digitalworldbiology.com/FinchTV)
+Mini-Report 3 - PART2,
+Mini-Report 3 - PARTS 2-3,[Install MEGA](https://www.megasoftware.net)
+Mini-Report 3 - PARTS 2-3,Turn-in Mini-Report 2
+Mini-Report 3 - PART3,
+Mini-Report 3 - PART3 & [Reports](https://svenbuerki.github.io/Genomics-Bioinformatics/Mini_reports.html#46_Writing_your_report),
+Chapter 4 - Introduction to *de novo* genome assembly,
+[Remote computer access](https://svenbuerki.github.io/Genomics-Bioinformatics/Tutorials.html),If you have a PC: [Install Putty](http://www.putty.org)
+Mining genome: Set-up project,Instructor hands out [non-mandatory assignment 1]() (15 credits)
+Mining genome: BLAST analysis,
+Mining genome: Extract scaffolds & identify ORFs,Students turn-in Mini-Report 3 (by 5PM)
+Mining genome: Annotating ORFs & identifying ORFs associated to target genes,Students turn-in non-mandatory assignment 1 (by 5PM) & Read publication for journal club
+Mining genome: Annotating ORFs & identifying ORFs associated to target genes,Groups submit preliminary lab reports for comment
+Mining genome: Validate AQP protein sequences and infer their function(s),
+Chapter 4 - PARTS 1-2,Students submit selected publications for approval by instructor
+Mining genome: Group work,Read pubs. for chapters 5 & 6
+Chapter 4 - PART3 & Chapter 7,Instructor hands out [non-mandatory assignment 2]() (15 credits)
+Mining genome: Group work,
+Finalize group reports & work on ind. oral presentations (chapter 8),
+Students oral presentations (on comparative genomics; chapter 8),Students turn-in non-mandatory assignment 2 (by 5PM)
+Students oral presentations (on comparative genomics; chapter 8),
+Mining genome - Oral group presentations,Students turn-in lab reports (by 5PM)

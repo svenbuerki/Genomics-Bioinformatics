@@ -54,7 +54,7 @@ knitr::write_bib(.packages(), file = 'packages.bib')
 -   Email: [svenbuerki\@boisestate.edu](mailto:svenbuerki@boisestate.edu){.email}
 -   Office hours: By appointment.
 
-# Our class ethos
+# Class ethos
 
 > Everyone here is smart; distinguish yourself by being kind.
 >
@@ -217,7 +217,7 @@ Please find below a non-exhaustive list of learning outcomes associated to the c
 **Chapter 8: Comparative genomics**
 
 -   Learn to read and present a scientific paper reporting new genomic or transcriptomic data.
--   Complement expertise by reading and discussing scientific publications during the mini journal club sessions (see below for more details).
+-   Complement expertise by reading and discussing scientific publications during the [journal club](journalclub) sessions.
 
 **Chapter 9: Applied Bioinformatics** 
 
@@ -345,14 +345,14 @@ PREREQ: BIOL 304 and ENGL 101, 102.
 
 # Grading information
 
-## Tests conducted during the class
+## Tests conducted during this course
 
--   3 mini-reports (2x 25 points and 1x 50 points, TOTAL: 100 points).
--   1 individual oral publication presentation (50 points).
--   1 lab report (150 points).
--   1 lab presentation (50 points).
+-   3 individual mini-reports (2x 25 points and 1x 50 points, TOTAL: 100 points).
+-   1 individual oral presentation on a scientific paper (50 points).
+-   1 group lab report (150 points).
+-   1 group lab presentation (50 points).
 
-Exams are summing to a total of **350 points** and grading will follow the scale presented in Table \@ref(tab:mygrade). Please see section \@ref(timetable) for information on dates when exams are due.
+Exams are summing to a total of **350 points** and grading will follow the scale presented in Table \@ref(tab:mygrade). Consult the [Timetable](timetable) for information on dates when assignments are due.
 
 ```{r mygrade, echo=FALSE}
 library(bookdown)
@@ -372,21 +372,24 @@ To further gain expertise in this field, students will be producing three mini-r
 
 Time will be allocated in class to work on these mini-reports, but the instructor expects students to complete those on their own time.
 
-Click [here](Mini_reports.html) to access the Mini Reports webpage. 
+The webpage dedicated to the Mini Reports is available [here](Mini_reports.html). 
 
-## Individual oral publication presentation (TOTAL: 50 points) {#chap8}
+## Individual oral presentation (TOTAL: 50 points) {#chap8}
 
 Each student will have to present a scientific publication at the end of the semester related to material presented in Chapter 8.
 Time will be allocated to select a paper and work on presentations, but the instructor strongly advise students to start this endeavor sooner.
 **The presentation should not exceed 4 minutes (plus 2 minutes for questions) and contain a maximum of 5 slides.**
 
-## Lab report (TOTAL: 150 points)
+## Group lab report (TOTAL: 150 points)
 
 ### Research topic
 
-Students will be working in groups (see [In-person groups](#logistic) for more details) to produce a report associated to the following research question:
+Students will be working in groups to produce a report associated to the following research question:
 
-- What Aquaporin genes are encoded in the sagebrush genome (*Artemisia tridentata*) and what are their functions?
+> What Aquaporin genes are encoded in the sagebrush genome (*Artemisia tridentata*) and what are their functions?
+>
+
+To gain further insights into Aquaporins and sagebrush and the bioinformatic analyses, students will be reading this companion publication [@Melton2021].
 
 ### Associated scripts
 
@@ -402,7 +405,7 @@ Please make sure that you present all evidence allowing an external reviewer to 
 
 Please note that if students are working in group then each student should contribute equally to the project. If participation is not judge adequate within a group, then the instructor will grade students individually.
 
-## Lab presentation (TOTAL: 50 points)
+## Group lab presentation (TOTAL: 50 points)
 
 Students will use their lab reports to prepare 10 minutes presentations (+ 5 minutes for questions) taking place during the final weeks of the semester.
 
@@ -414,10 +417,10 @@ Presentations will have to be deposited in advance onto a shared Google drive fo
 
 For students interested in getting some extra credits, the instructor will provide two opportunities to score a total of 30 extra credits. Students will be able to allocate these extra credits to any of their tests (by sending an email to the instructor with credits allocation). These two non-mandatory assignments have strict deadlines (see [Timetable](#timetable)). This means that the instructor will consider that if students have not turned-in their assignment on time that they are not interested in getting extra credits. To facilitate students' time management, credits allocated to each question will be provided. These opportunities should provide students with the ability to claim extra credits (and therefore improve their overall grade) while also learning about several aspects of genome assembly and annotation. As usual, students can work in groups, but they have to submit individual assignments.
 
-The non-mandatory assignments can be accessed here:
+The non-mandatory assignments will be accessible here:
 
-- [Non-mandatory assignment 1](Non_mandatory_assignment_1.html).
-- [Non-mandatory assignment 2](Non_mandatory_assignment_2.html).
+- Non-mandatory assignment 1 <!-- (Non_mandatory_assignment_1.html).--> 
+- Non-mandatory assignment 2 <!--(Non_mandatory_assignment_2.html).-->
 
 # Late work policy
 
@@ -534,7 +537,7 @@ Among these are:
 
 # Timetable {#timetable}
 
-A tentative timetable for the Spring semester 2021 is presented in Table \@ref(tab:timetab).
+A tentative timetable for the Spring semester 2022 is presented in Table \@ref(tab:timetab).
 
 ```{r timetab, echo=FALSE}
 ###~~~
@@ -542,7 +545,7 @@ A tentative timetable for the Spring semester 2021 is presented in Table \@ref(t
 ###~~~
 #From <- "2021/01/11"
 #To <- "2021/04/30"
-dates <- data.frame(seq.Date(from=as.Date("2021/01/11"), to=as.Date("2021/04/30"), by="day"))
+dates <- data.frame(seq.Date(from=as.Date("2022/01/10"), to=as.Date("2022/04/29"), by="day"))
 #Assign a name to the col (allows using $)
 colnames(dates) <- "Date"
 
@@ -570,7 +573,7 @@ datesclass <- data.frame(WeekID = sort(rep(seq(from=1, to=16, by=1), 2)), datesc
 #Establish vector of dates related to holidays
 #From <- "2021/04/12"
 #To <- "2021/04/16"
-holiday <- seq.Date(from=as.Date("2021/04/12"), to=as.Date("2021/04/16"), by="day")
+holiday <- seq.Date(from=as.Date("2022/03/21"), to=as.Date("2022/03/25"), by="day")
 
 #Find and exclude holidays
 datesclass <- datesclass[-which(datesclass$Date %in% holiday),]
@@ -589,16 +592,16 @@ timetable <- data.frame(datesclass, topic)
 timetable <- as.matrix(timetable)
 rownames(timetable) <- rep("", nrow(timetable))
 colnames(timetable)[5] <- "Task / Deadline"
-colnames(timetable)[6] <- "Teaching mode"
+#colnames(timetable)[6] <- "Teaching mode"
 ###~~~
 #Plot timetable in doc
 ###~~~
 
-knitr::kable(timetable,  caption = "Tentative timetable for the Genomics and Bioinformatics course during the Spring semester 2021. Teaching mode is also provided to facilitate communication.") %>%
+knitr::kable(timetable,  caption = "Tentative timetable for the Genomics and Bioinformatics course during the Spring semester 2022.") %>%
   kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
 
 #PDF
-#landscape(knitr::kable(timetable, caption = "Tentative timetable for the Genomics and Bioinformatics course during the Spring semester 2021. Teaching mode is also provided to facilitate communication.", booktabs = T, "latex") %>% kable_styling(latex_options = c("striped","scale_down"))
+#landscape(knitr::kable(timetable, caption = "Tentative timetable for the Genomics #and Bioinformatics course during the Spring semester 2022.", booktabs = T, #"latex") %>% kable_styling(latex_options = c("striped","scale_down"))
 #          )
 ```
 

@@ -25,7 +25,21 @@ $(document).ready(function() {
 });
 ```
 
-# Chapter 4
+# Introduction
+
+This webpage contains information related to the chapters covered in the Genomics & Bioinformatics course at BSU. The instructor will provide links to download the presentations as well as tutorials to complete in-class exercises (see e.g. [Chapter 4](#Chap4)).
+
+# Syllabus
+
+The presentation slides (in `pdf` format) of the Syllabus can be downloaded <a href="Lectures/Chapter_00_Syllabus_Spring2022.pdf" target="_blank">here</a>.
+
+# Chapter 1
+
+# Chapter 2
+
+# Chapter 3
+
+# Chapter 4 {#Chap4}
 
 ## Objectives
 
