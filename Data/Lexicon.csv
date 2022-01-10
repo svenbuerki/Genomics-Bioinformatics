@@ -61,3 +61,6 @@ Phylogenetic species concept,"The concept of a species as an irreducible group w
 Monophyly,"In cladistics for a group of organisms, monophyly is the condition of being a clade—that is, a group of taxa composed only of a common ancestor and all of its lineal descendants."
 k-mer,"In bioinformatics, k-mers are subsequences of length k contained within a biological sequence. "
 Open Reading Frame (ORF) ,"In molecular genetics, an open reading frame (ORF) is the part of a reading frame that has the ability to be translated. An ORF is a continuous stretch of codons that begins with a start codon (usually AUG) and ends at a stop codon (usually UAA, UAG or UGA)."
+Heterozygosity,The condition of having two different alleles at a locus.
+Heterozygote,A diploid organism that carries two different versions of a specific gene.
+Paralogue,"Genes or proteines with similar sequences, but different (although possibly related) functions, arising from a common ancestral gene."

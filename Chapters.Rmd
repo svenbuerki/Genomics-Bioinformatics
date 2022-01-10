@@ -35,6 +35,25 @@ The presentation slides (in `pdf` format) of the Syllabus can be downloaded <a h
 
 # Chapter 1
 
+This chapter provides the theoretical background information (incl. definitions; see [Lexicon](Lexicon.html)) necessary to support material taught in this course. We will review information on DNA and RNA that are important for genomic projects, especially to support genome sequencing, assembly and annotation.
+
+## Learning outcomes
+
+The key learning outcomes of this chapter are:
+
+-   Understand the differences between "Genetics" and "Genomics".
+-   Know the basic dogma that DNA is transcribed to RNA, which is translated to protein. This will be especially important for the [Lab. report](Mining_draft_genome.html).
+-   Appreciate the diversity of genome organization in organelles, prokaryotes and eukaryotes.
+-   Appreciate that organelle genomes have forged eukaryotic chromosomes and that this has to be accounted for in designing genome assembly projects.
+-   Appreciate that eukaryotic genomes contain extensive repetitive regions of several different kinds.
+-   Appreciate the diversity of published genomes and their differences in the level of completeness.
+-   Understand the importance of computer science and bioinformatics in producing the raw sequence data and assembly genomes.
+-   Understand the challenges in sequencing a genome.
+
+## Download presentation
+
+The presentation slides (in `pdf` format) of Chapter 1 can be downloaded <a href="Lectures/Chapter_01_Spring2022.pdf" target="_blank">here</a>.
+
 # Chapter 2
 
 # Chapter 3
