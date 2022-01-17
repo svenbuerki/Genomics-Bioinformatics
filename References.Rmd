@@ -35,8 +35,8 @@ References (web resources and publications) used in the BIOL 497/597 - Genomics 
 
 # Web resources
 
-- **Human Genome Project**: Visit this Scitable [webpage](https://www.nature.com/scitable/topicpage/dna-sequencing-technologies-key-to-the-human-828/) to obtain more details on this project, especially sequencing strategy.
-
+- **Human Genome Project**: This [webpage](https://www.nature.com/scitable/topicpage/dna-sequencing-technologies-key-to-the-human-828/) contain details on the human genome project, especially associated to the applied sequencing strategy.
+- **An Overview of Next-Generation Sequencing**: This [webpage](https://www.technologynetworks.com/genomics/articles/an-overview-of-next-generation-sequencing-346532) contains information related to next-generation sequencing. 
 
 # Publications
 
