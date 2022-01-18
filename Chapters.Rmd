@@ -77,7 +77,7 @@ This chapter focuses on learning about next-generation sequencing and students w
 
 The presentation slides (in `pdf` format) of Chapter 2 can be downloaded <a href="Lectures/Chapter_02_Spring2022.pdf" target="_blank">here</a>.
 
-## Mini-Report 1 {#minrep1}
+## Mini-report 1 {#minrep1}
 
 As part of this chapter, students are tasked to to produce individual mini-reports on the following sequencing platforms and their associated technologies:
 
