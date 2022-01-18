@@ -69,11 +69,17 @@ Upload your reports on the shared Google drive by the 4th of February before 5 p
 
 ## Resources
 
-The instructor has provided `pdf` documents devoted to each sequencing platform provided below to support students in starting their assignments. 
+The instructor has provided `pdf` documents devoted to each sequencing platform below to support students in starting their assignments. 
 
-In addition, please use information available from manufacturers' websites, publications, online NGS training sites (e.g. EMBL-EBI Training), Google, YouTube and Wikipedia to prepare your reports and presentations. Do not forget to provide citations supporting your claims in your reports. I let you decide which reference style you want to use (look at your favorite journals for examples).
+In addition, please use information available from manufacturers' websites (see below), publications, online NGS training sites (e.g. EMBL-EBI Training), Google, YouTube and Wikipedia to prepare your reports and presentations. Do not forget to provide citations supporting your claims in your reports. I let you decide which reference style you want to use (look at your favorite journals for examples).
 
-The article entitled "An Overview of Next-Generation Sequencing" available [here](https://www.technologynetworks.com/genomics/articles/an-overview-of-next-generation-sequencing-346532) could also be a good source of information for your assignment.
+Here are a few additional online references to support your assignment:
+
+- **An Overview of Next-Generation Sequencing**: https://www.technologynetworks.com/genomics/articles/an-overview-of-next-generation-sequencing-346532
+- **Illumina official website**: https://www.illumina.com/
+- **PacBio official website**: https://www.pacb.com/
+- **Oxford Nanopore official website**: https://nanoporetech.com/
+
 
 <button class="btn btn-primary" data-toggle="collapse" data-target="#Illumina">Data on Illumina</button>
 <div id="Illumina" class="collapse">    
