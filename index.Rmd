@@ -331,11 +331,11 @@ The aim of the journal club is to train students to read scientific publications
 Journal clubs will also provide opportunities for students to learn how to present their scientific publications.
 
 Students are expected to have read the scientific publications before coming to class.
-The instructor will start by briefly summarizing the methodology and main outcomes of the study and the rest of the class will be devoted to general discussion (please come with some questions and have a critical, but positive mid set).
+The instructor will start by briefly summarizing the methodology and main outcomes of the study and the rest of the class will be devoted to general discussion (please come with some questions and have a critical, but positive mind set).
 
 Please find below the list of publications that we will discuss in class (see section \@ref(timetable) for information on dates):
 
--   **Publication 1:** @Li2009 published a draft genome of the giant panda and screened for genes responsible for the detoxification of cyanide produced by bamboos.
+-   **Publication 1:** @Li2009 published a draft genome of the giant panda and screened for genes responsible for the detoxification of cyanide produced by bamboos. The presentation slides (in `pdf` format) of this publication can be downloaded <a href="Lectures/Journal_Club_Giant_panda.pdf" target="_blank">here</a>.
 -   **Publication 2:** @Ming2015 published the draft genome of the pineapple and investigated the origin of CAM photosynthesis in this lineage.
 
 If you are not familiar with approaches to read scientific publications, please come and seek advice. For undergraduate students, there is a class BIOL 306 that you could take next semester. Please find below the details of this class:
