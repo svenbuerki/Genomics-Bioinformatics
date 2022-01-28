@@ -89,6 +89,40 @@ More details on this assignment is available [here](https://svenbuerki.github.io
 
 # Chapter 3
 
+## Learning outcomes
+
+-   Understand the importance of computer science and bioinformatics in:
+    -   Producing raw data.
+    -   Creating databases in molecular biology.
+    -   Archiving and careful curation of the data.
+    -   Distributing them via the Internet.
+    -   Creating information-retrieval tools to allow effective mining of the data for research application.
+-   Gain knowledge on major molecular biology databases, which are key to the assembly and annotation of genomes:
+    -   Nucleic acid sequences databases.
+    -   Protein sequences databases.
+    -   Gene ontology databases.
+    -   Metabolic pathways databases.
+    -   Specialized annotated genome portals.
+-   Learn protocols to query genomic information and remotely download files from GenBank. 
+
+## Resources
+
+- **NCBI BioProject Help Book**: This [book](https://www.ncbi.nlm.nih.gov/books/NBK54364/) provides definitions of terms associated to submitted data to NCBI.
+
+## Download presentation
+
+The presentation slides (in `pdf` format) of Chapter 3 can be downloaded <a href="Lectures/Chapter_03_Spring2022.pdf" target="_blank">here</a>.
+
+## Mini-report 2 -- Molecular biology databases {#mini2}
+
+To have a full overview of available molecular biology databases and assess their contributions to genome annotation, students are tasked to produce individual mini-reports on the following molecular databases:
+
+- **Molecular database 1:** Protein sequences databases.
+- **Molecular database 2:** Gene ontology databases.
+- **Molecular database 3:** Metabolic pathways databases.
+
+More details on this assignment is available [here](https://svenbuerki.github.io/Genomics-Bioinformatics/Mini_reports.html#mini2).
+
 # Chapter 4 {#Chap4}
 
 ## Objectives

@@ -121,7 +121,7 @@ Each student was assigned a molecular database to work on (please see [Google sp
 
 The assignment is mandatory and will be graded. Please see this task as an opportunity to consolidate your knowledge on molecular databases and writing scientific reports.   
 
-Time will be allocated in class on the 10th of February 2021 to allow students to work on their assignments. Reports are due on **the 19th of February 2021** and should be uploaded on the shared [Google Drive](https://drive.google.com/drive/folders/1BFZFJeR8tW8N7QLfngqIVbjqEkDuIyWj?usp=sharing) in the `Mini_Report_2` folder.
+Time will be allocated in class on the 4th of February 2022 to allow students to work on their assignments. Reports are due on **the 18th of February 2022** and should be uploaded on the shared [Google Drive](https://drive.google.com/drive/folders/1BFZFJeR8tW8N7QLfngqIVbjqEkDuIyWj?usp=sharing) in the `Mini_Report_2` folder.
 
 ## Structure of mini-reports {#structure2}
 
