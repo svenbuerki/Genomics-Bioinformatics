@@ -134,7 +134,7 @@ Please structure your reports to cover the following aspects:
 
 ## Reporting format
 
-Maximum two pages, single spaced, using either Arial 11 pt or Times New Roman 12 pt and with all margins set to 1 inch. The two pages do not include a title page and references. The title page should include: name of the sequencing platform as title and name of student contributing the report. Please keep in mind that a figure can convey a lot more information than a long text! Your reports should follow the structure presented in section \@ref(structure2). 
+Maximum two pages, single spaced, using either Arial 11 pt or Times New Roman 12 pt and with all margins set to 1 inch. The two pages do not include a title page and references. The title page should include: name of the molecular database as title and name of student contributing the report. Please keep in mind that a figure can convey a lot more information than a long text! Your reports should follow the structure presented in section \@ref(structure2). 
 
 Upload your reports on the shared Google drive by the **the 18th of February 2022** (5 PM MT). Name your report documents following this pattern: `Molecular database_Surname`.
 
