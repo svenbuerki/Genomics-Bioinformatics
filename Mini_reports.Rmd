@@ -178,7 +178,7 @@ The Kyoto Encyclopedia of Genes and Genomes (KEGG) ([http://www.genome.jp/kegg/]
 The catalogs of chemical compounds and genes contain information about particular molecules or sequences. Genome maps integrate the genes themselves according to their chromosomal position. Pathway maps describe potential networks of molecular activities, both metabolic and regulatory. One enzyme in one organism would be referred to in KEGG in its orthologue tables, which link the enzyme to related ones in other organisms. This permits analysis of relationships between the metabolic pathways of different organisms. 
 
 
-# Mini-report 3 -- Apply a coupled DNA barcoding and phylogenetic approach to identify species and infer their evolutionary history {#mini3}
+# Mini-report 3 -- Identifying species based on DNA barcoding and phylogenetic inference {#mini3}
 
 ## Background Information
 
@@ -336,7 +336,7 @@ The instructor provides guidance on content for each section of your individual 
 
 Individual reports should be submitted in either Google Docs, Word or Rmarkdown formats (and if you decide to submit an additional file containing your R script, submit this file as an `.R` format). These files should be uploaded on the shared Google Drive in the `Mini_Report_3` folder. Name your report documents following this pattern: `Mini_Report_3_Surname`.
 
-**Upload your reports on the shared Google drive by the 10th of March before 5 PM.** 
+**Upload your reports on the shared Google drive by the 16th of March before 5 PM MT.** 
 
 ## Schedule
 
@@ -348,11 +348,11 @@ Analyses for this report are subdivided into three parts:
 
 Please see the [Timetable](https://svenbuerki.github.io/Genomics-Bioinformatics/index.html#21_Timetable) for more details on the schedule. 
 
-**Individual reports are due on Wed 10th of March at 5 PM** (on Google Drive). Please see section \@ref(report) for more details.
+**Individual reports are due on Wed 16th of March at 5 PM MT** (on Google Drive). Please see section \@ref(report) for more details.
 
 ## Data and project structure
 
-The data are deposited on the shared [Google Drive](https://drive.google.com/drive/folders/1BFZFJeR8tW8N7QLfngqIVbjqEkDuIyWj?usp=sharing) in a folder entitled `DNA_barcoding`. All students enrolled in this class have been granted access to this folder. The folder is subdivided into four sub-folders (see Figure \@ref(fig:datastr)) and contains a master spreadsheet `Vanilla_samples_records.xlsx` at its root: 
+The data are deposited on the shared [Google Drive](https://drive.google.com/drive/folders/1zLI-fW3VB9Gb15yj4jQ0itIRwTK7su9b?usp=sharing) in a folder entitled `DNA_barcoding` (located in `Mini_Report_3`). All students enrolled in this class have been granted access to this folder. The folder is subdivided into four sub-folders (see Figure \@ref(fig:datastr)) and contains a master spreadsheet `Vanilla_samples_records.xlsx` at its root: 
 
 - `01_Field_images`: `jpeg` images of samples.
 - `02_Raw_ITS_data_ab1`: `.ab1` sequence electropherograms of ITS sequences. 
