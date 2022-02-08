@@ -305,7 +305,7 @@ knitr::include_graphics("Images/Scientific_process.png")
 
 ## Writing your report {#report}
 
-The instructor provides below information to complete the Mini-Report 3. All the material, data, code and references required to complete this report are provided here and were studies in class. In this context, students will have to focus on formatting their reports following guideline presented here as well as making sure that their `R` code is working and ready to be shared. 
+The instructor provides below information to complete the Mini-Report 3. All the material, data, code and references required to complete this report are provided here and are covered in class. In this context, students will have to focus on formatting their reports following guidelines presented here as well as making sure that their `R` code is working and ready to be shared. 
 
 ### Apply the IMRAD format and supply R code
 
@@ -332,19 +332,19 @@ The instructor provides guidance on content for each section of your individual 
 7. **References**: Add a references section containing full citations of references cited in the text. Students can pick their preferred citation format, but references need to be consistently edited in the same fashion.
 8. **Appendix**: Your `R` code has to be provided as an Appendix either by directly coping your code in the main document under this section or by providing the name and location of the `R` script in the Appendix section (e.g. by providing a text similar to this: "All the R code associated to this research can be downloaded at this path."). 
 
-### Submission & deadline
+### Submission and deadline
 
 Individual reports should be submitted in either Google Docs, Word or Rmarkdown formats (and if you decide to submit an additional file containing your R script, submit this file as an `.R` format). These files should be uploaded on the shared Google Drive in the `Mini_Report_3` folder. Name your report documents following this pattern: `Mini_Report_3_Surname`.
 
 **Upload your reports on the shared Google drive by the 16th of March before 5 PM MT.** 
 
-## Schedule
+## Structure and Schedule
 
 Analyses for this report are subdivided into three parts:
 
-- **Part 1:** Process and clean ITS DNA sequence electropherograms and infer species working hypothesis.
-- **Part 2:** DNA sequence retrieval and prepare data for analyses.
-- **Part 3:** DNA multiple sequence alignment and phylogenetic inference.
+- [**Part 1:**](#part1) Process and clean ITS DNA sequence electropherograms and infer species working hypothesis.
+- [**Part 2:**](#part2) DNA sequence retrieval and prepare data for analyses.
+- [**Part 3:**](#part3) DNA multiple sequence alignment and phylogenetic inference.
 
 Please see the [Timetable](https://svenbuerki.github.io/Genomics-Bioinformatics/index.html#21_Timetable) for more details on the schedule. 
 
@@ -365,7 +365,11 @@ The data are deposited on the shared [Google Drive](https://drive.google.com/dri
 knitr::include_graphics("Images/DNA_barcoding_str.png")
 ```
 
-## Part 1: Process and clean ITS DNA sequence electropherograms and infer species working hypothesis
+## Part 1 {#part1}
+
+### Aim
+
+> Process and clean ITS DNA sequence electropherograms and infer species working hypothesis.
 
 ### Bioinformatic tools
 
@@ -479,7 +483,11 @@ knitr::include_graphics("Images/DNAtree.png")
 
 16. Repeat this procedure until you analyzed all the `ab1` files.
 
-## Part 2: DNA sequence retrieval and prepare data for analyses
+## Part 2 {#part2}
+
+### Aim
+
+> DNA sequence retrieval and prepare data for analyses.
 
 ### Bioinformatic tools
 
@@ -856,7 +864,11 @@ write.table(FASTAall, file =
                     FileIDfastaALL, sep=''), col.names = F, row.names = F, quote = F)
 ```
 
-## Part 3: DNA multiple sequence alignment and phylogenetic inference
+## Part 3 {#part3}
+
+### Aim
+
+> DNA multiple sequence alignment and phylogenetic inference.
 
 ### Bioinformatic tools
 
