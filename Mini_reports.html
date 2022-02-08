@@ -11,7 +11,7 @@
 
 <meta name="author" content="Sven Buerki - Boise State University" />
 
-<meta name="date" content="2022-02-07" />
+<meta name="date" content="2022-02-08" />
 
 <title>BIOL 497/597 - Genomics &amp; Bioinformatics</title>
 
@@ -418,7 +418,7 @@ div.tocify {
 <h1 class="title toc-ignore">BIOL 497/597 - Genomics &amp; Bioinformatics</h1>
 <h3 class="subtitle">Mini-reports</h3>
 <h4 class="author">Sven Buerki - Boise State University</h4>
-<h4 class="date">2022-02-07</h4>
+<h4 class="date">2022-02-08</h4>
 
 </div>
 
@@ -598,7 +598,7 @@ Other useful tool to perform gene annotations: </p>
 <h3><span class="header-section-number">4.1.2</span> DNA barcoding: Species identification</h3>
 <p>The Consortium for the Barcode of Life (<a href="https://www.ibol.org/phase1/cbol/">CBOL</a>) is an international initiative devoted to developing DNA barcoding as a global standard for the identification of biological species. CBOL has more than 130 Member Organizations from more than 40 countries <span class="citation">(<a href="#ref-CBOL" role="doc-biblioref">CBOL, 2021</a>)</span>.</p>
 <p><strong>DNA barcoding</strong> is a method of species identification using a short section of DNA from a specific gene or genes. The premise of DNA barcoding is that, by comparison with a reference library of such DNA sections, an individual DNA sequence can be used to uniquely identify an organism to species, in the same way that a supermarket scanner uses the familiar black stripes of the UPC barcode to identify an item in its stock against its reference database <span class="citation">(<a href="#ref-CBOL" role="doc-biblioref">CBOL, 2021</a>)</span>. These DNA barcodes are sometimes used in an effort to identify unknown species, parts of an organism, or simply to catalog as many taxa as possible, or to compare with traditional taxonomy in an effort to determine species boundaries. For more details on DNA barcodes applied to plants, please see section <a href="#vanbarcode">below</a> dedicated to vanilla.</p>
-<p>DNA barcoding has a wide range of applications from biodiversity surveys <span class="citation">(e.g. <a href="#ref-telfer2015biodiversity" role="doc-biblioref">Telfer et al., 2015</a>)</span>, illegal trade of wildlife <span class="citation">(e.g. <a href="#ref-gonccalves2015dna" role="doc-biblioref">Gonçalves et al., 2015</a>)</span> to food security <span class="citation">(e.g. <a href="#ref-quinto2016dna" role="doc-biblioref">Quinto et al., 2016</a>)</span>. The DNA barcoding approach has been recently reviewer by <span class="citation"><a href="#ref-deSalle2019" role="doc-biblioref">DeSalle and Goldstein</a> (<a href="#ref-deSalle2019" role="doc-biblioref">2019</a>)</span>.</p>
+<p>DNA barcoding has a wide range of applications from biodiversity surveys <span class="citation">(e.g. <a href="#ref-telfer2015biodiversity" role="doc-biblioref">Telfer et al., 2015</a>)</span>, illegal trade of wildlife <span class="citation">(e.g. <a href="#ref-gonccalves2015dna" role="doc-biblioref">Gonçalves et al., 2015</a>)</span> to food security <span class="citation">(e.g. <a href="#ref-quinto2016dna" role="doc-biblioref">Quinto et al., 2016</a>)</span>. The DNA barcoding approach has been recently reviewed by <span class="citation"><a href="#ref-deSalle2019" role="doc-biblioref">DeSalle and Goldstein</a> (<a href="#ref-deSalle2019" role="doc-biblioref">2019</a>)</span>.</p>
 <div id="procedure" class="section level4" number="4.1.2.1">
 <h4><span class="header-section-number">4.1.2.1</span> Procedure</h4>
 <p>A DNA barcoding approach is subdivided into 4 steps:</p>
@@ -612,7 +612,7 @@ Other useful tool to perform gene annotations: </p>
 </div>
 <div id="phylogenetic-inference" class="section level3" number="4.1.3">
 <h3><span class="header-section-number">4.1.3</span> Phylogenetic inference</h3>
-<p>As described in <span class="citation"><a href="#ref-Masters2017" role="doc-biblioref">Masters and Pozzi</a> (<a href="#ref-Masters2017" role="doc-biblioref">2017</a>)</span>, phylogenetic inference is the practice of reconstructing the evolutionary history of related species by grouping them in successively more inclusive sets based on shared ancestry. Homologous characters in independent lineages are similar because they have been inherited from a common ancestor, and they alone should be used in phylogenetic reconstructions. Homoplasies are characters that appear similar, but have evolved from different ancestral states. They may mislead interpretations of evolutionary history. Both molecular and morphological datasets are subject to obfuscation by homoplasy. Methods of phylogenetic inference aim to distinguish between homologous (signal) and homoplastic (noise) resemblance. Molecular datasets tend to be very large and are analyzed using statistical techniques that fit the data to models of molecular evolution. These methods are not well suited to morphological data, and combined analyses including both kinds of data tend to obscure the morphological signal. Rates of molecular change may be used to estimate divergence ages.</p>
+<p>As described in <span class="citation"><a href="#ref-Masters2017" role="doc-biblioref">Masters and Pozzi</a> (<a href="#ref-Masters2017" role="doc-biblioref">2017</a>)</span>, phylogenetic inference is the practice of reconstructing the evolutionary history of related species by grouping them in successively more inclusive sets based on shared ancestry. Homologous characters in independent lineages are similar because they have been inherited from a common ancestor, and they alone should be used in phylogenetic reconstructions. Homoplasies are characters that appear similar, but have evolved from different ancestral states. They may mislead interpretations of evolutionary history. Both molecular and morphological datasets are subject to obfuscation by homoplasy. <strong>Methods of phylogenetic inference aim to distinguish between homologous (signal) and homoplastic (noise) resemblance.</strong> Molecular datasets tend to be very large and are analyzed using statistical techniques that fit the data to models of molecular evolution. These methods are not well suited to morphological data, and combined analyses including both kinds of data tend to obscure the morphological signal. Rates of molecular change may be used to estimate divergence ages.</p>
 <p>In this mini-report, we will be focusing on inferring phylogenetic trees based on DNA sequences obtained through the DNA barcoding approach described <a href="#barcode">above</a>.</p>
 <div id="procedure-1" class="section level4" number="4.1.3.1">
 <h4><span class="header-section-number">4.1.3.1</span> Procedure</h4>
@@ -689,20 +689,20 @@ Figure 4.3: The scientific process.
 </p>
 </div>
 <ol style="list-style-type: decimal">
-<li>To what species of vanilla do the individuals presented in Figure <a href="#fig:van">4.2</a> belong to?
+<li>To what species of vanilla do individuals presented in Figure <a href="#fig:van">4.2</a> belong to?
 <ul>
-<li><strong>Hypothesis:</strong> Individuals belong to the same species (<em>V. planifolia</em>) and observed phenotypic variation is due to phenotypic plasticity (exhibiting responses to contrasting climates).</li>
+<li><strong>Hypothesis:</strong> Individuals belong to the same species (<em>V. planifolia</em>) and observed phenotypic variation is due to phenotypic plasticity (= exhibiting responses to contrasting climates).</li>
 </ul></li>
 <li>To test the hypothesis we are applying the <strong>phylogenetic species concept</strong> <span class="citation">(<a href="#ref-wheeler1999phylogenetic" role="doc-biblioref">Wheeler, 1999</a>)</span> (mainly criterion of monophyly) based on DNA sequence data analyzed using a phylogenetic approach.</li>
 <li>ITS barcode data are sequenced for individuals in Figure <a href="#fig:van">4.2</a> and compared to data from GenBank (= reference data).</li>
 <li>Analyses are done in 4 steps:
 <ul>
-<li>PCR and Sanger sequencing of ITS barcodes for target individuals.</li>
+<li>PCR and Sanger sequencing of ITS barcodes for target individuals (= raw data are provided on Google Drive).</li>
 <li>Assembly of reference ITS data available on GenBank using R.</li>
-<li>BLAST and RAxML Maximum likelihood phylogenetic analysis (including bootstrap analysis).</li>
+<li>BLAST and RAxML Maximum Likelihood phylogenetic analysis (including bootstrap analysis to assess node supports).</li>
 <li>Produce figures using R.</li>
 </ul></li>
-<li>Intersect evidence from analyses (especially phylogenetic clustering combined with node supports and taxonomy of ITS sequences from GenBank) to infer to what species do target individuals belong to. Use criterion of monophyly to help circumscribe species.</li>
+<li>Intersect evidence from analyses (especially phylogenetic clustering combined with node supports and taxonomy of ITS sequences from GenBank) to infer species identity of our target individuals. Use criterion of monophyly to help circumscribe species.</li>
 <li>See section <a href="#report">4.6</a> for more details.</li>
 </ol>
 </div>

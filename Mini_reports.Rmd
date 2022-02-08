@@ -205,7 +205,7 @@ The Consortium for the Barcode of Life ([CBOL](https://www.ibol.org/phase1/cbol/
 
 **DNA barcoding** is a method of species identification using a short section of DNA from a specific gene or genes. The premise of DNA barcoding is that, by comparison with a reference library of such DNA sections, an individual DNA sequence can be used to uniquely identify an organism to species, in the same way that a supermarket scanner uses the familiar black stripes of the UPC barcode to identify an item in its stock against its reference database [@CBOL]. These DNA barcodes are sometimes used in an effort to identify unknown species, parts of an organism, or simply to catalog as many taxa as possible, or to compare with traditional taxonomy in an effort to determine species boundaries. For more details on DNA barcodes applied to plants, please see section [below](#vanbarcode) dedicated to vanilla.
 
-DNA barcoding has a wide range of applications from biodiversity surveys [e.g. @telfer2015biodiversity], illegal trade of wildlife [e.g. @gonccalves2015dna] to food security [e.g. @quinto2016dna]. The DNA barcoding approach has been recently reviewer by @deSalle2019. 
+DNA barcoding has a wide range of applications from biodiversity surveys [e.g. @telfer2015biodiversity], illegal trade of wildlife [e.g. @gonccalves2015dna] to food security [e.g. @quinto2016dna]. The DNA barcoding approach has been recently reviewed by @deSalle2019. 
 
 #### Procedure
 
@@ -218,7 +218,7 @@ A DNA barcoding approach is subdivided into 4 steps:
 
 ### Phylogenetic inference
 
-As described in @Masters2017, phylogenetic inference is the practice of reconstructing the evolutionary history of related species by grouping them in successively more inclusive sets based on shared ancestry. Homologous characters in independent lineages are similar because they have been inherited from a common ancestor, and they alone should be used in phylogenetic reconstructions. Homoplasies are characters that appear similar, but have evolved from different ancestral states. They may mislead interpretations of evolutionary history. Both molecular and morphological datasets are subject to obfuscation by homoplasy. Methods of phylogenetic inference aim to distinguish between homologous (signal) and homoplastic (noise) resemblance. Molecular datasets tend to be very large and are analyzed using statistical techniques that fit the data to models of molecular evolution. These methods are not well suited to morphological data, and combined analyses including both kinds of data tend to obscure the morphological signal. Rates of molecular change may be used to estimate divergence ages.
+As described in @Masters2017, phylogenetic inference is the practice of reconstructing the evolutionary history of related species by grouping them in successively more inclusive sets based on shared ancestry. Homologous characters in independent lineages are similar because they have been inherited from a common ancestor, and they alone should be used in phylogenetic reconstructions. Homoplasies are characters that appear similar, but have evolved from different ancestral states. They may mislead interpretations of evolutionary history. Both molecular and morphological datasets are subject to obfuscation by homoplasy. **Methods of phylogenetic inference aim to distinguish between homologous (signal) and homoplastic (noise) resemblance.** Molecular datasets tend to be very large and are analyzed using statistical techniques that fit the data to models of molecular evolution. These methods are not well suited to morphological data, and combined analyses including both kinds of data tend to obscure the morphological signal. Rates of molecular change may be used to estimate divergence ages.
 
 In this mini-report, we will be focusing on inferring phylogenetic trees based on DNA sequences obtained through the DNA barcoding approach described [above](#barcode). 
 
@@ -291,16 +291,16 @@ The scientific process associated to this assignment can  be summarized as follo
 knitr::include_graphics("Images/Scientific_process.png")
 ```
 
-1. To what species of vanilla do the individuals presented in Figure \@ref(fig:van) belong to?
-    - **Hypothesis:** Individuals belong to the same species (*V. planifolia*) and observed phenotypic variation is due to phenotypic plasticity (exhibiting responses to contrasting climates). 
+1. To what species of vanilla do individuals presented in Figure \@ref(fig:van) belong to?
+    - **Hypothesis:** Individuals belong to the same species (*V. planifolia*) and observed phenotypic variation is due to phenotypic plasticity (= exhibiting responses to contrasting climates). 
 2. To test the hypothesis we are applying the **phylogenetic species concept** [@wheeler1999phylogenetic] (mainly criterion of monophyly) based on DNA sequence data analyzed using a phylogenetic approach. 
 3. ITS barcode data are sequenced for individuals in Figure \@ref(fig:van) and compared to data from GenBank (= reference data).
 4. Analyses are done in 4 steps:
-    - PCR and Sanger sequencing of ITS barcodes for target individuals.
+    - PCR and Sanger sequencing of ITS barcodes for target individuals (= raw data are provided on Google Drive).
     - Assembly of reference ITS data available on GenBank using R.
-    - BLAST and RAxML Maximum likelihood phylogenetic analysis (including bootstrap analysis).
+    - BLAST and RAxML Maximum Likelihood phylogenetic analysis (including bootstrap analysis to assess node supports).
     - Produce figures using R.
-5. Intersect evidence from analyses (especially phylogenetic clustering combined with node supports and taxonomy of ITS sequences from GenBank) to infer to what species do target individuals belong to. Use criterion of monophyly to help circumscribe species.
+5. Intersect evidence from analyses (especially phylogenetic clustering combined with node supports and taxonomy of ITS sequences from GenBank) to infer species identity of our target individuals. Use criterion of monophyly to help circumscribe species.
 6. See section \@ref(report) for more details.
 
 ## Writing your report {#report}
