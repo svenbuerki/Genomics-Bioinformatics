@@ -385,7 +385,7 @@ Although `BLAST` can be run locally, we will be using the web portal available h
 
 ### Overview of the DNA sequence data cleaning procedure
 
-When evaluating `.ab1` files, you should first see the electropherogram and come to a conclusion whether your data can be considered of good quality or not.
+When evaluating `.ab1` files (= raw DNA data from an [Applied Biosystems' Sequencing instrument](https://www.thermofisher.com/us/en/home/life-science/sequencing/sanger-sequencing/sanger-sequencing-technology-accessories.html) containing an electropherogram and the DNA base sequence), you should first see the electropherogram and come to a conclusion whether your data can be considered of good quality or not.
 
 Good quality sequencing data/positions are characterized by:
 
