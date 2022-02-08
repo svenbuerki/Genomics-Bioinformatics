@@ -397,7 +397,7 @@ Bad quality sequencing data/positions are characterized by:
 
 - Presence of "N"s in the sequence. Indeed, when the base-calling software is unable to accurately identify a nucleotide, it will score it as "N" (meaning that it can be any base; see Figure \@ref(fig:finchtv)). In this tutorial, we will open files individually and search for peaks scored as "N"s. If we can confidently correct those peaks/positions (to either "A/T/C/G or any other IUPAC code; see below) then we will edit the sequence accordingly. To keep track of changes, it is standard procedure to identify edited peaks/positions by using lower cases letters (instead of capital letters as set by default). See below for more details on cases of base polymorphism.
 
-We will be discussing this topic further during our Zoom meeting.
+We will be discussing this topic further during class.
 
 ```{r finchtv, echo=FALSE, fig.align="center", fig.cap="Screenshot of FinchTV app.", fig.show="asis", out.width = '100%'}
 knitr::include_graphics("Images/FinchTV_snapshot.png")
