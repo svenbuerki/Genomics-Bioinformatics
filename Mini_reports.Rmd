@@ -334,7 +334,7 @@ The instructor provides guidance on content for each section of your individual 
 
 ### Submission and deadline
 
-Individual reports should be submitted in either Google Docs, Word or Rmarkdown formats (and if you decide to submit an additional file containing your R script, submit this file as an `.R` format). These files should be uploaded on the shared Google Drive in the `Mini_Report_3` folder. Name your report documents following this pattern: `Mini_Report_3_Surname`.
+Individual reports should be submitted in either Google Docs, Word or Rmarkdown formats (and if you decide to submit an additional file containing your R script, submit this file as an `.R` format). These files should be uploaded on the shared Google Drive in the `Mini_Report_3` folder in a subfolder entitled as follows: `Mini_Report_3_Surname`.
 
 **Upload your reports on the shared Google drive by the 16th of March before 5 PM MT.** 
 
@@ -352,7 +352,7 @@ Please see the [Timetable](https://svenbuerki.github.io/Genomics-Bioinformatics/
 
 ## Data and project structure
 
-The data are deposited on the shared [Google Drive](https://drive.google.com/drive/folders/1zLI-fW3VB9Gb15yj4jQ0itIRwTK7su9b?usp=sharing) in a folder entitled `DNA_barcoding` (located in `Mini_Report_3`). All students enrolled in this class have been granted access to this folder. The folder is subdivided into four sub-folders (see Figure \@ref(fig:datastr)) and contains a master spreadsheet `Vanilla_samples_records.xlsx` at its root: 
+The data are deposited on the shared [Google Drive](https://drive.google.com/drive/folders/1iBMwP67FoSTMDX-EpXOlf8utP9k8tu8k?usp=sharing) in a folder entitled `DNA_barcoding` (located in `Mini_Report_3`). All students enrolled in this class have been granted access to this folder. The folder is subdivided into four sub-folders (see Figure \@ref(fig:datastr)) and contains a master spreadsheet `Vanilla_samples_records.xlsx` at its root: 
 
 - `01_Field_images`: `jpeg` images of samples.
 - `02_Raw_ITS_data_ab1`: `.ab1` sequence electropherograms of ITS sequences. 
