@@ -503,9 +503,9 @@ If you don't know how to install an R package, don't worry, this topic is covere
 
 ### Analytical workflow 
 
-To infer the ML phylogenetic analysis, the following workflow will be executed: implemented:
+To infer the ML phylogenetic analysis, the following workflow will be executed:
 
-1. Expand sampling for phylogenetic analyses by downloading ITS DNA sequences of *Vanilla* species deposited on GenBank. This will be done by using the *rentrez* `R` package. A table with species taxonomy associated to GenBank accessions will also be built. We will also clean the data and save outputs in `FASTA` and `csv` formats.
+1. Expand sampling for phylogenetic analyses by downloading ITS DNA sequences of *Vanilla* species deposited on GenBank. This will be done by using the *rentrez* `R` package [@rentrez]. A table with species taxonomy associated to GenBank accessions will also be built. We will also clean the data and save outputs in `FASTA` and `csv` formats.
 2. Format and merge individual `.seq` files from Part 1 into a `FASTA` object/file. This will be done by creating a list of all `.seq` files, opening them individually and merging them into one object using a `for` loop.
 3. Merge `FASTA` objects/files from steps 1 and 2 to perform a multiple sequence alignment (msa).
 
