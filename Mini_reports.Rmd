@@ -501,6 +501,21 @@ To execute Part 2, you need to install the following software and R packages on 
 
 If you don't know how to install an R package, don't worry, this topic is covered [here](#query).
 
+### R tutorials
+
+Please find below two documents providing a comprehensive introduction to R:
+
+R for beginners (a tutorial by Emmanuel Paradis): https://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf
+An introduction to R: https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf
+
+### RStudio
+
+RStudio is an integrated development environment (IDE) that allows you to interact with R more readily. RStudio is similar to the standard RGUI, but it is considerably more user friendly. It has more drop-down menus, windows with multiple tabs, and many customization options (see Figure \@ref(fig:IDE)). Detailed information on using RStudio can be found at at [RStudio’s website](https://support.rstudio.com/hc/en-us/sections/200107586-Using-RStudio).
+
+```{r IDE, echo=FALSE, fig.cap="Snapshot of the RStudio environment showing the four windows and their content.", fig.show="asis", out.width = '100%'}
+knitr::include_graphics("Images/IDE.png")
+```
+
 ### Analytical workflow 
 
 To infer the ML phylogenetic analysis, the following workflow will be executed:
