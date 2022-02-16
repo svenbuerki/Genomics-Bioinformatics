@@ -516,6 +516,12 @@ RStudio is an integrated development environment (IDE) that allows you to intera
 knitr::include_graphics("Images/IDE.png")
 ```
 
+#### Editing and Executing Code in RStudio
+
+Please consult this [RStudio article](https://support.rstudio.com/hc/en-us/articles/200484448-Editing-and-Executing-Code-in-the-RStudio-IDE) to learn more about procedures to edit and execute code in the RStudio environment.
+
+**Tip**: To execute a line of source code where your cursor currently resides you press the `Ctrl+Enter` key (or use the Run toolbar button; see Figure \@ref(fig:IDE)).
+
 ### Analytical workflow 
 
 To infer the ML phylogenetic analysis, the following workflow will be executed:
