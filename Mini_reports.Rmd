@@ -539,7 +539,9 @@ Here, we are demonstrating an approach to search GenBank for ITS sequences of *V
 Before delving into the code, start by creating an `.R` file in `RStudio` and save it in the same working directory as where you want to save the output files (e.g. `DNA_barcoding/04_Data_analyses`).
 
 ### Build a GenBank query {#query}
- 
+
+This R code uses *rentrez* functions to interact with [GenBank](https://www.ncbi.nlm.nih.gov/genbank/) and the nucleotide database to remotely retrieve data based on your query.
+
 ```{r query, eval=F}
 ###~~~
 #Check if package is installed if not then install it
