@@ -11,7 +11,7 @@
 
 <meta name="author" content="Sven Buerki - Boise State University" />
 
-<meta name="date" content="2022-02-16" />
+<meta name="date" content="2022-02-19" />
 
 <title>BIOL 497/597 - Genomics &amp; Bioinformatics</title>
 
@@ -418,7 +418,7 @@ div.tocify {
 <h1 class="title toc-ignore">BIOL 497/597 - Genomics &amp; Bioinformatics</h1>
 <h3 class="subtitle">Mini-reports</h3>
 <h4 class="author">Sven Buerki - Boise State University</h4>
-<h4 class="date">2022-02-16</h4>
+<h4 class="date">2022-02-19</h4>
 
 </div>
 
@@ -1091,7 +1091,7 @@ getwd()
 #Taxon
 sp &lt;- &quot;Vanilla&quot;
 
-#DNA region: here rbcL
+#DNA region: here ITS
 DNA &lt;- &quot;internal transcribed spacer&quot;
 
 #Organism
@@ -1222,9 +1222,14 @@ gene &lt;- gene[-which(gene$Species == &quot;Vanilla mexicana&quot;),]
 ##
 #Create vector with names of taxa in dataset
 taxaVan &lt;- unique(as.vector(gene$Species))
+
 #Find DNA accessions identified at genus level
+# and discard them
+# 1. All species matching &quot;sp.&quot;
 spVan &lt;- taxaVan[grep(&quot;sp.&quot;, taxaVan)]
-#Subset gene to only keep DNA sequences id at species level
+# 2. Exclude those that have &quot;subsp.&quot; since they are accurately identified
+spVan &lt;- spVan[-grep(&quot;subsp.&quot;, spVan)]
+# 3. Subset gene to only keep DNA sequences identified at species level
 gene &lt;- subset(gene, !(gene$Species %in% spVan))
 
 ##

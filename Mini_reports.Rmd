@@ -581,7 +581,7 @@ getwd()
 #Taxon
 sp <- "Vanilla"
 
-#DNA region: here rbcL
+#DNA region: here ITS
 DNA <- "internal transcribed spacer"
 
 #Organism
@@ -726,9 +726,14 @@ gene <- gene[-which(gene$Species == "Vanilla mexicana"),]
 ##
 #Create vector with names of taxa in dataset
 taxaVan <- unique(as.vector(gene$Species))
+
 #Find DNA accessions identified at genus level
+# and discard them
+# 1. All species matching "sp."
 spVan <- taxaVan[grep("sp.", taxaVan)]
-#Subset gene to only keep DNA sequences id at species level
+# 2. Exclude those that have "subsp." since they are accurately identified
+spVan <- spVan[-grep("subsp.", spVan)]
+# 3. Subset gene to only keep DNA sequences identified at species level
 gene <- subset(gene, !(gene$Species %in% spVan))
 
 ##
