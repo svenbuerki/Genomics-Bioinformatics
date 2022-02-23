@@ -691,6 +691,27 @@ print(paste0("GenBank query retrieved ", dim(RawGBDat)[1], " DNA sequences."))
 head(RawGBDat, n=1)
 ```
 
+### Reload raw GB query in csv
+
+If you need to restart coding from the previous point, please execute the code below, which will load the Raw GB data from the `CSV` file saved in `04_Data_analyses/CSV`.
+
+```{r reload, eval=F}
+###~~~
+#Load Raw GB query csv file
+###~~~
+#If you have saved the SEQ file and need to restart (from SEQ), execute this code
+# --> Reload csv file from 04_Data_analyses/CSV/
+
+#Adjust the file name based on your data
+SEQfileName <- "Vanilla_internal transcribed spacer_2022_02_18_Raw_GenBank.csv"
+
+#Load the csv in the environment
+RawGBDat2 <- read.csv(paste0("04_Data_analyses/CSV/", SEQfileName), quote = "\"", sep=' ')
+
+#Change name of object to make it compatible with code
+SEQ <- RawGBDat2
+```
+
 ### Tidy dataset based on meta-data
 
 Here we apply filters to discard DNA sequences that are:
