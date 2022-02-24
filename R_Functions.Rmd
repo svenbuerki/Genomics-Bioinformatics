@@ -1,0 +1,60 @@
+---
+title: "Documentation on R functions"
+date: "`r Sys.Date()`"
+output:
+  bookdown::html_document2: 
+    toc: FALSE
+    toc_float: TRUE
+link-citations: yes
+fontsize: 12pt
+urlcolor: blue
+csl: AmJBot.csl
+bibliography: References.bib
+editor_options: 
+  markdown: 
+    wrap: sentence
+---
+
+```{r packages, echo=FALSE, warning=FALSE, include=FALSE}
+library(knitr)
+library(rmarkdown)
+library(bookdown)
+#library(distill)
+library(knitcitations)
+library(formatR)
+library(devtools)
+library(kfigr)
+library(dplyr)
+library(kableExtra)
+library(DT)
+
+#Generate BibTex citation file for all R packages used to produce report
+#knitr::write_bib(.packages(), file = 'packages.bib')
+```
+
+The table below contains details on R functions used in this course. Please use the `Search` field to make a query and learn more about a function.
+
+```{r Rfun, eval = T, echo=F, warning = FALSE, message=FALSE}
+###~~~
+#Read in csv with lexicon
+###~~~
+Rdat <- read.csv("Data/R_functions_Table.csv") 
+rownames(Rdat) <- NULL
+###~~~
+#Produce final table
+###~~~
+
+#Order table (alphabetically)
+#lex <- lex[order(lex$Term),]
+#rownames(lex) <- NULL
+###~~~
+#Plot timetable in doc
+###~~~
+#Plot table
+DT::datatable(Rdat, extensions = 'Buttons', options = list(pageLength = 25, dom = 'Blfrtip', buttons = c('copy', 'csv', 'excel', 'pdf', 'print')), rownames= FALSE) %>%
+  DT::formatStyle('Function', fontWeight = 'italic')
+
+#knitr::kable(as.data.frame(lex), caption = "Lexicon of terms used in this course.") %>%
+#  kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
+
+``` 

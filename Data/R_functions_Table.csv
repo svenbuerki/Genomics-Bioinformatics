@@ -1,0 +1,1686 @@
+Function,Package,Definition
+-,base,Arithmetic Operators
+-.Date,base,Operators on the Date Class
+-.POSIXt,base,Date-Time Classes
+:,base,Colon Operator
+::,base,Double Colon and Triple Colon Operators
+:::,base,Double Colon and Triple Colon Operators
+!,base,Logical Operators
+!.hexmode,base,Display Numbers in Hexadecimal
+!.octmode,base,Display Numbers in Octal
+!=,base,Relational Operators
+(,base,Parentheses and Braces
+[,base,Extract or Replace Parts of an Object
+[.AsIs,base,Inhibit Interpretation/Conversion of Objects
+[.data.frame,base,Extract or Replace Parts of a Data Frame
+[.Date,base,Date Class
+[.difftime,base,Time Intervals / Differences
+[.Dlist,base,Extract or Replace Parts of an Object
+[.DLLInfoList,base,Get DLLs Loaded in Current Session
+[.factor,base,Extract or Replace Parts of a Factor
+[.hexmode,base,Display Numbers in Hexadecimal
+[.listof,base,Extract or Replace Parts of an Object
+[.noquote,base,Class for 'no quote' Printing of Character Strings
+[.numeric_version,base,Numeric Versions
+[.octmode,base,Display Numbers in Octal
+[.POSIXct,base,Date-Time Classes
+[.POSIXlt,base,Date-Time Classes
+[.simple.list,base,Extract or Replace Parts of an Object
+[.table,base,Cross Tabulation and Table Creation
+[.warnings,base,Print Warning Messages
+[[,base,Extract or Replace Parts of an Object
+[[.data.frame,base,Extract or Replace Parts of a Data Frame
+[[.Date,base,Date Class
+[[.factor,base,Extract or Replace Parts of a Factor
+[[.numeric_version,base,Numeric Versions
+[[.POSIXct,base,Date-Time Classes
+[[.POSIXlt,base,Date-Time Classes
+{,base,Parentheses and Braces
+@,base,Extract or Replace A Slot
+*,base,Arithmetic Operators
+*.difftime,base,Time Intervals / Differences
+/,base,Arithmetic Operators
+/.difftime,base,Time Intervals / Differences
+&,base,Logical Operators
+&.hexmode,base,Display Numbers in Hexadecimal
+&.octmode,base,Display Numbers in Octal
+&&,base,Logical Operators
+%*%,base,Matrix Multiplication
+%/%,base,Arithmetic Operators
+%%,base,Arithmetic Operators
+%in%,base,Value Matching
+%o%,base,Outer Product of Arrays
+%x%,base,Kronecker Products on Arrays
+^,base,Arithmetic Operators
++,base,Arithmetic Operators
++.Date,base,Operators on the Date Class
++.POSIXt,base,Date-Time Classes
+<,base,Relational Operators
+<=,base,Relational Operators
+=,base,Assignment Operators
+==,base,Relational Operators
+>,base,Relational Operators
+>=,base,Relational Operators
+|,base,Logical Operators
+|.hexmode,base,Display Numbers in Hexadecimal
+|.octmode,base,Display Numbers in Octal
+||,base,Logical Operators
+~,base,Tilde Operator
+$,base,Extract or Replace Parts of an Object
+$.DLLInfo,base,Get DLLs Loaded in Current Session
+$.package_version,base,Numeric Versions
+abbreviate,base,Abbreviate Strings
+abs,base,Miscellaneous Mathematical Functions
+acos,base,Trigonometric Functions
+acosh,base,Hyperbolic Functions
+addNA,base,Factors
+addTaskCallback,base,Add or Remove a Top-Level Task Callback
+agrep,base,Approximate String Matching (Fuzzy Matching)
+agrepl,base,Approximate String Matching (Fuzzy Matching)
+alist,base,Lists - Generic and Dotted Pairs
+all,base,Are All Values True?
+all.equal,base,Test if Two Objects are (Nearly) Equal
+all.equal.character,base,Test if Two Objects are (Nearly) Equal
+all.equal.default,base,Test if Two Objects are (Nearly) Equal
+all.equal.environment,base,Test if Two Objects are (Nearly) Equal
+all.equal.envRefClass,base,Test if Two Objects are (Nearly) Equal
+all.equal.factor,base,Test if Two Objects are (Nearly) Equal
+all.equal.formula,base,Test if Two Objects are (Nearly) Equal
+all.equal.language,base,Test if Two Objects are (Nearly) Equal
+all.equal.list,base,Test if Two Objects are (Nearly) Equal
+all.equal.numeric,base,Test if Two Objects are (Nearly) Equal
+all.equal.POSIXt,base,Test if Two Objects are (Nearly) Equal
+all.equal.raw,base,Test if Two Objects are (Nearly) Equal
+all.names,base,Find All Names in an Expression
+all.vars,base,Find All Names in an Expression
+allowInterrupts,base,Condition Handling and Recovery
+any,base,Are Some Values True?
+anyDuplicated,base,Determine Duplicate Elements
+anyDuplicated.array,base,Determine Duplicate Elements
+anyDuplicated.data.frame,base,Determine Duplicate Elements
+anyDuplicated.default,base,Determine Duplicate Elements
+anyDuplicated.matrix,base,Determine Duplicate Elements
+anyNA,base,'Not Available' / Missing Values
+anyNA.numeric_version,base,Numeric Versions
+anyNA.POSIXlt,base,Date-Time Classes
+aperm,base,Array Transposition
+aperm.default,base,Array Transposition
+aperm.table,base,Array Transposition
+append,base,Vector Merging
+apply,base,Apply Functions Over Array Margins
+Arg,base,Complex Numbers and Basic Functionality
+args,base,Argument List of a Function
+array,base,Multi-way Arrays
+arrayInd,base,Which indices are TRUE?
+as.array,base,Multi-way Arrays
+as.array.default,base,Multi-way Arrays
+as.call,base,Function Calls
+as.character,base,Character Vectors
+as.character.condition,base,Condition Handling and Recovery
+as.character.Date,base,Date Conversion Functions to and from Character
+as.character.default,base,Character Vectors
+as.character.error,base,Condition Handling and Recovery
+as.character.factor,base,Character Vectors
+as.character.hexmode,base,Display Numbers in Hexadecimal
+as.character.numeric_version,base,Numeric Versions
+as.character.octmode,base,Display Numbers in Octal
+as.character.POSIXt,base,Date-time Conversion Functions to and from Character
+as.character.srcref,base,References to Source Files and Code
+as.complex,base,Complex Numbers and Basic Functionality
+as.data.frame,base,Coerce to a Data Frame
+as.data.frame.array,base,Coerce to a Data Frame
+as.data.frame.AsIs,base,Coerce to a Data Frame
+as.data.frame.character,base,Coerce to a Data Frame
+as.data.frame.complex,base,Coerce to a Data Frame
+as.data.frame.data.frame,base,Coerce to a Data Frame
+as.data.frame.Date,base,Date Class
+as.data.frame.default,base,Coerce to a Data Frame
+as.data.frame.difftime,base,Coerce to a Data Frame
+as.data.frame.factor,base,Coerce to a Data Frame
+as.data.frame.integer,base,Coerce to a Data Frame
+as.data.frame.list,base,Coerce to a Data Frame
+as.data.frame.logical,base,Coerce to a Data Frame
+as.data.frame.matrix,base,Coerce to a Data Frame
+as.data.frame.model.matrix,base,Coerce to a Data Frame
+as.data.frame.noquote,base,Coerce to a Data Frame
+as.data.frame.numeric,base,Coerce to a Data Frame
+as.data.frame.numeric_version,base,Numeric Versions
+as.data.frame.ordered,base,Coerce to a Data Frame
+as.data.frame.POSIXct,base,Date-Time Classes
+as.data.frame.POSIXlt,base,Date-Time Classes
+as.data.frame.raw,base,Coerce to a Data Frame
+as.data.frame.table,base,Cross Tabulation and Table Creation
+as.data.frame.ts,base,Coerce to a Data Frame
+as.data.frame.vector,base,Coerce to a Data Frame
+as.Date,base,Date Conversion Functions to and from Character
+as.Date.character,base,Date Conversion Functions to and from Character
+as.Date.default,base,Date Conversion Functions to and from Character
+as.Date.factor,base,Date Conversion Functions to and from Character
+as.Date.numeric,base,Date Conversion Functions to and from Character
+as.Date.POSIXct,base,Date Conversion Functions to and from Character
+as.Date.POSIXlt,base,Date Conversion Functions to and from Character
+as.difftime,base,Time Intervals / Differences
+as.double,base,Double-Precision Vectors
+as.double.difftime,base,Time Intervals / Differences
+as.double.POSIXlt,base,Date-time Conversion Functions
+as.environment,base,Coerce to an Environment Object
+as.expression,base,Unevaluated Expressions
+as.expression.default,base,Unevaluated Expressions
+as.factor,base,Factors
+as.function,base,Convert Object to Function
+as.function.default,base,Convert Object to Function
+as.hexmode,base,Display Numbers in Hexadecimal
+as.integer,base,Integer Vectors
+as.list,base,Lists - Generic and Dotted Pairs
+as.list.data.frame,base,Lists - Generic and Dotted Pairs
+as.list.Date,base,Date Class
+as.list.default,base,Lists - Generic and Dotted Pairs
+as.list.environment,base,Lists - Generic and Dotted Pairs
+as.list.factor,base,Lists - Generic and Dotted Pairs
+as.list.function,base,Lists - Generic and Dotted Pairs
+as.list.numeric_version,base,Numeric Versions
+as.list.POSIXct,base,Date-Time Classes
+as.list.POSIXlt,base,Date-Time Classes
+as.logical,base,Logical Vectors
+as.logical.factor,base,Logical Vectors
+as.matrix,base,Matrices
+as.matrix.data.frame,base,Matrices
+as.matrix.default,base,Matrices
+as.matrix.noquote,base,Class for 'no quote' Printing of Character Strings
+as.matrix.POSIXlt,base,Date-Time Classes
+as.name,base,Names and Symbols
+as.null,base,The Null Object
+as.null.default,base,The Null Object
+as.numeric,base,Numeric Vectors
+as.numeric_version,base,Numeric Versions
+as.octmode,base,Display Numbers in Octal
+as.ordered,base,Factors
+as.package_version,base,Numeric Versions
+as.pairlist,base,Lists - Generic and Dotted Pairs
+as.POSIXct,base,Date-time Conversion Functions
+as.POSIXct.Date,base,Date-time Conversion Functions
+as.POSIXct.default,base,Date-time Conversion Functions
+as.POSIXct.numeric,base,Date-time Conversion Functions
+as.POSIXct.POSIXlt,base,Date-time Conversion Functions
+as.POSIXlt,base,Date-time Conversion Functions
+as.POSIXlt.character,base,Date-time Conversion Functions
+as.POSIXlt.Date,base,Date-time Conversion Functions
+as.POSIXlt.default,base,Date-time Conversion Functions
+as.POSIXlt.factor,base,Date-time Conversion Functions
+as.POSIXlt.numeric,base,Date-time Conversion Functions
+as.POSIXlt.POSIXct,base,Date-time Conversion Functions
+as.qr,base,The QR Decomposition of a Matrix
+as.raw,base,Raw Vectors
+as.single,base,Double-Precision Vectors
+as.single.default,base,Double-Precision Vectors
+as.symbol,base,Names and Symbols
+as.table,base,Cross Tabulation and Table Creation
+as.table.default,base,Cross Tabulation and Table Creation
+as.vector,base,Vectors
+as.vector.factor,base,Vectors
+asin,base,Trigonometric Functions
+asinh,base,Hyperbolic Functions
+asNamespace,base,Namespace Internals
+asplit,base,Split Array/Matrix By Its Margins
+asS3,base,Test for an S4 object
+asS4,base,Test for an S4 object
+assign,base,Assign a Value to a Name
+atan,base,Trigonometric Functions
+atan2,base,Trigonometric Functions
+atanh,base,Hyperbolic Functions
+attach,base,Attach Set of R Objects to Search Path
+attachNamespace,base,Loading and Unloading Name Spaces
+attr,base,Object Attributes
+attr.all.equal,base,Test if Two Objects are (Nearly) Equal
+attributes,base,Object Attribute Lists
+autoload,base,On-demand Loading of Packages
+autoloader,base,On-demand Loading of Packages
+backsolve,base,Solve an Upper or Lower Triangular System
+baseenv,base,Environment Access
+basename,base,Manipulate File Paths
+besselI,base,Bessel Functions
+besselJ,base,Bessel Functions
+besselK,base,Bessel Functions
+besselY,base,Bessel Functions
+beta,base,Special Functions of Mathematics
+bindingIsActive,base,Binding and Environment Locking, Active Bindings
+bindingIsLocked,base,Binding and Environment Locking, Active Bindings
+bindtextdomain,base,Translate Text Messages
+bitwAnd,base,Bitwise Logical Operations
+bitwNot,base,Bitwise Logical Operations
+bitwOr,base,Bitwise Logical Operations
+bitwShiftL,base,Bitwise Logical Operations
+bitwShiftR,base,Bitwise Logical Operations
+bitwXor,base,Bitwise Logical Operations
+body,base,Access to and Manipulation of the Body of a Function
+bquote,base,Partial substitution in expressions
+break,base,Control Flow
+browser,base,Environment Browser
+browserCondition,base,Functions to Retrieve Values Supplied by Calls to the Browser
+browserSetDebug,base,Functions to Retrieve Values Supplied by Calls to the Browser
+browserText,base,Functions to Retrieve Values Supplied by Calls to the Browser
+builtins,base,Returns the Names of All Built-in Objects
+by,base,Apply a Function to a Data Frame Split by Factors
+by.data.frame,base,Apply a Function to a Data Frame Split by Factors
+by.default,base,Apply a Function to a Data Frame Split by Factors
+bzfile,base,Functions to Manipulate Connections (Files, URLs, ...)
+c,base,Combine Values into a Vector or List
+c.Date,base,Date Class
+c.difftime,base,Time Intervals / Differences
+c.noquote,base,Class for 'no quote' Printing of Character Strings
+c.numeric_version,base,Numeric Versions
+c.POSIXct,base,Date-Time Classes
+c.POSIXlt,base,Date-Time Classes
+c.warnings,base,Print Warning Messages
+call,base,Function Calls
+callCC,base,Call With Current Continuation
+capabilities,base,Report Capabilities of this Build of R
+casefold,base,Character Translation and Casefolding
+cat,base,Concatenate and Print
+cbind,base,Combine R Objects by Rows or Columns
+cbind.data.frame,base,Combine R Objects by Rows or Columns
+ceiling,base,Rounding of Numbers
+char.expand,base,Expand a String with Respect to a Target Table
+character,base,Character Vectors
+charmatch,base,Partial String Matching
+charToRaw,base,Convert to or from Raw Vectors
+chartr,base,Character Translation and Casefolding
+check_tzones,base,Date-Time Classes
+chkDots,base,Warn About Extraneous Arguments in the "..." of Its Caller
+chol,base,The Choleski Decomposition
+chol.default,base,The Choleski Decomposition
+chol2inv,base,Inverse from Choleski (or QR) Decomposition
+choose,base,Special Functions of Mathematics
+class,base,Object Classes
+clearPushBack,base,Push Text Back on to a Connection
+close,base,Functions to Manipulate Connections (Files, URLs, ...)
+close.connection,base,Functions to Manipulate Connections (Files, URLs, ...)
+close.srcfile,base,References to Source Files and Code
+close.srcfilealias,base,References to Source Files and Code
+closeAllConnections,base,Display Connections
+col,base,Column Indexes
+colMeans,base,Form Row and Column Sums and Means
+colnames,base,Row and Column Names
+colSums,base,Form Row and Column Sums and Means
+commandArgs,base,Extract Command Line Arguments
+comment,base,Query or Set a '"comment"' Attribute
+complex,base,Complex Numbers and Basic Functionality
+computeRestarts,base,Condition Handling and Recovery
+conditionCall,base,Condition Handling and Recovery
+conditionCall.condition,base,Condition Handling and Recovery
+conditionMessage,base,Condition Handling and Recovery
+conditionMessage.condition,base,Condition Handling and Recovery
+conflictRules,base,Loading/Attaching and Listing of Packages
+conflicts,base,Search for Masked Objects on the Search Path
+Conj,base,Complex Numbers and Basic Functionality
+contributors,base,R Project Contributors
+cos,base,Trigonometric Functions
+cosh,base,Hyperbolic Functions
+cospi,base,Trigonometric Functions
+crossprod,base,Matrix Crossproduct
+Cstack_info,base,Report Information on C Stack Size and Usage
+cummax,base,Cumulative Sums, Products, and Extremes
+cummin,base,Cumulative Sums, Products, and Extremes
+cumprod,base,Cumulative Sums, Products, and Extremes
+cumsum,base,Cumulative Sums, Products, and Extremes
+curlGetHeaders,base,Retrieve Headers from URLs
+cut,base,Convert Numeric to Factor
+cut.Date,base,Convert a Date or Date-Time Object to a Factor
+cut.default,base,Convert Numeric to Factor
+cut.POSIXt,base,Convert a Date or Date-Time Object to a Factor
+data.class,base,Object Classes
+data.frame,base,Data Frames
+data.matrix,base,Convert a Data Frame to a Numeric Matrix
+date,base,System Date and Time
+debug,base,Debug a Function
+debuggingState,base,Debug a Function
+debugonce,base,Debug a Function
+default.stringsAsFactors,base,Data Frames
+delayedAssign,base,Delay Evaluation
+deparse,base,Expression Deparsing
+det,base,Calculate the Determinant of a Matrix
+detach,base,Detach Objects from the Search Path
+determinant,base,Calculate the Determinant of a Matrix
+determinant.matrix,base,Calculate the Determinant of a Matrix
+dget,base,Write an Object to a File or Recreate it
+diag,base,Matrix Diagonals
+diff,base,Lagged Differences
+diff.Date,base,Lagged Differences
+diff.default,base,Lagged Differences
+diff.difftime,base,Time Intervals / Differences
+diff.POSIXt,base,Lagged Differences
+difftime,base,Time Intervals / Differences
+digamma,base,Special Functions of Mathematics
+dim,base,Dimensions of an Object
+dim.data.frame,base,Dimensions of an Object
+dimnames,base,Dimnames of an Object
+dimnames.data.frame,base,Dimnames of an Object
+dir,base,List the Files in a Directory/Folder
+dir.create,base,Manipulation of Directories and File Permissions
+dir.exists,base,Manipulation of Directories and File Permissions
+dirname,base,Manipulate File Paths
+do.call,base,Execute a Function Call
+dontCheck,base,Identity Function to Suppress Checking
+double,base,Double-Precision Vectors
+dput,base,Write an Object to a File or Recreate it
+dQuote,base,Quote Text
+drop,base,Drop Redundant Extent Information
+droplevels,base,Drop Unused Levels from Factors
+droplevels.data.frame,base,Drop Unused Levels from Factors
+droplevels.factor,base,Drop Unused Levels from Factors
+dump,base,Text Representations of R Objects
+duplicated,base,Determine Duplicate Elements
+duplicated.array,base,Determine Duplicate Elements
+duplicated.data.frame,base,Determine Duplicate Elements
+duplicated.default,base,Determine Duplicate Elements
+duplicated.matrix,base,Determine Duplicate Elements
+duplicated.numeric_version,base,Numeric Versions
+duplicated.POSIXlt,base,Date-Time Classes
+duplicated.warnings,base,Print Warning Messages
+dyn.load,base,Foreign Function Interface
+dyn.unload,base,Foreign Function Interface
+dynGet,base,Return the Value of a Named Object
+eapply,base,Apply a Function Over Values in an Environment
+eigen,base,Spectral Decomposition of a Matrix
+emptyenv,base,Environment Access
+enc2native,base,Read or Set the Declared Encodings for a Character Vector
+enc2utf8,base,Read or Set the Declared Encodings for a Character Vector
+encodeString,base,Encode Character Vector as for Printing
+Encoding,base,Read or Set the Declared Encodings for a Character Vector
+endsWith,base,Does String Start or End With Another String?
+enquote,base,Substituting and Quoting Expressions
+env.profile,base,Environment Access
+environment,base,Environment Access
+environmentIsLocked,base,Binding and Environment Locking, Active Bindings
+environmentName,base,Environment Access
+errorCondition,base,Condition Handling and Recovery
+eval,base,Evaluate an (Unevaluated) Expression
+eval.parent,base,Evaluate an (Unevaluated) Expression
+evalq,base,Evaluate an (Unevaluated) Expression
+exists,base,Is an Object Defined?
+exp,base,Logarithms and Exponentials
+expand.grid,base,Create a Data Frame from All Combinations of Factor Variables
+expm1,base,Logarithms and Exponentials
+expression,base,Unevaluated Expressions
+extSoftVersion,base,Report Versions of Third-Party Software
+F,base,Logical Vectors
+factor,base,Factors
+factorial,base,Special Functions of Mathematics
+fifo,base,Functions to Manipulate Connections (Files, URLs, ...)
+file,base,Functions to Manipulate Connections (Files, URLs, ...)
+file.access,base,Ascertain File Accessibility
+file.append,base,File Manipulation
+file.choose,base,Choose a File Interactively
+file.copy,base,File Manipulation
+file.create,base,File Manipulation
+file.exists,base,File Manipulation
+file.info,base,Extract File Information
+file.link,base,File Manipulation
+file.mode,base,Extract File Information
+file.mtime,base,Extract File Information
+file.path,base,Construct Path to File
+file.remove,base,File Manipulation
+file.rename,base,File Manipulation
+file.show,base,Display One or More Text Files
+file.size,base,Extract File Information
+file.symlink,base,File Manipulation
+Filter,base,Common Higher-Order Functions in Functional Programming Languages
+Find,base,Common Higher-Order Functions in Functional Programming Languages
+find.package,base,Find Packages
+findInterval,base,Find Interval Numbers or Indices
+findPackageEnv,base,Internal Objects in Package 'base'
+findRestart,base,Condition Handling and Recovery
+floor,base,Rounding of Numbers
+flush,base,Functions to Manipulate Connections (Files, URLs, ...)
+flush.connection,base,Functions to Manipulate Connections (Files, URLs, ...)
+for,base,Control Flow
+force,base,Force Evaluation of an Argument
+forceAndCall,base,Call a function with Some Arguments Forced
+formals<-,base,Access to and Manipulation of the Formal Arguments
+format,base,Encode in a Common Format
+format.AsIs,base,Encode in a Common Format
+format.data.frame,base,Encode in a Common Format
+format.Date,base,Date Conversion Functions to and from Character
+format.default,base,Encode in a Common Format
+format.difftime,base,Time Intervals / Differences
+format.factor,base,Encode in a Common Format
+format.hexmode,base,Display Numbers in Hexadecimal
+format.info,base,format(.) Information
+format.libraryIQR,base,Loading/Attaching and Listing of Packages
+format.numeric_version,base,Numeric Versions
+format.octmode,base,Display Numbers in Octal
+format.packageInfo,base,Loading/Attaching and Listing of Packages
+format.POSIXct,base,Date-time Conversion Functions to and from Character
+format.POSIXlt,base,Date-time Conversion Functions to and from Character
+format.pval,base,Format P Values
+format.summaryDefault,base,Object Summaries
+formatC,base,Formatting Using C-style Formats
+formatDL,base,Format Description Lists
+forwardsolve,base,Solve an Upper or Lower Triangular System
+function,base,Function Definition
+gamma,base,Special Functions of Mathematics
+gc,base,Garbage Collection
+gc.time,base,Report Time Spent in Garbage Collection
+gcinfo,base,Garbage Collection
+gctorture,base,Torture Garbage Collector
+gctorture2,base,Torture Garbage Collector
+get,base,Return the Value of a Named Object
+get0,base,Is an Object Defined?
+getAllConnections,base,Display Connections
+getCallingDLL,base,Compute DLL for Native Interface Call
+getCallingDLLe,base,Compute DLL for Native Interface Call
+getConnection,base,Display Connections
+getDLLRegisteredRoutines,base,Reflectance Information for C/Fortran routines in a DLL
+getDLLRegisteredRoutines.character,base,Reflectance Information for C/Fortran routines in a DLL
+getDLLRegisteredRoutines.DLLInfo,base,Reflectance Information for C/Fortran routines in a DLL
+getElement,base,Extract or Replace Parts of an Object
+geterrmessage,base,Stop Function Execution
+getExportedValue,base,Namespace Reflection Support
+getHook,base,Functions to Get and Set Hooks for Load, Attach, Detach and Unload
+getLoadedDLLs,base,Get DLLs Loaded in Current Session
+getNamespace,base,Namespace Reflection Support
+getNamespaceExports,base,Namespace Reflection Support
+getNamespaceImports,base,Namespace Reflection Support
+getNamespaceInfo,base,Namespace Internals
+getNamespaceName,base,Namespace Reflection Support
+getNamespaceUsers,base,Namespace Reflection Support
+getNamespaceVersion,base,Namespace Reflection Support
+getNativeSymbolInfo,base,Obtain a Description of one or more Native (C/Fortran) Symbols
+getOption,base,Options Settings
+getRversion,base,Numeric Versions
+getSrcLines,base,References to Source Files and Code
+getTaskCallbackNames,base,Query the Names of the Current Internal Top-Level Task Callbacks
+gettext,base,Translate Text Messages
+gettextf,base,Use C-style String Formatting Commands
+getwd,base,Get or Set Working Directory
+gl,base,Generate Factor Levels
+globalenv,base,Environment Access
+gregexpr,base,Pattern Matching and Replacement
+grep,base,Pattern Matching and Replacement
+grepl,base,Pattern Matching and Replacement
+grepRaw,base,Pattern Matching for Raw Vectors
+grouping,base,Grouping Permutation
+gsub,base,Pattern Matching and Replacement
+gzcon,base,(De)compress I/O Through Connections
+gzfile,base,Functions to Manipulate Connections (Files, URLs, ...)
+I,base,Inhibit Interpretation/Conversion of Objects
+iconv,base,Convert Character Vector between Encodings
+iconvlist,base,Convert Character Vector between Encodings
+icuGetCollate,base,Setup Collation by ICU
+icuSetCollate,base,Setup Collation by ICU
+identical,base,Test Objects for Exact Equality
+identity,base,Identity Function
+if,base,Control Flow
+ifelse,base,Conditional Element Selection
+Im,base,Complex Numbers and Basic Functionality
+importIntoEnv,base,Namespace Internals
+inherits,base,Object Classes
+integer,base,Integer Vectors
+interaction,base,Compute Factor Interactions
+interactive,base,Is R Running Interactively?
+intersect,base,Set Operations
+intToBits,base,Convert to or from Raw Vectors
+intToUtf8,base,Convert Integer Vectors to or from UTF-8-encoded Character Vectors
+inverse.rle,base,Run Length Encoding
+invisible,base,Change the Print Mode to Invisible
+invokeRestart,base,Condition Handling and Recovery
+invokeRestartInteractively,base,Condition Handling and Recovery
+is.array,base,Multi-way Arrays
+is.atomic,base,Is an Object Atomic or Recursive?
+is.call,base,Function Calls
+is.character,base,Character Vectors
+is.complex,base,Complex Numbers and Basic Functionality
+is.data.frame,base,Coerce to a Data Frame
+is.double,base,Double-Precision Vectors
+is.element,base,Set Operations
+is.environment,base,Environment Access
+is.expression,base,Unevaluated Expressions
+is.factor,base,Factors
+is.finite,base,Finite, Infinite and NaN Numbers
+is.function,base,Is an Object of Type (Primitive) Function?
+is.infinite,base,Finite, Infinite and NaN Numbers
+is.integer,base,Integer Vectors
+is.language,base,Is an Object a Language Object?
+is.list,base,Lists - Generic and Dotted Pairs
+is.loaded,base,Foreign Function Interface
+is.logical,base,Logical Vectors
+is.matrix,base,Matrices
+is.na,base,'Not Available' / Missing Values
+is.na.data.frame,base,'Not Available' / Missing Values
+is.na.numeric_version,base,Numeric Versions
+is.na<-.numeric_version,base,Numeric Versions
+is.name,base,Names and Symbols
+is.nan,base,Finite, Infinite and NaN Numbers
+is.null,base,The Null Object
+is.numeric,base,Numeric Vectors
+is.numeric_version,base,Numeric Versions
+is.numeric.Date,base,Numeric Vectors
+is.numeric.difftime,base,Time Intervals / Differences
+is.numeric.POSIXt,base,Numeric Vectors
+is.object,base,Is an Object 'internally classed'?
+is.ordered,base,Factors
+is.package_version,base,Numeric Versions
+is.pairlist,base,Lists - Generic and Dotted Pairs
+is.primitive,base,Is an Object of Type (Primitive) Function?
+is.qr,base,The QR Decomposition of a Matrix
+is.R,base,Are we using R, rather than S?
+is.raw,base,Raw Vectors
+is.recursive,base,Is an Object Atomic or Recursive?
+is.single,base,Is an Object of Single Precision Type?
+is.symbol,base,Names and Symbols
+is.table,base,Cross Tabulation and Table Creation
+is.unsorted,base,Test if an Object is Not Sorted
+is.vector,base,Vectors
+isatty,base,Display Connections
+isBaseNamespace,base,Namespace Internals
+isdebugged,base,Debug a Function
+isFALSE,base,Logical Operators
+isIncomplete,base,Functions to Manipulate Connections (Files, URLs, ...)
+isNamespace,base,Namespace Internals
+isNamespaceLoaded,base,Loading and Unloading Name Spaces
+ISOdate,base,Date-time Conversion Functions from Numeric Representations
+ISOdatetime,base,Date-time Conversion Functions from Numeric Representations
+isOpen,base,Functions to Manipulate Connections (Files, URLs, ...)
+isRestart,base,Condition Handling and Recovery
+isS4,base,Test for an S4 object
+isSeekable,base,Functions to Reposition Connections
+isSymmetric,base,Test if a Matrix or other Object is Symmetric (Hermitian)
+isSymmetric.matrix,base,Test if a Matrix or other Object is Symmetric (Hermitian)
+isTRUE,base,Logical Operators
+jitter,base,'Jitter' (Add Noise) to Numbers
+julian,base,Extract Parts of a POSIXt or Date Object
+julian.Date,base,Extract Parts of a POSIXt or Date Object
+julian.POSIXt,base,Extract Parts of a POSIXt or Date Object
+kappa,base,Compute or Estimate the Condition Number of a Matrix
+kappa.default,base,Compute or Estimate the Condition Number of a Matrix
+kappa.lm,base,Compute or Estimate the Condition Number of a Matrix
+kappa.qr,base,Compute or Estimate the Condition Number of a Matrix
+kronecker,base,Kronecker Products on Arrays
+l10n_info,base,Localization Information
+La_library,base,LAPACK Library
+La_version,base,LAPACK Version
+La.svd,base,Singular Value Decomposition of a Matrix
+labels,base,Find Labels from Object
+labels.default,base,Find Labels from Object
+lapply,base,Apply a Function over a List or Vector
+last.warning,base,Print Warning Messages
+lazyLoad,base,Lazy Load a Database of R Objects
+lazyLoadDBexec,base,Lazy Load a Database of R Objects
+lazyLoadDBfetch,base,Internal Objects in Package 'base'
+lbeta,base,Special Functions of Mathematics
+lchoose,base,Special Functions of Mathematics
+length<-.POSIXct,base,Date-Time Classes
+length<-.POSIXlt,base,Date-Time Classes
+lengths,base,Lengths of List or Vector Elements
+levels,base,Levels Attributes
+levels.default,base,Levels Attributes
+levels<-,base,Levels Attributes
+levels<-.factor,base,Levels Attributes
+lfactorial,base,Special Functions of Mathematics
+lgamma,base,Special Functions of Mathematics
+libcurlVersion,base,Report Version of libcurl
+library,base,Loading/Attaching and Listing of Packages
+library.dynam,base,Loading DLLs from Packages
+library.dynam.unload,base,Loading DLLs from Packages
+licence,base,The R License Terms
+license,base,The R License Terms
+list,base,Lists - Generic and Dotted Pairs
+list.dirs,base,List the Files in a Directory/Folder
+list.files,base,List the Files in a Directory/Folder
+list2env,base,From A List, Build or Add To an Environment
+load,base,Reload Saved Datasets
+loadedNamespaces,base,Loading and Unloading Name Spaces
+loadingNamespaceInfo,base,Namespace Internals
+loadNamespace,base,Loading and Unloading Name Spaces
+local,base,Evaluate an (Unevaluated) Expression
+lockBinding,base,Binding and Environment Locking, Active Bindings
+lockEnvironment,base,Binding and Environment Locking, Active Bindings
+log,base,Logarithms and Exponentials
+log10,base,Logarithms and Exponentials
+log1p,base,Logarithms and Exponentials
+log2,base,Logarithms and Exponentials
+logb,base,Logarithms and Exponentials
+logical,base,Logical Vectors
+lower.tri,base,Lower and Upper Triangular Part of a Matrix
+ls,base,List Objects
+make.names,base,Make Syntactically Valid Names
+make.unique,base,Make Character Strings Unique
+makeActiveBinding,base,Binding and Environment Locking, Active Bindings
+Map,base,Common Higher-Order Functions in Functional Programming Languages
+mapply,base,Apply a Function to Multiple List or Vector Arguments
+margin.table,base,Compute table margin
+mat.or.vec,base,Create a Matrix or a Vector
+match,base,Value Matching
+match.arg,base,Argument Verification Using Partial Matching
+match.call,base,Argument Matching
+match.fun,base,Extract a Function Specified by Name
+Math.data.frame,base,S3 Group Generic Functions
+Math.Date,base,Date Class
+Math.difftime,base,Time Intervals / Differences
+Math.factor,base,Factors
+Math.POSIXt,base,Date-Time Classes
+matrix,base,Matrices
+max,base,Maxima and Minima
+max.col,base,Find Maximum Position in Matrix
+mean,base,Arithmetic Mean
+mean.Date,base,Date Class
+mean.default,base,Arithmetic Mean
+mean.difftime,base,Time Intervals / Differences
+mean.POSIXct,base,Date-Time Classes
+mean.POSIXlt,base,Date-Time Classes
+mem.limits,base,Defunct Functions in Package 'base'
+mem.maxNSize,base,Query and Set Heap Size Limits
+mem.maxVSize,base,Query and Set Heap Size Limits
+memCompress,base,In-memory Compression and Decompression
+memDecompress,base,In-memory Compression and Decompression
+memory.profile,base,Profile the Usage of Cons Cells
+merge,base,Merge Two Data Frames
+merge.data.frame,base,Merge Two Data Frames
+merge.default,base,Merge Two Data Frames
+message,base,Diagnostic Messages
+mget,base,Return the Value of a Named Object
+missing,base,Does a Formal Argument have a Value?
+Mod,base,Complex Numbers and Basic Functionality
+mode,base,The (Storage) Mode of an Object
+month.abb,base,Built-in Constants
+month.name,base,Built-in Constants
+months.POSIXt,base,Extract Parts of a POSIXt or Date Object
+mostattributes<-,base,Object Attribute Lists
+names,base,The Names of an Object
+names.POSIXlt,base,Date-Time Classes
+names<-,base,The Names of an Object
+names<-.POSIXlt,base,Date-Time Classes
+namespaceExport,base,Namespace Internals
+namespaceImport,base,Namespace Internals
+namespaceImportClasses,base,Namespace Internals
+namespaceImportFrom,base,Namespace Internals
+namespaceImportMethods,base,Namespace Internals
+nargs,base,The Number of Arguments to a Function
+nchar,base,Count the Number of Characters (or Bytes or Width)
+ncol,base,The Number of Rows/Columns of an Array
+NCOL,base,The Number of Rows/Columns of an Array
+Negate,base,Common Higher-Order Functions in Functional Programming Languages
+new.env,base,Environment Access
+next,base,Control Flow
+NextMethod,base,Class Methods
+ngettext,base,Translate Text Messages
+nlevels,base,The Number of Levels of a Factor
+noquote,base,Class for 'no quote' Printing of Character Strings
+norm,base,Compute the Norm of a Matrix
+normalizePath,base,Express File Paths in Canonical Form
+nrow,base,The Number of Rows/Columns of an Array
+NROW,base,The Number of Rows/Columns of an Array
+numeric,base,Numeric Vectors
+numeric_version,base,Numeric Versions
+nzchar,base,Count the Number of Characters (or Bytes or Width)
+objects,base,List Objects
+oldClass,base,Object Classes
+oldClass<-,base,Object Classes
+OlsonNames,base,Time Zones
+on.exit,base,Function Exit Code
+open,base,Functions to Manipulate Connections (Files, URLs, ...)
+open.connection,base,Functions to Manipulate Connections (Files, URLs, ...)
+open.srcfile,base,References to Source Files and Code
+open.srcfilealias,base,References to Source Files and Code
+open.srcfilecopy,base,References to Source Files and Code
+Ops.data.frame,base,S3 Group Generic Functions
+Ops.Date,base,Operators on the Date Class
+Ops.difftime,base,Time Intervals / Differences
+Ops.factor,base,Factors
+Ops.numeric_version,base,Numeric Versions
+Ops.ordered,base,Factors
+Ops.POSIXt,base,Date-Time Classes
+options,base,Options Settings
+order,base,Ordering Permutation
+ordered,base,Factors
+outer,base,Outer Product of Arrays
+package_version,base,Numeric Versions
+packageEvent,base,Functions to Get and Set Hooks for Load, Attach, Detach and Unload
+packageNotFoundError,base,Find Packages
+packageStartupMessage,base,Diagnostic Messages
+packBits,base,Convert to or from Raw Vectors
+pairlist,base,Lists - Generic and Dotted Pairs
+parent.env,base,Environment Access
+parent.env<-,base,Environment Access
+parent.frame,base,Functions to Access the Function Call Stack
+parse,base,Parse R Expressions
+parseNamespaceFile,base,Namespace Internals
+paste,base,Concatenate Strings
+paste0,base,Concatenate Strings
+path.expand,base,Expand File Paths
+path.package,base,Find Packages
+pcre_config,base,Report Configuration Options for PCRE
+pi,base,Built-in Constants
+pipe,base,Functions to Manipulate Connections (Files, URLs, ...)
+pmatch,base,Partial String Matching
+pmax,base,Maxima and Minima
+pmax.int,base,Maxima and Minima
+pmin,base,Maxima and Minima
+pmin.int,base,Maxima and Minima
+polyroot,base,Find Zeros of a Real or Complex Polynomial
+pos.to.env,base,Convert Positions in the Search Path to Environments
+Position,base,Common Higher-Order Functions in Functional Programming Languages
+pretty,base,Pretty Breakpoints
+pretty.default,base,Pretty Breakpoints
+prettyNum,base,Formatting Using C-style Formats
+print,base,Print Values
+print.AsIs,base,Inhibit Interpretation/Conversion of Objects
+print.by,base,Apply a Function to a Data Frame Split by Factors
+print.condition,base,Condition Handling and Recovery
+print.connection,base,Functions to Manipulate Connections (Files, URLs, ...)
+print.data.frame,base,Printing Data Frames
+print.Date,base,Date Class
+print.default,base,Default Printing
+print.difftime,base,Time Intervals / Differences
+print.Dlist,base,Print Values
+print.DLLInfo,base,Get DLLs Loaded in Current Session
+print.DLLInfoList,base,Get DLLs Loaded in Current Session
+print.DLLRegisteredRoutines,base,Reflectance Information for C/Fortran routines in a DLL
+print.eigen,base,Spectral Decomposition of a Matrix
+print.factor,base,Print Values
+print.function,base,Print Values
+print.hexmode,base,Display Numbers in Hexadecimal
+print.libraryIQR,base,Loading/Attaching and Listing of Packages
+print.listof,base,Print Values
+print.NativeRoutineList,base,Reflectance Information for C/Fortran routines in a DLL
+print.noquote,base,Class for 'no quote' Printing of Character Strings
+print.numeric_version,base,Numeric Versions
+print.octmode,base,Display Numbers in Octal
+print.packageInfo,base,Loading/Attaching and Listing of Packages
+print.POSIXct,base,Date-Time Classes
+print.POSIXlt,base,Date-Time Classes
+print.proc_time,base,Running Time of R
+print.restart,base,Condition Handling and Recovery
+print.rle,base,Run Length Encoding
+print.simple.list,base,Print Values
+print.srcfile,base,References to Source Files and Code
+print.srcref,base,References to Source Files and Code
+print.summary.table,base,Cross Tabulation and Table Creation
+print.summary.warnings,base,Print Warning Messages
+print.summaryDefault,base,Object Summaries
+print.table,base,Print Values
+print.warnings,base,Print Warning Messages
+prmatrix,base,Print Matrices, Old-style
+proc.time,base,Running Time of R
+prod,base,Product of Vector Elements
+prop.table,base,Express Table Entries as Fraction of Marginal Table
+provideDimnames,base,Dimnames of an Object
+psigamma,base,Special Functions of Mathematics
+pushBack,base,Push Text Back on to a Connection
+pushBackLength,base,Push Text Back on to a Connection
+q,base,Terminate an R Session
+qr,base,The QR Decomposition of a Matrix
+qr.coef,base,The QR Decomposition of a Matrix
+qr.default,base,The QR Decomposition of a Matrix
+qr.fitted,base,The QR Decomposition of a Matrix
+qr.Q,base,Reconstruct the Q, R, or X Matrices from a QR Object
+qr.qty,base,The QR Decomposition of a Matrix
+qr.qy,base,The QR Decomposition of a Matrix
+qr.R,base,Reconstruct the Q, R, or X Matrices from a QR Object
+qr.resid,base,The QR Decomposition of a Matrix
+qr.solve,base,The QR Decomposition of a Matrix
+qr.X,base,Reconstruct the Q, R, or X Matrices from a QR Object
+quarters,base,Extract Parts of a POSIXt or Date Object
+quarters.Date,base,Extract Parts of a POSIXt or Date Object
+quarters.POSIXt,base,Extract Parts of a POSIXt or Date Object
+quit,base,Terminate an R Session
+quote,base,Substituting and Quoting Expressions
+R_system_version,base,Numeric Versions
+R.home,base,Return the R Home Directory
+R.version,base,Version Information
+R.Version,base,Version Information
+R.version.string,base,Version Information
+range,base,Range of Values
+range.default,base,Range of Values
+rank,base,Sample Ranks
+rapply,base,Recursively Apply a Function to a List
+raw,base,Raw Vectors
+rawConnection,base,Raw Connections
+rawConnectionValue,base,Raw Connections
+rawShift,base,Convert to or from Raw Vectors
+rawToBits,base,Convert to or from Raw Vectors
+rawToChar,base,Convert to or from Raw Vectors
+rbind,base,Combine R Objects by Rows or Columns
+rbind.data.frame,base,Combine R Objects by Rows or Columns
+rcond,base,Compute or Estimate the Condition Number of a Matrix
+Re,base,Complex Numbers and Basic Functionality
+read.dcf,base,Read and Write Data in DCF Format
+readBin,base,Transfer Binary Data To and From Connections
+readChar,base,Transfer Character Strings To and From Connections
+readline,base,Read a Line from the Terminal
+readLines,base,Read Text Lines from a Connection
+readRDS,base,Serialization Interface for Single Objects
+Recall,base,Recursive Calling
+Reduce,base,Common Higher-Order Functions in Functional Programming Languages
+reg.finalizer,base,Finalization of Objects
+regexec,base,Pattern Matching and Replacement
+regexpr,base,Pattern Matching and Replacement
+registerS3method,base,Namespace Internals
+registerS3methods,base,Namespace Internals
+regmatches,base,Extract or Replace Matched Substrings
+regmatches<-,base,Extract or Replace Matched Substrings
+remove,base,Remove Objects from a Specified Environment
+removeTaskCallback,base,Add or Remove a Top-Level Task Callback
+rep,base,Replicate Elements of Vectors and Lists
+rep_len,base,Replicate Elements of Vectors and Lists
+rep.Date,base,Replicate Elements of Vectors and Lists
+rep.factor,base,Replicate Elements of Vectors and Lists
+rep.int,base,Replicate Elements of Vectors and Lists
+rep.numeric_version,base,Numeric Versions
+rep.POSIXct,base,Replicate Elements of Vectors and Lists
+rep.POSIXlt,base,Replicate Elements of Vectors and Lists
+repeat,base,Control Flow
+replace,base,Replace Values in a Vector
+replicate,base,Apply a Function over a List or Vector
+require,base,Loading/Attaching and Listing of Packages
+requireNamespace,base,Loading and Unloading Name Spaces
+restartDescription,base,Condition Handling and Recovery
+restartFormals,base,Condition Handling and Recovery
+retracemem,base,Trace Copying of Objects
+return,base,Function Definition
+returnValue,base,Interactive Tracing and Debugging of Calls to a Function or Method
+rev,base,Reverse Elements
+rev.default,base,Reverse Elements
+rle,base,Run Length Encoding
+rm,base,Remove Objects from a Specified Environment
+round.Date,base,Round / Truncate Data-Time Objects
+round.POSIXt,base,Round / Truncate Data-Time Objects
+row.names,base,Get and Set Row Names for Data Frames
+row.names.data.frame,base,Get and Set Row Names for Data Frames
+row.names.default,base,Get and Set Row Names for Data Frames
+row.names<-,base,Get and Set Row Names for Data Frames
+row.names<-.data.frame,base,Get and Set Row Names for Data Frames
+row.names<-.default,base,Get and Set Row Names for Data Frames
+rowMeans,base,Form Row and Column Sums and Means
+rownames,base,Row and Column Names
+rownames<-,base,Row and Column Names
+rowsum,base,Give Column Sums of a Matrix or Data Frame, Based on a Grouping
+rowsum.data.frame,base,Give Column Sums of a Matrix or Data Frame, Based on a Grouping
+rowsum.default,base,Give Column Sums of a Matrix or Data Frame, Based on a Grouping
+rowSums,base,Form Row and Column Sums and Means
+sample,base,Random Samples and Permutations
+sample.int,base,Random Samples and Permutations
+sapply,base,Apply a Function over a List or Vector
+save,base,Save R Objects
+save.image,base,Save R Objects
+saveRDS,base,Serialization Interface for Single Objects
+scale,base,Scaling and Centering of Matrix-like Objects
+scale.default,base,Scaling and Centering of Matrix-like Objects
+scan,base,Read Data Values
+search,base,Give Search Path for R Objects
+searchpaths,base,Give Search Path for R Objects
+seek,base,Functions to Reposition Connections
+seek.connection,base,Functions to Reposition Connections
+seq,base,Sequence Generation
+seq_along,base,Sequence Generation
+seq_len,base,Sequence Generation
+seq.Date,base,Generate Regular Sequences of Dates
+seq.default,base,Sequence Generation
+seq.int,base,Sequence Generation
+seq.POSIXt,base,Generate Regular Sequences of Times
+sequence,base,Create A Vector of Sequences
+serialize,base,Simple Serialization Interface
+set.seed,base,Random Number Generation
+setdiff,base,Set Operations
+setequal,base,Set Operations
+setHook,base,Functions to Get and Set Hooks for Load, Attach, Detach and Unload
+setNamespaceInfo,base,Namespace Internals
+setSessionTimeLimit,base,Set CPU and/or Elapsed Time Limits
+setTimeLimit,base,Set CPU and/or Elapsed Time Limits
+setwd,base,Get or Set Working Directory
+showConnections,base,Display Connections
+shQuote,base,Quote Strings for Use in OS Shells
+sign,base,Sign Function
+signalCondition,base,Condition Handling and Recovery
+signif,base,Rounding of Numbers
+simpleCondition,base,Condition Handling and Recovery
+simpleError,base,Condition Handling and Recovery
+simpleMessage,base,Condition Handling and Recovery
+simpleWarning,base,Condition Handling and Recovery
+simplify2array,base,Apply a Function over a List or Vector
+sin,base,Trigonometric Functions
+single,base,Double-Precision Vectors
+sinh,base,Hyperbolic Functions
+sink,base,Send R Output to a File
+sink.number,base,Send R Output to a File
+sinpi,base,Trigonometric Functions
+slice.index,base,Slice Indexes in an Array
+socketConnection,base,Functions to Manipulate Connections (Files, URLs, ...)
+socketSelect,base,Wait on Socket Connections
+solve,base,Solve a System of Equations
+solve.default,base,Solve a System of Equations
+solve.qr,base,The QR Decomposition of a Matrix
+sort,base,Sorting or Ordering Vectors
+sort.default,base,Sorting or Ordering Vectors
+source,base,Read R Code from a File, a Connection or Expressions
+split,base,Divide into Groups and Reassemble
+split.data.frame,base,Divide into Groups and Reassemble
+split.Date,base,Date Class
+split.default,base,Divide into Groups and Reassemble
+split.POSIXct,base,Date-Time Classes
+split<-,base,Divide into Groups and Reassemble
+split<-.data.frame,base,Divide into Groups and Reassemble
+split<-.default,base,Divide into Groups and Reassemble
+sprintf,base,Use C-style String Formatting Commands
+sqrt,base,Miscellaneous Mathematical Functions
+sQuote,base,Quote Text
+srcfile,base,References to Source Files and Code
+srcfilealias,base,References to Source Files and Code
+srcfilecopy,base,References to Source Files and Code
+standardGeneric,base,Formal Method System - Dispatching S4 Methods
+startsWith,base,Does String Start or End With Another String?
+stderr,base,Display Connections
+stdin,base,Display Connections
+stdout,base,Display Connections
+stop,base,Stop Function Execution
+stopifnot,base,Ensure the Truth of R Expressions
+storage.mode,base,The (Storage) Mode of an Object
+storage.mode<-,base,The (Storage) Mode of an Object
+str2expression,base,Parse R Expressions
+str2lang,base,Parse R Expressions
+strftime,base,Date-time Conversion Functions to and from Character
+strptime,base,Date-time Conversion Functions to and from Character
+strrep,base,Repeat the Elements of a Character Vector
+strsplit,base,Split the Elements of a Character Vector
+strtoi,base,Convert Strings to Integers
+strtrim,base,Trim Character Strings to Specified Display Widths
+strwrap,base,Wrap Character Strings to Format Paragraphs
+subset,base,Subsetting Vectors, Matrices and Data Frames
+subset.data.frame,base,Subsetting Vectors, Matrices and Data Frames
+subset.default,base,Subsetting Vectors, Matrices and Data Frames
+subset.matrix,base,Subsetting Vectors, Matrices and Data Frames
+substitute,base,Substituting and Quoting Expressions
+substr,base,Substrings of a Character Vector
+substr<-,base,Substrings of a Character Vector
+substring,base,Substrings of a Character Vector
+substring<-,base,Substrings of a Character Vector
+sum,base,Sum of Vector Elements
+summary,base,Object Summaries
+summary.connection,base,Functions to Manipulate Connections (Files, URLs, ...)
+summary.data.frame,base,Object Summaries
+Summary.data.frame,base,S3 Group Generic Functions
+summary.Date,base,Date Class
+Summary.Date,base,Date Class
+summary.default,base,Object Summaries
+Summary.difftime,base,Time Intervals / Differences
+summary.factor,base,Object Summaries
+Summary.factor,base,Factors
+summary.matrix,base,Object Summaries
+Summary.numeric_version,base,Numeric Versions
+Summary.ordered,base,Factors
+summary.POSIXct,base,Date-Time Classes
+Summary.POSIXct,base,Date-Time Classes
+summary.POSIXlt,base,Date-Time Classes
+Summary.POSIXlt,base,Date-Time Classes
+summary.proc_time,base,Running Time of R
+summary.srcfile,base,References to Source Files and Code
+summary.srcref,base,References to Source Files and Code
+summary.table,base,Cross Tabulation and Table Creation
+summary.warnings,base,Print Warning Messages
+suppressMessages,base,Diagnostic Messages
+suppressPackageStartupMessages,base,Diagnostic Messages
+suppressWarnings,base,Warning Messages
+suspendInterrupts,base,Condition Handling and Recovery
+svd,base,Singular Value Decomposition of a Matrix
+sweep,base,Sweep out Array Summaries
+switch,base,Select One of a List of Alternatives
+sys.call,base,Functions to Access the Function Call Stack
+sys.calls,base,Functions to Access the Function Call Stack
+Sys.chmod,base,Manipulation of Directories and File Permissions
+Sys.Date,base,Get Current Date and Time
+sys.frame,base,Functions to Access the Function Call Stack
+sys.frames,base,Functions to Access the Function Call Stack
+sys.function,base,Functions to Access the Function Call Stack
+Sys.getenv,base,Get Environment Variables
+Sys.getlocale,base,Query or Set Aspects of the Locale
+Sys.getpid,base,Get the Process ID of the R Session
+Sys.glob,base,Wildcard Expansion on File Paths
+Sys.info,base,Extract System and User Information
+sys.load.image,base,Internal Objects in Package 'base'
+Sys.localeconv,base,Find Details of the Numerical and Monetary Representations in the
+sys.nframe,base,Functions to Access the Function Call Stack
+sys.on.exit,base,Functions to Access the Function Call Stack
+sys.parent,base,Functions to Access the Function Call Stack
+sys.parents,base,Functions to Access the Function Call Stack
+Sys.readlink,base,Read File Symbolic Links
+sys.save.image,base,Internal Objects in Package 'base'
+Sys.setenv,base,Set or Unset Environment Variables
+Sys.setFileTime,base,Set File Time
+Sys.setlocale,base,Query or Set Aspects of the Locale
+Sys.sleep,base,Suspend Execution for a Time Interval
+sys.source,base,Parse and Evaluate Expressions from a File
+sys.status,base,Functions to Access the Function Call Stack
+Sys.time,base,Get Current Date and Time
+Sys.timezone,base,Time Zones
+Sys.umask,base,Manipulation of Directories and File Permissions
+Sys.unsetenv,base,Set or Unset Environment Variables
+Sys.which,base,Find Full Paths to Executables
+system,base,Invoke a System Command
+system.file,base,Find Names of R System Files
+system.time,base,CPU Time Used
+system2,base,Invoke a System Command
+t,base,Matrix Transpose
+T,base,Logical Vectors
+t.data.frame,base,Matrix Transpose
+t.default,base,Matrix Transpose
+table,base,Cross Tabulation and Table Creation
+tabulate,base,Tabulation for Vectors
+tan,base,Trigonometric Functions
+tanh,base,Hyperbolic Functions
+tanpi,base,Trigonometric Functions
+tapply,base,Apply a Function Over a Ragged Array
+taskCallbackManager,base,Create an R-level Task Callback Manager
+tcrossprod,base,Matrix Crossproduct
+tempdir,base,Create Names for Temporary Files
+tempfile,base,Create Names for Temporary Files
+textConnection,base,Text Connections
+textConnectionValue,base,Text Connections
+tolower,base,Character Translation and Casefolding
+topenv,base,Top Level Environment
+toString,base,Convert an R Object to a Character String
+toString.default,base,Convert an R Object to a Character String
+toupper,base,Character Translation and Casefolding
+trace,base,Interactive Tracing and Debugging of Calls to a Function or Method
+traceback,base,Get and Print Call Stacks
+tracemem,base,Trace Copying of Objects
+tracingState,base,Interactive Tracing and Debugging of Calls to a Function or Method
+transform,base,Transform an Object, for Example a Data Frame
+transform.data.frame,base,Transform an Object, for Example a Data Frame
+transform.default,base,Transform an Object, for Example a Data Frame
+trigamma,base,Special Functions of Mathematics
+trimws,base,Remove Leading/Trailing Whitespace
+trunc,base,Rounding of Numbers
+trunc.Date,base,Round / Truncate Data-Time Objects
+trunc.POSIXt,base,Round / Truncate Data-Time Objects
+truncate,base,Functions to Reposition Connections
+truncate.connection,base,Functions to Reposition Connections
+try,base,Try an Expression Allowing Error Recovery
+tryCatch,base,Condition Handling and Recovery
+typeof,base,The Type of an Object
+unclass,base,Object Classes
+undebug,base,Debug a Function
+union,base,Set Operations
+unique.data.frame,base,Extract Unique Elements
+unique.default,base,Extract Unique Elements
+unique.matrix,base,Extract Unique Elements
+unique.numeric_version,base,Numeric Versions
+unique.POSIXlt,base,Date-Time Classes
+unique.warnings,base,Print Warning Messages
+units,base,Time Intervals / Differences
+units.difftime,base,Time Intervals / Differences
+units<-,base,Time Intervals / Differences
+units<-.difftime,base,Time Intervals / Differences
+unix.time,base,CPU Time Used
+unlink,base,Delete Files and Directories
+unlist,base,Flatten Lists
+unloadNamespace,base,Loading and Unloading Name Spaces
+unlockBinding,base,Binding and Environment Locking, Active Bindings
+unname,base,Remove 'names' or 'dimnames'
+unserialize,base,Simple Serialization Interface
+unsplit,base,Divide into Groups and Reassemble
+untrace,base,Interactive Tracing and Debugging of Calls to a Function or Method
+untracemem,base,Trace Copying of Objects
+unz,base,Functions to Manipulate Connections (Files, URLs, ...)
+upper.tri,base,Lower and Upper Triangular Part of a Matrix
+url,base,Functions to Manipulate Connections (Files, URLs, ...)
+UseMethod,base,Class Methods
+utf8ToInt,base,Convert Integer Vectors to or from UTF-8-encoded Character Vectors
+validEnc,base,Check if a Character Vector is Validly Encoded
+validUTF8,base,Check if a Character Vector is Validly Encoded
+vapply,base,Apply a Function over a List or Vector
+vector,base,Vectors
+Vectorize,base,Vectorize a Scalar Function
+version,base,Version Information
+warning,base,Warning Messages
+warningCondition,base,Condition Handling and Recovery
+warnings,base,Print Warning Messages
+weekdays,base,Extract Parts of a POSIXt or Date Object
+weekdays.Date,base,Extract Parts of a POSIXt or Date Object
+weekdays.POSIXt,base,Extract Parts of a POSIXt or Date Object
+which,base,Which indices are TRUE?
+which.max,base,Where is the Min() or Max() or first TRUE or FALSE ?
+which.min,base,Where is the Min() or Max() or first TRUE or FALSE ?
+while,base,Control Flow
+with,base,Evaluate an Expression in a Data Environment
+with.default,base,Evaluate an Expression in a Data Environment
+withAutoprint,base,Read R Code from a File, a Connection or Expressions
+withCallingHandlers,base,Condition Handling and Recovery
+within,base,Evaluate an Expression in a Data Environment
+within.data.frame,base,Evaluate an Expression in a Data Environment
+within.list,base,Evaluate an Expression in a Data Environment
+withRestarts,base,Condition Handling and Recovery
+withVisible,base,Return both a Value and its Visibility
+write,base,Write Data to a File
+write.dcf,base,Read and Write Data in DCF Format
+writeBin,base,Transfer Binary Data To and From Connections
+writeChar,base,Transfer Character Strings To and From Connections
+writeLines,base,Write Lines to a Connection
+xor,base,Logical Operators
+xpdrows.data.frame,base,Data Frame Auxiliary Functions
+xtfrm,base,Auxiliary Function for Sorting and Ranking
+xtfrm.AsIs,base,Auxiliary Function for Sorting and Ranking
+xtfrm.Date,base,Auxiliary Function for Sorting and Ranking
+xtfrm.default,base,Auxiliary Function for Sorting and Ranking
+xtfrm.difftime,base,Auxiliary Function for Sorting and Ranking
+xtfrm.factor,base,Auxiliary Function for Sorting and Ranking
+xtfrm.numeric_version,base,Numeric Versions
+xtfrm.POSIXct,base,Auxiliary Function for Sorting and Ranking
+xtfrm.POSIXlt,base,Auxiliary Function for Sorting and Ranking
+xzfile,base,Functions to Manipulate Connections (Files, URLs, ...)
+zapsmall,base,Rounding of Numbers: Zapping Small Ones to Zero
+?,utils,Documentation Shortcuts
+adist,utils,Approximate String Distances
+alarm,utils,Alert the User
+apropos,utils,Find Objects by (Partial) Name
+aregexec,utils,Approximate String Match Positions
+argsAnywhere,utils,Retrieve an R Object, Including from a Namespace
+as.person,utils,Persons
+as.personList,utils,Persons
+as.relistable,utils,Allow Re-Listing an unlist()ed Object
+as.roman,utils,Roman Numerals
+asDateBuilt,utils,Package Description
+askYesNo,utils,Ask a Yes/No Question
+aspell,utils,Spell Check Interface
+aspell_package_C_files,utils,Spell Check Utilities
+aspell_package_R_files,utils,Spell Check Utilities
+aspell_package_Rd_files,utils,Spell Check Utilities
+aspell_package_vignettes,utils,Spell Check Utilities
+aspell_write_personal_dictionary_file,utils,Spell Check Utilities
+assignInMyNamespace,utils,Utility Functions for Developing Namespaces
+assignInNamespace,utils,Utility Functions for Developing Namespaces
+available.packages,utils,List Available Packages at CRAN-like Repositories
+bibentry,utils,Bibliography Entries
+browseEnv,utils,Browse Objects in Environment
+browseURL,utils,Load URL into an HTML Browser
+browseVignettes,utils,List Vignettes in an HTML Browser
+bug.report,utils,Send a Bug Report
+capture.output,utils,Send Output to a Character String or File
+changedFiles,utils,Detect which Files Have Changed
+checkCRAN,utils,Managing Repository Mirrors
+chooseBioCmirror,utils,Select a Bioconductor Mirror
+chooseCRANmirror,utils,Select a CRAN Mirror
+citation,utils,Citing R and R Packages in Publications
+cite,utils,Cite a Bibliography Entry
+citeNatbib,utils,Cite a Bibliography Entry
+citEntry,utils,Bibliography Entries (Older Interface)
+citFooter,utils,Bibliography Entries (Older Interface)
+de.ncols,utils,Spreadsheet Interface for Entering Data
+de.restore,utils,Spreadsheet Interface for Entering Data
+debugcall,utils,Debug a Call
+debugger,utils,Post-Mortem Debugging
+demo,utils,Demonstrations of R Functionality
+download.file,utils,Download File from the Internet
+download.packages,utils,Download Packages from CRAN-like Repositories
+dump.frames,utils,Post-Mortem Debugging
+edit,utils,Invoke a Text Editor
+emacs,utils,Invoke a Text Editor
+example,utils,Run an Examples Section from the Online Help
+file_test,utils,Shell-style Tests on Files
+file.edit,utils,Edit One or More Files
+fileSnapshot,utils,Detect which Files Have Changed
+find,utils,Find Objects by (Partial) Name
+findLineNum,utils,Find the Location of a Line of Source Code, or Set a Breakpoint There
+fix,utils,Fix an Object
+fixInNamespace,utils,Utility Functions for Developing Namespaces
+flush.console,utils,Flush Output to a Console
+formatOL,utils,Format Unordered and Ordered Lists
+formatUL,utils,Format Unordered and Ordered Lists
+getFromNamespace,utils,Utility Functions for Developing Namespaces
+getParseData,utils,Get Detailed Parse Information from Object
+getParseText,utils,Get Detailed Parse Information from Object
+getS3method,utils,Get an S3 Method
+getSrcDirectory,utils,Source Reference Utilities
+getSrcFilename,utils,Source Reference Utilities
+getSrcLocation,utils,Source Reference Utilities
+getSrcref,utils,Source Reference Utilities
+getTxtProgressBar,utils,Text Progress Bar
+glob2rx,utils,Change Wildcard or Globbing Pattern into Regular Expression
+globalVariables,utils,Declarations Used in Checking a Package
+hasName,utils,Check for Name
+head,utils,Return the First or Last Part of an Object
+help.request,utils,Send a Post to R-help
+help.search,utils,Search the Help System
+help.start,utils,Hypertext Documentation
+history,utils,Load or Save or Display the Commands History
+hsearch_db,utils,Help Search Utilities
+hsearch_db_concepts,utils,Help Search Utilities
+hsearch_db_keywords,utils,Help Search Utilities
+install.packages,utils,Install Packages from Repositories or Local Files
+installed.packages,utils,Find Installed Packages
+is.relistable,utils,Allow Re-Listing an unlist()ed Object
+isS3method,utils,Is 'method' the Name of an S3 Method?
+isS3stdGeneric,utils,Check if a Function Acts as an S3 Generic
+limitedLabels,utils,Browsing after an Error
+loadhistory,utils,Load or Save or Display the Commands History
+localeToCharset,utils,Select a Suitable Encoding Name from a Locale Name
+ls.str,utils,List Objects and their Structure
+lsf.str,utils,List Objects and their Structure
+maintainer,utils,Show Package Maintainer
+make.packages.html,utils,Update HTML Package List
+make.socket,utils,Create a Socket Connection
+makeRweaveLatexCodeRunner,utils,Sweave Driver Utilities
+memory.limit,utils,Report on Memory Allocation (on Windows)
+memory.size,utils,Report on Memory Allocation (on Windows)
+menu,utils,Menu Interaction Function
+methods,utils,List Methods for S3 Generic Functions or Classes
+mirror2html,utils,Managing Repository Mirrors
+modifyList,utils,Recursively Modify Elements of a List
+new.packages,utils,Compare Installed Packages with CRAN-like Repositories
+news,utils,Build and Query R or Package News Information
+nsl,utils,Look up the IP Address by Hostname (on Unix-alikes)
+object.size,utils,Report the Space Allocated for an Object
+old.packages,utils,Compare Installed Packages with CRAN-like Repositories
+osVersion,utils,Collect Information About the Current R Session
+package.skeleton,utils,Create a Skeleton for a New Source Package
+packageDate,utils,Package Description
+packageDescription,utils,Package Description
+packageName,utils,Find Package Associated with an Environment
+packageStatus,utils,Package Management Tools
+packageVersion,utils,Package Description
+page,utils,Invoke a Pager on an R Object
+person,utils,Persons
+personList,utils,Persons
+pico,utils,Invoke a Text Editor
+process.events,utils,Trigger Event Handling
+prompt,utils,Produce Prototype of an R Documentation File
+promptData,utils,Generate Outline Documentation for a Data Set
+promptImport,utils,Produce Prototype of an R Documentation File
+promptPackage,utils,Generate a Shell for Documentation of a Package
+rc.getOption,utils,A Completion Generator for R
+rc.options,utils,A Completion Generator for R
+rc.settings,utils,A Completion Generator for R
+rc.status,utils,A Completion Generator for R
+read.csv,utils,Data Input
+read.csv2,utils,Data Input
+read.delim,utils,Data Input
+read.delim2,utils,Data Input
+read.DIF,utils,Data Input from Spreadsheet
+read.fortran,utils,Read Fixed-Format Data in a Fortran-like Style
+read.fwf,utils,Read Fixed Width Format Files
+read.socket,utils,Read from or Write to a Socket
+read.table,utils,Data Input
+readCitationFile,utils,Citing R and R Packages in Publications
+recover,utils,Browsing after an Error
+relist,utils,Allow Re-Listing an unlist()ed Object
+remove.packages,utils,Remove Installed Packages
+removeSource,utils,Remove Stored Source from a Function or Language Object
+Rprof,utils,Enable Profiling of R's Execution
+Rprofmem,utils,Enable Profiling of R's Memory Use
+RShowDoc,utils,Show R Manuals and Other Documentation
+RSiteSearch,utils,Search for Key Words or Phrases in Documentation
+rtags,utils,An Etags-like Tagging Utility for R
+Rtangle,utils,R Driver for Stangle
+RtangleSetup,utils,R Driver for Stangle
+RtangleWritedoc,utils,Sweave Driver Utilities
+RweaveChunkPrefix,utils,Sweave Driver Utilities
+RweaveEvalWithOpt,utils,Sweave Driver Utilities
+RweaveLatex,utils,R/LaTeX Driver for Sweave
+RweaveLatexFinish,utils,Sweave Driver Utilities
+RweaveLatexOptions,utils,Sweave Driver Utilities
+RweaveLatexSetup,utils,R/LaTeX Driver for Sweave
+RweaveLatexWritedoc,utils,Sweave Driver Utilities
+RweaveTryStop,utils,Sweave Driver Utilities
+savehistory,utils,Load or Save or Display the Commands History
+select.list,utils,Select Items from a List
+sessionInfo,utils,Collect Information About the Current R Session
+setBreakpoint,utils,Find the Location of a Line of Source Code, or Set a Breakpoint There
+setRepositories,utils,Select Package Repositories
+setTxtProgressBar,utils,Text Progress Bar
+stack,utils,Stack or Unstack Vectors from a Data Frame or List
+Stangle,utils,Automatic Generation of Reports
+str,utils,Compactly Display the Structure of an Arbitrary R Object
+strcapture,utils,Capture String Tokens into a data.frame
+strOptions,utils,Compactly Display the Structure of an Arbitrary R Object
+summaryRprof,utils,Summarise Output of R Sampling Profiler
+suppressForeignCheck,utils,Declarations Used in Checking a Package
+Sweave,utils,Automatic Generation of Reports
+SweaveHooks,utils,Sweave Driver Utilities
+SweaveSyntaxLatex,utils,Automatic Generation of Reports
+SweaveSyntaxNoweb,utils,Automatic Generation of Reports
+SweaveSyntConv,utils,Convert Sweave Syntax
+tail,utils,Return the First or Last Part of an Object
+tail.matrix,utils,Return the First or Last Part of an Object
+tar,utils,Create a Tar Archive
+timestamp,utils,Load or Save or Display the Commands History
+toBibtex,utils,Converting R Objects to BibTeX or LaTeX
+toLatex,utils,Converting R Objects to BibTeX or LaTeX
+txtProgressBar,utils,Text Progress Bar
+type.convert,utils,Convert Data to Appropriate Type
+undebugcall,utils,Debug a Call
+unstack,utils,Stack or Unstack Vectors from a Data Frame or List
+untar,utils,Extract or List Tar Archives
+unzip,utils,Extract or List Zip Archives
+update.packages,utils,Compare Installed Packages with CRAN-like Repositories
+upgrade,utils,Package Management Tools
+url.show,utils,Display a Text URL
+URLdecode,utils,Encode or Decode a (partial) URL
+URLencode,utils,Encode or Decode a (partial) URL
+vi,utils,Invoke a Text Editor
+View,utils,Invoke a Data Viewer
+vignette,utils,View, List or Get R Source of Package Vignettes
+warnErrList,utils,Collect and Summarize Errors From List
+write.csv,utils,Data Output
+write.csv2,utils,Data Output
+write.socket,utils,Read from or Write to a Socket
+write.table,utils,Data Output
+xedit,utils,Invoke a Text Editor
+xemacs,utils,Invoke a Text Editor
+zip,utils,Create Zip Archives
+[.DNAbin,ape,Manipulate DNA Sequences in Bit-Level Format
+AAsubst,ape,Amino Acid Sequences
+abbreviateGenus,ape,Label Management
+ace,ape,Ancestral Character Estimation
+add.scale.bar,ape,Add a Scale Bar to a Phylogeny Plot
+additive,ape,Incomplete Distance Matrix Filling
+alex,ape,Alignment Explorer With Multiple Devices
+all.equal.DNAbin,ape,Compare DNA Sets
+all.equal.phylo,ape,Global Comparison of two Phylogenies
+alview,ape,Print DNA or AA Sequence Alignement
+arecompatible,ape,Check Compatibility of Splits
+as.AAbin,ape,Amino Acid Sequences
+as.AAbin.character,ape,Amino Acid Sequences
+as.alignment,ape,Conversion Among DNA Sequence Internal Formats
+as.bitsplits,ape,Split Frequencies and Conversion Among Split Classes
+as.bitsplits.prop.part,ape,Split Frequencies and Conversion Among Split Classes
+as.character.AAbin,ape,Amino Acid Sequences
+as.character.DNAbin,ape,Conversion Among DNA Sequence Internal Formats
+as.DNAbin,ape,Conversion Among DNA Sequence Internal Formats
+as.DNAbin.alignment,ape,Conversion Among DNA Sequence Internal Formats
+as.DNAbin.character,ape,Conversion Among DNA Sequence Internal Formats
+as.DNAbin.list,ape,Conversion Among DNA Sequence Internal Formats
+as.evonet,ape,Evolutionary Networks
+as.evonet.phylo,ape,Evolutionary Networks
+as.hclust.phylo,ape,Conversion Among Tree and Network Objects
+as.igraph.evonet,ape,Evolutionary Networks
+as.igraph.phylo,ape,Conversion Among Tree and Network Objects
+as.list.AAbin,ape,Amino Acid Sequences
+as.list.DNAbin,ape,Manipulate DNA Sequences in Bit-Level Format
+as.matching,ape,Conversion Between Phylo and Matching Objects
+as.matching.phylo,ape,Conversion Between Phylo and Matching Objects
+as.matrix.DNAbin,ape,Manipulate DNA Sequences in Bit-Level Format
+as.network.evonet,ape,Evolutionary Networks
+as.network.phylo,ape,Conversion Among Tree and Network Objects
+as.networx.evonet,ape,Evolutionary Networks
+as.phyDat.AAbin,ape,Amino Acid Sequences
+binaryPGLMM,ape,Phylogenetic Generalized Linear Mixed Model for Binary Data
+binaryPGLMM.sim,ape,Phylogenetic Generalized Linear Mixed Model for Binary Data
+bionj,ape,Tree Estimation Based on an Improved Version of the NJ Algorithm
+bionjs,ape,Tree Reconstruction from Incomplete Distances With NJ* or bio-NJ*
+biplot.pcoa,ape,Principal Coordinate Analysis
+birthdeath,ape,Estimation of Speciation and Extinction Rates With Birth-Death Models
+bitsplits,ape,Split Frequencies and Conversion Among Split Classes
+boot.phylo,ape,Tree Bipartition and Bootstrapping Phylogenies
+BOTHlabels,ape,Internal Ape Functions
+branching.times,ape,Branching Times of a Phylogenetic Tree
+bydir,ape,Tools to Explore Files
+c.DNAbin,ape,Manipulate DNA Sequences in Bit-Level Format
+CADM.global,ape,Congruence among distance matrices
+CADM.post,ape,Congruence among distance matrices
+cbind.DNAbin,ape,Manipulate DNA Sequences in Bit-Level Format
+checkAlignment,ape,Check DNA Alignments
+checkLabel,ape,Checking Labels
+checkValidPhylo,ape,Check the Structure of a "phylo" Object
+cherry,ape,Number of Cherries and Null Models of Trees
+chronoMPL,ape,Molecular Dating With Mean Path Lengths
+chronopl,ape,Molecular Dating With Penalized Likelihood
+circular.plot,ape,Internal Ape Functions
+cladewise,ape,Internal Reordering of Trees
+cladogram.plot,ape,Internal Ape Functions
+clustal,ape,Multiple Sequence Alignment with External Applications
+clustalomega,ape,Multiple Sequence Alignment with External Applications
+coalescent.intervals,ape,Coalescent Intervals
+collapse.singles,ape,Collapse Single Nodes
+collapsed.intervals,ape,Collapsed Coalescent Intervals
+compar.cheverud,ape,Cheverud's Comparative Method
+compar.gee,ape,Comparative Analysis with GEEs
+compar.lynch,ape,Lynch's Comparative Method
+compar.ou,ape,Ornstein-Uhlenbeck Model for Continuous Characters
+comparePhylo,ape,Compare Two "phylo" Objects
+compute.brtime,ape,Compute and Set Branching Times
+consensus,ape,Concensus Trees
+cophenetic.phylo,ape,Pairwise Distances from a Phylogenetic Tree
+cophyloplot,ape,Plots two phylogenetic trees face to face with links between the tips.
+corBlomberg,ape,Blomberg et al.'s Correlation Structure
+corBrownian,ape,Brownian Correlation Structure
+corGrafen,ape,Grafen's (1989) Correlation Structure
+corMartins,ape,Martins's (1997) Correlation Structure
+corPagel,ape,Pagel's "lambda" Correlation Structure
+corphylo,ape,Correlations among Multiple Traits with Phylogenetic Signal
+correlogram.formula,ape,Phylogenetic Correlogram
+countBipartitions,ape,Split Frequencies and Conversion Among Split Classes
+dbd,ape,Probability Density Under Birth-Death Models
+dbdTime,ape,Probability Density Under Birth-Death Models
+def,ape,Definition of Vectors for Plotting or Annotating
+del.colgapsonly,ape,Delete Alignment Gaps in DNA Sequences
+del.gaps,ape,Delete Alignment Gaps in DNA Sequences
+del.rowgapsonly,ape,Delete Alignment Gaps in DNA Sequences
+delta.plot,ape,Delta Plots
+deviance.ace,ape,Ancestral Character Estimation
+di2multi,ape,Collapse and Resolve Multichotomies
+di2multi.multiPhylo,ape,Collapse and Resolve Multichotomies
+di2multi.phylo,ape,Collapse and Resolve Multichotomies
+dist.aa,ape,Amino Acid Sequences
+dist.dna,ape,Pairwise Distances from DNA Sequences
+dist.gene,ape,Pairwise Distances from Genetic Data
+dist.nodes,ape,Pairwise Distances from a Phylogenetic Tree
+dist.topo,ape,Topological Distances Between Two Trees
+diversi.gof,ape,Tests of Constant Diversification Rates
+diversi.time,ape,Analysis of Diversification with Survival Models
+diversity.contrast.test,ape,Diversity Contrast Test
+DNAbin2indel,ape,Recode Blocks of Indels
+dnds,ape,dN/dS Ratio
+drawSupportOnEdges,ape,Extra Fuctions to Plot and Annotate Phylogenies
+drop.fossil,ape,Tree Simulation Under the Time-Dependent Birth-Death Models
+drop.tip,ape,Remove Tips in a Phylogenetic Tree
+dyule,ape,Probability Density Under Birth-Death Models
+edgelabels,ape,Labelling the Nodes, Tips, and Edges of a Tree
+edges,ape,Draw Additional Edges on a Plotted Tree
+editFileExtensions,ape,Tools to Explore Files
+estimate.dates,ape,node.dating
+estimate.mu,ape,node.dating
+evonet,ape,Evolutionary Networks
+ewLasso,ape,Incomplete distances and edge weights of unrooted topology
+extract.clade,ape,Remove Tips in a Phylogenetic Tree
+extract.popsize,ape,Reversible Jump MCMC to Infer Demographic History
+fancyarrows,ape,Draw Additional Edges on a Plotted Tree
+fastme.bal,ape,Tree Estimation Based on the Minimum Evolution Algorithm
+fastme.ols,ape,Tree Estimation Based on the Minimum Evolution Algorithm
+find.skyline.epsilon,ape,Skyline Plot Estimate of Effective Population Size
+floating.pie.asp,ape,Internal Ape Functions
+Ftab,ape,Base frequencies from DNA Sequences
+gammaStat,ape,Gamma-Statistic of Pybus and Harvey
+GC.content,ape,Base frequencies from DNA Sequences
+getAnnotationsGenBank,ape,Read Annotations from GenBank
+getMRCA,ape,Find Most Recent Common Ancestors Between Pairs
+has.singles,ape,Collapse Single Nodes
+howmanytrees,ape,Calculate Numbers of Phylogenetic Trees
+image.AAbin,ape,Amino Acid Sequences
+image.DNAbin,ape,Plot of DNA Sequence Alignement
+is.binary,ape,Test for Binary Tree
+is.binary.multiPhylo,ape,Test for Binary Tree
+is.binary.phylo,ape,Test for Binary Tree
+is.binary.tree,ape,Test for Binary Tree
+is.compatible,ape,Check Compatibility of Splits
+is.compatible.bitsplits,ape,Check Compatibility of Splits
+is.monophyletic,ape,Is Group Monophyletic
+is.rooted,ape,Roots Phylogenetic Trees
+is.rooted.multiPhylo,ape,Roots Phylogenetic Trees
+is.rooted.phylo,ape,Roots Phylogenetic Trees
+is.ultrametric,ape,Test if a Tree is Ultrametric
+is.ultrametric.multiPhylo,ape,Test if a Tree is Ultrametric
+is.ultrametric.phylo,ape,Test if a Tree is Ultrametric
+keep.tip,ape,Remove Tips in a Phylogenetic Tree
+kronoviz,ape,Plot Multiple Chronograms on the Same Scale
+label2table,ape,Label Management
+labels.DNAbin,ape,Manipulate DNA Sequences in Bit-Level Format
+ladderize,ape,Ladderize a Tree
+latag2n,ape,Leading and Trailing Alignment Gaps to N
+lmorigin,ape,Multiple regression through the origin
+LTT,ape,Theoretical Lineage-Through Time Plots
+ltt.coplot,ape,Lineages Through Time Plot
+ltt.lines,ape,Lineages Through Time Plot
+ltt.plot,ape,Lineages Through Time Plot
+ltt.plot.coords,ape,Lineages Through Time Plot
+makeChronosCalib,ape,Molecular Dating by Penalised Likelihood and Maximum Likelihood
+makeLabel,ape,Label Management
+makeLabel.character,ape,Label Management
+makeNodeLabel,ape,Makes Node Labels
+mantel.test,ape,Mantel Test for Similarity of Two Matrices
+matexpo,ape,Matrix Exponential
+mcconwaysims.test,ape,McConway-Sims Test of Homogeneous Diversification
+mcmc.popsize,ape,Reversible Jump MCMC to Infer Demographic History
+mixedFontLabel,ape,Mixed Font Labels for Plotting
+mltt.plot,ape,Lineages Through Time Plot
+Moran.I,ape,Moran's I Autocorrelation Index
+MPR,ape,Most Parsimonious Reconstruction
+mrca,ape,Find Most Recent Common Ancestors Between Pairs
+mst,ape,Minimum Spanning Tree
+multi2di,ape,Collapse and Resolve Multichotomies
+multi2di.multiPhylo,ape,Collapse and Resolve Multichotomies
+multi2di.phylo,ape,Collapse and Resolve Multichotomies
+muscle,ape,Multiple Sequence Alignment with External Applications
+mvr,ape,Minimum Variance Reduction
+mvrs,ape,Minimum Variance Reduction
+Nedge,ape,Print Summary of a Phylogeny
+Nedge.evonet,ape,Evolutionary Networks
+Nedge.multiPhylo,ape,Print Summary of a Phylogeny
+Nedge.phylo,ape,Print Summary of a Phylogeny
+new2old.phylo,ape,Conversion Among Tree and Network Objects
+nexus2DNAbin,ape,Read Character Data In NEXUS Format
+nj,ape,Neighbor-Joining Tree Estimation
+njs,ape,Tree Reconstruction from Incomplete Distances With NJ* or bio-NJ*
+Nnode,ape,Print Summary of a Phylogeny
+Nnode.multiPhylo,ape,Print Summary of a Phylogeny
+Nnode.phylo,ape,Print Summary of a Phylogeny
+node_depth,ape,Internal Ape Functions
+node_depth_edgelength,ape,Internal Ape Functions
+node_height,ape,Internal Ape Functions
+node_height_clado,ape,Internal Ape Functions
+node.depth,ape,Depth and Heights of Nodes and Tips
+node.depth.edgelength,ape,Depth and Heights of Nodes and Tips
+node.height,ape,Depth and Heights of Nodes and Tips
+nodelabels,ape,Labelling the Nodes, Tips, and Edges of a Tree
+nodepath,ape,Find Paths of Nodes
+Ntip,ape,Print Summary of a Phylogeny
+Ntip.multiPhylo,ape,Print Summary of a Phylogeny
+Ntip.phylo,ape,Print Summary of a Phylogeny
+old2new.phylo,ape,Conversion Among Tree and Network Objects
+ONEwise,ape,Internal Ape Functions
+parafit,ape,Test of host-parasite coevolution
+pcoa,ape,Principal Coordinate Analysis
+perm.rowscols,ape,Internal Ape Functions
+phydataplot,ape,Tree Annotation
+phylogram.plot,ape,Internal Ape Functions
+phymltest,ape,Fits a Bunch of Models with PhyML
+pic,ape,Phylogenetically Independent Contrasts
+pic.ortho,ape,Phylogenetically Independent Orthonormal Contrasts
+plot.evonet,ape,Evolutionary Networks
+plot.multiPhylo,ape,Plot Phylogenies
+plot.phylo,ape,Plot Phylogenies
+plotBreakLongEdges,ape,Extra Fuctions to Plot and Annotate Phylogenies
+plotPhyloCoor,ape,Internal Ape Functions
+plotTreeTime,ape,Plot Tree With Time Axis
+polar2rect,ape,Internal Ape Functions
+postorder,ape,Internal Reordering of Trees
+postprocess.prop.part,ape,Internal Ape Functions
+print.AAbin,ape,Amino Acid Sequences
+print.DNAbin,ape,Manipulate DNA Sequences in Bit-Level Format
+print.phylo,ape,Compact Display of a Phylogeny
+prop.clades,ape,Tree Bipartition and Bootstrapping Phylogenies
+prop.part,ape,Tree Bipartition and Bootstrapping Phylogenies
+rbdtree,ape,Tree Simulation Under the Time-Dependent Birth-Death Models
+rbind.DNAbin,ape,Manipulate DNA Sequences in Bit-Level Format
+rcoal,ape,Generates Random Trees
+rDNAbin,ape,Random DNA Sequences
+read.caic,ape,Read Tree File in CAIC Format
+read.dna,ape,Read DNA Sequences in a File
+read.evonet,ape,Evolutionary Networks
+read.FASTA,ape,Read DNA Sequences in a File
+read.fastq,ape,Read DNA Sequences in a File
+read.GenBank,ape,Read DNA Sequences from GenBank via Internet
+read.gff,ape,Read GFF Files
+read.nexus.data,ape,Read Character Data In NEXUS Format
+reconstruct,ape,Continuous Ancestral Character Estimation
+rect2polar,ape,Internal Ape Functions
+reorder.evonet,ape,Evolutionary Networks
+reorder.multiPhylo,ape,Internal Reordering of Trees
+reorder.phylo,ape,Internal Reordering of Trees
+reorderRcpp,ape,Internal Ape Functions
+richness.yule.test,ape,Test of Diversification-Shift With the Yule Process
+ring,ape,Tree Annotation
+rlineage,ape,Tree Simulation Under the Time-Dependent Birth-Death Models
+rmtree,ape,Generates Random Trees
+root,ape,Roots Phylogenetic Trees
+root.multiPhylo,ape,Roots Phylogenetic Trees
+root.phylo,ape,Roots Phylogenetic Trees
+rotate,ape,Swapping Sister Clades
+rotateConstr,ape,Swapping Sister Clades
+rphylo,ape,Tree Simulation Under the Time-Dependent Birth-Death Models
+rTraitCont,ape,Continuous Character Simulation
+rTraitDisc,ape,Discrete Character Simulation
+rTraitMult,ape,Multivariate Character Simulation
+rtree,ape,Generates Random Trees
+SDM,ape,Construction of Consensus Distance Matrix With SDM
+seg.sites,ape,Find Segregating Sites in DNA Sequences
+seq_root2tip,ape,Internal Ape Functions
+skyline,ape,Skyline Plot Estimate of Effective Population Size
+skylineplot,ape,Drawing Skyline Plot Graphs
+skylineplot.deluxe,ape,Drawing Skyline Plot Graphs
+slowinskiguyer.test,ape,Slowinski-Guyer Test of Homogeneous Diversification
+speciesTree,ape,Species Tree Estimation
+stree,ape,Generates Systematic Regular Trees
+stripLabel,ape,Label Management
+subtreeplot,ape,Zoom on a Portion of a Phylogeny by Successive Clicks
+subtrees,ape,All subtrees of a Phylogenetic Tree
+summary.phylo,ape,Print Summary of a Phylogeny
+tcoffee,ape,Multiple Sequence Alignment with External Applications
+tiplabels,ape,Labelling the Nodes, Tips, and Edges of a Tree
+trans,ape,Translation from DNA to Amino Acid Sequences
+treePop,ape,Tree Popping
+trex,ape,Tree Explorer With Multiple Devices
+triangMtd,ape,Tree Reconstruction Based on the Triangles Method
+triangMtds,ape,Tree Reconstruction Based on the Triangles Method
+ultrametric,ape,Incomplete Distance Matrix Filling
+unique.multiPhylo,ape,Revomes Duplicate Trees
+unroot,ape,Roots Phylogenetic Trees
+unroot.multiPhylo,ape,Roots Phylogenetic Trees
+unroot.phylo,ape,Roots Phylogenetic Trees
+unrooted.xy,ape,Internal Ape Functions
+updateLabel,ape,Update Labels
+varcomp,ape,Compute Variance Component Estimates
+varCompPhylip,ape,Variance Components with Orthonormal Contrasts
+vcv,ape,Phylogenetic Variance-covariance or Correlation Matrix
+vcv.corPhyl,ape,Phylogenetic Variance-covariance or Correlation Matrix
+vcv.phylo,ape,Phylogenetic Variance-covariance or Correlation Matrix
+vcv2phylo,ape,Variance-Covariance Matrix to Tree
+weight.taxo,ape,Define Similarity Matrix
+weight.taxo2,ape,Define Similarity Matrix
+where,ape,Find Patterns in DNA Sequences
+which.edge,ape,Identifies Edges of a Tree
+write.dna,ape,Write DNA Sequences in a File
+write.evonet,ape,Evolutionary Networks
+write.nexus,ape,Write Tree File in Nexus Format
+write.nexus.data,ape,Write Character Data in NEXUS Format
+write.tree,ape,Write Tree File in Parenthetic Format
+Xplor,ape,Tools to Explore Files
+Xplorefiles,ape,Tools to Explore Files
+yule,ape,Fits the Yule Model to a Phylogenetic Tree
+yule.cov,ape,Fits the Yule Model With Covariates
+yule.time,ape,Fits the Time-Dependent Yule Model
+zoom,ape,Zoom on a Portion of a Phylogeny
+entrez_citmatch,rentrez,Fetch pubmed ids matching specially formatted citation strings
+entrez_db_links,rentrez,List available links for records from a given NCBI database
+entrez_db_searchable,rentrez,List available search fields for a given database
+entrez_db_summary,rentrez,Retrieve summary information about an NCBI database
+entrez_dbs,rentrez,List databases available from the NCBI
+entrez_fetch,rentrez,Download data from NCBI databases
+entrez_global_query,rentrez,Find the number of records that match a given term across all NCBI
+entrez_info,rentrez,Get information about EUtils databases
+entrez_link,rentrez,Get links to datasets related to records from an NCBI database
+entrez_post,rentrez,Post IDs to Eutils for later use
+entrez_search,rentrez,Search the NCBI databases using EUtils
+entrez_summary,rentrez,Get summaries of objects in NCBI datasets from a unique ID
+extract_from_esummary,rentrez,Extract elements from a list of esummary records
+linkout_urls,rentrez,Extract URLs from an elink object
+parse_pubmed_xml,rentrez,Summarize an XML record from pubmed.
+set_entrez_key,rentrez,Set the ENTREZKEY variable to be used by all rentrez functions

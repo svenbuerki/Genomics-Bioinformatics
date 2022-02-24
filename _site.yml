@@ -15,5 +15,7 @@ navbar:
       href: Tutorials.html
     - text: "Lexicon"
       href: Lexicon.html
+    - text: "R functions"
+      href: R_Functions.html
     - text: "References"
       href: References.html
