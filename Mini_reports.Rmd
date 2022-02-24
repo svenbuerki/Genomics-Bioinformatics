@@ -336,7 +336,7 @@ The instructor provides guidance on content for each section of your individual 
 
 Individual reports should be submitted in either Google Docs, Word or Rmarkdown formats (and if you decide to submit an additional file containing your R script, submit this file as an `.R` format). These files should be uploaded on the shared Google Drive in the `Mini_Report_3` folder in a subfolder entitled as follows: `Mini_Report_3_Surname`.
 
-**Upload your reports on the shared Google drive by the 16th of March before 5 PM MT.** 
+**Upload your reports on the shared Google drive by the 18th of March before 5 PM MT.** 
 
 ## Structure and Schedule
 
