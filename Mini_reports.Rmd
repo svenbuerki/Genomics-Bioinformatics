@@ -1181,7 +1181,7 @@ Our analyses are divided into seven steps:
 ###~~~
 #1. Load Vanilla RAxML ITS tree
 ###~~~
-#Please adjust path based on your computer
+#Please adjust path based on your computer (= delete "Data/")
 ITS <- ape::read.tree(file="Data/04_Data_analyses/Phylogenetic_analyses/result_raxml_45818/result.raxml.support")
 
 ###~~~
@@ -1254,6 +1254,7 @@ ape::tiplabels(tip = grep("^PE", VanITS$tip.label), pch = 16, col = "red", offse
 #7. Export tree from step 6 in pdf format 
 ###~~~
 #Use the pdf function to create pdf
+# Adjust path for your computer (= delete "Data/")
 pdf("Data/04_Data_analyses/Phylogenetic_analyses/result_raxml_45818/VanSubTree.pdf")
 #Plot tree in radial mode
 ape::plot.phylo(VanITS, cex = .4, use.edge.length = F, tip.color = tipcolVan, type = "radial", label.offset = 0.04, no.margin = TRUE)

@@ -18,3 +18,7 @@ for(i in 1:length(pkg)){
 }
 #Export Table as CSV
 write.csv(OUT, file = "Data/R_functions_Table.csv", row.names = F, quote = F)
+
+#EXTRACT function structure
+#x <- capture.output(args(substr), split=T)
+#x[1]
