@@ -40,6 +40,9 @@ The table below contains details on R functions used in this course. Please use 
 ###~~~
 Rdat <- read.csv("Data/R_functions_Table.csv") 
 rownames(Rdat) <- NULL
+
+#Rm empty detinitions
+Rdat <- Rdat[-which(Rdat$Definition == ""),]
 ###~~~
 #Produce final table
 ###~~~
