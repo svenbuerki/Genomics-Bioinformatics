@@ -387,4 +387,115 @@ knitr::include_graphics("Images/GC_content_hist.png")
 
 > To your knowledge, based on data presented in Figure \@ref(fig:GC), is the SRR5759389 library contaminated with alien DNA?
 
+#### Mapping reads against reference genomes
+
+Here we aim at assessing the proportions of reads in the clean library belonging to either nuclear or chloroplast genomes by mapping our clean reads against two reference genomes using `bwa` [@bwa2009] and `samtools` [@samtools2009].  Data are available in `Map_reads/`.
+
+##### Mapping reads against the nuclear genome
+
+The nuclear genome of *Apostasia shenzhenica* published by @Zhang2017 is not listed in the NCBI database as "Genome", but rather as "Assembly". Please see Figure \@ref(fig:NuclearNCBI) for more details on the genome. This file (a compressed FASTA) is already available in your folder, but you could download it as follows:
+
+```{bash, echo=T, eval=F}
+#Get Fasta files for genomes of reference
+#PEFY01 nuclear genome of Apostasia 
+wget ftp://ftp.ncbi.nlm.nih.gov/sra/wgs_aux/PE/FY/PEFY01/PEFY01.1.fsa_nt.gz
+```
+
+```{r NuclearNCBI, echo=FALSE, fig.align="center", fig.cap="Screen shot of the NCBI website showing details about the accession containing the nuclear genome assembly of *Apostasia shenzhenica* under the accession PEFY01.", fig.show="asis", out.width = '100%'}
+knitr::include_graphics("Images/Nuclear_genome_assembly.png")
+```
+
+Please go through the commands below to map your clean reads against the reference nuclear genome assembly:
+
+```{bash eval=F, echo=T}
+#Mapping clean reads against reference genome using bwa and converting into human readable format using samtools
+
+#Before starting, you have to create an index for your reference genome to allow efficient mapping
+bwa index -a bwtsw PEFY01.1.fsa_nt.gz
+bwa mem -t 20 PEFY01.1.fsa_nt.gz ~/Documents/Kmers_analyses/khmer/SRR5759389_pe12.max100.trimmed.norare.noshort.fastq | samtools view -buS - | samtools sort - -o PEFY01_map_pe.sorted.bam 
+samtools index PEFY01_map_pe.sorted.bam
+```
+
+We will be devoting time to decipher these commands during our Lab sessions. For now, here is a short description of `bwa` from the [manual](http://bio-bwa.sourceforge.net/bwa.shtml):
+
+> BWA is a software package for mapping low-divergent sequences against a large reference genome, such as the human genome. It consists of three algorithms: BWA-backtrack, BWA-SW and BWA-MEM. The first algorithm is designed for Illumina sequence reads up to 100bp, while the rest two for longer sequences ranged from 70bp to 1Mbp. BWA-MEM and BWA-SW share similar features such as long-read support and split alignment, but BWA-MEM, which is the latest, is generally recommended for high-quality queries as it is faster and more accurate. BWA-MEM also has better performance than BWA-backtrack for 70-100bp Illumina reads.
+
+##### Mapping reads against the chloroplast genome
+
+The chloroplast genome of *Apostasia shenzhenica* was not published. To assess the proportion of chloroplastic reads in our Illumina cleaned reads, we will use the chloroplast genome of a sister species, *A. wallichii [@Niu2017], which is available on the NCBI website under the accession number `LC199394`. This file (in FASTA) is already available in your folder and you do not have to download it.
+
+Please execute the commands below to map the clean reads against the reference chloroplast genome of the sister species: 
+
+```{bash eval= F, echo=T}
+#Mapping reads against the chloropolast genome of a sister species
+# following the same approach as with the nuclear genome
+bwa index -a bwtsw LC199394.fasta
+bwa mem -t 20 LC199394.fasta ~/Documents/Kmers_analyses/khmer/	SRR5759389_pe12.max100.trimmed.norare.noshort.fastq | samtools view -buS - | 
+	samtools sort - -o LC199394_map_pe.sorted.bam
+samtools index LC199394_map_pe.sorted.bam
+```
+
+##### Counting reads belonging to either nuclear or plastid genomes
+
+We have now all the information at hand to count how many reads are matching with either nuclear or chloroplast genomes (and infer proportions). Remember that it is just a very preliminary assessment, which aims at assessing the quality of the library and its suitability for *de novo* genome assembly.
+
+To reach this goal, we will start by counting the total number of cleaned reads using `count_fastq.sh` as follows:
+
+```{bash eval=F, echo=T}
+#Count the tot. number of clean reads
+./count_fastq.sh ~/Documents/Kmers_analyses/khmer/SRR5759389_pe12.max100.trimmed.norare.noshort.fastq
+```
+
+Now, we will use `samtools` to count how many unique reads mapped the reference genomes:
+
+```{bash echo=T, eval=F}
+#How many unique reads mapped the nuclear genome
+samtools view -F 0x904 -c PEFY01_map_pe.sorted.bam
+
+#How many unique reads mapped the chloroplast genome
+samtools view -F 0x904 -c LC199394_map_pe.sorted.bam
+```
+
+##### Question
+
+> What are the proportions of nuclear and chloroplast reads in your library as well as potential contaminants?
+
+> Based on your previous answer, is this library suitable to assemble the nuclear genome of *Apostasia shenzhenica*? 
+
+### Step 5
+
+
+## PART 2
+
+### Objective
+
+The overarching objective of PART 2 is to gain theoretical and bioinformatics knowledge on the steps required to **perform a *de novo* genome assembly based on cleaned Illumina reads**. The procedure applied to assess and validate the quality of the genome assembly will also be covered in PART 3. 
+
+### Presenting the data and their location {#dataPART2}
+
+PART 2 will be using the output files of the PART 1 [reads cleaning step](#Step3), which are deposited in `~/Documents/Kmers_analyses/khmer/` and named as follows:
+
+- `SRR5759389.pe1.clean.fastq`
+- `SRR5759389.pe2.clean.fastq`
+
+### Analytical workflow
+
+To achieve our overarching objective, our next classes will be divided into two steps:
+
+- **Step 1:** Set-up and perform a *de novo* genome assembly based on cleaned paired-end (PE) Illumina reads using `SOAPdenovo2` [@Luo2012].
+- **Step 2:** Provide theoretical knowledge on *de novo* genome assembly methods by focusing on de Bruijn graphs.
+
+### Step 1
+
+#### Specific objective
+
+Here, students will be learning the procedure to set-up and perform a *de novo* genome assembly using cleaned PE Illumina reads as implemented in `SOAPdenovo2` [@Luo2012]. The analysis will be conducted on the output files obtained after cleaning reads based on Phred scores and k-mer distributions (see section \@ref(dataPART2) for more details on the input files).
+
+`SOAPdenovo2` is the updated version of the program that was used by @Li2009 to assemble the nuclear genome of the giant panda. The draft nuclear genome of *Apostasia shenzhenica* was not inferred with this latter program, but with `ALLPATHS-LG` [@Gnerre1513]. The draft assembly was obtained based on multiple Illumina short-reads libraries exhibiting different insert-sizes [see @Zhang2017]. The authors have conducted a final round of gap closures to polish their assembly based on PacBio long-reads. It will therefore be interesting to compare our assembly based on one Illumina library with the one obtained by @Zhang2017 inferred uisng a combination of short and long read data. Further information justifying using `SOAPdenovo2` instead of `ALLPATHS-LG` are provided below. 
+
+#### Background on `SOAPdenovo2`
+
+`SOAPdenovo2` [@Luo2012] is a short-read genome assembler, which was especially developed to handle Illumina reads and to build `de novo` draft assemblies for human-sized genomes. This program creates new opportunities for building reference sequences and carrying out accurate analyses of unexplored genomes in a cost effective way. As stated above, `SOAPdenovo2` aims for large eukaryote genomes, but it also works well on bacteria and fungi genomes. It runs on 64-bit Linux system with a minimum of 5GB of physical memory. For big genomes like human (3.2Gbp), about 150GB of memory are required. 
+
+In our case, we have estimated the haploid genome size of *Apostasia shenzhenica* to be around 340Mbp in our previous tutorial. This latter evidence therefore suggests that \verb|SOAPdenovo2| is adapted to assemble a draft genome for this species of orchid. 
 # References
