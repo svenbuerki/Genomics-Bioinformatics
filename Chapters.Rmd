@@ -238,7 +238,7 @@ The SRA format (containing raw NGS data) can be quite difficult to play with. He
 
 ** --- !!! DON'T EXECUTE THIS CODE !!! --- ** 
 
-> The command to download the SRA file is available below, but please don't execute it since the file weighs 10.5GB (Figure \@ref(fig:SRA)) and it takes a LONG time to download.
+> The command to download the SRA file is available below, but please don't execute it since the file weighs >35GB and it takes a LONG time to download.
 
 Before starting, open a Terminal and navigate to the `/home/Genomics_shared/Chapter_04/01_SRA` folder using the `cd` command. This folder contains the `SRA` file (`SRR5759389_pe12.fastq`) that we will be using in this tutorial. You could download it by executing the following command:
 
