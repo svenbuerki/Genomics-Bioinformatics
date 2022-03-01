@@ -379,7 +379,7 @@ Here we infer GC contents for all clean reads using the perl script `GC_content.
 seqtk seq -a ~/Documents/02_Kmers_analyses/khmer/	 SRR5759389_pe12.max100.trimmed.norare.noshort.fastq > SRR5759389_pe12.max100.trimmed.norare.noshort.fasta
 ```
 
-**PLEASE DON'T EXECUTE THE COMMAND BELOW!** It takes few hours to calculate reads GC contents. Use the output of this command `gc_out.txt` (weighing ca. 5GB), which is available in the `GC_content/` folder to carry on our analyses. 
+**PLEASE DON'T EXECUTE THE 2 COMMANDS BELOW!** It takes few hours to calculate reads GC contents. Use the output of this command `gc_out.txt` (weighing ca. 5GB), which is available in the `GC_content/` folder to carry on our analyses. 
 
 ```{bash, eval = F}
 #Infer GC content using fasta file as input (this can take a long time)

@@ -779,7 +779,7 @@ mv SRR5759389_pe12.max100.trimmed.norare.noshort.fastq.2 SRR5759389.pe2.clean.fa
 <p>Here we infer GC contents for all clean reads using the perl script <code>GC_content.pl</code>. This script requires reads to be in <code>fasta</code> format. We will then start by converting our <code>fastq</code> file into <code>fasta</code> by using <code>seqtk</code>. Data are available in the <code>GC_content/</code> folder. Please see below for the commands to be executed:</p>
 <pre class="bash"><code>#Convert fastq to fasta
 seqtk seq -a ~/Documents/02_Kmers_analyses/khmer/    SRR5759389_pe12.max100.trimmed.norare.noshort.fastq &gt; SRR5759389_pe12.max100.trimmed.norare.noshort.fasta</code></pre>
-<p><strong>PLEASE DON’T EXECUTE THE COMMAND BELOW!</strong> It takes few hours to calculate reads GC contents. Use the output of this command <code>gc_out.txt</code> (weighing ca. 5GB), which is available in the <code>GC_content/</code> folder to carry on our analyses.</p>
+<p><strong>PLEASE DON’T EXECUTE THE 2 COMMANDS BELOW!</strong> It takes few hours to calculate reads GC contents. Use the output of this command <code>gc_out.txt</code> (weighing ca. 5GB), which is available in the <code>GC_content/</code> folder to carry on our analyses.</p>
 <pre class="bash"><code>#Infer GC content using fasta file as input (this can take a long time)
 ./GC_content.pl SRR5759389_pe12.max100.trimmed.norare.noshort.fasta &gt; gc_out.txt</code></pre>
 <p>The next command extracts the column containing the GC content per read. Since the file is very big, we use the BASH command <code>awk</code> to extract this information instead of <code>R</code>.</p>
