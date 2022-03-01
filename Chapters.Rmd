@@ -129,15 +129,22 @@ More details on this assignment is available [here](https://svenbuerki.github.io
 
 In this chapter, we aim at training students in producing a draft nuclear genome for a non-model organism using Illumina data.
 
-The whole-genome shotgun (WGS) sequencing dataset published by @Zhang2017 on the orchid species *Apostasia shenzhenica* is used as case-study. This dataset provides an opportunity to gain firsthand experience in analyzing NGS data. @Zhang2017 have also produced RNA-Seq data, which were used in their study to support genome annotation.
+The whole-genome shotgun (WGS) sequencing dataset published by @Zhang2017 on the orchid species *Apostasia shenzhenica* is used as case-study. This dataset provides an opportunity to gain firsthand experience in analyzing NGS data. @Zhang2017 have also produced RNA-Seq data, which were used in their study to support genome annotation. @Zhang2017 is available in our shared [Google Drive](https://drive.google.com/file/d/1S1FWnEmxBC3_Ghl40S5GhcTVecQ2X4qd/view?usp=sharing).
 
 The chapter is subdivided into three parts:
 
-- **PART 1:** Preparing/cleaning Illumina reads for *de novo* nuclear genome assembly and inferring genome size and complexity.
-- **PART 2:** *De novo* genome assembly.
+- [**PART 1:**](#PART1) Preparing/cleaning Illumina reads for *de novo* nuclear genome assembly and inferring genome size and complexity.
+- [**PART 2:**](#PART2) *De novo* genome assembly.
 - **PART 3:** Validation of draft genome. 
 
 Before you start working on Chapter 4, please make sure that you have completed the tutorials available [here](Tutorials.html).
+
+## Download presentations
+
+The two presentations (in `pdf` format) associated to material presented in Chapter 4 can be downloaded here:
+
+- <a href="Lectures/Chapter_04_Spring2022.pdf" target="_blank">Overview of *de novo* genome assembly procedure</a>.
+- <a href="Lectures/Chapter_04_Orchid_Genome_presentation.pdf" target="_blank">Presentation of orchid dataset,  sequencing approach and results</a>.
 
 ## Presenting the NGS data
 
@@ -155,7 +162,7 @@ knitr::include_graphics("Images/SRR5759389_details.png")
 
 As you go along this document and perform analyses, please COPY ALL COMMAND LINES into an `.Rmd` document saved in a folder entitled `Report/` (create this folder in your working directory; see below). Remember to comment your script (using \#s). This will greatly help you in repeating your analyses or using parts of your code to create new scripts. Enjoy scripting!
 
-## PART 1
+## PART 1 {#PART1}
 
 ### Analytical workflow
 
@@ -530,7 +537,7 @@ The output of `GenomeScope` is displayed in Figure \@ref(fig:GenScope2). The pro
 knitr::include_graphics("Images/genomescope1.png")
 ```
 
-## PART 2
+## PART 2 {#PART2}
 
 ### Objective
 
