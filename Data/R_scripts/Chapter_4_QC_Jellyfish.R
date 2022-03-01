@@ -1,7 +1,8 @@
+## ---- JellyFishR --------
 #1. Load the output of Jellyfish in R
 Clean <- read.table('Orchid_21mer_SRR5759389_pe12_max100.trimmed.norare.histo')
 
-#2. Execute this home-made function to infer genome size and plot k-mer distribution
+#2. Execute this user defined function to infer genome size and plot k-mer distribution
 #A function to infer genome size (1C or haploid) on jellyfish output
 #input - hist = table containing output of Jellyfish (hist file)
 #         - plotKmers if "TRUE" outputs a graph
