@@ -162,6 +162,16 @@ knitr::include_graphics("Images/SRR5759389_details.png")
 
 As you go along this document and perform analyses, please COPY ALL COMMAND LINES into an `.Rmd` document saved in a folder entitled `Report/` (create this folder in your working directory; see below). Remember to comment your script (using \#s). This will greatly help you in repeating your analyses or using parts of your code to create new scripts. Enjoy scripting!
 
+## Files location
+
+Files for this chapter are deposited on each group Linux computer under the following path, which is shared between all the users on the computer: `/home/Genomics_shared/Chapter_04/`.
+
+There are three folders in this project:
+
+- `01_SRA/`: This folder contains the `SRA` file (`SRR5759389_pe12.fastq`) downloaded from the `SRA` database. This file is very large, >35GB!
+- `02_Kmers_analyses/`: This folder contains the structure that will be used for this tutorial. Each student will have to copy this folder onto the account prior to starting the analyses.
+- `03_Output_files/`: This folder contains all the outputs files. Students can look at these files to help solve potential coding issues.
+
 ## PART 1 {#PART1}
 
 ### Analytical workflow
@@ -186,9 +196,23 @@ The five main steps associated to the objectives of PART 1 are as follows (see F
 knitr::include_graphics("Images/Cleaning_reads.png")
 ```
 
-### Location of the data on Linux computers
+### Getting ready!
 
-A folder entitled `Kmers_analyses/` (deposited onto your `bioinformatics` sessions) is located in `Documents/` and contains all the required files and programs to conduct the analyses. The instructor encourages you to explore the content of this folder using the UNIX command `ls -al`. Within each folder associated with each major step of this tutorial, there is a folder entitled `output/` containing the output files of the analyses. This is a back-up plan in case you have some troubles with the analyses or are running out of time. Finally, in the tutorial, the instructor will only refer to the name of the folder containing information about the analyses and not provide their full paths. 
+Before starting coding, each student has to copy the `02_Kmers_analyses/` folder located in `/home/Genomics_shared/Chapter_04` in their `~/Documents/` folder.
+
+To do that, please execute the following commands in a `Terminal` window:
+```{bash eval=F, echo=T}
+#Navigate to /home/Genomics_shared/Chapter_04
+cd /home/Genomics_shared/Chapter_04
+
+#Copy all files in 02_Kmers_analyses/ in ~/Documents/
+cp -r 02_Kmers_analyses/ ~/Documents/
+
+#Navigate to ~/Documents/02_Kmers_analyses/ to start the analyses
+cd ~/Documents/02_Kmers_analyses/
+```
+
+The instructor encourages you to explore the content of `02_Kmers_analyses/` using the UNIX command `ls -al`. In the tutorial, the instructor will only refer to the name of the folder containing information about the analyses and not provide their full paths. 
 
 ### Bioinformatic tools
 
@@ -212,25 +236,27 @@ The `R` software is also used in steps 4 and 5. You can find more details on thi
 
 The SRA format (containing raw NGS data) can be quite difficult to play with. Here, we aim at downloading the WGS data, split PE reads, but store both reads (R1 and R2) in the same file using the interleaved format (Figure \@ref(fig:part1workflow)). This format is very convenient and is the entry point for most reads cleaning programs. This task can be done by using `fastq-dump` from the [SRA Toolkit](https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=software).
 
-Before starting, open a Terminal and navigate to the `SRA/` folder using the `cd` command. Once there, execute the following command:
+** --- !!! DON'T EXECUTE THIS CODE !!! --- ** 
+
+> The command to download the SRA file is available below, but please don't execute it since the file weighs 10.5GB (Figure \@ref(fig:SRA)) and it takes a LONG time to download.
+
+Before starting, open a Terminal and navigate to the `/home/Genomics_shared/Chapter_04/01_SRA` folder using the `cd` command. This folder contains the `SRA` file (`SRR5759389_pe12.fastq`) that we will be using in this tutorial. You could download it by executing the following command:
 
 ```{bash eval = F}
 #Download PE reads (properly edited) in interleave format using SRA Toolkit
 fastq-dump --split-files --defline-seq '@$ac.$si.$sg/$ri' --defline-qual '+' -Z SRR5759389 	> SRR5759389_pe12.fastq
 ```
 
-Downloading the file can take a while!
-
 ### Step 2: Reads QCs {#Step2}
 
-The program `FastQC` is used to obtain preliminary information about the Illumina library (see Figure \@ref(fig:SRA)). To run this program navigate to the `FastQC/` folder uisng `cd` and execute the following command:
+The program `FastQC` is used to obtain preliminary information about the Illumina library (see Figure \@ref(fig:SRA)). To run this program navigate to the `FastQC/` folder using `cd` and execute the following command:
 
 ```{bash eval = F}
 #Reads QCs with FastQC 
-./fastqc -o ~/Documents/Kmers_analyses/FastQC/ ~/Documents/Kmers_analyses/SRA/SRR5759389_pe12.fastq
+./FastQC_program/fastqc -o ~/Documents/02_Kmers_analyses/FastQC/ /home/Genomics_shared/Chapter_04/01_SRA/SRR5759389_pe12.fastq 
 ```
 
-Please inspect the `SRR5759389_pe12_fastqc.html` output file. We will have a group discussion to inspect this file and draw general conclusions on the quality of the raw data. This step will have to be repeated after completion of the step3 (reads cleaning) to confirm that our reads trimming and cleaning procedure was successful. 
+This analysis generates the `SRR5759389_pe12_fastqc.html` output file. We will have a group discussion to inspect this file and draw general conclusions on the quality of the raw data. This step will have to be repeated after completion of the step3 (reads cleaning) to confirm that our reads trimming and cleaning procedure was successful. To inspect this file click [here](Data/SRR5759389_pe12_fastqc.html).
 
 ### Step 3: Reads cleaning {#Step3}
 
@@ -291,7 +317,7 @@ Let's start the cleaning of our interleaved PE reads by trimming reads using Phr
 
 ```{bash, eval = F}
 #Trim reads based on Phred scores (default of 33)
-seqtk trimfq ~/Documents/Kmers_analyses/SRA/SRR5759389_pe12.fastq > SRR5759389_pe12.trimmed.fastq
+seqtk trimfq /home/Genomics_shared/Chapter_04/01_SRA/SRR5759389_pe12.fastq > SRR5759389_pe12.trimmed.fastq
 ```
 
 Using Phred scores to clean our data is not going to deal with PCR errors and potential effects of high repeated DNA sequences on the *de novo* assembly. Below, we will use information on k-mer distributions to address these issues and clean our dataset accordingly.
@@ -323,7 +349,7 @@ seqtk seq -q 10 -N -L 80 SRR5759389_pe12.max100.trimmed.norare.fastq | seqtk dro
 
 #### Prepare data for  *de novo* genome assembly
 
-In this last section, our cleaned reads are prepared for the *de novo* genome assembly analysis conducted in `SOAPdenovo2` [@Luo2012] (done in PART 2). This is achieved by using `khmer` and renaming files using `mv` as follows:
+In this last section, our cleaned reads are prepared for the *de novo* genome assembly analysis conducted in `SOAPdenovo2` [@Luo2012] (done in [PART 2](#PART2)). This is achieved by using `khmer` and renaming files using `mv` as follows:
 
 ```{bash, eval = F}
 #De-interleave filtered reads (to be ready for de novo assembly in SOAPdenovo2)
@@ -350,10 +376,10 @@ Here we infer GC contents for all clean reads using the perl script `GC_content.
 
 ```{bash, eval = F}
 #Convert fastq to fasta
-seqtk seq -a ~/Documents/Kmers_analyses/khmer/	 SRR5759389_pe12.max100.trimmed.norare.noshort.fastq > SRR5759389_pe12.max100.trimmed.norare.noshort.fasta
+seqtk seq -a ~/Documents/02_Kmers_analyses/khmer/	 SRR5759389_pe12.max100.trimmed.norare.noshort.fastq > SRR5759389_pe12.max100.trimmed.norare.noshort.fasta
 ```
 
-**PLEASE DON'T EXECUTE THE COMMAND BELOW!** It takes few hours to calculate reads GC contents. Use the output of this command `gc_out.txt`, which is available in the `GC_content/` folder to carry on our analyses. 
+**PLEASE DON'T EXECUTE THE COMMAND BELOW!** It takes few hours to calculate reads GC contents. Use the output of this command `gc_out.txt` (weighing ca. 5GB), which is available in the `GC_content/` folder to carry on our analyses. 
 
 ```{bash, eval = F}
 #Infer GC content using fasta file as input (this can take a long time)
@@ -419,7 +445,7 @@ Please go through the commands below to map your clean reads against the referen
 
 #Before starting, you have to create an index for your reference genome to allow efficient mapping
 bwa index -a bwtsw PEFY01.1.fsa_nt.gz
-bwa mem -t 20 PEFY01.1.fsa_nt.gz ~/Documents/Kmers_analyses/khmer/SRR5759389_pe12.max100.trimmed.norare.noshort.fastq | samtools view -buS - | samtools sort - -o PEFY01_map_pe.sorted.bam 
+bwa mem -t 20 PEFY01.1.fsa_nt.gz ~/Documents/02_Kmers_analyses/khmer/SRR5759389_pe12.max100.trimmed.norare.noshort.fastq | samtools view -buS - | samtools sort - -o PEFY01_map_pe.sorted.bam 
 samtools index PEFY01_map_pe.sorted.bam
 ```
 
@@ -437,7 +463,7 @@ Please execute the commands below to map the clean reads against the reference c
 #Mapping reads against the chloropolast genome of a sister species
 # following the same approach as with the nuclear genome
 bwa index -a bwtsw LC199394.fasta
-bwa mem -t 20 LC199394.fasta ~/Documents/Kmers_analyses/khmer/	SRR5759389_pe12.max100.trimmed.norare.noshort.fastq | samtools view -buS - | 
+bwa mem -t 20 LC199394.fasta ~/Documents/02_Kmers_analyses/khmer/	SRR5759389_pe12.max100.trimmed.norare.noshort.fastq | samtools view -buS - | 
 	samtools sort - -o LC199394_map_pe.sorted.bam
 samtools index LC199394_map_pe.sorted.bam
 ```
@@ -450,7 +476,7 @@ To reach this goal, we will start by counting the total number of cleaned reads 
 
 ```{bash eval=F, echo=T}
 #Count the tot. number of clean reads
-./count_fastq.sh ~/Documents/Kmers_analyses/khmer/SRR5759389_pe12.max100.trimmed.norare.noshort.fastq
+./count_fastq.sh ~/Documents/02_Kmers_analyses/khmer/SRR5759389_pe12.max100.trimmed.norare.noshort.fastq
 ```
 
 Now, we will use `samtools` to count how many unique reads mapped the reference genomes:
@@ -479,7 +505,7 @@ Here, we are using `JELLYFISH` to generate countings of 21-mers based on the cle
 
 ```{bash eval=F, echo=T}
  #Run jellyfish to obtain k-mer counts and frequencies (based on trimmed, normalized and filtered reads)
-jellyfish count -t 30 -C -m 21 -s 5G -o 	Orchid_21mer_SRR5759389_pe12_max100.trimmed.norare ~/Documents/Kmers_analyses/khmer/SRR5759389_pe12.max100.trimmed.norare.noshort.fastq
+jellyfish count -t 30 -C -m 21 -s 5G -o 	Orchid_21mer_SRR5759389_pe12_max100.trimmed.norare ~/Documents/02_Kmers_analyses/khmer/SRR5759389_pe12.max100.trimmed.norare.noshort.fastq
 
 jellyfish histo -o Orchid_21mer_SRR5759389_pe12_max100.trimmed.norare.histo Orchid_21mer_SRR5759389_pe12_max100.trimmed.norare
 ```
@@ -505,9 +531,6 @@ See https://bookdown.org/yihui/rmarkdown-cookbook/read-chunk.html
 -->
 ```{r, JellyFishR, echo=T, eval=F}
 ```
-
-
-
 
 ##### Questions
 

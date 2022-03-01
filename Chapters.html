@@ -584,10 +584,20 @@ Figure 6.1: Details on the WGS library (SRA accession number: SRR5759389) used i
 <h2><span class="header-section-number">6.4</span> Write your own scripts</h2>
 <p>As you go along this document and perform analyses, please COPY ALL COMMAND LINES into an <code>.Rmd</code> document saved in a folder entitled <code>Report/</code> (create this folder in your working directory; see below). Remember to comment your script (using #s). This will greatly help you in repeating your analyses or using parts of your code to create new scripts. Enjoy scripting!</p>
 </div>
-<div id="PART1" class="section level2" number="6.5">
-<h2><span class="header-section-number">6.5</span> PART 1</h2>
-<div id="analytical-workflow" class="section level3" number="6.5.1">
-<h3><span class="header-section-number">6.5.1</span> Analytical workflow</h3>
+<div id="files-location" class="section level2" number="6.5">
+<h2><span class="header-section-number">6.5</span> Files location</h2>
+<p>Files for this chapter are deposited on each group Linux computer under the following path, which is shared between all the users on the computer: <code>/home/Genomics_shared/Chapter_04/</code>.</p>
+<p>There are three folders in this project:</p>
+<ul>
+<li><code>01_SRA/</code>: This folder contains the <code>SRA</code> file (<code>SRR5759389_pe12.fastq</code>) downloaded from the <code>SRA</code> database. This file is very large, &gt;35GB!</li>
+<li><code>02_Kmers_analyses/</code>: This folder contains the structure that will be used for this tutorial. Each student will have to copy this folder onto the account prior to starting the analyses.</li>
+<li><code>03_Output_files/</code>: This folder contains all the outputs files. Students can look at these files to help solve potential coding issues.</li>
+</ul>
+</div>
+<div id="PART1" class="section level2" number="6.6">
+<h2><span class="header-section-number">6.6</span> PART 1</h2>
+<div id="analytical-workflow" class="section level3" number="6.6.1">
+<h3><span class="header-section-number">6.6.1</span> Analytical workflow</h3>
 <p>The overarching objective of this tutorial is to gain theoretical and bioinformatics knowledge on the steps required to prepare PE Illumina reads for <em>de novo</em> nuclear genome assembly as well as infer genome size and complexity (see Figure <a href="#fig:part1">6.2</a>).</p>
 <div class="figure" style="text-align: center"><span id="fig:part1"></span>
 <img src="Images/Chapter_4_Part1_steps_covered.png" alt="Workflow applied to assemble and annotate a genome for non-model organisms. Steps associated to PART 1 are highlighted in grey." width="80%" />
@@ -614,12 +624,22 @@ Figure 6.3: Overview of the analytical workflow applied here to prepare/clean Il
 </p>
 </div>
 </div>
-<div id="location-of-the-data-on-linux-computers" class="section level3" number="6.5.2">
-<h3><span class="header-section-number">6.5.2</span> Location of the data on Linux computers</h3>
-<p>A folder entitled <code>Kmers_analyses/</code> (deposited onto your <code>bioinformatics</code> sessions) is located in <code>Documents/</code> and contains all the required files and programs to conduct the analyses. The instructor encourages you to explore the content of this folder using the UNIX command <code>ls -al</code>. Within each folder associated with each major step of this tutorial, there is a folder entitled <code>output/</code> containing the output files of the analyses. This is a back-up plan in case you have some troubles with the analyses or are running out of time. Finally, in the tutorial, the instructor will only refer to the name of the folder containing information about the analyses and not provide their full paths.</p>
+<div id="getting-ready" class="section level3" number="6.6.2">
+<h3><span class="header-section-number">6.6.2</span> Getting ready!</h3>
+<p>Before starting coding, each student has to copy the <code>02_Kmers_analyses/</code> folder located in <code>/home/Genomics_shared/Chapter_04</code> in their <code>~/Documents/</code> folder.</p>
+<p>To do that, please execute the following commands in a <code>Terminal</code> window:</p>
+<pre class="bash"><code>#Navigate to /home/Genomics_shared/Chapter_04
+cd /home/Genomics_shared/Chapter_04
+
+#Copy all files in 02_Kmers_analyses/ in ~/Documents/
+cp -r 02_Kmers_analyses/ ~/Documents/
+
+#Navigate to ~/Documents/02_Kmers_analyses/ to start the analyses
+cd ~/Documents/02_Kmers_analyses/</code></pre>
+<p>The instructor encourages you to explore the content of <code>02_Kmers_analyses/</code> using the UNIX command <code>ls -al</code>. In the tutorial, the instructor will only refer to the name of the folder containing information about the analyses and not provide their full paths.</p>
 </div>
-<div id="bioinformatic-tools" class="section level3" number="6.5.3">
-<h3><span class="header-section-number">6.5.3</span> Bioinformatic tools</h3>
+<div id="bioinformatic-tools" class="section level3" number="6.6.3">
+<h3><span class="header-section-number">6.6.3</span> Bioinformatic tools</h3>
 <p>Although all the bioinformatic tools (software) necessary to complete this tutorial are already installed on your Linux computers, URLs to their repositories (incl. documentations) are provided below together with details on their publications (when available). Software are sorted by steps in our analytical workflow (see Figure <a href="#fig:part1workflow">6.3</a>):</p>
 <ul>
 <li><strong>Step 1:</strong> <code>fastq-dump</code>: <a href="https://www.ncbi.nlm.nih.gov/sra/docs/toolkitsoft/" class="uri">https://www.ncbi.nlm.nih.gov/sra/docs/toolkitsoft/</a>.</li>
@@ -642,26 +662,29 @@ Figure 6.3: Overview of the analytical workflow applied here to prepare/clean Il
 </ul>
 <p>The <code>R</code> software is also used in steps 4 and 5. You can find more details on this software in the <a href="index.html">Syllabus</a> and <a href="Mini_reports.html">Mini-Report</a> webpages.</p>
 </div>
-<div id="step-1-download-sra-file" class="section level3" number="6.5.4">
-<h3><span class="header-section-number">6.5.4</span> Step 1: Download SRA file</h3>
+<div id="step-1-download-sra-file" class="section level3" number="6.6.4">
+<h3><span class="header-section-number">6.6.4</span> Step 1: Download SRA file</h3>
 <p>The SRA format (containing raw NGS data) can be quite difficult to play with. Here, we aim at downloading the WGS data, split PE reads, but store both reads (R1 and R2) in the same file using the interleaved format (Figure <a href="#fig:part1workflow">6.3</a>). This format is very convenient and is the entry point for most reads cleaning programs. This task can be done by using <code>fastq-dump</code> from the <a href="https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=software">SRA Toolkit</a>.</p>
-<p>Before starting, open a Terminal and navigate to the <code>SRA/</code> folder using the <code>cd</code> command. Once there, execute the following command:</p>
+<p>** — !!! DON’T EXECUTE THIS CODE !!! — **</p>
+<blockquote>
+<p>The command to download the SRA file is available below, but please don’t execute it since the file weighs 10.5GB (Figure <a href="#fig:SRA">6.1</a>) and it takes a LONG time to download.</p>
+</blockquote>
+<p>Before starting, open a Terminal and navigate to the <code>/home/Genomics_shared/Chapter_04/01_SRA</code> folder using the <code>cd</code> command. This folder contains the <code>SRA</code> file (<code>SRR5759389_pe12.fastq</code>) that we will be using in this tutorial. You could download it by executing the following command:</p>
 <pre class="bash"><code>#Download PE reads (properly edited) in interleave format using SRA Toolkit
 fastq-dump --split-files --defline-seq &#39;@$ac.$si.$sg/$ri&#39; --defline-qual &#39;+&#39; -Z SRR5759389  &gt; SRR5759389_pe12.fastq</code></pre>
-<p>Downloading the file can take a while!</p>
 </div>
-<div id="Step2" class="section level3" number="6.5.5">
-<h3><span class="header-section-number">6.5.5</span> Step 2: Reads QCs</h3>
-<p>The program <code>FastQC</code> is used to obtain preliminary information about the Illumina library (see Figure <a href="#fig:SRA">6.1</a>). To run this program navigate to the <code>FastQC/</code> folder uisng <code>cd</code> and execute the following command:</p>
+<div id="Step2" class="section level3" number="6.6.5">
+<h3><span class="header-section-number">6.6.5</span> Step 2: Reads QCs</h3>
+<p>The program <code>FastQC</code> is used to obtain preliminary information about the Illumina library (see Figure <a href="#fig:SRA">6.1</a>). To run this program navigate to the <code>FastQC/</code> folder using <code>cd</code> and execute the following command:</p>
 <pre class="bash"><code>#Reads QCs with FastQC 
-./fastqc -o ~/Documents/Kmers_analyses/FastQC/ ~/Documents/Kmers_analyses/SRA/SRR5759389_pe12.fastq</code></pre>
-<p>Please inspect the <code>SRR5759389_pe12_fastqc.html</code> output file. We will have a group discussion to inspect this file and draw general conclusions on the quality of the raw data. This step will have to be repeated after completion of the step3 (reads cleaning) to confirm that our reads trimming and cleaning procedure was successful.</p>
+./FastQC_program/fastqc -o ~/Documents/02_Kmers_analyses/FastQC/ /home/Genomics_shared/Chapter_04/01_SRA/SRR5759389_pe12.fastq </code></pre>
+<p>This analysis generates the <code>SRR5759389_pe12_fastqc.html</code> output file. We will have a group discussion to inspect this file and draw general conclusions on the quality of the raw data. This step will have to be repeated after completion of the step3 (reads cleaning) to confirm that our reads trimming and cleaning procedure was successful. To inspect this file click <a href="Data/SRR5759389_pe12_fastqc.html">here</a>.</p>
 </div>
-<div id="Step3" class="section level3" number="6.5.6">
-<h3><span class="header-section-number">6.5.6</span> Step 3: Reads cleaning</h3>
+<div id="Step3" class="section level3" number="6.6.6">
+<h3><span class="header-section-number">6.6.6</span> Step 3: Reads cleaning</h3>
 <p>This step is at the core of our analytical workflow. It is paramount to conduct thorough reads cleaning when assembling a nuclear genome due to the very nature of this genome (i.e. repetitive elements, heterozygosity, recombination, etc…). In this case, aim at minimizing the effect of PCR errors, which could jeopardize our assembly by creating false polymorphism. In addition, <em>de novo</em> genome assembly is computing intensive and by properly cleaning reads we will dramatically decrease RAM requirements.</p>
-<div id="approach-applied-here-to-clean-reads" class="section level4" number="6.5.6.1">
-<h4><span class="header-section-number">6.5.6.1</span> Approach applied here to clean reads</h4>
+<div id="approach-applied-here-to-clean-reads" class="section level4" number="6.6.6.1">
+<h4><span class="header-section-number">6.6.6.1</span> Approach applied here to clean reads</h4>
 <p>Reads will be cleaned/trimmed based on (see Figure <a href="#fig:part1workflow">6.3</a>):</p>
 <ul>
 <li>Phred quality scores (33) to conduct a first round of trimming.</li>
@@ -674,8 +697,8 @@ fastq-dump --split-files --defline-seq &#39;@$ac.$si.$sg/$ri&#39; --defline-qual
 </ul>
 <p>Finally, we will format the clean data for <em>de novo</em> genome assembly, which will be conducted using <code>SOAPdenovo2</code> <span class="citation">(<a href="#ref-Luo2012" role="doc-biblioref">Luo et al., 2012</a>)</span>.</p>
 </div>
-<div id="what-is-a-k-mer" class="section level4" number="6.5.6.2">
-<h4><span class="header-section-number">6.5.6.2</span> What is a k-mer?</h4>
+<div id="what-is-a-k-mer" class="section level4" number="6.6.6.2">
+<h4><span class="header-section-number">6.6.6.2</span> What is a k-mer?</h4>
 <p>A <code>k-mer</code> is a substring of length <span class="math inline">\(k\)</span> in a string of DNA bases. For a given sequence of length <span class="math inline">\(L\)</span>, and a k-mer size of <span class="math inline">\(k\)</span>, the total k-mer’s possible (<span class="math inline">\(n\)</span>) will be given by <span class="math inline">\((L-k) + 1\)</span>. For instance, in a sequence of length of 9 (<span class="math inline">\(L\)</span>), and a k-mer length of 2 (<span class="math inline">\(k\)</span>), the number of k-mer’s generated will be: <span class="math inline">\(n = (9-2) + 1 = 8\)</span>.</p>
 <blockquote>
 <p>All eight 2-mers of the sequence “AATTGGCCG” are:
@@ -694,8 +717,8 @@ Figure 6.4: Distribution of 21-mer frequencies based on the trimmed library with
 </p>
 </div>
 </div>
-<div id="kmers" class="section level4" number="6.5.6.3">
-<h4><span class="header-section-number">6.5.6.3</span> K-mer graph and PCR effect</h4>
+<div id="kmers" class="section level4" number="6.6.6.3">
+<h4><span class="header-section-number">6.6.6.3</span> K-mer graph and PCR effect</h4>
 <p>The peak around 25 in Figure <a href="#fig:kmerstrimmed">6.4</a> is the coverage with the highest number of different 21-mers. This means that there are <span class="math inline">\(1.4e^7\)</span> unique 21-mers (frequency) that have been observed 25 times (coverage). The normal-like distribution is due to the fact that the sequencing did not provide a perfect coverage of the whole genome. Some regions have less coverage, whereas others have a little more coverage, but the average coverage depth is around 25.</p>
 <p>The large number of unique k-mers (<span class="math inline">\(1.7e^7\)</span>) that have a frequency of 1 (right left side of the graph; Figure <a href="#fig:kmerstrimmed">6.4</a>) is most likely due to PCR errors. Please find below an example explaining how PCR errors impact on the k-mer procedure.</p>
 <p>All 3-mers of the sequence “AATTGGCCG” are:</p>
@@ -709,15 +732,15 @@ Figure 6.4: Distribution of 21-mer frequencies based on the trimmed library with
 <p>The k-mers in bold are the incorrect 3-mers that are now unique and end up at the beginning of the graph in Figure <a href="#fig:kmerstrimmed">6.4</a>.</p>
 <p>Overall, the <strong>general rule</strong> is that for a given sequence, <strong>a single PCR error will result in <span class="math inline">\(k\)</span> unique and incorrect k-mers</strong>.</p>
 </div>
-<div id="trim-reads-based-on-phred-quality-scores" class="section level4" number="6.5.6.4">
-<h4><span class="header-section-number">6.5.6.4</span> Trim reads based on Phred quality scores</h4>
+<div id="trim-reads-based-on-phred-quality-scores" class="section level4" number="6.6.6.4">
+<h4><span class="header-section-number">6.6.6.4</span> Trim reads based on Phred quality scores</h4>
 <p>Let’s start the cleaning of our interleaved PE reads by trimming reads using Phred scores (33) as implemented in <code>seqtk</code>. Before executing the commands below, <code>cd</code> to the <code>khmer/</code> folder:</p>
 <pre class="bash"><code>#Trim reads based on Phred scores (default of 33)
-seqtk trimfq ~/Documents/Kmers_analyses/SRA/SRR5759389_pe12.fastq &gt; SRR5759389_pe12.trimmed.fastq</code></pre>
+seqtk trimfq /home/Genomics_shared/Chapter_04/01_SRA/SRR5759389_pe12.fastq &gt; SRR5759389_pe12.trimmed.fastq</code></pre>
 <p>Using Phred scores to clean our data is not going to deal with PCR errors and potential effects of high repeated DNA sequences on the <em>de novo</em> assembly. Below, we will use information on k-mer distributions to address these issues and clean our dataset accordingly.</p>
 </div>
-<div id="normalize-high-coverage-reads-remove-pcr-errors-and-low-quality-reads" class="section level4" number="6.5.6.5">
-<h4><span class="header-section-number">6.5.6.5</span> Normalize high coverage reads, remove PCR errors and low quality reads</h4>
+<div id="normalize-high-coverage-reads-remove-pcr-errors-and-low-quality-reads" class="section level4" number="6.6.6.5">
+<h4><span class="header-section-number">6.6.6.5</span> Normalize high coverage reads, remove PCR errors and low quality reads</h4>
 <p>In the next commands, <code>khmer</code> <span class="citation">(<a href="#ref-khmer2015" role="doc-biblioref">Crusoe et al., 2015</a>)</span> will be used to:</p>
 <ol style="list-style-type: decimal">
 <li>Normalize high coverage reads (&gt;100x) based on median coverage (to optimize RAM requirements for <em>de novo</em> genome assembly).</li>
@@ -732,9 +755,9 @@ khmer filter-abund.py -V kmer.counts -o SRR5759389_pe12.max100.trimmed.norare.fa
 <pre class="bash"><code>#3. Final clean-up of reads (remove low quality bases, short sequences, and non-paired reads)
 seqtk seq -q 10 -N -L 80 SRR5759389_pe12.max100.trimmed.norare.fastq | seqtk dropse &gt; SRR5759389_pe12.max100.trimmed.norare.noshort.fastq</code></pre>
 </div>
-<div id="prepare-data-for-de-novo-genome-assembly" class="section level4" number="6.5.6.6">
-<h4><span class="header-section-number">6.5.6.6</span> Prepare data for <em>de novo</em> genome assembly</h4>
-<p>In this last section, our cleaned reads are prepared for the <em>de novo</em> genome assembly analysis conducted in <code>SOAPdenovo2</code> <span class="citation">(<a href="#ref-Luo2012" role="doc-biblioref">Luo et al., 2012</a>)</span> (done in PART 2). This is achieved by using <code>khmer</code> and renaming files using <code>mv</code> as follows:</p>
+<div id="prepare-data-for-de-novo-genome-assembly" class="section level4" number="6.6.6.6">
+<h4><span class="header-section-number">6.6.6.6</span> Prepare data for <em>de novo</em> genome assembly</h4>
+<p>In this last section, our cleaned reads are prepared for the <em>de novo</em> genome assembly analysis conducted in <code>SOAPdenovo2</code> <span class="citation">(<a href="#ref-Luo2012" role="doc-biblioref">Luo et al., 2012</a>)</span> (done in <a href="#PART2">PART 2</a>). This is achieved by using <code>khmer</code> and renaming files using <code>mv</code> as follows:</p>
 <pre class="bash"><code>#De-interleave filtered reads (to be ready for de novo assembly in SOAPdenovo2)
 khmer split-paired-reads.py SRR5759389_pe12.max100.trimmed.norare.noshort.fastq
 
@@ -742,21 +765,21 @@ khmer split-paired-reads.py SRR5759389_pe12.max100.trimmed.norare.noshort.fastq
 mv SRR5759389_pe12.max100.trimmed.norare.noshort.fastq.1 SRR5759389.pe1.clean.fastq
 mv SRR5759389_pe12.max100.trimmed.norare.noshort.fastq.2 SRR5759389.pe2.clean.fastq</code></pre>
 </div>
-<div id="reads-qcs-on-cleaned-reads" class="section level4" number="6.5.6.7">
-<h4><span class="header-section-number">6.5.6.7</span> Reads QCs on cleaned reads</h4>
+<div id="reads-qcs-on-cleaned-reads" class="section level4" number="6.6.6.7">
+<h4><span class="header-section-number">6.6.6.7</span> Reads QCs on cleaned reads</h4>
 <p>Use <code>FastQC</code> to validate the reads cleaning conducted above. Please see <a href="#Step2">Step 2</a> for more details on the methodology.</p>
 </div>
 </div>
-<div id="step-4-whats-in-the-reads" class="section level3" number="6.5.7">
-<h3><span class="header-section-number">6.5.7</span> Step 4: What’s “in” the reads?</h3>
+<div id="step-4-whats-in-the-reads" class="section level3" number="6.6.7">
+<h3><span class="header-section-number">6.6.7</span> Step 4: What’s “in” the reads?</h3>
 <p>Before conducting the <em>de novo</em> genome assembly (using the cleaned reads produced in <a href="#Step3">Step 3</a>, it is paramount to assess whether the data are contaminated and also to provide a first estimate of proportions of reads belonging to either nuclear or plastid genomes. To investigate these topics, the instructor proposes that we assess i) potential contamination by inferring reads GC contents and ii) map the clean reads against nuclear and chloroplast genome assemblies to assess proportions of reads belonging to either genomes in our library.</p>
-<div id="reads-gc-contents" class="section level4" number="6.5.7.1">
-<h4><span class="header-section-number">6.5.7.1</span> Reads GC contents</h4>
+<div id="reads-gc-contents" class="section level4" number="6.6.7.1">
+<h4><span class="header-section-number">6.6.7.1</span> Reads GC contents</h4>
 <p>The GC content of a sequence library can provide evidence of contamination or the presence of sequence from multiple organisms (since most organisms have specific GC profiles). A GC plot inferred from a non-contaminated library would display a smooth, unimodal distribution. The existence of shoulders, or in more extreme cases a bimodal distribution, could be indicative of the presence of sequence reads from an organism with a different GC content, which is most likely a contaminant (see Figure <a href="#fig:part1workflow">6.3</a>).</p>
 <p>Here we infer GC contents for all clean reads using the perl script <code>GC_content.pl</code>. This script requires reads to be in <code>fasta</code> format. We will then start by converting our <code>fastq</code> file into <code>fasta</code> by using <code>seqtk</code>. Data are available in the <code>GC_content/</code> folder. Please see below for the commands to be executed:</p>
 <pre class="bash"><code>#Convert fastq to fasta
-seqtk seq -a ~/Documents/Kmers_analyses/khmer/   SRR5759389_pe12.max100.trimmed.norare.noshort.fastq &gt; SRR5759389_pe12.max100.trimmed.norare.noshort.fasta</code></pre>
-<p><strong>PLEASE DON’T EXECUTE THE COMMAND BELOW!</strong> It takes few hours to calculate reads GC contents. Use the output of this command <code>gc_out.txt</code>, which is available in the <code>GC_content/</code> folder to carry on our analyses.</p>
+seqtk seq -a ~/Documents/02_Kmers_analyses/khmer/    SRR5759389_pe12.max100.trimmed.norare.noshort.fastq &gt; SRR5759389_pe12.max100.trimmed.norare.noshort.fasta</code></pre>
+<p><strong>PLEASE DON’T EXECUTE THE COMMAND BELOW!</strong> It takes few hours to calculate reads GC contents. Use the output of this command <code>gc_out.txt</code> (weighing ca. 5GB), which is available in the <code>GC_content/</code> folder to carry on our analyses.</p>
 <pre class="bash"><code>#Infer GC content using fasta file as input (this can take a long time)
 ./GC_content.pl SRR5759389_pe12.max100.trimmed.norare.noshort.fasta &gt; gc_out.txt</code></pre>
 <p>The next command extracts the column containing the GC content per read. Since the file is very big, we use the BASH command <code>awk</code> to extract this information instead of <code>R</code>.</p>
@@ -782,18 +805,18 @@ dev.off()</code></pre>
 Figure 6.5: Histogram of GC values inferred from the cleaned library of reads (SRR5759389). See text for more details.
 </p>
 </div>
-<div id="question" class="section level5" number="6.5.7.1.1">
-<h5><span class="header-section-number">6.5.7.1.1</span> Question</h5>
+<div id="question" class="section level5" number="6.6.7.1.1">
+<h5><span class="header-section-number">6.6.7.1.1</span> Question</h5>
 <blockquote>
 <p>To your knowledge, based on data presented in Figure <a href="#fig:GC">6.5</a>, is the SRR5759389 library contaminated with alien DNA?</p>
 </blockquote>
 </div>
 </div>
-<div id="mapping-reads-against-reference-genomes" class="section level4" number="6.5.7.2">
-<h4><span class="header-section-number">6.5.7.2</span> Mapping reads against reference genomes</h4>
+<div id="mapping-reads-against-reference-genomes" class="section level4" number="6.6.7.2">
+<h4><span class="header-section-number">6.6.7.2</span> Mapping reads against reference genomes</h4>
 <p>Here we aim at assessing the proportions of reads in the clean library belonging to either nuclear or chloroplast genomes by mapping our clean reads against two reference genomes using <code>bwa</code> <span class="citation">(<a href="#ref-bwa2009" role="doc-biblioref">Li and Durbin, 2009</a>)</span> and <code>samtools</code> <span class="citation">(<a href="#ref-samtools2009" role="doc-biblioref">Li, Handsaker, et al., 2009</a>)</span>. Data are available in <code>Map_reads/</code>.</p>
-<div id="mapping-reads-against-the-nuclear-genome" class="section level5" number="6.5.7.2.1">
-<h5><span class="header-section-number">6.5.7.2.1</span> Mapping reads against the nuclear genome</h5>
+<div id="mapping-reads-against-the-nuclear-genome" class="section level5" number="6.6.7.2.1">
+<h5><span class="header-section-number">6.6.7.2.1</span> Mapping reads against the nuclear genome</h5>
 <p>The nuclear genome of <em>Apostasia shenzhenica</em> published by <span class="citation"><a href="#ref-Zhang2017" role="doc-biblioref">Zhang et al.</a> (<a href="#ref-Zhang2017" role="doc-biblioref">2017</a>)</span> is not listed in the NCBI database as “Genome,” but rather as “Assembly.” Please see Figure <a href="#fig:NuclearNCBI">6.6</a> for more details on the genome. This file (a compressed FASTA) is already available in your folder, but you could download it as follows:</p>
 <pre class="bash"><code>#Get Fasta files for genomes of reference
 #PEFY01 nuclear genome of Apostasia 
@@ -809,30 +832,30 @@ Figure 6.6: Screen shot of the NCBI website showing details about the accession 
 
 #Before starting, you have to create an index for your reference genome to allow efficient mapping
 bwa index -a bwtsw PEFY01.1.fsa_nt.gz
-bwa mem -t 20 PEFY01.1.fsa_nt.gz ~/Documents/Kmers_analyses/khmer/SRR5759389_pe12.max100.trimmed.norare.noshort.fastq | samtools view -buS - | samtools sort - -o PEFY01_map_pe.sorted.bam 
+bwa mem -t 20 PEFY01.1.fsa_nt.gz ~/Documents/02_Kmers_analyses/khmer/SRR5759389_pe12.max100.trimmed.norare.noshort.fastq | samtools view -buS - | samtools sort - -o PEFY01_map_pe.sorted.bam 
 samtools index PEFY01_map_pe.sorted.bam</code></pre>
 <p>We will be devoting time to decipher these commands during our Lab sessions. For now, here is a short description of <code>bwa</code> from the <a href="http://bio-bwa.sourceforge.net/bwa.shtml">manual</a>:</p>
 <blockquote>
 <p>BWA is a software package for mapping low-divergent sequences against a large reference genome, such as the human genome. It consists of three algorithms: BWA-backtrack, BWA-SW and BWA-MEM. The first algorithm is designed for Illumina sequence reads up to 100bp, while the rest two for longer sequences ranged from 70bp to 1Mbp. BWA-MEM and BWA-SW share similar features such as long-read support and split alignment, but BWA-MEM, which is the latest, is generally recommended for high-quality queries as it is faster and more accurate. BWA-MEM also has better performance than BWA-backtrack for 70-100bp Illumina reads.</p>
 </blockquote>
 </div>
-<div id="mapping-reads-against-the-chloroplast-genome" class="section level5" number="6.5.7.2.2">
-<h5><span class="header-section-number">6.5.7.2.2</span> Mapping reads against the chloroplast genome</h5>
+<div id="mapping-reads-against-the-chloroplast-genome" class="section level5" number="6.6.7.2.2">
+<h5><span class="header-section-number">6.6.7.2.2</span> Mapping reads against the chloroplast genome</h5>
 <p>The chloroplast genome of <em>Apostasia shenzhenica</em> was not published. To assess the proportion of chloroplastic reads in our Illumina cleaned reads, we will use the chloroplast genome of a sister species, *A. wallichii <span class="citation">(<a href="#ref-Niu2017" role="doc-biblioref">Niu et al., 2017</a>)</span>, which is available on the NCBI website under the accession number <code>LC199394</code>. This file (in FASTA) is already available in your folder and you do not have to download it.</p>
 <p>Please execute the commands below to map the clean reads against the reference chloroplast genome of the sister species:</p>
 <pre class="bash"><code>#Mapping reads against the chloropolast genome of a sister species
 # following the same approach as with the nuclear genome
 bwa index -a bwtsw LC199394.fasta
-bwa mem -t 20 LC199394.fasta ~/Documents/Kmers_analyses/khmer/  SRR5759389_pe12.max100.trimmed.norare.noshort.fastq | samtools view -buS - | 
+bwa mem -t 20 LC199394.fasta ~/Documents/02_Kmers_analyses/khmer/   SRR5759389_pe12.max100.trimmed.norare.noshort.fastq | samtools view -buS - | 
     samtools sort - -o LC199394_map_pe.sorted.bam
 samtools index LC199394_map_pe.sorted.bam</code></pre>
 </div>
-<div id="counting-reads-belonging-to-either-nuclear-or-plastid-genomes" class="section level5" number="6.5.7.2.3">
-<h5><span class="header-section-number">6.5.7.2.3</span> Counting reads belonging to either nuclear or plastid genomes</h5>
+<div id="counting-reads-belonging-to-either-nuclear-or-plastid-genomes" class="section level5" number="6.6.7.2.3">
+<h5><span class="header-section-number">6.6.7.2.3</span> Counting reads belonging to either nuclear or plastid genomes</h5>
 <p>We have now all the information at hand to count how many reads are matching with either nuclear or chloroplast genomes (and infer proportions). Remember that it is just a very preliminary assessment, which aims at assessing the quality of the library and its suitability for <em>de novo</em> genome assembly.</p>
 <p>To reach this goal, we will start by counting the total number of cleaned reads using <code>count_fastq.sh</code> as follows:</p>
 <pre class="bash"><code>#Count the tot. number of clean reads
-./count_fastq.sh ~/Documents/Kmers_analyses/khmer/SRR5759389_pe12.max100.trimmed.norare.noshort.fastq</code></pre>
+./count_fastq.sh ~/Documents/02_Kmers_analyses/khmer/SRR5759389_pe12.max100.trimmed.norare.noshort.fastq</code></pre>
 <p>Now, we will use <code>samtools</code> to count how many unique reads mapped the reference genomes:</p>
 <pre class="bash"><code>#How many unique reads mapped the nuclear genome
 samtools view -F 0x904 -c PEFY01_map_pe.sorted.bam
@@ -840,8 +863,8 @@ samtools view -F 0x904 -c PEFY01_map_pe.sorted.bam
 #How many unique reads mapped the chloroplast genome
 samtools view -F 0x904 -c LC199394_map_pe.sorted.bam</code></pre>
 </div>
-<div id="question-1" class="section level5" number="6.5.7.2.4">
-<h5><span class="header-section-number">6.5.7.2.4</span> Question</h5>
+<div id="question-1" class="section level5" number="6.6.7.2.4">
+<h5><span class="header-section-number">6.6.7.2.4</span> Question</h5>
 <blockquote>
 <p>What are the proportions of nuclear and chloroplast reads in your library as well as potential contaminants?</p>
 </blockquote>
@@ -851,14 +874,14 @@ samtools view -F 0x904 -c LC199394_map_pe.sorted.bam</code></pre>
 </div>
 </div>
 </div>
-<div id="step-5-estimate-genome-size-and-other-genomic-features-using-k-mer-frequencies" class="section level3" number="6.5.8">
-<h3><span class="header-section-number">6.5.8</span> Step 5: Estimate genome size and other genomic features using k-mer frequencies</h3>
+<div id="step-5-estimate-genome-size-and-other-genomic-features-using-k-mer-frequencies" class="section level3" number="6.6.8">
+<h3><span class="header-section-number">6.6.8</span> Step 5: Estimate genome size and other genomic features using k-mer frequencies</h3>
 <p>In this section, data on <a href="#kmers">k-mer</a> frequencies are used to estimate nuclear genome size and tease apart the proportion of the genome associated with low copy genes (also referred to as unique sequences) and repetitive DNA. The <code>JELLYFISH</code> <span class="citation">(<a href="#ref-Jellyfish2011" role="doc-biblioref">Marçais and Kingsford, 2011</a>)</span> program is a tool for fast, memory-efficient counting of k-mers in DNA. <code>JELLYFISH</code> is a command-line program that reads FASTA and multi-FASTA files containing DNA sequences and it outputs k-mer counts in an binary format (which can easily be translated into a human-readable text). We will be using the apporach implemented in <code>JELLYFISH</code> to estimate the genome size and complexity of the <em>Apostasia shenzhenica</em> nuclear genome based on the Illumina data.</p>
-<div id="estimate-genome-size" class="section level4" number="6.5.8.1">
-<h4><span class="header-section-number">6.5.8.1</span> Estimate genome size</h4>
+<div id="estimate-genome-size" class="section level4" number="6.6.8.1">
+<h4><span class="header-section-number">6.6.8.1</span> Estimate genome size</h4>
 <p>Here, we are using <code>JELLYFISH</code> to generate countings of 21-mers based on the cleaned Illumina reads. We will subsequently input the output of this program into <code>R</code> to estimate the genome size based on k-mer frequencies. The data are available in <code>Jellyfish/</code>.</p>
 <pre class="bash"><code> #Run jellyfish to obtain k-mer counts and frequencies (based on trimmed, normalized and filtered reads)
-jellyfish count -t 30 -C -m 21 -s 5G -o     Orchid_21mer_SRR5759389_pe12_max100.trimmed.norare ~/Documents/Kmers_analyses/khmer/SRR5759389_pe12.max100.trimmed.norare.noshort.fastq
+jellyfish count -t 30 -C -m 21 -s 5G -o     Orchid_21mer_SRR5759389_pe12_max100.trimmed.norare ~/Documents/02_Kmers_analyses/khmer/SRR5759389_pe12.max100.trimmed.norare.noshort.fastq
 
 jellyfish histo -o Orchid_21mer_SRR5759389_pe12_max100.trimmed.norare.histo Orchid_21mer_SRR5759389_pe12_max100.trimmed.norare</code></pre>
 <p>Once the analyses are completed, please open an <code>R</code> session (in e.g. <code>RStudio</code>) and execute the following command to estimate the haploid (1x) genome size. Here, genome size is estimate as follows:</p>
@@ -912,8 +935,8 @@ GenomeSize &lt;- function(hist, plotKmers){
 pdf(&quot;GenomeSize.pdf&quot;)
 GenomeSize(Clean, plotKmers = &quot;TRUE&quot;)
 dev.off()</code></pre>
-<div id="questions" class="section level5" number="6.5.8.1.1">
-<h5><span class="header-section-number">6.5.8.1.1</span> Questions</h5>
+<div id="questions" class="section level5" number="6.6.8.1.1">
+<h5><span class="header-section-number">6.6.8.1.1</span> Questions</h5>
 <blockquote>
 <p>What is the haploid genome size of <em>Apostasia shenzhenica</em>?</p>
 </blockquote>
@@ -925,11 +948,11 @@ dev.off()</code></pre>
 </blockquote>
 </div>
 </div>
-<div id="use-genomescope-to-estimate-heterozygosity-unique-genes-repetitive-dna-and-pcr-errors" class="section level4" number="6.5.8.2">
-<h4><span class="header-section-number">6.5.8.2</span> Use GenomeScope to estimate heterozygosity, unique genes, repetitive DNA and PCR errors</h4>
+<div id="use-genomescope-to-estimate-heterozygosity-unique-genes-repetitive-dna-and-pcr-errors" class="section level4" number="6.6.8.2">
+<h4><span class="header-section-number">6.6.8.2</span> Use GenomeScope to estimate heterozygosity, unique genes, repetitive DNA and PCR errors</h4>
 <p>Finally, the last step of our preliminary analyses prior to <em>de novo</em> genome assembly is aimed at estimating heterozygosity, unique genes, repetitive DNA and PCR errors. These analyses are conducted by using the approach implemented in the online tool <code>GenomeScope</code> <span class="citation">(<a href="#ref-genomescope" role="doc-biblioref">Vurture et al., 2017</a>)</span>. The authors of this program developed an equation to model the shape and size of the k-mer graph by using four negative binomial peaks which shape and size are determined by % heterozygosity, % PCR duplication, and % PCR Error.</p>
-<div id="lets-run-the-analysis" class="section level5" number="6.5.8.2.1">
-<h5><span class="header-section-number">6.5.8.2.1</span> Let’s run the analysis</h5>
+<div id="lets-run-the-analysis" class="section level5" number="6.6.8.2.1">
+<h5><span class="header-section-number">6.6.8.2.1</span> Let’s run the analysis</h5>
 <p>Open a web browser and navigate to the GenomeScope website (<a href="http://qb.cshl.edu/genomescope/" class="uri">http://qb.cshl.edu/genomescope/</a>). Once on the website, upload <code>Orchid_21mer_SRR5759389_pe12_max100.trimmed.norare.histo</code> by dragging your file onto the small window and set the analysis as provided in Figure <a href="#fig:GenScope1">6.7</a>.</p>
 <div class="figure" style="text-align: center"><span id="fig:GenScope1"></span>
 <img src="Images/Screen.png" alt="Screen shot of the GenomeScope portal to help you setting your analysis." width="100%" />
@@ -938,8 +961,8 @@ Figure 6.7: Screen shot of the GenomeScope portal to help you setting your analy
 </p>
 </div>
 </div>
-<div id="interpreting-results-of-genomescope" class="section level5" number="6.5.8.2.2">
-<h5><span class="header-section-number">6.5.8.2.2</span> Interpreting results of GenomeScope</h5>
+<div id="interpreting-results-of-genomescope" class="section level5" number="6.6.8.2.2">
+<h5><span class="header-section-number">6.6.8.2.2</span> Interpreting results of GenomeScope</h5>
 <p>The output of <code>GenomeScope</code> is displayed in Figure <a href="#fig:GenScope2">6.8</a>. The program outputs two plots and the only difference between those is that the the second plot is using a log transformation for the axes. This transformation allows better teasing apart the different elements studied here. The big peak at 25 in the graph above is in fact the homozygous portions of the genome that account for the identical 21-mers from both strands of the DNA (haploid genome mostly composed of single-copy genes). The dotted line corresponds to the predicted center of that peak. The absence of a shoulder to the left of the peak suggests that this genome has a very low level of heterozygosity. The red line on the left corresponds to PCR errors. Finally, the proportion of unique sequences, which would correspond to low-copy genes is depicted by the yellow line and the amount of repetitive DNA is estimated by comparing the “space” between the black and yellow lines (on the right side of the graph).</p>
 <div class="figure" style="text-align: center"><span id="fig:GenScope2"></span>
 <img src="Images/genomescope1.png" alt="Output of the GenomeScope analysis." width="80%" />
@@ -951,37 +974,37 @@ Figure 6.8: Output of the GenomeScope analysis.
 </div>
 </div>
 </div>
-<div id="PART2" class="section level2" number="6.6">
-<h2><span class="header-section-number">6.6</span> PART 2</h2>
-<div id="objective" class="section level3" number="6.6.1">
-<h3><span class="header-section-number">6.6.1</span> Objective</h3>
+<div id="PART2" class="section level2" number="6.7">
+<h2><span class="header-section-number">6.7</span> PART 2</h2>
+<div id="objective" class="section level3" number="6.7.1">
+<h3><span class="header-section-number">6.7.1</span> Objective</h3>
 <p>The overarching objective of PART 2 is to gain theoretical and bioinformatics knowledge on the steps required to <strong>perform a <em>de novo</em> genome assembly based on cleaned Illumina reads</strong>. The procedure applied to assess and validate the quality of the genome assembly will also be covered in PART 3.</p>
 </div>
-<div id="dataPART2" class="section level3" number="6.6.2">
-<h3><span class="header-section-number">6.6.2</span> Presenting the data and their location</h3>
+<div id="dataPART2" class="section level3" number="6.7.2">
+<h3><span class="header-section-number">6.7.2</span> Presenting the data and their location</h3>
 <p>PART 2 will be using the output files of the PART 1 <a href="#Step3">reads cleaning step</a>, which are deposited in <code>~/Documents/Kmers_analyses/khmer/</code> and named as follows:</p>
 <ul>
 <li><code>SRR5759389.pe1.clean.fastq</code></li>
 <li><code>SRR5759389.pe2.clean.fastq</code></li>
 </ul>
 </div>
-<div id="analytical-workflow-1" class="section level3" number="6.6.3">
-<h3><span class="header-section-number">6.6.3</span> Analytical workflow</h3>
+<div id="analytical-workflow-1" class="section level3" number="6.7.3">
+<h3><span class="header-section-number">6.7.3</span> Analytical workflow</h3>
 <p>To achieve our overarching objective, our next classes will be divided into two steps:</p>
 <ul>
 <li><strong>Step 1:</strong> Set-up and perform a <em>de novo</em> genome assembly based on cleaned paired-end (PE) Illumina reads using <code>SOAPdenovo2</code> <span class="citation">(<a href="#ref-Luo2012" role="doc-biblioref">Luo et al., 2012</a>)</span>.</li>
 <li><strong>Step 2:</strong> Provide theoretical knowledge on <em>de novo</em> genome assembly methods by focusing on de Bruijn graphs.</li>
 </ul>
 </div>
-<div id="step-1" class="section level3" number="6.6.4">
-<h3><span class="header-section-number">6.6.4</span> Step 1</h3>
-<div id="specific-objective" class="section level4" number="6.6.4.1">
-<h4><span class="header-section-number">6.6.4.1</span> Specific objective</h4>
-<p>Here, students will be learning the procedure to set-up and perform a <em>de novo</em> genome assembly using cleaned PE Illumina reads as implemented in <code>SOAPdenovo2</code> <span class="citation">(<a href="#ref-Luo2012" role="doc-biblioref">Luo et al., 2012</a>)</span>. The analysis will be conducted on the output files obtained after cleaning reads based on Phred scores and k-mer distributions (see section <a href="#dataPART2">6.6.2</a> for more details on the input files).</p>
+<div id="step-1" class="section level3" number="6.7.4">
+<h3><span class="header-section-number">6.7.4</span> Step 1</h3>
+<div id="specific-objective" class="section level4" number="6.7.4.1">
+<h4><span class="header-section-number">6.7.4.1</span> Specific objective</h4>
+<p>Here, students will be learning the procedure to set-up and perform a <em>de novo</em> genome assembly using cleaned PE Illumina reads as implemented in <code>SOAPdenovo2</code> <span class="citation">(<a href="#ref-Luo2012" role="doc-biblioref">Luo et al., 2012</a>)</span>. The analysis will be conducted on the output files obtained after cleaning reads based on Phred scores and k-mer distributions (see section <a href="#dataPART2">6.7.2</a> for more details on the input files).</p>
 <p><code>SOAPdenovo2</code> is the updated version of the program that was used by <span class="citation"><a href="#ref-Li2009" role="doc-biblioref">Li, Fan, et al.</a> (<a href="#ref-Li2009" role="doc-biblioref">2009</a>)</span> to assemble the nuclear genome of the giant panda. The draft nuclear genome of <em>Apostasia shenzhenica</em> was not inferred with this latter program, but with <code>ALLPATHS-LG</code> <span class="citation">(<a href="#ref-Gnerre1513" role="doc-biblioref">Gnerre et al., 2011</a>)</span>. The draft assembly was obtained based on multiple Illumina short-reads libraries exhibiting different insert-sizes <span class="citation">(see <a href="#ref-Zhang2017" role="doc-biblioref">Zhang et al., 2017</a>)</span>. The authors have conducted a final round of gap closures to polish their assembly based on PacBio long-reads. It will therefore be interesting to compare our assembly based on one Illumina library with the one obtained by <span class="citation"><a href="#ref-Zhang2017" role="doc-biblioref">Zhang et al.</a> (<a href="#ref-Zhang2017" role="doc-biblioref">2017</a>)</span> inferred uisng a combination of short and long read data. Further information justifying using <code>SOAPdenovo2</code> instead of <code>ALLPATHS-LG</code> are provided below.</p>
 </div>
-<div id="background-on-soapdenovo2" class="section level4" number="6.6.4.2">
-<h4><span class="header-section-number">6.6.4.2</span> Background on <code>SOAPdenovo2</code></h4>
+<div id="background-on-soapdenovo2" class="section level4" number="6.7.4.2">
+<h4><span class="header-section-number">6.7.4.2</span> Background on <code>SOAPdenovo2</code></h4>
 <p><code>SOAPdenovo2</code> <span class="citation">(<a href="#ref-Luo2012" role="doc-biblioref">Luo et al., 2012</a>)</span> is a short-read genome assembler, which was especially developed to handle Illumina reads and to build <code>de novo</code> draft assemblies for human-sized genomes. This program creates new opportunities for building reference sequences and carrying out accurate analyses of unexplored genomes in a cost effective way. As stated above, <code>SOAPdenovo2</code> aims for large eukaryote genomes, but it also works well on bacteria and fungi genomes. It runs on 64-bit Linux system with a minimum of 5GB of physical memory. For big genomes like human (3.2Gbp), about 150GB of memory are required.</p>
 <p>In our case, we have estimated the haploid genome size of <em>Apostasia shenzhenica</em> to be around 340Mbp in our previous tutorial. This latter evidence therefore suggests that  is adapted to assemble a draft genome for this species of orchid.
 # References</p>
