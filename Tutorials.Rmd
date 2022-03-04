@@ -229,7 +229,7 @@ Please find below common linux commands. These commands will help you navigate i
 `date` — show the current date and time.  
 `whoami` — who you are logged in as.  
 `man` command — show the manual for command.  
-`df` — show disk usage.  
+`df` — show disk usage.  Use `df -h` to have in human readable format.
 `du` — show directory space usage.  
 `free` — show memory and swap usage.  
 `whereis app` — show possible locations of app.  
@@ -239,6 +239,7 @@ Please find below common linux commands. These commands will help you navigate i
 
 `ps` — display your currently active processes.  
 `top` — display all running processes.  
+`htop` - display all running processes and CPU usage.
 `kill PID` — kill process id PID. Use `top` to identify PID.  
 `kill -9 PID` — force kill process id PID.  
 

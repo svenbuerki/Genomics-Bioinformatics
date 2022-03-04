@@ -11,7 +11,7 @@
 
 <meta name="author" content="Sven Buerki - Boise State University" />
 
-<meta name="date" content="2022-03-01" />
+<meta name="date" content="2022-03-04" />
 
 <title>BIOL 497/597 - Genomics &amp; Bioinformatics</title>
 
@@ -421,7 +421,7 @@ div.tocify {
 <h1 class="title toc-ignore">BIOL 497/597 - Genomics &amp; Bioinformatics</h1>
 <h3 class="subtitle">Chapters</h3>
 <h4 class="author">Sven Buerki - Boise State University</h4>
-<h4 class="date">2022-03-01</h4>
+<h4 class="date">2022-03-04</h4>
 
 </div>
 
@@ -665,7 +665,7 @@ cd ~/Documents/02_Kmers_analyses/</code></pre>
 <div id="step-1-download-sra-file" class="section level3" number="6.6.4">
 <h3><span class="header-section-number">6.6.4</span> Step 1: Download SRA file</h3>
 <p>The SRA format (containing raw NGS data) can be quite difficult to play with. Here, we aim at downloading the WGS data, split PE reads, but store both reads (R1 and R2) in the same file using the interleaved format (Figure <a href="#fig:part1workflow">6.3</a>). This format is very convenient and is the entry point for most reads cleaning programs. This task can be done by using <code>fastq-dump</code> from the <a href="https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=software">SRA Toolkit</a>.</p>
-<p>** — !!! DON’T EXECUTE THIS CODE !!! — **</p>
+<p><strong>!!! DON’T EXECUTE THIS CODE !!!</strong></p>
 <blockquote>
 <p>The command to download the SRA file is available below, but please don’t execute it since the file weighs &gt;35GB and it takes a LONG time to download.</p>
 </blockquote>
@@ -679,6 +679,21 @@ fastq-dump --split-files --defline-seq &#39;@$ac.$si.$sg/$ri&#39; --defline-qual
 <pre class="bash"><code>#Reads QCs with FastQC 
 ./FastQC_program/fastqc -o ~/Documents/02_Kmers_analyses/FastQC/ /home/Genomics_shared/Chapter_04/01_SRA/SRR5759389_pe12.fastq </code></pre>
 <p>This analysis generates the <code>SRR5759389_pe12_fastqc.html</code> output file. We will have a group discussion to inspect this file and draw general conclusions on the quality of the raw data. This step will have to be repeated after completion of the step3 (reads cleaning) to confirm that our reads trimming and cleaning procedure was successful. To inspect this file click <a href="Data/SRR5759389_pe12_fastqc.html">here</a>.</p>
+<div id="using-scp-to-copy-file-from-linux-2-your-computer" class="section level4" number="6.6.5.1">
+<h4><span class="header-section-number">6.6.5.1</span> Using <code>scp</code> to copy file from Linux 2 your computer</h4>
+<p><strong>WARNING:</strong> This protocol works only on UNIX OS (Mac, Linux).</p>
+<p>You can use the <code>scp</code> command to copy <code>SRR5759389_pe12_fastqc.html</code> or any other file to your local computer. This can be done as follows:</p>
+<ol style="list-style-type: decimal">
+<li><p>Open a <code>Terminal</code> window on your computer.</p></li>
+<li><p>Type this command line:</p></li>
+</ol>
+<pre class="bash"><code>#General syntax
+scp USER@IP:PATH_ON_REMOTE_COMPUTER PATH_ON_YOUR_COMPUTER
+
+#Example:
+# To copy SRR5759389_pe12_fastqc.html on my computer from bio_11 user do:
+scp bio_11@132.178.142.214:~/Documents/02_Kmers_analyses/FastQC/SRR5759389_pe12_fastqc.html .</code></pre>
+</div>
 </div>
 <div id="Step3" class="section level3" number="6.6.6">
 <h3><span class="header-section-number">6.6.6</span> Step 3: Reads cleaning</h3>
@@ -779,10 +794,10 @@ mv SRR5759389_pe12.max100.trimmed.norare.noshort.fastq.2 SRR5759389.pe2.clean.fa
 <p>Here we infer GC contents for all clean reads using the perl script <code>GC_content.pl</code>. This script requires reads to be in <code>fasta</code> format. We will then start by converting our <code>fastq</code> file into <code>fasta</code> by using <code>seqtk</code>. Data are available in the <code>GC_content/</code> folder. Please see below for the commands to be executed:</p>
 <pre class="bash"><code>#Convert fastq to fasta
 seqtk seq -a ~/Documents/02_Kmers_analyses/khmer/    SRR5759389_pe12.max100.trimmed.norare.noshort.fastq &gt; SRR5759389_pe12.max100.trimmed.norare.noshort.fasta</code></pre>
-<p><strong>PLEASE DON’T EXECUTE THE 2 COMMANDS BELOW!</strong> It takes few hours to calculate reads GC contents. Use the output of this command <code>gc_out.txt</code> (weighing ca. 5GB), which is available in the <code>GC_content/</code> folder to carry on our analyses.</p>
+<p><strong>PLEASE DON’T EXECUTE THE COMMAND BELOW!</strong> It takes few hours to calculate reads GC contents. Use the output of this command <code>gc_out.txt</code> (weighing ca. 5GB), which is available in the <code>GC_content/</code> folder to carry on our analyses.</p>
 <pre class="bash"><code>#Infer GC content using fasta file as input (this can take a long time)
 ./GC_content.pl SRR5759389_pe12.max100.trimmed.norare.noshort.fasta &gt; gc_out.txt</code></pre>
-<p>The next command extracts the column containing the GC content per read. Since the file is very big, we use the BASH command <code>awk</code> to extract this information instead of <code>R</code>.</p>
+<p>The next command extracts the column containing the GC content per read from <code>gc_out.txt</code> (located in <code>GC_content/</code>). Since the file is very big, we use the BASH command <code>awk</code> to extract this information instead of <code>R</code>.</p>
 <pre class="bash"><code>#Extract reads GC contents (the file is big and can&#39;t be processed easily)
 awk &#39;{print$2}&#39; gc_out.txt &gt; gc_simple.txt</code></pre>
 <p>The last part of the analysis will be executed in <code>R</code> where we will load the data and create a histogram to look at the distribution of reads GC contents.</p>

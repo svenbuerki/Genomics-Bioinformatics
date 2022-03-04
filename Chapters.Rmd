@@ -236,7 +236,7 @@ The `R` software is also used in steps 4 and 5. You can find more details on thi
 
 The SRA format (containing raw NGS data) can be quite difficult to play with. Here, we aim at downloading the WGS data, split PE reads, but store both reads (R1 and R2) in the same file using the interleaved format (Figure \@ref(fig:part1workflow)). This format is very convenient and is the entry point for most reads cleaning programs. This task can be done by using `fastq-dump` from the [SRA Toolkit](https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=software).
 
-** --- !!! DON'T EXECUTE THIS CODE !!! --- ** 
+**!!! DON'T EXECUTE THIS CODE !!!** 
 
 > The command to download the SRA file is available below, but please don't execute it since the file weighs >35GB and it takes a LONG time to download.
 
@@ -257,6 +257,24 @@ The program `FastQC` is used to obtain preliminary information about the Illumin
 ```
 
 This analysis generates the `SRR5759389_pe12_fastqc.html` output file. We will have a group discussion to inspect this file and draw general conclusions on the quality of the raw data. This step will have to be repeated after completion of the step3 (reads cleaning) to confirm that our reads trimming and cleaning procedure was successful. To inspect this file click [here](Data/SRR5759389_pe12_fastqc.html).
+
+#### Using `scp` to copy file from Linux 2 your computer
+
+**WARNING:** This protocol works only on UNIX OS (Mac, Linux).
+
+You can use the `scp` command to copy `SRR5759389_pe12_fastqc.html` or any other file to your local computer. This can be done as follows:
+
+1. Open a `Terminal` window on your computer.
+
+2. Type this command line:
+```{bash echo=T, eval=F}
+#General syntax
+scp USER@IP:PATH_ON_REMOTE_COMPUTER PATH_ON_YOUR_COMPUTER
+
+#Example:
+# To copy SRR5759389_pe12_fastqc.html on my computer from bio_11 user do:
+scp bio_11@132.178.142.214:~/Documents/02_Kmers_analyses/FastQC/SRR5759389_pe12_fastqc.html .
+```
 
 ### Step 3: Reads cleaning {#Step3}
 
@@ -379,14 +397,14 @@ Here we infer GC contents for all clean reads using the perl script `GC_content.
 seqtk seq -a ~/Documents/02_Kmers_analyses/khmer/	 SRR5759389_pe12.max100.trimmed.norare.noshort.fastq > SRR5759389_pe12.max100.trimmed.norare.noshort.fasta
 ```
 
-**PLEASE DON'T EXECUTE THE 2 COMMANDS BELOW!** It takes few hours to calculate reads GC contents. Use the output of this command `gc_out.txt` (weighing ca. 5GB), which is available in the `GC_content/` folder to carry on our analyses. 
+**PLEASE DON'T EXECUTE THE COMMAND BELOW!** It takes few hours to calculate reads GC contents. Use the output of this command `gc_out.txt` (weighing ca. 5GB), which is available in the `GC_content/` folder to carry on our analyses. 
 
 ```{bash, eval = F}
 #Infer GC content using fasta file as input (this can take a long time)
 ./GC_content.pl SRR5759389_pe12.max100.trimmed.norare.noshort.fasta > gc_out.txt
 ```
 
-The next command extracts the column containing the GC content per read. Since the file is very big, we use the BASH command `awk` to extract this information instead of `R`.
+The next command extracts the column containing the GC content per read from `gc_out.txt` (located in `GC_content/`). Since the file is very big, we use the BASH command `awk` to extract this information instead of `R`.
 
 ```{bash, eval = F}
 #Extract reads GC contents (the file is big and can't be processed easily)
