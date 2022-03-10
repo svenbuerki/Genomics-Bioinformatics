@@ -10,7 +10,7 @@
 
 
 
-<meta name="date" content="2022-03-03" />
+<meta name="date" content="2022-03-10" />
 
 <title>Tutorials</title>
 
@@ -396,7 +396,7 @@ div.tocify {
 
 
 <h1 class="title toc-ignore">Tutorials</h1>
-<h4 class="date">2022-03-03</h4>
+<h4 class="date">2022-03-10</h4>
 
 </div>
 
@@ -434,6 +434,17 @@ $(document).ready(function() {
 Figure 2.1: Screenshot of Ubuntu desktop showing how to retrieve IP address.
 </p>
 </div>
+<div id="command-lines-to-get-ip" class="section level3" number="2.1.1">
+<h3><span class="header-section-number">2.1.1</span> Command lines to get IP</h3>
+<p>On a Linux OS, you can get the IP address of the computer by typing tyhe following commands in a Terminal:</p>
+<pre class="bash"><code>#Get IP address
+# Option 1
+hostname -I | awk &#39;{print $1}&#39;
+# Option 2
+ip a
+# Option 3 (also works on Mac)
+ifconfig -a</code></pre>
+</div>
 </div>
 <div id="the-ssh-protocol" class="section level2" number="2.2">
 <h2><span class="header-section-number">2.2</span> The ssh protocol</h2>
@@ -454,6 +465,13 @@ Figure 2.2: Screenshot of Terminal showing commands to remotely access computer 
 <div id="Putty" class="section level2" number="2.3">
 <h2><span class="header-section-number">2.3</span> Install Putty on Windows to ssh</h2>
 <p>Putty is one of the best software used on Windows to remotely access computers. Download the program at this URL <a href="http://www.putty.org" class="uri">http://www.putty.org</a> and follow instructions to install it on your computer.</p>
+<p>When you launch Putty, a configuration window will pop up and you will enter i) your credentials (e.g. <code>user@IP</code>) in the <code>Host Name (or IP address)</code> box, ii) set the <code>Port</code> to 22 and iii) make sure the connection type is set to <code>ssh</code> (Figure <a href="#fig:Putty">2.3</a>). The full documentation for this software is available <a href="https://the.earth.li/~sgtatham/putty/0.76/htmldoc/">here</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:Putty"></span>
+<img src="Images/putty-session-config.png" alt="Screenshot of Putty Configuration window to establish ssh connection." width="60%" />
+<p class="caption">
+Figure 2.3: Screenshot of Putty Configuration window to establish ssh connection.
+</p>
+</div>
 </div>
 </div>
 <div id="running-bioinformatic-analyses---tmux" class="section level1" number="3">

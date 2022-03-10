@@ -67,6 +67,21 @@ The procedure summarized here allows retrieving the computer IP address on the U
 knitr::include_graphics("Images/IP_Ubuntu.png")
 ```
 
+### Command lines to get IP
+
+On a Linux OS, you can get the IP address of the computer by typing tyhe following commands in a Terminal:
+
+```{bash eval=F, echo=T}
+#Get IP address
+# Option 1
+hostname -I | awk '{print $1}'
+# Option 2
+ip a
+# Option 3 (also works on Mac)
+ifconfig -a
+```
+
+
 ## The ssh protocol
 
 Once you have gathered all required information (and installed [Putty](#Putty) on Windows), please open a `Terminal` or command prompt window and type the following command to remotely access your account (see Figure \@ref(fig:ssh)):
@@ -87,6 +102,13 @@ knitr::include_graphics("Images/ssh_screen.png")
 ## Install Putty on Windows to ssh {#Putty}
 
 Putty is one of the best software used on Windows to remotely access computers. Download the program at this URL http://www.putty.org and follow instructions to install it on your computer.
+
+When you launch Putty, a configuration window will pop up and you will enter i) your credentials (e.g. `user@IP`) in the `Host Name (or IP address)` box, ii) set the `Port` to 22 and iii) make sure the connection type is set to `ssh` (Figure \@ref(fig:Putty)). The full documentation for this software is available [here](https://the.earth.li/~sgtatham/putty/0.76/htmldoc/). 
+
+```{r Putty, echo=FALSE, fig.align="center", fig.cap="Screenshot of Putty Configuration window to establish ssh connection.", fig.show="asis", out.width = '60%'}
+knitr::include_graphics("Images/putty-session-config.png")
+```
+
 
 # Running bioinformatic analyses - `tmux`
 
