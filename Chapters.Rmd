@@ -598,7 +598,7 @@ To achieve our overarching objective, our next classes will be divided into two 
 - **Step 1:** Set-up and perform a *de novo* genome assembly based on cleaned paired-end (PE) Illumina reads using `SOAPdenovo2` [@Luo2012].
 - **Step 2:** Provide theoretical knowledge on *de novo* genome assembly methods by focusing on de Bruijn graphs.
 
-### Step 1
+### Step 1: Perform *de novo* genome assembly analysis
 
 #### Specific objective
 
@@ -611,4 +611,82 @@ Here, students will be learning the procedure to set-up and perform a *de novo* 
 `SOAPdenovo2` [@Luo2012] is a short-read genome assembler, which was especially developed to handle Illumina reads and to build `de novo` draft assemblies for human-sized genomes. This program creates new opportunities for building reference sequences and carrying out accurate analyses of unexplored genomes in a cost effective way. As stated above, `SOAPdenovo2` aims for large eukaryote genomes, but it also works well on bacteria and fungi genomes. It runs on 64-bit Linux system with a minimum of 5GB of physical memory. For big genomes like human (3.2Gbp), about 150GB of memory are required. 
 
 In our case, we have estimated the haploid genome size of *Apostasia shenzhenica* to be around 340Mbp in our previous tutorial. This latter evidence therefore suggests that \verb|SOAPdenovo2| is adapted to assemble a draft genome for this species of orchid. 
+
+#### Structure of `SOAPdenovo2`
+
+This program is made up of six modules handling:
+
+1. Read error correction.
+2. de Bruijn graph construction.
+3. Contig assembly.
+4. Paired-end reads mapping.
+5. Scaffold construction.
+6. Gap closure.
+
+Please read @Luo2012 for more details on the approach implemented in `SOAPdenovo2`.
+
+#### Why are we using SOAPdenovo2 to assemble this genome?
+
+Once reads are fully cleaned and ready for **de novo** assembly, one of the main questions that you will ask yourself is: What **de novo** program should I use to assemble my genome? Or in other words, which program best fit my data?
+
+Most researchers working on Illumina short-reads are using either `SOAPdenovo2` or `ALLPATHS-LG` to assemble nuclear genomes of eukaryote species. Please find below a short comparison of both programs:
+
+- Unlike `SOAPdenovo2`, `ALLPATHS‐-LG` requires high sequence coverage of the genome in order to compensate for the shortness of the Illumina reads. The precise coverage required depends on the length and quality of the paired reads, but typically is of the order 100x or above. This is raw read coverage, before any error correction or filtering.
+- Unlike `SOAPdenovo2`, `ALLPATHS‐-LG` requires a minimum of 2 paired-end libraries -- one short and one long. The short library average separation size must be slightly less than twice the read size, such that the reads from a pair will likely overlap – for example, for 100 base reads the insert size should be 180 bases. The distribution of sizes should be as small as possible, with a standard deviation of less than 20%. The long library insert size should be approximately 3000 bases long and can have a larger size distribution. Additional optional longer insert libraries can be used to help disambiguate larger repeat structures and may be generated at lower coverage. 
+
+Overall, because we estimated in the previous tutorial that this library provided a coverage depth of ca. 25x for the haploid genome and that we only have one paired-end library, `SOAPdenovo2` therefore best fits our data.
+
+#### Running `SOAPdenovo2` analysis
+
+Running a `SOAPdenovo2` analysis is a three steps process:
+
+- **Step 1:** Create a folder and copy the de-interleaved cleaned paired-end 'fastq' files.
+- **Step 2:** Create a `SOAPdenovo2` configuration file providing settings for the analysis.
+- **Step 3:** Run the *de novo* genome assembly analysis.
+
+##### Step 1
+	
+Use the `mkdir` command to create a new folder entitled `SOAPdenovo/` in `~/Documents/02_Kmers_analyses/` as follows:
+
+```{bash eval=F, echo=T}
+mkdir SOAPdenovo2
+```
+
+Copy the paired-end cleaned reads files (i.e. input files for the *de novo* analysis) in `SOAPdenovo2/` using the `cp` command as follows:
+
+```{bash eval=F, echo=T}
+#Copy the split pe files in SOAPdenovo2
+cp ~/Documents/02_Kmers_analyses/khmer/output/SRR5759389.pe* ~/Documents/02_Kmers_analyses/SOAPdenovo2/
+```
+
+##### Step 2
+
+`SOAPdenovo2` requires a configuration file to run the analysis. Please create a file entitled `soap_config.txt` deposited in `SOAPdenovo2/` using `vim`. Fill the latter file with the information provided below to set-up the analysis:
+
+```{bash eval=F, echo=T}
+max_rd_len=90          # maximal read length
+[LIB]            # One [LIB] section per library
+avg_ins=180             # average insert size
+reverse_seq=0           # if sequence needs to be reversed
+asm_flags=3             # use for contig building and subsequent scaffolding
+rank=1                  # in which order the reads are used while scaffolding
+q1=SRR5759389.pe1.clean.fastq
+q2=SRR5759389.pe2.clean.fastq
+```
+
+To better understand the settings contained in this file, comments have been provided to explain each parameter. The last 2 lines contain the names of the input files. This is a very simple analysis based only on one paired-end Illumina library (`[LIB]`).
+
+##### Step 3
+	
+Once the input and configuration files are sorted, just type the following command in your terminal to start the analysis:
+
+```{bash eval=F, echo=T}
+#Run the de novo analysis
+soapdenovo2-63mer all -s soap_config.txt -K 63 -R -p 16 -o SRR5759239_assembly
+```
+
+Here, `SOAPdenovo2` works with a k-mer size of 63 (`-K`). The analysis will be performed on 16 threads (or CPUs) (`-p`) and the program will save the output files under `SRR5759239_assembly` as shown by the `-o` argument.
+	  
+The analysis will run for SEVERAL HOURS. Please log out from your sessions, but DON'T SWITCH OFF COMPUTERS.	 
+
 # References

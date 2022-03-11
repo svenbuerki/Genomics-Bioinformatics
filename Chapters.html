@@ -11,7 +11,7 @@
 
 <meta name="author" content="Sven Buerki - Boise State University" />
 
-<meta name="date" content="2022-03-04" />
+<meta name="date" content="2022-03-11" />
 
 <title>BIOL 497/597 - Genomics &amp; Bioinformatics</title>
 
@@ -421,7 +421,7 @@ div.tocify {
 <h1 class="title toc-ignore">BIOL 497/597 - Genomics &amp; Bioinformatics</h1>
 <h3 class="subtitle">Chapters</h3>
 <h4 class="author">Sven Buerki - Boise State University</h4>
-<h4 class="date">2022-03-04</h4>
+<h4 class="date">2022-03-11</h4>
 
 </div>
 
@@ -1011,8 +1011,8 @@ Figure 6.8: Output of the GenomeScope analysis.
 <li><strong>Step 2:</strong> Provide theoretical knowledge on <em>de novo</em> genome assembly methods by focusing on de Bruijn graphs.</li>
 </ul>
 </div>
-<div id="step-1" class="section level3" number="6.7.4">
-<h3><span class="header-section-number">6.7.4</span> Step 1</h3>
+<div id="step-1-perform-de-novo-genome-assembly-analysis" class="section level3" number="6.7.4">
+<h3><span class="header-section-number">6.7.4</span> Step 1: Perform <em>de novo</em> genome assembly analysis</h3>
 <div id="specific-objective" class="section level4" number="6.7.4.1">
 <h4><span class="header-section-number">6.7.4.1</span> Specific objective</h4>
 <p>Here, students will be learning the procedure to set-up and perform a <em>de novo</em> genome assembly using cleaned PE Illumina reads as implemented in <code>SOAPdenovo2</code> <span class="citation">(<a href="#ref-Luo2012" role="doc-biblioref">Luo et al., 2012</a>)</span>. The analysis will be conducted on the output files obtained after cleaning reads based on Phred scores and k-mer distributions (see section <a href="#dataPART2">6.7.2</a> for more details on the input files).</p>
@@ -1021,8 +1021,74 @@ Figure 6.8: Output of the GenomeScope analysis.
 <div id="background-on-soapdenovo2" class="section level4" number="6.7.4.2">
 <h4><span class="header-section-number">6.7.4.2</span> Background on <code>SOAPdenovo2</code></h4>
 <p><code>SOAPdenovo2</code> <span class="citation">(<a href="#ref-Luo2012" role="doc-biblioref">Luo et al., 2012</a>)</span> is a short-read genome assembler, which was especially developed to handle Illumina reads and to build <code>de novo</code> draft assemblies for human-sized genomes. This program creates new opportunities for building reference sequences and carrying out accurate analyses of unexplored genomes in a cost effective way. As stated above, <code>SOAPdenovo2</code> aims for large eukaryote genomes, but it also works well on bacteria and fungi genomes. It runs on 64-bit Linux system with a minimum of 5GB of physical memory. For big genomes like human (3.2Gbp), about 150GB of memory are required.</p>
-<p>In our case, we have estimated the haploid genome size of <em>Apostasia shenzhenica</em> to be around 340Mbp in our previous tutorial. This latter evidence therefore suggests that  is adapted to assemble a draft genome for this species of orchid.
-# References</p>
+<p>In our case, we have estimated the haploid genome size of <em>Apostasia shenzhenica</em> to be around 340Mbp in our previous tutorial. This latter evidence therefore suggests that  is adapted to assemble a draft genome for this species of orchid.</p>
+</div>
+<div id="structure-of-soapdenovo2" class="section level4" number="6.7.4.3">
+<h4><span class="header-section-number">6.7.4.3</span> Structure of <code>SOAPdenovo2</code></h4>
+<p>This program is made up of six modules handling:</p>
+<ol style="list-style-type: decimal">
+<li>Read error correction.</li>
+<li>de Bruijn graph construction.</li>
+<li>Contig assembly.</li>
+<li>Paired-end reads mapping.</li>
+<li>Scaffold construction.</li>
+<li>Gap closure.</li>
+</ol>
+<p>Please read <span class="citation"><a href="#ref-Luo2012" role="doc-biblioref">Luo et al.</a> (<a href="#ref-Luo2012" role="doc-biblioref">2012</a>)</span> for more details on the approach implemented in <code>SOAPdenovo2</code>.</p>
+</div>
+<div id="why-are-we-using-soapdenovo2-to-assemble-this-genome" class="section level4" number="6.7.4.4">
+<h4><span class="header-section-number">6.7.4.4</span> Why are we using SOAPdenovo2 to assemble this genome?</h4>
+<p>Once reads are fully cleaned and ready for <strong>de novo</strong> assembly, one of the main questions that you will ask yourself is: What <strong>de novo</strong> program should I use to assemble my genome? Or in other words, which program best fit my data?</p>
+<p>Most researchers working on Illumina short-reads are using either <code>SOAPdenovo2</code> or <code>ALLPATHS-LG</code> to assemble nuclear genomes of eukaryote species. Please find below a short comparison of both programs:</p>
+<ul>
+<li>Unlike <code>SOAPdenovo2</code>, <code>ALLPATHS‐-LG</code> requires high sequence coverage of the genome in order to compensate for the shortness of the Illumina reads. The precise coverage required depends on the length and quality of the paired reads, but typically is of the order 100x or above. This is raw read coverage, before any error correction or filtering.</li>
+<li>Unlike <code>SOAPdenovo2</code>, <code>ALLPATHS‐-LG</code> requires a minimum of 2 paired-end libraries – one short and one long. The short library average separation size must be slightly less than twice the read size, such that the reads from a pair will likely overlap – for example, for 100 base reads the insert size should be 180 bases. The distribution of sizes should be as small as possible, with a standard deviation of less than 20%. The long library insert size should be approximately 3000 bases long and can have a larger size distribution. Additional optional longer insert libraries can be used to help disambiguate larger repeat structures and may be generated at lower coverage.</li>
+</ul>
+<p>Overall, because we estimated in the previous tutorial that this library provided a coverage depth of ca. 25x for the haploid genome and that we only have one paired-end library, <code>SOAPdenovo2</code> therefore best fits our data.</p>
+</div>
+<div id="running-soapdenovo2-analysis" class="section level4" number="6.7.4.5">
+<h4><span class="header-section-number">6.7.4.5</span> Running <code>SOAPdenovo2</code> analysis</h4>
+<p>Running a <code>SOAPdenovo2</code> analysis is a three steps process:</p>
+<ul>
+<li><strong>Step 1:</strong> Create a folder and copy the de-interleaved cleaned paired-end ‘fastq’ files.</li>
+<li><strong>Step 2:</strong> Create a <code>SOAPdenovo2</code> configuration file providing settings for the analysis.</li>
+<li><strong>Step 3:</strong> Run the <em>de novo</em> genome assembly analysis.</li>
+</ul>
+<div id="step-1" class="section level5" number="6.7.4.5.1">
+<h5><span class="header-section-number">6.7.4.5.1</span> Step 1</h5>
+<p>Use the <code>mkdir</code> command to create a new folder entitled <code>SOAPdenovo/</code> in <code>~/Documents/02_Kmers_analyses/</code> as follows:</p>
+<pre class="bash"><code>mkdir SOAPdenovo2</code></pre>
+<p>Copy the paired-end cleaned reads files (i.e. input files for the <em>de novo</em> analysis) in <code>SOAPdenovo2/</code> using the <code>cp</code> command as follows:</p>
+<pre class="bash"><code>#Copy the split pe files in SOAPdenovo2
+cp ~/Documents/02_Kmers_analyses/khmer/output/SRR5759389.pe* ~/Documents/02_Kmers_analyses/SOAPdenovo2/</code></pre>
+</div>
+<div id="step-2" class="section level5" number="6.7.4.5.2">
+<h5><span class="header-section-number">6.7.4.5.2</span> Step 2</h5>
+<p><code>SOAPdenovo2</code> requires a configuration file to run the analysis. Please create a file entitled <code>soap_config.txt</code> deposited in <code>SOAPdenovo2/</code> using <code>vim</code>. Fill the latter file with the information provided below to set-up the analysis:</p>
+<pre class="bash"><code>max_rd_len=90          # maximal read length
+[LIB]            # One [LIB] section per library
+avg_ins=180             # average insert size
+reverse_seq=0           # if sequence needs to be reversed
+asm_flags=3             # use for contig building and subsequent scaffolding
+rank=1                  # in which order the reads are used while scaffolding
+q1=SRR5759389.pe1.clean.fastq
+q2=SRR5759389.pe2.clean.fastq</code></pre>
+<p>To better understand the settings contained in this file, comments have been provided to explain each parameter. The last 2 lines contain the names of the input files. This is a very simple analysis based only on one paired-end Illumina library (<code>[LIB]</code>).</p>
+</div>
+<div id="step-3" class="section level5" number="6.7.4.5.3">
+<h5><span class="header-section-number">6.7.4.5.3</span> Step 3</h5>
+<p>Once the input and configuration files are sorted, just type the following command in your terminal to start the analysis:</p>
+<pre class="bash"><code>#Run the de novo analysis
+soapdenovo2-63mer all -s soap_config.txt -K 63 -R -p 16 -o SRR5759239_assembly</code></pre>
+<p>Here, <code>SOAPdenovo2</code> works with a k-mer size of 63 (<code>-K</code>). The analysis will be performed on 16 threads (or CPUs) (<code>-p</code>) and the program will save the output files under <code>SRR5759239_assembly</code> as shown by the <code>-o</code> argument.</p>
+<p>The analysis will run for SEVERAL HOURS. Please log out from your sessions, but DON’T SWITCH OFF COMPUTERS.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="references" class="section level1 unnumbered">
+<h1>References</h1>
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-FastQC" class="csl-entry">
 <span class="smallcaps">Andrews, S.</span> 2012. <span class="nocase">FastQC A Quality Control tool for High Throughput Sequence Data</span>. Available at: <a href="http://www.bioinformatics.babraham.ac.uk/projects/fastqc/">http://www.bioinformatics.babraham.ac.uk/projects/fastqc/</a>.
@@ -1056,9 +1122,6 @@ Figure 6.8: Output of the GenomeScope analysis.
 </div>
 <div id="ref-Zhang2017" class="csl-entry">
 <span class="smallcaps">Zhang, G.-Q.</span>, <span class="smallcaps">K.-W. Liu</span>, <span class="smallcaps">Z. Li</span>, <span class="smallcaps">R. Lohaus</span>, <span class="smallcaps">Y.-Y. Hsiao</span>, <span class="smallcaps">S.-C. Niu</span>, <span class="smallcaps">J.-Y. Wang</span>, et al. 2017. The apostasia genome and the evolution of orchids. <em>Nature</em> 549: 379 EP–. Available at: <a href="http://dx.doi.org/10.1038/nature23897">http://dx.doi.org/10.1038/nature23897</a>.
-</div>
-</div>
-</div>
 </div>
 </div>
 </div>
