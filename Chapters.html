@@ -11,7 +11,7 @@
 
 <meta name="author" content="Sven Buerki - Boise State University" />
 
-<meta name="date" content="2022-03-11" />
+<meta name="date" content="2022-03-15" />
 
 <title>BIOL 497/597 - Genomics &amp; Bioinformatics</title>
 
@@ -421,7 +421,7 @@ div.tocify {
 <h1 class="title toc-ignore">BIOL 497/597 - Genomics &amp; Bioinformatics</h1>
 <h3 class="subtitle">Chapters</h3>
 <h4 class="author">Sven Buerki - Boise State University</h4>
-<h4 class="date">2022-03-11</h4>
+<h4 class="date">2022-03-15</h4>
 
 </div>
 
@@ -660,7 +660,7 @@ cd ~/Documents/02_Kmers_analyses/</code></pre>
 <li><code>GenomeScope</code> <span class="citation">(<a href="#ref-genomescope" role="doc-biblioref">Vurture et al., 2017</a>)</span>: <a href="http://qb.cshl.edu/genomescope/" class="uri">http://qb.cshl.edu/genomescope/</a>.</li>
 </ul></li>
 </ul>
-<p>The <code>R</code> software is also used in steps 4 and 5. You can find more details on this software in the <a href="index.html">Syllabus</a> and <a href="Mini_reports.html">Mini-Report</a> webpages.</p>
+<p>If you are remotely connecting to the Linux computers please <strong>install <a href="https://filezilla-project.org/">FileZilla</a> to support file transfer</strong>. Finally, the <code>R</code> software is also used in steps 4 and 5. You can find more details on this software in the <a href="index.html">Syllabus</a> and <a href="Mini_reports.html">Mini-Report</a> webpages.</p>
 </div>
 <div id="step-1-download-sra-file" class="section level3" number="6.6.4">
 <h3><span class="header-section-number">6.6.4</span> Step 1: Download SRA file</h3>
@@ -679,12 +679,12 @@ fastq-dump --split-files --defline-seq &#39;@$ac.$si.$sg/$ri&#39; --defline-qual
 <pre class="bash"><code>#Reads QCs with FastQC 
 ./FastQC_program/fastqc -o ~/Documents/02_Kmers_analyses/FastQC/ /home/Genomics_shared/Chapter_04/01_SRA/SRR5759389_pe12.fastq </code></pre>
 <p>This analysis generates the <code>SRR5759389_pe12_fastqc.html</code> output file. We will have a group discussion to inspect this file and draw general conclusions on the quality of the raw data. This step will have to be repeated after completion of the step3 (reads cleaning) to confirm that our reads trimming and cleaning procedure was successful. To inspect this file click <a href="Data/SRR5759389_pe12_fastqc.html">here</a>.</p>
-<div id="using-scp-to-copy-file-from-linux-2-your-computer" class="section level4" number="6.6.5.1">
-<h4><span class="header-section-number">6.6.5.1</span> Using <code>scp</code> to copy file from Linux 2 your computer</h4>
+<div id="using-scp-to-copy-file-on-your-computer" class="section level4" number="6.6.5.1">
+<h4><span class="header-section-number">6.6.5.1</span> Using <code>scp</code> to copy file on your computer</h4>
 <p><strong>WARNING:</strong> This protocol works only on UNIX OS (Mac, Linux).</p>
 <p>You can use the <code>scp</code> command to copy <code>SRR5759389_pe12_fastqc.html</code> or any other file to your local computer. This can be done as follows:</p>
 <ol style="list-style-type: decimal">
-<li><p>Open a <code>Terminal</code> window on your computer.</p></li>
+<li><p>Open a <code>Terminal</code> window on your computer and navigate (using <code>cd</code>) where you want to store the target file.</p></li>
 <li><p>Type this command line:</p></li>
 </ol>
 <pre class="bash"><code>#General syntax

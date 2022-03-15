@@ -230,7 +230,7 @@ Although all the bioinformatic tools (software) necessary to complete this tutor
     - `jellyfish` [@Jellyfish2011]: http://www.genome.umd.edu/jellyfish.html.
     - `GenomeScope` [@genomescope]: http://qb.cshl.edu/genomescope/.
 
-The `R` software is also used in steps 4 and 5. You can find more details on this software in the [Syllabus](index.html) and [Mini-Report](Mini_reports.html) webpages.
+If you are remotely connecting to the Linux computers please **install [FileZilla](https://filezilla-project.org/) to support file transfer**. Finally, the `R` software is also used in steps 4 and 5. You can find more details on this software in the [Syllabus](index.html) and [Mini-Report](Mini_reports.html) webpages.
 
 ### Step 1: Download SRA file
 
@@ -258,13 +258,13 @@ The program `FastQC` is used to obtain preliminary information about the Illumin
 
 This analysis generates the `SRR5759389_pe12_fastqc.html` output file. We will have a group discussion to inspect this file and draw general conclusions on the quality of the raw data. This step will have to be repeated after completion of the step3 (reads cleaning) to confirm that our reads trimming and cleaning procedure was successful. To inspect this file click [here](Data/SRR5759389_pe12_fastqc.html).
 
-#### Using `scp` to copy file from Linux 2 your computer
+#### Using `scp` to copy file on your computer
 
 **WARNING:** This protocol works only on UNIX OS (Mac, Linux).
 
 You can use the `scp` command to copy `SRR5759389_pe12_fastqc.html` or any other file to your local computer. This can be done as follows:
 
-1. Open a `Terminal` window on your computer.
+1. Open a `Terminal` window on your computer and navigate (using `cd`) where you want to store the target file.
 
 2. Type this command line:
 ```{bash echo=T, eval=F}
