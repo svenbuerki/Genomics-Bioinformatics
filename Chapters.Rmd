@@ -230,7 +230,7 @@ Although all the bioinformatic tools (software) necessary to complete this tutor
     - `jellyfish` [@Jellyfish2011]: http://www.genome.umd.edu/jellyfish.html.
     - `GenomeScope` [@genomescope]: http://qb.cshl.edu/genomescope/.
 
-If you are remotely connecting to the Linux computers please **install [FileZilla](https://filezilla-project.org/) to support file transfer**. Finally, the `R` software is also used in steps 4 and 5. You can find more details on this software in the [Syllabus](index.html) and [Mini-Report](Mini_reports.html) webpages.
+If you are remotely connecting to the Linux computers please **install [FileZilla](https://filezilla-project.org/) to support file transfer**. Please see section \@ref(sftp) for more details on how to set up remote connection for transferring files. Finally, the `R` software is also used in steps 4 and 5. You can find more details on this software in the [Syllabus](index.html) and [Mini-Report](Mini_reports.html) webpages.
 
 ### Step 1: Download SRA file
 
@@ -258,7 +258,11 @@ The program `FastQC` is used to obtain preliminary information about the Illumin
 
 This analysis generates the `SRR5759389_pe12_fastqc.html` output file. We will have a group discussion to inspect this file and draw general conclusions on the quality of the raw data. This step will have to be repeated after completion of the step3 (reads cleaning) to confirm that our reads trimming and cleaning procedure was successful. To inspect this file click [here](Data/SRR5759389_pe12_fastqc.html).
 
-#### Using `scp` to copy file on your computer
+### File transferring
+
+At this stage, you will need to transfer `SRR5759389_pe12_fastqc.html` on your local computer to be able to inspect the results. This can be done using i) the `scp` protocol (but it only works on Unix-based operating systems) or ii) the `sftp` protocol as implemented in FileZilla (this works on all operating systems). 
+
+#### `scp` protocol
 
 **WARNING:** This protocol works only on UNIX OS (Mac, Linux).
 
@@ -275,6 +279,20 @@ scp USER@IP:PATH_ON_REMOTE_COMPUTER PATH_ON_YOUR_COMPUTER
 # To copy SRR5759389_pe12_fastqc.html on my computer from bio_11 user do:
 scp bio_11@132.178.142.214:~/Documents/02_Kmers_analyses/FastQC/SRR5759389_pe12_fastqc.html .
 ```
+
+#### `sftp` protocol {#sftp}
+
+Open FileZilla on your personal computer and establish remote connection with Linux computer as shown in Figure \@ref(fig:FileZilla). Once the connection is established:
+
+1. Navigate where the target file (`SRR5759389_pe12_fastqc.html`) is located on the remote computer and select it.
+2. Identify where the target file needs to be saved on your personal computer.
+3. Copy the file on your personal computer by dragging the target file from the remote to the local location.
+
+```{r FileZilla, echo=FALSE, fig.align="center", fig.cap="Snapshot of FileZilla program used to transfer files between computers.", fig.show="asis", out.width = '80%'}
+knitr::include_graphics("Images/FileZilla_snapshot.png")
+```
+
+This protocol will have to be replicated at different stages of this tutorial.
 
 ### Step 3: Reads cleaning {#Step3}
 
