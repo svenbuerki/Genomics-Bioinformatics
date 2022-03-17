@@ -409,12 +409,13 @@ $(document).ready(function() {
 </script>
 <div id="how-many-reads-are-in-a-fastq-file" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> How many reads are in a <code>fastq</code> file?</h1>
-<p>We always have to report the number of reads in <code>fastq</code> files in scientific papers, which is used to estimate e.g. genome coverage pre- and post- raw data cleaning procedures. The instructor is tasking each group to develop a pseudo-code aiming at counting the number of reads in any <code>fastq</code> files. We will then implement the pseudo-code into either an <code>R</code> or <code>sh</code> script and apply it to your own data as part of <a href="Chapters.html">Chapter 4</a>.</p>
-<p>To help you design your pseudo-code, a screenshot of a <code>fastq</code> file is available in Figure <a href="#fig:fastq">1.1</a> and was obtained by using the <code>head</code> command on <code>SRR5759389_pe12.fastq</code> (= file used in Chapter 4).</p>
+<p>The number of reads in <code>fastq</code> files are often provided in the scientific literature and used to e.g. estimate genome coverage pre- and post- data cleaning. The instructor is tasking each group to develop a pseudo-code aiming at counting the number of reads in any <code>fastq</code> files.</p>
+<p>We will then discuss your ideas and solutions and implement those into either an <code>R</code> or <code>sh</code> script, which will be applied to your own data analyzed in <a href="Chapters.html">Chapter 4</a>.</p>
+<p>To help you design your pseudo-code, a screenshot of the <code>SRR5759389_pe12.fastq</code> (= file used in Chapter 4) <code>fastq</code> file is available in Figure <a href="#fig:fastq">1.1</a>. This information was obtained by using the <code>head</code> command applied to <code>SRR5759389_pe12.fastq</code> (see Figure <a href="#fig:fastq">1.1</a>).</p>
 <div class="figure" style="text-align: center"><span id="fig:fastq"></span>
-<img src="Images/Fastq_format.png" alt="Screenshot of fastq file showing formatting of reads." width="100%" />
+<img src="Images/Fastq_format.png" alt="Screenshot of SRR5759389_pe12.fastq showing the formatting of reads." width="80%" />
 <p class="caption">
-Figure 1.1: Screenshot of fastq file showing formatting of reads.
+Figure 1.1: Screenshot of SRR5759389_pe12.fastq showing the formatting of reads.
 </p>
 </div>
 </div>
