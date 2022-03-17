@@ -1,0 +1,64 @@
+---
+title: "Challenge of the day!"
+date: "`r Sys.Date()`"
+output:
+#  bookdown::pdf_document2:
+#    toc: TRUE
+  bookdown::html_document2: 
+    toc: TRUE
+    toc_float: TRUE
+link-citations: yes
+fontsize: 12pt
+urlcolor: blue
+csl: AmJBot.csl
+bibliography: References.bib
+editor_options: 
+  markdown: 
+    wrap: sentence
+---
+
+```{js logo-js, echo=FALSE}
+$(document).ready(function() {
+  $('#header').parent().prepend('<div id=\"logo\"><img src=\"Images/boisestate-primarylogo-2color-rgb.png\" style=\"position:absolute; top:0; right:0; padding:10px; height:120px\"></div>');
+  $('#header').css('margin-right', '120px')
+});
+```
+
+```{r packages, echo=FALSE, warning=FALSE, include=FALSE}
+library(knitr)
+library(rmarkdown)
+library(bookdown)
+#library(distill)
+library(knitcitations)
+library(formatR)
+library(devtools)
+library(kfigr)
+library(dplyr)
+library(kableExtra)
+library(tufte)
+
+#Generate BibTex citation file for all R packages used to produce report
+knitr::write_bib(.packages(), file = 'packages.bib')
+```
+
+# How many reads are in a `fastq` file?
+
+We always have to report the number of reads in `fastq` files in scientific papers, which is used to estimate e.g. genome coverage pre- and post- raw data cleaning procedures. The instructor is tasking each group to develop a pseudo-code aiming at counting the number of reads in any `fastq` files. We will then implement the pseudo-code into either an `R` or `sh` script and apply it to your own data as part of [Chapter 4](Chapters.html). 
+
+To help you design your pseudo-code, a screenshot of a `fastq` file is available in Figure \@ref(fig:fastq) and was obtained by using the `head` command on `SRR5759389_pe12.fastq` (= file used in Chapter 4).
+
+
+```{r fastq, echo=FALSE, fig.align="center", fig.cap="Screenshot of fastq file showing formatting of reads.", fig.show="asis", out.width = '100%'}
+knitr::include_graphics("Images/Fastq_format.png")
+```
+
+```{bash eval=F, echo=F}
+#N lines in file
+nlines=$(wc -l SRR5759389_pe12.fastq | awk '{ print $1 }')
+#N reads in file
+expr $nlines / 4
+
+#N bp sequenced
+expr $nlines / 4 \* 90
+```
+
