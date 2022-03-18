@@ -59,7 +59,7 @@ knitr::include_graphics("Images/Fastq_format.png")
 nlines=$(wc -l SRR5759389_pe12.fastq | awk '{ print $1 }')
 #N reads in file
 expr $nlines / 4
-
+ddd
 #N bp sequenced
 expr $nlines / 4 \* 90
 ```
