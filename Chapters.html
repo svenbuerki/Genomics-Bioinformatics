@@ -11,7 +11,7 @@
 
 <meta name="author" content="Sven Buerki - Boise State University" />
 
-<meta name="date" content="2022-03-15" />
+<meta name="date" content="2022-03-28" />
 
 <title>BIOL 497/597 - Genomics &amp; Bioinformatics</title>
 
@@ -421,7 +421,7 @@ div.tocify {
 <h1 class="title toc-ignore">BIOL 497/597 - Genomics &amp; Bioinformatics</h1>
 <h3 class="subtitle">Chapters</h3>
 <h4 class="author">Sven Buerki - Boise State University</h4>
-<h4 class="date">2022-03-15</h4>
+<h4 class="date">2022-03-28</h4>
 
 </div>
 
@@ -556,7 +556,7 @@ $(document).ready(function() {
 <ul>
 <li><a href="#PART1"><strong>PART 1:</strong></a> Preparing/cleaning Illumina reads for <em>de novo</em> nuclear genome assembly and inferring genome size and complexity.</li>
 <li><a href="#PART2"><strong>PART 2:</strong></a> <em>De novo</em> genome assembly.</li>
-<li><strong>PART 3:</strong> Validation of draft genome.</li>
+<li><a href="#PART3"><strong>PART 3:</strong></a> Validation of the draft genome.</li>
 </ul>
 <p>Before you start working on Chapter 4, please make sure that you have completed the tutorials available <a href="Tutorials.html">here</a>.</p>
 </div>
@@ -595,7 +595,7 @@ Figure 6.1: Details on the WGS library (SRA accession number: SRR5759389) used i
 </ul>
 </div>
 <div id="PART1" class="section level2" number="6.6">
-<h2><span class="header-section-number">6.6</span> PART 1</h2>
+<h2><span class="header-section-number">6.6</span> PART 1: QCs, read cleaning and genome size</h2>
 <div id="analytical-workflow" class="section level3" number="6.6.1">
 <h3><span class="header-section-number">6.6.1</span> Analytical workflow</h3>
 <p>The overarching objective of this tutorial is to gain theoretical and bioinformatics knowledge on the steps required to prepare PE Illumina reads for <em>de novo</em> nuclear genome assembly as well as infer genome size and complexity (see Figure <a href="#fig:part1">6.2</a>).</p>
@@ -790,7 +790,7 @@ khmer filter-abund.py -V kmer.counts -o SRR5759389_pe12.max100.trimmed.norare.fa
 <pre class="bash"><code>#3. Final clean-up of reads (remove low quality bases, short sequences, and non-paired reads)
 seqtk seq -q 10 -N -L 80 SRR5759389_pe12.max100.trimmed.norare.fastq | seqtk dropse &gt; SRR5759389_pe12.max100.trimmed.norare.noshort.fastq</code></pre>
 </div>
-<div id="prepare-data-for-de-novo-genome-assembly" class="section level4" number="6.6.7.6">
+<div id="prepreads" class="section level4" number="6.6.7.6">
 <h4><span class="header-section-number">6.6.7.6</span> Prepare data for <em>de novo</em> genome assembly</h4>
 <p>In this last section, our cleaned reads are prepared for the <em>de novo</em> genome assembly analysis conducted in <code>SOAPdenovo2</code> <span class="citation">(<a href="#ref-Luo2012" role="doc-biblioref">Luo et al., 2012</a>)</span> (done in <a href="#PART2">PART 2</a>). This is achieved by using <code>khmer</code> and renaming files using <code>mv</code> as follows:</p>
 <pre class="bash"><code>#De-interleave filtered reads (to be ready for de novo assembly in SOAPdenovo2)
@@ -1010,18 +1010,19 @@ Figure 6.9: Output of the GenomeScope analysis.
 </div>
 </div>
 <div id="PART2" class="section level2" number="6.7">
-<h2><span class="header-section-number">6.7</span> PART 2</h2>
+<h2><span class="header-section-number">6.7</span> PART 2: <em>De novo</em> genome assembly</h2>
 <div id="objective" class="section level3" number="6.7.1">
 <h3><span class="header-section-number">6.7.1</span> Objective</h3>
 <p>The overarching objective of PART 2 is to gain theoretical and bioinformatics knowledge on the steps required to <strong>perform a <em>de novo</em> genome assembly based on cleaned Illumina reads</strong>. The procedure applied to assess and validate the quality of the genome assembly will also be covered in PART 3.</p>
 </div>
 <div id="dataPART2" class="section level3" number="6.7.2">
 <h3><span class="header-section-number">6.7.2</span> Presenting the data and their location</h3>
-<p>PART 2 will be using the output files of the PART 1 <a href="#Step3">reads cleaning step</a>, which are deposited in <code>~/Documents/Kmers_analyses/khmer/</code> and named as follows:</p>
+<p>PART 2 will be using the output files of the PART 1 <a href="#Step3">reads cleaning step</a>, which are deposited in <code>~/Documents/02_Kmers_analyses/khmer/</code> and named as follows:</p>
 <ul>
 <li><code>SRR5759389.pe1.clean.fastq</code></li>
 <li><code>SRR5759389.pe2.clean.fastq</code></li>
 </ul>
+<p><strong>WARNING:</strong> You have to complete section <a href="#prepreads">6.6.7.6</a> before starting this section.</p>
 </div>
 <div id="analytical-workflow-1" class="section level3" number="6.7.3">
 <h3><span class="header-section-number">6.7.3</span> Analytical workflow</h3>
@@ -1080,7 +1081,7 @@ Figure 6.9: Output of the GenomeScope analysis.
 <pre class="bash"><code>mkdir SOAPdenovo2</code></pre>
 <p>Copy the paired-end cleaned reads files (i.e. input files for the <em>de novo</em> analysis) in <code>SOAPdenovo2/</code> using the <code>cp</code> command as follows:</p>
 <pre class="bash"><code>#Copy the split pe files in SOAPdenovo2
-cp ~/Documents/02_Kmers_analyses/khmer/output/SRR5759389.pe* ~/Documents/02_Kmers_analyses/SOAPdenovo2/</code></pre>
+cp ~/Documents/02_Kmers_analyses/khmer/SRR5759389.pe* ~/Documents/02_Kmers_analyses/SOAPdenovo2/</code></pre>
 </div>
 <div id="step-2" class="section level5" number="6.7.4.5.2">
 <h5><span class="header-section-number">6.7.4.5.2</span> Step 2</h5>
@@ -1106,6 +1107,123 @@ soapdenovo2-63mer all -s soap_config.txt -K 63 -R -p 16 -o SRR5759239_assembly</
 </div>
 </div>
 </div>
+<div id="PART3" class="section level2" number="6.8">
+<h2><span class="header-section-number">6.8</span> PART 3: Validation of the draft genome</h2>
+<div id="objective-1" class="section level3" number="6.8.1">
+<h3><span class="header-section-number">6.8.1</span> Objective</h3>
+<p>In this part, students are learning how to use <code>QUAST</code> to assess the quality of the <em>de novo</em> genome assembly inferred in PART 2 using <code>SOAPdenovo2</code>. <code>QUAST</code> is used to validate the assembly (based on one PE Illumina library; <code>SRR5759389</code>) by comparing it with the assembly published by <span class="citation"><a href="#ref-Zhang2017" role="doc-biblioref">Zhang et al.</a> (<a href="#ref-Zhang2017" role="doc-biblioref">2017</a>)</span> (available under the GenBank accession number: <code>PEFY01</code>). Such approach is especially useful to assess the level of misassemblies (see Figure <a href="#fig:assemblyworkflow">6.10</a>). Please keep in mind that this assembly has only been inferred from one PE Illumina library.</p>
+<div class="figure" style="text-align: center"><span id="fig:assemblyworkflow"></span>
+<img src="Images/Assembly_workflow.png" alt="Overview of the assembly workflow. Here are few key definitions: Contig: A contiguous sequence of bases. Unitig: A type of contig for which there are no competing choices in terms of internal overlaps (they usually stop before a repeat sequence). Scaffold: A sequence of contigs separated by gaps (Ns). See PART 2 for more details." width="80%" />
+<p class="caption">
+Figure 6.10: Overview of the assembly workflow. Here are few key definitions: Contig: A contiguous sequence of bases. Unitig: A type of contig for which there are no competing choices in terms of internal overlaps (they usually stop before a repeat sequence). Scaffold: A sequence of contigs separated by gaps (Ns). See PART 2 for more details.
+</p>
+</div>
+</div>
+<div id="presenting-the-soapdenovo2-assembly-file" class="section level3" number="6.8.2">
+<h3><span class="header-section-number">6.8.2</span> Presenting the <code>SOAPdenovo2</code> assembly file</h3>
+<p>The input of the <code>QUAST</code> analysis is the <code>fasta</code> assembly file produced by <code>SOAPdenovo2</code> containing scaffolds (see Figure <a href="#fig:assemblyworkflow">6.10</a>). This file is entitled <code>SRR5759239_assembly.scafSeq</code> and it is located in the <code>SOAPdenovo2/</code> folder (see PART 2 for more details).</p>
+<p>Navigate to the file location and inspect it by using the <code>head</code> command. It should be similar to the example provided below:</p>
+<pre class="bash"><code>&gt;scaffold2  6.9
+TATATATATTAGCATTAAATTAACTTTATTTTCATTCTTTCACAAAGCTCGAAACAAAGAT
+ATCACCAAACAACTATGGCTTAGCAAACACATCATTTATACGAGAAATATTAACGATTTG
+AGTGGTGTATGTAGGTTTATGTTCTGAAGTTAACTCGCCCTTTTTTTTTTTTTTCTTAAGT
+ACTGATTNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNTTCTTCTTCT
+TCTAATCATAATATATGTGGTGCTTGCATTTGTGTGCCATGGTGTCACCCTCCCTTCTTG
+CATTGGCCATTGACTCTACTCTTCCCCTCATCAGTGTCTTCCTGTTTAAATTGTAAACCA</code></pre>
+<div id="question-2" class="section level4" number="6.8.2.1">
+<h4><span class="header-section-number">6.8.2.1</span> Question</h4>
+<blockquote>
+<p>Why does the scaffold sequence contain Ns?</p>
+</blockquote>
+<p>Use the workflow presented in Figure <a href="#fig:assemblyworkflow">6.10</a> to answer this question.</p>
+</div>
+</div>
+<div id="introduction-to-quast" class="section level3" number="6.8.3">
+<h3><span class="header-section-number">6.8.3</span> Introduction to QUAST</h3>
+<p><code>QUAST</code> stands for <strong>QU</strong>ality <strong>AS</strong>sessment <strong>T</strong>ool for genome assemblies <span class="citation">(<a href="#ref-QUAST" role="doc-biblioref">Gurevich et al., 2013</a>)</span>. The manual of this program is available here: <a href="http://quast.sourceforge.net/docs/manual.html" class="uri">http://quast.sourceforge.net/docs/manual.html</a></p>
+<p><code>QUAST</code> is using <code>MUMmer v3.23</code> <span class="citation">(<a href="#ref-Kurtz2004" role="doc-biblioref">Kurtz et al., 2004</a>)</span> to align assemblies to a reference genome and to provide metrics depending on alignments. Unlike other similar software, <code>QUAST</code> can also compute metrics that are useful for assessing assemblies of previously un-sequenced species (i.e. non model organisms).</p>
+<div id="quast-metrics" class="section level4" number="6.8.3.1">
+<h4><span class="header-section-number">6.8.3.1</span> <code>QUAST</code> metrics</h4>
+<p>The metrics evaluated by <code>QUAST</code> can be subidvided into several groups as follows:</p>
+<ul>
+<li><strong>Contig sizes:</strong> The following metrics (except for NGx) can be evaluated with or without a reference genome.
+<ul>
+<li>No. of contigs: The total number of contigs in the assembly.</li>
+<li>Largest contig: The length of the largest contig in the assembly.</li>
+<li>Total length: The total number of bases in the assembly.</li>
+<li>Nx (where <span class="math inline">\(0\leq x \leq 100\)</span>): The largest contig length, <span class="math inline">\(L\)</span>, such that using contigs of length <span class="math inline">\(\geq L\)</span> accounts for at least <span class="math inline">\(x\)</span>% of the bases of the assembly.</li>
+<li>NGx, Genome Nx: The contig length such that using equal or longer length contigs produces <span class="math inline">\(x\)</span>% of the length of the reference genome, rather than <span class="math inline">\(x\)</span>% of the assembly length.</li>
+<li>N50: It is the length for which the collection of all contigs of that length or longer covers at least half an assembly.</li>
+<li>NG50: It is the length for which the collection of all contigs of that length or longer covers at least half the reference genome. This metric is computed only if the reference genome is provided.</li>
+</ul></li>
+<li><strong>Misassemblies and structural variations:</strong> The following metrics describe structural errors in the contigs (see Figure <a href="#fig:assemblyworkflow">6.10</a>. <code>QUAST</code> can evaluate them only with respect to a known reference genome. If the reference genome exactly matches the dataset being assembled, differences may be attributed to misassemblies by the software or to sequencing errors, such as chimeric reads. Sometimes one uses a reference genome that is related to but different than the dataset being sequenced. In this case, the differences may still be misassemblies, but they may also be true structural variations, such as rearrangements, large indels, different repeat copy numbers and so forth.
+<ul>
+<li>No. of misassemblies: The number of misassemblies. A misassembly breakpoint is defined as a position in the assembled contigs where the left flanking sequence aligns over 1 kb away from the right flanking sequence on the reference, or they overlap by <span class="math inline">\(&gt; 1\)</span> kb, or the flanking sequences align on opposite strands or different chromosomes.</li>
+<li>No. of misassembled contigs: The number of contigs that contain misassembly breakpoints.</li>
+<li>Misassembled contigs length: The total number of bases contained in all contigs that have one or more misassemblies.</li>
+<li>No. of unaligned contigs: The number of contigs that have no alignment to the reference sequence.</li>
+<li>No. of ambiguously mapped contigs: The number of contigs that have high-scoring reference alignments of equal quality in multiple locations on the reference genome.</li>
+<li>In addition to these summary statistics, <code>QUAST</code> also generates reports with detailed information about each contig, including whether the contig is unaligned, ambiguously mapped, misassembled or correct.</li>
+</ul></li>
+<li><strong>Genome representation:</strong> This section lists metrics evaluating genome representation in contigs. Most of these latter metrics require a reference genome.
+<ul>
+<li>Genome fraction (%): The total number of aligned bases in the reference, divided by the genome size. A base in the reference genome is counted as aligned if at least one contig has at least one alignment to this base. Contigs from repeat regions may map to multiple places, and thus may be counted multiple times in this quantity.</li>
+<li>Duplication ratio: The total number of aligned bases in the assembly (i.e. total length minus unaligned contigs length), divided by the total number of aligned bases in the reference (see genome fraction metric above). If the assembly contains many contigs that cover the same regions of the reference, its duplication ratio may be much <span class="math inline">\(&gt;1\)</span>. This may occur due to overestimating repeat multiplicities and due to small overlaps between contigs, among other reasons.</li>
+<li>GC (%): The total number of G and C nucleotides in the assembly, divided by the total length of the assembly. This metric can be computed without a reference genome.</li>
+<li>No. of mismatches per 100 kb: The average number of mismatches per 100,000 aligned bases. <code>QUAST</code> also generates a more detailed report with the coordinates of mismatches. This metric does not distinguish between single-nucleotide polymorphisms, which are true differences in the assembled genome versus the reference genome, and single-nucleotide errors, which are due to errors in reads or errors in the assembly algorithm.</li>
+<li>No. of indels per 100 kb: The average number of single nucleotide insertions or deletions per 100,000 aligned bases. A detailed report with coordinates of indels for all assemblies is also available.</li>
+</ul></li>
+<li><strong>Visualization:</strong> <code>QUAST</code> presents a number of statistics in graphical form and supports <code>svg</code>, <code>png</code> and <code>pdf</code> formats. These plots are divided into several groups as follows:
+<ul>
+<li>Nx-like plots: These show the trends of Nx and NGx, metrics as <span class="math inline">\(x\)</span> varies. This is more informative than just using N50.</li>
+<li>Cumulative plots: Contigs are ordered from largest to smallest (in number of bases) for all the types of cumulative plots considered. The cumulative length plot shows the number of bases in the first <span class="math inline">\(x\)</span> contigs, as <span class="math inline">\(x\)</span> varies from zero to the number of contigs.</li>
+<li>GC content plots: These show the distribution of GC content in the contigs. The <span class="math inline">\(x\)</span> value shows the per cent of GC (from 0 to 100). The <span class="math inline">\(y\)</span> value shows the number of non-overlapping 100 bp windows whose GC content is <span class="math inline">\(x\)</span>. This distribution is often Gaussian; however, if there are contaminants with a different GC content, there will often be a superposition of multiple Gaussians.</li>
+<li>Contig alignment plots: These show alignment of contigs to the reference genome and the positions of misassemblies in these contigs. Colour coding indicates when block boundaries are shared by multiple assemblies, and to show misassembled blocks.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="running-quast" class="section level3" number="6.8.4">
+<h3><span class="header-section-number">6.8.4</span> Running QUAST</h3>
+<p><code>QUAST</code> is written in <code>python</code> and can be run on Linux or MacOS. The assembly and reference genome files have to be in <code>fasta</code> formats (they can be compressed). The output files are in <code>html</code> and <code>pdf</code> formats.</p>
+<div id="fitting-the-quast-analysis-to-our-data-and-resources" class="section level4" number="6.8.4.1">
+<h4><span class="header-section-number">6.8.4.1</span> Fitting the QUAST analysis to our data and resources</h4>
+<p>In this section, we are reviewing our data and computational resources and learning the procedure to best-fit those to the options provided in the <code>QUAST</code> program:</p>
+<ul>
+<li>The <code>SOAPdenovo2</code> assembly is made of scaffolds and not contigs. This will have to be stated by using the <code>--scaffolds</code> option.</li>
+<li>The reference nuclear genome (<code>PEFY01.1.fsa_nt.gz</code>) is compressed. <code>QUAST</code> can handle compressed files, but not all software can.</li>
+<li>The reference genome is fragmented (i.e. there are still gaps). This will have to be stated by using the <code>--fragmented</code> option.</li>
+<li><code>QUAST</code> can be run in parallel (i.e. simultaneously using multiple threads/CPUs to speed up the analysis). We will take advantage of the 32 cores of our computers and set the <code>--threads</code> option to 20.</li>
+</ul>
+</div>
+<div id="setting-up-the-analysis" class="section level4" number="6.8.4.2">
+<h4><span class="header-section-number">6.8.4.2</span> Setting-up the analysis</h4>
+<p><code>QUAST</code> runs from a command line as follows:</p>
+<pre class="bash"><code>#General syntax
+quast.py [options] &lt;contig_file(s)&gt;</code></pre>
+<p><strong>Options relevant to our data are as follows:</strong></p>
+<ul>
+<li><code>-R &lt;path&gt;</code>: Reference genome file. Optional. Many metrics can’t be evaluated without a reference. If this is omitted, <code>QUAST</code> will only report the metrics that can be evaluated without a reference.</li>
+<li><code>--threads (or -t) &lt;int&gt;</code>: Maximum number of threads. The default value is 25% of all available CPUs but not less than 1. If <code>QUAST</code> fails to determine the number of CPUs, maximum threads number is set to 4.</li>
+<li><code>--scaffolds (or -s)</code>: The assemblies are scaffolds (rather than contigs). <code>QUAST</code> will add split versions of assemblies to the comparison (named <code>&lt;assembly_name&gt;_broken</code>). Assemblies are split by continuous fragments of N’s of length <span class="math inline">\(\geq 10\)</span>. <strong>This is especially important to assess the level of misassemblies constructed by the algorithm.</strong></li>
+<li><code>--fragmented</code>: Reference genome is fragmented (e.g. a scaffold reference). <code>QUAST</code> will try to detect misassemblies caused by the fragmentation and mark them fake (will be excluded from <code># misassemblies</code>).</li>
+</ul>
+<p>If you want to get more information about options available in <code>QUAST</code>, please consult the <a href="http://quast.sourceforge.net/docs/manual.html">manual</a>.</p>
+<p>The command provided below will run a <code>QUAST</code> analysis on the <code>SOAPdenovo2</code> <em>de novo</em> assembly file using <code>PEFY01.1.fsa_nt.gz</code> as reference genome sequence. The output of the analysis will also contain statistics solely based on the <code>SOAPdenovo2</code> <em>de novo</em> assembly.</p>
+<p>Before starting the <code>QUAST</code> analysis execute the following tasks:</p>
+<ol style="list-style-type: decimal">
+<li>Open a terminal window and go to <code>02_Kmers_analyses/</code>.</li>
+<li>Create a new folder entitled <code>QUAST/</code> using the <code>mkdir</code> command.</li>
+<li>Use the <code>cd</code> command to go to <code>QUAST/</code>.</li>
+<li>Check that <code>PEFY01.1.fsa_nt.gz</code> is in this path: <code>~/Documents/02_Kmers_analyses/Map_reads/</code>.</li>
+<li>Check that <code>SRR5759239_assembly.scafSeq</code> is in this path: <code>~/Documents/02_Kmers_analyses/SOAPdenovo2/</code>.</li>
+</ol>
+<p>Once you have completed all the tasks, execute the following command:</p>
+<pre class="bash"><code>#Run QUAST on the SOAPdenovo2 assembly using the reference nuclear genome
+quast.py -R ~/Documents/02_Kmers_analyses/Map_reads/PEFY01.1.fsa_nt.gz --threads 20 --scaffolds --fragmented ~/Documents/02_Kmers_analyses/SOAPdenovo2/SRR5759239_assembly.scafSeq  </code></pre>
+</div>
+</div>
+</div>
 </div>
 <div id="references" class="section level1 unnumbered">
 <h1>References</h1>
@@ -1118,6 +1236,12 @@ soapdenovo2-63mer all -s soap_config.txt -K 63 -R -p 16 -o SRR5759239_assembly</
 </div>
 <div id="ref-Gnerre1513" class="csl-entry">
 <span class="smallcaps">Gnerre, S.</span>, <span class="smallcaps">I. MacCallum</span>, <span class="smallcaps">D. Przybylski</span>, <span class="smallcaps">F.J. Ribeiro</span>, <span class="smallcaps">J.N. Burton</span>, <span class="smallcaps">B.J. Walker</span>, <span class="smallcaps">T. Sharpe</span>, et al. 2011. High-quality draft assemblies of mammalian genomes from massively parallel sequence data. <em>Proceedings of the National Academy of Sciences</em> 108: 1513–1518. Available at: <a href="http://www.pnas.org/content/108/4/1513">http://www.pnas.org/content/108/4/1513</a>.
+</div>
+<div id="ref-QUAST" class="csl-entry">
+<span class="smallcaps">Gurevich, A.</span>, <span class="smallcaps">V. Saveliev</span>, <span class="smallcaps">N. Vyahhi</span>, and <span class="smallcaps">G. Tesler</span>. 2013. QUAST: Quality assessment tool for genome assemblies. <em>Bioinformatics</em> 29: 1072–1075. Available at: <a href="+ http://dx.doi.org/10.1093/bioinformatics/btt086">+ http://dx.doi.org/10.1093/bioinformatics/btt086</a>.
+</div>
+<div id="ref-Kurtz2004" class="csl-entry">
+<span class="smallcaps">Kurtz, S.</span>, <span class="smallcaps">A. Phillippy</span>, <span class="smallcaps">A.L. Delcher</span>, <span class="smallcaps">M. Smoot</span>, <span class="smallcaps">M. Shumway</span>, <span class="smallcaps">C. Antonescu</span>, and <span class="smallcaps">S.L. Salzberg</span>. 2004. Versatile and open software for comparing large genomes. <em>Genome Biology</em> 5: R12. Available at: <a href="https://doi.org/10.1186/gb-2004-5-2-r12">https://doi.org/10.1186/gb-2004-5-2-r12</a>.
 </div>
 <div id="ref-bwa2009" class="csl-entry">
 <span class="smallcaps">Li, H.</span>, and <span class="smallcaps">R. Durbin</span>. 2009. Fast and accurate short read alignment with burrows–wheeler transform. <em>Bioinformatics</em> 25: 1754–1760. Available at: <a href="+ http://dx.doi.org/10.1093/bioinformatics/btp324">+ http://dx.doi.org/10.1093/bioinformatics/btp324</a>.
