@@ -1223,6 +1223,36 @@ quast.py [options] &lt;contig_file(s)&gt;</code></pre>
 quast.py -R ~/Documents/02_Kmers_analyses/Map_reads/PEFY01.1.fsa_nt.gz --threads 20 --scaffolds --fragmented ~/Documents/02_Kmers_analyses/SOAPdenovo2/SRR5759239_assembly.scafSeq  </code></pre>
 </div>
 </div>
+<div id="quast-output-files" class="section level3" number="6.8.5">
+<h3><span class="header-section-number">6.8.5</span> <code>QUAST</code> output files</h3>
+<p>By default, the output files of the analysis will be saved in a folder named as follows:</p>
+<pre class="bash"><code>quast_results/results_&lt;date_time&gt;</code></pre>
+<p>In each folder, there will be a suite of output files, please find below the ones that are more relevant to our goals:</p>
+<ul>
+<li><code>report.txt</code>: Assessment summary in plain text format.</li>
+<li><code>report.html</code>: HTML version of the report with interactive plots inside.</li>
+<li><code>report.pdf</code>: All plots combined with all tables (see Figure <a href="#fig:QUAST">6.11</a>).</li>
+</ul>
+<div class="figure" style="text-align: center"><span id="fig:QUAST"></span>
+<img src="Images/QUAST_output.png" alt="Screenshot of the report.html file showing the statistics and plots inferred by QUAST on the results of the SOAPdenovo2 assembly." width="80%" />
+<p class="caption">
+Figure 6.11: Screenshot of the report.html file showing the statistics and plots inferred by QUAST on the results of the SOAPdenovo2 assembly.
+</p>
+</div>
+<ul>
+<li><code>icarus.html</code>: Icarus main menu with links to interactive viewers. Icarus generates contig size viewer and one or more contig alignment viewers (if reference genome is provided). All Icarus viewers contain a legend with color scheme description (see Figure <a href="#fig:ICARUS">6.12</a>).</li>
+</ul>
+<div class="figure" style="text-align: center"><span id="fig:ICARUS"></span>
+<img src="Images/ICARUS_output.png" alt="Screenshot of the icarus.html file showing the alignment of the SOAPdenovo2 de novo assembly against the reference genome." width="80%" />
+<p class="caption">
+Figure 6.12: Screenshot of the icarus.html file showing the alignment of the SOAPdenovo2 de novo assembly against the reference genome.
+</p>
+</div>
+<div id="task" class="section level4" number="6.8.5.1">
+<h4><span class="header-section-number">6.8.5.1</span> Task</h4>
+<p>Open <a href="Data/PART3_QUAST_results/report.html">report.html</a> and look at the statistics, plots and alignments (available by clicking on the <code>Icarus</code> tab; see Figure <a href="#fig:QUAST">6.11</a>).</p>
+</div>
+</div>
 </div>
 </div>
 <div id="references" class="section level1 unnumbered">

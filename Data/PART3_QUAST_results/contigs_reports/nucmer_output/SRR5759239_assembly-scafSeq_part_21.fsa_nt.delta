@@ -1,0 +1,11846 @@
+/home/svenbuerki/Documents/Kmers_analyses/Quast/quast_results/results_2019_04_02_12_21_49/quast_corrected_input/split_ref/part_21.fsa_nt /home/svenbuerki/Documents/Kmers_analyses/Quast/quast_results/results_2019_04_02_12_21_49/quast_corrected_input/SRR5759239_assembly-scafSeq
+NUCMER
+>PEFY01012354.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12354__whole_genome_shotgun_sequence scaffold122__5.8 2463 507
+1017 1298 179 479 36 36 0
+-91
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-4
+-3
+-1
+-1
+-1
+-1
+-2
+-1
+-91
+0
+>PEFY01012339.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12339__whole_genome_shotgun_sequence scaffold267__6.0 81680 1214
+49607 49735 128 1 3 3 0
+102
+0
+>PEFY01012318.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12318__whole_genome_shotgun_sequence scaffold366_14.9 68610 10687
+54718 54916 311 115 8 8 0
+192
+1
+0
+>PEFY01012320.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12320__whole_genome_shotgun_sequence scaffold432__7.8 82483 2031
+51578 51918 1707 2031 30 30 0
+182
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+59
+0
+59979 61991 1 2031 152 152 0
+373
+1
+-210
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-102
+-1
+-635
+-1
+-1
+-1
+-1
+-326
+-1
+-1
+0
+>PEFY01012377.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12377__whole_genome_shotgun_sequence scaffold491_11.8 2338 746
+1314 1441 128 1 13 13 0
+0
+>PEFY01012351.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12351__whole_genome_shotgun_sequence scaffold588__8.5 1171 2597
+306 435 1212 1328 16 16 0
+46
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+0
+>PEFY01012318.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12318__whole_genome_shotgun_sequence scaffold671__5.5 68610 544
+55201 55732 1 544 50 50 0
+-130
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-156
+-1
+-1
+-1
+0
+>PEFY01012318.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12318__whole_genome_shotgun_sequence scaffold691__4.8 68610 1035
+56803 56911 927 1035 5 5 0
+0
+>PEFY01012340.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12340__whole_genome_shotgun_sequence scaffold1283__6.4 8220 4123
+9 3873 3863 1 11 11 0
+557
+1
+0
+5187 7232 3481 1456 184 184 0
+-5
+13
+9
+-4
+9
+2
+-25
+-1
+-7
+4
+-3
+-31
+-23
+-8
+35
+-27
+16
+27
+-9
+-28
+-35
+-21
+-21
+11
+3
+-6
+-40
+27
+9
+5
+5
+11
+-31
+-9
+-19
+57
+7
+-9
+-11
+-20
+-32
+-1
+52
+83
+29
+1
+1
+1
+1
+1
+1
+-13
+-36
+-1
+19
+-128
+-5
+12
+-44
+73
+-42
+14
+6
+23
+1
+-39
+-1
+23
+64
+122
+-30
+9
+1
+6
+-14
+20
+1
+2
+-39
+-13
+-26
+34
+8
+1
+1
+1
+2
+1
+-54
+13
+11
+1
+44
+1
+1
+1
+1
+1
+-66
+11
+31
+15
+-6
+19
+1
+45
+-13
+-2
+0
+>PEFY01012353.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12353__whole_genome_shotgun_sequence scaffold1288__7.9 2556 4058
+36 1018 1199 217 68 68 0
+235
+-83
+-297
+332
+0
+>PEFY01012366.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12366__whole_genome_shotgun_sequence scaffold1415__7.8 68864 1255
+67396 68626 1255 1 35 35 0
+-1090
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence scaffold1418__6.7 160036 3309
+135052 136339 1905 3147 170 170 0
+-60
+-1
+-1
+-1
+-1
+-111
+-1
+-1
+-1
+81
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+-61
+-1
+-1
+-1
+-19
+-1
+-1
+-1
+-23
+-1
+-1
+-1
+140
+1
+1
+-11
+4
+1
+1
+2
+1
+4
+1
+1
+1
+1
+6
+1
+1
+50
+1
+1
+2
+9
+1
+1
+1
+-241
+-1
+-1
+-1
+-1
+-1
+-1
+-9
+3
+6
+6
+1
+1
+10
+4
+7
+1
+1
+9
+12
+-8
+-16
+3
+-31
+17
+-7
+25
+1
+-15
+18
+31
+5
+27
+-8
+8
+13
+5
+-70
+14
+12
+1
+1
+6
+5
+5
+0
+>PEFY01012318.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12318__whole_genome_shotgun_sequence scaffold1418__6.7 68610 3309
+51157 54289 3148 1 116 116 0
+64
+3
+1
+78
+1
+63
+1
+1
+1
+38
+1
+1
+13
+1
+1
+27
+9
+-2187
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-84
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-317
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012337.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12337__whole_genome_shotgun_sequence scaffold1460__7.4 21789 10458
+17043 17343 9187 8887 13 13 0
+0
+>PEFY01012336.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12336__whole_genome_shotgun_sequence scaffold1595__6.0 88781 2282
+1530 1720 194 385 5 5 0
+-135
+0
+>PEFY01012335.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12335__whole_genome_shotgun_sequence scaffold1595__6.0 79632 2282
+71946 72136 385 194 5 5 0
+-58
+0
+>PEFY01012366.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12366__whole_genome_shotgun_sequence scaffold1717__7.6 68864 4254
+27842 28254 584 966 46 46 0
+101
+1
+196
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+11
+1
+1
+1
+1
+1
+1
+1
+1
+-19
+0
+>PEFY01012337.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12337__whole_genome_shotgun_sequence scaffold1787__7.6 21789 1480
+13715 14285 1480 914 63 63 0
+187
+1
+1
+1
+0
+>PEFY01012335.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12335__whole_genome_shotgun_sequence scaffold1807__8.2 79632 1644
+5242 5619 682 295 26 26 0
+130
+1
+-3
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-180
+0
+8319 8696 295 682 26 26 0
+-61
+-185
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012332.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12332__whole_genome_shotgun_sequence scaffold2202__8.9 84626 1338
+84283 84511 245 1 23 23 0
+89
+-10
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-89
+-1
+-1
+-6
+0
+>PEFY01012318.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12318__whole_genome_shotgun_sequence scaffold2206__7.4 68610 3697
+29609 29984 390 1 58 58 0
+-8
+-48
+-2
+-1
+-1
+-1
+-1
+-6
+-1
+-1
+-1
+-1
+-1
+-2
+-166
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+74
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+0
+>PEFY01012358.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12358__whole_genome_shotgun_sequence scaffold2635__8.7 1806 1869
+33 1806 1869 78 18 18 0
+-1680
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-38
+-1
+-1
+-1
+-1
+0
+>PEFY01012376.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12376__whole_genome_shotgun_sequence scaffold2644__9.2 1256 1184
+604 985 781 1184 46 46 0
+6
+39
+25
+1
+-115
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-44
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-15
+-1
+46
+0
+>PEFY01012338.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12338__whole_genome_shotgun_sequence scaffold2903__7.8 115994 2014
+88084 88219 136 1 3 3 0
+0
+>PEFY01012368.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12368__whole_genome_shotgun_sequence scaffold2963__6.3 1408 2738
+1 254 2668 2415 18 18 0
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence scaffold3147__7.4 160036 696
+33197 33358 168 2 18 18 0
+-28
+-1
+-1
+-1
+-13
+0
+>PEFY01012342.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12342__whole_genome_shotgun_sequence scaffold3433__8.0 65842 9688
+1 868 8813 9681 27 27 0
+8
+-23
+-4
+-27
+32
+-8
+12
+115
+-146
+28
+1
+1
+1
+-146
+-76
+-10
+21
+-57
+-136
+0
+5283 14937 9688 1 55 55 0
+-4031
+-1
+-1
+-1
+-1
+-1
+-3586
+-1861
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-30
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012320.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12320__whole_genome_shotgun_sequence scaffold3443__9.7 82483 1353
+54856 56195 1 1353 18 18 0
+-138
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence scaffold3529__7.8 160036 975
+116899 117016 121 1 9 9 0
+-15
+-1
+-4
+0
+>PEFY01012318.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12318__whole_genome_shotgun_sequence scaffold3787__6.8 68610 800
+55774 56178 1 404 27 27 0
+-139
+110
+2
+1
+-37
+0
+>PEFY01012338.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12338__whole_genome_shotgun_sequence scaffold3881__7.9 115994 1765
+71581 73301 1 1765 190 190 0
+-140
+-1
+-1
+-1
+-1
+-218
+-1
+-1
+-1
+-1
+-1
+-1
+-126
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-173
+-1
+-1
+-1
+-1
+-1
+-1
+-196
+-1
+-1
+-1
+-526
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-153
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence scaffold3967__7.8 160036 868
+231 1086 1 868 37 37 0
+-140
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012332.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12332__whole_genome_shotgun_sequence scaffold4440__8.3 84626 3744
+65600 65858 3744 3502 29 29 0
+187
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+9
+1
+1
+0
+>PEFY01012318.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12318__whole_genome_shotgun_sequence scaffold4463__9.9 68610 2561
+4272 4917 211 853 57 57 0
+80
+308
+55
+0
+>PEFY01012338.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12338__whole_genome_shotgun_sequence scaffold4496__8.3 115994 16253
+34851 34923 15771 15843 1 1 0
+0
+>PEFY01012330.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12330__whole_genome_shotgun_sequence scaffold4506__7.8 21401 14550
+2424 2631 1 208 4 4 0
+0
+2966 4150 546 1687 110 110 0
+-16
+-1
+-1
+-102
+114
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+4
+25
+156
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+-59
+-464
+-62
+0
+14273 17668 1 3434 193 193 0
+-209
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+282
+-1765
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-454
+-1
+-1
+-1
+-1
+-1
+-147
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-107
+-1
+311
+0
+>PEFY01012318.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12318__whole_genome_shotgun_sequence scaffold4627__8.9 68610 15267
+56630 57551 1316 2257 93 93 0
+-77
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+187
+-161
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+19
+-200
+-1
+0
+>PEFY01012339.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12339__whole_genome_shotgun_sequence scaffold4642__8.6 81680 1965
+79637 81582 1965 1 49 49 0
+-1635
+-1
+-1
+-1
+-1
+-165
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012318.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12318__whole_genome_shotgun_sequence scaffold5573__8.5 68610 1559
+56424 56553 433 304 1 1 0
+0
+>PEFY01012335.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12335__whole_genome_shotgun_sequence scaffold5601__9.5 79632 762
+75551 75781 762 522 17 17 0
+-170
+-1
+-1
+-1
+-1
+-1
+-1
+-2
+-1
+-1
+0
+>PEFY01012320.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12320__whole_genome_shotgun_sequence scaffold5651__6.8 82483 12894
+62005 72100 1 10116 173 173 0
+-2792
+-1
+-995
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1768
+-1
+-36
+-656
+-1
+-1
+-19
+-1218
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-97
+-1
+-1
+1666
+1
+1
+1
+111
+1
+247
+1
+100
+1
+1
+1
+1
+1
+-178
+0
+>PEFY01012368.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12368__whole_genome_shotgun_sequence scaffold5698__7.4 1408 14002
+1 536 2110 2644 43 43 0
+59
+0
+>PEFY01012335.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12335__whole_genome_shotgun_sequence scaffold5885__9.7 79632 1661
+73722 74230 721 174 81 81 0
+-106
+-50
+-1
+-1
+-1
+-1
+-51
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-93
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-177
+5
+0
+>PEFY01012337.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12337__whole_genome_shotgun_sequence scaffold6039__6.3 21789 1578
+15735 17259 1560 1 149 149 0
+-11
+9
+6
+14
+1
+1
+1
+-168
+-1
+-1
+-512
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-113
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-124
+-1
+-1
+-331
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012333.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12333__whole_genome_shotgun_sequence scaffold6201__8.7 61575 25385
+57693 57870 25051 25219 26 26 0
+77
+1
+1
+1
+1
+1
+1
+2
+1
+1
+-16
+0
+>PEFY01012331.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12331__whole_genome_shotgun_sequence scaffold6458__7.3 28463 8684
+1741 3036 7397 8684 17 17 0
+16
+14
+17
+1
+-20
+7
+14
+1
+1
+1
+0
+>PEFY01012338.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12338__whole_genome_shotgun_sequence scaffold6459__7.9 115994 6768
+80003 86738 6768 1 140 140 0
+-152
+-1
+-1
+-1
+-572
+-3491
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-227
+-1
+-1
+-1
+-1
+-86
+-1
+-1
+-1
+-1
+-1
+-674
+-1
+-1
+-1
+-1
+-1
+-526
+-1
+-1
+281
+1
+1
+0
+>PEFY01012332.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12332__whole_genome_shotgun_sequence scaffold6518__7.2 84626 640
+78155 78773 1 640 22 22 0
+-149
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012369.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12369__whole_genome_shotgun_sequence scaffold6594__9.4 1457 6704
+189 744 215 823 87 87 0
+95
+-12
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-3
+-3
+-1
+-1
+-8
+-1
+-1
+-1
+-1
+-1
+-1
+-27
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-18
+-236
+-1
+-1
+-7
+-1
+-1
+0
+>PEFY01012335.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12335__whole_genome_shotgun_sequence scaffold6608__8.9 79632 885
+7635 7786 434 585 8 8 0
+-132
+5
+0
+>PEFY01012320.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12320__whole_genome_shotgun_sequence scaffold6640__8.9 82483 8559
+14813 15169 3534 3187 44 44 0
+-68
+23
+1
+1
+1
+1
+1
+1
+2
+1
+1
+0
+>PEFY01012324.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12324__whole_genome_shotgun_sequence scaffold7146__8.1 1668 1826
+1 1538 6 1575 66 66 0
+-1300
+-1
+-1
+-1
+-26
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-105
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012330.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12330__whole_genome_shotgun_sequence scaffold7311__8.8 21401 574
+8092 8280 574 387 17 17 0
+143
+0
+>PEFY01012339.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12339__whole_genome_shotgun_sequence scaffold7684__5.6 81680 523
+29959 30472 1 523 31 31 0
+-84
+-11
+-58
+-1
+-1
+-1
+-1
+28
+19
+-41
+-29
+-15
+-193
+0
+>PEFY01012318.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12318__whole_genome_shotgun_sequence scaffold7743__7.7 68610 1707
+62276 63992 1 1707 81 81 0
+153
+1
+1
+1
+1
+1
+1
+1
+1
+1
+0
+>PEFY01012337.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12337__whole_genome_shotgun_sequence scaffold7791__7.0 21789 1751
+15907 16669 3 772 91 91 0
+61
+-246
+-100
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+254
+0
+>PEFY01012337.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12337__whole_genome_shotgun_sequence scaffold7815__6.3 21789 1023
+17522 18532 1 1023 57 57 0
+-535
+-1
+-1
+-1
+-1
+-115
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012337.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12337__whole_genome_shotgun_sequence scaffold7929__7.9 21789 3929
+18809 21292 1 2491 39 39 0
+-154
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012334.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12334__whole_genome_shotgun_sequence scaffold8298__9.5 51607 574
+49326 49780 574 92 39 39 0
+-184
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-34
+-1
+-1
+-1
+-1
+-141
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-37
+-1
+-1
+0
+>PEFY01012379.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12379__whole_genome_shotgun_sequence scaffold8313__6.0 1499 556
+1 85 85 1 0 0 0
+0
+>PEFY01012366.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12366__whole_genome_shotgun_sequence scaffold8355__9.0 68864 1160
+66259 66863 959 308 89 89 0
+-266
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-193
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-78
+-9
+-1
+-1
+0
+>PEFY01012359.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12359__whole_genome_shotgun_sequence scaffold8368__8.7 2488 4336
+2 170 1 155 23 23 0
+88
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+40
+17
+0
+>PEFY01012331.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12331__whole_genome_shotgun_sequence scaffold8461__8.5 28463 21291
+11519 11762 3829 4067 25 25 0
+118
+1
+1
+1
+1
+0
+>PEFY01012366.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12366__whole_genome_shotgun_sequence scaffold8716__7.1 68864 9154
+66618 66708 1241 1331 3 3 0
+0
+>PEFY01012320.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12320__whole_genome_shotgun_sequence scaffold8754__7.6 82483 1677
+59649 60821 3 1190 154 154 0
+-457
+340
+-51
+-1
+-1
+-1
+-1
+-1
+-1
+-4
+-1
+-1
+-1
+-1
+-2
+-1
+-194
+0
+>PEFY01012318.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12318__whole_genome_shotgun_sequence scaffold8784__6.6 68610 3632
+57102 58029 1 942 93 93 0
+-157
+-1
+-1
+-1
+-1
+-1
+-1
+-311
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+17
+0
+>PEFY01012337.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12337__whole_genome_shotgun_sequence scaffold8819__6.7 21789 4416
+16654 17778 1799 634 148 148 0
+-111
+-1
+-1
+-1
+-1
+-1
+-1
+-119
+-1
+-1
+-28
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-321
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+236
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+-123
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-140
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012320.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12320__whole_genome_shotgun_sequence scaffold8847__7.3 82483 2934
+56228 59119 2934 1 197 197 0
+-128
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-959
+-409
+-1
+-1
+-1
+-1
+-105
+-1
+-232
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-643
+-1
+-1
+-1
+-1
+0
+>PEFY01012335.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12335__whole_genome_shotgun_sequence scaffold8909__9.0 79632 2594
+73094 73696 1983 2594 48 48 0
+-209
+-1
+-1
+13
+1
+-236
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012336.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12336__whole_genome_shotgun_sequence scaffold8909__9.0 88781 2594
+1 574 2565 1983 45 45 0
+-116
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+237
+1
+-12
+-1
+-1
+0
+>PEFY01012320.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12320__whole_genome_shotgun_sequence scaffold8917__7.4 82483 2193
+71294 73260 2193 210 290 290 0
+225
+-358
+5
+-8
+-113
+199
+1
+1
+1
+1
+1
+1
+1
+4
+-356
+-45
+-8
+-2
+-2
+-2
+-3
+-2
+-45
+-1
+-1
+-8
+-1
+-1
+92
+65
+1
+-23
+-63
+-1
+-1
+-1
+6
+1
+-21
+-1
+-1
+-1
+-1
+5
+-13
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012335.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12335__whole_genome_shotgun_sequence scaffold8935__7.2 79632 731
+74109 74823 731 1 62 62 0
+-58
+-154
+-1
+-1
+-1
+-1
+-1
+-1
+-14
+-1
+-1
+-1
+-321
+-1
+-1
+-1
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence scaffold9043__8.0 160036 11999
+89350 89507 158 1 0 0 0
+0
+>PEFY01012376.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12376__whole_genome_shotgun_sequence scaffold9213__6.7 1256 3960
+226 1256 2846 1819 110 110 0
+-42
+-104
+-32
+77
+52
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+46
+1
+1
+1
+79
+1
+-173
+-1
+-1
+-1
+-1
+-110
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-96
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+75
+1
+6
+1
+79
+36
+0
+>PEFY01012322.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12322__whole_genome_shotgun_sequence scaffold9440__7.5 11387 2146
+100 2227 2146 1 112 112 0
+-1061
+-1
+-1
+-1
+-1
+-1
+-1
+-122
+-1
+-1
+-19
+-1
+-1
+-1
+-645
+-1
+-1
+-1
+0
+>PEFY01012332.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12332__whole_genome_shotgun_sequence scaffold9826__8.3 84626 3745
+48712 48873 161 1 5 5 0
+129
+0
+>PEFY01012339.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12339__whole_genome_shotgun_sequence scaffold10211__7.9 81680 7679
+67548 75202 7679 1 115 115 0
+-1296
+-1
+-1
+-1
+-1
+-1
+50
+-5435
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-118
+-1
+-1
+-1
+-1
+0
+>PEFY01012337.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12337__whole_genome_shotgun_sequence scaffold10263__6.9 21789 1219
+17376 17538 1 163 4 4 0
+0
+>PEFY01012345.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12345__whole_genome_shotgun_sequence scaffold10927__8.8 1352 5520
+991 1320 1 330 0 0 0
+0
+>PEFY01012335.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12335__whole_genome_shotgun_sequence scaffold11026__4.0 79632 518
+3834 4070 245 1 22 22 0
+-72
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012337.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12337__whole_genome_shotgun_sequence scaffold11082__8.2 21789 19053
+12233 15073 2684 5539 357 357 0
+113
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+-203
+40
+-9
+-8
+-1
+-1
+-1
+-1
+-1
+-2
+-2
+-2
+-3
+22
+-45
+-1
+137
+5
+-6
+-4
+-15
+-1
+-1
+5
+-6
+-1
+-1
+-2
+-4
+-56
+-1
+-28
+-363
+-5
+-2
+-1
+-1
+-1
+680
+1
+-385
+-495
+0
+>PEFY01012320.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12320__whole_genome_shotgun_sequence scaffold11153__8.6 82483 2107
+59463 59662 1 200 11 11 0
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence scaffold11279__8.8 160036 3495
+84804 88266 3495 1 69 69 0
+-1961
+-1
+-1
+-1
+-1
+-1
+-1
+-1163
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-119
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012324.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12324__whole_genome_shotgun_sequence scaffold11336__7.5 1668 2209
+1198 1655 1062 605 22 22 0
+258
+-7
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence scaffold11522__4.5 160036 525
+110694 110856 1 163 8 8 0
+0
+>PEFY01012332.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12332__whole_genome_shotgun_sequence scaffold11574__6.6 84626 2741
+48643 49002 2087 2449 39 39 0
+-95
+-1
+-1
+69
+-135
+0
+>PEFY01012320.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12320__whole_genome_shotgun_sequence scaffold11761__8.7 82483 9387
+10506 19828 9387 1 83 83 0
+-2975
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-34
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-108
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-3821
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-777
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012335.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12335__whole_genome_shotgun_sequence scaffold11970__7.4 79632 626
+74855 75253 626 230 22 22 0
+113
+1
+0
+>PEFY01012330.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12330__whole_genome_shotgun_sequence scaffold12085__8.1 21401 505
+19666 20123 1 505 60 60 0
+-172
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-125
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-24
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012335.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12335__whole_genome_shotgun_sequence scaffold12106__7.9 79632 1002
+72592 72739 1002 855 2 2 0
+0
+78263 79217 1 1002 172 172 0
+-179
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-123
+-230
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-195
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-28
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012335.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12335__whole_genome_shotgun_sequence scaffold12145__8.0 79632 817
+73811 74192 1 392 35 35 0
+-92
+-1
+-80
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+77
+-73
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence scaffold12202__8.8 160036 4351
+133417 134368 2852 3802 82 82 0
+114
+135
+1
+1
+-81
+-29
+-1
+15
+7
+-176
+-1
+-1
+-1
+-21
+30
+1
+280
+0
+>PEFY01012318.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12318__whole_genome_shotgun_sequence scaffold12202__8.8 68610 4351
+57848 62179 4351 1 119 119 0
+-1501
+-162
+-1
+-1
+-1
+-1
+-1
+-2136
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012335.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12335__whole_genome_shotgun_sequence scaffold12349__7.5 79632 6672
+19347 20090 1411 2166 79 79 0
+-54
+-6
+-1
+-1
+-1
+-1
+-193
+-1
+-1
+-1
+-40
+-1
+-1
+-1
+44
+1
+1
+27
+-46
+-1
+-1
+-1
+-1
+-16
+-1
+-1
+-1
+73
+1
+1
+1
+1
+-97
+-1
+-1
+-19
+71
+3
+1
+6
+1
+1
+0
+46962 49994 3046 1 20 20 0
+-328
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012368.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12368__whole_genome_shotgun_sequence scaffold12876__6.3 1408 1789
+1064 1348 395 112 27 27 0
+111
+0
+>PEFY01012317.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12317__whole_genome_shotgun_sequence scaffold12952__7.7 68439 3085
+50988 51198 786 1005 18 18 0
+-96
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012337.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12337__whole_genome_shotgun_sequence scaffold12960__5.5 21789 748
+16044 16563 229 748 47 47 0
+0
+>PEFY01012318.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12318__whole_genome_shotgun_sequence scaffold13041__7.9 68610 814
+53475 53617 671 813 7 7 0
+0
+>PEFY01012339.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12339__whole_genome_shotgun_sequence scaffold13157__8.0 81680 1073
+29998 30868 1 876 96 96 0
+-45
+-11
+76
+1
+1
+7
+19
+-41
+-29
+-15
+-23
+-1
+-1
+-1
+35
+1
+1
+1
+1
+1
+-59
+-19
+32
+-24
+97
+-50
+3
+-69
+-53
+-1
+-1
+34
+-18
+-1
+-1
+0
+>PEFY01012335.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12335__whole_genome_shotgun_sequence scaffold13307__8.5 79632 6370
+73895 74896 5350 6370 77 77 0
+-144
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-295
+-1
+-1
+-1
+0
+>PEFY01012338.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12338__whole_genome_shotgun_sequence scaffold13314__9.5 115994 1635
+71471 71617 827 981 13 13 0
+-112
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012334.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12334__whole_genome_shotgun_sequence scaffold13449__8.8 51607 2552
+22297 24839 1 2552 20 20 0
+-179
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012339.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12339__whole_genome_shotgun_sequence scaffold13870__7.5 81680 2433
+1 2376 35 2433 82 82 0
+-238
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-177
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012318.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12318__whole_genome_shotgun_sequence scaffold14313__8.1 68610 13708
+1650 3913 10502 8260 292 292 0
+104
+-4
+-8
+-3
+6
+289
+1
+168
+-28
+79
+225
+1
+1
+142
+65
+1
+-22
+-7
+6
+5
+186
+1
+30
+1
+1
+231
+1
+289
+1
+1
+1
+226
+1
+10
+-8
+0
+>PEFY01012333.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12333__whole_genome_shotgun_sequence scaffold14417__7.7 61575 1006
+42935 43048 1006 893 10 10 0
+0
+>PEFY01012338.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12338__whole_genome_shotgun_sequence scaffold14925__6.1 115994 2109
+30474 32547 1 2109 49 49 0
+-187
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1267
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012332.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12332__whole_genome_shotgun_sequence scaffold15408__4.9 84626 520
+62957 63145 1 189 6 6 0
+0
+>PEFY01012366.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12366__whole_genome_shotgun_sequence scaffold15468__6.1 68864 1093
+27902 28082 482 662 10 10 0
+0
+28343 28553 212 1 8 8 0
+-154
+0
+>PEFY01012332.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12332__whole_genome_shotgun_sequence scaffold15729__7.5 84626 22486
+20964 21200 9318 9082 16 16 0
+0
+>PEFY01012372.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12372__whole_genome_shotgun_sequence scaffold15946__7.7 1453 5287
+33 1421 1 1404 15 15 0
+-192
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-31
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012326.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12326__whole_genome_shotgun_sequence scaffold16057__6.5 7741 526
+7169 7678 1 526 27 27 0
+-193
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012343.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12343__whole_genome_shotgun_sequence scaffold16087__4.9 3128 693
+636 1315 1 693 40 40 0
+-133
+-60
+-1
+-1
+-1
+-1
+-1
+-1
+-304
+-1
+-1
+-1
+-1
+0
+>PEFY01012366.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12366__whole_genome_shotgun_sequence scaffold16479__6.2 68864 2565
+24926 25564 2095 1453 80 80 0
+6
+-32
+14
+-25
+7
+-7
+-268
+-36
+-1
+-52
+3
+-77
+0
+>PEFY01012335.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12335__whole_genome_shotgun_sequence scaffold16843__8.0 79632 531
+77154 77451 233 531 13 13 0
+-221
+0
+>PEFY01012335.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12335__whole_genome_shotgun_sequence scaffold17055__8.5 79632 1316
+16037 17322 1 1316 30 30 0
+-196
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-37
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012338.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12338__whole_genome_shotgun_sequence scaffold17082__6.2 115994 1744
+73373 73833 1 464 28 28 0
+-242
+-159
+-23
+0
+>PEFY01012334.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12334__whole_genome_shotgun_sequence scaffold17132__6.8 51607 1970
+12800 12974 4 178 9 9 0
+0
+>PEFY01012328.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12328__whole_genome_shotgun_sequence scaffold17263__4.4 1510 562
+1053 1510 1 465 39 39 0
+-197
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+140
+0
+>PEFY01012317.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12317__whole_genome_shotgun_sequence scaffold17442__6.9 68439 9599
+66973 67170 197 1 1 1 0
+48
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence scaffold17488__7.4 160036 7260
+13034 13305 5448 5192 27 27 0
+130
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+0
+>PEFY01012322.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12322__whole_genome_shotgun_sequence scaffold17698__5.4 11387 700
+2378 3082 700 1 33 33 0
+501
+1
+1
+1
+1
+0
+>PEFY01012318.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12318__whole_genome_shotgun_sequence scaffold18086__7.7 68610 9447
+30928 31256 5727 6062 46 46 0
+101
+1
+1
+1
+-42
+-43
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-17
+0
+>PEFY01012320.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12320__whole_genome_shotgun_sequence scaffold18129__7.5 82483 2560
+51546 54071 2560 1 126 126 0
+-225
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-12
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+589
+1
+-421
+-1
+-1
+-1
+-44
+-1
+-1
+-1
+-1
+-835
+-150
+-1
+0
+61635 61855 2560 2339 7 7 0
+-215
+0
+>PEFY01012318.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12318__whole_genome_shotgun_sequence scaffold18261__6.7 68610 664
+54790 54989 1 200 11 11 0
+0
+>PEFY01012339.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12339__whole_genome_shotgun_sequence scaffold18565__8.9 81680 10177
+30054 30750 701 1 94 94 0
+66
+17
+15
+-45
+-28
+-20
+-119
+-17
+-150
+15
+-38
+3
+-121
+-1
+-1
+34
+0
+>PEFY01012342.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12342__whole_genome_shotgun_sequence scaffold18694__5.8 65842 2017
+64231 65842 1 1628 23 23 0
+-203
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012336.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12336__whole_genome_shotgun_sequence scaffold18717__6.5 88781 1757
+40860 42602 1 1757 30 30 0
+-35
+-168
+-1
+-1
+-1
+-1
+-1
+-491
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012338.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12338__whole_genome_shotgun_sequence scaffold18776__7.8 115994 19618
+43149 43616 3789 3343 56 56 0
+38
+1
+1
+1
+1
+1
+1
+1
+1
+4
+3
+2
+34
+1
+70
+1
+1
+1
+1
+2
+7
+0
+>PEFY01012320.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12320__whole_genome_shotgun_sequence scaffold19018__7.6 82483 7928
+43663 51569 1 7928 52 52 0
+-205
+-1074
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-6413
+-1
+-1
+0
+>PEFY01012335.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12335__whole_genome_shotgun_sequence scaffold19053__7.0 79632 6548
+33274 33601 570 243 26 26 0
+21
+1
+-40
+-1
+0
+37433 43962 6548 1 34 34 0
+-2297
+-1
+-1
+-1
+-1
+-1
+-1
+-4015
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012334.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12334__whole_genome_shotgun_sequence scaffold19053__7.0 51607 6548
+19392 20536 3530 2401 124 124 0
+-41
+5
+-43
+-1
+256
+1
+1
+1
+1
+1
+1
+1
+2
+23
+1
+4
+1
+2
+1
+16
+16
+64
+-174
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+24
+72
+1
+1
+1
+1
+1
+122
+76
+37
+18
+1
+70
+29
+1
+1
+1
+2
+1
+0
+27547 28386 2484 1643 91 91 0
+52
+1
+1
+1
+2
+1
+-27
+-1
+-1
+-1
+34
+1
+1
+1
+1
+1
+1
+1
+1
+1
+-199
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-2
+-142
+-1
+-1
+-1
+-1
+-1
+-1
+-40
+96
+1
+1
+1
+-154
+43
+1
+-34
+0
+43846 44550 6548 5845 49 49 0
+213
+1
+1
+1
+75
+-3
+-149
+-127
+-26
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence scaffold19072__7.5 160036 13174
+95954 109091 13174 1 127 127 0
+29
+1
+1
+12
+-124
+-1
+-1
+-1
+-1
+-1885
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-5174
+-1
+-1
+-1
+-1
+-1
+-5695
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012329.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12329__whole_genome_shotgun_sequence scaffold19420__8.0 2842 733
+543 776 234 1 14 14 0
+0
+>PEFY01012354.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12354__whole_genome_shotgun_sequence scaffold19535__6.4 2463 643
+403 775 5 388 50 50 0
+-7
+-105
+-15
+-127
+-1
+-1
+-1
+-1
+-1
+-78
+-1
+-9
+3
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence scaffold19729__8.6 160036 1443
+31881 33318 1443 1 26 26 0
+-1211
+-1
+-1
+-1
+-1
+0
+>PEFY01012332.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12332__whole_genome_shotgun_sequence scaffold19752__6.6 84626 1778
+27353 27566 257 470 10 10 0
+0
+>PEFY01012334.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12334__whole_genome_shotgun_sequence scaffold19774__7.7 51607 1470
+14734 16197 1 1470 43 43 0
+-330
+-1
+-1
+-1
+-169
+-1
+0
+26024 26703 739 1382 98 98 0
+12
+-3
+274
+29
+13
+1
+1
+1
+8
+1
+1
+1
+1
+1
+2
+10
+22
+1
+23
+1
+1
+2
+1
+1
+23
+11
+5
+1
+1
+-39
+46
+1
+1
+1
+1
+1
+1
+1
+1
+-85
+4
+21
+0
+>PEFY01012335.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12335__whole_genome_shotgun_sequence scaffold19774__7.7 79632 1470
+29097 30182 365 1470 103 103 0
+10
+7
+-5
+-118
+-1
+39
+-16
+-54
+-1
+-141
+124
+-29
+-144
+-34
+-78
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-4
+-108
+-1
+-1
+-1
+-1
+123
+0
+>PEFY01012336.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12336__whole_genome_shotgun_sequence scaffold20036__6.9 88781 1465
+42619 42754 1465 1330 9 9 0
+0
+>PEFY01012341.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12341__whole_genome_shotgun_sequence scaffold20324__7.5 5906 2688
+420 3070 2688 1 94 94 0
+-339
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-161
+-1
+-1
+-1
+-1
+-1
+-1122
+-1
+-1
+-1
+-1
+-1
+-1
+-208
+-1
+-1
+-1
+0
+>PEFY01012347.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12347__whole_genome_shotgun_sequence scaffold20485__5.9 4540 1260
+198 1422 1260 1 77 77 0
+-306
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-164
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012365.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12365__whole_genome_shotgun_sequence scaffold20495__9.9 1234 1375
+33 1116 1098 1 44 44 0
+-805
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-41
+-1
+-1
+0
+>PEFY01012318.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12318__whole_genome_shotgun_sequence scaffold20512__7.6 68610 5061
+55348 56285 383 1315 113 113 0
+76
+-16
+49
+278
+17
+1
+1
+1
+1
+15
+-260
+-1
+-1
+0
+>PEFY01012334.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12334__whole_genome_shotgun_sequence scaffold20565__8.5 51607 7878
+10042 11172 1132 1 61 61 0
+8
+20
+11
+6
+10
+10
+2
+10
+12
+1
+-165
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012332.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12332__whole_genome_shotgun_sequence scaffold20583__6.8 84626 2618
+27081 27577 1806 2309 42 42 0
+-110
+-1
+-1
+-1
+-1
+-1
+86
+-64
+-1
+0
+>PEFY01012335.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12335__whole_genome_shotgun_sequence scaffold20721__7.6 79632 519
+74109 74620 519 1 27 27 0
+-281
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012318.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12318__whole_genome_shotgun_sequence scaffold20940__8.2 68610 4600
+53576 53659 3366 3449 2 2 0
+0
+>PEFY01012361.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12361__whole_genome_shotgun_sequence scaffold21108__8.6 1219 7955
+662 1219 7115 7670 55 55 0
+83
+296
+0
+>PEFY01012332.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12332__whole_genome_shotgun_sequence scaffold21128__7.2 84626 11753
+62919 63132 1 214 8 8 0
+0
+>PEFY01012318.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12318__whole_genome_shotgun_sequence scaffold21376__7.2 68610 5188
+54437 54816 3075 3439 50 50 0
+54
+1
+1
+1
+1
+1
+2
+1
+1
+91
+1
+1
+1
+1
+1
+0
+>PEFY01012320.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12320__whole_genome_shotgun_sequence scaffold21442__7.6 82483 627
+65535 65749 216 1 20 20 0
+49
+-133
+-12
+0
+>PEFY01012322.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12322__whole_genome_shotgun_sequence scaffold21475__7.8 11387 29397
+2893 3482 9540 10133 121 121 0
+-269
+-142
+-8
+-1
+0
+>PEFY01012334.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12334__whole_genome_shotgun_sequence scaffold21908__6.4 51607 2626
+10200 10593 1565 1177 47 47 0
+87
+1
+-9
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+68
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+-168
+0
+26041 26334 1183 1463 27 27 0
+222
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+38
+0
+>PEFY01012335.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12335__whole_genome_shotgun_sequence scaffold21908__6.4 79632 2626
+26189 28733 2626 1 127 127 0
+-471
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-163
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-39
+-1
+-1
+-1
+-1
+-1
+-1
+-448
+-1
+-1
+-1
+-1
+-1
+-288
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-659
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012339.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12339__whole_genome_shotgun_sequence scaffold21972__8.5 81680 3444
+23060 23345 1 286 0 0 0
+0
+>PEFY01012338.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12338__whole_genome_shotgun_sequence scaffold22068__8.6 115994 16065
+62 15626 1 15593 34 34 0
+-220
+-1
+-1
+-582
+-5751
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-67
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+19280 19783 15562 16065 13 13 0
+5
+-70
+0
+>PEFY01012339.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12339__whole_genome_shotgun_sequence scaffold22106__7.6 81680 1164
+29266 30164 1164 271 83 83 0
+70
+-108
+361
+1
+-238
+-11
+68
+1
+1
+15
+1
+0
+>PEFY01012339.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12339__whole_genome_shotgun_sequence scaffold22414__7.3 81680 2617
+30432 31051 1 627 77 77 0
+96
+-13
+138
+-24
+-1
+-1
+33
+158
+-84
+-1
+-1
+-1
+-2
+-1
+20
+-19
+-13
+0
+>PEFY01012318.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12318__whole_genome_shotgun_sequence scaffold22428__7.3 68610 885
+56602 56988 397 5 29 29 0
+-73
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012338.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12338__whole_genome_shotgun_sequence scaffold22476__7.9 115994 5384
+65367 70725 5384 1 75 75 0
+-4739
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-390
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012320.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12320__whole_genome_shotgun_sequence scaffold22891__7.8 82483 6622
+59057 59172 749 634 9 9 0
+0
+>PEFY01012335.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12335__whole_genome_shotgun_sequence scaffold23098__8.0 79632 2993
+9355 12322 1 2993 67 67 0
+-2039
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-183
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012336.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12336__whole_genome_shotgun_sequence scaffold23201__8.2 88781 13848
+3871 17684 1 13848 86 86 0
+-1488
+-1
+-1
+-1
+-1
+-2137
+-679
+-1
+-1
+-1
+-1
+-5396
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-183
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012317.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12317__whole_genome_shotgun_sequence scaffold23266__6.7 68439 5624
+41947 44069 2096 1 238 238 0
+-230
+26
+-582
+1012
+1
+1
+1
+-7
+-1
+-1
+91
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+143
+2
+0
+>PEFY01012363.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12363__whole_genome_shotgun_sequence scaffold23326__6.0 4747 2377
+391 688 528 825 35 35 0
+-92
+69
+0
+>PEFY01012339.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12339__whole_genome_shotgun_sequence scaffold23481__8.0 81680 4598
+49610 49948 1 343 35 35 0
+99
+-129
+-1
+-1
+-1
+-1
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence scaffold23490__8.0 160036 702
+5270 5509 226 1 23 23 0
+64
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+4
+144
+1
+0
+>PEFY01012320.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12320__whole_genome_shotgun_sequence scaffold23496__8.5 82483 3730
+69455 70736 2656 1370 200 200 0
+-200
+-1
+-1
+-1
+-1
+-187
+-1
+-1
+-1
+-1
+-1
+-49
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+210
+1
+1
+3
+3
+5
+1
+1
+1
+1
+1
+1
+4
+1
+2
+1
+1
+1
+1
+503
+-91
+4
+0
+>PEFY01012335.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12335__whole_genome_shotgun_sequence scaffold23610__6.9 79632 13534
+50170 63646 1 13518 145 145 0
+-2103
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+1544
+1
+-174
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-930
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-3943
+-1
+-1
+-1
+-1
+-3925
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012339.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12339__whole_genome_shotgun_sequence scaffold23647__6.1 81680 789
+28906 29688 789 1 41 41 0
+-314
+-1
+-1
+-244
+-1
+-1
+0
+>PEFY01012338.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12338__whole_genome_shotgun_sequence scaffold23827__7.5 115994 12709
+97407 110099 12709 1 59 59 0
+-3982
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-37
+2740
+1
+-5699
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012336.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12336__whole_genome_shotgun_sequence scaffold23982__7.3 88781 10150
+71573 81698 10150 1 89 89 0
+-2682
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+290
+-175
+-1
+-1
+-6022
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+83050 85477 6980 4661 272 272 0
+20
+12
+1
+15
+-11
+10
+7
+-12
+7
+-14
+15
+17
+43
+9
+7
+8
+1
+6
+1
+1
+18
+31
+7
+4
+-4
+19
+1
+-11
+15
+20
+-24
+9
+1
+7
+15
+13
+1
+3
+1
+1
+5
+1
+1
+3
+1
+1
+1
+1
+3
+1
+-12
+9
+7
+4
+1
+7
+25
+8
+41
+1
+1
+12
+4
+5
+7
+29
+-14
+13
+16
+-8
+-18
+-23
+16
+14
+1
+22
+-3
+26
+-20
+-23
+9
+1
+8
+3
+7
+9
+-7
+-34
+-4
+26
+-12
+6
+-11
+-1
+28
+16
+1
+15
+83
+8
+4
+9
+15
+10
+1
+1
+47
+26
+1
+-23
+11
+5
+1
+-31
+52
+-4
+29
+4
+-16
+22
+-13
+-20
+-1
+5
+2
+-14
+13
+9
+-7
+12
+1
+-8
+27
+1
+18
+18
+1
+-17
+-11
+-1
+-11
+9
+3
+6
+6
+1
+1
+-34
+-3
+6
+10
+1
+34
+-5
+25
+-11
+5
+10
+1
+1
+7
+1
+12
+1
+29
+-7
+26
+1
+3
+9
+7
+-7
+16
+37
+-28
+-2
+-10
+5
+2
+8
+1
+6
+1
+4
+48
+4
+18
+1
+25
+1
+-5
+8
+10
+1
+25
+-44
+-1
+14
+-20
+-9
+15
+-63
+-11
+-12
+4
+4
+10
+55
+1
+20
+0
+85477 88522 3271 166 266 266 0
+11
+12
+4
+5
+8
+34
+34
+4
+12
+-12
+-8
+8
+12
+6
+1
+5
+21
+17
+7
+-35
+30
+28
+4
+20
+1
+1
+24
+-39
+-114
+18
+-6
+-23
+6
+-8
+-8
+38
+4
+43
+1
+48
+1
+1
+1
+1
+5
+-27
+-1
+-6
+5
+-23
+-41
+69
+25
+43
+35
+-35
+-1
+13
+48
+30
+1
+5
+3
+-14
+-13
+-16
+-12
+-1
+-28
+-1
+24
+-49
+-82
+-14
+-13
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+58
+-4
+43
+-75
+-41
+-3
+-65
+-4
+-1
+-1
+-1
+-2
+-1
+-3
+52
+-50
+-21
+-79
+-19
+-6
+35
+-7
+-30
+4
+25
+22
+5
+4
+22
+-9
+-61
+4
+-20
+25
+-128
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-103
+3
+9
+-36
+13
+18
+-22
+9
+-13
+-66
+-44
+-1
+-1
+-13
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+46
+-8
+175
+-14
+116
+-7
+0
+>PEFY01012338.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12338__whole_genome_shotgun_sequence scaffold24181__7.7 115994 2213
+71378 71682 1909 2213 19 19 0
+0
+>PEFY01012335.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12335__whole_genome_shotgun_sequence scaffold24181__7.7 79632 2213
+77952 78245 797 516 26 26 0
+128
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+0
+>PEFY01012366.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12366__whole_genome_shotgun_sequence scaffold24245__5.6 68864 640
+27639 28258 1 640 20 20 0
+-232
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-32
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012320.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12320__whole_genome_shotgun_sequence scaffold24509__6.2 82483 1172
+60225 61115 1172 268 74 74 0
+-279
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-2
+31
+3
+-154
+-60
+0
+>PEFY01012335.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12335__whole_genome_shotgun_sequence scaffold24663__7.4 79632 3295
+74704 75468 764 1 52 52 0
+264
+1
+108
+-5
+-179
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence scaffold24674__7.9 160036 10244
+12213 22452 10244 1 17 17 0
+-9994
+-1
+-1
+-1
+0
+>PEFY01012333.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12333__whole_genome_shotgun_sequence scaffold25049__6.3 61575 613
+50284 50887 1 613 27 27 0
+-237
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012337.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12337__whole_genome_shotgun_sequence scaffold25050__8.0 21789 8209
+17383 18994 3469 1851 219 219 0
+-211
+-1
+-286
+-442
+-1
+-318
+-6
+31
+2
+-13
+-1
+44
+1
+1
+-176
+-1
+-1
+0
+>PEFY01012330.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12330__whole_genome_shotgun_sequence scaffold25076__8.7 21401 5998
+14190 14643 1075 1539 52 52 0
+-14
+-215
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-3
+-5
+213
+0
+>PEFY01012338.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12338__whole_genome_shotgun_sequence scaffold25265__7.2 115994 1102
+72709 73520 1102 277 87 87 0
+-234
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+355
+7
+1
+-14
+34
+-51
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence scaffold25466__7.9 160036 4090
+117265 121339 1 4090 43 43 0
+-240
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012327.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12327__whole_genome_shotgun_sequence scaffold25579__7.6 2699 923
+2081 2699 923 305 1 1 0
+0
+>PEFY01012328.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12328__whole_genome_shotgun_sequence scaffold25579__7.6 1510 923
+847 1500 923 269 60 60 0
+-179
+111
+-51
+0
+>PEFY01012335.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12335__whole_genome_shotgun_sequence scaffold25892__8.7 79632 9124
+76651 77101 7135 7593 62 62 0
+42
+1
+3
+10
+1
+1
+-28
+-1
+-3
+-1
+-1
+-1
+-1
+-1
+-2
+95
+-216
+-1
+-1
+-1
+-1
+-3
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence scaffold25931__7.9 160036 3368
+158028 158241 211 1 14 14 0
+127
+1
+1
+0
+>PEFY01012315.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12315__whole_genome_shotgun_sequence scaffold25931__7.9 11910 3368
+223 436 211 1 14 14 0
+127
+1
+1
+0
+>PEFY01012322.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12322__whole_genome_shotgun_sequence scaffold25933__7.4 11387 1724
+1 162 162 1 0 0 0
+0
+>PEFY01012319.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12319__whole_genome_shotgun_sequence scaffold26187__8.6 6772 2677
+4116 6772 1 2677 100 100 0
+-244
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+1675
+1
+1
+1
+1
+1
+1
+1
+-442
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012338.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12338__whole_genome_shotgun_sequence scaffold26248__7.8 115994 2247
+32882 32979 2150 2247 4 4 0
+0
+>PEFY01012356.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12356__whole_genome_shotgun_sequence scaffold26291_10.0 1682 797
+111 907 797 1 1 1 0
+0
+>PEFY01012343.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12343__whole_genome_shotgun_sequence scaffold26293__7.8 3128 3758
+2 119 118 1 6 6 0
+0
+>PEFY01012325.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12325__whole_genome_shotgun_sequence scaffold26596__8.0 30252 8975
+24277 25035 7872 8639 95 95 0
+-243
+-5
+-78
+-1
+-1
+-8
+-1
+-4
+-9
+-1
+101
+0
+>PEFY01012366.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12366__whole_genome_shotgun_sequence scaffold26687__8.9 68864 1516
+63535 63861 328 1 16 16 0
+-265
+0
+>PEFY01012332.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12332__whole_genome_shotgun_sequence scaffold26927__7.1 84626 2555
+76 511 445 887 51 51 0
+136
+-117
+-1
+-1
+-1
+-22
+-1
+-1
+-1
+-1
+-1
+-68
+3
+7
+1
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence scaffold27074__5.4 160036 2796
+23789 26563 2796 1 74 74 0
+-1481
+-1
+-1
+-1
+-196
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012332.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12332__whole_genome_shotgun_sequence scaffold27078__7.1 84626 6175
+37162 43292 6175 1 100 100 0
+-1021
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1093
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1361
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-37
+-1
+-1
+-1
+-615
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1738
+-1
+-1
+-1
+-1
+-1
+88
+6
+8
+1
+2
+11
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence scaffold27198__7.8 160036 1417
+114480 115863 1417 1 61 61 0
+-1097
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-39
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012342.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12342__whole_genome_shotgun_sequence scaffold27269__7.7 65842 20500
+943 1055 12942 12826 10 10 0
+-65
+-8
+-3
+-1
+0
+>PEFY01012337.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12337__whole_genome_shotgun_sequence scaffold27281__5.6 21789 1793
+21443 21623 1612 1792 19 19 0
+-21
+-12
+-3
+4
+20
+74
+0
+>PEFY01012366.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12366__whole_genome_shotgun_sequence scaffold27625__8.2 68864 17130
+50351 67370 1 17130 207 207 0
+-709
+-1
+-1
+-1
+-1
+-1
+-1
+-7941
+-24
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-2047
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-27
+-1
+-1
+-1
+-192
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-24
+-1
+-1
+-1
+-1
+-2339
+-1115
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-330
+-1
+-1
+-1
+-1
+-1
+-539
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-746
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-26
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012320.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12320__whole_genome_shotgun_sequence scaffold27794__8.2 82483 24101
+71218 72894 2276 3949 238 238 0
+-122
+95
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+-438
+13
+-664
+-55
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-54
+-2
+-1
+140
+6
+10
+1
+0
+>PEFY01012335.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12335__whole_genome_shotgun_sequence scaffold27833_10.7 79632 895
+22693 23411 1 745 37 37 0
+-61
+52
+-144
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-397
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-59
+0
+33641 34515 895 1 60 60 0
+43
+27
+11
+1
+-18
+-14
+5
+17
+21
+1
+-50
+-17
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+10
+-180
+-211
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+145
+-24
+6
+-10
+0
+44176 44359 186 1 9 9 0
+-8
+-4
+-7
+-38
+11
+1
+0
+>PEFY01012368.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12368__whole_genome_shotgun_sequence scaffold27904__6.6 1408 583
+1083 1348 583 318 14 14 0
+0
+>PEFY01012323.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12323__whole_genome_shotgun_sequence scaffold27908__9.3 3061 2182
+1 323 769 1095 35 35 0
+42
+166
+1
+-76
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence scaffold28267__8.2 160036 8172
+158985 159085 4505 4608 7 7 0
+-14
+-4
+-2
+0
+>PEFY01012315.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12315__whole_genome_shotgun_sequence scaffold28267__8.2 11910 8172
+1180 1280 4505 4608 7 7 0
+-14
+-4
+-2
+0
+>PEFY01012332.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12332__whole_genome_shotgun_sequence scaffold28405__6.9 84626 6439
+8388 8664 6159 6438 29 29 0
+31
+27
+-33
+-1
+-6
+-3
+-1
+0
+>PEFY01012375.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12375__whole_genome_shotgun_sequence scaffold28413__5.2 1498 584
+281 559 295 574 40 40 0
+-87
+-160
+-7
+14
+1
+0
+>PEFY01012332.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12332__whole_genome_shotgun_sequence scaffold28509__6.7 84626 4107
+20137 24233 1 4107 61 61 0
+-262
+-267
+-1
+-1
+-1
+-1
+-1
+-1
+-3247
+-1
+0
+>PEFY01012337.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12337__whole_genome_shotgun_sequence scaffold28630__5.6 21789 1486
+17846 18927 1085 1 73 73 0
+-821
+-1
+-1
+0
+>PEFY01012336.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12336__whole_genome_shotgun_sequence scaffold28673__7.0 88781 2829
+23485 23674 2640 2829 15 15 0
+-127
+13
+-16
+14
+0
+>PEFY01012366.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12366__whole_genome_shotgun_sequence scaffold28945__8.8 68864 8302
+61698 63148 1934 462 187 187 0
+128
+1
+4
+3
+1
+5
+1
+1
+7
+1
+1
+7
+1
+1
+1
+1
+1
+1
+-21
+-1
+-1
+-59
+-1
+-1
+-4
+-5
+-31
+-1
+-1
+-82
+-1
+12
+79
+-3
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+264
+-35
+-3
+-1
+-3
+-1
+-2
+-3
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-572
+-1
+-63
+0
+>PEFY01012335.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12335__whole_genome_shotgun_sequence scaffold28992__9.3 79632 1106
+76792 77115 1 325 20 20 0
+-267
+-1
+-1
+-1
+42
+1
+1
+0
+>PEFY01012352.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12352__whole_genome_shotgun_sequence scaffold28995__4.0 2026 523
+1 299 430 117 41 41 0
+-137
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+136
+-8
+0
+>PEFY01012336.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12336__whole_genome_shotgun_sequence scaffold29106__7.5 88781 23656
+41364 41613 5641 5888 28 28 0
+84
+3
+0
+>PEFY01012357.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12357__whole_genome_shotgun_sequence scaffold29129__6.0 1176 1096
+55 1144 1096 1 10 10 0
+-276
+-545
+-1
+-1
+-1
+-1
+0
+>PEFY01012318.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12318__whole_genome_shotgun_sequence scaffold29288__7.2 68610 875
+13434 13593 714 875 13 13 0
+-73
+-1
+0
+>PEFY01012339.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12339__whole_genome_shotgun_sequence scaffold29458__6.0 81680 1279
+27611 28882 1279 1 7 7 0
+-1003
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012325.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12325__whole_genome_shotgun_sequence scaffold29463__7.5 30252 13935
+22361 23649 4958 6245 236 236 0
+-265
+-1
+53
+1
+273
+-18
+3
+120
+-50
+-199
+6
+0
+>PEFY01012330.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12330__whole_genome_shotgun_sequence scaffold29589__7.8 21401 3343
+847 4144 1 3343 105 105 0
+-276
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1303
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-209
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-39
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+7332 7603 565 844 24 24 0
+-9
+-48
+-88
+10
+-26
+-29
+-28
+-1
+-1
+-16
+0
+13326 15945 565 3343 368 368 0
+-466
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+67
+1
+1
+-211
+-8
+5
+-106
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-17
+-71
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-209
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-39
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-160
+-1
+11
+1
+1
+5
+13
+-29
+-1
+-1
+-1
+-4
+-1
+-1
+-1
+86
+1
+1
+102
+-114
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-4
+-25
+-156
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+59
+464
+62
+0
+>PEFY01012333.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12333__whole_genome_shotgun_sequence scaffold29602__7.6 61575 1845
+61227 61497 271 1 13 13 0
+0
+>PEFY01012320.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12320__whole_genome_shotgun_sequence scaffold29643__6.6 82483 1294
+51528 51665 735 598 10 10 0
+0
+>PEFY01012325.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12325__whole_genome_shotgun_sequence scaffold29676__7.3 30252 3802
+24030 24516 794 316 72 72 0
+221
+112
+1
+1
+2
+1
+3
+1
+1
+2
+2
+-73
+-3
+-1
+-9
+6
+0
+>PEFY01012320.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12320__whole_genome_shotgun_sequence scaffold29964__7.6 82483 1940
+57389 57545 1368 1212 9 9 0
+0
+>PEFY01012338.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12338__whole_genome_shotgun_sequence scaffold29998__7.9 115994 4363
+92497 96860 1 4363 34 34 0
+276
+0
+>PEFY01012318.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12318__whole_genome_shotgun_sequence scaffold30202__4.4 68610 595
+18258 18846 595 1 16 16 0
+-303
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence scaffold30229__7.8 160036 1812
+115822 115965 310 454 5 5 0
+-73
+0
+>PEFY01012342.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12342__whole_genome_shotgun_sequence scaffold30252__8.0 65842 2357
+62536 62609 2357 2284 0 0 0
+0
+>PEFY01012377.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12377__whole_genome_shotgun_sequence scaffold30404_12.3 2338 2351
+376 864 478 1 96 96 0
+-62
+-1
+-2
+-1
+-28
+-1
+-77
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+72
+1
+1
+1
+1
+1
+1
+1
+1
+71
+9
+1
+1
+1
+1
+1
+2
+4
+52
+1
+1
+2
+1
+1
+1
+1
+1
+0
+>PEFY01012318.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12318__whole_genome_shotgun_sequence scaffold30479__8.0 68610 14528
+30269 30715 14528 14079 19 19 0
+-33
+-365
+-34
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence scaffold30482__6.5 160036 902
+78823 79724 902 1 13 13 0
+0
+>PEFY01012331.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12331__whole_genome_shotgun_sequence scaffold30595__7.1 28463 4551
+23796 28327 4551 1 82 82 0
+-1322
+-1
+-1
+-1
+-286
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-2604
+-1
+-1
+0
+>PEFY01012335.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12335__whole_genome_shotgun_sequence scaffold30717__6.8 79632 1412
+78125 78544 449 1 41 41 0
+-12
+-93
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-36
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-61
+40
+0
+>PEFY01012366.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12366__whole_genome_shotgun_sequence scaffold30755__6.0 68864 610
+63570 63850 282 1 15 15 0
+-230
+0
+>PEFY01012364.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12364__whole_genome_shotgun_sequence scaffold31313__7.0 7009 3102
+9 1326 3102 1785 1 1 0
+0
+1260 1618 1493 1851 6 6 0
+0
+1552 3105 1559 1 59 59 0
+-1214
+-1
+-1
+-1
+-1
+0
+>PEFY01012332.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12332__whole_genome_shotgun_sequence scaffold31333__6.1 84626 1812
+82556 84361 1812 1 10 10 0
+-1514
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012328.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12328__whole_genome_shotgun_sequence scaffold31341_11.4 1510 573
+70 633 1 573 30 30 0
+-290
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+224
+0
+>PEFY01012335.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12335__whole_genome_shotgun_sequence scaffold31526__9.0 79632 947
+75489 76087 947 340 43 43 0
+62
+3
+1
+-166
+-1
+-1
+-1
+-1
+-1
+-1
+-2
+-1
+-1
+-1
+-1
+0
+>PEFY01012315.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12315__whole_genome_shotgun_sequence scaffold31865__8.4 11910 9531
+2791 3821 7914 8959 84 84 0
+-263
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-15
+-1
+-1
+-6
+475
+1
+1
+1
+-83
+-14
+-158
+0
+3464 3821 2095 2449 20 20 0
+83
+1
+1
+1
+-98
+0
+>PEFY01012315.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12315__whole_genome_shotgun_sequence scaffold31866__8.0 11910 5427
+2790 3821 325 1368 95 95 0
+-253
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-3
+-1
+-4
+-3
+-18
+-1
+-7
+-1
+292
+192
+1
+1
+2
+-84
+0
+>PEFY01012317.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12317__whole_genome_shotgun_sequence scaffold31893__7.5 68439 17292
+64929 65070 1 144 7 7 0
+-87
+-12
+-36
+3
+0
+>PEFY01012338.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12338__whole_genome_shotgun_sequence scaffold31921__6.0 115994 591
+70948 71533 1 591 24 24 0
+-296
+-1
+-1
+-1
+-1
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence scaffold32153__7.7 160036 3537
+121161 121369 209 1 17 17 0
+0
+>PEFY01012317.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12317__whole_genome_shotgun_sequence scaffold32163__8.0 68439 690
+18852 19526 1 690 25 25 0
+-299
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012325.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12325__whole_genome_shotgun_sequence scaffold32172__7.7 30252 29193
+88 29228 29193 1 139 139 0
+-1740
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+17836
+-1998
+-1
+-1
+-4789
+-1
+-258
+-1
+-1
+-1
+-1
+-1
+-321
+-1
+-1
+-1
+-1
+-1
+-37
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1668
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-32
+0
+>PEFY01012320.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12320__whole_genome_shotgun_sequence scaffold32178__5.4 82483 1225
+34762 35979 1225 1 17 17 0
+-911
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012337.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12337__whole_genome_shotgun_sequence scaffold32297__6.9 21789 5098
+8722 13766 5098 1 136 136 0
+-2168
+-1
+-1
+-1
+-1050
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-484
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-24
+-1
+-1
+-1
+-1
+-1
+-1
+-467
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-27
+-1
+-521
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence scaffold32307__7.0 160036 8894
+13034 13306 25 298 13 13 0
+-258
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence scaffold32314__7.6 160036 6212
+89552 95753 6212 1 73 73 0
+-5401
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+463
+261
+-46
+0
+>PEFY01012334.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12334__whole_genome_shotgun_sequence scaffold32326__6.4 51607 840
+16940 17766 840 1 28 28 0
+-513
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012336.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12336__whole_genome_shotgun_sequence scaffold32336__7.2 88781 2646
+20964 23600 1 2646 13 13 0
+-301
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012332.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12332__whole_genome_shotgun_sequence scaffold32418__9.0 84626 2620
+20965 21614 1273 615 68 68 0
+-236
+-26
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+132
+-61
+-1
+-19
+-14
+-1
+-1
+-1
+-2
+-49
+52
+1
+1
+1
+3
+5
+1
+1
+1
+0
+>PEFY01012327.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12327__whole_genome_shotgun_sequence scaffold32420__7.7 2699 853
+797 1636 1 853 13 13 0
+-302
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012368.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12368__whole_genome_shotgun_sequence scaffold32645__7.0 1408 1358
+1310 1408 1 99 0 0 0
+0
+>PEFY01012325.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12325__whole_genome_shotgun_sequence scaffold32689__9.3 30252 709
+29236 29930 1 709 15 15 0
+-304
+-20
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012338.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12338__whole_genome_shotgun_sequence scaffold32823__8.5 115994 8540
+71135 71869 1587 2326 85 85 0
+45
+-15
+146
+-163
+-1
+-8
+-1
+-2
+-2
+-1
+-1
+-1
+32
+1
+3
+0
+>PEFY01012335.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12335__whole_genome_shotgun_sequence scaffold32823__8.5 79632 8540
+73734 76327 4993 2387 281 281 0
+-173
+-193
+-235
+-1
+-1
+-2
+-32
+98
+-399
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+108
+1
+108
+-5
+-179
+214
+344
+-75
+179
+83
+0
+>PEFY01012327.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12327__whole_genome_shotgun_sequence scaffold33210__8.3 2699 1996
+1843 2281 442 2 61 61 0
+-66
+-1
+0
+>PEFY01012334.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12334__whole_genome_shotgun_sequence scaffold33541__7.3 51607 1375
+50742 51119 1 377 16 16 0
+200
+0
+>PEFY01012318.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12318__whole_genome_shotgun_sequence scaffold33563__6.3 68610 4986
+20784 25739 1 4986 49 49 0
+-2604
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-264
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012350.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12350__whole_genome_shotgun_sequence scaffold33578__4.5 1869 608
+142 744 608 1 24 24 0
+-270
+-1
+-1
+-1
+-1
+0
+>PEFY01012338.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12338__whole_genome_shotgun_sequence scaffold33619__6.1 115994 3605
+26820 30416 3605 1 39 39 0
+-3252
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence scaffold33637__6.4 160036 1062
+157095 158137 1 1062 23 23 0
+-317
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-376
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012315.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12315__whole_genome_shotgun_sequence scaffold33637__6.4 11910 1062
+1 332 731 1062 0 0 0
+0
+>PEFY01012323.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12323__whole_genome_shotgun_sequence scaffold33759__8.1 3061 1773
+44 1629 1773 183 24 24 0
+286
+1
+1
+-1135
+-1
+-30
+-1
+-1
+-1
+-1
+-1
+0
+1983 2886 899 1 79 79 0
+-119
+-15
+-39
+26
+1
+-59
+-8
+193
+3
+1
+1
+1
+5
+1
+1
+1
+1
+5
+1
+1
+2
+50
+1
+-29
+-1
+-30
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012339.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12339__whole_genome_shotgun_sequence scaffold33847__5.3 81680 1214
+52376 53589 1214 1 18 18 0
+0
+>PEFY01012318.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12318__whole_genome_shotgun_sequence scaffold33858__8.5 68610 4751
+5011 6530 3158 4690 187 187 0
+-888
+-1
+-9
+-1
+-2
+-1
+-5
+-1
+-1
+-4
+-1
+-1
+-27
+-47
+77
+-200
+259
+0
+>PEFY01012339.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12339__whole_genome_shotgun_sequence scaffold33902__7.0 81680 1202
+53732 54937 1202 1 5 5 0
+883
+1
+1
+1
+0
+>PEFY01012338.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12338__whole_genome_shotgun_sequence scaffold34234__5.8 115994 1596
+97216 97462 866 617 21 21 0
+-128
+-1
+-1
+0
+>PEFY01012318.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12318__whole_genome_shotgun_sequence scaffold34300__7.8 68610 5889
+1 377 1939 2316 29 29 0
+-137
+-1
+168
+0
+1625 2235 2316 1705 60 60 0
+70
+-170
+-1
+0
+2354 8217 5889 1 68 68 0
+-1443
+-1
+-1
+-904
+-17
+-1
+-1
+-1
+-1
+-1
+-1443
+-1
+-1209
+-1
+-1
+-1
+-1
+-1
+-1
+-513
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012318.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12318__whole_genome_shotgun_sequence scaffold34304__8.1 68610 1285
+63984 65267 1 1285 14 14 0
+-325
+0
+66896 67055 1126 1285 0 0 0
+0
+>PEFY01012320.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12320__whole_genome_shotgun_sequence scaffold34366__7.9 82483 9483
+20146 29594 1 9483 113 113 0
+-851
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-7282
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+302
+1
+-9
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012318.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12318__whole_genome_shotgun_sequence scaffold34587__6.7 68610 1897
+21011 21141 1895 1765 3 3 0
+0
+>PEFY01012329.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12329__whole_genome_shotgun_sequence scaffold34655__7.3 2842 897
+1130 1625 251 751 26 26 0
+-81
+-1
+-1
+-1
+-1
+0
+>PEFY01012338.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12338__whole_genome_shotgun_sequence scaffold34862__7.6 115994 9762
+6331 6827 2109 1591 40 40 0
+-212
+-1
+-7
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-68
+-1
+-1
+-1
+-112
+-1
+-59
+-1
+-1
+-1
+-5
+-1
+5
+-21
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence scaffold34866__7.8 160036 1218
+49587 49791 210 1 20 20 0
+-14
+-1
+-1
+-13
+-3
+-1
+-48
+-35
+12
+10
+1
+0
+>PEFY01012334.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12334__whole_genome_shotgun_sequence scaffold35111__6.3 51607 3061
+10184 10651 1943 2424 49 49 0
+-13
+-1
+60
+34
+1
+-94
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+56
+-25
+-79
+48
+0
+15414 17118 2429 761 160 160 0
+67
+-124
+29
+-55
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+90
+34
+78
+1
+1
+1
+1
+1
+1
+1
+1
+4
+108
+1
+1
+1
+1
+-123
+115
+1
+1
+1
+-182
+29
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+8
+1
+251
+38
+12
+1
+68
+1
+1
+1
+82
+66
+5
+6
+1
+1
+1
+8
+1
+1
+0
+>PEFY01012335.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12335__whole_genome_shotgun_sequence scaffold35111__6.3 79632 3061
+28797 31821 3061 1 74 74 0
+-600
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-294
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1556
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+33274 33646 366 1 39 39 0
+23
+1
+64
+1
+1
+1
+1
+1
+1
+1
+1
+-230
+-1
+-1
+-1
+0
+>PEFY01012377.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12377__whole_genome_shotgun_sequence scaffold35248__5.4 2338 893
+1279 1511 506 736 30 30 0
+22
+1
+-38
+9
+0
+>PEFY01012317.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12317__whole_genome_shotgun_sequence scaffold35278__6.9 68439 4951
+48774 48993 1509 1729 17 17 0
+-206
+0
+>PEFY01012337.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12337__whole_genome_shotgun_sequence scaffold35416__6.7 21789 1181
+13947 15118 1180 1 98 98 0
+-351
+-1
+-1
+-1
+-1
+-1
+-82
+-196
+-300
+55
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence scaffold35744__6.9 160036 3444
+8690 12130 1 3444 17 17 0
+-348
+-1
+-1
+0
+>PEFY01012353.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12353__whole_genome_shotgun_sequence scaffold35894__8.3 2556 3288
+1 2556 3277 704 81 81 0
+-428
+-1
+-1
+-1
+-1
+-1
+-303
+-1
+-1127
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012351.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12351__whole_genome_shotgun_sequence scaffold35907__7.0 1171 1239
+601 1171 1239 663 56 56 0
+-397
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012366.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12366__whole_genome_shotgun_sequence scaffold36021__8.0 68864 16728
+30913 47614 16728 1 74 74 0
+3068
+1
+1
+1
+1
+1
+-829
+-4090
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-8347
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012329.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12329__whole_genome_shotgun_sequence scaffold36129__6.3 2842 722
+2315 2652 1 336 50 50 0
+25
+-99
+18
+25
+18
+1
+49
+-11
+-1
+-4
+0
+>PEFY01012337.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12337__whole_genome_shotgun_sequence scaffold36347__7.3 21789 1732
+14432 15248 1590 766 114 114 0
+-325
+3
+-21
+3
+-91
+-87
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012332.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12332__whole_genome_shotgun_sequence scaffold36402__7.6 84626 9525
+48430 48501 1 72 0 0 0
+0
+>PEFY01012318.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12318__whole_genome_shotgun_sequence scaffold36458__5.7 68610 1108
+44888 45987 1 1108 56 56 0
+-359
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012336.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12336__whole_genome_shotgun_sequence scaffold36480__7.4 88781 2768
+44741 45098 358 1 0 0 0
+0
+>PEFY01012334.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12334__whole_genome_shotgun_sequence scaffold36510__7.8 51607 2511
+17454 17861 414 809 43 43 0
+174
+1
+1
+1
+1
+1
+1
+1
+1
+1
+39
+111
+0
+>PEFY01012368.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12368__whole_genome_shotgun_sequence scaffold36711__7.5 1408 1314
+1 1240 69 1314 33 33 0
+-295
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012335.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12335__whole_genome_shotgun_sequence scaffold36861__8.5 79632 1402
+14626 16019 1 1402 29 29 0
+-366
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012332.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12332__whole_genome_shotgun_sequence scaffold36879__7.9 84626 2493
+63103 65579 2493 1 25 25 0
+-2104
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence scaffold36935__8.0 160036 5684
+151278 152111 2973 3776 123 123 0
+147
+1
+1
+1
+1
+1
+1
+2
+1
+9
+1
+1
+1
+1
+1
+1
+1
+1
+111
+1
+1
+1
+99
+1
+8
+1
+1
+6
+1
+1
+1
+1
+1
+1
+10
+1
+1
+1
+1
+1
+1
+1
+1
+2
+3
+-184
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-6
+-1
+-4
+-1
+-3
+-1
+-1
+-1
+-5
+-1
+-1
+74
+1
+1
+1
+1
+80
+-32
+-1
+0
+>PEFY01012320.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12320__whole_genome_shotgun_sequence scaffold36966__7.6 82483 17389
+66353 67654 6057 7363 176 176 0
+80
+-524
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012332.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12332__whole_genome_shotgun_sequence scaffold37029__7.2 84626 2512
+45724 48233 2512 1 8 8 0
+-2137
+-1
+0
+>PEFY01012317.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12317__whole_genome_shotgun_sequence scaffold37120__7.0 68439 11279
+44066 47621 7722 4229 359 359 0
+242
+1
+1
+4
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+3
+1
+1
+1
+1
+1
+1
+1
+1
+95
+1
+895
+1
+5
+1
+1
+2
+1
+2
+-92
+176
+-35
+-1
+364
+394
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+2
+1
+1
+3
+1
+1
+-157
+-1
+-1
+153
+1
+1
+1
+1
+1
+1
+1
+1
+2
+1
+3
+1
+365
+1
+-184
+-65
+-1
+-1
+-1
+-1
+100
+1
+1
+1
+1
+1
+0
+>PEFY01012345.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12345__whole_genome_shotgun_sequence scaffold37398__9.3 1352 1006
+33 1028 1 1006 12 12 0
+-376
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence scaffold37414__6.9 160036 2826
+126655 126796 233 375 16 16 0
+7
+5
+-33
+-1
+-1
+0
+>PEFY01012336.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12336__whole_genome_shotgun_sequence scaffold37439__4.5 88781 721
+68302 69002 1 721 27 27 0
+-377
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012335.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12335__whole_genome_shotgun_sequence scaffold37477__6.0 79632 758
+77135 77465 335 1 21 21 0
+-17
+-1
+-1
+-224
+0
+>PEFY01012337.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12337__whole_genome_shotgun_sequence scaffold37508__9.3 21789 2767
+10706 10805 2668 2767 3 3 0
+0
+>PEFY01012366.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12366__whole_genome_shotgun_sequence scaffold37672__7.3 68864 18787
+474 19209 18787 1 148 148 0
+-2189
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-903
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+1511
+-469
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-329
+-706
+-1
+-1
+-560
+-1
+-8154
+-1
+-1
+-1
+-2289
+0
+>PEFY01012338.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12338__whole_genome_shotgun_sequence scaffold37800__7.8 115994 8813
+3 595 1347 764 80 80 0
+71
+43
+-10
+297
+1
+1
+1
+1
+1
+39
+1
+0
+>PEFY01012331.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12331__whole_genome_shotgun_sequence scaffold38221__8.1 28463 5651
+4143 9789 5651 1 23 23 0
+-5238
+-1
+-1
+-1
+0
+>PEFY01012361.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12361__whole_genome_shotgun_sequence scaffold38247__9.7 1219 1005
+100 1096 1 1005 14 14 0
+-393
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012338.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12338__whole_genome_shotgun_sequence scaffold38265__8.1 115994 2181
+113873 115994 2181 51 13 13 0
+-1777
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012318.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12318__whole_genome_shotgun_sequence scaffold38439__7.0 68610 1070
+50142 51181 1 1070 34 34 0
+-396
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence scaffold38439__7.0 160036 1070
+136754 136965 212 1 5 5 0
+0
+>PEFY01012367.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12367__whole_genome_shotgun_sequence scaffold38510__5.6 1993 1429
+1 314 314 1 0 0 0
+0
+>PEFY01012336.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12336__whole_genome_shotgun_sequence scaffold38660__7.8 88781 7403
+33420 40823 1 7403 22 22 0
+401
+1
+-5938
+0
+>PEFY01012336.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12336__whole_genome_shotgun_sequence scaffold38735__7.0 88781 2616
+69002 71616 1 2616 28 28 0
+-403
+0
+>PEFY01012335.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12335__whole_genome_shotgun_sequence scaffold38852__8.2 79632 1534
+74736 76235 1 1534 69 69 0
+-405
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-707
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-17
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012339.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12339__whole_genome_shotgun_sequence scaffold39080__6.8 81680 4383
+63223 67586 1 4383 25 25 0
+-411
+-1
+-1
+-1
+-526
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence scaffold39289__6.3 160036 1703
+121682 121914 323 559 30 30 0
+81
+-13
+-1
+-1
+-1
+-1
+0
+>PEFY01012338.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12338__whole_genome_shotgun_sequence scaffold39489__7.5 115994 5951
+79915 80068 830 982 6 6 0
+76
+0
+>PEFY01012335.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12335__whole_genome_shotgun_sequence scaffold39616__9.7 79632 1339
+20927 22266 1 1339 20 20 0
+421
+0
+34948 36305 1339 1 112 112 0
+-109
+-2
+-1
+-1
+62
+1
+1
+27
+1
+1
+1
+1
+1
+352
+1
+1
+1
+1
+1
+1
+1
+1
+3
+1
+3
+1
+1
+1
+-39
+-1
+-1
+-1
+-38
+-1
+-1
+-1
+-131
+-38
+-1
+-1
+45
+46
+188
+-12
+40
+1
+76
+1
+1
+62
+1
+1
+1
+0
+>PEFY01012336.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12336__whole_genome_shotgun_sequence scaffold39663__8.4 88781 10815
+45102 55901 1 10815 106 106 0
+-423
+-1
+-1
+-1
+-1
+-1
+-2269
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012380.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12380__whole_genome_shotgun_sequence scaffold39740__8.0 1252 25419
+1 554 24869 25419 54 54 0
+118
+1
+1
+0
+>PEFY01012335.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12335__whole_genome_shotgun_sequence scaffold39964__8.3 79632 1365
+20927 22266 1 1365 120 120 0
+-66
+-1
+-1
+-1
+-63
+-1
+-1
+-76
+-1
+41
+-9
+-171
+-1
+-1
+-1
+-1
+-1
+-1
+-65
+45
+1
+1
+38
+130
+1
+1
+1
+39
+1
+1
+1
+-41
+-1
+-1
+-1
+-3
+-1
+-1
+-1
+-1
+-3
+-1
+-1
+-1
+-1
+-1
+-344
+-1
+-1
+-1
+-1
+-1
+-34
+-1
+-1
+63
+1
+1
+2
+0
+34948 36305 1365 1 27 27 0
+-909
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012332.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12332__whole_genome_shotgun_sequence scaffold40025__6.2 84626 1436
+25713 27143 1 1436 12 12 0
+-432
+-1
+-1
+-1
+-1
+0
+>PEFY01012376.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12376__whole_genome_shotgun_sequence scaffold40107__7.6 1256 1434
+33 1256 1434 194 87 87 0
+-499
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-427
+-1
+-1
+0
+>PEFY01012334.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12334__whole_genome_shotgun_sequence scaffold40278__8.7 51607 1558
+34113 35654 1 1558 16 16 0
+-438
+-1
+-1
+-1
+-1
+-1
+-1
+-37
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012334.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12334__whole_genome_shotgun_sequence scaffold40496__7.6 51607 1220
+11229 12435 1 1220 13 13 0
+-444
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-41
+-1
+-1
+-1
+-1
+0
+14424 14679 256 1 10 10 0
+-138
+8
+0
+>PEFY01012339.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12339__whole_genome_shotgun_sequence scaffold40662__7.4 81680 5377
+27387 27605 212 1 27 27 0
+120
+1
+2
+3
+1
+1
+1
+0
+>PEFY01012332.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12332__whole_genome_shotgun_sequence scaffold40858__7.0 84626 1770
+78782 80540 1 1770 30 30 0
+-454
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012328.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12328__whole_genome_shotgun_sequence scaffold41016__6.9 1510 1185
+1009 1469 458 1 46 46 0
+-23
+40
+6
+4
+5
+1
+-100
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence scaffold41267__6.4 160036 1490
+48206 49688 1490 1 21 21 0
+-1005
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012351.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12351__whole_genome_shotgun_sequence scaffold41281__6.1 1171 974
+363 768 409 1 47 47 0
+-46
+-1
+-2
+0
+>PEFY01012334.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12334__whole_genome_shotgun_sequence scaffold41309__8.3 51607 1602
+11336 11484 1 149 7 7 0
+-5
+7
+0
+12991 14572 1602 1 45 45 0
+-1092
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+25165 25631 466 1 28 28 0
+-121
+-58
+75
+1
+1
+0
+39873 40410 696 1235 34 34 0
+-191
+-1
+143
+1
+3
+4
+-147
+-1
+-1
+-1
+0
+>PEFY01012320.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12320__whole_genome_shotgun_sequence scaffold41311__7.8 82483 1075
+10337 10635 6 286 40 40 0
+46
+147
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+3
+1
+1
+2
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence scaffold41350__7.0 160036 1397
+134509 135898 1 1397 22 22 0
+-468
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012318.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12318__whole_genome_shotgun_sequence scaffold41350__7.0 68610 1397
+51601 52417 1397 551 115 115 0
+-224
+-1
+-1
+-1
+-11
+-4
+-1
+-1
+-50
+-1
+-1
+-6
+-1
+-1
+-1
+-1
+-2
+-1
+-1
+-2
+-1
+6
+-6
+-1
+-1
+142
+1
+1
+1
+22
+1
+1
+1
+22
+1
+1
+1
+-62
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+78
+1
+1
+1
+111
+1
+1
+1
+1
+0
+>PEFY01012320.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12320__whole_genome_shotgun_sequence scaffold41420__6.7 82483 12172
+61870 62101 12172 11941 22 22 0
+-37
+152
+0
+>PEFY01012320.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12320__whole_genome_shotgun_sequence scaffold41688__8.3 82483 12734
+29432 29726 10556 10852 17 17 0
+-107
+-4
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence scaffold41733__7.9 160036 7607
+114378 114617 630 870 26 26 0
+-22
+-110
+-1
+64
+9
+0
+>PEFY01012320.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12320__whole_genome_shotgun_sequence scaffold41898__8.9 82483 3373
+40269 43629 1 3373 63 63 0
+-482
+-1
+-1
+-1
+-1
+-453
+-625
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012335.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12335__whole_genome_shotgun_sequence scaffold41996__7.4 79632 3509
+17418 20906 1 3509 43 43 0
+23
+-337
+-1
+-1
+-125
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-757
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+47829 48584 2693 1950 79 79 0
+-47
+-1
+-1
+-1
+-5
+-6
+64
+24
+1
+1
+-92
+-1
+-1
+-1
+-1
+75
+1
+1
+1
+19
+1
+1
+1
+1
+-46
+-28
+-1
+-1
+42
+1
+1
+1
+41
+1
+1
+1
+194
+1
+1
+1
+1
+5
+0
+>PEFY01012334.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12334__whole_genome_shotgun_sequence scaffold41996__7.4 51607 3509
+36121 36679 1 558 38 38 0
+-52
+14
+31
+12
+-7
+-26
+29
+6
+-6
+-17
+-87
+34
+11
+32
+8
+79
+-45
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+15
+4
+-12
+11
+1
+3
+4
+0
+36761 37034 700 981 24 24 0
+-54
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+146
+1
+1
+1
+1
+1
+0
+37053 37701 1286 1941 73 73 0
+34
+1
+1
+1
+60
+1
+1
+1
+1
+1
+1
+3
+3
+3
+1
+40
+1
+1
+1
+17
+-79
+-1
+-1
+-1
+-1
+-1
+-1
+-30
+110
+1
+1
+1
+-99
+-1
+-1
+-3
+-4
+-35
+-3
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-5
+-1
+-3
+-1
+-1
+-2
+0
+>PEFY01012339.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12339__whole_genome_shotgun_sequence scaffold42103__6.8 81680 4337
+43541 47877 4337 1 13 13 0
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence scaffold42110__9.6 160036 1086
+45803 46879 1 1086 30 30 0
+-490
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012335.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12335__whole_genome_shotgun_sequence scaffold42793__6.8 79632 3297
+5632 6125 1893 2391 50 50 0
+33
+-155
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-92
+141
+1
+1
+48
+0
+>PEFY01012318.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12318__whole_genome_shotgun_sequence scaffold42874__7.8 68610 14715
+31726 31922 6989 6791 13 13 0
+-171
+-1
+0
+>PEFY01012336.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12336__whole_genome_shotgun_sequence scaffold42997__8.4 88781 10467
+57888 68344 10467 1 59 59 0
+-1767
+-473
+-1
+-1
+-1
+-1
+-1
+-3792
+-1
+-1
+0
+>PEFY01012332.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12332__whole_genome_shotgun_sequence scaffold43021__6.7 84626 4765
+62805 63146 986 642 35 35 0
+-129
+-163
+-28
+0
+>PEFY01012323.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12323__whole_genome_shotgun_sequence scaffold43087__7.3 3061 8601
+101 446 614 959 17 17 0
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence scaffold43169__5.5 160036 1008
+70990 71767 786 2 65 65 0
+-33
+-1
+-8
+-215
+-1
+-1
+-1
+-1
+-1
+-1
+89
+1
+1
+4
+1
+3
+-246
+4
+-122
+-1
+-1
+0
+77717 78717 1008 1 7 7 0
+-480
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012332.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12332__whole_genome_shotgun_sequence scaffold43212__5.9 84626 4995
+1041 1347 423 734 36 36 0
+-102
+-1
+-1
+-1
+-1
+0
+>PEFY01012322.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12322__whole_genome_shotgun_sequence scaffold43688__7.8 11387 1183
+242 768 12 541 54 54 0
+-376
+-1
+-1
+0
+>PEFY01012374.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12374__whole_genome_shotgun_sequence scaffold43760__8.3 2789 4842
+2025 2789 1 765 0 0 0
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence scaffold43882__8.2 160036 3784
+110728 114477 3784 1 58 58 0
+-1243
+-1
+-1
+-1
+-1
+-1
+-1929
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-32
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012338.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12338__whole_genome_shotgun_sequence scaffold44089__5.3 115994 1571
+33110 34063 1571 618 0 0 0
+0
+34172 34729 558 1 0 0 0
+0
+>PEFY01012342.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12342__whole_genome_shotgun_sequence scaffold44294__6.0 65842 2115
+27168 29266 2115 1 42 42 0
+-1507
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence scaffold44449__7.2 160036 1330
+153556 153690 1193 1326 13 13 0
+9
+0
+>PEFY01012342.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12342__whole_genome_shotgun_sequence scaffold44626__7.4 65842 14912
+29288 44147 14912 1 118 118 0
+-641
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-2265
+-1
+-1
+-1
+-1982
+-1
+-1
+-1
+2979
+-3
+-996
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-4047
+-1
+-1
+-1
+-1369
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012320.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12320__whole_genome_shotgun_sequence scaffold44741__6.3 82483 2956
+54120 54706 586 1 53 53 0
+430
+0
+>PEFY01012335.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12335__whole_genome_shotgun_sequence scaffold44754__6.9 79632 1260
+77003 78262 1 1260 22 22 0
+0
+>PEFY01012336.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12336__whole_genome_shotgun_sequence scaffold44854__7.3 88781 2202
+30943 33128 1 2202 29 29 0
+-592
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012339.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12339__whole_genome_shotgun_sequence scaffold44910__8.0 81680 15496
+49383 49609 222 1 31 31 0
+-5
+-87
+-1
+39
+2
+1
+1
+1
+1
+1
+1
+0
+>PEFY01012353.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12353__whole_genome_shotgun_sequence scaffold44944__7.8 2556 3320
+292 1509 1933 717 97 97 0
+-62
+184
+530
+1
+-384
+0
+>PEFY01012336.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12336__whole_genome_shotgun_sequence scaffold44956__7.0 88781 1883
+42694 44569 1 1883 13 13 0
+-597
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012336.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12336__whole_genome_shotgun_sequence scaffold45084__9.6 88781 2578
+2225 2374 1517 1659 22 22 0
+29
+1
+4
+1
+1
+1
+3
+1
+1
+-101
+-1
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence scaffold45165__8.0 160036 12724
+121830 134544 1 12724 20 20 0
+-606
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012318.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12318__whole_genome_shotgun_sequence scaffold45165__8.0 68610 12724
+58397 59349 12548 11595 82 82 0
+-64
+-278
+-1
+34
+18
+1
+1
+1
+-179
+-3
+13
+1
+33
+-79
+-1
+-1
+-137
+0
+>PEFY01012339.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12339__whole_genome_shotgun_sequence scaffold45348__8.2 81680 7703
+29727 30177 1092 647 45 45 0
+77
+2
+35
+-203
+-10
+85
+1
+1
+13
+0
+>PEFY01012363.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12363__whole_genome_shotgun_sequence scaffold45389__7.3 4747 7978
+1 4715 3243 7978 42 42 0
+-53
+-1
+-1
+-1
+-1
+-1
+-44
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-552
+-1
+-1
+-1
+-1
+0
+>PEFY01012339.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12339__whole_genome_shotgun_sequence scaffold45415__8.0 81680 13800
+23133 23452 3307 2988 31 31 0
+8
+47
+48
+-46
+-1
+-164
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence scaffold45484__7.5 160036 4410
+52456 56857 1 4410 72 72 0
+-2223
+-572
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012333.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12333__whole_genome_shotgun_sequence scaffold45635__7.9 61575 19414
+42666 42773 109 1 8 8 0
+-94
+0
+>PEFY01012317.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12317__whole_genome_shotgun_sequence scaffold45791__8.1 68439 13527
+34382 47867 1 13527 80 80 0
+-1948
+-1
+-1
+-1
+-7548
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-30
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-572
+-1
+-1
+-1
+-1
+0
+>PEFY01012332.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12332__whole_genome_shotgun_sequence scaffold45843__8.0 84626 1588
+81019 82592 1588 1 20 20 0
+-933
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012335.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12335__whole_genome_shotgun_sequence scaffold45874__8.0 79632 12737
+74844 77101 9497 11756 287 287 0
+130
+2
+145
+-139
+10
+607
+1
+-349
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+31
+138
+298
+1
+1
+-28
+-1
+8
+1
+9
+1
+2
+2
+-306
+-1
+-1
+-1
+-1
+-2
+0
+>PEFY01012331.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12331__whole_genome_shotgun_sequence scaffold45937__7.2 28463 7241
+3109 3300 6994 7187 16 16 0
+-113
+-21
+0
+>PEFY01012332.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12332__whole_genome_shotgun_sequence scaffold46001__9.5 84626 4436
+18319 20238 1752 3660 153 153 0
+11
+619
+1
+1
+1
+1
+1
+5
+1
+1
+1
+1
+1
+1
+1
+1
+1
+-65
+-1
+-381
+-1
+-1
+327
+-462
+-1
+0
+>PEFY01012338.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12338__whole_genome_shotgun_sequence scaffold46022__6.3 115994 3421
+84113 84981 873 4 87 87 0
+55
+36
+94
+-38
+-1
+-1
+-1
+-1
+-1
+519
+1
+0
+>PEFY01012334.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12334__whole_genome_shotgun_sequence scaffold46225__7.5 51607 2805
+30974 33738 2805 24 17 17 0
+-2083
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-52
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012315.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12315__whole_genome_shotgun_sequence scaffold46358__7.6 11910 15230
+6933 10076 1 3146 34 34 0
+1161
+-1066
+-1
+-1
+0
+>PEFY01012316.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12316__whole_genome_shotgun_sequence scaffold46358__7.6 23879 15230
+6103 18111 3196 15230 38 38 0
+-1774
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-604
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-624
+0
+>PEFY01012317.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12317__whole_genome_shotgun_sequence scaffold46635__8.3 68439 2685
+28302 30961 1 2685 43 43 0
+-679
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012331.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12331__whole_genome_shotgun_sequence scaffold46651__9.3 28463 1763
+10568 12332 1 1763 7 7 0
+679
+1
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence scaffold46732__7.5 160036 13088
+2330 2953 12449 13088 70 70 0
+16
+1
+1
+-75
+-2
+-32
+4
+-84
+-41
+-218
+-1
+-4
+-1
+-1
+-1
+-1
+-3
+-3
+-1
+-1
+-1
+-1
+-8
+-2
+0
+>PEFY01012320.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12320__whole_genome_shotgun_sequence scaffold46742__6.7 82483 4173
+29368 29604 3938 4173 26 26 0
+7
+0
+>PEFY01012339.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12339__whole_genome_shotgun_sequence scaffold46797__7.5 81680 1482
+60439 61911 1482 1 41 41 0
+-754
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012333.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12333__whole_genome_shotgun_sequence scaffold47008__7.8 61575 31390
+5102 36412 31390 1 178 178 0
+-3327
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-849
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-2652
+-1
+-4918
+-1
+-1
+-1
+-1950
+-1
+-1
+-1
+-1
+-1
+-1
+-5135
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-3856
+-1
+-1
+-1
+-931
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-650
+-1
+-1
+0
+>PEFY01012338.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12338__whole_genome_shotgun_sequence scaffold47064__7.5 115994 1445
+87983 88063 78 1 4 4 0
+13
+1
+1
+0
+>PEFY01012336.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12336__whole_genome_shotgun_sequence scaffold47098__8.0 88781 1949
+24922 26861 1949 1 23 23 0
+-1223
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012335.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12335__whole_genome_shotgun_sequence scaffold47435__8.1 79632 6639
+4545 4633 89 1 0 0 0
+0
+>PEFY01012334.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12334__whole_genome_shotgun_sequence scaffold47633__6.0 51607 2946
+12802 13356 1 552 60 60 0
+-170
+-91
+278
+1
+1
+1
+1
+0
+>PEFY01012316.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12316__whole_genome_shotgun_sequence scaffold47666__6.6 23879 3661
+19752 23413 1 3661 49 49 0
+736
+0
+>PEFY01012374.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12374__whole_genome_shotgun_sequence scaffold47794__7.0 2789 1601
+797 964 174 2 22 22 0
+-5
+-4
+4
+-5
+14
+8
+-15
+-1
+-9
+-1
+-1
+0
+>PEFY01012338.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12338__whole_genome_shotgun_sequence scaffold47815__7.3 115994 6476
+50003 56451 6476 1 81 81 0
+-4001
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-705
+-1
+-1
+-918
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012366.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12366__whole_genome_shotgun_sequence scaffold47950__7.8 68864 1872
+66974 68049 787 1872 93 93 0
+-55
+-1
+-1
+-4
+-1
+-1
+46
+1
+55
+-69
+-1
+-1
+249
+-201
+-1
+-2
+-307
+-1
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence scaffold48053__7.3 160036 6243
+158570 160036 6243 4777 0 0 0
+0
+>PEFY01012315.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12315__whole_genome_shotgun_sequence scaffold48053__7.3 11910 6243
+765 6981 6243 1 40 40 0
+-3492
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-30
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1923
+-1
+-1
+0
+>PEFY01012338.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12338__whole_genome_shotgun_sequence scaffold48188__7.0 115994 3838
+71133 71779 3196 3835 55 55 0
+42
+1
+1
+1
+1
+1
+452
+0
+>PEFY01012338.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12338__whole_genome_shotgun_sequence scaffold48190__7.7 115994 11553
+19696 19971 11332 11057 20 20 0
+0
+>PEFY01012337.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12337__whole_genome_shotgun_sequence scaffold48240__7.4 21789 1780
+13862 14842 808 1780 103 103 0
+97
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+-403
+-313
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012335.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12335__whole_genome_shotgun_sequence scaffold48279__7.4 79632 2760
+5709 6125 835 417 36 36 0
+-53
+-1
+-1
+-1
+-1
+-1
+290
+1
+1
+50
+0
+7817 8230 417 835 33 33 0
+21
+-342
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012359.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12359__whole_genome_shotgun_sequence scaffold48317__6.9 2488 17160
+284 2488 7394 5182 239 239 0
+122
+11
+1
+1
+1
+1
+1
+1
+107
+-42
+-2
+311
+1
+1
+1
+1
+178
+1
+1
+-51
+-1
+-1
+-1
+-50
+28
+1
+1
+1
+1
+1
+226
+1
+1
+1
+41
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+3
+1
+1
+-159
+9
+-92
+-14
+-28
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-2
+-1
+222
+1
+1
+1
+1
+1
+1
+1
+3
+1
+1
+1
+1
+1
+1
+1
+1
+-178
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-7
+-1
+-1
+-1
+-1
+-1
+-1
+-7
+-1
+-1
+-1
+-1
+-1
+-181
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-41
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012336.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12336__whole_genome_shotgun_sequence scaffold48423__6.6 88781 1914
+55959 57862 1 1914 49 49 0
+-788
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012332.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12332__whole_genome_shotgun_sequence scaffold48700__8.3 84626 14615
+19156 20196 5415 4394 83 83 0
+280
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+39
+1
+1
+1
+1
+1
+1
+1
+-101
+-1
+-2
+-1
+-76
+258
+-228
+0
+>PEFY01012339.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12339__whole_genome_shotgun_sequence scaffold49084__8.2 81680 18077
+2611 20661 1 18077 117 117 0
+-1429
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-790
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-2807
+-1
+6002
+-1034
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012338.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12338__whole_genome_shotgun_sequence scaffold49222__7.5 115994 1785
+74703 76473 1 1785 38 38 0
+-848
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012333.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12333__whole_genome_shotgun_sequence scaffold49295__7.0 61575 4235
+471 4695 1 4235 32 32 0
+-841
+-13
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence scaffold49343__8.0 160036 11735
+126660 126770 857 744 7 7 0
+-46
+-2
+-1
+0
+>PEFY01012338.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12338__whole_genome_shotgun_sequence scaffold49722__7.4 115994 2632
+73574 74443 887 46 73 73 0
+-162
+-60
+56
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+0
+>PEFY01012331.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12331__whole_genome_shotgun_sequence scaffold49783__7.1 28463 11429
+12344 23768 11429 1 13 13 0
+-10525
+-1
+-1
+-1
+0
+>PEFY01012335.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12335__whole_genome_shotgun_sequence scaffold49800__6.5 79632 5160
+26948 27598 3620 4294 117 117 0
+-24
+-26
+3
+-69
+-18
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+40
+34
+-55
+10
+2
+1
+7
+1
+2
+1
+3
+2
+1
+1
+-23
+-16
+-1
+-1
+-1
+-1
+-1
+-2
+-8
+-1
+-1
+-1
+-13
+6
+-20
+-41
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+226
+-3
+0
+33274 33774 681 207 66 66 0
+23
+1
+64
+1
+1
+1
+1
+1
+1
+1
+1
+-230
+-1
+-1
+-1
+31
+-4
+5
+10
+1
+1
+5
+5
+1
+1
+1
+1
+2
+6
+1
+1
+8
+1
+28
+11
+1
+10
+-8
+-14
+5
+0
+41490 41954 2776 2310 53 53 0
+-52
+-1
+-1
+-1
+-2
+-1
+27
+1
+1
+1
+-34
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+199
+1
+1
+1
+1
+1
+1
+1
+1
+2
+0
+>PEFY01012334.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12334__whole_genome_shotgun_sequence scaffold49800__6.5 51607 5160
+14105 14937 5160 4324 59 59 0
+123
+58
+-75
+-1
+-1
+-296
+-1
+-2
+-1
+262
+0
+15466 16109 4299 3620 98 98 0
+-12
+3
+-274
+-29
+-13
+-1
+-1
+-1
+-8
+-1
+-1
+-1
+-1
+-1
+-2
+-10
+-22
+-1
+-23
+-1
+-1
+-2
+-1
+-1
+-23
+-11
+-5
+-1
+-1
+39
+-46
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+85
+-4
+-21
+0
+25163 30285 5160 1 51 51 0
+-2875
+-1
+-1
+-1
+-1
+-1338
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-19
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012318.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12318__whole_genome_shotgun_sequence scaffold49829__8.6 68610 4035
+25726 29749 4035 1 22 22 0
+-3118
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012320.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12320__whole_genome_shotgun_sequence scaffold49873__6.0 82483 3374
+7025 10399 1 3374 25 25 0
+900
+0
+>PEFY01012320.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12320__whole_genome_shotgun_sequence scaffold49927__8.0 82483 4978
+29683 34647 4978 1 70 70 0
+-4004
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012326.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12326__whole_genome_shotgun_sequence scaffold50012_10.6 7741 6131
+1106 7224 6131 1 26 26 0
+-5201
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012327.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12327__whole_genome_shotgun_sequence scaffold50012_10.6 2699 6131
+1 203 203 1 0 0 0
+0
+>PEFY01012336.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12336__whole_genome_shotgun_sequence scaffold50154__6.0 88781 5816
+41364 41611 5515 5268 19 19 0
+0
+>PEFY01012334.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12334__whole_genome_shotgun_sequence scaffold50642__6.8 51607 4892
+13358 13897 3664 3127 34 34 0
+50
+1
+1
+1
+-149
+-4
+-2
+-1
+139
+1
+0
+36755 41628 1 4892 53 53 0
+-971
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-2736
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012335.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12335__whole_genome_shotgun_sequence scaffold50642__6.8 79632 4892
+18107 18388 7 280 24 24 0
+54
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+-146
+-1
+-1
+-1
+-1
+-1
+0
+18683 19338 299 947 73 73 0
+-34
+-1
+-1
+-1
+-60
+-1
+-1
+-1
+-1
+-1
+-1
+-3
+-3
+-3
+-1
+-40
+-1
+-1
+-1
+-17
+79
+1
+1
+1
+1
+1
+1
+30
+-110
+-1
+-1
+-1
+99
+1
+1
+3
+4
+35
+3
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+5
+1
+3
+1
+1
+2
+0
+>PEFY01012374.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12374__whole_genome_shotgun_sequence scaffold50730__7.5 2789 1996
+33 2010 1 1996 29 29 0
+-981
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012317.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12317__whole_genome_shotgun_sequence scaffold50741__8.1 68439 7038
+51196 58197 7038 1 42 42 0
+-2500
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-68
+-1
+-1
+-1
+-1
+-2438
+-1
+-1
+-1
+-1
+-1
+-1
+-35
+-955
+-32
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012332.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12332__whole_genome_shotgun_sequence scaffold50819__7.4 84626 10076
+10090 20144 10076 1 72 72 0
+-2948
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-6120
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012338.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12338__whole_genome_shotgun_sequence scaffold50868__9.0 115994 5742
+19954 25689 1 5742 11 11 0
+-994
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012317.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12317__whole_genome_shotgun_sequence scaffold50893__7.6 68439 2694
+31627 34314 1 2693 26 26 0
+-996
+-1
+-1
+-1
+-1
+-1
+1688
+0
+>PEFY01012338.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12338__whole_genome_shotgun_sequence scaffold50922__7.7 115994 6943
+42992 49913 1 6943 21 21 0
+-1000
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-30
+-1
+0
+>PEFY01012342.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12342__whole_genome_shotgun_sequence scaffold50933__6.8 65842 3254
+44097 47334 3254 1 30 30 0
+-2224
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012320.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12320__whole_genome_shotgun_sequence scaffold51046__8.2 82483 6038
+479 6507 1 6038 21 21 0
+-1013
+-1
+-1
+-1
+-1
+-3829
+-1
+-1
+-1
+0
+>PEFY01012318.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12318__whole_genome_shotgun_sequence scaffold51046__8.2 68610 6038
+38498 39081 1763 2336 49 49 0
+262
+80
+48
+1
+1
+1
+95
+1
+1
+1
+0
+>PEFY01012317.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12317__whole_genome_shotgun_sequence scaffold51088__8.7 68439 4260
+53500 56083 768 3364 230 230 0
+-250
+-1
+-1
+-1
+-1
+-1
+-77
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+86
+1
+1
+1
+90
+-656
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-3
+375
+4
+1
+168
+1
+155
+-294
+273
+0
+57299 58197 3364 4260 68 68 0
+134
+-31
+-1
+382
+150
+1
+1
+1
+-86
+-1
+0
+>PEFY01012318.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12318__whole_genome_shotgun_sequence scaffold51131__6.7 68610 3343
+487 722 3108 3343 18 18 0
+-12
+-11
+-98
+24
+20
+63
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence scaffold51200__6.8 160036 2517
+109093 110446 1 1374 49 49 0
+-1031
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-281
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012332.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12332__whole_genome_shotgun_sequence scaffold51301__8.0 84626 2974
+78205 78323 1116 1234 9 9 0
+0
+>PEFY01012366.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12366__whole_genome_shotgun_sequence scaffold51387__6.8 68864 4707
+19309 19714 3328 3732 36 36 0
+109
+0
+>PEFY01012359.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12359__whole_genome_shotgun_sequence scaffold51423__7.7 2488 8374
+33 2488 1 2468 29 29 0
+-1055
+-1
+-1
+-1
+-1
+-1371
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012335.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12335__whole_genome_shotgun_sequence scaffold51426__6.3 79632 2880
+44022 46882 2880 1 19 19 0
+-1757
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-52
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012320.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12320__whole_genome_shotgun_sequence scaffold51476__7.3 82483 3155
+17442 17506 1 65 0 0 0
+0
+>PEFY01012339.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12339__whole_genome_shotgun_sequence scaffold51770__7.6 81680 2559
+49808 52370 1 2559 8 8 0
+216
+886
+1
+1
+0
+>PEFY01012320.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12320__whole_genome_shotgun_sequence scaffold52113__7.4 82483 10082
+72304 82359 1 10082 63 63 0
+-1273
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+1379
+1
+1
+1
+1
+1
+1
+-2264
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1097
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012335.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12335__whole_genome_shotgun_sequence scaffold52274__8.0 79632 5268
+25192 25975 322 1119 129 129 0
+204
+1
+1
+9
+28
+-6
+12
+-12
+-1
+-46
+-6
+-1
+-1
+-1
+-3
+-1
+-3
+-1
+-9
+-9
+-1
+-4
+-3
+-1
+-5
+-1
+-8
+128
+-12
+-172
+81
+1
+0
+>PEFY01012332.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12332__whole_genome_shotgun_sequence scaffold52339__7.7 84626 13590
+49414 62959 1 13590 100 100 0
+-5214
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1126
+-2432
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-51
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012317.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12317__whole_genome_shotgun_sequence scaffold52355__8.4 68439 7149
+20107 27247 1 7149 58 58 0
+1181
+-1138
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+4711
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence scaffold52500__8.0 160036 2869
+5501 8362 2869 1 35 35 0
+-1633
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012336.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12336__whole_genome_shotgun_sequence scaffold52823__7.9 88781 2777
+20725 20872 2629 2777 7 7 0
+-125
+0
+>PEFY01012336.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12336__whole_genome_shotgun_sequence scaffold53038__7.2 88781 14017
+7932 8283 10472 10823 41 41 0
+31
+-94
+31
+1
+-127
+-16
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence scaffold53094__8.1 160036 11006
+22455 22629 1 176 21 21 0
+142
+-18
+-6
+0
+>PEFY01012332.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12332__whole_genome_shotgun_sequence scaffold53123__6.0 84626 2595
+7317 9912 1 2595 9 9 0
+1304
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence scaffold53436__7.7 160036 4896
+33338 38227 4896 1 9 9 0
+-3530
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012342.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12342__whole_genome_shotgun_sequence scaffold53491__7.9 65842 12107
+15159 27219 12107 1 94 94 0
+-3927
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-2939
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-2153
+-1
+-1
+-1
+-1
+-1
+-1312
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012332.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12332__whole_genome_shotgun_sequence scaffold53617__6.5 84626 2842
+72119 74954 1 2842 12 12 0
+-1396
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence scaffold53664__8.3 160036 7586
+38203 45763 7586 1 44 44 0
+-1628
+-1
+-1
+-1353
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-2125
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012318.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12318__whole_genome_shotgun_sequence scaffold53840_10.2 68610 7066
+3950 5213 3768 5029 126 126 0
+440
+435
+0
+>PEFY01012326.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12326__whole_genome_shotgun_sequence scaffold54171__7.5 7741 3192
+1000 1240 1523 1284 28 28 0
+152
+0
+>PEFY01012320.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12320__whole_genome_shotgun_sequence scaffold54309__7.4 82483 3992
+39862 40037 1 175 13 13 0
+147
+0
+>PEFY01012332.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12332__whole_genome_shotgun_sequence scaffold54391__8.0 84626 4763
+67296 72041 4763 1 33 33 0
+-3156
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012330.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12330__whole_genome_shotgun_sequence scaffold54449__9.3 21401 6652
+1397 2287 947 87 89 89 0
+466
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+-67
+-1
+-1
+211
+8
+-5
+0
+4148 7606 4204 665 166 166 0
+8
+-12
+121
+-36
+-10
+-64
+44
+-55
+-9
+-51
+-16
+-1
+-3
+-64
+-69
+-73
+-31
+-11
+-134
+-4
+-46
+-119
+73
+1
+1
+1
+1
+-58
+-30
+-19
+-55
+-45
+-1
+56
+-247
+-1
+-131
+-38
+-43
+-76
+-8
+-19
+-76
+-38
+-12
+-1
+-42
+-7
+-25
+-31
+-33
+-1
+-16
+-43
+-22
+-1
+-5
+-76
+-30
+-59
+-100
+6
+-3
+-30
+-2
+-37
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-49
+-48
+-46
+-8
+-7
+-58
+-6
+-20
+-66
+-103
+-129
+-1
+-70
+-70
+-49
+-87
+10
+-26
+-30
+-26
+-5
+-1
+-13
+0
+7642 14272 6652 1 58 58 0
+-1678
+-1
+-1
+-1
+-1
+-1
+-1
+-3335
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012339.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12339__whole_genome_shotgun_sequence scaffold54603__7.4 81680 4116
+54974 59081 4116 1 42 42 0
+-2438
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012369.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12369__whole_genome_shotgun_sequence scaffold54647__8.1 1457 3904
+125 1457 3904 2572 0 0 0
+0
+>PEFY01012348.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12348__whole_genome_shotgun_sequence scaffold54651__7.7 1603 4679
+65 1603 1 1539 0 0 0
+0
+>PEFY01012366.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12366__whole_genome_shotgun_sequence scaffold54858__7.2 68864 7759
+19662 27407 1 7759 31 31 0
+-1711
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012335.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12335__whole_genome_shotgun_sequence scaffold55134__7.5 79632 6657
+5151 5559 1181 1581 59 59 0
+28
+43
+1
+1
+1
+1
+1
+1
+206
+45
+-56
+-23
+0
+>PEFY01012343.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12343__whole_genome_shotgun_sequence scaffold55374__7.6 3128 4809
+626 983 4457 4809 57 57 0
+-18
+127
+7
+1
+1
+1
+186
+0
+>PEFY01012318.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12318__whole_genome_shotgun_sequence scaffold55487__8.4 68610 9351
+34478 43816 1 9351 19 19 0
+-1919
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012320.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12320__whole_genome_shotgun_sequence scaffold55487__8.4 82483 9351
+2236 2809 4033 4616 49 49 0
+-262
+-80
+-48
+-1
+-1
+-1
+-95
+-1
+-1
+-1
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence scaffold55487__8.4 160036 9351
+154499 155474 6354 5382 105 105 0
+39
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+13
+434
+29
+1
+1
+-105
+-30
+-1
+-1
+-13
+-1
+-1
+-1
+-1
+-2
+-1
+152
+-117
+-1
+-1
+0
+>PEFY01012339.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12339__whole_genome_shotgun_sequence scaffold55529__8.0 81680 5523
+31505 31794 5234 5523 11 11 0
+-32
+-130
+21
+11
+0
+>PEFY01012338.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12338__whole_genome_shotgun_sequence scaffold55547__7.5 115994 16813
+19706 20046 11338 11678 28 28 0
+0
+>PEFY01012332.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12332__whole_genome_shotgun_sequence scaffold55758__7.0 84626 8952
+75579 75721 5 142 15 15 0
+104
+1
+1
+1
+1
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence scaffold55831__8.0 160036 11616
+59712 71306 11616 1 84 84 0
+-2679
+-1
+-3731
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-3081
+0
+>PEFY01012339.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12339__whole_genome_shotgun_sequence scaffold56045__8.0 81680 11388
+31958 43338 11388 1 26 26 0
+-3468
+-1
+-1
+-1
+-2127
+-1
+-1
+0
+>PEFY01012366.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12366__whole_genome_shotgun_sequence scaffold56178__7.7 68864 7842
+61863 62614 1629 854 88 88 0
+-22
+-1
+-1
+-57
+-1
+-1
+-1
+-1
+-42
+-1
+-5
+211
+-256
+-3
+-1
+-3
+-1
+-1
+-4
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+149
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence scaffold56192__7.2 160036 13323
+121284 121418 13189 13323 3 3 0
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence scaffold56342__8.0 160036 5681
+71874 77550 1 5681 25 25 0
+-2348
+-1
+-1
+-1
+0
+>PEFY01012342.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12342__whole_genome_shotgun_sequence scaffold56351__8.0 65842 14015
+47876 61778 14015 91 55 55 0
+-5567
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-2301
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012318.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12318__whole_genome_shotgun_sequence scaffold56479__8.0 68610 9820
+26606 27064 7228 6772 63 63 0
+43
+262
+0
+>PEFY01012321.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12321__whole_genome_shotgun_sequence scaffold56486__8.7 7509 9549
+1 7131 2412 9549 12 12 0
+36
+-28
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012332.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12332__whole_genome_shotgun_sequence scaffold56576__9.0 84626 5982
+1288 7265 5982 1 9 9 0
+-3464
+-1
+-1
+-1
+0
+>PEFY01012338.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12338__whole_genome_shotgun_sequence scaffold56617__7.6 115994 6985
+35982 42961 6985 1 17 17 0
+-4436
+-1
+-1
+-1
+-1
+0
+>PEFY01012318.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12318__whole_genome_shotgun_sequence scaffold56666__8.3 68610 7765
+3912 6461 4928 2384 310 310 0
+91
+1
+555
+4
+1
+1
+1
+1
+1
+4
+1
+1
+1
+-1412
+-275
+-1
+-1
+-1
+-188
+-1
+-4
+0
+>PEFY01012380.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12380__whole_genome_shotgun_sequence scaffold57058__7.7 1252 14044
+268 537 4275 4544 27 27 0
+0
+>PEFY01012318.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12318__whole_genome_shotgun_sequence scaffold57140__8.2 68610 12619
+47327 48214 11737 12619 78 78 0
+31
+1
+1
+523
+7
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence scaffold57140__8.2 160036 12619
+138915 151521 12619 1 20 20 0
+-9564
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence scaffold57243__7.4 160036 8971
+2330 3156 7620 6770 132 132 0
+16
+1
+1
+-65
+-1
+-1
+-1
+128
+43
+-207
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-4
+-12
+-1
+-10
+-2
+-135
+13
+-9
+-53
+-3
+-20
+-1
+-1
+-1
+-1
+-1
+-14
+-7
+47
+-29
+6
+0
+>PEFY01012338.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12338__whole_genome_shotgun_sequence scaffold57300__7.0 115994 8219
+88007 88075 69 1 0 0 0
+0
+>PEFY01012337.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12337__whole_genome_shotgun_sequence scaffold57534__8.0 21789 8277
+346 8615 1 8277 19 19 0
+-3787
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence scaffold57734__7.3 160036 16624
+49805 49915 15618 15726 7 7 0
+13
+1
+0
+>PEFY01012364.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12364__whole_genome_shotgun_sequence scaffold57781__7.7 7009 14616
+2527 2614 11 96 4 4 0
+18
+1
+0
+>PEFY01012342.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12342__whole_genome_shotgun_sequence C942941__5.0 65842 504
+63746 64249 504 1 0 0 0
+0
+>PEFY01012318.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12318__whole_genome_shotgun_sequence C943089__7.0 68610 504
+55651 56155 504 1 39 39 0
+372
+1
+1
+-37
+-1
+0
+>PEFY01012375.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12375__whole_genome_shotgun_sequence C945201__5.0 1498 511
+596 1106 511 1 0 0 0
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence C946951__5.0 160036 517
+71420 71936 1 517 0 0 0
+0
+78366 78885 1 517 28 28 0
+168
+-4
+122
+1
+1
+0
+>PEFY01012334.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12334__whole_genome_shotgun_sequence C947735__8.0 51607 520
+20626 21145 520 1 0 0 0
+0
+>PEFY01012370.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12370__whole_genome_shotgun_sequence C947955__7.0 1103 521
+408 928 1 521 0 0 0
+0
+>PEFY01012333.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12333__whole_genome_shotgun_sequence C948721__4.0 61575 524
+50979 51502 1 524 0 0 0
+0
+>PEFY01012343.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12343__whole_genome_shotgun_sequence C950497__6.0 3128 530
+247 729 3 486 55 55 0
+-27
+113
+-10
+113
+-61
+0
+>PEFY01012332.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12332__whole_genome_shotgun_sequence C950869__6.0 84626 532
+77911 78210 295 1 40 40 0
+87
+1
+1
+1
+1
+2
+-5
+-2
+-5
+11
+1
+0
+>PEFY01012334.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12334__whole_genome_shotgun_sequence C951179__7.0 51607 533
+30499 31031 533 1 0 0 0
+0
+>PEFY01012316.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12316__whole_genome_shotgun_sequence C951659__6.0 23879 535
+21600 21679 2 81 2 2 0
+0
+>PEFY01012332.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12332__whole_genome_shotgun_sequence C952167__6.0 84626 537
+16 429 415 1 31 31 0
+9
+1
+-54
+-2
+-1
+0
+>PEFY01012336.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12336__whole_genome_shotgun_sequence C952397__9.0 88781 538
+30863 30952 538 449 3 3 0
+0
+>PEFY01012373.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12373__whole_genome_shotgun_sequence C952847__5.0 1576 539
+2 497 475 5 52 52 0
+227
+1
+1
+1
+1
+1
+45
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+177
+0
+>PEFY01012346.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12346__whole_genome_shotgun_sequence C953811__4.0 1008 543
+1 176 176 1 0 0 0
+0
+>PEFY01012348.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12348__whole_genome_shotgun_sequence C954371__6.0 1603 545
+62 264 1 191 27 27 0
+57
+7
+1
+1
+1
+1
+1
+1
+1
+1
+3
+1
+0
+>PEFY01012380.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12380__whole_genome_shotgun_sequence C955779_10.0 1252 550
+609 1158 550 1 0 0 0
+0
+>PEFY01012317.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12317__whole_genome_shotgun_sequence C956151__5.0 68439 552
+31128 31679 1 552 0 0 0
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence C958707_11.0 160036 562
+136963 137524 1 562 2 2 0
+0
+>PEFY01012318.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12318__whole_genome_shotgun_sequence C958707_11.0 68610 562
+49600 50014 562 148 0 0 0
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence C960813__8.0 160036 571
+47244 47814 1 571 0 0 0
+0
+>PEFY01012335.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12335__whole_genome_shotgun_sequence C966615__8.0 79632 597
+8750 9346 597 1 0 0 0
+0
+>PEFY01012318.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12318__whole_genome_shotgun_sequence C967257__5.0 68610 600
+31295 31894 600 1 0 0 0
+0
+>PEFY01012363.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12363__whole_genome_shotgun_sequence C968223_10.0 4747 604
+4117 4715 601 1 36 36 0
+-201
+-1
+-3
+180
+0
+>PEFY01012326.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12326__whole_genome_shotgun_sequence C968893__8.0 7741 607
+456 1062 607 1 0 0 0
+0
+>PEFY01012352.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12352__whole_genome_shotgun_sequence C969729__5.0 2026 611
+1392 2002 611 1 3 3 0
+0
+>PEFY01012339.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12339__whole_genome_shotgun_sequence C971785__5.0 81680 620
+77081 77700 620 1 0 0 0
+0
+>PEFY01012318.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12318__whole_genome_shotgun_sequence C972915__6.0 68610 626
+56966 57215 626 377 16 16 0
+106
+-24
+0
+>PEFY01012318.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12318__whole_genome_shotgun_sequence C974097__8.0 68610 632
+18911 19542 632 1 0 0 0
+0
+>PEFY01012339.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12339__whole_genome_shotgun_sequence C974223__7.0 81680 632
+43460 43537 78 1 1 1 0
+0
+>PEFY01012318.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12318__whole_genome_shotgun_sequence C974751__7.0 68610 635
+30580 31214 1 635 0 0 0
+0
+>PEFY01012334.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12334__whole_genome_shotgun_sequence C976069__6.0 51607 641
+35904 36080 641 465 0 0 0
+0
+>PEFY01012335.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12335__whole_genome_shotgun_sequence C976069__6.0 79632 641
+17260 17900 641 1 1 1 0
+0
+>PEFY01012339.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12339__whole_genome_shotgun_sequence C976235__5.0 81680 642
+60264 60469 206 1 20 20 0
+0
+>PEFY01012338.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12338__whole_genome_shotgun_sequence C977277__8.0 115994 647
+73630 74276 1 647 0 0 0
+0
+>PEFY01012354.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12354__whole_genome_shotgun_sequence C977799__6.0 2463 649
+1156 1433 649 374 5 5 0
+249
+24
+0
+>PEFY01012342.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12342__whole_genome_shotgun_sequence C977811__9.0 65842 649
+61777 62370 590 1 15 15 0
+-223
+178
+1
+15
+-20
+-108
+-1
+16
+8
+3
+9
+8
+0
+>PEFY01012337.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12337__whole_genome_shotgun_sequence C978175__7.0 21789 651
+13986 14636 1 651 0 0 0
+0
+>PEFY01012329.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12329__whole_genome_shotgun_sequence C978321__5.0 2842 652
+447 981 1 535 58 58 0
+0
+>PEFY01012373.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12373__whole_genome_shotgun_sequence C978721__5.0 1576 654
+726 1379 1 654 2 2 0
+0
+>PEFY01012320.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12320__whole_genome_shotgun_sequence C979169__8.0 82483 656
+38910 39565 1 656 0 0 0
+0
+>PEFY01012339.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12339__whole_genome_shotgun_sequence C980315__8.0 81680 662
+59246 59907 662 1 0 0 0
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence C980587__5.0 160036 663
+88689 89351 1 663 0 0 0
+0
+>PEFY01012363.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12363__whole_genome_shotgun_sequence C982001_10.0 4747 670
+4117 4747 667 34 37 37 0
+-194
+-1
+-1
+0
+>PEFY01012335.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12335__whole_genome_shotgun_sequence C982627__7.0 79632 673
+77154 77595 576 134 26 26 0
+-221
+0
+>PEFY01012369.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12369__whole_genome_shotgun_sequence C983067_16.0 1457 676
+1 95 95 1 0 0 0
+0
+>PEFY01012350.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12350__whole_genome_shotgun_sequence C984689__5.0 1869 684
+879 1562 1 684 0 0 0
+0
+>PEFY01012342.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12342__whole_genome_shotgun_sequence C988607__7.0 65842 706
+62727 63432 1 706 0 0 0
+0
+>PEFY01012339.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12339__whole_genome_shotgun_sequence C991175__7.0 81680 720
+30847 31558 1 720 16 16 0
+45
+106
+-29
+-32
+-7
+-1
+-28
+-87
+-252
+-27
+-53
+-33
+0
+>PEFY01012330.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12330__whole_genome_shotgun_sequence C992659__7.0 21401 728
+71 798 728 1 0 0 0
+0
+>PEFY01012338.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12338__whole_genome_shotgun_sequence C995683__9.0 115994 747
+56479 57225 1 747 0 0 0
+0
+>PEFY01012332.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12332__whole_genome_shotgun_sequence C995881__8.0 84626 748
+439 1186 748 1 0 0 0
+0
+>PEFY01012334.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12334__whole_genome_shotgun_sequence C997865__7.0 51607 760
+17832 18591 1 760 0 0 0
+0
+>PEFY01012320.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12320__whole_genome_shotgun_sequence C997981__5.0 82483 761
+40106 40212 1 107 3 3 0
+0
+>PEFY01012336.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12336__whole_genome_shotgun_sequence C1002207_15.0 88781 788
+1430 2217 1 788 1 1 0
+0
+>PEFY01012335.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12335__whole_genome_shotgun_sequence C1002207_15.0 79632 788
+71449 72236 788 1 1 1 0
+0
+>PEFY01012335.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12335__whole_genome_shotgun_sequence C1004831__7.0 79632 804
+36326 37129 1 804 0 0 0
+0
+>PEFY01012334.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12334__whole_genome_shotgun_sequence C1006499__7.0 51607 815
+16173 16987 1 815 0 0 0
+0
+>PEFY01012335.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12335__whole_genome_shotgun_sequence C1006499__7.0 79632 815
+30158 30947 1 815 71 71 0
+-77
+-1
+-1
+-1
+182
+-29
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-8
+-1
+-251
+-38
+-12
+-1
+-68
+-1
+-1
+-1
+-82
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence C1007347__6.0 160036 820
+22971 23790 1 820 0 0 0
+0
+>PEFY01012317.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12317__whole_genome_shotgun_sequence C1010605__7.0 68439 842
+27118 27230 112 1 7 7 0
+15
+0
+>PEFY01012320.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12320__whole_genome_shotgun_sequence C1010759__6.0 82483 843
+71399 72241 1 843 0 0 0
+0
+>PEFY01012339.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12339__whole_genome_shotgun_sequence C1011205__6.0 81680 846
+61989 62834 846 1 0 0 0
+0
+>PEFY01012317.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12317__whole_genome_shotgun_sequence C1013007__7.0 68439 859
+47902 48760 1 859 0 0 0
+0
+>PEFY01012334.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12334__whole_genome_shotgun_sequence C1013681__7.0 51607 864
+76 140 800 864 0 0 0
+0
+>PEFY01012337.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12337__whole_genome_shotgun_sequence C1013681__7.0 21789 864
+112 176 800 864 0 0 0
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence C1013681__7.0 160036 864
+59228 59292 864 800 0 0 0
+0
+>PEFY01012336.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12336__whole_genome_shotgun_sequence C1014605__9.0 88781 870
+626 1487 1 870 86 86 0
+123
+1
+1
+1
+1
+1
+1
+1
+39
+1
+-30
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-105
+-1
+0
+>PEFY01012335.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12335__whole_genome_shotgun_sequence C1014605__9.0 79632 870
+72179 73042 870 1 83 83 0
+-663
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+32
+1
+28
+1
+1
+1
+1
+1
+1
+1
+0
+>PEFY01012371.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12371__whole_genome_shotgun_sequence C1014749__4.0 1233 871
+284 1154 1 871 0 0 0
+0
+>PEFY01012334.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12334__whole_genome_shotgun_sequence C1017847__8.0 51607 895
+21381 22275 1 895 0 0 0
+0
+>PEFY01012320.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12320__whole_genome_shotgun_sequence C1019395__7.0 82483 907
+37983 38889 1 907 0 0 0
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence C1020361__8.0 160036 915
+51237 52151 1 915 0 0 0
+0
+>PEFY01012335.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12335__whole_genome_shotgun_sequence C1023827__8.0 79632 941
+31456 31719 275 1 29 29 0
+-23
+-1
+-64
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+32608 33548 941 1 0 0 0
+0
+43404 43678 275 1 24 24 0
+-21
+-1
+40
+1
+0
+>PEFY01012334.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12334__whole_genome_shotgun_sequence C1023827__8.0 51607 941
+29605 29868 275 1 22 22 0
+-23
+-1
+-64
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012335.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12335__whole_genome_shotgun_sequence C1024773__6.0 79632 949
+23403 24351 1 949 0 0 0
+0
+>PEFY01012344.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12344__whole_genome_shotgun_sequence C1025633__8.0 1266 957
+93 1049 1 957 0 0 0
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence C1025857__6.0 160036 958
+2631 3588 958 1 0 0 0
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence C1027209__8.0 160036 970
+116003 116972 970 1 0 0 0
+0
+>PEFY01012332.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12332__whole_genome_shotgun_sequence C1027449_27.0 84626 972
+65510 65672 808 972 7 7 0
+-75
+-1
+0
+>PEFY01012339.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12339__whole_genome_shotgun_sequence C1028237__8.0 81680 978
+48332 49309 978 1 0 0 0
+0
+>PEFY01012367.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12367__whole_genome_shotgun_sequence C1029633__8.0 1993 990
+884 1873 990 1 0 0 0
+0
+>PEFY01012338.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12338__whole_genome_shotgun_sequence C1031361__6.0 115994 1004
+25701 26704 1 1004 0 0 0
+0
+>PEFY01012336.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12336__whole_genome_shotgun_sequence C1031543__8.0 88781 1006
+2722 3727 1006 1 0 0 0
+0
+>PEFY01012320.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12320__whole_genome_shotgun_sequence C1033513__7.0 82483 1023
+55753 56773 1023 1 124 124 0
+-140
+-15
+405
+-367
+0
+>PEFY01012318.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12318__whole_genome_shotgun_sequence C1034789__7.0 68610 1034
+53139 53617 556 1033 27 27 0
+320
+0
+>PEFY01012318.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12318__whole_genome_shotgun_sequence C1036411__8.0 68610 1048
+43868 44915 1 1048 0 0 0
+0
+>PEFY01012317.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12317__whole_genome_shotgun_sequence C1038825__8.0 68439 1069
+27265 28333 1069 1 0 0 0
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence C1038995__5.0 160036 1071
+88019 88179 160 1 18 18 0
+7
+7
+-5
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence C1043421__5.0 160036 1114
+28714 29827 1114 1 0 0 0
+0
+>PEFY01012322.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12322__whole_genome_shotgun_sequence C1047099__7.0 11387 1151
+497 1204 1 712 76 76 0
+-121
+-1
+-1
+-585
+0
+>PEFY01012338.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12338__whole_genome_shotgun_sequence C1047209__6.0 115994 1152
+25693 25806 1 114 10 10 0
+0
+>PEFY01012339.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12339__whole_genome_shotgun_sequence C1050715__9.0 81680 1190
+39767 40056 668 957 8 8 0
+0
+>PEFY01012318.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12318__whole_genome_shotgun_sequence C1051195__8.0 68610 1195
+32415 33609 1 1195 0 0 0
+0
+>PEFY01012333.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12333__whole_genome_shotgun_sequence C1051955__6.0 61575 1204
+421 531 1 111 2 2 0
+0
+>PEFY01012333.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12333__whole_genome_shotgun_sequence C1052867__7.0 61575 1214
+8398 8480 1130 1212 2 2 0
+0
+>PEFY01012335.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12335__whole_genome_shotgun_sequence C1053135__8.0 79632 1217
+5965 7181 1 1217 0 0 0
+0
+>PEFY01012320.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12320__whole_genome_shotgun_sequence C1053699__5.0 82483 1223
+70732 71489 467 1223 79 79 0
+54
+522
+-4
+0
+>PEFY01012349.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12349__whole_genome_shotgun_sequence C1053733__7.0 1274 1224
+1 1144 1144 1 0 0 0
+0
+>PEFY01012339.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12339__whole_genome_shotgun_sequence C1058513__6.0 81680 1279
+78179 79457 1279 1 0 0 0
+0
+>PEFY01012366.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12366__whole_genome_shotgun_sequence C1059971__7.0 68864 1295
+25030 25577 619 1170 65 65 0
+-160
+-1
+-1
+42
+-32
+-185
+0
+>PEFY01012334.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12334__whole_genome_shotgun_sequence C1060475__7.0 51607 1301
+4502 5802 1301 1 0 0 0
+0
+>PEFY01012338.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12338__whole_genome_shotgun_sequence C1061055__7.0 115994 1308
+86747 88054 1308 1 0 0 0
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence C1061161__8.0 160036 1309
+1345 2653 1 1309 0 0 0
+0
+>PEFY01012330.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12330__whole_genome_shotgun_sequence C1063693__8.0 21401 1341
+16626 16893 1 266 27 27 0
+249
+2
+0
+>PEFY01012332.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12332__whole_genome_shotgun_sequence C1065479__9.0 84626 1363
+76743 78105 1 1363 0 0 0
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence C1066233__6.0 160036 1373
+49818 51190 1373 1 0 0 0
+0
+>PEFY01012336.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12336__whole_genome_shotgun_sequence C1066371__8.0 88781 1375
+29245 30619 1 1375 0 0 0
+0
+>PEFY01012332.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12332__whole_genome_shotgun_sequence C1068109__7.0 84626 1398
+24228 25625 1 1398 0 0 0
+0
+>PEFY01012332.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12332__whole_genome_shotgun_sequence C1074081__7.0 84626 1479
+44236 45714 1479 1 0 0 0
+0
+>PEFY01012332.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12332__whole_genome_shotgun_sequence C1074487_10.0 84626 1485
+27326 28810 1 1485 0 0 0
+0
+>PEFY01012332.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12332__whole_genome_shotgun_sequence C1077081__8.0 84626 1523
+65749 67271 1523 1 0 0 0
+0
+>PEFY01012322.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12322__whole_genome_shotgun_sequence C1079019__7.0 11387 1552
+3052 4549 1 1498 0 0 0
+0
+>PEFY01012320.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12320__whole_genome_shotgun_sequence C1079489__8.0 82483 1559
+78274 78417 1 144 7 7 0
+-104
+19
+0
+>PEFY01012339.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12339__whole_genome_shotgun_sequence C1080359__7.0 81680 1571
+75240 76810 1571 1 0 0 0
+0
+>PEFY01012316.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12316__whole_genome_shotgun_sequence C1082591__6.0 23879 1607
+18146 19752 1 1607 0 0 0
+0
+>PEFY01012317.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12317__whole_genome_shotgun_sequence C1083699__7.0 68439 1625
+49345 50969 1 1625 0 0 0
+0
+>PEFY01012332.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12332__whole_genome_shotgun_sequence C1084639__6.0 84626 1640
+74924 76563 1640 1 0 0 0
+0
+>PEFY01012335.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12335__whole_genome_shotgun_sequence C1085845__8.0 79632 1660
+24521 26180 1 1660 0 0 0
+0
+>PEFY01012334.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12334__whole_genome_shotgun_sequence C1085845__8.0 51607 1660
+19148 19777 669 47 35 35 0
+87
+1
+1
+1
+1
+1
+1
+1
+1
+1
+-64
+-38
+-1
+0
+>PEFY01012363.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12363__whole_genome_shotgun_sequence C1086377__7.0 4747 1669
+2679 3603 1669 751 97 97 0
+130
+-8
+283
+347
+1
+1
+5
+2
+0
+3606 4176 572 1 38 38 0
+169
+-16
+-128
+0
+>PEFY01012343.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12343__whole_genome_shotgun_sequence C1088695__9.0 3128 1707
+1379 3085 1707 1 0 0 0
+0
+>PEFY01012338.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12338__whole_genome_shotgun_sequence C1088773__5.0 115994 1708
+88134 88313 1 179 18 18 0
+111
+0
+>PEFY01012320.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12320__whole_genome_shotgun_sequence C1091381__8.0 82483 1754
+36136 37889 1754 1 0 0 0
+0
+>PEFY01012378.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12378__whole_genome_shotgun_sequence C1093069__9.0 1947 1784
+67 1850 1 1784 0 0 0
+0
+>PEFY01012366.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12366__whole_genome_shotgun_sequence C1096235__7.0 68864 1843
+29072 30914 1843 1 0 0 0
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence C1097165__7.0 160036 1861
+3555 5415 1 1861 0 0 0
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence C1097255__9.0 160036 1863
+29944 31806 1 1863 0 0 0
+0
+>PEFY01012338.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12338__whole_genome_shotgun_sequence C1097429__6.0 115994 1866
+33128 33203 1369 1294 1 1 0
+0
+>PEFY01012339.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12339__whole_genome_shotgun_sequence C1099255__8.0 81680 1902
+20669 22570 1902 1 0 0 0
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence C1099531__6.0 160036 1908
+114401 114613 1905 1695 18 18 0
+168
+1
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence C1103249__8.0 160036 1984
+57069 59057 1 1984 40 40 0
+12
+68
+-39
+-7
+-3
+-1
+-235
+-30
+-49
+17
+5
+63
+27
+-150
+-76
+-215
+37
+62
+27
+25
+1
+17
+9
+37
+13
+-66
+-236
+-5
+15
+90
+-87
+145
+-27
+6
+30
+0
+>PEFY01012317.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12317__whole_genome_shotgun_sequence C1103345__8.0 68439 1986
+57983 58286 568 287 44 44 0
+24
+1
+1
+1
+-74
+-1
+109
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+30
+1
+1
+1
+1
+1
+0
+>PEFY01012335.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12335__whole_genome_shotgun_sequence C1103379__8.0 79632 1987
+12260 14246 1987 1 0 0 0
+0
+33486 33703 1987 1779 31 31 0
+-114
+-1
+-1
+-1
+33
+-4
+-5
+9
+1
+1
+5
+5
+1
+1
+1
+1
+2
+6
+1
+1
+9
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence C1103421__8.0 160036 1988
+5224 5393 170 1 5 5 0
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence C1107533__8.0 160036 2075
+26670 28744 2075 1 0 0 0
+0
+>PEFY01012318.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12318__whole_genome_shotgun_sequence C1108091__7.0 68610 2086
+8321 10406 2086 1 1 1 0
+0
+>PEFY01012320.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12320__whole_genome_shotgun_sequence C1109875__7.0 82483 2128
+59175 60169 1136 2128 67 67 0
+80
+52
+457
+-345
+0
+>PEFY01012335.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12335__whole_genome_shotgun_sequence C1109879__6.0 79632 2129
+24567 25189 912 1541 35 35 0
+431
+1
+42
+-64
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+40444 41573 1297 153 124 124 0
+41
+-5
+43
+1
+-256
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-2
+-23
+-1
+-4
+-1
+-2
+-1
+-16
+-16
+-64
+174
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+-24
+-72
+-1
+-1
+-1
+-1
+-1
+-122
+-76
+-37
+-18
+-1
+-70
+-29
+-1
+-1
+-1
+-2
+-1
+0
+>PEFY01012334.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12334__whole_genome_shotgun_sequence C1109879__6.0 51607 2129
+8752 8832 81 1 0 0 0
+0
+18560 20688 2129 1 0 0 0
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence C1109955__8.0 160036 2131
+1106 1345 2131 1892 18 18 0
+0
+>PEFY01012342.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12342__whole_genome_shotgun_sequence C1110909__9.0 65842 2154
+947 2804 1 1869 44 44 0
+-59
+-6
+-48
+43
+45
+-20
+-16
+8
+-12
+-39
+-134
+93
+-196
+-13
+-22
+-136
+-52
+3
+-65
+76
+48
+-69
+-24
+-54
+-82
+-62
+-69
+21
+129
+-77
+103
+4
+-26
+0
+3073 5210 2138 1 0 0 0
+0
+>PEFY01012341.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12341__whole_genome_shotgun_sequence C1110909__9.0 5906 2154
+5720 5906 2154 1968 0 0 0
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence C1112051__9.0 160036 2180
+138915 139797 1 888 78 78 0
+-322
+-4
+-530
+-1
+-1
+0
+>PEFY01012318.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12318__whole_genome_shotgun_sequence C1112051__9.0 68610 2180
+46036 48214 2180 1 1 1 0
+-19
+0
+>PEFY01012339.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12339__whole_genome_shotgun_sequence C1113037__6.0 81680 2203
+58983 59169 810 625 21 21 0
+175
+0
+>PEFY01012336.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12336__whole_genome_shotgun_sequence C1116377__7.0 88781 2286
+26996 29283 1 2286 2 2 0
+1705
+1
+0
+>PEFY01012333.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12333__whole_genome_shotgun_sequence C1116543__6.0 61575 2291
+42624 42751 127 1 5 5 0
+14
+0
+>PEFY01012334.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12334__whole_genome_shotgun_sequence C1116999__7.0 51607 2303
+41606 43908 2303 1 0 0 0
+0
+>PEFY01012335.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12335__whole_genome_shotgun_sequence C1116999__7.0 79632 2303
+37104 37495 396 1 12 12 0
+55
+-4
+-1
+-123
+-1
+-1
+0
+>PEFY01012338.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12338__whole_genome_shotgun_sequence C1117297__8.0 115994 2311
+63036 65346 1 2311 0 0 0
+0
+>PEFY01012341.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12341__whole_genome_shotgun_sequence C1118705__7.0 5906 2349
+11 88 2272 2349 0 0 0
+0
+>PEFY01012341.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12341__whole_genome_shotgun_sequence C1119629__8.0 5906 2375
+3194 5568 1 2375 0 0 0
+0
+>PEFY01012321.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12321__whole_genome_shotgun_sequence C1121189__6.0 7509 2416
+7172 7509 1 338 0 0 0
+0
+>PEFY01012322.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12322__whole_genome_shotgun_sequence C1122875__6.0 11387 2466
+558 1081 1940 2466 39 39 0
+-60
+-1
+-1
+0
+>PEFY01012320.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12320__whole_genome_shotgun_sequence C1124391__8.0 82483 2510
+19696 19906 2298 2510 14 14 0
+-100
+-1
+0
+>PEFY01012320.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12320__whole_genome_shotgun_sequence C1125583__8.0 82483 2547
+61942 62104 1 162 18 18 0
+116
+0
+>PEFY01012317.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12317__whole_genome_shotgun_sequence C1126039_18.0 68439 2563
+53701 56261 1 2563 173 173 0
+215
+1
+1
+1
+1
+1
+-741
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+548
+2
+154
+-295
+-264
+4
+0
+>PEFY01012318.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12318__whole_genome_shotgun_sequence C1126691__8.0 68610 2585
+13555 13732 1 178 16 16 0
+-138
+8
+0
+>PEFY01012318.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12318__whole_genome_shotgun_sequence C1128649__9.0 68610 2647
+10897 13543 1 2647 0 0 0
+0
+>PEFY01012333.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12333__whole_genome_shotgun_sequence C1131169__8.0 61575 2731
+58470 61200 1 2731 0 0 0
+0
+>PEFY01012366.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12366__whole_genome_shotgun_sequence C1131187__8.0 68864 2731
+47563 50293 2731 1 0 0 0
+0
+>PEFY01012362.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12362__whole_genome_shotgun_sequence C1134213__8.0 1443 2840
+33 1443 2840 1430 0 0 0
+0
+>PEFY01012317.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12317__whole_genome_shotgun_sequence C1135393__8.0 68439 2882
+58215 60992 1 2778 0 0 0
+0
+>PEFY01012334.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12334__whole_genome_shotgun_sequence C1136271__8.0 51607 2913
+5846 8758 2913 1 0 0 0
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence C1136973__6.0 160036 2940
+77467 77561 96 1 5 5 0
+-91
+0
+>PEFY01012336.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12336__whole_genome_shotgun_sequence C1142193__9.0 88781 3162
+17646 20807 1 3162 0 0 0
+0
+>PEFY01012338.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12338__whole_genome_shotgun_sequence C1143385__8.0 115994 3216
+110636 113851 3216 1 0 0 0
+0
+>PEFY01012331.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12331__whole_genome_shotgun_sequence C1151941__8.0 28463 3645
+27971 28067 3549 3645 2 2 0
+0
+>PEFY01012318.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12318__whole_genome_shotgun_sequence C1155437__9.0 68610 3848
+67251 68610 3848 2489 0 0 0
+0
+>PEFY01012319.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12319__whole_genome_shotgun_sequence C1155437__9.0 6772 3848
+229 4076 3848 1 0 0 0
+0
+>PEFY01012338.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12338__whole_genome_shotgun_sequence C1155787__8.0 115994 3871
+88250 92120 1 3871 0 0 0
+0
+>PEFY01012320.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12320__whole_genome_shotgun_sequence C1157693__7.0 82483 3990
+64797 65950 2943 1799 154 154 0
+275
+447
+1
+1
+63
+1
+-4
+-132
+-9
+-26
+-51
+-10
+-2
+12
+12
+1
+1
+1
+1
+1
+55
+1
+1
+0
+>PEFY01012339.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12339__whole_genome_shotgun_sequence C1157875__9.0 81680 4003
+23473 27475 1 4003 0 0 0
+0
+>PEFY01012334.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12334__whole_genome_shotgun_sequence C1160065__8.0 51607 4161
+313 4473 1 4161 0 0 0
+0
+>PEFY01012366.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12366__whole_genome_shotgun_sequence C1164257__8.0 68864 4500
+25054 25752 1424 2096 101 101 0
+104
+-32
+-1
+-1
+64
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+-172
+-187
+24
+1
+9
+21
+15
+11
+30
+0
+>PEFY01012333.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12333__whole_genome_shotgun_sequence C1165207__7.0 61575 4585
+8009 8110 2599 2700 8 8 0
+0
+>PEFY01012318.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12318__whole_genome_shotgun_sequence C1165341__7.0 68610 4595
+16614 16702 1 89 4 4 0
+0
+>PEFY01012318.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12318__whole_genome_shotgun_sequence C1166045__7.0 68610 4661
+13595 18255 1 4661 1 1 0
+0
+>PEFY01012349.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12349__whole_genome_shotgun_sequence C1169151__7.0 1274 4951
+1027 1229 203 1 7 7 0
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence C1169163_10.0 160036 4952
+79813 84764 4952 1 0 0 0
+0
+>PEFY01012317.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12317__whole_genome_shotgun_sequence C1172221__8.0 68439 5274
+13541 18814 1 5274 0 0 0
+0
+>PEFY01012334.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12334__whole_genome_shotgun_sequence C1172507__8.0 51607 5305
+43846 49150 5305 1 0 0 0
+0
+>PEFY01012335.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12335__whole_genome_shotgun_sequence C1172507__8.0 79632 5305
+37433 38136 5305 4601 49 49 0
+-213
+-1
+-1
+-1
+-75
+3
+149
+127
+26
+0
+>PEFY01012318.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12318__whole_genome_shotgun_sequence C1173019__7.0 68610 5372
+39847 40819 1412 2387 105 105 0
+36
+1
+1
+-117
+152
+1
+1
+1
+2
+1
+1
+11
+1
+1
+28
+-108
+-1
+-1
+-27
+-436
+-14
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+0
+>PEFY01012314.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12314__whole_genome_shotgun_sequence C1173019__7.0 160036 5372
+151514 156885 5372 1 0 0 0
+0
+>PEFY01012338.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12338__whole_genome_shotgun_sequence C1174105__8.0 115994 5510
+57370 62879 1 5510 0 0 0
+0
+>PEFY01012338.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12338__whole_genome_shotgun_sequence C1178812__7.0 115994 6242
+1 244 6207 5964 21 21 0
+0
+>PEFY01012333.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12333__whole_genome_shotgun_sequence C1178942__8.0 61575 6262
+36417 42678 6262 1 0 0 0
+0
+>PEFY01012333.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12333__whole_genome_shotgun_sequence C1180734__8.0 61575 6587
+51501 58087 1 6587 0 0 0
+0
+>PEFY01012332.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12332__whole_genome_shotgun_sequence C1182408__7.0 84626 6961
+29459 36419 1 6961 0 0 0
+0
+>PEFY01012333.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12333__whole_genome_shotgun_sequence C1182756__8.0 61575 7064
+42975 50038 7064 1 0 0 0
+0
+>PEFY01012335.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12335__whole_genome_shotgun_sequence C1183788__7.0 79632 7314
+63662 70975 1 7314 0 0 0
+0
+>PEFY01012336.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12336__whole_genome_shotgun_sequence C1183788__7.0 88781 7314
+2435 2607 7142 7314 2 2 0
+0
+>PEFY01012379.1_Apostasia_shenzhenica_isolate_ASH160606_Ash_12379__whole_genome_shotgun_sequence C1187020_16.0 1499 8356
+130 1499 8356 6987 0 0 0
+0

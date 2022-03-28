@@ -1,0 +1,8 @@
+All statistics are based on contigs of size >= 500 bp, unless otherwise noted (e.g., "# contigs (>= 0 bp)" and "Total length (>= 0 bp)" include all contigs).
+
+Assembly                       SRR5759239_assembly.scafSeq  SRR5759239_assembly.scafSeq_broken
+# fully unaligned contigs      7939                         2745                              
+Fully unaligned length         7199634                      2038200                           
+# partially unaligned contigs  2423                         721                               
+Partially unaligned length     2977936                      958990                            
+# N's                          2603843                      99765                             

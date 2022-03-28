@@ -1,0 +1,50 @@
+Assembly	SRR5759239_assembly.scafSeq	SRR5759239_assembly.scafSeq_broken
+# contigs (>= 0 bp)	206180	-
+# contigs (>= 1000 bp)	60710	78472
+# contigs (>= 5000 bp)	18060	12582
+# contigs (>= 10000 bp)	6063	2082
+# contigs (>= 25000 bp)	286	13
+# contigs (>= 50000 bp)	1	0
+Total length (>= 0 bp)	319316154	-
+Total length (>= 1000 bp)	276060567	245437426
+Total length (>= 5000 bp)	174592094	97683232
+Total length (>= 10000 bp)	90616329	26654247
+Total length (>= 25000 bp)	8630198	364862
+Total length (>= 50000 bp)	58464	0
+# contigs	84785	119664
+Largest contig	58464	32297
+Total length	293096881	274794774
+Reference length	322899837	322899837
+GC (%)	33.55	33.44
+Reference GC (%)	33.73	33.73
+N50	6389	3561
+NG50	5642	2860
+N75	3049	1792
+NG75	2193	1061
+L50	13105	22031
+LG50	15585	29577
+L75	29637	49293
+LG75	38261	75304
+# misassemblies	1243	594
+# misassembled contigs	1174	576
+Misassembled contigs length	6702382	1879270
+# local misassemblies	772	414
+# scaffold gap size misassemblies	8	-
+# unaligned mis. contigs	215	73
+# unaligned contigs	7939 + 2423 part	2745 + 721 part
+Unaligned length	10177570	2997190
+Genome fraction (%)	86.744	83.783
+Duplication ratio	1.010	1.005
+# N's per 100 kbp	888.39	36.31
+# mismatches per 100 kbp	19.09	13.00
+# indels per 100 kbp	40.08	11.35
+Largest alignment	58464	32297
+Total aligned length	281701047	271244601
+NA50	6261	3528
+NGA50	5508	2829
+NA75	2914	1758
+NGA75	2043	1026
+LA50	13314	22176
+LGA50	15848	29800
+LA75	30357	49804
+LGA75	39480	76489

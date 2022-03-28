@@ -827,4 +827,32 @@ Once you have completed all the tasks, execute the following command:
 quast.py -R ~/Documents/02_Kmers_analyses/Map_reads/PEFY01.1.fsa_nt.gz --threads 20 --scaffolds --fragmented ~/Documents/02_Kmers_analyses/SOAPdenovo2/SRR5759239_assembly.scafSeq  
 ```
 
+### `QUAST` output files
+
+By default, the output files of the analysis will be saved in a folder named as follows:
+
+```{bash eval=F, echo=T}
+quast_results/results_<date_time>
+```
+
+In each folder, there will be a suite of output files, please find below the ones that are more relevant to our goals:
+
+- `report.txt`: Assessment summary in plain text format.
+- `report.html`: HTML version of the report with interactive plots inside.
+- `report.pdf`: All plots combined with all tables (see Figure \@ref(fig:QUAST)).
+
+```{r QUAST, echo=FALSE, fig.align="center", fig.cap="Screenshot of the report.html file showing the statistics and plots inferred by QUAST on the results of the SOAPdenovo2 assembly.", fig.show="asis", out.width = '80%'}
+knitr::include_graphics("Images/QUAST_output.png")
+```
+
+- `icarus.html`: Icarus main menu with links to interactive viewers. Icarus generates contig size viewer and one or more contig alignment viewers (if reference genome is provided). All Icarus viewers contain a legend with color scheme description (see Figure \@ref(fig:ICARUS)).
+
+```{r ICARUS, echo=FALSE, fig.align="center", fig.cap="Screenshot of the icarus.html file showing the alignment of the SOAPdenovo2 de novo assembly against the reference genome.", fig.show="asis", out.width = '80%'}
+knitr::include_graphics("Images/ICARUS_output.png")
+```
+
+#### Task
+
+Open [report.html](Data/PART3_QUAST_results/report.html) and look at the statistics, plots and alignments (available by clicking on the `Icarus` tab; see Figure \@ref(fig:QUAST)). 
+
 # References

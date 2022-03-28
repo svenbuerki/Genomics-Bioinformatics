@@ -1,0 +1,18 @@
+All statistics are based on contigs of size >= 500 bp, unless otherwise noted (e.g., "# contigs (>= 0 bp)" and "Total length (>= 0 bp)" include all contigs).
+
+Assembly                                        SRR5759239_assembly.scafSeq  SRR5759239_assembly.scafSeq_broken
+# misassemblies                                 1243                         594                               
+    # relocations                               75                           49                                
+    # translocations                            1152                         533                               
+    # inversions                                16                           12                                
+# misassembled contigs                          1174                         576                               
+Misassembled contigs length                     6702382                      1879270                           
+# local misassemblies                           772                          414                               
+# scaffold gap size misassemblies               8                            -                                 
+# misassemblies caused by fragmented reference  212                          119                               
+# unaligned mis. contigs                        215                          73                                
+# mismatches                                    53457                        35172                             
+# indels                                        112265                       30715                             
+    # indels (<= 5 bp)                          51446                        24515                             
+    # indels (> 5 bp)                           60819                        6200                              
+Indels length                                   799536                       102560                            
