@@ -11,7 +11,7 @@
 
 <meta name="author" content="Sven Buerki - Boise State University" />
 
-<meta name="date" content="2022-03-28" />
+<meta name="date" content="2022-03-29" />
 
 <title>BIOL 497/597 - Genomics &amp; Bioinformatics</title>
 
@@ -421,7 +421,7 @@ div.tocify {
 <h1 class="title toc-ignore">BIOL 497/597 - Genomics &amp; Bioinformatics</h1>
 <h3 class="subtitle">Chapters</h3>
 <h4 class="author">Sven Buerki - Boise State University</h4>
-<h4 class="date">2022-03-28</h4>
+<h4 class="date">2022-03-29</h4>
 
 </div>
 
@@ -1103,6 +1103,7 @@ q2=SRR5759389.pe2.clean.fastq</code></pre>
 soapdenovo2-63mer all -s soap_config.txt -K 63 -R -p 16 -o SRR5759239_assembly</code></pre>
 <p>Here, <code>SOAPdenovo2</code> works with a k-mer size of 63 (<code>-K</code>). The analysis will be performed on 16 threads (or CPUs) (<code>-p</code>) and the program will save the output files under <code>SRR5759239_assembly</code> as shown by the <code>-o</code> argument.</p>
 <p>The analysis will run for SEVERAL HOURS. Please log out from your sessions, but DON’T SWITCH OFF COMPUTERS.</p>
+<p>The output file of the <code>SOAPdenovo2</code> analysis are presented in section <a href="#outputdenovo">6.8.2</a>.</p>
 </div>
 </div>
 </div>
@@ -1119,8 +1120,8 @@ Figure 6.10: Overview of the assembly workflow. Here are few key definitions: Co
 </p>
 </div>
 </div>
-<div id="presenting-the-soapdenovo2-assembly-file" class="section level3" number="6.8.2">
-<h3><span class="header-section-number">6.8.2</span> Presenting the <code>SOAPdenovo2</code> assembly file</h3>
+<div id="outputdenovo" class="section level3" number="6.8.2">
+<h3><span class="header-section-number">6.8.2</span> <code>SOAPdenovo2</code> assembly files</h3>
 <p>The input of the <code>QUAST</code> analysis is the <code>fasta</code> assembly file produced by <code>SOAPdenovo2</code> containing scaffolds (see Figure <a href="#fig:assemblyworkflow">6.10</a>). This file is entitled <code>SRR5759239_assembly.scafSeq</code> and it is located in the <code>SOAPdenovo2/</code> folder (see PART 2 for more details).</p>
 <p>Navigate to the file location and inspect it by using the <code>head</code> command. It should be similar to the example provided below:</p>
 <pre class="bash"><code>&gt;scaffold2  6.9
@@ -1130,12 +1131,100 @@ AGTGGTGTATGTAGGTTTATGTTCTGAAGTTAACTCGCCCTTTTTTTTTTTTTTCTTAAGT
 ACTGATTNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNTTCTTCTTCT
 TCTAATCATAATATATGTGGTGCTTGCATTTGTGTGCCATGGTGTCACCCTCCCTTCTTG
 CATTGGCCATTGACTCTACTCTTCCCCTCATCAGTGTCTTCCTGTTTAAATTGTAAACCA</code></pre>
-<div id="question-2" class="section level4" number="6.8.2.1">
-<h4><span class="header-section-number">6.8.2.1</span> Question</h4>
+<p>You can also inspect some general statistics on your assembly (both at scaffold and contig levels) by consulting <code>SRR5759239_assembly.scafStatistics</code>. Please find below a print out of the content of this latter file:</p>
+<pre class="bash"><code>&lt;-- Information for assembly Scaffold &#39;SRR5759239_assembly.scafSeq&#39;.(cut_off_length &lt; 100bp) --&gt;
+
+Size_includeN   319316154
+Size_withoutN   316496824
+Scaffold_Num    206180
+Mean_Size       1548
+Median_Size     339
+Longest_Seq     58464
+Shortest_Seq    100
+Singleton_Num   148213
+Average_length_of_break(N)_in_scaffold  13
+
+Known_genome_size       NaN
+Total_scaffold_length_as_percentage_of_known_genome_size        NaN
+
+scaffolds&gt;100   205022  99.44%
+scaffolds&gt;500   84690   41.08%
+scaffolds&gt;1K    60675   29.43%
+scaffolds&gt;10K   6062    2.94%
+scaffolds&gt;100K  0       0.00%
+scaffolds&gt;1M    0       0.00%
+
+Nucleotide_A    105171893       32.94%
+Nucleotide_C    54211428        16.98%
+Nucleotide_G    53194169        16.66%
+Nucleotide_T    103919334       32.54%
+GapContent_N    2819330 0.88%
+Non_ACGTN       0       0.00%
+GC_Content      33.94%          (G+C)/(A+C+G+T)
+
+N10     17086   1447
+N20     12498   3661
+N30     9573    6593
+N40     7459    10380
+N50     5728    15270
+N60     4208    21769
+N70     2902    30880
+N80     1712    45089
+N90     649     74738
+
+NG50    NaN     NaN
+N50_scaffold-NG50_scaffold_length_difference    NaN
+
+&lt;-- Information for assembly Contig &#39;SRR5759239_assembly.contig&#39;.(cut_off_length &lt; 100bp) --&gt;
+
+Size_includeN   323703442
+Size_withoutN   323703442
+Contig_Num      326278
+Mean_Size       992
+Median_Size     328
+Longest_Seq     32360
+Shortest_Seq    100
+
+Contig&gt;100      324883  99.57%
+Contig&gt;500      125875  38.58%
+Contig&gt;1K       81379   24.94%
+Contig&gt;10K      1818    0.56%
+Contig&gt;100K     0       0.00%
+Contig&gt;1M       0       0.00%
+
+Nucleotide_A    108192955       33.42%
+Nucleotide_C    55873838        17.26%
+Nucleotide_G    54056600        16.70%
+Nucleotide_T    105580049       32.62%
+GapContent_N    0       0.00%
+Non_ACGTN       0       0.00%
+GC_Content      33.96%          (G+C)/(A+C+G+T)
+
+N10     8835    2797
+N20     6338    7177
+N30     4798    13093
+N40     3648    20857
+N50     2743    31105
+N60     1995    44959
+N70     1350    64640
+N80     786     95910
+N90     342     158749
+
+NG50    NaN     NaN
+N50_contig-NG50_contig_length_difference        NaN
+
+Number_of_contigs_in_scaffolds  178065
+Number_of_contigs_not_in_scaffolds(Singleton)   148213
+Average_number_of_contigs_per_scaffold  3.1</code></pre>
+<div id="questions-1" class="section level4" number="6.8.2.1">
+<h4><span class="header-section-number">6.8.2.1</span> Questions</h4>
 <blockquote>
 <p>Why does the scaffold sequence contain Ns?</p>
 </blockquote>
 <p>Use the workflow presented in Figure <a href="#fig:assemblyworkflow">6.10</a> to answer this question.</p>
+<blockquote>
+<p>What is the assembly length and its overall quality? What kind of analyses could be conducted on this assembly?</p>
+</blockquote>
 </div>
 </div>
 <div id="introduction-to-quast" class="section level3" number="6.8.3">
