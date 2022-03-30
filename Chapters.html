@@ -11,7 +11,7 @@
 
 <meta name="author" content="Sven Buerki - Boise State University" />
 
-<meta name="date" content="2022-03-29" />
+<meta name="date" content="2022-03-30" />
 
 <title>BIOL 497/597 - Genomics &amp; Bioinformatics</title>
 
@@ -421,7 +421,7 @@ div.tocify {
 <h1 class="title toc-ignore">BIOL 497/597 - Genomics &amp; Bioinformatics</h1>
 <h3 class="subtitle">Chapters</h3>
 <h4 class="author">Sven Buerki - Boise State University</h4>
-<h4 class="date">2022-03-29</h4>
+<h4 class="date">2022-03-30</h4>
 
 </div>
 
@@ -881,7 +881,7 @@ samtools index PEFY01_map_pe.sorted.bam</code></pre>
 <pre class="bash"><code>#Mapping reads against the chloropolast genome of a sister species
 # following the same approach as with the nuclear genome
 bwa index -a bwtsw LC199394.fasta
-bwa mem -t 20 LC199394.fasta ~/Documents/02_Kmers_analyses/khmer/   SRR5759389_pe12.max100.trimmed.norare.noshort.fastq | samtools view -buS - | 
+bwa mem -t 20 LC199394.fasta ~/Documents/02_Kmers_analyses/khmer/SRR5759389_pe12.max100.trimmed.norare.noshort.fastq | samtools view -buS - | 
     samtools sort - -o LC199394_map_pe.sorted.bam
 samtools index LC199394_map_pe.sorted.bam</code></pre>
 </div>
