@@ -142,6 +142,16 @@ cp /home/bioinformatics/GenomeMining_Bioinformatics_2021/DraftGenomeMineR.zip .
 unzip DraftGenomeMineR.zip
 ```
 
+## Install R v.4.1.3
+
+The code used in this lab depends on a specific version of `R` and it needs to be installed on your computer prior to starting the tutorial. This can be done by following the procedure described in these two websites:
+
+- http://genomespot.blogspot.com/2020/06/installing-r-40-on-ubuntu-1804.html
+
+- https://www.digitalocean.com/community/tutorials/how-to-install-r-on-ubuntu-18-04
+
+**Disclaimer:** The right version of R was already installed!
+
 ## Start R session
 
 Navigate to `DraftGenomeMineR/` and start a new `R` session:
@@ -151,7 +161,32 @@ Navigate to `DraftGenomeMineR/` and start a new `R` session:
 cd DraftGenomeMineR/
 
 #Start R session
-R-4
+R
+```
+
+## Installing R packages via BiocManager
+
+Some of the packages used here cannot be installed with R and require **BiocManager** to be installed. Although most of the packages were already installed, please proceed and install the five missing packages: 
+
+```{r eval=F, echo=T}
+#Check if BiocManager is installed and if not install it
+if (!require("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+BiocManager::install()
+
+#Install the other packages using BiocManager
+install.packages("devtools")
+
+library(devtools)
+BiocManager::install("Biostrings")
+BiocManager::install("ORFik")
+
+#Students install these packages themselves
+install_github("mhahsler/rBLAST")
+install.packages("remotes")
+remotes::install_github("GuillemSalazar/FastaUtils")
+install.packages("ape")
+install.packages("seqinr")
 ```
 
 ## Load R packages and user-defined functions
@@ -277,7 +312,7 @@ cl.filt.unique
 nrow(cl)
 nrow(cl.filt)
 nrow(cl.filt.unique)
-blast.hits.to.extract <- subset(x = cl.filt.unique, SubjectID == cl.filt.unique[1,2]) 
+blast.hits.to.extract <- subset(x = cl.filt.unique, SubjectID == cl.filt.unique[1,2])
 ```
 
 Write output of BLAST analysis in `csv` file:
@@ -331,7 +366,7 @@ mkdir Output_FASTAs/
 mkdir ORFs_report/
   
 #5. Start R session
-R-4
+R
 
 #6. This will make a list of packages that another function will use to make sure they are all installed and loaded.
 list.of.packages <- c("ape",
