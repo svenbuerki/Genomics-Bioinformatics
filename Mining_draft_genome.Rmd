@@ -142,15 +142,15 @@ cp /home/bioinformatics/GenomeMining_Bioinformatics_2021/DraftGenomeMineR.zip .
 unzip DraftGenomeMineR.zip
 ```
 
-## Install R v.4.1.3
+## Install `R` v.4.1.3
 
-The code used in this lab depends on a specific version of `R` and it needs to be installed on your computer prior to starting the tutorial. This can be done by following the procedure described in these two websites:
+The code used in this lab depends on a specific version of `R` (version 4.1.3 (2022-03-10) -- "One Push-Up") and it needs to be installed on your computer prior to starting the tutorial. This can be done by following the procedure described in these two websites:
 
 - http://genomespot.blogspot.com/2020/06/installing-r-40-on-ubuntu-1804.html
 
 - https://www.digitalocean.com/community/tutorials/how-to-install-r-on-ubuntu-18-04
 
-**Disclaimer:** The right version of R was already installed!
+**Disclaimer:** The right version of R was already installed on our lab computers, but if you wanted to execute this code on your personal computer please make sure you have the right version of `R`!
 
 ## Start R session
 
