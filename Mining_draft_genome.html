@@ -11,7 +11,7 @@
 
 <meta name="author" content="Sven Buerki &amp; Anthony Melton - Boise State University" />
 
-<meta name="date" content="2022-04-08" />
+<meta name="date" content="2022-04-12" />
 
 <title>BIOL 497/597 - Genomics &amp; Bioinformatics</title>
 
@@ -421,7 +421,7 @@ div.tocify {
 <h1 class="title toc-ignore">BIOL 497/597 - Genomics &amp; Bioinformatics</h1>
 <h3 class="subtitle">Lab: Mining sagebrush draft genome</h3>
 <h4 class="author">Sven Buerki &amp; Anthony Melton - Boise State University</h4>
-<h4 class="date">2022-04-08</h4>
+<h4 class="date">2022-04-12</h4>
 
 </div>
 
@@ -784,7 +784,51 @@ write.table(scaffoldFASTA, &quot;Output_FASTAs/Scaffold151535.fa&quot;, row.name
 </div>
 <div id="finding-orfs-along-scaffolds" class="section level2" number="7.4">
 <h2><span class="header-section-number">7.4</span> Finding ORFs along scaffold(s)</h2>
-<p>We will now find ORFs in scaffold(s) using <em>findORFsTranslateDNA2AA()</em>. This user-defined function relies on the <em>ORFik</em> R package. The output will be saved in <code>ORFs_report/</code>.</p>
+<p>We will now find ORFs in scaffold(s) using <em>findORFsTranslateDNA2AA()</em>. This user-defined function (UDF) relies on functions from the <em>ORFik</em> R package. The output will be saved in <code>ORFs_report/</code>.</p>
+<p>Let’s first look at the structure of the <em>findORFsTranslateDNA2AA()</em> function to understand the applied approach:</p>
+<pre class="r"><code>#####~~~
+#A UDF used to findORFs in scaffold file (FASTA format) and produce AA sequences as well as report
+#####~~~
+findORFsTranslateDNA2AA &lt;- function(scaffold, scaffoldID, MinLen){
+  #Extract scaffold sequence (and convert to right format)
+  seqRaw &lt;- scaffold[c(grep(paste(&quot;&gt;&quot;, scaffoldID, sep=&#39;&#39;), scaffold)+1)] 
+  seqs &lt;- DNAStringSet(seqRaw)
+  
+  #positive strands 
+  pos &lt;- ORFik::findORFs(seqs, startCodon = &quot;ATG&quot;, minimumLength = MinLen) 
+  
+  #negative strands (DNAStringSet only if character) 
+  neg &lt;- ORFik::findORFs(reverseComplement(DNAStringSet(seqs)), startCodon = &quot;ATG&quot;, minimumLength = MinLen) 
+  pos &lt;- relist(c(GRanges(pos,strand = &quot;+&quot;),GRanges(neg,strand = &quot;-&quot;)),skeleton = merge(pos,neg))
+  
+  #Process output
+  pos &lt;- as.data.frame(pos)
+  pos$scaffoldID &lt;- rep(scaffoldID, nrow(pos))
+  pos$ORFID &lt;- paste(&quot;ORF_&quot;, seq(from=1, to=nrow(pos)), sep=&#39;&#39;)
+  
+  #Extract and write ORFs from seq and produce AA sequence
+  for(i in 1:nrow(pos)){
+    if(as.character(pos$strand[i]) == &quot;+&quot;){
+      extSeq &lt;- as.DNAbin(DNAStringSet(paste(strsplit(seqRaw, split=&#39;&#39;)[[1]][c(pos$start[i]:pos$end[i])], collapse = &quot;&quot;)))
+      AAseq &lt;- paste(paste(&quot;&gt;&quot;, pos$scaffoldID[i], &quot;_&quot;, pos$ORFID[i], sep=&#39;&#39;), paste(as.character(trans(extSeq, code = 1, codonstart = 1))[[1]], collapse = &#39;&#39;), sep=&#39;\n&#39;)
+      write.table(AAseq, file = paste(&quot;AA_ORFs/&quot;, pos$scaffoldID[i], &quot;_&quot;, pos$ORFID[i], &quot;.fa&quot;, sep=&#39;&#39;), col.names = F, row.names = F, quote = F)
+    }
+    if(as.character(pos$strand[i]) == &quot;-&quot;){
+      revComp &lt;- reverseComplement(DNAStringSet(seqs))
+      
+      extSeq &lt;- as.DNAbin(DNAStringSet(paste(strsplit(as.vector(revComp), split=&#39;&#39;)[[1]][c(pos$start[i]:pos$end[i])], collapse = &quot;&quot;)))
+      AAseq &lt;- paste(paste(&quot;&gt;&quot;, pos$scaffoldID[i], &quot;_&quot;, pos$ORFID[i], sep=&#39;&#39;), paste(as.character(trans(extSeq, code = 1, codonstart = 1))[[1]], collapse = &#39;&#39;), sep=&#39;\n&#39;)
+      write.table(AAseq, file = paste(&quot;AA_ORFs/&quot;, pos$scaffoldID[i], &quot;_&quot;, pos$ORFID[i], &quot;.fa&quot;, sep=&#39;&#39;), col.names = F, row.names = F, quote = F)
+    }
+  }
+  
+  #Merge all ORFs for BLAST analysis
+  system(paste(&quot;cat AA_ORFs/&quot;, pos$scaffoldID[i], &quot;* &gt; AA_ORFs/&quot;, pos$scaffoldID[i], &quot;_ORFs.fa&quot;, sep=&#39;&#39;))
+  system(paste(&quot;rm AA_ORFs/&quot;, pos$scaffoldID[i], &quot;_ORF_*&quot;, sep=&quot;&quot;))
+  #Save pos file
+  write.csv(pos, file = paste(&quot;ORFs_report/&quot;,pos$scaffoldID[i], &quot;_&quot;, &quot;ORFs.csv&quot;, sep=&#39;&#39;), col.names = T, row.names = F, quote = F)
+} </code></pre>
+<p>Now, we can use <em>findORFsTranslateDNA2AA()</em> on our data:</p>
 <pre class="r"><code>scaffold &lt;- readLines(&quot;Output_FASTAs/Scaffold151535.fa&quot;)
 scaffoldID &lt;- grep(pattern = &quot;^&gt;&quot;, x = scaffold, value = T)
 scaffoldID &lt;- gsub(pattern = &quot;&gt;&quot;, replacement = &quot;&quot;, x = scaffoldID)
