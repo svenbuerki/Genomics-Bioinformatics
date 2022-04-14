@@ -11,17 +11,25 @@
 
 <meta name="author" content="Sven Buerki &amp; Anthony Melton - Boise State University" />
 
-<meta name="date" content="2022-04-12" />
+<meta name="date" content="2022-04-14" />
 
 <title>BIOL 497/597 - Genomics &amp; Bioinformatics</title>
 
-<script src="site_libs/header-attrs-2.6/header-attrs.js"></script>
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
 <script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
@@ -39,11 +47,6 @@
     </style>
 
 <style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
 <script type="text/javascript">
 if (window.hljs) {
   hljs.configure({languages: []});
@@ -56,32 +59,7 @@ if (window.hljs) {
 
 
 
-<style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
-</style>
+
 
 <style type="text/css">
 /* for pandoc --citeproc since 2.11 */
@@ -115,10 +93,6 @@ div.csl-indent {
   margin-left: auto;
   margin-right: auto;
 }
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
-}
 img {
   max-width:100%;
 }
@@ -134,40 +108,16 @@ button.code-folding-btn:focus {
 summary {
   display: list-item;
 }
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
 </style>
 
 
 <style type="text/css">
-/* padding for bootstrap navbar */
-body {
-  padding-top: 51px;
-  padding-bottom: 40px;
-}
-/* offset scroll position for anchor links (for fixed navbar)  */
-.section h1 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h2 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h3 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h4 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h5 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h6 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
 .dropdown-submenu {
   position: relative;
 }
@@ -195,7 +145,7 @@ body {
   margin-right: -10px;
 }
 .dropdown-submenu:hover>a:after {
-  border-left-color: #ffffff;
+  border-left-color: #adb5bd;
 }
 .dropdown-submenu.pull-left {
   float: none;
@@ -207,7 +157,7 @@ body {
 }
 </style>
 
-<script>
+<script type="text/javascript">
 // manage active state of menu based on current page
 $(document).ready(function () {
   // active menu anchor
@@ -218,10 +168,23 @@ $(document).ready(function () {
   var menuAnchor = $('a[href="' + href + '"]');
 
   // mark it active
-  menuAnchor.parent().addClass('active');
+  menuAnchor.tab('show');
 
   // if it's got a parent navbar menu mark it active as well
   menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
 });
 </script>
 
@@ -233,7 +196,6 @@ $(document).ready(function () {
   max-height: 500px;
   min-height: 44px;
   overflow-y: auto;
-  background: white;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -359,7 +321,7 @@ div.tocify {
 
 
 <!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row-fluid">
+<div class="row">
 <div class="col-xs-12 col-sm-4 col-md-3">
 <div id="TOC" class="tocify">
 </div>
@@ -373,7 +335,7 @@ div.tocify {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -414,14 +376,14 @@ div.tocify {
   </div><!--/.container -->
 </div><!--/.navbar -->
 
-<div class="fluid-row" id="header">
+<div id="header">
 
 
 
 <h1 class="title toc-ignore">BIOL 497/597 - Genomics &amp; Bioinformatics</h1>
 <h3 class="subtitle">Lab: Mining sagebrush draft genome</h3>
 <h4 class="author">Sven Buerki &amp; Anthony Melton - Boise State University</h4>
-<h4 class="date">2022-04-12</h4>
+<h4 class="date">2022-04-14</h4>
 
 </div>
 
@@ -435,14 +397,14 @@ $(document).ready(function() {
 <div id="intro" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> Introduction</h1>
 <p>This document supports analyses aiming at mining the sagebrush (<em>Artemisia tridentata</em> Nutt; Asteraceae) draft genome for Aquaporin (AQP) genes and it is based on data and analyses presented in <span class="citation"><a href="#ref-Melton2021" role="doc-biblioref">Melton et al.</a> (<a href="#ref-Melton2021" role="doc-biblioref">2021</a>)</span>. AQPs are multi-exon genes (see Figure <a href="#fig:multigene">1.1</a>) encoding for a large family of proteins known to function in the transport of water and other molecules across cell membranes <span class="citation">(reviewed in <a href="#ref-li2014plant" role="doc-biblioref">Li et al., 2014</a>)</span>.</p>
-<div class="figure"><span id="fig:multigene"></span>
+<div class="figure"><span style="display:block;" id="fig:multigene"></span>
 <img src="Images/multi_exon_gene.png" alt="Flowchart showing the structure of a multi-exon gene and different resulting proteins. As a reminder, exons are pieces of coding DNA that encode proteins. Different exons code for different domains of a protein. The domains may be encoded by a single exon or multiple exons spliced together. In the case of multi-exon genes, the presence of exons and introns allows for greater molecular evolution through the process of exon shuffling and alternative splicing. Exon shuffling occurs when exons on sister chromosomes are exchanged during recombination. This allows for the formation of new genes. On the other hand, exons also allow for multiple proteins to be translated from the same gene through alternative splicing. This process allows the exons to be arranged in different combinations when the introns are removed/spliced. The different configurations can include the complete removal of an exon, the inclusion of part of an exon, or the inclusion of part of an intron. Alternative splicing can occur in the same location to produce different variants of a gene with a similar role, such as the human slo gene, or it can occur in different cell or tissue types, such as the mouse alpha-amylase gene. Alternative splicing, and defects in alternative splicing, can result in a number of diseases including cancer." width="80%" />
 <p class="caption">
 Figure 1.1: Flowchart showing the structure of a multi-exon gene and different resulting proteins. As a reminder, exons are pieces of coding DNA that encode proteins. Different exons code for different domains of a protein. The domains may be encoded by a single exon or multiple exons spliced together. In the case of multi-exon genes, the presence of exons and introns allows for greater molecular evolution through the process of exon shuffling and alternative splicing. Exon shuffling occurs when exons on sister chromosomes are exchanged during recombination. This allows for the formation of new genes. On the other hand, exons also allow for multiple proteins to be translated from the same gene through alternative splicing. This process allows the exons to be arranged in different combinations when the introns are removed/spliced. The different configurations can include the complete removal of an exon, the inclusion of part of an exon, or the inclusion of part of an intron. Alternative splicing can occur in the same location to produce different variants of a gene with a similar role, such as the human slo gene, or it can occur in different cell or tissue types, such as the mouse alpha-amylase gene. Alternative splicing, and defects in alternative splicing, can result in a number of diseases including cancer.
 </p>
 </div>
 <p>The defining characteristics of AQP proteins include having six membrane-spanning alpha-helices and two hydrophobic loops containing conserved asparagine-proline-alanine (NPA) motif which form a barrel surrounding a central pore-like region that contains additional protein density (see Figure <a href="#fig:AQPex">1.2</a>). While the NPA motifs are generally highly conserved, there are some AQP genes that have undergone mutations of the alanine residue in the NPA motif <span class="citation">(<a href="#ref-ishibashi2006aquaporin" role="doc-biblioref">Ishibashi, 2006</a>)</span>. AQPs in flowering plants comprise five subfamilies: (1) NOD26-like intrinsic proteins (NIPs), (2) plasma membrane intrinsic proteins (PIPs), (3) small basic intrinsic proteins (SIPs), (4) tonoplast intrinsic proteins (TIPs), and (5) X intrinsic proteins (XIPs) <span class="citation">(<a href="#ref-danielson2008unexpected" role="doc-biblioref">Danielson and Johanson, 2008</a>)</span>. Genes from each subfamily tend to move water or other substrate depending on their NPA motifs. Some AQPs, such as NIPs, have acquired a mutation in their NPA motif, such as alanine to leucine, which confer the ability to move substrates such as urea or ammonium <span class="citation">(reviewed in <a href="#ref-chaumont2005regulation" role="doc-biblioref">Chaumont et al., 2005</a>)</span>.</p>
-<div class="figure" style="text-align: center"><span id="fig:AQPex"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:AQPex"></span>
 <img src="Images/NIP5-1_At_Sc466867.png" alt="Example of a 3D model of an Aquaporin protein recovered in the sagebrush genome. NPA motifs are shown by red/orange colors" width="50%" />
 <p class="caption">
 Figure 1.2: Example of a 3D model of an Aquaporin protein recovered in the sagebrush genome. NPA motifs are shown by red/orange colors
@@ -786,7 +748,11 @@ write.table(scaffoldFASTA, &quot;Output_FASTAs/Scaffold151535.fa&quot;, row.name
 <h2><span class="header-section-number">7.4</span> Finding ORFs along scaffold(s)</h2>
 <p>We will now find ORFs in scaffold(s) using <em>findORFsTranslateDNA2AA()</em>. This user-defined function (UDF) relies on functions from the <em>ORFik</em> R package. The output will be saved in <code>ORFs_report/</code>.</p>
 <p>Let’s first look at the structure of the <em>findORFsTranslateDNA2AA()</em> function to understand the applied approach:</p>
-<pre class="r"><code>#####~~~
+<pre class="r"><code>##################################
+#WARNING: DON&#39;T EXECUTE THIS CODE#
+##################################
+
+#####~~~
 #A UDF used to findORFs in scaffold file (FASTA format) and produce AA sequences as well as report
 #####~~~
 findORFsTranslateDNA2AA &lt;- function(scaffold, scaffoldID, MinLen){
@@ -912,7 +878,7 @@ for(i in 1:length(ORFfiles)){
   dev.off()
 }</code></pre>
 <p>Figure <a href="#fig:scaffmap">7.1</a> shows the location of predicted ORFs along <code>Scaffold151535</code> inferred by the code displayed above.</p>
-<div class="figure"><span id="fig:scaffmap"></span>
+<div class="figure"><span style="display:block;" id="fig:scaffmap"></span>
 <img src="Images/Scaffold151535_ORFs_annotated.png" alt="Map of predicted ORFs along scaffold151535." width="100%" />
 <p class="caption">
 Figure 7.1: Map of predicted ORFs along scaffold151535.
@@ -935,7 +901,7 @@ Figure 7.1: Map of predicted ORFs along scaffold151535.
 <div id="input-file-for-protein-blast-analysis" class="section level3" number="8.2.1">
 <h3><span class="header-section-number">8.2.1</span> Input file for protein BLAST analysis</h3>
 <p>The <code>FASTA</code> file <code>Scaffold151535_ORFs.fa</code> (see Figure <a href="#fig:scafAAseqFASTA">8.1</a>) containing AA sequences of ORFs identified in <a href="#mod2">module 2</a> is available on the shared <a href="https://drive.google.com/drive/folders/1d0TSt_M-wAVmNPPfMnXtxD8_fnfK7jQr?usp=sharing">Google Drive</a> or on <a href="Data/Scaffold151535_ORFs.fa">GitHub</a>.</p>
-<div class="figure"><span id="fig:scafAAseqFASTA"></span>
+<div class="figure"><span style="display:block;" id="fig:scafAAseqFASTA"></span>
 <img src="Images/Scaffolds_AA_seq_ORFs.png" alt="FASTA file containing all AA sequences for ORFs inferred along scaffold. See module 2 for more details." width="100%" />
 <p class="caption">
 Figure 8.1: FASTA file containing all AA sequences for ORFs inferred along scaffold. See module 2 for more details.
@@ -948,14 +914,14 @@ Figure 8.1: FASTA file containing all AA sequences for ORFs inferred along scaff
 <li>Students download input file on their personal computers and open it in their favorite text editor.</li>
 <li>Go on the online protein <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastp&amp;PAGE_TYPE=BlastSearch&amp;LINK_LOC=blasthome">BLAST</a> platform <span class="citation">(described in <a href="#ref-altschul1997gapped" role="doc-biblioref">Altschul et al., 1997</a>)</span>.</li>
 <li>Copy content of <code>Scaffold151535_ORFs.fa</code> as shown in Figure <a href="#fig:protBLASTinput">8.2</a> and press <code>BLAST</code> button to send the query.
-<div class="figure"><span id="fig:protBLASTinput"></span>
+<div class="figure"><span style="display:block;" id="fig:protBLASTinput"></span>
 <img src="Images/proteinBLASTinputform.png" alt="Online protein BLAST form." width="100%" />
 <p class="caption">
 Figure 8.2: Online protein BLAST form.
 </p>
 </div></li>
-<li>Inspect output of protein BLAST analysis and identified ORF(s) along scaffold coding for Aquaporin gene products (see <a href="#fig:protBLASToutput">8.3</a>).
-<div class="figure"><span id="fig:protBLASToutput"></span>
+<li>Inspect output of protein BLAST analysis and identified ORF(s) along scaffold coding for Aquaporin gene products (see Figure <a href="#fig:protBLASToutput">8.3</a>).
+<div class="figure"><span style="display:block;" id="fig:protBLASToutput"></span>
 <img src="Images/proteinBLASToutput.png" alt="Output of the protein BLAST analysis. Use the dropdown button to select each ORF and identify their gene products." width="100%" />
 <p class="caption">
 Figure 8.3: Output of the protein BLAST analysis. Use the dropdown button to select each ORF and identify their gene products.
@@ -984,29 +950,30 @@ Figure 8.3: Output of the protein BLAST analysis. Use the dropdown button to sel
 <h3><span class="header-section-number">9.1.1</span> Predictions</h3>
 <p>To be valid, the AQP protein sequence should have:</p>
 <ol style="list-style-type: decimal">
-<li>Six transmembrane helices and two loops.</li>
-<li>Each loop should contain an NPA motif.</li>
-<li>Mutations in NPA motifs will indicate changes in the channeled molecule (therefore changing its function).</li>
+<li>Six transmembrane helices.</li>
+<li>Two loops.</li>
+<li>Two NPA motifs (one per loop).</li>
+<li>Mutations in the NPA motifs (at N or A positions) will be indicative of changes in the channeled molecule (therefore changing its function).</li>
 </ol>
 </div>
 </div>
-<div id="prediction-of-protein-transmembrane-helices-and-outside-loops" class="section level2" number="9.2">
-<h2><span class="header-section-number">9.2</span> Prediction of protein transmembrane helices (and outside loops)</h2>
+<div id="predictions-of-number-of-protein-transmembrane-helices-thm-and-outside-loops" class="section level2" number="9.2">
+<h2><span class="header-section-number">9.2</span> Predictions of number of protein transmembrane helices (THM) (and outside loops)</h2>
 <p>To conduct this analysis (based on <code>&gt;Scaffold151535_ORF_26</code>) do the following:</p>
 <ol style="list-style-type: decimal">
-<li>Go to the TMHMM website: <a href="http://www.cbs.dtu.dk/services/TMHMM/" class="uri">http://www.cbs.dtu.dk/services/TMHMM/</a></li>
+<li>Go to the TMHMM website: <a href="https://services.healthtech.dtu.dk/service.php?TMHMM-2.0" class="uri">https://services.healthtech.dtu.dk/service.php?TMHMM-2.0</a></li>
 <li>Paste the <code>FASTA</code> AA sequence generated in <a href="#mod3">module 3</a>, here corresponding to <code>Scaffold151535_ORF_26</code> as shown in Figure <a href="#fig:TMHMMinput">9.1</a> and submit the analysis.
-<div class="figure"><span id="fig:TMHMMinput"></span>
+<div class="figure"><span style="display:block;" id="fig:TMHMMinput"></span>
 <img src="Images/TMHMM_input.png" alt="Snapshot of TMHMM website showing how to submit job." width="100%" />
 <p class="caption">
 Figure 9.1: Snapshot of TMHMM website showing how to submit job.
 </p>
 </div></li>
-<li>Inspect output of TMHMM analysis (see Figure <a href="#fig:TMHMMoutput">9.2</a>). For AQP proteins, we expect:
+<li>Inspect the output of the TMHMM analysis (see Figure <a href="#fig:TMHMMoutput">9.2</a>). For AQP proteins, we are expecting:
 <ul>
 <li>Number of predicted TMHs (= <strong>T</strong>rans-<strong>M</strong>embrane <strong>H</strong>elix): 6.</li>
 <li>Outside loops: 2.
-<div class="figure"><span id="fig:TMHMMoutput"></span>
+<div class="figure"><span style="display:block;" id="fig:TMHMMoutput"></span>
 <img src="Images/TMHMM_results.png" alt="Snapshot of TMHMM results." width="100%" />
 <p class="caption">
 Figure 9.2: Snapshot of TMHMM results.
@@ -1015,9 +982,17 @@ Figure 9.2: Snapshot of TMHMM results.
 </ul></li>
 </ol>
 </div>
-<div id="identifying-npa-motifs" class="section level2" number="9.3">
-<h2><span class="header-section-number">9.3</span> Identifying NPA motifs</h2>
-<p>In this section, we are identifying the location and type of NPA motif along the AQP protein sequence. The instructors provide a template of R code (based on <code>Scaffold151535_ORF_26</code>) to conduct this task relying on <em>Biostring</em> <span class="citation">(<a href="#ref-Biostrings" role="doc-biblioref">Pagès et al., 2019</a>)</span> and <em>IRanges</em> <span class="citation">(<a href="#ref-IRanges" role="doc-biblioref">Lawrence et al., 2013</a>)</span> packages:</p>
+<div id="identifying-the-number-of-npa-motifs-and-type" class="section level2" number="9.3">
+<h2><span class="header-section-number">9.3</span> Identifying the number of NPA motifs and type</h2>
+<p>In this section, we are identifying the location and type of NPA motif along the AQP protein sequence. The instructors provide a template of an R code (based on <code>Scaffold151535_ORF_26</code>) to conduct this task relying on the <em>Biostring</em> <span class="citation">(<a href="#ref-Biostrings" role="doc-biblioref">Pagès et al., 2019</a>)</span> and <em>IRanges</em> <span class="citation">(<a href="#ref-IRanges" role="doc-biblioref">Lawrence et al., 2013</a>)</span> packages. These latter packages should already be installed on your computer, but if they are not then install and load them as follows:</p>
+<pre class="r"><code>#Install Biostrings and IRanges (deposited on Bioconductor)
+BiocManager::install(&quot;Biostrings&quot;)
+BiocManager::install(&quot;IRanges&quot;)
+
+#Load the packages to check installation
+pkgs &lt;- c(&quot;Biostrings&quot;, &quot;IRanges&quot;)
+lapply(pkgs, require, character.only = TRUE)</code></pre>
+<p>Now that the <code>R</code> packages are installed and loaded we can carry on with our coding:</p>
 <pre class="r"><code>##
 #AA sequence
 ##
@@ -1082,14 +1057,14 @@ if(nrow(tmp) &gt; 0){
 <ol style="list-style-type: decimal">
 <li>Go to Phyre<sup>2</sup> website: <a href="http://www.sbg.bio.ic.ac.uk/~phyre2/html/page.cgi?id=index" class="uri">http://www.sbg.bio.ic.ac.uk/~phyre2/html/page.cgi?id=index</a></li>
 <li>Copy <code>FASTA</code> AA sequence and fill form as shown in Figure <a href="#fig:phyreinput">9.3</a>. Once completed, please submit job by pressing <code>Phyre Search</code>. The job will take ca. 50 minutes to run.
-<div class="figure"><span id="fig:phyreinput"></span>
+<div class="figure"><span style="display:block;" id="fig:phyreinput"></span>
 <img src="Images/Phyre2_input.png" alt="Snapshot of Phyre2 website used to model 3D structure of protein and predict its function." width="100%" />
 <p class="caption">
 Figure 9.3: Snapshot of Phyre2 website used to model 3D structure of protein and predict its function.
 </p>
 </div></li>
 <li>You will relieve an email when the analysis is completed. A link to the output of the Phyre<sup>2</sup> analysis will send you to the report page as shown in Figure <a href="#fig:phyreoutput">9.4</a>.
-<div class="figure"><span id="fig:phyreoutput"></span>
+<div class="figure"><span style="display:block;" id="fig:phyreoutput"></span>
 <img src="Images/Phyre2_output.png" alt="Results of Phyre2 analysis." width="100%" />
 <p class="caption">
 Figure 9.4: Results of Phyre2 analysis.
@@ -1164,7 +1139,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
+    $(this).parent().toggleClass('nav-tabs-open');
   });
 });
 </script>
@@ -1173,6 +1148,9 @@ $(document).ready(function () {
 
 <script>
 $(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
 
     // move toc-ignore selectors from section div to header
     $('div.section.toc-ignore')

@@ -444,6 +444,10 @@ We will now find ORFs in scaffold(s) using *findORFsTranslateDNA2AA()*. This use
 Let's first look at the structure of the *findORFsTranslateDNA2AA()* function to understand the applied approach:
 
 ```{r eval=F, echo=T}
+##################################
+#WARNING: DON'T EXECUTE THIS CODE#
+##################################
+
 #####~~~
 #A UDF used to findORFs in scaffold file (FASTA format) and produce AA sequences as well as report
 #####~~~
@@ -615,7 +619,7 @@ knitr::include_graphics("Images/Scaffolds_AA_seq_ORFs.png")
 ```{r protBLASTinput, echo=FALSE, fig.cap="Online protein BLAST form.", out.width = '100%', fig.pos= "h"}
 knitr::include_graphics("Images/proteinBLASTinputform.png")
 ```
-4. Inspect output of protein BLAST analysis and identified ORF(s) along scaffold coding for Aquaporin gene products (see \@ref(fig:protBLASToutput)).
+4. Inspect output of protein BLAST analysis and identified ORF(s) along scaffold coding for Aquaporin gene products (see Figure \@ref(fig:protBLASToutput)).
 ```{r protBLASToutput, echo=FALSE, fig.cap="Output of the protein BLAST analysis. Use the dropdown button to select each ORF and identify their gene products.", out.width = '100%', fig.pos= "h"}
 knitr::include_graphics("Images/proteinBLASToutput.png")
 ```
@@ -639,31 +643,44 @@ The objectives of this module are to validate the AQP protein sequences obtained
 
 To be valid, the AQP protein sequence should have: 
 
-  1. Six transmembrane helices and two loops.
-  2. Each loop should contain an NPA motif.
-  3. Mutations in NPA motifs will indicate changes in the channeled molecule (therefore changing its function).
+  1. Six transmembrane helices.
+  2. Two loops.
+  3. Two NPA motifs (one per loop).
+  4. Mutations in the NPA motifs (at N or A positions) will be indicative of changes in the channeled molecule (therefore changing its function).
 
-## Prediction of protein transmembrane helices (and outside loops)
+## Predictions of number of protein transmembrane helices (THM) (and outside loops)
 
 To conduct this analysis (based on `>Scaffold151535_ORF_26`) do the following:
 
-1. Go to the TMHMM website: http://www.cbs.dtu.dk/services/TMHMM/
+1. Go to the TMHMM website: https://services.healthtech.dtu.dk/service.php?TMHMM-2.0
 2. Paste the `FASTA` AA sequence generated in [module 3](#mod3), here corresponding to `Scaffold151535_ORF_26` as shown in Figure \@ref(fig:TMHMMinput) and submit the analysis.
 ```{r TMHMMinput, echo=FALSE, fig.cap="Snapshot of TMHMM website showing how to submit job.", out.width = '100%', fig.pos= "h"}
 knitr::include_graphics("Images/TMHMM_input.png")
 ```
-3. Inspect output of TMHMM analysis (see Figure \@ref(fig:TMHMMoutput)). For AQP proteins, we expect:
+3. Inspect the output of the TMHMM analysis (see Figure \@ref(fig:TMHMMoutput)). For AQP proteins, we are expecting:
     - Number of predicted TMHs (= **T**rans-**M**embrane **H**elix):  6.
     - Outside loops: 2.
 ```{r TMHMMoutput, echo=FALSE, fig.cap="Snapshot of TMHMM results.", out.width = '100%', fig.pos= "h"}
 knitr::include_graphics("Images/TMHMM_results.png")
 ```
 
-## Identifying NPA motifs
+## Identifying the number of NPA motifs and type
 
-In this section, we are identifying the location and type of NPA motif along the AQP protein sequence. The instructors provide a template of R code (based on `Scaffold151535_ORF_26`) to conduct this task relying on *Biostring* [@Biostrings] and *IRanges* [@IRanges] packages:
+In this section, we are identifying the location and type of NPA motif along the AQP protein sequence. The instructors provide a template of an R code (based on `Scaffold151535_ORF_26`) to conduct this task relying on the *Biostring* [@Biostrings] and *IRanges* [@IRanges] packages. These latter packages should already be installed on your computer, but if they are not then install and load them as follows:
 
-```{r, eval=T}
+```{r eval=F, echo=T}
+#Install Biostrings and IRanges (deposited on Bioconductor)
+BiocManager::install("Biostrings")
+BiocManager::install("IRanges")
+
+#Load the packages to check installation
+pkgs <- c("Biostrings", "IRanges")
+lapply(pkgs, require, character.only = TRUE)
+```
+
+Now that the `R` packages are installed and loaded we can carry on with our coding:
+
+```{r, eval=T, ech = T}
 ##
 #AA sequence
 ##
