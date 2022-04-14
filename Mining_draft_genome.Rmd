@@ -74,7 +74,7 @@ The `FASTA` file with scaffolds sequences can be downloaded [here](Data/Scaffold
 
 Let's complete the training first going by through each module and then students will be working in groups to replicate these analyses to their assigned scaffold.
 
-# Writing your group report {#report}
+# Writing your group report (TOTAL: 150 points) {#report}
 
 The instructor provides below information to complete the group report. All the material, data, code and references required to complete this report are provided here and are covered in class. In this context, students will have to focus on formatting their reports following guidelines presented here as well as making sure that their code is working and ready to be shared. Please DON'T FORGET TO PROVIDE REFERENCES FOR SOFTWARE/PACKAGES cited in the Material & Methods section.
 
@@ -82,10 +82,17 @@ The instructor provides below information to complete the group report. All the 
 
 Your group reports will be structured and organized following the **IMMRAD** format: **I**ntroduction, **M**aterial & **M**ethods, **R**esults, and **D**iscussion. This format is widely used to report experimental research in many scientific disciplines. In addition, you will be complementing your reports with an **Abstract**. Finally, since this research relies heavily on bioinformatics, students will complete their reports by supplying their commented code/scripts. Please see [Mini-Report 3](https://svenbuerki.github.io/Genomics-Bioinformatics/Mini_reports.html#46_Writing_your_report) for more details.
 
-# Report deadline
+## Report deadline
 
 Group reports should be uploaded on the shared Google Drive by **April 29th 2022** before 5 pm MT.
 
+# Group lab presentation (TOTAL: 50 points)
+
+Students will use their lab reports to prepare 10 minutes presentations (+ 5 minutes for questions) taking place on **April 29th 2022**.
+
+The instructor expects each student to take part to the presentation and to be involved in answering questions.
+
+Presentations will have to be deposited in advance onto a shared Google Drive folder or be sent to the instructor prior to the presentation.
 
 # Analytical workflow
 
