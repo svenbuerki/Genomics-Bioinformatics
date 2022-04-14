@@ -72,7 +72,20 @@ The `FASTA` file with scaffolds sequences can be downloaded [here](Data/Scaffold
 - **Group C**: Scaffold348135.
 - **Group D**: Scaffold355053.
 
-Let's complete the training first going by through each module and then students will be working in groups to replicate this approach to their assigned scaffold. Fridays of weeks #12 and 13 will be dedicated to group work using Zoom breakout rooms.
+Let's complete the training first going by through each module and then students will be working in groups to replicate these analyses to their assigned scaffold.
+
+# Writing your group report {#report}
+
+The instructor provides below information to complete the group report. All the material, data, code and references required to complete this report are provided here and are covered in class. In this context, students will have to focus on formatting their reports following guidelines presented here as well as making sure that their code is working and ready to be shared. Please DON'T FORGET TO PROVIDE REFERENCES FOR SOFTWARE/PACKAGES cited in the Material & Methods section.
+
+## Apply the IMRAD format and supply code
+
+Your group reports will be structured and organized following the **IMMRAD** format: **I**ntroduction, **M**aterial & **M**ethods, **R**esults, and **D**iscussion. This format is widely used to report experimental research in many scientific disciplines. In addition, you will be complementing your reports with an **Abstract**. Finally, since this research relies heavily on bioinformatics, students will complete their reports by supplying their commented code/scripts. Please see [Mini-Report 3](https://svenbuerki.github.io/Genomics-Bioinformatics/Mini_reports.html#46_Writing_your_report) for more details.
+
+# Report deadline
+
+Group reports should be uploaded on the shared Google Drive by **April 29th 2022** before 5 pm MT.
+
 
 # Analytical workflow
 
@@ -753,5 +766,18 @@ knitr::include_graphics("Images/Phyre2_input.png")
 knitr::include_graphics("Images/Phyre2_output.png")
 ```
 4. Note that although the AQP protein sequence is not complete, the analysis still modeled it correctly and predicted that it belonged to the PIP subfamily (see Figure \@ref(fig:phyreoutput)). 
+
+# Discussion and Conclusions
+
+> Based on the analyses and data gathered in this lab, what are your thoughts and conclusions on the Aquaporin gene/protein located on `Scaffold151535`?
+
+Examples of questions that we could ask ourselves to answer the above question are:
+
+- How many Aquaporin exons were recovered and where are they located on the scaffold?
+- How many TMHs and loops were inferred? 
+- How many NPA motifs and types were inferred?
+- What is the predicted protein and its function based on the modeling analysis conducted on the AA sequence?
+
+Based on these latter evidence, **do you think that the Aquaporin protein sequence is complete?** The instructor invites you to consult @Melton2021 for more information allowing answering these questions and come to a conclusion.
 
 # References
