@@ -649,6 +649,71 @@ knitr::include_graphics("Images/proteinBLASToutput.png")
 
 Students are tasked to develop an R code producing the DNA sequence of Aquaporin gene located on identified scaffold and its associated protein sequence.
 
+## Function to produce protein sequence
+
+Please find below a user defined function to concatenate ORFs into a protein sequence in `FASTA` format.
+
+```{r eval = T, echo = T}
+###~~~~
+#ORFs2protSeq - A UDF to produce a protein sequence from ORFs
+# Arguments:
+# - fastaAA: Name of Fasta file containing ORFs AA sequences
+# - ORFsToCat: vector with names of ORFs to concatenate (as in FASTA file and including ">" and in the right order)
+# - stopCodon: Logical (TRUE/FALSE) variable to state whether stop (*) codons are in the AA sequences
+# Output:
+# - An object with the concatenated protein sequence in FASTA format
+ORFs2protSeq <- function(fastaAA, ORFsToCat, stopCodon){
+  #Check if the FASTA file exists
+  checkFile <- file.exists(fastaAA)
+  if(checkFile == FALSE){
+    print(paste(fastaAA, "does not exists! Please check that your working directory is set properly.", sep = " "))
+  }else{
+    #Open FASTA file
+    fas <- readLines(fastaAA)
+    
+    #Find ORFs in Fasta file
+    ToFind <- match(ORFsToCat, fas)
+    
+    #Check that all the ORFs were found in the Fasta
+    checkORFs <- is.na(ToFind)
+    if(length(which(checkORFs == TRUE)) > 0){
+      print(paste(paste(ORFsToCat[which(checkORFs == TRUE)], collapse = " "), "couldn't be found in", fastaAA, "please fix the error.", sep = " "))
+    }else{
+      print(paste("Producing protein sequence with", paste(ORFsToCat, collapse = ", "), sep = " "))
+      #Cat ORFs into AA sequence
+      protSeq <- paste(fas[ToFind+1], collapse = "")
+      if(is.logical(stopCodon) == TRUE){
+        #Discard stop codons from final sequence
+        protSeq <- gsub("[*]", "", protSeq)  
+      }
+    }
+    #Produce final protein sequence in FASTA format
+    # header
+    head <- paste(">Protein_sequence_from_", paste(gsub("[>]", "", ORFsToCat), collapse = "|"), sep= "")
+    protSeqOUT <- paste(head, protSeq, sep = "\n")
+    print(protSeqOUT)
+  }
+  return(protSeqOUT)
+}
+```
+
+We apply the UDF *ORFs2protSeq* function to `Scaffolds_groups.fasta`.
+
+```{r eval = T, echo = T}
+#Name of the FASTA file
+fastaAA <- "Data/Scaffold151535_ORFs.fa"
+
+#Fasta headers of the ORFs you want to concatenate
+ORFsToCat <- c(">Scaffold151535_ORF_1", ">Scaffold151535_ORF_13", ">Scaffold151535_ORF_2")
+
+#Stop codon
+stopCodon <- TRUE
+
+#Apply UDF
+ORFs2protSeq(fastaAA, ORFsToCat, stopCodon)
+```
+
+
 # Module 4 {#mod4}
 
 ## Objectives
