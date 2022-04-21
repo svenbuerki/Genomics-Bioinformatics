@@ -651,9 +651,9 @@ Students are tasked to develop an R code producing the DNA sequence of Aquaporin
 
 ## Function to produce protein sequence
 
-Please find below a user defined function to concatenate ORFs into a protein sequence in `FASTA` format.
+Please find below a user defined function (UDF) to concatenate ORFs into a protein sequence in `FASTA` format. This function implements defensive programming (= provide a meaningful error message to the user helping fixing the issue).
 
-```{r eval = T, echo = T}
+```{r eval = T, echo = T, warning = F}
 ###~~~~
 #ORFs2protSeq - A UDF to produce a protein sequence from ORFs
 # Arguments:
@@ -666,18 +666,18 @@ ORFs2protSeq <- function(fastaAA, ORFsToCat, stopCodon){
   #Check if the FASTA file exists
   checkFile <- file.exists(fastaAA)
   if(checkFile == FALSE){
-    print(paste(fastaAA, "does not exists! Please check that your working directory is set properly.", sep = " "))
+    #Stop the function and print error
+    stop(call. = FALSE, paste(fastaAA, "does not exists! Please check that your working directory is set properly.", sep = " "))
   }else{
     #Open FASTA file
     fas <- readLines(fastaAA)
-    
     #Find ORFs in Fasta file
     ToFind <- match(ORFsToCat, fas)
-    
     #Check that all the ORFs were found in the Fasta
     checkORFs <- is.na(ToFind)
     if(length(which(checkORFs == TRUE)) > 0){
-      print(paste(paste(ORFsToCat[which(checkORFs == TRUE)], collapse = " "), "couldn't be found in", fastaAA, "please fix the error.", sep = " "))
+      #Stop the function and print error
+      stop(call. = FALSE, paste(paste(ORFsToCat[which(checkORFs == TRUE)], collapse = " "), " couldn't be found in", fastaAA, " Please fix the error(s).", sep = ""))
     }else{
       print(paste("Producing protein sequence with", paste(ORFsToCat, collapse = ", "), sep = " "))
       #Cat ORFs into AA sequence
@@ -697,13 +697,30 @@ ORFs2protSeq <- function(fastaAA, ORFsToCat, stopCodon){
 }
 ```
 
-We apply the UDF *ORFs2protSeq* function to `Scaffolds_groups.fasta`.
+We apply the UDF *ORFs2protSeq* function to `Scaffolds_groups.fasta`. First, we will use an example where the `ORFsToCat` object contains ORFs that are not found in `fastaAA` file to demonstrate how defensive formatting was implemented in the UDF.
 
-```{r eval = T, echo = T}
+```{r eval = T, echo = T, error=TRUE, warning = F}
 #Name of the FASTA file
 fastaAA <- "Data/Scaffold151535_ORFs.fa"
 
 #Fasta headers of the ORFs you want to concatenate
+# Here some ORFs names are faulty
+ORFsToCat <- c(">Scaffold151535_ORF_1tt", ">Scaffold151535_ORF_13c", ">Scaffold151535_ORF_2")
+
+#Stop codon
+stopCodon <- TRUE
+
+#Apply UDF
+ORFs2protSeq(fastaAA, ORFsToCat, stopCodon)
+```
+Now, we apply the UDF again, but with matching ORFs.
+
+```{r eval = T, echo = T, error=TRUE, warning = F}
+#Name of the FASTA file
+fastaAA <- "Data/Scaffold151535_ORFs.fa"
+
+#Fasta headers of the ORFs you want to concatenate
+# Here ORF names are accurate
 ORFsToCat <- c(">Scaffold151535_ORF_1", ">Scaffold151535_ORF_13", ">Scaffold151535_ORF_2")
 
 #Stop codon
@@ -712,7 +729,6 @@ stopCodon <- TRUE
 #Apply UDF
 ORFs2protSeq(fastaAA, ORFsToCat, stopCodon)
 ```
-
 
 # Module 4 {#mod4}
 

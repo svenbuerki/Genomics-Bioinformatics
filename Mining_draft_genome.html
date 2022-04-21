@@ -955,7 +955,7 @@ Figure 10.3: Output of the protein BLAST analysis. Use the dropdown button to se
 </div>
 <div id="function-to-produce-protein-sequence" class="section level2" number="10.4">
 <h2><span class="header-section-number">10.4</span> Function to produce protein sequence</h2>
-<p>Please find below a user defined function to concatenate ORFs into a protein sequence in <code>FASTA</code> format.</p>
+<p>Please find below a user defined function (UDF) to concatenate ORFs into a protein sequence in <code>FASTA</code> format. This function implements defensive programming (= provide a meaningful error message to the user helping fixing the issue).</p>
 <pre class="r"><code>###~~~~
 #ORFs2protSeq - A UDF to produce a protein sequence from ORFs
 # Arguments:
@@ -968,18 +968,18 @@ ORFs2protSeq &lt;- function(fastaAA, ORFsToCat, stopCodon){
   #Check if the FASTA file exists
   checkFile &lt;- file.exists(fastaAA)
   if(checkFile == FALSE){
-    print(paste(fastaAA, &quot;does not exists! Please check that your working directory is set properly.&quot;, sep = &quot; &quot;))
+    #Stop the function and print error
+    stop(call. = FALSE, paste(fastaAA, &quot;does not exists! Please check that your working directory is set properly.&quot;, sep = &quot; &quot;))
   }else{
     #Open FASTA file
     fas &lt;- readLines(fastaAA)
-    
     #Find ORFs in Fasta file
     ToFind &lt;- match(ORFsToCat, fas)
-    
     #Check that all the ORFs were found in the Fasta
     checkORFs &lt;- is.na(ToFind)
     if(length(which(checkORFs == TRUE)) &gt; 0){
-      print(paste(paste(ORFsToCat[which(checkORFs == TRUE)], collapse = &quot; &quot;), &quot;couldn&#39;t be found in&quot;, fastaAA, &quot;please fix the error.&quot;, sep = &quot; &quot;))
+      #Stop the function and print error
+      stop(call. = FALSE, paste(paste(ORFsToCat[which(checkORFs == TRUE)], collapse = &quot; &quot;), &quot; couldn&#39;t be found in&quot;, fastaAA, &quot; Please fix the error(s).&quot;, sep = &quot;&quot;))
     }else{
       print(paste(&quot;Producing protein sequence with&quot;, paste(ORFsToCat, collapse = &quot;, &quot;), sep = &quot; &quot;))
       #Cat ORFs into AA sequence
@@ -997,11 +997,26 @@ ORFs2protSeq &lt;- function(fastaAA, ORFsToCat, stopCodon){
   }
   return(protSeqOUT)
 }</code></pre>
-<p>We apply the UDF <em>ORFs2protSeq</em> function to <code>Scaffolds_groups.fasta</code>.</p>
+<p>We apply the UDF <em>ORFs2protSeq</em> function to <code>Scaffolds_groups.fasta</code>. First, we will use an example where the <code>ORFsToCat</code> object contains ORFs that are not found in <code>fastaAA</code> file to demonstrate how defensive formatting was implemented in the UDF.</p>
 <pre class="r"><code>#Name of the FASTA file
 fastaAA &lt;- &quot;Data/Scaffold151535_ORFs.fa&quot;
 
 #Fasta headers of the ORFs you want to concatenate
+# Here some ORFs names are faulty
+ORFsToCat &lt;- c(&quot;&gt;Scaffold151535_ORF_1tt&quot;, &quot;&gt;Scaffold151535_ORF_13c&quot;, &quot;&gt;Scaffold151535_ORF_2&quot;)
+
+#Stop codon
+stopCodon &lt;- TRUE
+
+#Apply UDF
+ORFs2protSeq(fastaAA, ORFsToCat, stopCodon)</code></pre>
+<pre><code>## Error: &gt;Scaffold151535_ORF_1tt &gt;Scaffold151535_ORF_13c couldn&#39;t be found inData/Scaffold151535_ORFs.fa Please fix the error(s).</code></pre>
+<p>Now, we apply the UDF again, but with matching ORFs.</p>
+<pre class="r"><code>#Name of the FASTA file
+fastaAA &lt;- &quot;Data/Scaffold151535_ORFs.fa&quot;
+
+#Fasta headers of the ORFs you want to concatenate
+# Here ORF names are accurate
 ORFsToCat &lt;- c(&quot;&gt;Scaffold151535_ORF_1&quot;, &quot;&gt;Scaffold151535_ORF_13&quot;, &quot;&gt;Scaffold151535_ORF_2&quot;)
 
 #Stop codon
@@ -1009,8 +1024,6 @@ stopCodon &lt;- TRUE
 
 #Apply UDF
 ORFs2protSeq(fastaAA, ORFsToCat, stopCodon)</code></pre>
-<pre><code>## Warning in readLines(fastaAA): incomplete final line found on &#39;Data/
-## Scaffold151535_ORFs.fa&#39;</code></pre>
 <pre><code>## [1] &quot;Producing protein sequence with &gt;Scaffold151535_ORF_1, &gt;Scaffold151535_ORF_13, &gt;Scaffold151535_ORF_2&quot;
 ## [1] &quot;&gt;Protein_sequence_from_Scaffold151535_ORF_1|Scaffold151535_ORF_13|Scaffold151535_ORF_2\nMSSKPEIFEISSNDSTSSDSITSPWSSYFPSTYSNSVSKKSTAARSGKKVSTSVNPPVTTQALSMTSKRTQVLGLPTKENYAKITAKGKGKRTLTMEYLTILPEASALFNICLIGWSVMNFIGWASKYLRSLLAICSRARANFSMGAMHLCMHVCNEMLLVSVKIKLLVFIHHQCQNTTWYIVTCLDLTYQLNSYFKHKQKTQLHTFPTL&quot;</code></pre>
 <pre><code>## [1] &quot;&gt;Protein_sequence_from_Scaffold151535_ORF_1|Scaffold151535_ORF_13|Scaffold151535_ORF_2\nMSSKPEIFEISSNDSTSSDSITSPWSSYFPSTYSNSVSKKSTAARSGKKVSTSVNPPVTTQALSMTSKRTQVLGLPTKENYAKITAKGKGKRTLTMEYLTILPEASALFNICLIGWSVMNFIGWASKYLRSLLAICSRARANFSMGAMHLCMHVCNEMLLVSVKIKLLVFIHHQCQNTTWYIVTCLDLTYQLNSYFKHKQKTQLHTFPTL&quot;</code></pre>
