@@ -686,7 +686,7 @@ ORFs2protSeq <- function(fastaAA, ORFsToCat, stopCodon){
     checkORFs <- is.na(ToFind)
     if(length(which(checkORFs == TRUE)) > 0){
       #Stop the function and print error
-      stop(call. = FALSE, paste(paste(ORFsToCat[which(checkORFs == TRUE)], collapse = " "), " couldn't be found in", fastaAA, " Please fix the error(s).", sep = ""))
+      stop(call. = FALSE, paste(paste(ORFsToCat[which(checkORFs == TRUE)], collapse = " "), "couldn't be found in", fastaAA, " Please fix the error(s).", sep = " "))
     }else{
       print(paste("Producing protein sequence with", paste(ORFsToCat, collapse = ", "), sep = " "))
       #Cat ORFs into AA sequence

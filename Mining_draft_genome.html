@@ -986,7 +986,7 @@ ORFs2protSeq &lt;- function(fastaAA, ORFsToCat, stopCodon){
     checkORFs &lt;- is.na(ToFind)
     if(length(which(checkORFs == TRUE)) &gt; 0){
       #Stop the function and print error
-      stop(call. = FALSE, paste(paste(ORFsToCat[which(checkORFs == TRUE)], collapse = &quot; &quot;), &quot; couldn&#39;t be found in&quot;, fastaAA, &quot; Please fix the error(s).&quot;, sep = &quot;&quot;))
+      stop(call. = FALSE, paste(paste(ORFsToCat[which(checkORFs == TRUE)], collapse = &quot; &quot;), &quot;couldn&#39;t be found in&quot;, fastaAA, &quot; Please fix the error(s).&quot;, sep = &quot; &quot;))
     }else{
       print(paste(&quot;Producing protein sequence with&quot;, paste(ORFsToCat, collapse = &quot;, &quot;), sep = &quot; &quot;))
       #Cat ORFs into AA sequence
@@ -1017,7 +1017,7 @@ stopCodon &lt;- TRUE
 
 #Apply UDF
 ORFs2protSeq(fastaAA, ORFsToCat, stopCodon)</code></pre>
-<pre><code>## Error: &gt;Scaffold151535_ORF_1tt &gt;Scaffold151535_ORF_13c couldn&#39;t be found inData/Scaffold151535_ORFs.fa Please fix the error(s).</code></pre>
+<pre><code>## Error: &gt;Scaffold151535_ORF_1tt &gt;Scaffold151535_ORF_13c couldn&#39;t be found in Data/Scaffold151535_ORFs.fa  Please fix the error(s).</code></pre>
 <p>Second, we apply the UDF again, but with matching ORFs (= they are declared in the <code>FASTA</code> file).</p>
 <pre class="r"><code>#Name of the FASTA file
 fastaAA &lt;- &quot;Data/Scaffold151535_ORFs.fa&quot;
