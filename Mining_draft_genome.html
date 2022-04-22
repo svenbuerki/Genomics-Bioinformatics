@@ -11,7 +11,7 @@
 
 <meta name="author" content="Sven Buerki &amp; Anthony Melton - Boise State University" />
 
-<meta name="date" content="2022-04-21" />
+<meta name="date" content="2022-04-22" />
 
 <title>BIOL 497/597 - Genomics &amp; Bioinformatics</title>
 
@@ -383,7 +383,7 @@ div.tocify {
 <h1 class="title toc-ignore">BIOL 497/597 - Genomics &amp; Bioinformatics</h1>
 <h3 class="subtitle">Lab: Mining sagebrush draft genome</h3>
 <h4 class="author">Sven Buerki &amp; Anthony Melton - Boise State University</h4>
-<h4 class="date">2022-04-21</h4>
+<h4 class="date">2022-04-22</h4>
 
 </div>
 
@@ -953,9 +953,16 @@ Figure 10.3: Output of the protein BLAST analysis. Use the dropdown button to se
 <h2><span class="header-section-number">10.3</span> Extract ORF(s) identified by protein BLAST analysis to reconstruct Aquaporin gene sequence</h2>
 <p>Students are tasked to develop an R code producing the DNA sequence of Aquaporin gene located on identified scaffold and its associated protein sequence.</p>
 </div>
-<div id="function-to-produce-protein-sequence" class="section level2" number="10.4">
-<h2><span class="header-section-number">10.4</span> Function to produce protein sequence</h2>
-<p>Please find below a user defined function (UDF) to concatenate ORFs into a protein sequence in <code>FASTA</code> format. This function implements defensive programming (= provide a meaningful error message to the user helping fixing the issue).</p>
+<div id="a-user-defined-function-to-produce-the-protein-sequence" class="section level2" number="10.4">
+<h2><span class="header-section-number">10.4</span> A user-defined function to produce the protein sequence</h2>
+<p>Please find below a user defined function (UDF) to concatenate ORFs into a protein sequence in <code>FASTA</code> format. This function implements defensive programming aiming at providing the users with meaningful error messages to debug their code.</p>
+<p>In this UDF, defensive programming has been implemented 2-ways:</p>
+<ol style="list-style-type: decimal">
+<li>The code <strong>checks that the <code>FASTA</code> file declared in <code>fastaAA</code> exists</strong> in the working directory (or in the provided path) and stops and return an error message pertaining to this issue if it doesn’t.</li>
+<li>The code <strong>checks that all the ORFs declared in <code>ORFsToCat</code> exists in the FASTA file</strong> (= declared in <code>fastaAA</code>) and stops and return an error message pertaining to this issue if they are not all present in the file.</li>
+</ol>
+<p>Finally, the UDF as a logical argument entitled <code>stopCodon</code> allowing to declare whether stop codons (represented by <code>*</code>) are present in the AA sequences (in your <code>FASTA</code> file). Here it is especially convenient since <strong>the concatenated protein sequence should not contain stop codons for our subsequent analyses</strong>. See UDF below for more details.</p>
+<p>The function is provided below for you to inspect.</p>
 <pre class="r"><code>###~~~~
 #ORFs2protSeq - A UDF to produce a protein sequence from ORFs
 # Arguments:
@@ -997,7 +1004,7 @@ ORFs2protSeq &lt;- function(fastaAA, ORFsToCat, stopCodon){
   }
   return(protSeqOUT)
 }</code></pre>
-<p>We apply the UDF <em>ORFs2protSeq</em> function to <code>Scaffolds_groups.fasta</code>. First, we will use an example where the <code>ORFsToCat</code> object contains ORFs that are not found in <code>fastaAA</code> file to demonstrate how defensive formatting was implemented in the UDF.</p>
+<p>We apply the UDF <em>ORFs2protSeq</em> to <code>Scaffolds_groups.fasta</code> (= <code>fastaAA</code>). First, we will use an example where the <code>ORFsToCat</code> argument contains ORFs that are not found in the <code>FASTA</code> file to demonstrate how defensive programming was implemented in the UDF.</p>
 <pre class="r"><code>#Name of the FASTA file
 fastaAA &lt;- &quot;Data/Scaffold151535_ORFs.fa&quot;
 
@@ -1011,7 +1018,7 @@ stopCodon &lt;- TRUE
 #Apply UDF
 ORFs2protSeq(fastaAA, ORFsToCat, stopCodon)</code></pre>
 <pre><code>## Error: &gt;Scaffold151535_ORF_1tt &gt;Scaffold151535_ORF_13c couldn&#39;t be found inData/Scaffold151535_ORFs.fa Please fix the error(s).</code></pre>
-<p>Now, we apply the UDF again, but with matching ORFs.</p>
+<p>Second, we apply the UDF again, but with matching ORFs (= they are declared in the <code>FASTA</code> file).</p>
 <pre class="r"><code>#Name of the FASTA file
 fastaAA &lt;- &quot;Data/Scaffold151535_ORFs.fa&quot;
 

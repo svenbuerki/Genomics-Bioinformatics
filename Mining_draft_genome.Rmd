@@ -649,9 +649,18 @@ knitr::include_graphics("Images/proteinBLASToutput.png")
 
 Students are tasked to develop an R code producing the DNA sequence of Aquaporin gene located on identified scaffold and its associated protein sequence.
 
-## Function to produce protein sequence
+## A user-defined function to produce the protein sequence
 
-Please find below a user defined function (UDF) to concatenate ORFs into a protein sequence in `FASTA` format. This function implements defensive programming (= provide a meaningful error message to the user helping fixing the issue).
+Please find below a user defined function (UDF) to concatenate ORFs into a protein sequence in `FASTA` format. This function implements defensive programming aiming at providing the users with meaningful error messages to debug their code.
+
+In this UDF, defensive programming has been implemented 2-ways:
+
+1. The code **checks that the `FASTA` file declared in `fastaAA` exists** in the working directory (or in the provided path) and stops and return an error message pertaining to this issue if it doesn't.
+2. The code **checks that all the ORFs declared in `ORFsToCat` exists in the FASTA file** (= declared in `fastaAA`) and stops and return an error message pertaining to this issue if they are not all present in the file. 
+
+Finally, the UDF as a logical argument entitled `stopCodon` allowing to declare whether stop codons (represented by `*`) are present in the AA sequences (in your `FASTA` file). Here it is especially convenient since **the concatenated protein sequence should not contain stop codons for our subsequent analyses**. See UDF below for more details.
+
+The function is provided below for you to inspect.
 
 ```{r eval = T, echo = T, warning = F}
 ###~~~~
@@ -697,7 +706,7 @@ ORFs2protSeq <- function(fastaAA, ORFsToCat, stopCodon){
 }
 ```
 
-We apply the UDF *ORFs2protSeq* function to `Scaffolds_groups.fasta`. First, we will use an example where the `ORFsToCat` object contains ORFs that are not found in `fastaAA` file to demonstrate how defensive formatting was implemented in the UDF.
+We apply the UDF *ORFs2protSeq* to `Scaffolds_groups.fasta` (= `fastaAA`). First, we will use an example where the `ORFsToCat` argument contains ORFs that are not found in the `FASTA` file to demonstrate how defensive programming was implemented in the UDF.
 
 ```{r eval = T, echo = T, error=TRUE, warning = F}
 #Name of the FASTA file
@@ -713,7 +722,7 @@ stopCodon <- TRUE
 #Apply UDF
 ORFs2protSeq(fastaAA, ORFsToCat, stopCodon)
 ```
-Now, we apply the UDF again, but with matching ORFs.
+Second, we apply the UDF again, but with matching ORFs (= they are declared in the `FASTA` file).
 
 ```{r eval = T, echo = T, error=TRUE, warning = F}
 #Name of the FASTA file
