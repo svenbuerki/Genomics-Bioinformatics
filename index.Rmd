@@ -4,12 +4,12 @@ subtitle: "Syllabus & Timetable"
 author: "Sven Buerki - Boise State University"
 date: "`r Sys.Date()`"
 output:
-#  bookdown::pdf_document2:
-#    toc: TRUE
-  bookdown::html_document2: 
+  bookdown::pdf_document2:
     toc: TRUE
-    toc_float: TRUE
-    self_contained: TRUE
+#  bookdown::html_document2: 
+#    toc: TRUE
+#    toc_float: TRUE
+#    self_contained: TRUE
 link-citations: yes
 fontsize: 12pt
 urlcolor: blue
@@ -83,16 +83,15 @@ Please see section \@ref(timetable) for tentative timetable for this course.
 
 The following rules apply for in-person classes:
 
-- Wear masks and maintain physical distancing.
-- Use sanitizing wipes to clean surfaces (desk and keyboard) at beginning and end of class.
-- Keep using the same seat throughout the semester. This information should be entered into MyBoiseState.
-- Do not attend class if you are sick.
+- You can use sanitizing wipes to clean surfaces (desk and keyboard) at beginning and end of class.
+- **NO required seat assignments**.
+- Students should not attend class in person if they have any of the listed infectious diseases within the [Communicable Disease Policy](https://www.boisestate.edu/policy/facilities-planning-campus-safety/communicable-disease/).
 
-For more information consult the [BSU campus guidelines](https://www.boisestate.edu/coronavirus-response/).
+For more information consult the [BSU campus public health](https://www.boisestate.edu/publichealth/) website.
 
 # Course goal and description
 
-The goal of this course is to provide students with the theoretical and applied knowledge in genomics and bioinformatics to sequence, assemble and annotate genomes, especially for non-model organisms (see Figure \@ref(fig:flowchart)). To provide an authentic research experience, we will be using examples from the instructor's research on sagebrush (*Artemisia tridentata*; Asteraceae) genomics [e.g. @Melton2021].
+The goal of this course is to provide students with the theoretical and applied knowledge in genomics and bioinformatics to sequence, assemble and annotate genomes, especially for non-model organisms (see Figure \@ref(fig:flowchart)). To provide an authentic research experience, we will be using examples from the instructor's research on sagebrush (*Artemisia tridentata*; Asteraceae) genomics [e.g., @Melton2021; @Melton2022].
 
 ```{r flowchart, echo=FALSE, fig.cap="Overview of the structure of the course. See text for more details.", out.width = '100%', fig.pos= "h"}
 knitr::include_graphics("Images/Flowchart_course_crop.png")
@@ -538,15 +537,13 @@ Among these are:
 
 # Timetable {#timetable}
 
-A tentative timetable for the Spring semester 2022 is presented in Table \@ref(tab:timetab).
+A tentative timetable for the Spring semester 2023 is presented in Table \@ref(tab:timetab).
 
 ```{r timetab, echo=FALSE}
 ###~~~
 # Build a data frame with all dates from beginning to end of Fall semester
 ###~~~
-#From <- "2021/01/11"
-#To <- "2021/04/30"
-dates <- data.frame(seq.Date(from=as.Date("2022/01/10"), to=as.Date("2022/04/29"), by="day"))
+dates <- data.frame(seq.Date(from=as.Date("2023/01/09"), to=as.Date("2023/04/28"), by="day"))
 #Assign a name to the col (allows using $)
 colnames(dates) <- "Date"
 
@@ -572,9 +569,7 @@ datesclass <- data.frame(WeekID = sort(rep(seq(from=1, to=16, by=1), 2)), datesc
 # Exclude dates falling during holiday break
 ###~~~
 #Establish vector of dates related to holidays
-#From <- "2021/04/12"
-#To <- "2021/04/16"
-holiday <- seq.Date(from=as.Date("2022/03/21"), to=as.Date("2022/03/25"), by="day")
+holiday <- seq.Date(from=as.Date("2023/03/20"), to=as.Date("2023/03/24"), by="day")
 
 #Find and exclude holidays
 datesclass <- datesclass[-which(datesclass$Date %in% holiday),]
@@ -598,12 +593,13 @@ colnames(timetable)[5] <- "Task / Deadline"
 #Plot timetable in doc
 ###~~~
 
-knitr::kable(timetable,  caption = "Tentative timetable for the Genomics and Bioinformatics course during the Spring semester 2022.") %>%
+knitr::kable(timetable,  caption = "Tentative timetable for the Genomics and Bioinformatics course during the Spring semester 2023.") %>%
   kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
 
 #PDF
-#landscape(knitr::kable(timetable, caption = "Tentative timetable for the Genomics #and Bioinformatics course during the Spring semester 2022.", booktabs = T, #"latex") %>% kable_styling(latex_options = c("striped","scale_down"))
-#          )
+#landscape(knitr::kable(timetable, caption = "Tentative timetable for the Spring semester 2023.", booktabs = T) 
+#                       %>% kable_styling(latex_options = c("striped","scale_down"))
+#)
 ```
 
 
