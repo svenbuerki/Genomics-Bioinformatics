@@ -11,17 +11,25 @@
 
 <meta name="author" content="Sven Buerki - Boise State University" />
 
-<meta name="date" content="2022-03-30" />
+<meta name="date" content="2023-01-07" />
 
 <title>BIOL 497/597 - Genomics &amp; Bioinformatics</title>
 
-<script src="site_libs/header-attrs-2.6/header-attrs.js"></script>
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
 <script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
@@ -39,11 +47,6 @@
     </style>
 
 <style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
 <script type="text/javascript">
 if (window.hljs) {
   hljs.configure({languages: []});
@@ -56,32 +59,7 @@ if (window.hljs) {
 
 
 
-<style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
-</style>
+
 
 <style type="text/css">
 /* for pandoc --citeproc since 2.11 */
@@ -115,10 +93,6 @@ div.csl-indent {
   margin-left: auto;
   margin-right: auto;
 }
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
-}
 img {
   max-width:100%;
 }
@@ -134,40 +108,16 @@ button.code-folding-btn:focus {
 summary {
   display: list-item;
 }
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
 </style>
 
 
 <style type="text/css">
-/* padding for bootstrap navbar */
-body {
-  padding-top: 51px;
-  padding-bottom: 40px;
-}
-/* offset scroll position for anchor links (for fixed navbar)  */
-.section h1 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h2 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h3 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h4 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h5 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h6 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
 .dropdown-submenu {
   position: relative;
 }
@@ -195,7 +145,7 @@ body {
   margin-right: -10px;
 }
 .dropdown-submenu:hover>a:after {
-  border-left-color: #ffffff;
+  border-left-color: #adb5bd;
 }
 .dropdown-submenu.pull-left {
   float: none;
@@ -207,7 +157,7 @@ body {
 }
 </style>
 
-<script>
+<script type="text/javascript">
 // manage active state of menu based on current page
 $(document).ready(function () {
   // active menu anchor
@@ -217,11 +167,28 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.parent().addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
 });
 </script>
 
@@ -233,7 +200,6 @@ $(document).ready(function () {
   max-height: 500px;
   min-height: 44px;
   overflow-y: auto;
-  background: white;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -359,7 +325,7 @@ div.tocify {
 
 
 <!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row-fluid">
+<div class="row">
 <div class="col-xs-12 col-sm-4 col-md-3">
 <div id="TOC" class="tocify">
 </div>
@@ -373,7 +339,7 @@ div.tocify {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -414,14 +380,14 @@ div.tocify {
   </div><!--/.container -->
 </div><!--/.navbar -->
 
-<div class="fluid-row" id="header">
+<div id="header">
 
 
 
 <h1 class="title toc-ignore">BIOL 497/597 - Genomics &amp; Bioinformatics</h1>
 <h3 class="subtitle">Chapters</h3>
 <h4 class="author">Sven Buerki - Boise State University</h4>
-<h4 class="date">2022-03-30</h4>
+<h4 class="date">2023-01-07</h4>
 
 </div>
 
@@ -438,7 +404,7 @@ $(document).ready(function() {
 </div>
 <div id="syllabus" class="section level1" number="2">
 <h1><span class="header-section-number">2</span> Syllabus</h1>
-<p>The presentation slides (in <code>pdf</code> format) of the Syllabus can be downloaded <a href="Lectures/Chapter_00_Syllabus_Spring2022.pdf" target="_blank">here</a>.</p>
+<p>The presentation slides (in <code>pdf</code> format) of the Syllabus can be downloaded <a href="Lectures/Chapter_00_Syllabus_Spring.pdf" target="_blank">here</a>.</p>
 </div>
 <div id="chapter-1" class="section level1" number="3">
 <h1><span class="header-section-number">3</span> Chapter 1</h1>
@@ -447,7 +413,7 @@ $(document).ready(function() {
 <h2><span class="header-section-number">3.1</span> Learning outcomes</h2>
 <p>The key learning outcomes of this chapter are:</p>
 <ul>
-<li>Understand the differences between “Genetics” and “Genomics.”</li>
+<li>Understand the differences between “Genetics” and “Genomics”.</li>
 <li>Know the basic dogma that DNA is transcribed to RNA, which is translated to protein. This will be especially important for the <a href="Mining_draft_genome.html">Lab. report</a>.</li>
 <li>Appreciate the diversity of genome organization in organelles, prokaryotes and eukaryotes.</li>
 <li>Appreciate that organelle genomes have forged eukaryotic chromosomes and that this has to be accounted for in designing genome assembly projects.</li>
@@ -551,7 +517,7 @@ $(document).ready(function() {
 <div id="objectives" class="section level2" number="6.1">
 <h2><span class="header-section-number">6.1</span> Objectives</h2>
 <p>In this chapter, we aim at training students in producing a draft nuclear genome for a non-model organism using Illumina data.</p>
-<p>The whole-genome shotgun (WGS) sequencing dataset published by <span class="citation"><a href="#ref-Zhang2017" role="doc-biblioref">Zhang et al.</a> (<a href="#ref-Zhang2017" role="doc-biblioref">2017</a>)</span> on the orchid species <em>Apostasia shenzhenica</em> is used as case-study. This dataset provides an opportunity to gain firsthand experience in analyzing NGS data. <span class="citation"><a href="#ref-Zhang2017" role="doc-biblioref">Zhang et al.</a> (<a href="#ref-Zhang2017" role="doc-biblioref">2017</a>)</span> have also produced RNA-Seq data, which were used in their study to support genome annotation. <span class="citation"><a href="#ref-Zhang2017" role="doc-biblioref">Zhang et al.</a> (<a href="#ref-Zhang2017" role="doc-biblioref">2017</a>)</span> is available in our shared <a href="https://drive.google.com/file/d/1S1FWnEmxBC3_Ghl40S5GhcTVecQ2X4qd/view?usp=sharing">Google Drive</a>.</p>
+<p>The whole-genome shotgun (WGS) sequencing dataset published by <span class="citation">Zhang et al. (<a href="#ref-Zhang2017" role="doc-biblioref">2017</a>)</span> on the orchid species <em>Apostasia shenzhenica</em> is used as case-study. This dataset provides an opportunity to gain firsthand experience in analyzing NGS data. <span class="citation">Zhang et al. (<a href="#ref-Zhang2017" role="doc-biblioref">2017</a>)</span> have also produced RNA-Seq data, which were used in their study to support genome annotation. <span class="citation">Zhang et al. (<a href="#ref-Zhang2017" role="doc-biblioref">2017</a>)</span> is available in our shared <a href="https://drive.google.com/file/d/1S1FWnEmxBC3_Ghl40S5GhcTVecQ2X4qd/view?usp=sharing">Google Drive</a>.</p>
 <p>The chapter is subdivided into three parts:</p>
 <ul>
 <li><a href="#PART1"><strong>PART 1:</strong></a> Preparing/cleaning Illumina reads for <em>de novo</em> nuclear genome assembly and inferring genome size and complexity.</li>
@@ -572,8 +538,8 @@ $(document).ready(function() {
 <h2><span class="header-section-number">6.3</span> Presenting the NGS data</h2>
 <p>Details on the WGS PE Illumina library studied here are provided in Figure <a href="#fig:SRA">6.1</a>. The SRA accession number is <a href="https://trace.ncbi.nlm.nih.gov/Traces/sra/?run=SRR5759389">SRR5759389</a> and the most important information to know about this data are that the fragments insert-size of the library is 180 bp and that the length of each PE read is 90 bp. Note that the authors have performed a round of PCR amplification during their library preparation. This step is know to potentially introduce errors in reads, which could be identified by performing k-mer analyses.</p>
 <p>The number of bases shown in Figure <a href="#fig:SRA">6.1</a> was inferred as follows: <span class="math inline">\(\text{N bases} = \text{N. spots * reads length (bp)}\)</span>. In this example, <span class="math inline">\(\text{N bases} = 84.1e6 * 180 (90 + 90) = 15.1e9bp = 15.1Gbp\)</span>.</p>
-<p>You can also obtain a rough estimate of haploid genome coverage (x) by using the following equation: <span class="math inline">\(\text{Raw haploid genome coverage (x)} = \text{N bases / Genome size (haploid)}\)</span>. In this example, <span class="math inline">\(\text{Raw haploid genome coverage (x)} = 15.1e9 / 471.0e6 = 32x\)</span>. The estimation of haploid genome size was taken from <span class="citation"><a href="#ref-Zhang2017" role="doc-biblioref">Zhang et al.</a> (<a href="#ref-Zhang2017" role="doc-biblioref">2017</a>)</span>.</p>
-<div class="figure" style="text-align: center"><span id="fig:SRA"></span>
+<p>You can also obtain a rough estimate of haploid genome coverage (x) by using the following equation: <span class="math inline">\(\text{Raw haploid genome coverage (x)} = \text{N bases / Genome size (haploid)}\)</span>. In this example, <span class="math inline">\(\text{Raw haploid genome coverage (x)} = 15.1e9 / 471.0e6 = 32x\)</span>. The estimation of haploid genome size was taken from <span class="citation">Zhang et al. (<a href="#ref-Zhang2017" role="doc-biblioref">2017</a>)</span>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:SRA"></span>
 <img src="Images/SRR5759389_details.png" alt="Details on the WGS library (SRA accession number: SRR5759389) used in this tutorial. " width="100%" />
 <p class="caption">
 Figure 6.1: Details on the WGS library (SRA accession number: SRR5759389) used in this tutorial.
@@ -599,7 +565,7 @@ Figure 6.1: Details on the WGS library (SRA accession number: SRR5759389) used i
 <div id="analytical-workflow" class="section level3" number="6.6.1">
 <h3><span class="header-section-number">6.6.1</span> Analytical workflow</h3>
 <p>The overarching objective of this tutorial is to gain theoretical and bioinformatics knowledge on the steps required to prepare PE Illumina reads for <em>de novo</em> nuclear genome assembly as well as infer genome size and complexity (see Figure <a href="#fig:part1">6.2</a>).</p>
-<div class="figure" style="text-align: center"><span id="fig:part1"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:part1"></span>
 <img src="Images/Chapter_4_Part1_steps_covered.png" alt="Workflow applied to assemble and annotate a genome for non-model organisms. Steps associated to PART 1 are highlighted in grey." width="80%" />
 <p class="caption">
 Figure 6.2: Workflow applied to assemble and annotate a genome for non-model organisms. Steps associated to PART 1 are highlighted in grey.
@@ -617,7 +583,7 @@ Figure 6.2: Workflow applied to assemble and annotate a genome for non-model org
 </ul></li>
 <li><strong>Step 5:</strong> Estimate genome size and complexity (especially looking at repetitive elements and heterozygosity rate) using k-mer frequencies.</li>
 </ul>
-<div class="figure" style="text-align: center"><span id="fig:part1workflow"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:part1workflow"></span>
 <img src="Images/Cleaning_reads.png" alt="Overview of the analytical workflow applied here to prepare/clean Illumina reads for genome assembly and inferring genome size and complexity. Details on associated bioinformatic tools (here software) and file formats are also provided." width="100%" />
 <p class="caption">
 Figure 6.3: Overview of the analytical workflow applied here to prepare/clean Illumina reads for genome assembly and inferring genome size and complexity. Details on associated bioinformatic tools (here software) and file formats are also provided.
@@ -706,7 +672,7 @@ scp bio_11@132.178.142.214:~/Documents/02_Kmers_analyses/FastQC/SRR5759389_pe12_
 <li>Identify where the target file needs to be saved on your personal computer.</li>
 <li>Copy the file on your personal computer by dragging the target file from the remote to the local location.</li>
 </ol>
-<div class="figure" style="text-align: center"><span id="fig:FileZilla"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:FileZilla"></span>
 <img src="Images/FileZilla_snapshot.png" alt="Snapshot of FileZilla program used to transfer files between computers." width="80%" />
 <p class="caption">
 Figure 6.4: Snapshot of FileZilla program used to transfer files between computers.
@@ -745,7 +711,7 @@ AA, AT, TT, TG, GG, GC, CC, CG</p>
 <li>Other sequences may exist at 10,000x coverage. These could be pathogens or repetitive elements. Often, there is no benefit to retaining all copies of such sequences because the assembly software will be confused by them; while retaining a small proportion such reads could significantly reduce CPU, memory and space requirements.</li>
 </ul>
 <p>Please find below the plot of k-mer frequencies inferred from the trimmed library studied here (<code>SRR5759389</code>), which suggests that the haploid genome of <em>Apostasia shenzhenica</em> is sequenced at ca. 25x (Figure <a href="#fig:kmerstrimmed">6.5</a>). The methodology used to infer this graph is explained in Step 4.</p>
-<div class="figure" style="text-align: center"><span id="fig:kmerstrimmed"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:kmerstrimmed"></span>
 <img src="Images/GenomeSize_trimmed.png" alt="Distribution of 21-mer frequencies based on the trimmed library with insert fragment size of 180 bp. Given only one peak in the k-mer distribution, we predict that the *Apostasia shenzhenica* genome has limited heterozygosity or in other words, that this genome is inbred." width="100%" />
 <p class="caption">
 Figure 6.5: Distribution of 21-mer frequencies based on the trimmed library with insert fragment size of 180 bp. Given only one peak in the k-mer distribution, we predict that the <em>Apostasia shenzhenica</em> genome has limited heterozygosity or in other words, that this genome is inbred.
@@ -834,7 +800,7 @@ hist(as.numeric(gc_frac[,1]), main=&quot;Histogram of GC content per reads&quot;
 #Close pdf file
 dev.off()</code></pre>
 <p>The histogram displaying the distribution of GC values based on cleaned reads is provided in Figure <a href="#fig:GC">6.6</a>.</p>
-<div class="figure" style="text-align: center"><span id="fig:GC"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:GC"></span>
 <img src="Images/GC_content_hist.png" alt="Histogram of GC values inferred from the cleaned library of reads (SRR5759389). See text for more details." width="80%" />
 <p class="caption">
 Figure 6.6: Histogram of GC values inferred from the cleaned library of reads (SRR5759389). See text for more details.
@@ -852,11 +818,11 @@ Figure 6.6: Histogram of GC values inferred from the cleaned library of reads (S
 <p>Here we aim at assessing the proportions of reads in the clean library belonging to either nuclear or chloroplast genomes by mapping our clean reads against two reference genomes using <code>bwa</code> <span class="citation">(<a href="#ref-bwa2009" role="doc-biblioref">Li and Durbin, 2009</a>)</span> and <code>samtools</code> <span class="citation">(<a href="#ref-samtools2009" role="doc-biblioref">Li, Handsaker, et al., 2009</a>)</span>. Data are available in <code>Map_reads/</code>.</p>
 <div id="mapping-reads-against-the-nuclear-genome" class="section level5" number="6.6.8.2.1">
 <h5><span class="header-section-number">6.6.8.2.1</span> Mapping reads against the nuclear genome</h5>
-<p>The nuclear genome of <em>Apostasia shenzhenica</em> published by <span class="citation"><a href="#ref-Zhang2017" role="doc-biblioref">Zhang et al.</a> (<a href="#ref-Zhang2017" role="doc-biblioref">2017</a>)</span> is not listed in the NCBI database as “Genome,” but rather as “Assembly.” Please see Figure <a href="#fig:NuclearNCBI">6.7</a> for more details on the genome. This file (a compressed FASTA) is already available in your folder, but you could download it as follows:</p>
+<p>The nuclear genome of <em>Apostasia shenzhenica</em> published by <span class="citation">Zhang et al. (<a href="#ref-Zhang2017" role="doc-biblioref">2017</a>)</span> is not listed in the NCBI database as “Genome”, but rather as “Assembly”. Please see Figure <a href="#fig:NuclearNCBI">6.7</a> for more details on the genome. This file (a compressed FASTA) is already available in your folder, but you could download it as follows:</p>
 <pre class="bash"><code>#Get Fasta files for genomes of reference
 #PEFY01 nuclear genome of Apostasia 
 wget ftp://ftp.ncbi.nlm.nih.gov/sra/wgs_aux/PE/FY/PEFY01/PEFY01.1.fsa_nt.gz</code></pre>
-<div class="figure" style="text-align: center"><span id="fig:NuclearNCBI"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:NuclearNCBI"></span>
 <img src="Images/Nuclear_genome_assembly.png" alt="Screen shot of the NCBI website showing details about the accession containing the nuclear genome assembly of *Apostasia shenzhenica* under the accession PEFY01." width="100%" />
 <p class="caption">
 Figure 6.7: Screen shot of the NCBI website showing details about the accession containing the nuclear genome assembly of <em>Apostasia shenzhenica</em> under the accession PEFY01.
@@ -979,7 +945,7 @@ dev.off()</code></pre>
 <p>How does this genome size estimation compare with the one conducted based on reads that were only trimmed provided in Figure <a href="#fig:kmerstrimmed">6.5</a>?</p>
 </blockquote>
 <blockquote>
-<p>Finally, are the latter two estimations close to the 349 Mb provided in <span class="citation"><a href="#ref-Zhang2017" role="doc-biblioref">Zhang et al.</a> (<a href="#ref-Zhang2017" role="doc-biblioref">2017</a>)</span>?</p>
+<p>Finally, are the latter two estimations close to the 349 Mb provided in <span class="citation">Zhang et al. (<a href="#ref-Zhang2017" role="doc-biblioref">2017</a>)</span>?</p>
 </blockquote>
 </div>
 </div>
@@ -989,7 +955,7 @@ dev.off()</code></pre>
 <div id="lets-run-the-analysis" class="section level5" number="6.6.9.2.1">
 <h5><span class="header-section-number">6.6.9.2.1</span> Let’s run the analysis</h5>
 <p>Open a web browser and navigate to the GenomeScope website (<a href="http://qb.cshl.edu/genomescope/" class="uri">http://qb.cshl.edu/genomescope/</a>). Once on the website, upload <code>Orchid_21mer_SRR5759389_pe12_max100.trimmed.norare.histo</code> by dragging your file onto the small window and set the analysis as provided in Figure <a href="#fig:GenScope1">6.8</a>.</p>
-<div class="figure" style="text-align: center"><span id="fig:GenScope1"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:GenScope1"></span>
 <img src="Images/Screen.png" alt="Screen shot of the GenomeScope portal to help you setting your analysis." width="100%" />
 <p class="caption">
 Figure 6.8: Screen shot of the GenomeScope portal to help you setting your analysis.
@@ -999,7 +965,7 @@ Figure 6.8: Screen shot of the GenomeScope portal to help you setting your analy
 <div id="interpreting-results-of-genomescope" class="section level5" number="6.6.9.2.2">
 <h5><span class="header-section-number">6.6.9.2.2</span> Interpreting results of GenomeScope</h5>
 <p>The output of <code>GenomeScope</code> is displayed in Figure <a href="#fig:GenScope2">6.9</a>. The program outputs two plots and the only difference between those is that the the second plot is using a log transformation for the axes. This transformation allows better teasing apart the different elements studied here. The big peak at 25 in the graph above is in fact the homozygous portions of the genome that account for the identical 21-mers from both strands of the DNA (haploid genome mostly composed of single-copy genes). The dotted line corresponds to the predicted center of that peak. The absence of a shoulder to the left of the peak suggests that this genome has a very low level of heterozygosity. The red line on the left corresponds to PCR errors. Finally, the proportion of unique sequences, which would correspond to low-copy genes is depicted by the yellow line and the amount of repetitive DNA is estimated by comparing the “space” between the black and yellow lines (on the right side of the graph).</p>
-<div class="figure" style="text-align: center"><span id="fig:GenScope2"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:GenScope2"></span>
 <img src="Images/genomescope1.png" alt="Output of the GenomeScope analysis." width="80%" />
 <p class="caption">
 Figure 6.9: Output of the GenomeScope analysis.
@@ -1037,12 +1003,12 @@ Figure 6.9: Output of the GenomeScope analysis.
 <div id="specific-objective" class="section level4" number="6.7.4.1">
 <h4><span class="header-section-number">6.7.4.1</span> Specific objective</h4>
 <p>Here, students will be learning the procedure to set-up and perform a <em>de novo</em> genome assembly using cleaned PE Illumina reads as implemented in <code>SOAPdenovo2</code> <span class="citation">(<a href="#ref-Luo2012" role="doc-biblioref">Luo et al., 2012</a>)</span>. The analysis will be conducted on the output files obtained after cleaning reads based on Phred scores and k-mer distributions (see section <a href="#dataPART2">6.7.2</a> for more details on the input files).</p>
-<p><code>SOAPdenovo2</code> is the updated version of the program that was used by <span class="citation"><a href="#ref-Li2009" role="doc-biblioref">Li, Fan, et al.</a> (<a href="#ref-Li2009" role="doc-biblioref">2009</a>)</span> to assemble the nuclear genome of the giant panda. The draft nuclear genome of <em>Apostasia shenzhenica</em> was not inferred with this latter program, but with <code>ALLPATHS-LG</code> <span class="citation">(<a href="#ref-Gnerre1513" role="doc-biblioref">Gnerre et al., 2011</a>)</span>. The draft assembly was obtained based on multiple Illumina short-reads libraries exhibiting different insert-sizes <span class="citation">(see <a href="#ref-Zhang2017" role="doc-biblioref">Zhang et al., 2017</a>)</span>. The authors have conducted a final round of gap closures to polish their assembly based on PacBio long-reads. It will therefore be interesting to compare our assembly based on one Illumina library with the one obtained by <span class="citation"><a href="#ref-Zhang2017" role="doc-biblioref">Zhang et al.</a> (<a href="#ref-Zhang2017" role="doc-biblioref">2017</a>)</span> inferred uisng a combination of short and long read data. Further information justifying using <code>SOAPdenovo2</code> instead of <code>ALLPATHS-LG</code> are provided below.</p>
+<p><code>SOAPdenovo2</code> is the updated version of the program that was used by <span class="citation">Li, Fan, et al. (<a href="#ref-Li2009" role="doc-biblioref">2009</a>)</span> to assemble the nuclear genome of the giant panda. The draft nuclear genome of <em>Apostasia shenzhenica</em> was not inferred with this latter program, but with <code>ALLPATHS-LG</code> <span class="citation">(<a href="#ref-Gnerre1513" role="doc-biblioref">Gnerre et al., 2011</a>)</span>. The draft assembly was obtained based on multiple Illumina short-reads libraries exhibiting different insert-sizes <span class="citation">(see <a href="#ref-Zhang2017" role="doc-biblioref">Zhang et al., 2017</a>)</span>. The authors have conducted a final round of gap closures to polish their assembly based on PacBio long-reads. It will therefore be interesting to compare our assembly based on one Illumina library with the one obtained by <span class="citation">Zhang et al. (<a href="#ref-Zhang2017" role="doc-biblioref">2017</a>)</span> inferred uisng a combination of short and long read data. Further information justifying using <code>SOAPdenovo2</code> instead of <code>ALLPATHS-LG</code> are provided below.</p>
 </div>
 <div id="background-on-soapdenovo2" class="section level4" number="6.7.4.2">
 <h4><span class="header-section-number">6.7.4.2</span> Background on <code>SOAPdenovo2</code></h4>
 <p><code>SOAPdenovo2</code> <span class="citation">(<a href="#ref-Luo2012" role="doc-biblioref">Luo et al., 2012</a>)</span> is a short-read genome assembler, which was especially developed to handle Illumina reads and to build <code>de novo</code> draft assemblies for human-sized genomes. This program creates new opportunities for building reference sequences and carrying out accurate analyses of unexplored genomes in a cost effective way. As stated above, <code>SOAPdenovo2</code> aims for large eukaryote genomes, but it also works well on bacteria and fungi genomes. It runs on 64-bit Linux system with a minimum of 5GB of physical memory. For big genomes like human (3.2Gbp), about 150GB of memory are required.</p>
-<p>In our case, we have estimated the haploid genome size of <em>Apostasia shenzhenica</em> to be around 340Mbp in our previous tutorial. This latter evidence therefore suggests that  is adapted to assemble a draft genome for this species of orchid.</p>
+<p>In our case, we have estimated the haploid genome size of <em>Apostasia shenzhenica</em> to be around 340Mbp in our previous tutorial. This latter evidence therefore suggests that is adapted to assemble a draft genome for this species of orchid.</p>
 </div>
 <div id="structure-of-soapdenovo2" class="section level4" number="6.7.4.3">
 <h4><span class="header-section-number">6.7.4.3</span> Structure of <code>SOAPdenovo2</code></h4>
@@ -1055,7 +1021,7 @@ Figure 6.9: Output of the GenomeScope analysis.
 <li>Scaffold construction.</li>
 <li>Gap closure.</li>
 </ol>
-<p>Please read <span class="citation"><a href="#ref-Luo2012" role="doc-biblioref">Luo et al.</a> (<a href="#ref-Luo2012" role="doc-biblioref">2012</a>)</span> for more details on the approach implemented in <code>SOAPdenovo2</code>.</p>
+<p>Please read <span class="citation">Luo et al. (<a href="#ref-Luo2012" role="doc-biblioref">2012</a>)</span> for more details on the approach implemented in <code>SOAPdenovo2</code>.</p>
 </div>
 <div id="why-are-we-using-soapdenovo2-to-assemble-this-genome" class="section level4" number="6.7.4.4">
 <h4><span class="header-section-number">6.7.4.4</span> Why are we using SOAPdenovo2 to assemble this genome?</h4>
@@ -1112,8 +1078,8 @@ soapdenovo2-63mer all -s soap_config.txt -K 63 -R -p 16 -o SRR5759239_assembly</
 <h2><span class="header-section-number">6.8</span> PART 3: Validation of the draft genome</h2>
 <div id="objective-1" class="section level3" number="6.8.1">
 <h3><span class="header-section-number">6.8.1</span> Objective</h3>
-<p>In this part, students are learning how to use <code>QUAST</code> to assess the quality of the <em>de novo</em> genome assembly inferred in PART 2 using <code>SOAPdenovo2</code>. <code>QUAST</code> is used to validate the assembly (based on one PE Illumina library; <code>SRR5759389</code>) by comparing it with the assembly published by <span class="citation"><a href="#ref-Zhang2017" role="doc-biblioref">Zhang et al.</a> (<a href="#ref-Zhang2017" role="doc-biblioref">2017</a>)</span> (available under the GenBank accession number: <code>PEFY01</code>). Such approach is especially useful to assess the level of misassemblies (see Figure <a href="#fig:assemblyworkflow">6.10</a>). Please keep in mind that this assembly has only been inferred from one PE Illumina library.</p>
-<div class="figure" style="text-align: center"><span id="fig:assemblyworkflow"></span>
+<p>In this part, students are learning how to use <code>QUAST</code> to assess the quality of the <em>de novo</em> genome assembly inferred in PART 2 using <code>SOAPdenovo2</code>. <code>QUAST</code> is used to validate the assembly (based on one PE Illumina library; <code>SRR5759389</code>) by comparing it with the assembly published by <span class="citation">Zhang et al. (<a href="#ref-Zhang2017" role="doc-biblioref">2017</a>)</span> (available under the GenBank accession number: <code>PEFY01</code>). Such approach is especially useful to assess the level of misassemblies (see Figure <a href="#fig:assemblyworkflow">6.10</a>). Please keep in mind that this assembly has only been inferred from one PE Illumina library.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:assemblyworkflow"></span>
 <img src="Images/Assembly_workflow.png" alt="Overview of the assembly workflow. Here are few key definitions: Contig: A contiguous sequence of bases. Unitig: A type of contig for which there are no competing choices in terms of internal overlaps (they usually stop before a repeat sequence). Scaffold: A sequence of contigs separated by gaps (Ns). See PART 2 for more details." width="80%" />
 <p class="caption">
 Figure 6.10: Overview of the assembly workflow. Here are few key definitions: Contig: A contiguous sequence of bases. Unitig: A type of contig for which there are no competing choices in terms of internal overlaps (they usually stop before a repeat sequence). Scaffold: A sequence of contigs separated by gaps (Ns). See PART 2 for more details.
@@ -1322,7 +1288,7 @@ quast.py -R ~/Documents/02_Kmers_analyses/Map_reads/PEFY01.1.fsa_nt.gz --threads
 <li><code>report.html</code>: HTML version of the report with interactive plots inside.</li>
 <li><code>report.pdf</code>: All plots combined with all tables (see Figure <a href="#fig:QUAST">6.11</a>).</li>
 </ul>
-<div class="figure" style="text-align: center"><span id="fig:QUAST"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:QUAST"></span>
 <img src="Images/QUAST_output.png" alt="Screenshot of the report.html file showing the statistics and plots inferred by QUAST on the results of the SOAPdenovo2 assembly." width="80%" />
 <p class="caption">
 Figure 6.11: Screenshot of the report.html file showing the statistics and plots inferred by QUAST on the results of the SOAPdenovo2 assembly.
@@ -1331,7 +1297,7 @@ Figure 6.11: Screenshot of the report.html file showing the statistics and plots
 <ul>
 <li><code>icarus.html</code>: Icarus main menu with links to interactive viewers. Icarus generates contig size viewer and one or more contig alignment viewers (if reference genome is provided). All Icarus viewers contain a legend with color scheme description (see Figure <a href="#fig:ICARUS">6.12</a>).</li>
 </ul>
-<div class="figure" style="text-align: center"><span id="fig:ICARUS"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:ICARUS"></span>
 <img src="Images/ICARUS_output.png" alt="Screenshot of the icarus.html file showing the alignment of the SOAPdenovo2 de novo assembly against the reference genome." width="80%" />
 <p class="caption">
 Figure 6.12: Screenshot of the icarus.html file showing the alignment of the SOAPdenovo2 de novo assembly against the reference genome.
@@ -1351,22 +1317,22 @@ Figure 6.12: Screenshot of the icarus.html file showing the alignment of the SOA
 <span class="smallcaps">Andrews, S.</span> 2012. <span class="nocase">FastQC A Quality Control tool for High Throughput Sequence Data</span>. Available at: <a href="http://www.bioinformatics.babraham.ac.uk/projects/fastqc/">http://www.bioinformatics.babraham.ac.uk/projects/fastqc/</a>.
 </div>
 <div id="ref-khmer2015" class="csl-entry">
-<span class="smallcaps">Crusoe, M.</span>, <span class="smallcaps">H. Alameldin</span>, <span class="smallcaps">S. Awad</span>, <span class="smallcaps">E. Boucher</span>, <span class="smallcaps">A. Caldwell</span>, <span class="smallcaps">R. Cartwright</span>, <span class="smallcaps">A. Charbonneau</span>, et al. 2015. The khmer software package: Enabling efficient nucleotide sequence analysis [version 1; referees: 2 approved, 1 approved with reservations]. <em>F1000Research</em> 4:
+<span class="smallcaps">Crusoe, M.</span>, <span class="smallcaps">H. Alameldin</span>, <span class="smallcaps">S. Awad</span>, <span class="smallcaps">E. Boucher</span>, <span class="smallcaps">A. Caldwell</span>, <span class="smallcaps">R. Cartwright</span>, <span class="smallcaps">A. Charbonneau</span>, et al. 2015. <a href="https://doi.org/10.12688/f1000research.6924.1">The khmer software package: Enabling efficient nucleotide sequence analysis [version 1; referees: 2 approved, 1 approved with reservations]</a>. <em>F1000Research</em> 4:
 </div>
 <div id="ref-Gnerre1513" class="csl-entry">
 <span class="smallcaps">Gnerre, S.</span>, <span class="smallcaps">I. MacCallum</span>, <span class="smallcaps">D. Przybylski</span>, <span class="smallcaps">F.J. Ribeiro</span>, <span class="smallcaps">J.N. Burton</span>, <span class="smallcaps">B.J. Walker</span>, <span class="smallcaps">T. Sharpe</span>, et al. 2011. High-quality draft assemblies of mammalian genomes from massively parallel sequence data. <em>Proceedings of the National Academy of Sciences</em> 108: 1513–1518. Available at: <a href="http://www.pnas.org/content/108/4/1513">http://www.pnas.org/content/108/4/1513</a>.
 </div>
 <div id="ref-QUAST" class="csl-entry">
-<span class="smallcaps">Gurevich, A.</span>, <span class="smallcaps">V. Saveliev</span>, <span class="smallcaps">N. Vyahhi</span>, and <span class="smallcaps">G. Tesler</span>. 2013. QUAST: Quality assessment tool for genome assemblies. <em>Bioinformatics</em> 29: 1072–1075. Available at: <a href="+ http://dx.doi.org/10.1093/bioinformatics/btt086">+ http://dx.doi.org/10.1093/bioinformatics/btt086</a>.
+<span class="smallcaps">Gurevich, A.</span>, <span class="smallcaps">V. Saveliev</span>, <span class="smallcaps">N. Vyahhi</span>, and <span class="smallcaps">G. Tesler</span>. 2013. QUAST: Quality assessment tool for genome assemblies. <em>Bioinformatics</em> 29: 1072–1075. Available at:<a href=" + http://dx.doi.org/10.1093/bioinformatics/btt086"> + http://dx.doi.org/10.1093/bioinformatics/btt086</a>.
 </div>
 <div id="ref-Kurtz2004" class="csl-entry">
 <span class="smallcaps">Kurtz, S.</span>, <span class="smallcaps">A. Phillippy</span>, <span class="smallcaps">A.L. Delcher</span>, <span class="smallcaps">M. Smoot</span>, <span class="smallcaps">M. Shumway</span>, <span class="smallcaps">C. Antonescu</span>, and <span class="smallcaps">S.L. Salzberg</span>. 2004. Versatile and open software for comparing large genomes. <em>Genome Biology</em> 5: R12. Available at: <a href="https://doi.org/10.1186/gb-2004-5-2-r12">https://doi.org/10.1186/gb-2004-5-2-r12</a>.
 </div>
 <div id="ref-bwa2009" class="csl-entry">
-<span class="smallcaps">Li, H.</span>, and <span class="smallcaps">R. Durbin</span>. 2009. Fast and accurate short read alignment with burrows–wheeler transform. <em>Bioinformatics</em> 25: 1754–1760. Available at: <a href="+ http://dx.doi.org/10.1093/bioinformatics/btp324">+ http://dx.doi.org/10.1093/bioinformatics/btp324</a>.
+<span class="smallcaps">Li, H.</span>, and <span class="smallcaps">R. Durbin</span>. 2009. Fast and accurate short read alignment with burrows–wheeler transform. <em>Bioinformatics</em> 25: 1754–1760. Available at:<a href=" + http://dx.doi.org/10.1093/bioinformatics/btp324"> + http://dx.doi.org/10.1093/bioinformatics/btp324</a>.
 </div>
 <div id="ref-samtools2009" class="csl-entry">
-<span class="smallcaps">Li, H.</span>, <span class="smallcaps">B. Handsaker</span>, <span class="smallcaps">A. Wysoker</span>, <span class="smallcaps">T. Fennell</span>, <span class="smallcaps">J. Ruan</span>, <span class="smallcaps">N. Homer</span>, <span class="smallcaps">G. Marth</span>, et al. 2009. The sequence alignment/map format and SAMtools. <em>Bioinformatics</em> 25: 2078–2079. Available at: <a href="+ http://dx.doi.org/10.1093/bioinformatics/btp352">+ http://dx.doi.org/10.1093/bioinformatics/btp352</a>.
+<span class="smallcaps">Li, H.</span>, <span class="smallcaps">B. Handsaker</span>, <span class="smallcaps">A. Wysoker</span>, <span class="smallcaps">T. Fennell</span>, <span class="smallcaps">J. Ruan</span>, <span class="smallcaps">N. Homer</span>, <span class="smallcaps">G. Marth</span>, et al. 2009. The sequence alignment/map format and SAMtools. <em>Bioinformatics</em> 25: 2078–2079. Available at:<a href=" + http://dx.doi.org/10.1093/bioinformatics/btp352"> + http://dx.doi.org/10.1093/bioinformatics/btp352</a>.
 </div>
 <div id="ref-Li2009" class="csl-entry">
 <span class="smallcaps">Li, R.</span>, <span class="smallcaps">W. Fan</span>, <span class="smallcaps">G. Tian</span>, <span class="smallcaps">H. Zhu</span>, <span class="smallcaps">L. He</span>, <span class="smallcaps">J. Cai</span>, <span class="smallcaps">Q. Huang</span>, et al. 2009. The sequence and de novo assembly of the giant panda genome. <em>Nature</em> 463: 311 EP–. Available at: <a href="http://dx.doi.org/10.1038/nature08696">http://dx.doi.org/10.1038/nature08696</a>.
@@ -1375,13 +1341,13 @@ Figure 6.12: Screenshot of the icarus.html file showing the alignment of the SOA
 <span class="smallcaps">Luo, R.</span>, <span class="smallcaps">B. Liu</span>, <span class="smallcaps">Y. Xie</span>, <span class="smallcaps">Z. Li</span>, <span class="smallcaps">W. Huang</span>, <span class="smallcaps">J. Yuan</span>, <span class="smallcaps">G. He</span>, et al. 2012. SOAPdenovo2: An empirically improved memory-efficient short-read de novo assembler. <em>GigaScience</em> 1: 18. Available at: <a href="https://doi.org/10.1186/2047-217X-1-18">https://doi.org/10.1186/2047-217X-1-18</a>.
 </div>
 <div id="ref-Jellyfish2011" class="csl-entry">
-<span class="smallcaps">Marçais, G.</span>, and <span class="smallcaps">C. Kingsford</span>. 2011. A fast, lock-free approach for efficient parallel counting of occurrences of k-mers. <em>Bioinformatics</em> 27: 764–770. Available at: <a href="+ http://dx.doi.org/10.1093/bioinformatics/btr011">+ http://dx.doi.org/10.1093/bioinformatics/btr011</a>.
+<span class="smallcaps">Marçais, G.</span>, and <span class="smallcaps">C. Kingsford</span>. 2011. A fast, lock-free approach for efficient parallel counting of occurrences of k-mers. <em>Bioinformatics</em> 27: 764–770. Available at:<a href=" + http://dx.doi.org/10.1093/bioinformatics/btr011"> + http://dx.doi.org/10.1093/bioinformatics/btr011</a>.
 </div>
 <div id="ref-Niu2017" class="csl-entry">
 <span class="smallcaps">Niu, Z.</span>, <span class="smallcaps">J. Pan</span>, <span class="smallcaps">S. Zhu</span>, <span class="smallcaps">L. Li</span>, <span class="smallcaps">Q. Xue</span>, <span class="smallcaps">W. Liu</span>, and <span class="smallcaps">X. Ding</span>. 2017. Comparative analysis of the complete plastomes of apostasia wallichii and neuwiedia singapureana (apostasioideae) reveals different evolutionary dynamics of IR/SSC boundary among photosynthetic orchids. <em>Frontiers in Plant Science</em> 8: 1713. Available at: <a href="https://www.frontiersin.org/article/10.3389/fpls.2017.01713">https://www.frontiersin.org/article/10.3389/fpls.2017.01713</a>.
 </div>
 <div id="ref-genomescope" class="csl-entry">
-<span class="smallcaps">Vurture, G.W.</span>, <span class="smallcaps">F.J. Sedlazeck</span>, <span class="smallcaps">M. Nattestad</span>, <span class="smallcaps">C.J. Underwood</span>, <span class="smallcaps">H. Fang</span>, <span class="smallcaps">J. Gurtowski</span>, and <span class="smallcaps">M.C. Schatz</span>. 2017. GenomeScope: Fast reference-free genome profiling from short reads. <em>Bioinformatics</em> 33: 2202–2204. Available at: <a href="+ http://dx.doi.org/10.1093/bioinformatics/btx153">+ http://dx.doi.org/10.1093/bioinformatics/btx153</a>.
+<span class="smallcaps">Vurture, G.W.</span>, <span class="smallcaps">F.J. Sedlazeck</span>, <span class="smallcaps">M. Nattestad</span>, <span class="smallcaps">C.J. Underwood</span>, <span class="smallcaps">H. Fang</span>, <span class="smallcaps">J. Gurtowski</span>, and <span class="smallcaps">M.C. Schatz</span>. 2017. GenomeScope: Fast reference-free genome profiling from short reads. <em>Bioinformatics</em> 33: 2202–2204. Available at:<a href=" + http://dx.doi.org/10.1093/bioinformatics/btx153"> + http://dx.doi.org/10.1093/bioinformatics/btx153</a>.
 </div>
 <div id="ref-Zhang2017" class="csl-entry">
 <span class="smallcaps">Zhang, G.-Q.</span>, <span class="smallcaps">K.-W. Liu</span>, <span class="smallcaps">Z. Li</span>, <span class="smallcaps">R. Lohaus</span>, <span class="smallcaps">Y.-Y. Hsiao</span>, <span class="smallcaps">S.-C. Niu</span>, <span class="smallcaps">J.-Y. Wang</span>, et al. 2017. The apostasia genome and the evolution of orchids. <em>Nature</em> 549: 379 EP–. Available at: <a href="http://dx.doi.org/10.1038/nature23897">http://dx.doi.org/10.1038/nature23897</a>.
@@ -1418,7 +1384,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
+    $(this).parent().toggleClass('nav-tabs-open');
   });
 });
 </script>
@@ -1427,6 +1393,9 @@ $(document).ready(function () {
 
 <script>
 $(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
 
     // move toc-ignore selectors from section div to header
     $('div.section.toc-ignore')
