@@ -4,12 +4,12 @@ subtitle: "Syllabus & Timetable"
 author: "Sven Buerki - Boise State University"
 date: "`r Sys.Date()`"
 output:
-  bookdown::pdf_document2:
-    toc: TRUE
-#  bookdown::html_document2: 
+#  bookdown::pdf_document2:
 #    toc: TRUE
-#    toc_float: TRUE
-#    self_contained: TRUE
+  bookdown::html_document2: 
+    toc: TRUE
+    toc_float: TRUE
+    self_contained: TRUE
 link-citations: yes
 fontsize: 12pt
 urlcolor: blue
@@ -429,9 +429,8 @@ However, if you have any issues preventing completion of your work on time, plea
 
 # Engagement expectations
 
-The remote teaching mode of this course makes it harder for the instructor to take attendance.
-The instructor is expecting students to attend classes (please join on time and for the full duration of the class) and actively engage by asking questions and giving feedback on teaching material and course content.
-This course was designed to help students implementing a reproducible approach to their thesis projects.
+The **instructor is expecting students to attend classes and actively engage by asking questions and giving feedback** on teaching material and course content.
+
 If you are judging that additional content should be covered in class, please contact the instructor.
 The instructor will do his very best to obtain information or seek support from colleagues to cover the requested material.
 Finally, the instructor is aware that COVID could potentially impact yourselves and your families.
@@ -441,7 +440,7 @@ In the case that you have any issues attending class, please contact the instruc
 
 The instructor will be prepared for class, on time and not leave early.
 He will also be respectful of you and your opinions.
-Overall, the instructor wants to foster a kind and respectful class environment where all students can express themselves and share their opinions.
+Overall, **the instructor wants to foster a kind and respectful class environment where all students can express themselves and share their opinions**.
 This means that meaningful and constructive dialogue is encouraged in this class and it requires a degree of mutual respect, willingness to listen, and tolerance of opposing points of view.
 Respect for individual differences and alternative viewpoints will be maintained at all times in this class.
 One's words and use of language should be temperate and within acceptable bounds of civility and decency.
