@@ -36,6 +36,7 @@ References (web resources and publications) used in the BIOL 497/597 - Genomics 
 # Web resources
 
 - **Human Genome Project**: This [webpage](https://www.nature.com/scitable/topicpage/dna-sequencing-technologies-key-to-the-human-828/) contain details on the human genome project, especially associated to the applied sequencing strategy.
+- **Completing the human genome**: [Special Issue](https://www.science.org/toc/science/376/6588) published in *Science* in April 2022. 
 - **An Overview of Next-Generation Sequencing**: This [webpage](https://www.technologynetworks.com/genomics/articles/an-overview-of-next-generation-sequencing-346532) contains information related to next-generation sequencing. 
 - **The Earth BioGenome Project**: A [special issue](https://www.pnas.org/cc/the-earth-biogenome-project) published in *PNAS* with a collection of articles on this project.
 - **NCBI BioProject Help Book**: This [book](https://www.ncbi.nlm.nih.gov/books/NBK54364/) provides definitions of terms associated to submitted data to NCBI. This information is pertinent to Chapter 3.

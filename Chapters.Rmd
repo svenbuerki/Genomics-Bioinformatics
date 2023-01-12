@@ -52,7 +52,7 @@ The key learning outcomes of this chapter are:
 
 ## Download presentation
 
-The presentation slides (in `pdf` format) of Chapter 1 can be downloaded <a href="Lectures/Chapter_01_Spring2022.pdf" target="_blank">here</a>.
+The presentation slides (in `pdf` format) of Chapter 1 can be downloaded <a href="Lectures/Chapter_01_Spring.pdf" target="_blank">here</a>.
 
 # Chapter 2
 
