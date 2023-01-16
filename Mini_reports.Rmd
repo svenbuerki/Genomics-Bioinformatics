@@ -49,21 +49,27 @@ Each student was assigned a sequencing platform to work on (please see [Google s
 
 The assignment is mandatory and will be graded. Please see this task as an opportunity to consolidate your knowledge on next-generation sequencing technologies and writing scientific reports.   
 
-Time will be allocated in class on the 21st of January 2022 to allow students to work on their assignments. Reports are due on **the 4th of February 2022** and should be uploaded on the shared [Google Drive](https://drive.google.com/drive/folders/1BFZFJeR8tW8N7QLfngqIVbjqEkDuIyWj?usp=sharing) in the `Mini_Reports` folder.
-
+Time will be allocated in class on the 20th of January 2023 to allow students to work on their assignments. Reports are due on **the 3rd of February 2023** and should be uploaded on the shared [Google Drive](https://drive.google.com/drive/folders/1BFZFJeR8tW8N7QLfngqIVbjqEkDuIyWj?usp=sharing) in the `Mini_Reports` folder.
 
 ## Structure of mini-reports {#structure}
 
 Please structure your reports to ensure covering the following aspects:
 
 - Introduce the sequencing technology (incl. library preparation and DNA requirements).
-- Provide an overview of available sequencing systems.
+- Provide an overview of the available sequencing systems.
 - Outline the research potential/applicability of the sequencing platform. 
 - Provide any additional information such as e.g. price, accessibility, technical support, that you feel are relevant to your sequencing platform. 
 
 ## Reporting format
 
-Maximum two pages, single spaced, using either Arial 11 pt or Times New Roman 12 pt and with all margins set to 1 inch. The two pages do not include a title page and references. The title page should include: name of the sequencing platform as title and name of student contributing the report. Please keep in mind that a figure can convey a lot more information than a long text! Your reports should follow the structure presented in section \@ref(structure). 
+Maximum two pages, single spaced, using either Arial 11 pt or Times New Roman 12 pt, and with all margins set to 1 inch. The two pages do not include a title page and references. 
+
+The title page should include the following information: 
+
+1. Name of the sequencing platform as title. 
+2. Name of student contributing the report. 
+
+Please keep in mind that a figure can convey a lot more information than a long text! Your reports should follow the structure presented in section \@ref(structure). 
 
 Upload your reports on the shared Google drive by the 4th of February before 5 pm. Name your report documents following this pattern: `Sequencing platform_Surname`.
 
@@ -682,7 +688,7 @@ Let's have a look at the data downloaded from GenBank:
 ###~~~
 #Load Raw GB query csv file
 ###~~~
-RawGBDat <- read.csv("~/Documents/Class_Genomics&Bioinfo_Spring/DNA_barcoding/04_Data_analyses/CSV/Instructor_files/Vanilla_internal transcribed spacer_2021_02_11_Raw_GenBank.csv", quote = "\"", sep=' ')
+RawGBDat <- read.csv("~/Documents/Classes/Class_Genomics&Bioinfo_Spring/DNA_barcoding/04_Data_analyses/CSV/Instructor_files/Vanilla_internal transcribed spacer_2021_02_11_Raw_GenBank.csv", quote = "\"", sep=' ')
 
 #How many DNA sequences did we download from GenBank?
 print(paste0("GenBank query retrieved ", dim(RawGBDat)[1], " DNA sequences."))
@@ -811,7 +817,7 @@ Let's have a look at the tidy data:
 ###~~~
 #Load Raw GB query csv file
 ###~~~
-RawGBDat2 <- read.csv("~/Documents/Class_Genomics&Bioinfo_Spring/DNA_barcoding/04_Data_analyses/CSV/Instructor_files/Vanilla_internal transcribed spacer_2021_02_11_GenBank.csv", quote = "\"", sep=' ')
+RawGBDat2 <- read.csv("~/Documents/Classes/Class_Genomics&Bioinfo_Spring/DNA_barcoding/04_Data_analyses/CSV/Instructor_files/Vanilla_internal transcribed spacer_2021_02_11_GenBank.csv", quote = "\"", sep=' ')
 
 #How many DNA sequences did we download from GenBank?
 print(paste0("After cleaning ", dim(RawGBDat2)[1], " DNA sequences remain."))
