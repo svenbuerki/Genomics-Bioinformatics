@@ -62,7 +62,7 @@ This chapter focuses on learning about next-generation sequencing and students w
 
 -   Learn the next-generation sequencing (NGS) jargon underpinning genome assembly and annotation.
 -   Understand the general principle of genome sequencing (wet-lab) and assembly (bioinformatics workflow).
--   Be familiar and know the limitations of the following NGS platforms:
+-   Be familiar and know the limitations of the following NGS platforms ([Mini-report 1](#minrep1)):
     -   Illumina.
     -   PacBio.
     -   Oxford Nanopore.
@@ -75,7 +75,7 @@ This chapter focuses on learning about next-generation sequencing and students w
 
 ## Download presentation
 
-The presentation slides (in `pdf` format) of Chapter 2 can be downloaded <a href="Lectures/Chapter_02_Spring2022.pdf" target="_blank">here</a>.
+The presentation slides (in `pdf` format) of Chapter 2 can be downloaded <a href="Lectures/Chapter_02_Spring.pdf" target="_blank">here</a>.
 
 ## Mini-report 1 {#minrep1}
 
