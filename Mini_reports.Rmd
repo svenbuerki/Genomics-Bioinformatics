@@ -62,16 +62,31 @@ Please structure your reports to ensure covering the following aspects:
 
 ## Reporting format
 
-Maximum two pages, single spaced, using either Arial 11 pt or Times New Roman 12 pt, and with all margins set to 1 inch. The two pages do not include a title page and references. 
+Maximum two pages, single spaced, using either Arial 11 pt or Times New Roman 12 pt, and with all margins set to 1 inch. The two pages do not include a title page and a references section. 
 
-The title page should include the following information: 
+The **title page** should include the following information: 
 
 1. Name of the sequencing platform as title. 
 2. Name of student contributing the report. 
 
+The **references section** should contain full citations of all references cited in the text. Each reference cited in the References section should be clearly cited in the text to support transparency in your work and overall reproducible science. 
+
+A **citation is a way of giving credit to individuals for their creative and intellectual works that you utilized to support your research**. It can also be used to locate particular sources and combat plagiarism. Typically, a citation can include the author's name, date, location of the publishing company, journal title, or DOI (Digital Object Identifier). **Citation styles dictate the information necessary for a citation and how the information is ordered, as well as punctuation and other formatting**. There are different citation styles (see Figure \@ref(fig:citationstyle)) and the instructor let you pick the one you like. However, please make sure to only use one citation style in your mini-report.  
+
+```{r citationstyle, echo=FALSE, fig.cap="Example of citation styles for an article published in Plants.", out.width = '50%', fig.align='center'}
+knitr::include_graphics("Images/Citation_styles_example.png")
+```
+
+In the case of web resources, please provide the following information in your citation: author, title (of the web page), URL and accessed date. Here is an example:
+
+Wetterstrand KA. DNA Sequencing Costs: Data from the NHGRI Genome Sequencing Program (GSP) Available at: www.genome.gov/sequencingcostsdata. Accessed 2023-01-16.
+
+
 Please keep in mind that a figure can convey a lot more information than a long text! Your reports should follow the structure presented in section \@ref(structure). 
 
-Upload your reports on the shared Google drive by the 4th of February before 5 pm. Name your report documents following this pattern: `Sequencing platform_Surname`.
+## Format to name document
+
+**Name your report document following this pattern**: `Sequencing platform_Surname`.
 
 ## Resources
 
