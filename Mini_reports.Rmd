@@ -49,7 +49,7 @@ Each student was assigned a sequencing platform to work on (please see [Google s
 
 The assignment is mandatory and will be graded. Please see this task as an opportunity to consolidate your knowledge on next-generation sequencing technologies and writing scientific reports.   
 
-Time will be allocated in class on the 20th of January 2023 to allow students to work on their assignments. Reports are due on **the 3rd of February 2023** and should be uploaded on the shared [Google Drive](https://drive.google.com/drive/folders/1BFZFJeR8tW8N7QLfngqIVbjqEkDuIyWj?usp=sharing) in the `Mini_Reports` folder.
+Time will be allocated in class on the 20th of January 2023 to allow students to work on their assignments. Reports are due on **the 3rd of February 2023** and should be uploaded on the shared [Google Drive](https://drive.google.com/drive/folders/1BFZFJeR8tW8N7QLfngqIVbjqEkDuIyWj?usp=sharing) in the `Mini_Report_1` folder.
 
 ## Structure of mini-reports {#structure}
 
