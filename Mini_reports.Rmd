@@ -90,7 +90,7 @@ Please keep in mind that a figure can convey a lot more information than a long 
 
 ## Resources
 
-The instructor has provided `pdf` documents devoted to each sequencing platform below to support students in starting their assignments. 
+The instructor has provided `pdf` documents devoted to each sequencing platform below to support students in starting their assignments. Please also see @Marx2023 for more information on long-read sequencing.
 
 In addition, please use information available from manufacturers' websites (see below), publications, online NGS training sites (e.g. EMBL-EBI Training), Google, YouTube and Wikipedia to prepare your reports and presentations. Do not forget to provide citations supporting your claims in your reports. I let you decide which reference style you want to use (look at your favorite journals for examples).
 

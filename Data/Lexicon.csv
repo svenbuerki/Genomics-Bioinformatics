@@ -68,3 +68,4 @@ Monoisolate,"a single animal, cultured cell-line, inbred population,.or possibly
 Read trimming,"Sequencing data is often provided as raw reads which are processed prior to analysis 1 of the most used preprocessing procedures is read trimming, which aims at removing low quality portions while preserving the longest high quality part of a NGS read."
 Plesiomorphic,"A primitive or ancestral character state is called plesiomorphy (plesiomorphic character), and a shared plesiomorphy is called a symplesiomorphy. For example, hair is a unique mammalian character that evolved with the evolution of mammals."
 Promoter,Promoter sequences are DNA sequences that define where transcription of a gene by RNA polymerase begins. Promoter sequences are typically located directly upstream or at the 5' end of the transcription initiation site.
+High molecular weight DNA,High molecular weight DNA corresponds to DNA fragments between 100-300kb in length
