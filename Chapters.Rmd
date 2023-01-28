@@ -111,15 +111,15 @@ More details on this assignment is available [here](https://svenbuerki.github.io
 
 ## Download presentation
 
-The presentation slides (in `pdf` format) of Chapter 3 can be downloaded <a href="Lectures/Chapter_03_Spring2022.pdf" target="_blank">here</a>.
+The presentation slides (in `pdf` format) of Chapter 3 can be downloaded <a href="Lectures/Chapter_03_Spring.pdf" target="_blank">here</a>.
 
 ## Mini-report 2 -- Molecular biology databases {#mini2}
 
 To have a full overview of available molecular biology databases and assess their contributions to genome annotation, students are tasked to produce individual mini-reports on the following molecular databases:
 
-- **Molecular database 1:** Protein sequences databases.
-- **Molecular database 2:** Gene ontology databases.
-- **Molecular database 3:** Metabolic pathways databases.
+- **Molecular database 1:** Protein sequences databases [e.g., @UniProt2014].
+- **Molecular database 2:** Gene ontology databases [e.g., @GO2020].
+- **Molecular database 3:** Metabolic pathways databases [e.g., @KEGG2022].
 
 More details on this assignment is available [here](https://svenbuerki.github.io/Genomics-Bioinformatics/Mini_reports.html#mini2).
 

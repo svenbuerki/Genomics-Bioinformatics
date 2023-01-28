@@ -140,28 +140,30 @@ To have a full overview of available molecular biology databases and assess thei
 
 Each student was assigned a molecular database to work on (please see [Google spreadsheet](https://docs.google.com/spreadsheets/d/1cRM1yasUfDa98ecyz_-RxUOw8cU4wkQx4O5Wxw3y4yU/edit?usp=sharing) for more information). 
 
-The assignment is mandatory and will be graded. Please see this task as an opportunity to consolidate your knowledge on molecular databases and writing scientific reports.   
+This individual assignment is mandatory and will be graded. Please see this task as an opportunity to consolidate your knowledge on molecular databases and writing scientific reports.   
 
-Time will be allocated in class on the 4th of February 2022 to allow students to work on their assignments. Reports are due on **the 18th of February 2022** and should be uploaded on the shared [Google Drive](https://drive.google.com/drive/folders/1BFZFJeR8tW8N7QLfngqIVbjqEkDuIyWj?usp=sharing) in the `Mini_Report_2` folder.
+Time will be allocated in class on the 3rd of February 2023 to allow students to work on their assignments. Reports are due on **the 17th of February 2023** and should be uploaded on the shared [Google Drive](https://drive.google.com/drive/folders/1BFZFJeR8tW8N7QLfngqIVbjqEkDuIyWj?usp=sharing) in the `Mini_Report_2` folder.
 
 ## Structure of mini-reports {#structure2}
 
 Please structure your reports to cover the following aspects:
 
-- Provide overview of available databases falling under your major type of molecular biology data.
-- Highlight potential contributions of these databases in supporting annotation of genomes.
-- Provide a survey of available bioinformatic tools and websites to query/access these databases. 
+- Provide an overview of the available databases falling under your major type of molecular biology data.
+- Highlight potential contributions of these databases to support the annotation of genomes.
+- Provide an overview or survey of available bioinformatic tools and websites to query/access these databases and conduct analyses. 
 - Complement reports with information relevant/specific to your data repositories. 
 
 ## Reporting format
 
-Maximum two pages, single spaced, using either Arial 11 pt or Times New Roman 12 pt and with all margins set to 1 inch. The two pages do not include a title page and references. The title page should include: name of the molecular database as title and name of student contributing the report. Please keep in mind that a figure can convey a lot more information than a long text! Your reports should follow the structure presented in section \@ref(structure2). 
+Follow the same reporting format than with Mini-Report 1.
 
-Upload your reports on the shared Google drive by the **the 18th of February 2022** (5 PM MT). Name your report documents following this pattern: `Molecular database_Surname`.
+## Format to name document
+
+**Name your report document following this pattern**: `Molecular database_Surname`.
 
 ## Resources
 
-The instructor provides below short descriptions of each of the major types of molecular biology databases. Use the information provided here to prime your research and carve your reports. Please do not forget to provide citations and references in your reports. The instructor let you decide which reference style/formatting you prefer using (look at your favorite journals for examples).
+The instructor provided below short descriptions of each of the major types of molecular biology databases. Students are encouraged to use the information provided below to prime their research and start populating their reports. Please do not forget to provide citations and references in your reports following information provided in Mini-Report 1.
 
 ### Proteins sequences databases {#prot}
 
@@ -171,11 +173,11 @@ There are three major protein sequences databases:
 - **SWISS-PROT** (in Geneva, Switzerland): [http://www.uniprot.org/statistics/Swiss-Prot](http://www.uniprot.org/statistics/Swiss-Prot)
 - **TrEMBL** (in Hinxton, UK): [http://www.uniprot.org/statistics/TrEMBL](http://www.uniprot.org/statistics/TrEMBL)  
 
-In 2002, these three databases coordinated their efforts to form the **UniProt** consortium. The partners in this enterprise share the database, but continue to offer separate information-retrieval tools for access. The UniProtKB database is available at this URL: [http://www.uniprot.org](http://www.uniprot.org). This latter database will be especially important to retrieve information on gene annotations (chapters 6, 7) using the online tool available at this URL: [http://www.uniprot.org/uploadlists/](http://www.uniprot.org/uploadlists/). This will be done by specifically looking at Gene ontology (see [GeneOntology](#GO)).
+In 2002, these three databases coordinated their efforts to form the **UniProt** consortium [@UniProt2014]. The partners in this enterprise share the database, but continue to offer separate information-retrieval tools for access. The UniProtKB database is available at this URL: [http://www.uniprot.org](http://www.uniprot.org). This latter database will be especially important to retrieve information on gene annotations (Chapters 6, 7) using the online tool available at this URL: [http://www.uniprot.org/uploadlists/](http://www.uniprot.org/uploadlists/). This will be done by specifically looking at Gene ontology (see [GeneOntology](#GO)).
 
 ### Gene ontology databases {#GO}
 
-Gene Ontology (GO) ([http://www.geneontology.org](http://www.geneontology.org)): the framework for the model of biology. The GO defines concepts/classes used to describe gene function, and relationships between these concepts. It classifies functions along three aspects:
+Gene Ontology [GO, @GO2020] ([http://www.geneontology.org](http://www.geneontology.org)): the framework for the model of biology. The GO defines concepts/classes used to describe gene function, and relationships between these concepts. It classifies functions along three aspects:
 
 - **Cellular component:** This term describes a component of a cell that is part of a larger object, such as an anatomical structure (e.g. rough endoplasmic reticulum or nucleus) or a gene product group (e.g. ribosome, proteasome or a protein dimer).
 - **Biological process:** A biological process term describes a series of events accomplished by one or more organized assemblies of molecular functions. Examples of broad biological process terms are "cellular physiological process" or "signal transduction". Examples of more specific terms are "pyrimidine metabolic process" or "alpha-glucoside transport". The general rule to assist in distinguishing between a biological process and a molecular function is that a process must have more than one distinct steps.
@@ -188,7 +190,7 @@ Other useful tool to perform gene annotations: \url{http://amigo.geneontology.or
 
 ### Metabolic pathways databases {#KEGG}
 
-The Kyoto Encyclopedia of Genes and Genomes (KEGG) ([http://www.genome.jp/kegg/](http://www.genome.jp/kegg/)) collects individual genomes, gene products, and their functions, but its special strength lies in its integration of biochemical and genetic information. KEGG focuses on interactions: molecular assemblies, and metabolic and regulatory networks. KEGG organizes five data types into a comprehensive system:
+The Kyoto Encyclopedia of Genes and Genomes [KEGG, @KEGG2022] ([http://www.genome.jp/kegg/](http://www.genome.jp/kegg/)) collects individual genomes, gene products, and their functions, but its special strength lies in its integration of biochemical and genetic information. KEGG focuses on interactions: molecular assemblies, and metabolic and regulatory networks. KEGG organizes five data types into a comprehensive system:
 
 - Catalogs of chemical compounds in living cells.
 - Gene catalogs.
@@ -197,7 +199,6 @@ The Kyoto Encyclopedia of Genes and Genomes (KEGG) ([http://www.genome.jp/kegg/]
 - Orthologue tables.
 
 The catalogs of chemical compounds and genes contain information about particular molecules or sequences. Genome maps integrate the genes themselves according to their chromosomal position. Pathway maps describe potential networks of molecular activities, both metabolic and regulatory. One enzyme in one organism would be referred to in KEGG in its orthologue tables, which link the enzyme to related ones in other organisms. This permits analysis of relationships between the metabolic pathways of different organisms. 
-
 
 # Mini-report 3 -- Identifying species based on DNA barcoding and phylogenetic inference {#mini3}
 
