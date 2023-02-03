@@ -132,9 +132,9 @@ Here are a few additional online references to support your assignment:
 
 To have a full overview of available molecular biology databases and assess their contributions to genome annotation, students are tasked to produce individual mini-reports on the following molecular databases:
 
-- **Molecular database 1:** [Protein sequences databases](#prot).
-- **Molecular database 2:** [Gene ontology databases](#GO).
-- **Molecular database 3:** [Metabolic pathways databases](#KEGG).
+- **Molecular database 1:** [Protein sequences databases](#prot) [e.g., @UniProt2014].
+- **Molecular database 2:** [Gene ontology databases](#GO) [e.g., @GO2020].
+- **Molecular database 3:** [Metabolic pathways databases](#KEGG) [e.g., @KEGG2022].
 
 ## Background information
 
