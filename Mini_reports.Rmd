@@ -148,9 +148,10 @@ Time will be allocated in class on the 3rd of February 2023 to allow students to
 
 Please structure your reports to cover the following aspects:
 
+- Provide a brief summary of the purpose/mission of your assigned molecular database to introduce its overarching goals and objectives.
 - Provide an overview of the available databases falling under your major type of molecular biology data.
-- Highlight potential contributions of these databases to support the annotation of genomes.
-- Provide an overview or survey of available bioinformatic tools and websites to query/access these databases and conduct analyses. 
+- Highlight potential contributions (and limitations) of these databases to support genome annotation.
+- Provide an overview or survey of available bioinformatic tools and resources to query/access these databases and conduct analyses. 
 - Complement reports with information relevant/specific to your data repositories. 
 
 ## Reporting format
