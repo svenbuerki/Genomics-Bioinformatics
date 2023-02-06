@@ -126,8 +126,6 @@ Here are a few additional online references to support your assignment:
 </object>
 </div>
 
-
-
 # Mini-report 2 -- Molecular biology databases {#mini2}
 
 To have a full overview of available molecular biology databases and assess their contributions to genome annotation, students are tasked to produce individual mini-reports on the following molecular databases:
@@ -266,7 +264,11 @@ The following learning outcomes will be taught as part of this Mini-report:
 6. Visualize and interpret phylogenetic analysis.
 7. Learn the terminology associated to DNA barcoding and phylogenetic analyses. Several definitions associated to the most used terms is available in the [Lexicon](Lexicon.html).
 
-To support learning these skills, we will be using a DNA dataset focusing on the [vanilla](#vanilla) spice (from the Orchidaceae family). 
+## Dataset and data availability
+
+To support mastering the learning outcomes, we will be using a subset of a DNA dataset focusing on the [vanilla](#vanilla) spice (from the Orchidaceae family) published by @Ellestad2022AJB. 
+
+The data availability statement associated with @Ellestad2022AJB is as follows: All sequence data for this project are available at the National Center for Biotechnology Information (NCBI) under GenBank ITS sequences ON525161–ON525228, GenBank *rbcL* sequences ON531917–ON531986, BioProject accession no. PRJNA841950, and BioSample accession nos. SAMN28632719–SAMN28632734. All raw sequence files are available from the NCBI SRA database, nos. SRR19374405–SRR193744012, SRR19374414, SRR19374417, and SRR19374418. DNA alignments are available at Zenodo: https://doi.org/10.5281/zenodo.6577744
 
 ## Vanilla as model for this report {#vanilla}
 
@@ -282,7 +284,7 @@ For her Ph.D. dissertation, Paige is applying a DNA barcoding approach coupled w
 
 ### DNA barcodes generated for vanilla project {#vanbarcode}
 
-To answer these questions, she sampled >30 locations (mostly plantations, but also wild populations) representing >60 samples and sequenced two DNA barcode regions widely used in plants: one chloroplastic (the coding *rbcL* region) and one nuclear ribosomal (the ITS region, which stands for for "Internal Transcribed Spacer"). These two DNA regions are traditionally used by researchers as DNA barcodes supporting species delimitation and identifications. Since you are already familiar with *rbcL* [see @Hollingsworth2009 for more details], we will be providing more details on the ITS region. The nuclear ribosomal ITS region includes part of 18S, ITS1, 5.8S, ITS2 and part of 26S [see Figure \@ref(fig:ITS), @Cheng2016]. This region is repeated in tandem 1000 of times and duplicated across chromosomes in order to produce ribosomes, which are key to produce proteins. This latter DNA region is shared across kingdoms and plant specific primers have to be used otherwise we may be at risk of amplifying this region for symbiotic organisms [e.g. fungi; see @Cheng2016].
+To answer these questions, she sampled >30 locations (mostly plantations, but also wild populations) representing >60 samples and sequenced two DNA barcode regions widely used in plants: one chloroplastic (the coding *rbcL* region) and one nuclear ribosomal (the ITS region, which stands for for "Internal Transcribed Spacer"). These two DNA regions are traditionally used by researchers as DNA barcodes supporting species delimitation and identifications. Since you are already familiar with *rbcL* [see @Hollingsworth2009 for more details], we will be providing more details on the ITS region. The nuclear ribosomal ITS region includes part of 18S, ITS1, 5.8S, ITS2 and part of 26S [see Figure \@ref(fig:ITS), @Cheng2016]. This region is repeated in tandem 1000 of times and duplicated across chromosomes in order to produce ribosomes, which are key to produce proteins. This latter DNA region is shared across kingdoms and plant specific primers have to be used otherwise we may be at risk of amplifying this region for symbiotic organisms [e.g. fungi, see @Cheng2016].
 
 ```{r ITS, echo=FALSE, fig.align="center", fig.cap="Map of the ITS nuclear ribsomal region with primers (from Cheng et al, 2016).", fig.show="asis", out.width = '100%'}
 knitr::include_graphics("Images/ITS.png")
@@ -334,7 +336,7 @@ The instructor provides below information to complete the Mini-Report 3. All the
 
 Your reports will be structured and organized following the **IMMRAD** format: **I**ntroduction, **M**aterial & **M**ethods, **R**esults, and **D**iscussion. This format is widely used to report experimental research in many scientific disciplines. In addition, you will be complementing your reports with an **Abstract** (see below). Finally, since this research relies heavily on bioinformatics, students will complete their reports by supplying their commented `R` scripts. 
 
-### Structure of the Mini-Report 3
+### Structure of Mini-Report 3
 
 The instructor provides guidance on content for each section of your individual reports:
 
@@ -359,9 +361,9 @@ The instructor provides guidance on content for each section of your individual 
 
 Individual reports should be submitted in either Google Docs, Word or Rmarkdown formats (and if you decide to submit an additional file containing your R script, submit this file as an `.R` format). These files should be uploaded on the shared Google Drive in the `Mini_Report_3` folder in a subfolder entitled as follows: `Mini_Report_3_Surname`.
 
-**Upload your reports on the shared Google drive by the 18th of March before 5 PM MT.** 
+**Upload your reports on the shared Google drive by the 17th of March 2023 before 5 PM MT.** 
 
-## Structure and Schedule
+## Schedule
 
 Analyses for this report are subdivided into three parts:
 
@@ -371,9 +373,7 @@ Analyses for this report are subdivided into three parts:
 
 Please see the [Timetable](https://svenbuerki.github.io/Genomics-Bioinformatics/index.html#21_Timetable) for more details on the schedule. 
 
-**Individual reports are due on Wed 16th of March at 5 PM MT** (on Google Drive). Please see section \@ref(report) for more details.
-
-## Data and project structure
+## Project structure and data
 
 The data are deposited on the shared [Google Drive](https://drive.google.com/drive/folders/1iBMwP67FoSTMDX-EpXOlf8utP9k8tu8k?usp=sharing) in a folder entitled `DNA_barcoding` (located in `Mini_Report_3`). All students enrolled in this class have been granted access to this folder. The folder is subdivided into four sub-folders (see Figure \@ref(fig:datastr)) and contains a master spreadsheet `Vanilla_samples_records.xlsx` at its root: 
 
