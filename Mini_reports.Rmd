@@ -211,12 +211,12 @@ But these estimations are without accounting for cryptic species! See for instan
 
 @Larsen2017 recently published a keystone paper where they predicted 1 to 6 billion species on Earth! This prediction was based on an average of 6 cryptic species per described species.
 
-Overall, data presented here demonstrate that most species on this planet are either poorly known or pending description. 
+Overall, data presented here demonstrate that **most species on this planet are either poorly known or pending description**. 
 
 In this context, the fields of genetics/genomics (more specifically [DNA barcoding](#barcode)) and phylogenetics have the potential to contribute to:
 
 - species identifications and naming (taxonomy).
-- inferring evolutionary frameworks allowing developing working hypotheses on species relationships and their spatio-temporal histories (e.g. knowing how did species cope with past climatic conditions will provide insights into their adaptive capacity to forecasted conditions). 
+- infer evolutionary frameworks allowing developing working hypotheses on species boundaries, relationships and their spatio-temporal histories (e.g. knowing how did species cope with past climatic conditions will provide insights into their adaptive capacity to forecasted conditions). 
 
 Approaches combining these two objectives were applied across lineages. See for instance, an article describing a new species belonging to the soapberry family (Sapindaceae) endemic to Fiji [@buerki2017alectryon]. In this study, the phylogeny is used to confirm the new taxon and place it within a larger evolutionary and biogeographical framework. Finally, this evidence is coupled with occurrence data to infer a species extinction risk following IUCN guidelines.
 
@@ -226,7 +226,7 @@ The Consortium for the Barcode of Life ([CBOL](https://www.ibol.org/phase1/cbol/
 
 **DNA barcoding** is a method of species identification using a short section of DNA from a specific gene or genes. The premise of DNA barcoding is that, by comparison with a reference library of such DNA sections, an individual DNA sequence can be used to uniquely identify an organism to species, in the same way that a supermarket scanner uses the familiar black stripes of the UPC barcode to identify an item in its stock against its reference database [@CBOL]. These DNA barcodes are sometimes used in an effort to identify unknown species, parts of an organism, or simply to catalog as many taxa as possible, or to compare with traditional taxonomy in an effort to determine species boundaries. For more details on DNA barcodes applied to plants, please see section [below](#vanbarcode) dedicated to vanilla.
 
-DNA barcoding has a wide range of applications from biodiversity surveys [e.g. @telfer2015biodiversity], illegal trade of wildlife [e.g. @gonccalves2015dna] to food security [e.g. @quinto2016dna]. The DNA barcoding approach has been recently reviewed by @deSalle2019. 
+DNA barcoding has a wide range of applications from biodiversity surveys [e.g. @telfer2015biodiversity], illegal trade of wildlife [e.g. @gonccalves2015dna] to food security [e.g. @quinto2016dna]. The DNA barcoding approach has been reviewed by @deSalle2019. 
 
 #### Procedure
 
@@ -235,11 +235,11 @@ A DNA barcoding approach is subdivided into 4 steps:
 1. Isolate DNA from the target sample.
 2. Amplify the target DNA barcode region using PCR.
 3. Sequence the PCR products using either Sanger sequencing or NGS (mostly on Illumina platform).
-4. Compare the resulting sequences against reference databases to find the matching species. Here we will be using DNA sequences from [GenBank](https://www.ncbi.nlm.nih.gov/genbank/) as our reference.
+4. Compare the resulting sequences against reference databases to find the matching species. Here we will be using DNA sequences from [GenBank](https://www.ncbi.nlm.nih.gov/genbank/) as our reference. See Chapter 3 for more details on GenBank.
 
 ### Phylogenetic inference
 
-As described in @Masters2017, phylogenetic inference is the practice of reconstructing the evolutionary history of related species by grouping them in successively more inclusive sets based on shared ancestry. Homologous characters in independent lineages are similar because they have been inherited from a common ancestor, and they alone should be used in phylogenetic reconstructions. Homoplasies are characters that appear similar, but have evolved from different ancestral states. They may mislead interpretations of evolutionary history. Both molecular and morphological datasets are subject to obfuscation by homoplasy. **Methods of phylogenetic inference aim to distinguish between homologous (signal) and homoplastic (noise) resemblance.** Molecular datasets tend to be very large and are analyzed using statistical techniques that fit the data to models of molecular evolution. These methods are not well suited to morphological data, and combined analyses including both kinds of data tend to obscure the morphological signal. Rates of molecular change may be used to estimate divergence ages.
+As described in @Masters2017, **phylogenetic inference is the practice of reconstructing the evolutionary history of related species by grouping them in successively more inclusive sets based on shared ancestry**. Homologous characters in independent lineages are similar because they have been inherited from a common ancestor, and they alone should be used in phylogenetic reconstructions. Homoplasies are characters that appear similar, but have evolved from different ancestral states. They may mislead interpretations of evolutionary history. Both molecular and morphological datasets are subject to obfuscation by homoplasy. **Methods of phylogenetic inference aim to distinguish between homologous (signal) and homoplastic (noise) resemblance.** Molecular datasets tend to be very large and are analyzed using statistical techniques that fit the data to models of molecular evolution. These methods are not well suited to morphological data, and combined analyses including both kinds of data tend to obscure the morphological signal. Rates of molecular change may be used to estimate divergence ages.
 
 In this mini-report, we will be focusing on inferring phylogenetic trees based on DNA sequences obtained through the DNA barcoding approach described [above](#barcode). 
 
@@ -250,17 +250,17 @@ A phylogenetic analysis is subdivided into 4 steps:
 1. Produce DNA sequences following steps 1 to 3 as described in [DNA barcoding section](#barcode).
 2. Produce DNA multiple sequence alignments.
 3. Test for best-fit model reflecting evolution of DNA region.
-4. Infer phylogenetic tree analysis (usually based either on Maximum Likelihood and/or Bayesian criteria).
+4. Infer phylogenetic tree, which is usually based either on Maximum Likelihood and/or Bayesian criteria.
 
 ## Learning outcomes
 
-The following learning outcomes will be taught as part of this Mini-report:
+The following learning outcomes will be taught as part of this Mini-Report:
 
 1. Process and clean DNA sequence electropherograms generated using the [Sanger sequencing approach](https://dnalc.cshl.edu/resources/animations/cycseq.html) (based on PCR amplifications).
 2. Validate DNA sequence and provide species working hypothesis by conducting a BLAST similarity DNA sequences analysis coupled with a distance tree inference. This will be based on DNA sequences deposited on GenBank.
 3. Query GenBank and download DNA sequences for phylogenetic analyses using R packages.
 4. Produce DNA multiple sequence alignments (containing your target DNA sequences and DNA sequences deposited on GenBank) using freely available algorithms.
-5. Infer phylogenetic analysis based on Maximum Likelihood (ML) criterion as implemented in RAxML [@Stamatakis2014]. This phylogenetic framework will be used to test and refine species working hypotheses (as inferred in learning outcome #2).
+5. Infer phylogenetic analysis based on Maximum Likelihood criterion as implemented in RAxML [@Stamatakis2014]. This phylogenetic framework will be used to test and refine species working hypotheses (as inferred in learning outcome #2).
 6. Visualize and interpret phylogenetic analysis.
 7. Learn the terminology associated to DNA barcoding and phylogenetic analyses. Several definitions associated to the most used terms is available in the [Lexicon](Lexicon.html).
 
@@ -348,7 +348,6 @@ The instructor provides guidance on content for each section of your individual 
     b. DNA extraction and sequencing (see section \@ref(vanbarcode)).
     c. BLAST analysis.
     d. Phylogenetic inference.  
- 
 5. **Results**: Results should be presented in the same order as presented in the Material & Methods section. Tables, Figures and code are reported in this section (by directly embedding them in the text and providing captions). To speed-up the writing of this report, you don't have to report on results associated to Sampling (a.) and DNA extraction and sequencing (b.) subsections, but rather focus on the BLAST analysis (c.) and phylogenetic inference (d.) subsections.  
 6. **Discussion**: In your discussion, we are expecting you to collate all the evidence presented in the study to answer your scientific questions. In this context, please subdivide this section into three subsections named as follows:
     a. To what species of vanilla do the individuals studied here belong to?
