@@ -634,7 +634,9 @@ For each DNA sequence the following meta-data are gathered using functions imple
 - Sequence length (in bp).
 - DNA sequence.
 
-Please see the `R` code below for more details on the procedure to retrieve the meta-data.  
+Please see the `R` code below for more details on the procedure to retrieve the meta-data. 
+
+**Disclaimer:** The R code below might stop because you do not have an API key registered to NCBI and the system might time you out. If it is the case, you will have to edit the `for` loop to pursue downloading the data.
 
 ```{r fetch, eval=F}
 ###~~~
@@ -655,7 +657,13 @@ print("Processing sequences: fetching meta-data")
 #Set a progress bar
 pb <- txtProgressBar(min = 0, max = length(GBresults$ids), style = 3)
 for(i in 1:length(GBresults$ids)){
-  #print(paste(i, "in", length(GBresults$ids), sep= ' '))
+  #Wait time to avoid being timed out by NCBI
+  # but it still might happen because you don't have an API key
+  Sys.sleep(5)
+  
+  #Print i = sample if you need to restart the loop
+  print(paste(i, "in", length(GBresults$ids), sep= ' '))
+  
   #Download sequence
   seq <- entrez_fetch(db='nuccore', id=GBresults$ids[i], rettype='fasta', retmode = "text")
   

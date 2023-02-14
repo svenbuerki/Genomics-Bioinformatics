@@ -11,7 +11,7 @@
 
 <meta name="author" content="Sven Buerki - Boise State University" />
 
-<meta name="date" content="2023-02-08" />
+<meta name="date" content="2023-02-14" />
 
 <title>BIOL 497/597 - Genomics &amp; Bioinformatics</title>
 
@@ -387,7 +387,7 @@ div.tocify {
 <h1 class="title toc-ignore">BIOL 497/597 - Genomics &amp; Bioinformatics</h1>
 <h3 class="subtitle">Mini-reports</h3>
 <h4 class="author">Sven Buerki - Boise State University</h4>
-<h4 class="date">2023-02-08</h4>
+<h4 class="date">2023-02-14</h4>
 
 </div>
 
@@ -1115,6 +1115,7 @@ GBresults &lt;- rentrez::entrez_search(db=&quot;nuccore&quot;,term = query, retm
 <li>DNA sequence.</li>
 </ul>
 <p>Please see the <code>R</code> code below for more details on the procedure to retrieve the meta-data.</p>
+<p><strong>Disclaimer:</strong> The R code below might stop because you do not have an API key registered to NCBI and the system might time you out. If it is the case, you will have to edit the <code>for</code> loop to pursue downloading the data.</p>
 <pre class="r"><code>###~~~
 #Fetch meta-data associated to sequences
 ###~~~
@@ -1133,7 +1134,13 @@ print(&quot;Processing sequences: fetching meta-data&quot;)
 #Set a progress bar
 pb &lt;- txtProgressBar(min = 0, max = length(GBresults$ids), style = 3)
 for(i in 1:length(GBresults$ids)){
-  #print(paste(i, &quot;in&quot;, length(GBresults$ids), sep= &#39; &#39;))
+  #Wait time to avoid being timed out by NCBI
+  # but it still might happen because you don&#39;t have an API key
+  Sys.sleep(5)
+  
+  #Print i = sample if you need to restart the loop
+  print(paste(i, &quot;in&quot;, length(GBresults$ids), sep= &#39; &#39;))
+  
   #Download sequence
   seq &lt;- entrez_fetch(db=&#39;nuccore&#39;, id=GBresults$ids[i], rettype=&#39;fasta&#39;, retmode = &quot;text&quot;)
   
