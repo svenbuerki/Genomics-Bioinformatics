@@ -11,7 +11,7 @@
 
 <meta name="author" content="Sven Buerki - Boise State University" />
 
-<meta name="date" content="2023-02-14" />
+<meta name="date" content="2023-02-15" />
 
 <title>BIOL 497/597 - Genomics &amp; Bioinformatics</title>
 
@@ -387,7 +387,7 @@ div.tocify {
 <h1 class="title toc-ignore">BIOL 497/597 - Genomics &amp; Bioinformatics</h1>
 <h3 class="subtitle">Mini-reports</h3>
 <h4 class="author">Sven Buerki - Boise State University</h4>
-<h4 class="date">2023-02-14</h4>
+<h4 class="date">2023-02-15</h4>
 
 </div>
 
@@ -1105,7 +1105,10 @@ query &lt;- paste0(sp,&quot;[All Fields] AND &quot;, DNA,&quot;[All Fields]&quot
 <pre class="r"><code>###~~~
 #Retrieve DNA accessions in GenBank
 ###~~~
-GBresults &lt;- rentrez::entrez_search(db=&quot;nuccore&quot;,term = query, retmax=50000)</code></pre>
+GBresults &lt;- rentrez::entrez_search(db=&quot;nuccore&quot;,term = query, retmax=50000)
+
+#How may hits did we get
+print(GBresults$count)</code></pre>
 </div>
 <div id="fetch-meta-data-associated-to-sequences" class="section level3" number="4.11.10">
 <h3><span class="header-section-number">4.11.10</span> Fetch meta-data associated to sequences</h3>

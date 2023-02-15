@@ -624,6 +624,9 @@ query <- paste0(sp,"[All Fields] AND ", DNA,"[All Fields]", org, "[filter]")
 #Retrieve DNA accessions in GenBank
 ###~~~
 GBresults <- rentrez::entrez_search(db="nuccore",term = query, retmax=50000)
+
+#How may hits did we get
+print(GBresults$count)
 ```
 
 ### Fetch meta-data associated to sequences
