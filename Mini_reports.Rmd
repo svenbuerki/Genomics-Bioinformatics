@@ -542,7 +542,7 @@ knitr::include_graphics("Images/IDE.png")
 
 Please consult this [RStudio article](https://support.rstudio.com/hc/en-us/articles/200484448-Editing-and-Executing-Code-in-the-RStudio-IDE) to learn more about procedures to edit and execute code in the RStudio environment.
 
-**Tip**: To execute a line of source code where your cursor currently resides you press the `Ctrl+Enter` key (or use the Run toolbar button; see Figure \@ref(fig:IDE)).
+**Tip**: To execute a line of code and send it to the Console you can press `Ctrl+Enter` on Windows or `Command+Enter` on Mac or use the Run toolbar button (see Figure \@ref(fig:IDE)).
 
 ### Analytical workflow 
 
@@ -564,7 +564,11 @@ Here, we are demonstrating an approach to search GenBank for ITS sequences of *V
 4. Tidy dataset based on meta-data.
 5. Write results in `FASTA` and `csv` formats.
 
-Before delving into the code, start by creating an `.R` file in `RStudio` and save it in the same working directory as where you want to save the output files (e.g. `DNA_barcoding/04_Data_analyses`).
+### Create an R script
+
+Before delving into the code, start by creating an `.R` file in `RStudio` and save it at the root of your project (`DNA_barcoding/`) with the following name `01_PART2.R`.
+
+All the R code provided below will be copied into your newly saved `R` script and executed in class together.
 
 ### Build a GenBank query {#query}
 
