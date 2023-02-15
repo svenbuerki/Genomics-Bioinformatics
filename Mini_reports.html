@@ -1115,7 +1115,7 @@ GBresults &lt;- rentrez::entrez_search(db=&quot;nuccore&quot;,term = query, retm
 <li>DNA sequence.</li>
 </ul>
 <p>Please see the <code>R</code> code below for more details on the procedure to retrieve the meta-data.</p>
-<p><strong>Disclaimer:</strong> The R code below might stop because you do not have an API key registered to NCBI and the system might time you out. If it is the case, you will have to edit the <code>for</code> loop to pursue downloading the data.</p>
+<p><strong>Disclaimer:</strong> The R code below might stop because you do not have an <a href="https://en.wikipedia.org/wiki/API">API</a> key registered to NCBI and the system might time you out. If it is the case, you will have to edit the <code>for</code> loop to pursue downloading the data.</p>
 <pre class="r"><code>###~~~
 #Fetch meta-data associated to sequences
 ###~~~
@@ -1138,8 +1138,9 @@ for(i in 1:length(GBresults$ids)){
   # but it still might happen because you don&#39;t have an API key
   Sys.sleep(5)
   
-  #Print i = sample if you need to restart the loop
-  print(paste(i, &quot;in&quot;, length(GBresults$ids), sep= &#39; &#39;))
+  #Print iteration number to assess progress
+  # This info will help reset the loop if your are timed out
+  print(paste(&quot;Iteration&quot;, i, &quot;of&quot;, length(GBresults$ids), sep= &#39; &#39;))
   
   #Download sequence
   seq &lt;- entrez_fetch(db=&#39;nuccore&#39;, id=GBresults$ids[i], rettype=&#39;fasta&#39;, retmode = &quot;text&quot;)
