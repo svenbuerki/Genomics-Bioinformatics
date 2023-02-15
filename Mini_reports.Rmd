@@ -614,7 +614,7 @@ DNA <- "internal transcribed spacer"
 org <- "Plants"
 
 #Build query: sp AND DNA region
-query <- paste0(sp,"[All Fields] AND ", DNA,"[All Fields]", org, "[filter]")
+query <- paste0(sp," [All Fields] AND ", DNA," [All Fields] ", org, " [filter]")
 ```
 
 ### Retrieve GenBank DNA sequences matching query
