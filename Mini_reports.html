@@ -826,147 +826,77 @@ Figure 4.6: Screenshot of DNA sequence electropherogram showing signature of pea
 </p>
 </div>
 <table>
-<caption>
-<span id="tab:IUPAC">Table 4.1: </span>IUPAC codes used to score base polymorphism. This is especially useful when analyzing nuclear DNA regions.
-</caption>
+<caption><span id="tab:IUPAC">Table 4.1: </span>IUPAC codes used to score base polymorphism. This is especially useful when analyzing nuclear DNA regions.</caption>
 <thead>
-<tr>
-<th style="text-align:left;">
-IUPAC nucleotide code
-</th>
-<th style="text-align:left;">
-Base
-</th>
+<tr class="header">
+<th align="left">IUPAC nucleotide code</th>
+<th align="left">Base</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-A
-</td>
-<td style="text-align:left;">
-Adenine
-</td>
+<tr class="odd">
+<td align="left">A</td>
+<td align="left">Adenine</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-C
-</td>
-<td style="text-align:left;">
-Cytosine
-</td>
+<tr class="even">
+<td align="left">C</td>
+<td align="left">Cytosine</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-G
-</td>
-<td style="text-align:left;">
-Guanine
-</td>
+<tr class="odd">
+<td align="left">G</td>
+<td align="left">Guanine</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-T (or U)
-</td>
-<td style="text-align:left;">
-Thymine (or Uracil)
-</td>
+<tr class="even">
+<td align="left">T (or U)</td>
+<td align="left">Thymine (or Uracil)</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-R
-</td>
-<td style="text-align:left;">
-A or G
-</td>
+<tr class="odd">
+<td align="left">R</td>
+<td align="left">A or G</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Y
-</td>
-<td style="text-align:left;">
-C or T
-</td>
+<tr class="even">
+<td align="left">Y</td>
+<td align="left">C or T</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-S
-</td>
-<td style="text-align:left;">
-G or C
-</td>
+<tr class="odd">
+<td align="left">S</td>
+<td align="left">G or C</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-W
-</td>
-<td style="text-align:left;">
-A or T
-</td>
+<tr class="even">
+<td align="left">W</td>
+<td align="left">A or T</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-K
-</td>
-<td style="text-align:left;">
-G or T
-</td>
+<tr class="odd">
+<td align="left">K</td>
+<td align="left">G or T</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-M
-</td>
-<td style="text-align:left;">
-A or C
-</td>
+<tr class="even">
+<td align="left">M</td>
+<td align="left">A or C</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-B
-</td>
-<td style="text-align:left;">
-C or G or T
-</td>
+<tr class="odd">
+<td align="left">B</td>
+<td align="left">C or G or T</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-D
-</td>
-<td style="text-align:left;">
-A or G or T
-</td>
+<tr class="even">
+<td align="left">D</td>
+<td align="left">A or G or T</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-H
-</td>
-<td style="text-align:left;">
-A or C or T
-</td>
+<tr class="odd">
+<td align="left">H</td>
+<td align="left">A or C or T</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-V
-</td>
-<td style="text-align:left;">
-A or C or G
-</td>
+<tr class="even">
+<td align="left">V</td>
+<td align="left">A or C or G</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-N
-</td>
-<td style="text-align:left;">
-any base
-</td>
+<tr class="odd">
+<td align="left">N</td>
+<td align="left">any base</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-. or -
-</td>
-<td style="text-align:left;">
-gap
-</td>
+<tr class="even">
+<td align="left">. or -</td>
+<td align="left">gap</td>
 </tr>
 </tbody>
 </table>
@@ -1283,7 +1213,7 @@ write.table(SEQ,
 # --&gt; Reload csv file from 04_Data_analyses/CSV/
 
 #Adjust the file name based on your data
-SEQfileName &lt;- &quot;Vanilla_internal transcribed spacer_2022_02_18_Raw_GenBank.csv&quot;
+SEQfileName &lt;- &quot;Vanilla_internal transcribed spacer_2023_02_14_Raw_GenBank.csv&quot;
 
 #Load the csv in the environment
 RawGBDat2 &lt;- read.csv(paste0(&quot;04_Data_analyses/CSV/&quot;, SEQfileName), quote = &quot;\&quot;&quot;, sep=&#39; &#39;)

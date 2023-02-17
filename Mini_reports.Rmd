@@ -741,7 +741,7 @@ If you need to restart coding from the previous point, please execute the code b
 # --> Reload csv file from 04_Data_analyses/CSV/
 
 #Adjust the file name based on your data
-SEQfileName <- "Vanilla_internal transcribed spacer_2022_02_18_Raw_GenBank.csv"
+SEQfileName <- "Vanilla_internal transcribed spacer_2023_02_14_Raw_GenBank.csv"
 
 #Load the csv in the environment
 RawGBDat2 <- read.csv(paste0("04_Data_analyses/CSV/", SEQfileName), quote = "\"", sep=' ')
