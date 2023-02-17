@@ -536,7 +536,7 @@ Among these are:
 
 # Timetable {#timetable}
 
-A tentative timetable for the Spring semester 2023 is presented [here](Timetable.html).
+A tentative timetable for the Spring semester 2023 is presented in the [Timetable](Timetable.html) tab.
 
 # References
 
