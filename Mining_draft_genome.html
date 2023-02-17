@@ -11,7 +11,7 @@
 
 <meta name="author" content="Sven Buerki &amp; Anthony Melton - Boise State University" />
 
-<meta name="date" content="2022-04-22" />
+<meta name="date" content="2023-02-17" />
 
 <title>BIOL 497/597 - Genomics &amp; Bioinformatics</title>
 
@@ -167,11 +167,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -348,6 +352,9 @@ div.tocify {
   <a href="index.html">Home</a>
 </li>
 <li>
+  <a href="Timetable.html">Timetable</a>
+</li>
+<li>
   <a href="Chapters.html">Chapters</a>
 </li>
 <li>
@@ -383,7 +390,7 @@ div.tocify {
 <h1 class="title toc-ignore">BIOL 497/597 - Genomics &amp; Bioinformatics</h1>
 <h3 class="subtitle">Lab: Mining sagebrush draft genome</h3>
 <h4 class="author">Sven Buerki &amp; Anthony Melton - Boise State University</h4>
-<h4 class="date">2022-04-22</h4>
+<h4 class="date">2023-02-17</h4>
 
 </div>
 
@@ -396,7 +403,7 @@ $(document).ready(function() {
 </script>
 <div id="intro" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> Introduction</h1>
-<p>This document supports analyses aiming at mining the sagebrush (<em>Artemisia tridentata</em> Nutt; Asteraceae) draft genome for Aquaporin (AQP) genes and it is based on data and analyses presented in <span class="citation"><a href="#ref-Melton2021" role="doc-biblioref">Melton et al.</a> (<a href="#ref-Melton2021" role="doc-biblioref">2021</a>)</span>. AQPs are multi-exon genes (see Figure <a href="#fig:multigene">1.1</a>) encoding for a large family of proteins known to function in the transport of water and other molecules across cell membranes <span class="citation">(reviewed in <a href="#ref-li2014plant" role="doc-biblioref">Li et al., 2014</a>)</span>.</p>
+<p>This document supports analyses aiming at mining the sagebrush (<em>Artemisia tridentata</em> Nutt; Asteraceae) draft genome for Aquaporin (AQP) genes and it is based on data and analyses presented in <span class="citation">Melton et al. (<a href="#ref-Melton2021" role="doc-biblioref">2021</a>)</span>. AQPs are multi-exon genes (see Figure <a href="#fig:multigene">1.1</a>) encoding for a large family of proteins known to function in the transport of water and other molecules across cell membranes <span class="citation">(reviewed in <a href="#ref-li2014plant" role="doc-biblioref">Li et al., 2014</a>)</span>.</p>
 <div class="figure"><span style="display:block;" id="fig:multigene"></span>
 <img src="Images/multi_exon_gene.png" alt="Flowchart showing the structure of a multi-exon gene and different resulting proteins. As a reminder, exons are pieces of coding DNA that encode proteins. Different exons code for different domains of a protein. The domains may be encoded by a single exon or multiple exons spliced together. In the case of multi-exon genes, the presence of exons and introns allows for greater molecular evolution through the process of exon shuffling and alternative splicing. Exon shuffling occurs when exons on sister chromosomes are exchanged during recombination. This allows for the formation of new genes. On the other hand, exons also allow for multiple proteins to be translated from the same gene through alternative splicing. This process allows the exons to be arranged in different combinations when the introns are removed/spliced. The different configurations can include the complete removal of an exon, the inclusion of part of an exon, or the inclusion of part of an intron. Alternative splicing can occur in the same location to produce different variants of a gene with a similar role, such as the human slo gene, or it can occur in different cell or tissue types, such as the mouse alpha-amylase gene. Alternative splicing, and defects in alternative splicing, can result in a number of diseases including cancer." width="80%" />
 <p class="caption">
@@ -1044,7 +1051,7 @@ ORFs2protSeq(fastaAA, ORFsToCat, stopCodon)</code></pre>
 <ol style="list-style-type: decimal">
 <li>Prediction of protein transmembrane helices based on the approach implemented in <a href="http://www.cbs.dtu.dk/services/TMHMM/">TMHMM</a> <span class="citation">(<a href="#ref-krogh2001predicting" role="doc-biblioref">Krogh et al., 2001</a>)</span>. This approach relies on <a href="https://www.sciencedirect.com/topics/biochemistry-genetics-and-molecular-biology/hidden-markov-model">Hidden Markov Models</a>.</li>
 <li>Identifying NPA motifs using R script relying on <em>Biostring</em> <span class="citation">(<a href="#ref-Biostrings" role="doc-biblioref">Pagès et al., 2019</a>)</span> and <em>IRanges</em> <span class="citation">(<a href="#ref-IRanges" role="doc-biblioref">Lawrence et al., 2013</a>)</span> packages.</li>
-<li>Model 3D AQP protein using approach implemented in <a href="http://www.sbg.bio.ic.ac.uk/~phyre2/html/page.cgi?id=index">Phyre<sup>2</sup></a> and predict protein (therefore its function). The approach for protein modeling, prediction and analysis is presented in <span class="citation"><a href="#ref-kelley2015phyre2" role="doc-biblioref">Kelley et al.</a> (<a href="#ref-kelley2015phyre2" role="doc-biblioref">2015</a>)</span>.</li>
+<li>Model 3D AQP protein using approach implemented in <a href="http://www.sbg.bio.ic.ac.uk/~phyre2/html/page.cgi?id=index">Phyre<sup>2</sup></a> and predict protein (therefore its function). The approach for protein modeling, prediction and analysis is presented in <span class="citation">Kelley et al. (<a href="#ref-kelley2015phyre2" role="doc-biblioref">2015</a>)</span>.</li>
 </ol>
 <div id="predictions" class="section level3" number="11.1.1">
 <h3><span class="header-section-number">11.1.1</span> Predictions</h3>
@@ -1186,7 +1193,7 @@ Figure 11.4: Results of Phyre2 analysis.
 <li>How many NPA motifs and types were inferred?</li>
 <li>What is the predicted protein and its function based on the modeling analysis conducted on the AA sequence?</li>
 </ul>
-<p>Based on these latter evidence, <strong>do you think that the Aquaporin protein sequence is complete?</strong> The instructor invites you to consult <span class="citation"><a href="#ref-Melton2021" role="doc-biblioref">Melton et al.</a> (<a href="#ref-Melton2021" role="doc-biblioref">2021</a>)</span> for more information allowing answering these questions and come to a conclusion.</p>
+<p>Based on these latter evidence, <strong>do you think that the Aquaporin protein sequence is complete?</strong> The instructor invites you to consult <span class="citation">Melton et al. (<a href="#ref-Melton2021" role="doc-biblioref">2021</a>)</span> for more information allowing answering these questions and come to a conclusion.</p>
 </div>
 <div id="references" class="section level1 unnumbered">
 <h1>References</h1>
@@ -1210,7 +1217,7 @@ Figure 11.4: Results of Phyre2 analysis.
 <span class="smallcaps">Krogh, A.</span>, <span class="smallcaps">B. Larsson</span>, <span class="smallcaps">G. Von Heijne</span>, and <span class="smallcaps">E.L. Sonnhammer</span>. 2001. Predicting transmembrane protein topology with a hidden markov model: Application to complete genomes. <em>Journal of molecular biology</em> 305: 567–580.
 </div>
 <div id="ref-IRanges" class="csl-entry">
-<span class="smallcaps">Lawrence, M.</span>, <span class="smallcaps">W. Huber</span>, <span class="smallcaps">H. Pagès</span>, <span class="smallcaps">P. Aboyoun</span>, <span class="smallcaps">M. Carlson</span>, <span class="smallcaps">R. Gentleman</span>, <span class="smallcaps">M. Morgan</span>, and <span class="smallcaps">V. Carey</span>. 2013. Software for computing and annotating genomic ranges. <em><span>PLoS</span> Computational Biology</em> 9: Available at: <a href="http://www.ploscompbiol.org/article/info">http://www.ploscompbiol.org/article/info</a>.
+<span class="smallcaps">Lawrence, M.</span>, <span class="smallcaps">W. Huber</span>, <span class="smallcaps">H. Pagès</span>, <span class="smallcaps">P. Aboyoun</span>, <span class="smallcaps">M. Carlson</span>, <span class="smallcaps">R. Gentleman</span>, <span class="smallcaps">M. Morgan</span>, and <span class="smallcaps">V. Carey</span>. 2013. Software for computing and annotating genomic ranges. <em><span>PLoS</span> Computational Biology</em> 9: Available at: <a href="http://www.ploscompbiol.org/article/info%3Adoi%2F10.1371%2Fjournal.pcbi.1003118">http://www.ploscompbiol.org/article/info%3Adoi%2F10.1371%2Fjournal.pcbi.1003118</a>.
 </div>
 <div id="ref-li2014plant" class="csl-entry">
 <span class="smallcaps">Li, G.</span>, <span class="smallcaps">V. Santoni</span>, and <span class="smallcaps">C. Maurel</span>. 2014. Plant aquaporins: Roles in plant physiology. <em>Biochimica et Biophysica Acta (BBA)-General Subjects</em> 1840: 1574–1582.
