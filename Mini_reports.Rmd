@@ -870,7 +870,7 @@ In this section, we are focusing on developing an `R` code to format and merge o
 5. Merge individual `FASTA` objects using `rbind()`.
 6. Write output `FASTA` object into file using `write.table()`. 
 
-Please notice that steps 2 to 4 will take place within a `for` loop.
+Please notice that steps 2 to 5 will take place within a `for` loop.
 
 ```{r mergeFASTA, eval=F}
 ###~~~
