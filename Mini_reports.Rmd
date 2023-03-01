@@ -1125,12 +1125,13 @@ Some considerations associated to the syntax:
 - Tips (or samples) are represented by their names. A name can be any string of printable characters except blanks, colons, semicolons, parentheses, and square brackets. 
 - Because you may want to include a blank in a tip name, it is assumed that an underscore character (`_`) stands for a blank; any of these in a name will be converted to a blank when it is read in (see code above and Figure \@ref(fig:intronewick) for more details).
 
-Branch lengths can be incorporated into a tree by putting a real number, with or without decimal point, after a node and preceded by a colon (`:`). This represents the length of the branch immediately below that node. Thus, the above tree might have lengths represented as in Figure \@ref(fig:newickbrlens):
+**Branch lengths** (representing e.g. molecular substitutions, which can be turned into time in a dated phylogenetic tree) can be incorporated into a tree by putting a real number, with or without decimal point, after a node and preceded by a colon (`:`). This represents the length of the branch immediately below that node. Thus, the above tree might have lengths represented as in Figure \@ref(fig:newickbrlens).
 
 ```{r newickbrlens, eval=T, echo=T, fig.align="center", fig.cap="Rooted tree showing relationsip between 4 species with branch lengths.", fig.show="asis", out.width = '100%'}
 ###~~~
 #Tree in Newick format with branch lengths
 ###~~~
+# Here we added branch length values using ":" and inserting value
 tr2 <- "(A._speciosa:2.0,(B._dimorpha:4.2,(C._elegans:2.0,D._viridis:3.0):1):4.0);"
 
 ###~~~
@@ -1139,12 +1140,13 @@ tr2 <- "(A._speciosa:2.0,(B._dimorpha:4.2,(C._elegans:2.0,D._viridis:3.0):1):4.0
 plot(ape::read.tree(text=tr2))
 ```
 
-Now, we can finally add node supports by simply adding values after each closing parenthesis. This is done as follows and displayed in Figure \@ref(fig:newickbrlensnode):
+Now, we can finally add **node supports** (inferred using e.g. the bootstrap approach in the case of the vanilla Maximum Likelihood analysis conducted here) by simply adding values after each closing parenthesis. This is done as follows and displayed in Figure \@ref(fig:newickbrlensnode):
 
 ```{r newickbrlensnode, eval=T, echo=T, fig.align="center", fig.cap="Rooted tree showing relationsip between 4 species with branch lengths and node supports.", fig.show="asis", out.width = '100%'}
 ###~~~
 #Tree in Newick format with branch lengths and node supports
 ###~~~
+# Here we added branch lengths and bootstrap values
 tr3 <- "(A._speciosa:2.0,(B._dimorpha:4.2,(C._elegans:2.0,D._viridis:3.0)60:1)90:4.0)100;"
 
 ###~~~
