@@ -172,6 +172,13 @@ There are three folders in this project:
 - `02_Kmers_analyses/`: This folder contains the structure that will be used for this tutorial. Each student will have to copy this folder onto the account prior to starting the analyses.
 - `03_Output_files/`: This folder contains all the outputs files. Students can look at these files to help solve potential coding issues.
 
+## Software
+
+To support remotely connecting to the Linux computers and retrieving files (from the Linux computer to your personal computer), please make sure that you have installed the following software on your personal computer before pursing with this tutorial:
+
+- [Putty](https://www.putty.org/): This software will be required to remotely connect to the Linux computers if you have a Windows OS.
+- [FileZilla](https://filezilla-project.org/download.php?type=client): This software will be useful to exchange files from the Linux computer to your personal computer. 
+
 ## PART 1: QCs, read cleaning and genome size {#PART1}
 
 ### Analytical workflow
