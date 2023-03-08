@@ -94,7 +94,7 @@ The ssh protocol (also referred to as **S**ecure **Sh**ell) is a method for secu
 knitr::include_graphics("Images/SSH_Preview.png")
 ```
 
-Once you have gathered all required information (i.e., IP address and username) and installed [Putty](#Putty) if you have a Windows OS, please open a `Terminal` or command prompt window and type the following command to remotely access your account using the ssh protocol (see Figure \@ref(fig:ssh)):
+Once you have gathered all required information (i.e., IP address and username) and installed [Putty](#Putty) if you have a Windows opertaing system, please open a `Terminal` or command prompt window and type the following command to remotely access your account using the ssh protocol (see Figure \@ref(fig:ssh)):
 
 ```{bash eval=F}
 # General command
@@ -124,7 +124,7 @@ knitr::include_graphics("Images/putty-session-config.png")
 
 Some of the analyses that we will be conducting in this course will take several days to be completed. In this case, it is paramount to run those analyses in a safe environment. By safe, we mean making sure that analyses will not be inadvertently cut either by yourself or by other users (and trust me it happens!). In this section, we will be reviewing protocols implemented in `tmux` to run and access multiple parallel terminal sessions. 
 
-As long as the user knows the unique ID of their `tmux` session, the `tmux` session will be accessible by anybody and remain open after closing your `ssh` connection. For those reasons, **the `tmux` protocol is very useful when multiple users are sharing the same account (here `bioinformatics`) and want to work remotely**.
+`tmux` is an open-source terminal multiplexer for Unix-like operating systems. It allows multiple terminal sessions to be accessed simultaneously in a single window. It is useful for running more than one command-line program at the same time. As long as the user knows the unique ID of their `tmux` session, the `tmux` session will be accessible by anybody and remain open after closing your `ssh` connection. For those reasons, **the `tmux` protocol is very useful when multiple users are sharing the same account and/or want to work remotely**.
 
 This software is installed by default on the Linux operating system, but it can also be installed on Mac OS using the following command:
 
