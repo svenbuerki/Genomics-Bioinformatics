@@ -1,5 +1,6 @@
 ---
 title: "Tutorials"
+subtitle: "Introduction to Linux operating system"
 date: "`r Sys.Date()`"
 output:
 #  bookdown::pdf_document2:
@@ -41,9 +42,13 @@ library(tufte)
 knitr::write_bib(.packages(), file = 'packages.bib')
 ```
 
-# Group accounts and IP addresses
+# Introduction
 
-Details on lab groups, Linux computer accounts and IP addresses are summarized in this [Google document](https://docs.google.com/document/d/1t0DdQBes42Gzo8XWgc9JL2xEGjv1kbfoVE7Vznx6C9I/edit?usp=sharing).
+This webpage contains several tutorials providing introductions to different facets of the Linux operating systems. Information presented here are especially relevant for [Chapter 4](https://svenbuerki.github.io/Genomics-Bioinformatics/Chapters.html#6_Chapter_4) and the [Lab assignment](https://svenbuerki.github.io/Genomics-Bioinformatics/Mining_draft_genome.html). 
+
+# Computer accounts and IP addresses
+
+Details on Linux computer accounts and IP addresses are summarized in this [Google document](https://docs.google.com/document/d/1t0DdQBes42Gzo8XWgc9JL2xEGjv1kbfoVE7Vznx6C9I/edit?usp=sharing).
 
 # Remotely accessing Linux computers
 
