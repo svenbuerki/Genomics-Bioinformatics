@@ -53,6 +53,10 @@ i) your user ID and password (see [Google document](https://docs.google.com/docu
 ii) the IP address of the computer you want to connect to. If you want to remotely access the lab computers from a Windows machine, please read the protocol described [below](#Putty) before going any further into this document.
 iii) If you are accessing the Linux computers outside of BSU campus, you will need to use the VPN protocol.
 
+## What is an IP address?
+
+An **I**nternet **P**rotocol address is a numerical label such as 192.0.2.1 that is connected to a computer network that uses the Internet Protocol for communication. An IP address serves two main functions: network interface identification and location addressing.
+
 ## How to find the IP address of your computer
 
 The procedure summarized here allows retrieving the computer IP address on the Ubuntu operating system (16.04 LTS; Figure \@ref(fig:IP)):
@@ -67,7 +71,7 @@ The procedure summarized here allows retrieving the computer IP address on the U
 knitr::include_graphics("Images/IP_Ubuntu.png")
 ```
 
-### Command lines to get IP
+### Command lines to get IP address
 
 On a Linux OS, you can get the IP address of the computer by typing tyhe following commands in a Terminal:
 
@@ -84,7 +88,13 @@ ifconfig -a
 
 ## The ssh protocol
 
-Once you have gathered all required information (and installed [Putty](#Putty) on Windows), please open a `Terminal` or command prompt window and type the following command to remotely access your account (see Figure \@ref(fig:ssh)):
+The ssh protocol (also referred to as **S**ecure **Sh**ell) is a method for secure remote login from one computer to another (Figure \@ref(fig:sshFig)). It provides several alternative options for strong authentication, and it protects communications security and integrity with strong encryption.
+
+```{r sshFig, echo=FALSE, fig.align="center", fig.cap="Overview of ssh protocol. Credit: https://www.wallarm.com/what/what-is-ssh-protocol", fig.show="asis", out.width = '80%'}
+knitr::include_graphics("Images/SSH_Preview.png")
+```
+
+Once you have gathered all required information (i.e., IP address and username) and installed [Putty](#Putty) if you have a Windows OS, please open a `Terminal` or command prompt window and type the following command to remotely access your account using the ssh protocol (see Figure \@ref(fig:ssh)):
 
 ```{bash eval=F}
 # General command

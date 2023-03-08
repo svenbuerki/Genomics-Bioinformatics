@@ -10,7 +10,7 @@
 
 
 
-<meta name="date" content="2023-02-17" />
+<meta name="date" content="2023-03-08" />
 
 <title>Tutorials</title>
 
@@ -365,7 +365,7 @@ div.tocify {
 
 
 <h1 class="title toc-ignore">Tutorials</h1>
-<h4 class="date">2023-02-17</h4>
+<h4 class="date">2023-03-08</h4>
 
 </div>
 
@@ -388,8 +388,12 @@ $(document).ready(function() {
 <li>the IP address of the computer you want to connect to. If you want to remotely access the lab computers from a Windows machine, please read the protocol described <a href="#Putty">below</a> before going any further into this document.</li>
 <li>If you are accessing the Linux computers outside of BSU campus, you will need to use the VPN protocol.</li>
 </ol>
-<div id="how-to-find-the-ip-address-of-your-computer" class="section level2" number="2.1">
-<h2><span class="header-section-number">2.1</span> How to find the IP address of your computer</h2>
+<div id="what-is-an-ip-address" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> What is an IP address?</h2>
+<p>An <strong>I</strong>nternet <strong>P</strong>rotocol address is a numerical label such as 192.0.2.1 that is connected to a computer network that uses the Internet Protocol for communication. An IP address serves two main functions: network interface identification and location addressing.</p>
+</div>
+<div id="how-to-find-the-ip-address-of-your-computer" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> How to find the IP address of your computer</h2>
 <p>The procedure summarized here allows retrieving the computer IP address on the Ubuntu operating system (16.04 LTS; Figure <a href="#fig:IP">2.1</a>):</p>
 <ol style="list-style-type: decimal">
 <li>Open the <code>System Settings</code> app located on the left side bar of the desktop.</li>
@@ -403,8 +407,8 @@ $(document).ready(function() {
 Figure 2.1: Screenshot of Ubuntu desktop showing how to retrieve IP address.
 </p>
 </div>
-<div id="command-lines-to-get-ip" class="section level3" number="2.1.1">
-<h3><span class="header-section-number">2.1.1</span> Command lines to get IP</h3>
+<div id="command-lines-to-get-ip-address" class="section level3" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> Command lines to get IP address</h3>
 <p>On a Linux OS, you can get the IP address of the computer by typing tyhe following commands in a Terminal:</p>
 <pre class="bash"><code>#Get IP address
 # Option 1
@@ -415,9 +419,16 @@ ip a
 ifconfig -a</code></pre>
 </div>
 </div>
-<div id="the-ssh-protocol" class="section level2" number="2.2">
-<h2><span class="header-section-number">2.2</span> The ssh protocol</h2>
-<p>Once you have gathered all required information (and installed <a href="#Putty">Putty</a> on Windows), please open a <code>Terminal</code> or command prompt window and type the following command to remotely access your account (see Figure <a href="#fig:ssh">2.2</a>):</p>
+<div id="the-ssh-protocol" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> The ssh protocol</h2>
+<p>The ssh protocol (also referred to as <strong>S</strong>ecure <strong>Sh</strong>ell) is a method for secure remote login from one computer to another (Figure <a href="#fig:sshFig">2.2</a>). It provides several alternative options for strong authentication, and it protects communications security and integrity with strong encryption.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:sshFig"></span>
+<img src="Images/SSH_Preview.png" alt="Overview of ssh protocol. Credit: https://www.wallarm.com/what/what-is-ssh-protocol" width="80%" />
+<p class="caption">
+Figure 2.2: Overview of ssh protocol. Credit: <a href="https://www.wallarm.com/what/what-is-ssh-protocol" class="uri">https://www.wallarm.com/what/what-is-ssh-protocol</a>
+</p>
+</div>
+<p>Once you have gathered all required information (i.e., IP address and username) and installed <a href="#Putty">Putty</a> if you have a Windows OS, please open a <code>Terminal</code> or command prompt window and type the following command to remotely access your account using the ssh protocol (see Figure <a href="#fig:ssh">2.3</a>):</p>
 <pre class="bash"><code># General command
 $ ssh USER_ID@IP
 
@@ -427,18 +438,18 @@ $ ssh bioinformatics@132.178.143.53</code></pre>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:ssh"></span>
 <img src="Images/ssh_screen.png" alt="Screenshot of Terminal showing commands to remotely access computer of group 3." width="80%" />
 <p class="caption">
-Figure 2.2: Screenshot of Terminal showing commands to remotely access computer of group 3.
+Figure 2.3: Screenshot of Terminal showing commands to remotely access computer of group 3.
 </p>
 </div>
 </div>
-<div id="Putty" class="section level2" number="2.3">
-<h2><span class="header-section-number">2.3</span> Install Putty on Windows to ssh</h2>
+<div id="Putty" class="section level2" number="2.4">
+<h2><span class="header-section-number">2.4</span> Install Putty on Windows to ssh</h2>
 <p>Putty is one of the best software used on Windows to remotely access computers. Download the program at this URL <a href="http://www.putty.org" class="uri">http://www.putty.org</a> and follow instructions to install it on your computer.</p>
-<p>When you launch Putty, a configuration window will pop up and you will enter i) your credentials (e.g. <code>user@IP</code>) in the <code>Host Name (or IP address)</code> box, ii) set the <code>Port</code> to 22 and iii) make sure the connection type is set to <code>ssh</code> (Figure <a href="#fig:Putty">2.3</a>). The full documentation for this software is available <a href="https://the.earth.li/~sgtatham/putty/0.76/htmldoc/">here</a>.</p>
+<p>When you launch Putty, a configuration window will pop up and you will enter i) your credentials (e.g. <code>user@IP</code>) in the <code>Host Name (or IP address)</code> box, ii) set the <code>Port</code> to 22 and iii) make sure the connection type is set to <code>ssh</code> (Figure <a href="#fig:Putty">2.4</a>). The full documentation for this software is available <a href="https://the.earth.li/~sgtatham/putty/0.76/htmldoc/">here</a>.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:Putty"></span>
 <img src="Images/putty-session-config.png" alt="Screenshot of Putty Configuration window to establish ssh connection." width="60%" />
 <p class="caption">
-Figure 2.3: Screenshot of Putty Configuration window to establish ssh connection.
+Figure 2.4: Screenshot of Putty Configuration window to establish ssh connection.
 </p>
 </div>
 </div>
