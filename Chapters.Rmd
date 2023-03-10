@@ -273,7 +273,7 @@ At this stage, you will need to transfer `SRR5759389_pe12_fastqc.html` on your l
 
 **WARNING:** This protocol works only on UNIX OS (Mac, Linux).
 
-You can use the `scp` command to copy `SRR5759389_pe12_fastqc.html` or any other file to your local computer. This can be done as follows:
+You can use the `scp` (**S**ecure **C**opy **P**rotocol) command to copy `SRR5759389_pe12_fastqc.html` or any other file to your local computer. This can be done as follows:
 
 1. Open a `Terminal` window on your computer and navigate (using `cd`) where you want to store the target file.
 
@@ -288,6 +288,10 @@ scp bio_11@132.178.142.214:~/Documents/02_Kmers_analyses/FastQC/SRR5759389_pe12_
 ```
 
 #### `sftp` protocol {#sftp}
+
+`sftp` is a **S**SH **F**ile **T**ransfer **P**rotocol that can be used to support file exchange between remote computers and your personal computer. This protocol is implemented in FileZilla and other free software. 
+
+To copy the output of the `FastQC` analysis on your computer do the following:
 
 Open FileZilla on your personal computer and establish remote connection with Linux computer as shown in Figure \@ref(fig:FileZilla). Once the connection is established:
 

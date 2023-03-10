@@ -11,7 +11,7 @@
 
 <meta name="author" content="Sven Buerki - Boise State University" />
 
-<meta name="date" content="2023-03-06" />
+<meta name="date" content="2023-03-10" />
 
 <title>BIOL 497/597 - Genomics &amp; Bioinformatics</title>
 
@@ -390,7 +390,7 @@ div.tocify {
 <h1 class="title toc-ignore">BIOL 497/597 - Genomics &amp; Bioinformatics</h1>
 <h3 class="subtitle">Chapters</h3>
 <h4 class="author">Sven Buerki - Boise State University</h4>
-<h4 class="date">2023-03-06</h4>
+<h4 class="date">2023-03-10</h4>
 
 </div>
 
@@ -663,7 +663,7 @@ fastq-dump --split-files --defline-seq &#39;@$ac.$si.$sg/$ri&#39; --defline-qual
 <div id="scp-protocol" class="section level4" number="6.7.6.1">
 <h4><span class="header-section-number">6.7.6.1</span> <code>scp</code> protocol</h4>
 <p><strong>WARNING:</strong> This protocol works only on UNIX OS (Mac, Linux).</p>
-<p>You can use the <code>scp</code> command to copy <code>SRR5759389_pe12_fastqc.html</code> or any other file to your local computer. This can be done as follows:</p>
+<p>You can use the <code>scp</code> (<strong>S</strong>ecure <strong>C</strong>opy <strong>P</strong>rotocol) command to copy <code>SRR5759389_pe12_fastqc.html</code> or any other file to your local computer. This can be done as follows:</p>
 <ol style="list-style-type: decimal">
 <li><p>Open a <code>Terminal</code> window on your computer and navigate (using <code>cd</code>) where you want to store the target file.</p></li>
 <li><p>Type this command line:</p></li>
@@ -677,6 +677,8 @@ scp bio_11@132.178.142.214:~/Documents/02_Kmers_analyses/FastQC/SRR5759389_pe12_
 </div>
 <div id="sftp" class="section level4" number="6.7.6.2">
 <h4><span class="header-section-number">6.7.6.2</span> <code>sftp</code> protocol</h4>
+<p><code>sftp</code> is a <strong>S</strong>SH <strong>F</strong>ile <strong>T</strong>ransfer <strong>P</strong>rotocol that can be used to support file exchange between remote computers and your personal computer. This protocol is implemented in FileZilla and other free software.</p>
+<p>To copy the output of the <code>FastQC</code> analysis on your computer do the following:</p>
 <p>Open FileZilla on your personal computer and establish remote connection with Linux computer as shown in Figure <a href="#fig:FileZilla">6.4</a>. Once the connection is established:</p>
 <ol style="list-style-type: decimal">
 <li>Navigate where the target file (<code>SRR5759389_pe12_fastqc.html</code>) is located on the remote computer and select it.</li>
