@@ -644,10 +644,11 @@ cd ~/Documents/02_Kmers_analyses/</code></pre>
 <p>The SRA format (containing raw NGS data) can be quite difficult to play with. Here, we aim at downloading the WGS data, split PE reads, but store both reads (R1 and R2) in the same file using the interleaved format (Figure <a href="#fig:part1workflow">6.3</a>). This format is very convenient and is the entry point for most reads cleaning programs. This task can be done by using <code>fastq-dump</code> from the <a href="https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=software">SRA Toolkit</a>.</p>
 <p><strong>!!! DON’T EXECUTE THIS CODE !!!</strong></p>
 <blockquote>
-<p>The command to download the SRA file is available below, but please don’t execute it since the file weighs &gt;35GB and it takes a LONG time to download.</p>
+<p>The command to download the SRA file is available below, but please <strong>don’t execute the command since the file weighs &gt;35GB and it takes a LONG time to download</strong>.</p>
 </blockquote>
 <p>Before starting, open a Terminal and navigate to the <code>/home/Genomics_shared/Chapter_04/01_SRA</code> folder using the <code>cd</code> command. This folder contains the <code>SRA</code> file (<code>SRR5759389_pe12.fastq</code>) that we will be using in this tutorial. You could download it by executing the following command:</p>
 <pre class="bash"><code>#Download PE reads (properly edited) in interleave format using SRA Toolkit
+# !! DON&#39;T EXECUTE THIS COMMAND !!
 fastq-dump --split-files --defline-seq &#39;@$ac.$si.$sg/$ri&#39; --defline-qual &#39;+&#39; -Z SRR5759389  &gt; SRR5759389_pe12.fastq</code></pre>
 </div>
 <div id="Step2" class="section level3" number="6.7.5">
