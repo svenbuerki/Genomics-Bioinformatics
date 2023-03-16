@@ -11,7 +11,7 @@
 
 <meta name="author" content="Sven Buerki - Boise State University" />
 
-<meta name="date" content="2023-03-10" />
+<meta name="date" content="2023-03-16" />
 
 <title>BIOL 497/597 - Genomics &amp; Bioinformatics</title>
 
@@ -390,7 +390,7 @@ div.tocify {
 <h1 class="title toc-ignore">BIOL 497/597 - Genomics &amp; Bioinformatics</h1>
 <h3 class="subtitle">Chapters</h3>
 <h4 class="author">Sven Buerki - Boise State University</h4>
-<h4 class="date">2023-03-10</h4>
+<h4 class="date">2023-03-16</h4>
 
 </div>
 
@@ -769,8 +769,16 @@ khmer filter-abund.py -V kmer.counts -o SRR5759389_pe12.max100.trimmed.norare.fa
 <pre class="bash"><code>#3. Final clean-up of reads (remove low quality bases, short sequences, and non-paired reads)
 seqtk seq -q 10 -N -L 80 SRR5759389_pe12.max100.trimmed.norare.fastq | seqtk dropse &gt; SRR5759389_pe12.max100.trimmed.norare.noshort.fastq</code></pre>
 </div>
-<div id="prepreads" class="section level4" number="6.7.7.6">
-<h4><span class="header-section-number">6.7.7.6</span> Prepare data for <em>de novo</em> genome assembly</h4>
+<div id="remove-intermediate-files" class="section level4" number="6.7.7.6">
+<h4><span class="header-section-number">6.7.7.6</span> Remove intermediate files</h4>
+<p>To save disk space and avoid cluttering the computer (with redundant information), please remove the following intermediate files as follows:</p>
+<pre class="bash"><code>#Removing intermediate, temporary files to save disk space
+rm SRR5759389_pe12.max100.trimmed.fastq
+rm SRR5759389_pe12.max100.trimmed.norare.fastq</code></pre>
+<p>Each of the file that you discarded is &gt;30G of data!</p>
+</div>
+<div id="prepreads" class="section level4" number="6.7.7.7">
+<h4><span class="header-section-number">6.7.7.7</span> Prepare data for <em>de novo</em> genome assembly</h4>
 <p>In this last section, our cleaned reads are prepared for the <em>de novo</em> genome assembly analysis conducted in <code>SOAPdenovo2</code> <span class="citation">(<a href="#ref-Luo2012" role="doc-biblioref">Luo et al., 2012</a>)</span> (done in <a href="#PART2">PART 2</a>). This is achieved by using <code>khmer</code> and renaming files using <code>mv</code> as follows:</p>
 <pre class="bash"><code>#De-interleave filtered reads (to be ready for de novo assembly in SOAPdenovo2)
 khmer split-paired-reads.py SRR5759389_pe12.max100.trimmed.norare.noshort.fastq
@@ -779,20 +787,24 @@ khmer split-paired-reads.py SRR5759389_pe12.max100.trimmed.norare.noshort.fastq
 mv SRR5759389_pe12.max100.trimmed.norare.noshort.fastq.1 SRR5759389.pe1.clean.fastq
 mv SRR5759389_pe12.max100.trimmed.norare.noshort.fastq.2 SRR5759389.pe2.clean.fastq</code></pre>
 </div>
-<div id="reads-qcs-on-cleaned-reads" class="section level4" number="6.7.7.7">
-<h4><span class="header-section-number">6.7.7.7</span> Reads QCs on cleaned reads</h4>
+<div id="reads-qcs-on-cleaned-reads" class="section level4" number="6.7.7.8">
+<h4><span class="header-section-number">6.7.7.8</span> Reads QCs on cleaned reads</h4>
 <p>Use <code>FastQC</code> to validate the reads cleaning conducted above. Please see <a href="#Step2">Step 2</a> for more details on the methodology.</p>
 </div>
 </div>
 <div id="step-4-whats-in-the-reads" class="section level3" number="6.7.8">
 <h3><span class="header-section-number">6.7.8</span> Step 4: What’s “in” the reads?</h3>
 <p>Before conducting the <em>de novo</em> genome assembly (using the cleaned reads produced in <a href="#Step3">Step 3</a>, it is paramount to assess whether the data are contaminated and also to provide a first estimate of proportions of reads belonging to either nuclear or plastid genomes. To investigate these topics, the instructor proposes that we assess i) potential contamination by inferring reads GC contents and ii) map the clean reads against nuclear and chloroplast genome assemblies to assess proportions of reads belonging to either genomes in our library.</p>
+<p><strong>WARNING:</strong> All the analyses from this step rely on <code>SRR5759389_pe12.max100.trimmed.norare.noshort.fastq</code>. If you have not been able to generate the latter file, please copy it from our shared hard drive space into your <code>khmer/</code> folder. The path is as follows:</p>
+<pre class="bash"><code>## SRR5759389_pe12.max100.trimmed.norare.noshort.fastq
+# can be found at this path
+/home/Genomics_shared/Chapter_04/02_Kmers_analyses/khmer/instructor_files</code></pre>
 <div id="reads-gc-contents" class="section level4" number="6.7.8.1">
 <h4><span class="header-section-number">6.7.8.1</span> Reads GC contents</h4>
 <p>The GC content of a sequence library can provide evidence of contamination or the presence of sequence from multiple organisms (since most organisms have specific GC profiles). A GC plot inferred from a non-contaminated library would display a smooth, unimodal distribution. The existence of shoulders, or in more extreme cases a bimodal distribution, could be indicative of the presence of sequence reads from an organism with a different GC content, which is most likely a contaminant (see Figure <a href="#fig:part1workflow">6.3</a>).</p>
 <p>Here we infer GC contents for all clean reads using the perl script <code>GC_content.pl</code>. This script requires reads to be in <code>fasta</code> format. We will then start by converting our <code>fastq</code> file into <code>fasta</code> by using <code>seqtk</code>. Data are available in the <code>GC_content/</code> folder. Please see below for the commands to be executed:</p>
 <pre class="bash"><code>#Convert fastq to fasta
-seqtk seq -a ~/Documents/02_Kmers_analyses/khmer/    SRR5759389_pe12.max100.trimmed.norare.noshort.fastq &gt; SRR5759389_pe12.max100.trimmed.norare.noshort.fasta</code></pre>
+seqtk seq -a ~/Documents/02_Kmers_analyses/khmer/SRR5759389_pe12.max100.trimmed.norare.noshort.fastq &gt; SRR5759389_pe12.max100.trimmed.norare.noshort.fasta</code></pre>
 <p><strong>PLEASE DON’T EXECUTE THE COMMAND BELOW!</strong> It takes few hours to calculate reads GC contents. Use the output of this command <code>gc_out.txt</code> (weighing ca. 5GB), which is available in the <code>GC_content/</code> folder to carry on our analyses.</p>
 <pre class="bash"><code>#Infer GC content using fasta file as input (this can take a long time)
 ./GC_content.pl SRR5759389_pe12.max100.trimmed.norare.noshort.fasta &gt; gc_out.txt</code></pre>
@@ -1001,7 +1013,7 @@ Figure 6.9: Output of the GenomeScope analysis.
 <li><code>SRR5759389.pe1.clean.fastq</code></li>
 <li><code>SRR5759389.pe2.clean.fastq</code></li>
 </ul>
-<p><strong>WARNING:</strong> You have to complete section <a href="#prepreads">6.7.7.6</a> before starting this section.</p>
+<p><strong>WARNING:</strong> You have to complete section <a href="#prepreads">6.7.7.7</a> before starting this section.</p>
 </div>
 <div id="analytical-workflow-1" class="section level3" number="6.8.3">
 <h3><span class="header-section-number">6.8.3</span> Analytical workflow</h3>

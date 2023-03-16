@@ -394,6 +394,18 @@ khmer filter-abund.py -V kmer.counts -o SRR5759389_pe12.max100.trimmed.norare.fa
 seqtk seq -q 10 -N -L 80 SRR5759389_pe12.max100.trimmed.norare.fastq | seqtk dropse > SRR5759389_pe12.max100.trimmed.norare.noshort.fastq
 ```
 
+#### Remove intermediate files 
+
+To save disk space and avoid cluttering the computer (with redundant information), please remove the following intermediate files as follows:
+
+```{bash, eval = F}
+#Removing intermediate, temporary files to save disk space
+rm SRR5759389_pe12.max100.trimmed.fastq
+rm SRR5759389_pe12.max100.trimmed.norare.fastq
+```
+
+Each of the file that you discarded is >30G of data!
+
 #### Prepare data for  *de novo* genome assembly {#prepreads}
 
 In this last section, our cleaned reads are prepared for the *de novo* genome assembly analysis conducted in `SOAPdenovo2` [@Luo2012] (done in [PART 2](#PART2)). This is achieved by using `khmer` and renaming files using `mv` as follows:
@@ -415,6 +427,14 @@ Use `FastQC` to validate the reads cleaning conducted above. Please see [Step 2]
 
 Before conducting the *de novo* genome assembly (using the cleaned reads produced in [Step 3](#Step3), it is paramount to assess whether the data are contaminated and also to provide a first estimate of proportions of reads belonging to either nuclear or plastid genomes. To investigate these topics, the instructor proposes that we assess i) potential contamination by inferring reads GC contents and ii) map the clean reads against nuclear and chloroplast genome assemblies to assess proportions of reads belonging to either genomes in our library.
 
+**WARNING:** All the analyses from this step rely on `SRR5759389_pe12.max100.trimmed.norare.noshort.fastq`. If you have not been able to generate the latter file, please copy it from our shared hard drive space into your `khmer/` folder. The path is as follows:
+
+```{bash, eval = F}
+## SRR5759389_pe12.max100.trimmed.norare.noshort.fastq
+# can be found at this path
+/home/Genomics_shared/Chapter_04/02_Kmers_analyses/khmer/instructor_files
+```
+
 #### Reads GC contents
 
 The GC content of a sequence library can provide evidence of contamination or the presence of sequence from multiple organisms (since most organisms have specific GC profiles). A GC plot inferred from a non-contaminated library would display a smooth, unimodal distribution. The existence of shoulders, or in more extreme cases a bimodal distribution, could be indicative of the presence of sequence reads from  an organism with a different GC content, which is most likely a contaminant (see Figure \@ref(fig:part1workflow)). 
@@ -423,7 +443,7 @@ Here we infer GC contents for all clean reads using the perl script `GC_content.
 
 ```{bash, eval = F}
 #Convert fastq to fasta
-seqtk seq -a ~/Documents/02_Kmers_analyses/khmer/	 SRR5759389_pe12.max100.trimmed.norare.noshort.fastq > SRR5759389_pe12.max100.trimmed.norare.noshort.fasta
+seqtk seq -a ~/Documents/02_Kmers_analyses/khmer/SRR5759389_pe12.max100.trimmed.norare.noshort.fastq > SRR5759389_pe12.max100.trimmed.norare.noshort.fasta
 ```
 
 **PLEASE DON'T EXECUTE THE COMMAND BELOW!** It takes few hours to calculate reads GC contents. Use the output of this command `gc_out.txt` (weighing ca. 5GB), which is available in the `GC_content/` folder to carry on our analyses. 
