@@ -498,7 +498,7 @@ Here we aim at assessing the proportions of reads in the clean library belonging
 
 ##### Mapping reads against the nuclear genome
 
-The nuclear genome of *Apostasia shenzhenica* published by @Zhang2017 is not listed in the NCBI database as "Genome", but rather as "Assembly". Please see Figure \@ref(fig:NuclearNCBI) for more details on the genome. This file (a compressed FASTA) is already available in your folder, but you could download it as follows:
+The nuclear genome of *Apostasia shenzhenica* published by @Zhang2017 is not listed in the NCBI database as "Genome", but rather as "Assembly" (see BioProject [PRJNA310678](https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA310678)). Please see Figure \@ref(fig:NuclearNCBI) for more details on the genome. This file (a compressed FASTA) is already available in your folder, but you could download it as follows:
 
 ```{bash, echo=T, eval=F}
 #Get Fasta files for genomes of reference
@@ -535,8 +535,7 @@ Please execute the commands below to map the clean reads against the reference c
 #Mapping reads against the chloropolast genome of a sister species
 # following the same approach as with the nuclear genome
 bwa index -a bwtsw LC199394.fasta
-bwa mem -t 20 LC199394.fasta ~/Documents/02_Kmers_analyses/khmer/SRR5759389_pe12.max100.trimmed.norare.noshort.fastq | samtools view -buS - | 
-	samtools sort - -o LC199394_map_pe.sorted.bam
+bwa mem -t 20 LC199394.fasta ~/Documents/02_Kmers_analyses/khmer/SRR5759389_pe12.max100.trimmed.norare.noshort.fastq | samtools view -buS - | samtools sort - -o LC199394_map_pe.sorted.bam
 samtools index LC199394_map_pe.sorted.bam
 ```
 

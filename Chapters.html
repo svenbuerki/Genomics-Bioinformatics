@@ -846,7 +846,7 @@ Figure 6.6: Histogram of GC values inferred from the cleaned library of reads (S
 <p>Here we aim at assessing the proportions of reads in the clean library belonging to either nuclear or chloroplast genomes by mapping our clean reads against two reference genomes using <code>bwa</code> <span class="citation">(<a href="#ref-bwa2009" role="doc-biblioref">Li and Durbin, 2009</a>)</span> and <code>samtools</code> <span class="citation">(<a href="#ref-samtools2009" role="doc-biblioref">Li, Handsaker, et al., 2009</a>)</span>. Data are available in <code>Map_reads/</code>.</p>
 <div id="mapping-reads-against-the-nuclear-genome" class="section level5" number="6.7.8.2.1">
 <h5><span class="header-section-number">6.7.8.2.1</span> Mapping reads against the nuclear genome</h5>
-<p>The nuclear genome of <em>Apostasia shenzhenica</em> published by <span class="citation">Zhang et al. (<a href="#ref-Zhang2017" role="doc-biblioref">2017</a>)</span> is not listed in the NCBI database as “Genome”, but rather as “Assembly”. Please see Figure <a href="#fig:NuclearNCBI">6.7</a> for more details on the genome. This file (a compressed FASTA) is already available in your folder, but you could download it as follows:</p>
+<p>The nuclear genome of <em>Apostasia shenzhenica</em> published by <span class="citation">Zhang et al. (<a href="#ref-Zhang2017" role="doc-biblioref">2017</a>)</span> is not listed in the NCBI database as “Genome”, but rather as “Assembly” (see BioProject <a href="https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA310678">PRJNA310678</a>). Please see Figure <a href="#fig:NuclearNCBI">6.7</a> for more details on the genome. This file (a compressed FASTA) is already available in your folder, but you could download it as follows:</p>
 <pre class="bash"><code>#Get Fasta files for genomes of reference
 #PEFY01 nuclear genome of Apostasia 
 wget ftp://ftp.ncbi.nlm.nih.gov/sra/wgs_aux/PE/FY/PEFY01/PEFY01.1.fsa_nt.gz</code></pre>
@@ -875,8 +875,7 @@ samtools index PEFY01_map_pe.sorted.bam</code></pre>
 <pre class="bash"><code>#Mapping reads against the chloropolast genome of a sister species
 # following the same approach as with the nuclear genome
 bwa index -a bwtsw LC199394.fasta
-bwa mem -t 20 LC199394.fasta ~/Documents/02_Kmers_analyses/khmer/SRR5759389_pe12.max100.trimmed.norare.noshort.fastq | samtools view -buS - | 
-    samtools sort - -o LC199394_map_pe.sorted.bam
+bwa mem -t 20 LC199394.fasta ~/Documents/02_Kmers_analyses/khmer/SRR5759389_pe12.max100.trimmed.norare.noshort.fastq | samtools view -buS - | samtools sort - -o LC199394_map_pe.sorted.bam
 samtools index LC199394_map_pe.sorted.bam</code></pre>
 </div>
 <div id="counting-reads-belonging-to-either-nuclear-or-plastid-genomes" class="section level5" number="6.7.8.2.3">
