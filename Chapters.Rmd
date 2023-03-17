@@ -527,7 +527,7 @@ We will be devoting time to decipher these commands during our Lab sessions. For
 
 ##### Mapping reads against the chloroplast genome
 
-The chloroplast genome of *Apostasia shenzhenica* was not published. To assess the proportion of chloroplastic reads in our Illumina cleaned reads, we will use the chloroplast genome of a sister species, *A. wallichii [@Niu2017], which is available on the NCBI website under the accession number `LC199394`. This file (in FASTA) is already available in your folder and you do not have to download it.
+The chloroplast genome of *Apostasia shenzhenica* was not published. To assess the proportion of chloroplastic reads in our Illumina cleaned reads, we will use the chloroplast genome of a sister species, *A. wallichii* [@Niu2017], which is available on the NCBI website under the accession number `LC199394`. This file (in FASTA) is already available in your folder and you do not have to download it.
 
 Please execute the commands below to map the clean reads against the reference chloroplast genome of the sister species: 
 
