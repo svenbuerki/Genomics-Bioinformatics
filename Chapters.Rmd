@@ -603,6 +603,10 @@ See https://bookdown.org/yihui/rmarkdown-cookbook/read-chunk.html
 ```{r, JellyFishR, echo=T, eval=F}
 ```
 
+#### Transfer files onto your personnal computer
+
+Please use `FileZilla` or the `sftp` protocol (if you have a UNIX-based OS) to transfer `GenomeSize.pdf` and `Orchid_21mer_SRR5759389_pe12_max100.trimmed.norare.histo` onto your personal computer. The latter file will be required to conduct the `GenomeScope` analysis (see below).
+
 ##### Questions
 
 > What is the haploid genome size of *Apostasia shenzhenica*?
@@ -625,7 +629,9 @@ knitr::include_graphics("Images/Screen.png")
 
 ##### Interpreting results of GenomeScope
 
-The output of `GenomeScope` is displayed in Figure \@ref(fig:GenScope2). The program outputs two plots and the only difference between those is that the the second plot is using a log transformation for the axes. This transformation allows better teasing apart the different elements studied here. The big peak at 25 in the graph above is in fact the homozygous portions of the genome that account for the identical 21-mers from both strands of the DNA (haploid genome mostly composed of single-copy genes). The dotted line corresponds to the predicted center of that peak. The absence of a shoulder to the left of the peak suggests that this genome has a very low level of heterozygosity. The red line on the left corresponds to PCR errors. Finally, the proportion of unique sequences, which would correspond to low-copy genes is depicted by the yellow line and the amount of repetitive DNA is estimated by comparing the "space" between the black and yellow lines (on the right side of the graph). 
+The output of `GenomeScope` is displayed in Figure \@ref(fig:GenScope2). The program outputs two plots and the only difference between those is that the the second plot is using a log transformation for the axes. This transformation allows better teasing apart the different elements studied here. The big peak at 25 in the graph above is in fact the diploid homozygous (i.e., AA) portions of the genome that account for the identical 21-mers from both strands of the DNA (haploid genome mostly composed of single-copy genes). The dotted line corresponds to the predicted center of that peak. The absence of a shoulder to the left of the peak suggests that this genome has a very low level of heterozygosity (i.e., AB). The red line on the left corresponds to PCR errors. Finally, the proportion of unique sequences, which would correspond to low-copy genes is depicted by the yellow line and the amount of repetitive DNA is estimated by comparing the "space" between the black and yellow lines (on the right side of the graph). 
+
+Please see this [tutorial](https://bioinformaticsworkbook.org/dataAnalysis/GenomeAssembly/genomescope.html#gsc.tab=0) for more information on the model implemented in `GenomeScope` and interpretation of the results.
 
 ```{r GenScope2, echo=FALSE, fig.align="center", fig.cap="Output of the GenomeScope analysis.", fig.show="asis", out.width = '80%'}
 knitr::include_graphics("Images/genomescope1.png")
