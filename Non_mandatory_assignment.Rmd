@@ -27,13 +27,13 @@ $(document).ready(function() {
 
 # Introduction
 
-For students interested in getting some extra credits, the instructor provides an opportunity to score a total of 30 extra credits. Students are able to allocate these extra credits to any of their tests (by sending an email to the instructor with credits allocation). This non-mandatory assignment has a strict deadline. This means that the instructor will consider that if students have not turned-in their assignment on time that they are not interested in getting extra credits. To facilitate students' time management, credits allocated to each question is provided. 
+For students interested in getting some extra credits, the instructor provides an opportunity to score a total of 30 extra credits. Students are able to allocate these extra credits to any of their tests (by sending an email to the instructor with credits allocation). **This non-mandatory assignment has a strict deadline**. This means that the instructor will consider that if students have not turned-in their assignment on time that they are not interested in getting extra credits. To facilitate students' time management, credits allocated to each question is provided. 
 
 This opportunity should provide students with the ability to claim extra credits (and therefore improve their overall grade) while also learning about several aspects of genome assembly and annotation. As usual, students can work in groups, but they have to submit individual assignments.
 
 # Deadline & submission information
 
-Upload your non-mandatory assignment on the shared Google drive (in `Non_mandatory_assignment/`) by the **19th of March before 5 pm**. Name your document following this pattern: `Non_mandatory_assignment_1_Surname`. If students are not naming their document appropriately, the instructor will penalize them by discarding 1 extra credit (therefore starting at a maximum of 14 credits instead of 15). 
+Upload your non-mandatory assignment on the shared Google drive (in `Non_mandatory_assignment/`) by the **19th of April before 5 pm MT**. Name your document following this pattern: `Non_mandatory_assignment_Surname`. If students are not naming their document appropriately, the instructor will penalize them by discarding 1 extra credit (therefore starting at a maximum of 29 credits instead of 30). 
 
 # Questions
 
