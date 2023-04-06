@@ -33,7 +33,17 @@ This document supports analyses aiming at mining the sagebrush (*Artemisia tride
 knitr::include_graphics("Images/multi_exon_gene.png")
 ```
 
-The defining characteristics of AQP proteins include having six membrane-spanning alpha-helices and two hydrophobic loops containing conserved asparagine-proline-alanine (NPA) motif which form a barrel surrounding a central pore-like region that contains additional protein density (see Figure \@ref(fig:AQPex)). While the NPA motifs are generally highly conserved, there are some AQP genes that have undergone mutations of the alanine residue in the NPA motif [@ishibashi2006aquaporin]. AQPs in flowering plants comprise five subfamilies: (1) NOD26-like intrinsic proteins (NIPs), (2) plasma membrane intrinsic proteins (PIPs), (3) small basic intrinsic proteins (SIPs), (4) tonoplast intrinsic proteins (TIPs), and (5) X intrinsic proteins (XIPs) [@danielson2008unexpected]. Genes from each subfamily tend to move water or other substrate depending on their NPA motifs. Some AQPs, such as NIPs, have acquired a mutation in their NPA motif, such as alanine to leucine, which confer the ability to move substrates such as urea or ammonium [reviewed in @chaumont2005regulation]. 
+The defining **characteristics of AQP proteins** include having **six membrane-spanning alpha-helices** and **two hydrophobic loops** containing conserved **asparagine-proline-alanine (NPA) motif** which form a barrel surrounding a central pore-like region that contains additional protein density (see Figure \@ref(fig:AQPex)). While the NPA motifs are generally highly conserved, there are some AQP genes that have undergone mutations of the alanine residue in the NPA motif [@ishibashi2006aquaporin]. 
+
+AQPs in flowering plants comprise five subfamilies [@danielson2008unexpected]: 
+
+1. NOD26-like intrinsic proteins (NIPs); 
+2. plasma membrane intrinsic proteins (PIPs);
+3. small basic intrinsic proteins (SIPs);
+4. tonoplast intrinsic proteins (TIPs);
+5. X intrinsic proteins (XIPs). 
+
+Genes from each subfamily tend to move water or other substrate depending on their NPA motifs. Some AQPs, such as NIPs, have acquired a mutation in their NPA motif, such as alanine to leucine, which confer the ability to move substrates such as urea or ammonium [reviewed in @chaumont2005regulation]. 
 
 ```{r AQPex, echo=FALSE, fig.cap="Example of a 3D model of an Aquaporin protein recovered in the sagebrush genome. NPA motifs are shown by red/orange colors", fig.align='center', out.width = '50%', fig.pos= "h"}
 knitr::include_graphics("Images/NIP5-1_At_Sc466867.png")
@@ -67,10 +77,9 @@ Very much the same as with the "Where's waldo?" children books, students will be
 
 The `FASTA` file with scaffolds sequences can be downloaded [here](Data/Scaffolds_groups.fasta). The scaffolds assigned to each group are as followed:
 
-- **Group A**: Scaffold106379.
-- **Group B**: Scaffold254734.
-- **Group C**: Scaffold348135.
-- **Group D**: Scaffold355053.
+- **Group 1**: Scaffold106379.
+- **Group 2**: Scaffold254734.
+- **Group 3**: Scaffold348135.
 
 Let's complete the training first going by through each module and then students will be working in groups to replicate these analyses to their assigned scaffold.
 
@@ -88,7 +97,7 @@ Group reports should be uploaded on the shared Google Drive by **April 29th 2022
 
 # Group lab oral presentation (TOTAL: 50 points)
 
-Students will use their lab reports to prepare 10 minutes presentations (+ 5 minutes for questions) taking place on **April 29th 2022**.
+Students will use their lab reports to prepare 10 minutes presentations (+ 5 minutes for questions) taking place on **April 28th 2023**.
 
 The instructor expects each student to take part to the presentation and to be involved in answering questions.
 

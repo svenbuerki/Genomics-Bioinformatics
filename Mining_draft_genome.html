@@ -11,7 +11,7 @@
 
 <meta name="author" content="Sven Buerki &amp; Anthony Melton - Boise State University" />
 
-<meta name="date" content="2023-02-17" />
+<meta name="date" content="2023-04-06" />
 
 <title>BIOL 497/597 - Genomics &amp; Bioinformatics</title>
 
@@ -390,7 +390,7 @@ div.tocify {
 <h1 class="title toc-ignore">BIOL 497/597 - Genomics &amp; Bioinformatics</h1>
 <h3 class="subtitle">Lab: Mining sagebrush draft genome</h3>
 <h4 class="author">Sven Buerki &amp; Anthony Melton - Boise State University</h4>
-<h4 class="date">2023-02-17</h4>
+<h4 class="date">2023-04-06</h4>
 
 </div>
 
@@ -410,7 +410,16 @@ $(document).ready(function() {
 Figure 1.1: Flowchart showing the structure of a multi-exon gene and different resulting proteins. As a reminder, exons are pieces of coding DNA that encode proteins. Different exons code for different domains of a protein. The domains may be encoded by a single exon or multiple exons spliced together. In the case of multi-exon genes, the presence of exons and introns allows for greater molecular evolution through the process of exon shuffling and alternative splicing. Exon shuffling occurs when exons on sister chromosomes are exchanged during recombination. This allows for the formation of new genes. On the other hand, exons also allow for multiple proteins to be translated from the same gene through alternative splicing. This process allows the exons to be arranged in different combinations when the introns are removed/spliced. The different configurations can include the complete removal of an exon, the inclusion of part of an exon, or the inclusion of part of an intron. Alternative splicing can occur in the same location to produce different variants of a gene with a similar role, such as the human slo gene, or it can occur in different cell or tissue types, such as the mouse alpha-amylase gene. Alternative splicing, and defects in alternative splicing, can result in a number of diseases including cancer.
 </p>
 </div>
-<p>The defining characteristics of AQP proteins include having six membrane-spanning alpha-helices and two hydrophobic loops containing conserved asparagine-proline-alanine (NPA) motif which form a barrel surrounding a central pore-like region that contains additional protein density (see Figure <a href="#fig:AQPex">1.2</a>). While the NPA motifs are generally highly conserved, there are some AQP genes that have undergone mutations of the alanine residue in the NPA motif <span class="citation">(<a href="#ref-ishibashi2006aquaporin" role="doc-biblioref">Ishibashi, 2006</a>)</span>. AQPs in flowering plants comprise five subfamilies: (1) NOD26-like intrinsic proteins (NIPs), (2) plasma membrane intrinsic proteins (PIPs), (3) small basic intrinsic proteins (SIPs), (4) tonoplast intrinsic proteins (TIPs), and (5) X intrinsic proteins (XIPs) <span class="citation">(<a href="#ref-danielson2008unexpected" role="doc-biblioref">Danielson and Johanson, 2008</a>)</span>. Genes from each subfamily tend to move water or other substrate depending on their NPA motifs. Some AQPs, such as NIPs, have acquired a mutation in their NPA motif, such as alanine to leucine, which confer the ability to move substrates such as urea or ammonium <span class="citation">(reviewed in <a href="#ref-chaumont2005regulation" role="doc-biblioref">Chaumont et al., 2005</a>)</span>.</p>
+<p>The defining <strong>characteristics of AQP proteins</strong> include having <strong>six membrane-spanning alpha-helices</strong> and <strong>two hydrophobic loops</strong> containing conserved <strong>asparagine-proline-alanine (NPA) motif</strong> which form a barrel surrounding a central pore-like region that contains additional protein density (see Figure <a href="#fig:AQPex">1.2</a>). While the NPA motifs are generally highly conserved, there are some AQP genes that have undergone mutations of the alanine residue in the NPA motif <span class="citation">(<a href="#ref-ishibashi2006aquaporin" role="doc-biblioref">Ishibashi, 2006</a>)</span>.</p>
+<p>AQPs in flowering plants comprise five subfamilies <span class="citation">(<a href="#ref-danielson2008unexpected" role="doc-biblioref">Danielson and Johanson, 2008</a>)</span>:</p>
+<ol style="list-style-type: decimal">
+<li>NOD26-like intrinsic proteins (NIPs);</li>
+<li>plasma membrane intrinsic proteins (PIPs);</li>
+<li>small basic intrinsic proteins (SIPs);</li>
+<li>tonoplast intrinsic proteins (TIPs);</li>
+<li>X intrinsic proteins (XIPs).</li>
+</ol>
+<p>Genes from each subfamily tend to move water or other substrate depending on their NPA motifs. Some AQPs, such as NIPs, have acquired a mutation in their NPA motif, such as alanine to leucine, which confer the ability to move substrates such as urea or ammonium <span class="citation">(reviewed in <a href="#ref-chaumont2005regulation" role="doc-biblioref">Chaumont et al., 2005</a>)</span>.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:AQPex"></span>
 <img src="Images/NIP5-1_At_Sc466867.png" alt="Example of a 3D model of an Aquaporin protein recovered in the sagebrush genome. NPA motifs are shown by red/orange colors" width="50%" />
 <p class="caption">
@@ -447,10 +456,9 @@ Figure 1.2: Example of a 3D model of an Aquaporin protein recovered in the sageb
 <h2><span class="header-section-number">3.1</span> Scaffolds assigned to groups</h2>
 <p>The <code>FASTA</code> file with scaffolds sequences can be downloaded <a href="Data/Scaffolds_groups.fasta">here</a>. The scaffolds assigned to each group are as followed:</p>
 <ul>
-<li><strong>Group A</strong>: Scaffold106379.</li>
-<li><strong>Group B</strong>: Scaffold254734.</li>
-<li><strong>Group C</strong>: Scaffold348135.</li>
-<li><strong>Group D</strong>: Scaffold355053.</li>
+<li><strong>Group 1</strong>: Scaffold106379.</li>
+<li><strong>Group 2</strong>: Scaffold254734.</li>
+<li><strong>Group 3</strong>: Scaffold348135.</li>
 </ul>
 <p>Let’s complete the training first going by through each module and then students will be working in groups to replicate these analyses to their assigned scaffold.</p>
 </div>
@@ -469,7 +477,7 @@ Figure 1.2: Example of a 3D model of an Aquaporin protein recovered in the sageb
 </div>
 <div id="group-lab-oral-presentation-total-50-points" class="section level1" number="5">
 <h1><span class="header-section-number">5</span> Group lab oral presentation (TOTAL: 50 points)</h1>
-<p>Students will use their lab reports to prepare 10 minutes presentations (+ 5 minutes for questions) taking place on <strong>April 29th 2022</strong>.</p>
+<p>Students will use their lab reports to prepare 10 minutes presentations (+ 5 minutes for questions) taking place on <strong>April 28th 2023</strong>.</p>
 <p>The instructor expects each student to take part to the presentation and to be involved in answering questions.</p>
 <p>Presentations will have to be deposited in advance onto a shared Google Drive folder or be sent to the instructor prior to the presentation.</p>
 </div>
