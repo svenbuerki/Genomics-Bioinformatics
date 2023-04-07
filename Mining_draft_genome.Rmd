@@ -116,7 +116,7 @@ Overall, our analytical workflow is subdivided into 4 modules as follows:
 
 ## Where are the data located?
 
-All the data associated to this project are located on your individual account in the `DraftGenomeMineR/` folder. This folder is located in `/home/bio_11/DraftGenomeMineR`. Please replace `bio_11` by your [account detail](https://docs.google.com/document/d/1t0DdQBes42Gzo8XWgc9JL2xEGjv1kbfoVE7Vznx6C9I/edit).
+All the data associated to this project are located on your individual account in the `DraftGenomeMineR/` folder. This folder is located in `~/DraftGenomeMineR`. Your [account detail](https://docs.google.com/document/d/1t0DdQBes42Gzo8XWgc9JL2xEGjv1kbfoVE7Vznx6C9I/edit) are available here.
 
 **Key files:**
 
@@ -143,34 +143,6 @@ Start by using `ssh` protocol to connect to your Linux computer. This is done as
 ssh bio_11@132.178.142.214
 ```
 
-## Copy project folder to remote computer
-
-After downloading the `zip` file from our shared Google Drive to your personal computer, please copy this file to your Linux computer (on your personal account) as follows:
-
-```{bash, eval=F}
-#scp file: general syntax
-scp file user@host:dir
-
-#Example
-scp DraftGenomeMineR.zip bio_11@132.178.142.214:/home/bio_11
-
-#unzip file
-unzip DraftGenomeMineR.zip
-```
-
-**Disclaimer:** This procedure only works if you have a unix-based computer. If you don't have a unix-based computer, please ask instructors to transfer this file for you to your account. However, students can `cp` this file by copying it from the `bioinformatics` account onto their Linux computer as follows:
-
-```{r, echo=T, eval=F}
-#Navigate where the zip file should reside (adjust path to your account ID)
-cd /home/bio_11
-
-#Copy the zip file (containing all data for project) on your Linux account
-cp /home/bioinformatics/GenomeMining_Bioinformatics_2021/DraftGenomeMineR.zip .
-
-#unzip file
-unzip DraftGenomeMineR.zip
-```
-
 ## Install `R` v.4.1.3
 
 The code used in this lab depends on a specific version of `R` (version 4.1.3 (2022-03-10) -- "One Push-Up") and it needs to be installed on your computer prior to starting the tutorial. This can be done by following the procedure described in these two websites:
@@ -193,7 +165,7 @@ cd DraftGenomeMineR/
 R
 ```
 
-## Installing R packages via BiocManager
+## Install R packages
 
 Some of the packages used here cannot be installed with R and require **BiocManager** to be installed. Although most of the packages were already installed, please proceed and install the five missing packages: 
 
@@ -247,7 +219,7 @@ files.sources <- list.files("Functions", full.names=T)
 sapply(files.sources, source)
 ```
 
-## Setting environment for BLAST analysis
+## Set environment for BLAST analysis
 
 To be able to navigate between folders within our project, we will set a object entitled `project.folder`, which contains the path to the root of the folder.
 
@@ -259,7 +231,7 @@ project.folder <- getwd()
 ```
 
 Call `project.folder` to check that it is right. It should be:
-`"/home/bio_11/DraftGenomeMineR"` (with `bio_11` replaced by your account ID).
+`"~/DraftGenomeMineR"`.
 
 Set working directory to `project.folder` as follows:
 
@@ -351,7 +323,6 @@ Write output of BLAST analysis in `csv` file:
 write.csv(x = blast.hits.to.extract, file = "Unique_Filtered_Blast_Hit_Info.csv", row.names = F)
 ```
 
-
 # Module 2 {#mod2}
 
 ## Objectives
@@ -380,12 +351,6 @@ For an example of code, see below:
 ```{r, eval=F}
 #1. ssh
 ssh svenbuerki@132.178.142.214
-
-#scp file
-#scp DraftGenomeMineR.zip svenbuerki@132.178.142.214:/home/svenbuerki
-
-#unzip file
-#unzip DraftGenomeMineR.zip
 
 #2. Navigate to DraftGenomeMineR/
 cd DraftGenomeMineR/
@@ -551,7 +516,6 @@ translated.orfs <- readLines("AA_ORFs/Scaffold151535_ORFs.fa")
 head(translated.orfs)
 ```
 
-
 ## Produce maps of recovered ORFs along scaffold(s)
 
 Here, we are visualizing the ORFs recovered by our analysis along each scaffold by producing maps saved in `pdf` format in `ORFs_map/`. The code also checks if the folder `ORFs_map/` where files will be saved exists and if not creates it.  
@@ -615,6 +579,7 @@ for(i in 1:length(ORFfiles)){
   dev.off()
 }
 ```
+
 Figure \@ref(fig:scaffmap) shows the location of predicted ORFs along `Scaffold151535` inferred by the code displayed above. 
 
 ```{r scaffmap, echo=FALSE, fig.cap="Map of predicted ORFs along scaffold151535.", out.width = '100%', fig.pos= "h"}
@@ -857,7 +822,6 @@ print(NPAdat)
 #write.csv(NPAdat, file='Scaffold151535_ORF_26_NPA_motifs.csv', row.names = F, quote = F)
 ```
 
-
 ## Model 3D AQP protein
 
 To model 3D structure of AQP protein and predict its function do the following (here based on `>Scaffold151535_ORF_26`):
@@ -885,5 +849,19 @@ Examples of questions that we could ask ourselves to answer the above question a
 - What is the predicted protein and its function based on the modeling analysis conducted on the AA sequence?
 
 Based on these latter evidence, **do you think that the Aquaporin protein sequence is complete?** The instructor invites you to consult @Melton2021 for more information allowing answering these questions and come to a conclusion.
+
+# Your turn!
+
+Each group is now working as a team to reproduce the analyses presented here on their assigned scaffold.
+
+Good luck!
+
+## Scaffolds assigned to groups
+
+The `FASTA` file with scaffolds sequences can be downloaded [here](Data/Scaffolds_groups.fasta). The scaffolds assigned to each group are as followed:
+
+- **Group 1**: Scaffold106379.
+- **Group 2**: Scaffold254734.
+- **Group 3**: Scaffold348135.
 
 # References

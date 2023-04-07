@@ -11,7 +11,7 @@
 
 <meta name="author" content="Sven Buerki &amp; Anthony Melton - Boise State University" />
 
-<meta name="date" content="2023-04-06" />
+<meta name="date" content="2023-04-07" />
 
 <title>BIOL 497/597 - Genomics &amp; Bioinformatics</title>
 
@@ -390,7 +390,7 @@ div.tocify {
 <h1 class="title toc-ignore">BIOL 497/597 - Genomics &amp; Bioinformatics</h1>
 <h3 class="subtitle">Lab: Mining sagebrush draft genome</h3>
 <h4 class="author">Sven Buerki &amp; Anthony Melton - Boise State University</h4>
-<h4 class="date">2023-04-06</h4>
+<h4 class="date">2023-04-07</h4>
 
 </div>
 
@@ -495,7 +495,7 @@ Figure 1.2: Example of a 3D model of an Aquaporin protein recovered in the sageb
 <h1><span class="header-section-number">7</span> Project structure</h1>
 <div id="where-are-the-data-located" class="section level2" number="7.1">
 <h2><span class="header-section-number">7.1</span> Where are the data located?</h2>
-<p>All the data associated to this project are located on your individual account in the <code>DraftGenomeMineR/</code> folder. This folder is located in <code>/home/bio_11/DraftGenomeMineR</code>. Please replace <code>bio_11</code> by your <a href="https://docs.google.com/document/d/1t0DdQBes42Gzo8XWgc9JL2xEGjv1kbfoVE7Vznx6C9I/edit">account detail</a>.</p>
+<p>All the data associated to this project are located on your individual account in the <code>DraftGenomeMineR/</code> folder. This folder is located in <code>~/DraftGenomeMineR</code>. Your <a href="https://docs.google.com/document/d/1t0DdQBes42Gzo8XWgc9JL2xEGjv1kbfoVE7Vznx6C9I/edit">account detail</a> are available here.</p>
 <p><strong>Key files:</strong></p>
 <ul>
 <li><code>Draft_Genome_Assembly.fasta</code>: Sagebrush draft genome assembly (at scaffold level).</li>
@@ -520,29 +520,8 @@ Figure 1.2: Example of a 3D model of an Aquaporin protein recovered in the sageb
 <pre class="bash"><code>#SSH with bio_11 as example
 ssh bio_11@132.178.142.214</code></pre>
 </div>
-<div id="copy-project-folder-to-remote-computer" class="section level2" number="8.3">
-<h2><span class="header-section-number">8.3</span> Copy project folder to remote computer</h2>
-<p>After downloading the <code>zip</code> file from our shared Google Drive to your personal computer, please copy this file to your Linux computer (on your personal account) as follows:</p>
-<pre class="bash"><code>#scp file: general syntax
-scp file user@host:dir
-
-#Example
-scp DraftGenomeMineR.zip bio_11@132.178.142.214:/home/bio_11
-
-#unzip file
-unzip DraftGenomeMineR.zip</code></pre>
-<p><strong>Disclaimer:</strong> This procedure only works if you have a unix-based computer. If you don’t have a unix-based computer, please ask instructors to transfer this file for you to your account. However, students can <code>cp</code> this file by copying it from the <code>bioinformatics</code> account onto their Linux computer as follows:</p>
-<pre class="r"><code>#Navigate where the zip file should reside (adjust path to your account ID)
-cd /home/bio_11
-
-#Copy the zip file (containing all data for project) on your Linux account
-cp /home/bioinformatics/GenomeMining_Bioinformatics_2021/DraftGenomeMineR.zip .
-
-#unzip file
-unzip DraftGenomeMineR.zip</code></pre>
-</div>
-<div id="install-r-v.4.1.3" class="section level2" number="8.4">
-<h2><span class="header-section-number">8.4</span> Install <code>R</code> v.4.1.3</h2>
+<div id="install-r-v.4.1.3" class="section level2" number="8.3">
+<h2><span class="header-section-number">8.3</span> Install <code>R</code> v.4.1.3</h2>
 <p>The code used in this lab depends on a specific version of <code>R</code> (version 4.1.3 (2022-03-10) – “One Push-Up”) and it needs to be installed on your computer prior to starting the tutorial. This can be done by following the procedure described in these two websites:</p>
 <ul>
 <li><p><a href="http://genomespot.blogspot.com/2020/06/installing-r-40-on-ubuntu-1804.html" class="uri">http://genomespot.blogspot.com/2020/06/installing-r-40-on-ubuntu-1804.html</a></p></li>
@@ -550,8 +529,8 @@ unzip DraftGenomeMineR.zip</code></pre>
 </ul>
 <p><strong>Disclaimer:</strong> The right version of R was already installed on our lab computers, but if you wanted to execute this code on your personal computer please make sure you have the right version of <code>R</code>!</p>
 </div>
-<div id="start-r-session" class="section level2" number="8.5">
-<h2><span class="header-section-number">8.5</span> Start R session</h2>
+<div id="start-r-session" class="section level2" number="8.4">
+<h2><span class="header-section-number">8.4</span> Start R session</h2>
 <p>Navigate to <code>DraftGenomeMineR/</code> and start a new <code>R</code> session:</p>
 <pre class="bash"><code>#Navigate to DraftGenomeMineR/
 cd DraftGenomeMineR/
@@ -559,8 +538,8 @@ cd DraftGenomeMineR/
 #Start R session
 R</code></pre>
 </div>
-<div id="installing-r-packages-via-biocmanager" class="section level2" number="8.6">
-<h2><span class="header-section-number">8.6</span> Installing R packages via BiocManager</h2>
+<div id="install-r-packages" class="section level2" number="8.5">
+<h2><span class="header-section-number">8.5</span> Install R packages</h2>
 <p>Some of the packages used here cannot be installed with R and require <strong>BiocManager</strong> to be installed. Although most of the packages were already installed, please proceed and install the five missing packages:</p>
 <pre class="r"><code>#Check if BiocManager is installed and if not install it
 if (!require(&quot;BiocManager&quot;, quietly = TRUE))
@@ -581,8 +560,8 @@ remotes::install_github(&quot;GuillemSalazar/FastaUtils&quot;)
 install.packages(&quot;ape&quot;)
 install.packages(&quot;seqinr&quot;)</code></pre>
 </div>
-<div id="load-r-packages-and-user-defined-functions" class="section level2" number="8.7">
-<h2><span class="header-section-number">8.7</span> Load R packages and user-defined functions</h2>
+<div id="load-r-packages-and-user-defined-functions" class="section level2" number="8.6">
+<h2><span class="header-section-number">8.6</span> Load R packages and user-defined functions</h2>
 <p>Create an object with all the required R packages and load them:</p>
 <pre class="r"><code># This will make a list of packages that another function will use to make sure they are all installed and loaded.
 list.of.packages &lt;- c(&quot;ape&quot;,
@@ -603,19 +582,19 @@ lapply(list.of.packages, require, character.only = TRUE)</code></pre>
 files.sources &lt;- list.files(&quot;Functions&quot;, full.names=T)
 sapply(files.sources, source)</code></pre>
 </div>
-<div id="setting-environment-for-blast-analysis" class="section level2" number="8.8">
-<h2><span class="header-section-number">8.8</span> Setting environment for BLAST analysis</h2>
+<div id="set-environment-for-blast-analysis" class="section level2" number="8.7">
+<h2><span class="header-section-number">8.7</span> Set environment for BLAST analysis</h2>
 <p>To be able to navigate between folders within our project, we will set a object entitled <code>project.folder</code>, which contains the path to the root of the folder.</p>
 <p>To create this object, do as follows:</p>
 <pre class="r"><code>#Copy the output of getwd() in the object as follows:
 project.folder &lt;- getwd()</code></pre>
 <p>Call <code>project.folder</code> to check that it is right. It should be:
-<code>"/home/bio_11/DraftGenomeMineR"</code> (with <code>bio_11</code> replaced by your account ID).</p>
+<code>"~/DraftGenomeMineR"</code>.</p>
 <p>Set working directory to <code>project.folder</code> as follows:</p>
 <pre class="r"><code>setwd(project.folder)</code></pre>
 </div>
-<div id="running-blast-analysis" class="section level2" number="8.9">
-<h2><span class="header-section-number">8.9</span> Running BLAST analysis</h2>
+<div id="running-blast-analysis" class="section level2" number="8.8">
+<h2><span class="header-section-number">8.8</span> Running BLAST analysis</h2>
 <p>Set general parameters for the BLAST analysis:</p>
 <pre class="r"><code># There are a few parameters that need to be set. Let&#39;s create some R objects to store file paths and parameters for the BLAST search.
 
@@ -699,12 +678,6 @@ write.csv(x = blast.hits.to.extract, file = &quot;Unique_Filtered_Blast_Hit_Info
 <p>For an example of code, see below:</p>
 <pre class="r"><code>#1. ssh
 ssh svenbuerki@132.178.142.214
-
-#scp file
-#scp DraftGenomeMineR.zip svenbuerki@132.178.142.214:/home/svenbuerki
-
-#unzip file
-#unzip DraftGenomeMineR.zip
 
 #2. Navigate to DraftGenomeMineR/
 cd DraftGenomeMineR/
@@ -1202,6 +1175,20 @@ Figure 11.4: Results of Phyre2 analysis.
 <li>What is the predicted protein and its function based on the modeling analysis conducted on the AA sequence?</li>
 </ul>
 <p>Based on these latter evidence, <strong>do you think that the Aquaporin protein sequence is complete?</strong> The instructor invites you to consult <span class="citation">Melton et al. (<a href="#ref-Melton2021" role="doc-biblioref">2021</a>)</span> for more information allowing answering these questions and come to a conclusion.</p>
+</div>
+<div id="your-turn" class="section level1" number="13">
+<h1><span class="header-section-number">13</span> Your turn!</h1>
+<p>Each group is now working as a team to reproduce the analyses presented here on their assigned scaffold.</p>
+<p>Good luck!</p>
+<div id="scaffolds-assigned-to-groups-1" class="section level2" number="13.1">
+<h2><span class="header-section-number">13.1</span> Scaffolds assigned to groups</h2>
+<p>The <code>FASTA</code> file with scaffolds sequences can be downloaded <a href="Data/Scaffolds_groups.fasta">here</a>. The scaffolds assigned to each group are as followed:</p>
+<ul>
+<li><strong>Group 1</strong>: Scaffold106379.</li>
+<li><strong>Group 2</strong>: Scaffold254734.</li>
+<li><strong>Group 3</strong>: Scaffold348135.</li>
+</ul>
+</div>
 </div>
 <div id="references" class="section level1 unnumbered">
 <h1>References</h1>
