@@ -11,7 +11,7 @@
 
 <meta name="author" content="Sven Buerki &amp; Anthony Melton - Boise State University" />
 
-<meta name="date" content="2023-04-07" />
+<meta name="date" content="2023-04-11" />
 
 <title>BIOL 497/597 - Genomics &amp; Bioinformatics</title>
 
@@ -390,7 +390,7 @@ div.tocify {
 <h1 class="title toc-ignore">BIOL 497/597 - Genomics &amp; Bioinformatics</h1>
 <h3 class="subtitle">Lab: Mining sagebrush draft genome</h3>
 <h4 class="author">Sven Buerki &amp; Anthony Melton - Boise State University</h4>
-<h4 class="date">2023-04-07</h4>
+<h4 class="date">2023-04-11</h4>
 
 </div>
 
@@ -477,7 +477,7 @@ Figure 1.2: Example of a 3D model of an Aquaporin protein recovered in the sageb
 </div>
 <div id="group-lab-oral-presentation-total-50-points" class="section level1" number="5">
 <h1><span class="header-section-number">5</span> Group lab oral presentation (TOTAL: 50 points)</h1>
-<p>Students will use their lab reports to prepare 10 minutes presentations (+ 5 minutes for questions) taking place on <strong>April 28th 2023</strong>.</p>
+<p>Students will use their lab reports to prepare 10 minutes presentations (+ 5 minutes for questions) taking place on <strong>April 29th 2023</strong>.</p>
 <p>The instructor expects each student to take part to the presentation and to be involved in answering questions.</p>
 <p>Presentations will have to be deposited in advance onto a shared Google Drive folder or be sent to the instructor prior to the presentation.</p>
 </div>
@@ -529,18 +529,20 @@ ssh bio_11@132.178.142.214</code></pre>
 </ul>
 <p><strong>Disclaimer:</strong> The right version of R was already installed on our lab computers, but if you wanted to execute this code on your personal computer please make sure you have the right version of <code>R</code>!</p>
 </div>
-<div id="start-r-session" class="section level2" number="8.4">
-<h2><span class="header-section-number">8.4</span> Start R session</h2>
-<p>Navigate to <code>DraftGenomeMineR/</code> and start a new <code>R</code> session:</p>
+<div id="start-r-session-and-associated-r-script" class="section level2" number="8.4">
+<h2><span class="header-section-number">8.4</span> Start R session and associated R script</h2>
+<p>Before starting this tutorial, please start a new <code>tmux</code> session and then navigate to <code>DraftGenomeMineR/</code> and start a new <code>R</code> session:</p>
 <pre class="bash"><code>#Navigate to DraftGenomeMineR/
 cd DraftGenomeMineR/
 
 #Start R session
 R</code></pre>
+<p>Open a Text editor or RStudio and <strong>save all the code in an R script on your personal computer</strong> (as done in Mini-Report 3). Saving all your code in an R script will allow you to reproduce these analyses with your assigned scaffold.</p>
 </div>
 <div id="install-r-packages" class="section level2" number="8.5">
 <h2><span class="header-section-number">8.5</span> Install R packages</h2>
-<p>Some of the packages used here cannot be installed with R and require <strong>BiocManager</strong> to be installed. Although most of the packages were already installed, please proceed and install the five missing packages:</p>
+<p><strong>!!! DON’T EXECUTE THIS CODE !!</strong> The instructor already installed the R packages on your computers.</p>
+<p>Some of the packages used here cannot be installed with R and require <strong>BiocManager</strong> to be installed. The code below shows how to install the R packages required for this tutorial.</p>
 <pre class="r"><code>#Check if BiocManager is installed and if not install it
 if (!require(&quot;BiocManager&quot;, quietly = TRUE))
     install.packages(&quot;BiocManager&quot;)
@@ -553,7 +555,7 @@ library(devtools)
 BiocManager::install(&quot;Biostrings&quot;)
 BiocManager::install(&quot;ORFik&quot;)
 
-#Students install these packages themselves
+#Install required packages for this tutorial
 install_github(&quot;mhahsler/rBLAST&quot;)
 install.packages(&quot;remotes&quot;)
 remotes::install_github(&quot;GuillemSalazar/FastaUtils&quot;)
@@ -591,12 +593,14 @@ project.folder &lt;- getwd()</code></pre>
 <p>Call <code>project.folder</code> to check that it is right. It should be:
 <code>"~/DraftGenomeMineR"</code>.</p>
 <p>Set working directory to <code>project.folder</code> as follows:</p>
-<pre class="r"><code>setwd(project.folder)</code></pre>
+<pre class="r"><code>#Set working directory
+setwd(project.folder)</code></pre>
 </div>
 <div id="running-blast-analysis" class="section level2" number="8.8">
 <h2><span class="header-section-number">8.8</span> Running BLAST analysis</h2>
 <p>Set general parameters for the BLAST analysis:</p>
-<pre class="r"><code># There are a few parameters that need to be set. Let&#39;s create some R objects to store file paths and parameters for the BLAST search.
+<pre class="r"><code># There are a few parameters that need to be set. 
+# Let&#39;s create some R objects to store file paths and parameters for the BLAST search.
 
 # We need a query (a fasta file of a gene you want to find in the draft genome), a draft genome assembly, BLAST databases, paths to other required folders (described in the README), and other parameters that can be used to filter results.
 query.file.path &lt;- &quot;FASTAs/PIP1_3.fa&quot;
@@ -649,6 +653,7 @@ blast.hits.to.extract &lt;- subset(x = cl.filt.unique, SubjectID == cl.filt.uniq
 <p>Write output of BLAST analysis in <code>csv</code> file:</p>
 <pre class="r"><code># We have evaluated the top BLAST hits and can see a clear best hit. Let&#39;s save this data so we can extract just that scaffold later.
 write.csv(x = blast.hits.to.extract, file = &quot;Unique_Filtered_Blast_Hit_Info.csv&quot;, row.names = F)</code></pre>
+<p>Quit R and inspect the content of <code>Unique_Filtered_Blast_Hit_Info.csv</code> using e.g. <code>vim</code>.</p>
 </div>
 </div>
 <div id="mod2" class="section level1" number="9">
@@ -682,7 +687,8 @@ ssh svenbuerki@132.178.142.214
 #2. Navigate to DraftGenomeMineR/
 cd DraftGenomeMineR/
 
-#3. &amp; 4. Create new folders 
+#3. &amp; 4. Create new folders to save files
+# --&gt; If these folders already exist then don&#39;t execute the following code 
 mkdir Output_FASTAs/
 mkdir ORFs_report/
   
@@ -801,9 +807,12 @@ findORFsTranslateDNA2AA &lt;- function(scaffold, scaffoldID, MinLen){
   write.csv(pos, file = paste(&quot;ORFs_report/&quot;,pos$scaffoldID[i], &quot;_&quot;, &quot;ORFs.csv&quot;, sep=&#39;&#39;), col.names = T, row.names = F, quote = F)
 } </code></pre>
 <p>Now, we can use <em>findORFsTranslateDNA2AA()</em> on our data:</p>
-<pre class="r"><code>scaffold &lt;- readLines(&quot;Output_FASTAs/Scaffold151535.fa&quot;)
+<pre class="r"><code># Open FASTA file with target scaffold
+scaffold &lt;- readLines(&quot;Output_FASTAs/Scaffold151535.fa&quot;)
 scaffoldID &lt;- grep(pattern = &quot;^&gt;&quot;, x = scaffold, value = T)
 scaffoldID &lt;- gsub(pattern = &quot;&gt;&quot;, replacement = &quot;&quot;, x = scaffoldID)
+# Apply UDF to find ORFs and translate these into AA
+# --&gt; we will use the AA sequences to conduct a BLAST analysis and identify ORFs coding for Aquaporin exons
 tryCatch(
   {
     for(i in 1:length(scaffoldID)){
@@ -811,15 +820,16 @@ tryCatch(
     }
   })</code></pre>
 <p>We should now have ORFs reports and <code>FASTA</code> files of translated ORFs. Let’s check these outputs.</p>
-<pre class="r"><code>orf.report &lt;- read.csv(&quot;ORFs_report/Scaffold151535_ORFs.csv&quot;)
+<pre class="r"><code># Open the CSV output of the UDF containing data on predicted ORFs and associated sequences 
+orf.report &lt;- read.csv(&quot;ORFs_report/Scaffold151535_ORFs.csv&quot;)
 
-#How many ORFs were found?
+# How many ORFs were found?
 nrow(orf.report) 
 
-#What are the longest ORFs?
+# What are the longest ORFs?
 orf.report[order(-orf.report$width),] 
 
-#Look at translated ORFs (=AA sequences)
+# Look at translated ORFs (=AA sequences)
 translated.orfs &lt;- readLines(&quot;AA_ORFs/Scaffold151535_ORFs.fa&quot;)
 head(translated.orfs)</code></pre>
 </div>
