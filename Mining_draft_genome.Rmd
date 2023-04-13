@@ -93,11 +93,11 @@ Your group reports will be structured and organized following the **IMMRAD** for
 
 ## Report deadline
 
-Group reports should be uploaded on the shared Google Drive by **April 29th 2022** before 5 pm MT.
+Group reports should be uploaded on the shared Google Drive by **April 28th 2022** before 5 pm MT.
 
 # Group lab oral presentation (TOTAL: 50 points)
 
-Students will use their lab reports to prepare 10 minutes presentations (+ 5 minutes for questions) taking place on **April 29th 2023**.
+Students will use their lab reports to prepare 10 minutes presentations (+ 5 minutes for questions) taking place on **April 28th 2023**.
 
 The instructor expects each student to take part to the presentation and to be involved in answering questions.
 
@@ -840,9 +840,9 @@ print(NPAdat)
 To model 3D structure of AQP protein and predict its function do the following (here based on `>Scaffold151535_ORF_26`):
 
 1. Go to Phyre^2^ website: http://www.sbg.bio.ic.ac.uk/~phyre2/html/page.cgi?id=index
-2. Copy `FASTA` AA sequence and fill form as shown in Figure \@ref(fig:phyreinput). Once completed, please submit job by pressing `Phyre Search`. The job will take ca. 50 minutes to run.
+2. Copy only the AA sequence (without the FASTA header) and fill the form as shown in Figure \@ref(fig:phyreinput). Once completed, please submit job by pressing `Phyre Search`. The job will take ca. 50 minutes to run.
 ```{r phyreinput, echo=FALSE, fig.cap="Snapshot of Phyre2 website used to model 3D structure of protein and predict its function.", out.width = '100%', fig.pos= "h"}
-knitr::include_graphics("Images/Phyre2_input.png")
+knitr::include_graphics("Images/Phyr2_new_online.png")
 ```
 3. You will relieve an email when the analysis is completed. A link to the output of the Phyre^2^ analysis will send you to the report page as shown in Figure \@ref(fig:phyreoutput).
 ```{r phyreoutput, echo=FALSE, fig.cap="Results of Phyre2 analysis.", out.width = '100%', fig.pos= "h"}
