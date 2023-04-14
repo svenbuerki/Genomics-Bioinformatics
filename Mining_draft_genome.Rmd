@@ -632,6 +632,11 @@ knitr::include_graphics("Images/proteinBLASToutput.png")
 ```
 5. What ORFs are coding for Aquaporin gene products?
 
+### Question
+
+> Based on the output of the BLAST analysis and the ORFs map (Figure \@ref(fig:scaffmap)), is the Aquaporin gene sequence in `Scaffold151535` complete?
+> 
+
 ## Extract ORF(s) identified by protein BLAST analysis to reconstruct Aquaporin gene sequence
 
 Students are tasked to develop an R code producing the DNA sequence of Aquaporin gene located on identified scaffold and its associated protein sequence.
@@ -834,6 +839,11 @@ print(NPAdat)
 # If you want to write the data, execute the following command (don't forget to adjust your path)
 #write.csv(NPAdat, file='Scaffold151535_ORF_26_NPA_motifs.csv', row.names = F, quote = F)
 ```
+
+### Question
+
+> Based on your number of NPA motifs, how many hydrophobic loops does your Aquaporin protein contain?
+>
 
 ## Model 3D AQP protein
 
