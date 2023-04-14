@@ -746,9 +746,9 @@ The objectives of this module are to validate the AQP protein sequences obtained
 To be valid, the AQP protein sequence should have: 
 
   1. Six transmembrane helices.
-  2. Two loops.
+  2. Two hydrophobic loops.
   3. Two NPA motifs (one per loop).
-  4. Mutations in the NPA motifs (at N or A positions) will be indicative of changes in the channeled molecule (therefore changing its function).
+  4. Mutations in the NPA motifs (at N or A positions) changes affinity with water and therefore suggests different substrate (i.e., this would be indicative of a change of function).
 
 ## Predictions of number of protein transmembrane helices (THM) (and outside loops)
 
