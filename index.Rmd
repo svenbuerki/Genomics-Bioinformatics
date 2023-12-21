@@ -91,7 +91,7 @@ For more information consult the [BSU campus public health](https://www.boisesta
 
 # Course goal and description
 
-The goal of this course is to provide students with the theoretical and applied knowledge in genomics and bioinformatics to sequence, assemble and annotate eukaryote genomes [@Saitou2013], especially for non-model organisms [@Russell2017] (see Figure \@ref(fig:flowchart)). To provide an authentic research experience, we will be using examples from the instructor's research on sagebrush (*Artemisia tridentata*; Asteraceae) genomics [e.g., @Melton2021; @Melton2022].
+The goal of this course is to provide students with the theoretical and applied knowledge in genomics and bioinformatics to sequence, assemble and annotate eukaryote genomes [@Saitou2013; @Satam2023], especially for non-model organisms [@Russell2017] (see Figure \@ref(fig:flowchart)). To provide an authentic research experience, we will be using examples from the instructor's research on sagebrush (*Artemisia tridentata*; Asteraceae) genomics [e.g., @Melton2021; @Melton2022].
 
 ```{r flowchart, echo=FALSE, fig.cap="Overview of the structure of the course. See text for more details.", out.width = '100%', fig.pos= "h"}
 knitr::include_graphics("Images/Flowchart_course_crop.png")
@@ -151,7 +151,7 @@ Please find below a non-exhaustive list of learning outcomes associated to the c
 
 -   Learn the next-generation sequencing (NGS) jargon underpinning genome assembly and annotation.
 -   Understand the general principle of genome sequencing (wet-lab) and assembly (bioinformatics workflow) (see Figure \@ref(fig:BioinfoWorkflow)).
--   Be familiar and know the limitations of the following NGS platforms:
+-   Be familiar and know the limitations of the following NGS platforms [@Satam2023]:
     -   Illumina.
     -   PacBio.
     -   Oxford Nanopore.

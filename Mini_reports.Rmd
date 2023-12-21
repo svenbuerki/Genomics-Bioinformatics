@@ -49,7 +49,7 @@ Each student was assigned a sequencing platform to work on (please see [Google s
 
 The **individual assignment is mandatory and will be graded**. Please see this task as an opportunity to consolidate your knowledge on next-generation sequencing technologies and writing scientific reports.   
 
-Time will be allocated in class on the 20th of January 2023 to allow students to work on their assignments. Reports are due on **the 3rd of February 2023** and should be uploaded on the shared [Google Drive](https://drive.google.com/drive/folders/1BFZFJeR8tW8N7QLfngqIVbjqEkDuIyWj?usp=sharing) in the `Mini_Report_1` folder.
+Time will be allocated in class on the 19th of January 2024 to allow students to work on their assignments. Reports are due on **the 2nd of February 2024** and should be uploaded on the shared [Google Drive](https://drive.google.com/drive/folders/1BFZFJeR8tW8N7QLfngqIVbjqEkDuIyWj?usp=sharing) in the `Mini_Report_1` folder.
 
 ## Structure of mini-reports {#structure}
 
@@ -90,7 +90,7 @@ Please keep in mind that a figure can convey a lot more information than a long 
 
 ## Resources
 
-The instructor has provided `pdf` documents devoted to each sequencing platform below to support students in starting their assignments. Please also see @Marx2023 for more information on long-read sequencing.
+The instructor has provided `pdf` documents devoted to each sequencing platform below to support students in starting their assignments. Please see @Satam2023 for a review on this subject and @Marx2023 for more information on long-read sequencing.
 
 In addition, please use information available from manufacturers' websites (see below), publications, online NGS training sites (e.g. EMBL-EBI Training), Google, YouTube and Wikipedia to prepare your reports and presentations. Do not forget to provide citations supporting your claims in your reports. I let you decide which reference style you want to use (look at your favorite journals for examples).
 

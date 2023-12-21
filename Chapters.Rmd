@@ -43,8 +43,8 @@ The key learning outcomes of this chapter are:
 
 -   Understand the differences between "Genetics" and "Genomics".
 -   Know the basic dogma that DNA is transcribed to RNA, which is translated to protein. This will be especially important for the [Lab. report](Mining_draft_genome.html).
--   Appreciate the diversity of genome organization in organelles, prokaryotes and eukaryotes.
--   Appreciate that organelle genomes have forged eukaryotic chromosomes and that this has to be accounted for in designing genome assembly projects.
+-   Appreciate the diversity of genome organization in organelles, prokaryotes and eukaryotes [e.g., @Saitou2013].
+-   Appreciate that organelle genomes have forged eukaryotic chromosomes and that this has to be accounted for in designing genome assembly projects [e.g., @Timmis2004].
 -   Appreciate that eukaryotic genomes contain extensive repetitive regions of several different kinds.
 -   Appreciate the diversity of published genomes and their differences in the level of completeness.
 -   Understand the importance of computer science and bioinformatics in producing the raw sequence data and assembly genomes.
