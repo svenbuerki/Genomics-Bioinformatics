@@ -91,13 +91,13 @@ For more information consult the [BSU campus public health](https://www.boisesta
 
 # Course goal and description
 
-The goal of this course is to provide students with the theoretical and applied knowledge in genomics and bioinformatics to sequence, assemble and annotate genomes, especially for non-model organisms (see Figure \@ref(fig:flowchart)). To provide an authentic research experience, we will be using examples from the instructor's research on sagebrush (*Artemisia tridentata*; Asteraceae) genomics [e.g., @Melton2021; @Melton2022].
+The goal of this course is to provide students with the theoretical and applied knowledge in genomics and bioinformatics to sequence, assemble and annotate eukaryote genomes [@Saitou2013], especially for non-model organisms [@Russell2017] (see Figure \@ref(fig:flowchart)). To provide an authentic research experience, we will be using examples from the instructor's research on sagebrush (*Artemisia tridentata*; Asteraceae) genomics [e.g., @Melton2021; @Melton2022].
 
 ```{r flowchart, echo=FALSE, fig.cap="Overview of the structure of the course. See text for more details.", out.width = '100%', fig.pos= "h"}
 knitr::include_graphics("Images/Flowchart_course_crop.png")
 ```
 
-A suite of unix-based open source software will be used to perform genomic analyses (see Figure \@ref(fig:BioinfoWorkflow)). In addition to learning how to execute these programs, students will also be taught procedures to install them therefore gaining critical expertise for their career. Finally, students will produce scientific reports and present their results therefore promoting developing their dissemination skills. Reports together with documents provided by the instructor will provide students with a framework allowing them to analyze their own genomic data.
+A suite of [unix-based open source software](https://opensource.com/article/18/5/differences-between-linux-and-unix) will be used to perform genomic analyses (see Figure \@ref(fig:BioinfoWorkflow)). In addition to learning how to execute these programs, students will also be taught procedures to install them therefore gaining critical expertise for their career. Finally, students will produce scientific reports and present their results therefore promoting developing their dissemination skills. Reports together with documents provided by the instructor will provide students with a framework allowing them to analyze their own genomic data.
 
 ```{r BioinfoWorkflow, echo=FALSE, fig.cap="Overview of an example of an approach applied to produce a draft genome assembly. In this course, students will become accustomed with such approach and master some specific key steps.", out.width = '100%'}
 knitr::include_graphics("Images/Workflow_Bioinformatics.png")
@@ -536,7 +536,7 @@ Among these are:
 
 # Timetable {#timetable}
 
-A tentative timetable for the Spring semester 2023 is presented in the [Timetable](Timetable.html) tab.
+A tentative timetable for the Spring semester 2024 is presented in the [Timetable](Timetable.html) tab.
 
 # References
 

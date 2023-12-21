@@ -11,7 +11,7 @@
 
 <meta name="author" content="Sven Buerki - Boise State University" />
 
-<meta name="date" content="2023-02-17" />
+<meta name="date" content="2023-12-21" />
 
 <title>BIOL 497/597 - Genomics &amp; Bioinformatics</title>
 
@@ -30,7 +30,7 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
-<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
@@ -206,8 +206,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -215,16 +215,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -392,12 +385,12 @@ div.tocify {
 <h1 class="title toc-ignore">BIOL 497/597 - Genomics &amp; Bioinformatics</h1>
 <h3 class="subtitle">Syllabus &amp; Timetable</h3>
 <h4 class="author">Sven Buerki - Boise State University</h4>
-<h4 class="date">2023-02-17</h4>
+<h4 class="date">2023-12-21</h4>
 
 </div>
 
 
-<script type="text/javascript">
+<script>
 $(document).ready(function() {
   $('#header').parent().prepend('<div id=\"logo\"><img src=\"Images/boisestate-primarylogo-2color-rgb.png\" style=\"position:absolute; top:0; right:0; padding:10px; height:120px\"></div>');
   $('#header').css('margin-right', '120px')
@@ -456,14 +449,14 @@ Kindness in Science is an inclusive approach that fosters diversity, respect, we
 </div>
 <div id="course-goal-and-description" class="section level1" number="4">
 <h1><span class="header-section-number">4</span> Course goal and description</h1>
-<p>The goal of this course is to provide students with the theoretical and applied knowledge in genomics and bioinformatics to sequence, assemble and annotate genomes, especially for non-model organisms (see Figure <a href="#fig:flowchart">4.1</a>). To provide an authentic research experience, we will be using examples from the instructor’s research on sagebrush (<em>Artemisia tridentata</em>; Asteraceae) genomics <span class="citation">(e.g., <a href="#ref-Melton2021" role="doc-biblioref">Melton et al., 2021</a>; <a href="#ref-Melton2022" role="doc-biblioref">Melton et al., 2022</a>)</span>.</p>
+<p>The goal of this course is to provide students with the theoretical and applied knowledge in genomics and bioinformatics to sequence, assemble and annotate eukaryote genomes <span class="citation">(<a href="#ref-Saitou2013" role="doc-biblioref">Saitou, 2013</a>)</span>, especially for non-model organisms <span class="citation">(<a href="#ref-Russell2017" role="doc-biblioref">Russell et al., 2017</a>)</span> (see Figure <a href="#fig:flowchart">4.1</a>). To provide an authentic research experience, we will be using examples from the instructor’s research on sagebrush (<em>Artemisia tridentata</em>; Asteraceae) genomics <span class="citation">(e.g., <a href="#ref-Melton2021" role="doc-biblioref">Melton et al., 2021</a>; <a href="#ref-Melton2022" role="doc-biblioref">Melton et al., 2022</a>)</span>.</p>
 <div class="figure"><span style="display:block;" id="fig:flowchart"></span>
 <img src="Images/Flowchart_course_crop.png" alt="Overview of the structure of the course. See text for more details." width="100%" />
 <p class="caption">
 Figure 4.1: Overview of the structure of the course. See text for more details.
 </p>
 </div>
-<p>A suite of unix-based open source software will be used to perform genomic analyses (see Figure <a href="#fig:BioinfoWorkflow">4.2</a>). In addition to learning how to execute these programs, students will also be taught procedures to install them therefore gaining critical expertise for their career. Finally, students will produce scientific reports and present their results therefore promoting developing their dissemination skills. Reports together with documents provided by the instructor will provide students with a framework allowing them to analyze their own genomic data.</p>
+<p>A suite of <a href="https://opensource.com/article/18/5/differences-between-linux-and-unix">unix-based open source software</a> will be used to perform genomic analyses (see Figure <a href="#fig:BioinfoWorkflow">4.2</a>). In addition to learning how to execute these programs, students will also be taught procedures to install them therefore gaining critical expertise for their career. Finally, students will produce scientific reports and present their results therefore promoting developing their dissemination skills. Reports together with documents provided by the instructor will provide students with a framework allowing them to analyze their own genomic data.</p>
 <div class="figure"><span style="display:block;" id="fig:BioinfoWorkflow"></span>
 <img src="Images/Workflow_Bioinformatics.png" alt="Overview of an example of an approach applied to produce a draft genome assembly. In this course, students will become accustomed with such approach and master some specific key steps." width="100%" />
 <p class="caption">
@@ -1003,7 +996,7 @@ Among these are:</p>
 </div>
 <div id="timetable" class="section level1" number="20">
 <h1><span class="header-section-number">20</span> Timetable</h1>
-<p>A tentative timetable for the Spring semester 2023 is presented in the <a href="Timetable.html">Timetable</a> tab.</p>
+<p>A tentative timetable for the Spring semester 2024 is presented in the <a href="Timetable.html">Timetable</a> tab.</p>
 </div>
 <div id="references" class="section level1" number="21">
 <h1><span class="header-section-number">21</span> References</h1>
@@ -1032,14 +1025,20 @@ Among these are:</p>
 <div id="ref-Ming2015" class="csl-entry">
 <span class="smallcaps">Ming, R.</span>, <span class="smallcaps">R. VanBuren</span>, <span class="smallcaps">C.M. Wai</span>, <span class="smallcaps">H. Tang</span>, <span class="smallcaps">M.C. Schatz</span>, <span class="smallcaps">J.E. Bowers</span>, <span class="smallcaps">E. Lyons</span>, et al. 2015. <a href="https://doi.org/{10.1038/ng.3435}"><span class="nocase">The pineapple genome and the evolution of CAM photosynthesis</span></a>. <em><span>Nature Genetics</span></em> 47: 1435.
 </div>
+<div id="ref-Russell2017" class="csl-entry">
+<span class="smallcaps">Russell, J.J.</span>, <span class="smallcaps">J.A. Theriot</span>, <span class="smallcaps">P. Sood</span>, <span class="smallcaps">W.F. Marshall</span>, <span class="smallcaps">L.F. Landweber</span>, <span class="smallcaps">L. Fritz-Laylin</span>, <span class="smallcaps">J.K. Polka</span>, et al. 2017. Non-model model organisms. <em>BMC Biology</em> 15: 55. Available at: <a href="https://doi.org/10.1186/s12915-017-0391-5">https://doi.org/10.1186/s12915-017-0391-5</a>.
+</div>
+<div id="ref-Saitou2013" class="csl-entry">
+<span class="smallcaps">Saitou, N.</span> 2013. Eukaryote genomes. <em>In</em> Introduction to evolutionary genomics, 193–222. Springer London, London. Available at: <a href="https://doi.org/10.1007/978-1-4471-5304-7_8">https://doi.org/10.1007/978-1-4471-5304-7_8</a>.
+</div>
 </div>
 </div>
 <div id="appendix-1" class="section level1 appendix" number="22">
 <h1><span class="header-section-number">22</span> Appendix 1</h1>
 <p>Citations of all R packages used to generate this report.</p>
-<p>[1] J. Allaire, Y. Xie, J. McPherson, et al. <em>rmarkdown: Dynamic
-Documents for R</em>. R package version 2.16. 2022.
-<a href="https://CRAN.R-project.org/package=rmarkdown" class="uri">https://CRAN.R-project.org/package=rmarkdown</a>.</p>
+<p>[1] J. Allaire, Y. Xie, C. Dervieux, et al. <em>rmarkdown: Dynamic
+Documents for R</em>. R package version 2.25. 2023.
+<a href="https://github.com/rstudio/rmarkdown" class="uri">https://github.com/rstudio/rmarkdown</a>.</p>
 <p>[2] C. Boettiger. <em>knitcitations: Citations for Knitr Markdown Files</em>.
 R package version 1.0.12. 2021.
 <a href="https://github.com/cboettig/knitcitations" class="uri">https://github.com/cboettig/knitcitations</a>.</p>
@@ -1049,45 +1048,45 @@ Referencing for R Markdown Documents</em>. R package version 1.2.1. 2021.
 <p>[4] R Core Team. <em>R: A Language and Environment for Statistical
 Computing</em>. R Foundation for Statistical Computing. Vienna, Austria,
 2022. <a href="https://www.R-project.org/" class="uri">https://www.R-project.org/</a>.</p>
-<p>[5] H. Wickham, J. Bryan, and M. Barrett. <em>usethis: Automate Package
-and Project Setup</em>. R package version 2.1.6. 2022.
-<a href="https://CRAN.R-project.org/package=usethis" class="uri">https://CRAN.R-project.org/package=usethis</a>.</p>
+<p>[5] H. Wickham, J. Bryan, M. Barrett, et al. <em>usethis: Automate Package
+and Project Setup</em>. R package version 2.2.2. 2023.
+<a href="https://usethis.r-lib.org" class="uri">https://usethis.r-lib.org</a>.</p>
 <p>[6] H. Wickham, R. François, L. Henry, et al. <em>dplyr: A Grammar of Data
-Manipulation</em>. R package version 1.0.9. 2022.
-<a href="https://CRAN.R-project.org/package=dplyr" class="uri">https://CRAN.R-project.org/package=dplyr</a>.</p>
+Manipulation</em>. R package version 1.1.3. 2023.
+<a href="https://dplyr.tidyverse.org" class="uri">https://dplyr.tidyverse.org</a>.</p>
 <p>[7] H. Wickham, J. Hester, W. Chang, et al. <em>devtools: Tools to Make
-Developing R Packages Easier</em>. R package version 2.4.4. 2022.
-<a href="https://CRAN.R-project.org/package=devtools" class="uri">https://CRAN.R-project.org/package=devtools</a>.</p>
+Developing R Packages Easier</em>. R package version 2.4.5. 2022.
+<a href="https://devtools.r-lib.org/" class="uri">https://devtools.r-lib.org/</a>.</p>
 <p>[8] Y. Xie. <em>bookdown: Authoring Books and Technical Documents with R
-Markdown</em>. ISBN 978-1138700109. Boca Raton, Florida: Chapman and
-Hall/CRC, 2016. <a href="https://bookdown.org/yihui/bookdown" class="uri">https://bookdown.org/yihui/bookdown</a>.</p>
+Markdown</em>. Boca Raton, Florida: Chapman and Hall/CRC, 2016. ISBN:
+978-1138700109. <a href="https://bookdown.org/yihui/bookdown" class="uri">https://bookdown.org/yihui/bookdown</a>.</p>
 <p>[9] Y. Xie. <em>bookdown: Authoring Books and Technical Documents with R
-Markdown</em>. R package version 0.28. 2022.
-<a href="https://CRAN.R-project.org/package=bookdown" class="uri">https://CRAN.R-project.org/package=bookdown</a>.</p>
+Markdown</em>. R package version 0.36. 2023.
+<a href="https://github.com/rstudio/bookdown" class="uri">https://github.com/rstudio/bookdown</a>.</p>
 <p>[10] Y. Xie. <em>Dynamic Documents with R and knitr</em>. 2nd. ISBN
 978-1498716963. Boca Raton, Florida: Chapman and Hall/CRC, 2015.
 <a href="https://yihui.org/knitr/" class="uri">https://yihui.org/knitr/</a>.</p>
 <p>[11] Y. Xie. <em>formatR: Format R Code Automatically</em>. R package version
-1.12. 2022. <a href="https://github.com/yihui/formatR" class="uri">https://github.com/yihui/formatR</a>.</p>
+1.14. 2023. <a href="https://github.com/yihui/formatR" class="uri">https://github.com/yihui/formatR</a>.</p>
 <p>[12] Y. Xie. “knitr: A Comprehensive Tool for Reproducible Research in
 R”. In: <em>Implementing Reproducible Computational Research</em>. Ed. by V.
 Stodden, F. Leisch and R. D. Peng. ISBN 978-1466561595. Chapman and
-Hall/CRC, 2014. <a href="http://www.crcpress.com/product/isbn/9781466561595" class="uri">http://www.crcpress.com/product/isbn/9781466561595</a>.</p>
+Hall/CRC, 2014.</p>
 <p>[13] Y. Xie. <em>knitr: A General-Purpose Package for Dynamic Report
-Generation in R</em>. R package version 1.40. 2022.
+Generation in R</em>. R package version 1.44. 2023.
 <a href="https://yihui.org/knitr/" class="uri">https://yihui.org/knitr/</a>.</p>
 <p>[14] Y. Xie and J. Allaire. <em>tufte: Tufte’s Styles for R Markdown
-Documents</em>. R package version 0.12. 2022.
+Documents</em>. R package version 0.13. 2023.
 <a href="https://github.com/rstudio/tufte" class="uri">https://github.com/rstudio/tufte</a>.</p>
 <p>[15] Y. Xie, J. Allaire, and G. Grolemund. <em>R Markdown: The Definitive
-Guide</em>. ISBN 9781138359338. Boca Raton, Florida: Chapman and Hall/CRC,
-2018. <a href="https://bookdown.org/yihui/rmarkdown" class="uri">https://bookdown.org/yihui/rmarkdown</a>.</p>
-<p>[16] Y. Xie, C. Dervieux, and E. Riederer. <em>R Markdown Cookbook</em>. ISBN
-9780367563837. Boca Raton, Florida: Chapman and Hall/CRC, 2020.
+Guide</em>. Boca Raton, Florida: Chapman and Hall/CRC, 2018. ISBN:
+9781138359338. <a href="https://bookdown.org/yihui/rmarkdown" class="uri">https://bookdown.org/yihui/rmarkdown</a>.</p>
+<p>[16] Y. Xie, C. Dervieux, and E. Riederer. <em>R Markdown Cookbook</em>. Boca
+Raton, Florida: Chapman and Hall/CRC, 2020. ISBN: 9780367563837.
 <a href="https://bookdown.org/yihui/rmarkdown-cookbook" class="uri">https://bookdown.org/yihui/rmarkdown-cookbook</a>.</p>
 <p>[17] H. Zhu. <em>kableExtra: Construct Complex Table with kable and Pipe
 Syntax</em>. R package version 1.3.4. 2021.
-<a href="https://CRAN.R-project.org/package=kableExtra" class="uri">https://CRAN.R-project.org/package=kableExtra</a>.</p>
+<a href="http://haozhu233.github.io/kableExtra/" class="uri">http://haozhu233.github.io/kableExtra/</a>.</p>
 </div>
 
 
