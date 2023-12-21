@@ -11,7 +11,7 @@
 
 <meta name="author" content="Sven Buerki - Boise State University" />
 
-<meta name="date" content="2023-03-01" />
+<meta name="date" content="2023-12-21" />
 
 <title>BIOL 497/597 - Genomics &amp; Bioinformatics</title>
 
@@ -30,7 +30,7 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
-<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
@@ -204,8 +204,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -213,16 +213,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -390,12 +383,12 @@ div.tocify {
 <h1 class="title toc-ignore">BIOL 497/597 - Genomics &amp; Bioinformatics</h1>
 <h3 class="subtitle">Mini-reports</h3>
 <h4 class="author">Sven Buerki - Boise State University</h4>
-<h4 class="date">2023-03-01</h4>
+<h4 class="date">2023-12-21</h4>
 
 </div>
 
 
-<script type="text/javascript">
+<script>
 $(document).ready(function() {
   $('#header').parent().prepend('<div id=\"logo\"><img src=\"Images/boisestate-primarylogo-2color-rgb.png\" style=\"position:absolute; top:0; right:0; padding:10px; height:120px\"></div>');
   $('#header').css('margin-right', '120px')
@@ -826,77 +819,147 @@ Figure 4.6: Screenshot of DNA sequence electropherogram showing signature of pea
 </p>
 </div>
 <table>
-<caption><span id="tab:IUPAC">Table 4.1: </span>IUPAC codes used to score base polymorphism. This is especially useful when analyzing nuclear DNA regions.</caption>
+<caption>
+<span id="tab:IUPAC">Table 4.1: </span>IUPAC codes used to score base polymorphism. This is especially useful when analyzing nuclear DNA regions.
+</caption>
 <thead>
-<tr class="header">
-<th align="left">IUPAC nucleotide code</th>
-<th align="left">Base</th>
+<tr>
+<th style="text-align:left;">
+IUPAC nucleotide code
+</th>
+<th style="text-align:left;">
+Base
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">A</td>
-<td align="left">Adenine</td>
+<tr>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:left;">
+Adenine
+</td>
 </tr>
-<tr class="even">
-<td align="left">C</td>
-<td align="left">Cytosine</td>
+<tr>
+<td style="text-align:left;">
+C
+</td>
+<td style="text-align:left;">
+Cytosine
+</td>
 </tr>
-<tr class="odd">
-<td align="left">G</td>
-<td align="left">Guanine</td>
+<tr>
+<td style="text-align:left;">
+G
+</td>
+<td style="text-align:left;">
+Guanine
+</td>
 </tr>
-<tr class="even">
-<td align="left">T (or U)</td>
-<td align="left">Thymine (or Uracil)</td>
+<tr>
+<td style="text-align:left;">
+T (or U)
+</td>
+<td style="text-align:left;">
+Thymine (or Uracil)
+</td>
 </tr>
-<tr class="odd">
-<td align="left">R</td>
-<td align="left">A or G</td>
+<tr>
+<td style="text-align:left;">
+R
+</td>
+<td style="text-align:left;">
+A or G
+</td>
 </tr>
-<tr class="even">
-<td align="left">Y</td>
-<td align="left">C or T</td>
+<tr>
+<td style="text-align:left;">
+Y
+</td>
+<td style="text-align:left;">
+C or T
+</td>
 </tr>
-<tr class="odd">
-<td align="left">S</td>
-<td align="left">G or C</td>
+<tr>
+<td style="text-align:left;">
+S
+</td>
+<td style="text-align:left;">
+G or C
+</td>
 </tr>
-<tr class="even">
-<td align="left">W</td>
-<td align="left">A or T</td>
+<tr>
+<td style="text-align:left;">
+W
+</td>
+<td style="text-align:left;">
+A or T
+</td>
 </tr>
-<tr class="odd">
-<td align="left">K</td>
-<td align="left">G or T</td>
+<tr>
+<td style="text-align:left;">
+K
+</td>
+<td style="text-align:left;">
+G or T
+</td>
 </tr>
-<tr class="even">
-<td align="left">M</td>
-<td align="left">A or C</td>
+<tr>
+<td style="text-align:left;">
+M
+</td>
+<td style="text-align:left;">
+A or C
+</td>
 </tr>
-<tr class="odd">
-<td align="left">B</td>
-<td align="left">C or G or T</td>
+<tr>
+<td style="text-align:left;">
+B
+</td>
+<td style="text-align:left;">
+C or G or T
+</td>
 </tr>
-<tr class="even">
-<td align="left">D</td>
-<td align="left">A or G or T</td>
+<tr>
+<td style="text-align:left;">
+D
+</td>
+<td style="text-align:left;">
+A or G or T
+</td>
 </tr>
-<tr class="odd">
-<td align="left">H</td>
-<td align="left">A or C or T</td>
+<tr>
+<td style="text-align:left;">
+H
+</td>
+<td style="text-align:left;">
+A or C or T
+</td>
 </tr>
-<tr class="even">
-<td align="left">V</td>
-<td align="left">A or C or G</td>
+<tr>
+<td style="text-align:left;">
+V
+</td>
+<td style="text-align:left;">
+A or C or G
+</td>
 </tr>
-<tr class="odd">
-<td align="left">N</td>
-<td align="left">any base</td>
+<tr>
+<td style="text-align:left;">
+N
+</td>
+<td style="text-align:left;">
+any base
+</td>
 </tr>
-<tr class="even">
-<td align="left">. or -</td>
-<td align="left">gap</td>
+<tr>
+<td style="text-align:left;">
+. or -
+</td>
+<td style="text-align:left;">
+gap
+</td>
 </tr>
 </tbody>
 </table>
@@ -1546,6 +1609,11 @@ Figure 4.24: Screenshot of RAxML portal showing results of your analysis. The be
 <h4><span class="header-section-number">4.12.6.1</span> Introduction to Newick tree format</h4>
 <p>The Newick Standard for representing trees in computer-readable form makes use of the <strong>correspondence between trees and nested parentheses</strong>. We owe this format to the British mathematician <a href="https://mathshistory.st-andrews.ac.uk/Biographies/Cayley/">Arthur Cayley</a>. Here we will be providing an overview of the Newick format using the R package <em>ape</em> <span class="citation">(<a href="#ref-ape" role="doc-biblioref">Paradis et al., 2004</a>)</span>.</p>
 <p>To produce the “dummy” phylogenetic tree displayed in Figure <a href="#fig:intronewick">4.25</a>, the following syntax should be applied:</p>
+<pre><code>## 
+## Attaching package: &#39;ape&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:dplyr&#39;:
+## 
+##     where</code></pre>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:intronewick"></span>
 <img src="Mini_reports_files/figure-html/intronewick-1.png" alt="Rooted tree showing relationsip between 4 species." width="100%" />
 <p class="caption">
