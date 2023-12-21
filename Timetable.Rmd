@@ -47,7 +47,7 @@ The tentative timetable for this course is available in Table \@ref(tab:timetab)
 ###~~~
 # Build a data frame with all dates from beginning to end of Fall semester
 ###~~~
-dates <- data.frame(seq.Date(from=as.Date("2023/01/09"), to=as.Date("2023/04/28"), by="day"))
+dates <- data.frame(seq.Date(from=as.Date("2024/01/08"), to=as.Date("2024/04/29"), by="day"))
 #Assign a name to the col (allows using $)
 colnames(dates) <- "Date"
 
@@ -73,7 +73,7 @@ datesclass <- data.frame(WeekID = sort(rep(seq(from=1, to=16, by=1), 2)), datesc
 # Exclude dates falling during holiday break
 ###~~~
 #Establish vector of dates related to holidays
-holiday <- seq.Date(from=as.Date("2023/03/20"), to=as.Date("2023/03/24"), by="day")
+holiday <- seq.Date(from=as.Date("2024/03/18"), to=as.Date("2024/03/22"), by="day")
 
 #Find and exclude holidays
 datesclass <- datesclass[-which(datesclass$Date %in% holiday),]
@@ -97,7 +97,7 @@ colnames(timetable)[5] <- "Task / Deadline"
 #Plot timetable in doc
 ###~~~
 
-knitr::kable(timetable,  caption = "Tentative timetable for the Genomics and Bioinformatics course during the Spring semester 2023.") %>%
+knitr::kable(timetable,  caption = "Tentative timetable for the Genomics and Bioinformatics course during the Spring semester 2024.") %>%
   kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
 
 #PDF
