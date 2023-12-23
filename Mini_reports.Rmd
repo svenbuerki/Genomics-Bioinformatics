@@ -140,7 +140,7 @@ Each student was assigned a molecular database to work on (please see [Google sp
 
 This individual assignment is mandatory and will be graded. Please see this task as an opportunity to consolidate your knowledge on molecular databases and writing scientific reports.   
 
-Time will be allocated in class on the 3rd of February 2023 to allow students to work on their assignments. Reports are due on **the 17th of February 2023** and should be uploaded on the shared [Google Drive](https://drive.google.com/drive/folders/1BFZFJeR8tW8N7QLfngqIVbjqEkDuIyWj?usp=sharing) in the `Mini_Report_2` folder.
+Time will be allocated in class on the 2nd of February 2024 to allow students to work on their assignments. Reports are due on **the 21st of February 2024** and should be uploaded on the shared [Google Drive](https://drive.google.com/drive/folders/1BFZFJeR8tW8N7QLfngqIVbjqEkDuIyWj?usp=sharing) in the `Mini_Report_2` folder.
 
 ## Structure of mini-reports {#structure2}
 
@@ -360,7 +360,7 @@ The instructor provides guidance on content for each section of your individual 
 
 Individual reports should be submitted in either Google Docs, Word or Rmarkdown formats (and if you decide to submit an additional file containing your R script, submit this file as an `.R` format). These files should be uploaded on the shared Google Drive in the `Mini_Report_3` folder in a subfolder entitled as follows: `Mini_Report_3_Surname`.
 
-**Upload your reports on the shared Google drive by the 17th of March 2023 before 5 PM MT.** 
+**Upload your reports on the shared Google drive by the 29th of March 2024 before 5 PM MT.** 
 
 ## Schedule
 
