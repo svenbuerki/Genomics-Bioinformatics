@@ -5,7 +5,7 @@ output:
 #  bookdown::pdf_document2:
 #    toc: FALSE
   bookdown::html_document2: 
-    toc: FALSE
+    toc: TRUE
     toc_float: TRUE
 link-citations: yes
 fontsize: 12pt
@@ -40,6 +40,25 @@ library(tufte)
 #Generate BibTex citation file for all R packages used to produce report
 knitr::write_bib(.packages(), file = 'packages.bib')
 ```
+
+# Key deadlines
+
+To facilitate communication, deadlines and point allocations for the assignments associated with this course are provided in Table \@ref(tab:deadlines). Please see [here](https://svenbuerki.github.io/Genomics-Bioinformatics/index.html#13_Grading_information) for more information on each assignment. All assignments should be submitted on [Google Drive](https://drive.google.com/drive/folders/1BFZFJeR8tW8N7QLfngqIVbjqEkDuIyWj?usp=sharing).
+
+```{r deadlines, echo=FALSE}
+###~~~
+# Load data
+###~~~
+deadlines <- data.frame(read.csv("Data/deadlines.csv"))
+
+###~~~
+#Plot deadlines in doc
+###~~~
+knitr::kable(deadlines,  caption = "Deadlines of graded assignments for the Genomics and Bioinformatics course during the Spring semester 2024.") %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
+```
+
+# Timetable
 
 The tentative timetable for this course is available in Table \@ref(tab:timetab). The instructor wants to warn students that he might adjust the timetable to accommodate any needs. However, in case of changes, the instructor will make sure to contact enrolled students to keep them posted.
 
@@ -91,7 +110,7 @@ timetable <- data.frame(datesclass, topic)
 #Some editing to better print table in pdf doc
 timetable <- as.matrix(timetable)
 rownames(timetable) <- rep("", nrow(timetable))
-colnames(timetable)[5] <- "Task / Deadline"
+colnames(timetable)[5] <- "Homework/Deadlines"
 #colnames(timetable)[6] <- "Teaching mode"
 ###~~~
 #Plot timetable in doc
