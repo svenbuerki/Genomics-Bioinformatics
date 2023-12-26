@@ -343,16 +343,15 @@ If you are not familiar with approaches to read scientific publications, please 
 Skills include summarizing and evaluating scientific research, and communicating scientific information to targeted audiences.
 PREREQ: BIOL 304 and ENGL 101, 102.
 
-# Grading information
+# Assessments
 
-## Tests conducted during this course
+## Tests conducted during this course and grading
 
 -   3 individual mini-reports (2x 25 points and 1x 50 points, TOTAL: 100 points).
--   1 individual oral presentation on a scientific paper (50 points).
 -   1 group lab report (150 points).
 -   1 group lab presentation (50 points).
 
-Exams are summing to a total of **350 points** and grading will follow the scale presented in Table \@ref(tab:mygrade). Consult the [Timetable](timetable) for information on dates when assignments are due.
+Exams are summing to a total of **300 points** and grading will follow the scale presented in Table \@ref(tab:mygrade). Consult the [Timetable](timetable) for information on dates when assignments are due.
 
 ```{r mygrade, echo=FALSE}
 library(bookdown)
@@ -373,12 +372,6 @@ To further gain expertise in this field, students will be producing three mini-r
 Time will be allocated in class to work on these mini-reports, but the instructor expects students to complete those on their own time.
 
 The webpage dedicated to the Mini Reports is available [here](Mini_reports.html). 
-
-## Individual oral presentation (TOTAL: 50 points) {#chap8}
-
-Each student will have to present a scientific publication at the end of the semester related to material presented in Chapter 8.
-Time will be allocated to select a paper and work on presentations, but the instructor strongly advise students to start this endeavor sooner.
-**The presentation should not exceed 4 minutes (plus 2 minutes for questions) and contain a maximum of 5 slides.**
 
 ## Group lab report (TOTAL: 150 points)
 
