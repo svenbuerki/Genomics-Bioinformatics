@@ -25,6 +25,67 @@ $(document).ready(function() {
 });
 ```
 
+```{r packages, echo=FALSE, warning=FALSE, include=FALSE, cache = FALSE}
+###~~~
+# Load R packages
+###~~~
+#Create vector w/ R packages
+# --> If you have a new dependency, don't forget to add it in this vector
+pkg <- c("knitr", "rmarkdown", "bookdown", "formattable", "kableExtra", "dplyr", "magrittr", "prettydoc", "htmltools", "knitcitations", "bibtex", "devtools", "kfigr", "data.tree", "DT", "DiagrammeR", "rticles")
+
+##~~~
+#2. Check if pkg are installed
+##~~~
+print("Check if packages are installed")
+#This line outputs a list of packages that are not installed
+new.pkg <- pkg[!(pkg %in% installed.packages())]
+
+##~~~
+#3. Install missing packages
+##~~~
+# Using an if/else statement to check whether packages have to be installed
+# WARNING: If your target R package is not deposited on CRAN then need to adjust code/function
+if(length(new.pkg) > 0){
+  print(paste("Install missing package(s):", new.pkg, sep=' '))
+  install.packages(new.pkg, dependencies = TRUE)
+}else{
+  print("All packages are already installed!")
+}
+
+##~~~
+#4. Load all packages
+##~~~
+print("Load packages and return status")
+#Here we use the sapply() function to require all the packages
+# To know more about the function type ?sapply() in R console
+sapply(pkg, require, character.only = TRUE)
+
+#Generate BibTex citation file for all R packages used to produce report
+knitr::write_bib(.packages(), file = 'packages.bib')
+```
+
+```{r setup, include = FALSE, cache = FALSE, message = FALSE}
+# Chunk options: see http://yihui.name/knitr/options/ ###
+
+## Text results
+#opts_chunk$set(echo = TRUE, warning = TRUE, message = TRUE, include = TRUE)
+
+## Code decoration
+opts_chunk$set(tidy = TRUE, tidy.opts = list(blank = FALSE, width.cutoff = 60), highlight = TRUE)
+
+## Caching code
+#opts_chunk$set(cache = 2, cache.path = "cache/")
+
+## Plots
+#opts_chunk$set(fig.path = "Figures_MS/", dev=c('pdf', 'png'), dpi = 300)
+
+## Locate figures as close as possible to requested position (=code)
+knitr::opts_chunk$set(fig.pos = 'H')
+
+# Read bibtex file
+refs <- bibtex::read.bib("References.bib")
+```
+
 # Introduction
 
 This webpage contains information related to the chapters covered in the Genomics & Bioinformatics course at BSU. The instructor will provide links to download the presentations as well as tutorials to complete in-class exercises (see e.g. [Chapter 4](#Chap4)).
@@ -49,6 +110,23 @@ The key learning outcomes of this chapter are:
 -   Appreciate the diversity of published genomes and their differences in the level of completeness.
 -   Understand the importance of computer science and bioinformatics in producing the raw sequence data and assembly genomes.
 -   Understand the challenges in sequencing a genome.
+
+## Publications 
+
+This chapter is mostly based on the following resources:
+
+- `r capture.output(print(refs["aransay_field_2016"]))`
+- `r capture.output(print(refs["Asaf2016"]))`
+- `r capture.output(print(refs["Doležel2007"]))`
+- `r capture.output(print(refs["Ellestad2022Plants"]))`
+- `r capture.output(print(refs["Hu2021"]))`
+- `r capture.output(print(refs["Liao2023"]))`
+- `r capture.output(print(refs["Melton2021"]))`
+- `r capture.output(print(refs["Melton2022"]))`
+- `r capture.output(print(refs["Pellicer2010"]))`
+- `r capture.output(print(refs["Rice2013"]))`
+- `r capture.output(print(refs["Sen2011"]))`
+- `r capture.output(print(refs["Timmis2004"]))`
 
 ## Download presentation
 
