@@ -115,18 +115,20 @@ The key learning outcomes of this chapter are:
 
 This chapter is mostly based on the following resources:
 
-- `r capture.output(print(refs["aransay_field_2016"]))`
-- `r capture.output(print(refs["Asaf2016"]))`
-- `r capture.output(print(refs["Doležel2007"]))`
-- `r capture.output(print(refs["Ellestad2022Plants"]))`
-- `r capture.output(print(refs["Hu2021"]))`
-- `r capture.output(print(refs["Liao2023"]))`
-- `r capture.output(print(refs["Melton2021"]))`
-- `r capture.output(print(refs["Melton2022"]))`
-- `r capture.output(print(refs["Pellicer2010"]))`
-- `r capture.output(print(refs["Rice2013"]))`
-- `r capture.output(print(refs["Sen2011"]))`
-- `r capture.output(print(refs["Timmis2004"]))`
+- @aransay_field_2016 - **Sequencing strategy**
+- @Asaf2016 - **Synonymous vs. non-synonymous substitutions**
+- @Bradnam2013 - **De novo genome contest**
+- @Doležel2007 - **Flow cytometry**
+- @Ellestad2022Plants - **SNPs in Vanilla**
+- @Hu2021 - **SNPs in Corn**
+- @Liao2023 - **Repeats in human genome**
+- @Melton2021 - **Paralogs in sagebrush**
+- @Melton2022 - **Sagebrush genome and repeats**
+- @Nurk2022 - **The complete sequence of a human genome**
+- @Pellicer2010 - **Plant genome size**
+- @Rice2013 - **Plant mitochondrial genome evolution**
+- @Sen2011 - **Chloroplast genome function and evolution**
+- @Timmis2004 - **Evolution of chloroplast genomes (gene trafficking)**
 
 ## Download presentation
 
