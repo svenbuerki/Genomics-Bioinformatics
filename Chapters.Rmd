@@ -117,14 +117,16 @@ This chapter is mostly based on the following resources:
 
 - @aransay_field_2016 - **Sequencing strategy**
 - @Asaf2016 - **Synonymous vs. non-synonymous substitutions**
-- @Bradnam2013 - **De novo genome contest**
+- @Bradnam2013 - **De novo genome assembly contest**
 - @Doležel2007 - **Flow cytometry**
 - @Ellestad2022Plants - **SNPs in Vanilla**
+- @GREENBERG201397 - **Alternative splicing**
 - @Hu2021 - **SNPs in Corn**
 - @Liao2023 - **Repeats in human genome**
 - @Melton2021 - **Paralogs in sagebrush**
 - @Melton2022 - **Sagebrush genome and repeats**
 - @Nurk2022 - **The complete sequence of a human genome**
+- @OHMAN2001125 - **RNA editing**
 - @Pellicer2010 - **Plant genome size**
 - @Rice2013 - **Plant mitochondrial genome evolution**
 - @Sen2011 - **Chloroplast genome function and evolution**
