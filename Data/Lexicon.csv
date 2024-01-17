@@ -12,7 +12,8 @@ Amino acid (AA),One of the constituents of proteins; proteins are polymers of am
 Bioinformatics,The use of computer methods in studies of genomes.
 Whole-genome sequencing (WGS),The process of determining the complete DNA sequence of an organism's genome at a single time.
 Targeted re-sequencing,"Sequencing of selected regions of a genome; for instance, a subset of genes (using either baits or amplicons). This approach is now commonly applied for phylogenetic inferences. "
-Exome sequencing,Sequencing only the portions of a genome corresponding to expressed proteins.
+Exome sequencing,"Exome sequencing is the targeted enrichment and sequencing of the whole exome. Exome sequencing is the most powerful tool available for the identification of genetic variations associated with a phenotype, such as a disease."
+Exome,"The exome is composed of all of the exons within the genome, the sequences which, when transcribed, remain within the mature RNA after introns are removed by RNA splicing. This includes untranslated regions of messenger RNA, and coding regions."
 RNA-Seq,"Sequencing RNAs in a sample. RNA sequencing is carried out by reverse transcribing the RNAs, and sequencing the complementary DNA (cDNA)."
 Single-end sequencing,Technique in which sequence is reported from only one end of a fragment.
 Paired-end sequencing,Technique in which sequence is reported from both ends of a fragment (with a number of undetermined bases between the reads that is known only approximately).
