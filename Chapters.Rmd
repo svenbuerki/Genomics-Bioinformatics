@@ -156,9 +156,13 @@ This chapter focuses on learning about next-generation sequencing and students w
 
 This chapter is mostly based on the following resources:
 
-- @HEATHER20161 - **The sequence of sequencers: The history of sequencing DNA** (Great resource for [Mini-report 1](#minrep1))
+- @HEATHER20161 - **The sequence of sequencers: The history of sequencing DNA**
+- @Marx2023 - **Long-read sequencing**
 - @Nurk2022 - **The complete sequence of a human genome**
+- @Satam2023 - **Next-Generation Sequencing technology: current trends and advancements**
 - @WATSON1953 - **Structure for Deoxyribose Nucleic Acid**
+
+**Note:** These publications will be very helpful to complete [Mini-report 1](#minrep1).
 
 ## Web resources
 
@@ -179,6 +183,8 @@ As part of this chapter, students are tasked to to produce individual mini-repor
 - **Sequencing platform 3:** Oxford Nanopore.
 
 More details on this assignment is available [here](https://svenbuerki.github.io/Genomics-Bioinformatics/Mini_reports.html#mini1).
+
+**Warning**: For this assignment, students are not allowed to use AI to complete their work.
 
 # Chapter 3
 

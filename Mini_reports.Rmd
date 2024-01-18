@@ -37,7 +37,7 @@ Time will be allocated in class to work on these mini-reports, but the instructo
 
 # Mini-report 1 -- Sequencing platforms & technologies {#mini1}
 
-To have a full overview of available sequencing platforms, students are tasked to produce individual mini-reports on the following sequencing platforms and their associated technologies:
+To have a full overview of available sequencing platforms, students are tasked to **produce individual mini-reports** on the following sequencing platforms and their associated technologies:
 
 - **Sequencing platform 1:** Illumina.
 - **Sequencing platform 2:** PacBio.
@@ -60,16 +60,20 @@ Please structure your reports to ensure covering the following aspects:
 - Outline the research potential/applicability of the sequencing systems or platform. 
 - Provide any additional information such as e.g. price, accessibility, technical support, that you feel are relevant to your sequencing platform. 
 
+## Warning
+
+For this assignment, students are not allowed to use AI to complete their work.
+
 ## Reporting format
 
-Maximum two pages, single spaced, using either Arial 11 pt or Times New Roman 12 pt, and with all margins set to 1 inch. The two pages do not include a title page and a references section. 
+Maximum **two pages**, single spaced, using either Arial 11 pt or Times New Roman 12 pt, and with all margins set to 1 inch. The two pages do not include a title page and a references section. 
 
 The **title page** should include the following information: 
 
 1. Name of the sequencing platform as title. 
 2. Name of student contributing the report. 
 
-The **references section** should contain full citations of all references cited in the text. Each reference cited in the References section should be clearly cited in the text to support transparency in your work and overall reproducible science. 
+The **references section** should contain full citations of all references cited in the text. Each reference cited in the References section should be clearly cited in the text to support transparency in your work and reproducible science. 
 
 A **citation is a way of giving credit to individuals for their creative and intellectual works that you utilized to support your research**. It can also be used to locate particular sources and combat plagiarism. Typically, a citation can include the author's name, date, location of the publishing company, journal title, or DOI (Digital Object Identifier). **Citation styles dictate the information necessary for a citation and how the information is ordered, as well as punctuation and other formatting**. There are different citation styles (see Figure \@ref(fig:citationstyle)) and the instructor let you pick the one you like. However, please make sure to only use one citation style in your mini-report.  
 
