@@ -169,6 +169,7 @@ This chapter is mostly based on the following resources:
 
 The following resources are helpful to complete [Mini-report 1](#minrep1) and support reading scientific publications ([Journal Club](#jc1)):
 
+- [**BSU Sequencing Core**](https://www.boisestate.edu/sequencing-core/). Our University is offering a suite of genomics services and they have an Illumina NextSeq 1000 instrument.
 - [**Overview of Next-Generation Sequencing technologies**](https://www.technologynetworks.com/genomics/articles/an-overview-of-next-generation-sequencing-346532)
 - [**Phred quality score**](https://en.wikipedia.org/wiki/Phred_quality_score)
 - [**The Human Genome Project**](https://www.genome.gov/human-genome-project)
