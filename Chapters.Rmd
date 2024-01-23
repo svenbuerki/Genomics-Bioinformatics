@@ -158,6 +158,7 @@ This chapter focuses on learning about next-generation sequencing and students w
 This chapter is mostly based on the following resources:
 
 - @HEATHER20161 - **The sequence of sequencers: The history of sequencing DNA**
+- @Ignatov2019 - **Fragmenting DNA for NGS sequencing**
 - @Marx2023 - **Long-read sequencing**
 - @Nurk2022 - **The complete sequence of a human genome**
 - @Satam2023 - **Next-Generation Sequencing technology: current trends and advancements**
