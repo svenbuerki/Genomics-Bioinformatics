@@ -195,7 +195,9 @@ More details on this assignment is available [here](https://svenbuerki.github.io
 
 ## Journal Club {#jc1}
 
-To become more familiar with NGS technology (incl. jargon) and its application to assemble and annotate reference genomes, we are reading a publication on the Giant panda [@Li2009] for our first journal club (available on [Google Drive](https://drive.google.com/drive/folders/1-Fkz0NnlqqeSq5DbSeDGn43xbturaPnu?usp=sharing)).
+To become more familiar with NGS technology (incl. jargon) and its application to assemble and annotate reference genomes, we are reading a publication on the Giant panda [@Li2009] for our first journal club (available on [Google Drive](https://drive.google.com/drive/folders/1-Fkz0NnlqqeSq5DbSeDGn43xbturaPnu?usp=sharing)). 
+
+The presentation used by the instructor to summarize the publication and initiate a group discussion is available [here](Lectures/Journal_Club_Giant_panda.pdf). 
 
 # Chapter 3
 
