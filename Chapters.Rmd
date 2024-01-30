@@ -207,7 +207,7 @@ The presentation used by the instructor to summarize the publication and initiat
     -   Producing raw data.
     -   Creating databases in molecular biology.
     -   Archiving and careful curation of the data.
-    -   Distributing them via the Internet.
+    -   Distributing data via the Internet.
     -   Creating information-retrieval tools to allow effective mining of the data for research application.
 -   Gain knowledge on major molecular biology databases, which are key to the assembly and annotation of genomes:
     -   Nucleic acid sequences databases.
@@ -215,7 +215,7 @@ The presentation used by the instructor to summarize the publication and initiat
     -   Gene ontology databases.
     -   Metabolic pathways databases.
     -   Specialized annotated genome portals.
--   Learn protocols to query genomic information and remotely download files from GenBank. 
+-   Present protocols to query genomic information and remotely download files from GenBank (this topic will be further investigated in [Mini-Report 3](Mini_reports.html) and [Chapter 4](#Chap4)). 
 
 ## Publications
 
