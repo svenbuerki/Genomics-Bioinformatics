@@ -236,13 +236,23 @@ This chapter is mostly based on the following resources:
 
 The presentation slides (in `pdf` format) of Chapter 3 can be downloaded <a href="Lectures/Chapter_03_Spring.pdf" target="_blank">here</a>.
 
+## Data availability
+
+To support reproducibility, research institutions, funders and publishers are requiring scientists to support their research by 
+
+1. submitting genomic data to accredited data repositories such as NCBI where data can be freely accessed
+2. providing data availability statements in publications pointing to their data
+
+To provide more insights into these practices here is an example of [data policy](https://academic.oup.com/g3journal/pages/data-policy) from the *G3* journal and a [data availability statement](https://academic.oup.com/g3journal/article/12/7/jkac122/6585877?searchresult=1#365097953) from the sagebrush genome [@Melton2022].  
+
 ## Exercises
 
 Here the goal is to get familiar with NCBI by doing the following exercises:
 
-1. Navigate to NCBI and get familiar with its structure and databases.
+1. Navigate to [NCBI](https://www.ncbi.nlm.nih.gov/) and get familiar with its structure and databases.
 2. How many genomes are available for the Giant panda and how do they compare?
 3. Search your favorite organism and determine what type of genomic data are available for it.
+4. What is the BioProject number associated to the sagebrush genome?
 
 ## Mini-report 2 -- Molecular biology databases {#mini2}
 
