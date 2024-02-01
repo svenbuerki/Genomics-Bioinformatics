@@ -203,7 +203,27 @@ The Kyoto Encyclopedia of Genes and Genomes [KEGG, @KEGG2022] ([http://www.genom
 
 The catalogs of chemical compounds and genes contain information about particular molecules or sequences. Genome maps integrate the genes themselves according to their chromosomal position. Pathway maps describe potential networks of molecular activities, both metabolic and regulatory. One enzyme in one organism would be referred to in KEGG in its orthologue tables, which link the enzyme to related ones in other organisms. This permits analysis of relationships between the metabolic pathways of different organisms. 
 
-# Mini-report 3 -- Identifying species based on DNA barcoding and phylogenetic inference {#mini3}
+# Mini-report 3 -- Species identifications based on DNA barcoding and phylogenetic inference {#mini3}
+
+## Learning outcomes
+
+The following learning outcomes will be taught as part of this Mini-Report:
+
+1. Process and clean DNA sequence electropherograms generated using the [Sanger sequencing approach](https://dnalc.cshl.edu/resources/animations/cycseq.html) (based on PCR amplifications).
+2. Validate DNA sequence and provide species working hypothesis by conducting a BLAST similarity DNA sequences analysis coupled with a distance tree inference. This will be based on DNA sequences deposited on GenBank.
+3. Query GenBank and download DNA sequences for phylogenetic analyses using R packages.
+4. Produce DNA multiple sequence alignments (containing your target DNA sequences and DNA sequences deposited on GenBank) using freely available algorithms.
+5. Infer phylogenetic analysis based on Maximum Likelihood criterion as implemented in RAxML [@Stamatakis2014]. This phylogenetic framework will be used to test and refine species working hypotheses (as inferred in learning outcome #2).
+6. Visualize and interpret phylogenetic analysis.
+7. Learn the terminology associated to DNA barcoding and phylogenetic analyses. Several definitions associated to the most used terms is available in the [Lexicon](Lexicon.html).
+
+## Publications
+
+This mini-report is mostly based on the following publication:
+
+- @Ellestad2022AJB - **DNA barcoding and phylogenetics of Vanilla**
+
+In each section, references are provided to help you master the material taught in this assignment.
 
 ## Background Information
 
@@ -256,25 +276,13 @@ A phylogenetic analysis is subdivided into 4 steps:
 3. Test for best-fit model reflecting evolution of DNA region.
 4. Infer phylogenetic tree, which is usually based either on Maximum Likelihood and/or Bayesian criteria.
 
-## Learning outcomes
-
-The following learning outcomes will be taught as part of this Mini-Report:
-
-1. Process and clean DNA sequence electropherograms generated using the [Sanger sequencing approach](https://dnalc.cshl.edu/resources/animations/cycseq.html) (based on PCR amplifications).
-2. Validate DNA sequence and provide species working hypothesis by conducting a BLAST similarity DNA sequences analysis coupled with a distance tree inference. This will be based on DNA sequences deposited on GenBank.
-3. Query GenBank and download DNA sequences for phylogenetic analyses using R packages.
-4. Produce DNA multiple sequence alignments (containing your target DNA sequences and DNA sequences deposited on GenBank) using freely available algorithms.
-5. Infer phylogenetic analysis based on Maximum Likelihood criterion as implemented in RAxML [@Stamatakis2014]. This phylogenetic framework will be used to test and refine species working hypotheses (as inferred in learning outcome #2).
-6. Visualize and interpret phylogenetic analysis.
-7. Learn the terminology associated to DNA barcoding and phylogenetic analyses. Several definitions associated to the most used terms is available in the [Lexicon](Lexicon.html).
-
 ## Dataset and data availability
 
 To support mastering the learning outcomes, we will be using a subset of a DNA dataset focusing on the [vanilla](#vanilla) spice (from the Orchidaceae family) published by @Ellestad2022AJB. 
 
 The data availability statement associated with @Ellestad2022AJB is as follows: All sequence data for this project are available at the National Center for Biotechnology Information (NCBI) under GenBank ITS sequences ON525161–ON525228, GenBank *rbcL* sequences ON531917–ON531986, BioProject accession no. PRJNA841950, and BioSample accession nos. SAMN28632719–SAMN28632734. All raw sequence files are available from the NCBI SRA database, nos. SRR19374405–SRR193744012, SRR19374414, SRR19374417, and SRR19374418. DNA alignments are available at Zenodo: https://doi.org/10.5281/zenodo.6577744
 
-## Vanilla as model for this report {#vanilla}
+## Model species {#vanilla}
 
 Like porcini [@dentinger2014s], vanilla is one of our most beloved spice, but we still know very little about its biology, taxonomy and evolution [see @Ellestadinpress for a review]. As part of a study aiming at inferring domestication processes in the genus *Vanilla* and species adaptation to drought, fieldwork was conducted in Mexico by Paige Ellestad (an EEB Ph.D. student at BSU) and her in-country partners.
 
@@ -296,7 +304,7 @@ knitr::include_graphics("Images/ITS.png")
 
 DNA extractions of leaf material were conducted at BSU using the Qiagen Plant Mini kit followed by PCR amplifications using plant specific primers [for instance, the IT4p and ITS5p primers for the ITS region; see @Cheng2016]. Sequencing was outsourced to [GENEWIZ](https://www.genewiz.com) and performed using Sanger sequencing technology. PCR amplicons/fragments were only sequenced using forward primers. As per provider, we are expecting high quality DNA sequencing read lengths of up to ca. 1000 bases. The company also mentions that a typical read would provide 800 bases with Phred score of 20.
 
-## Scientific questions associated to the mini-report {#sciq}
+## Scientific questions {#sciq}
 
 For this assignment, students will investigate the following question:
 
