@@ -252,7 +252,7 @@ Here the goal is to get familiar with NCBI by doing the following exercises:
 1. Navigate to [NCBI](https://www.ncbi.nlm.nih.gov/) and get familiar with its structure and databases.
 2. How many genomes are available for the Giant panda and how do they compare?
 3. Search your favorite organism and determine what type of genomic data are available for it.
-4. What is the BioProject number associated to the sagebrush genome?
+4. What is the BioProject accession number associated to the sagebrush genome?
 
 ## Mini-report 2 -- Molecular biology databases {#mini2}
 
