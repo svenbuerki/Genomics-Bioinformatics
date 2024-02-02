@@ -249,10 +249,18 @@ To provide more insights into these practices here is an example of [data policy
 
 Here the goal is to get familiar with NCBI by doing the following exercises:
 
-1. Navigate to [NCBI](https://www.ncbi.nlm.nih.gov/) and get familiar with its structure and databases.
-2. How many genomes are available for the Giant panda and how do they compare?
-3. Search your favorite organism and determine what type of genomic data are available for it.
-4. What is the BioProject accession number associated to the sagebrush genome?
+1. Navigate to [NCBI](https://www.ncbi.nlm.nih.gov/) and start getting familiar with its structure and available databases.
+2. Questions associated with the sagebrush (*Artemisia tridentata*; Asteraceae) genome published by @Melton2022:
+    - What is the BioProject accession number?
+    - How many SRA experiments were produced?
+    - What type of sequencing was used to generate the SRA data?
+    - How much data in Gbases and Tbytes was generated for this project?
+    - What level is the genome assembly at?
+    - What is the genome size (in Gb)?
+    - What is the genome coverage?
+    - What assembly method was used to produce the assembly?
+3. Use @Li2009 and NCBI to determine how many genomes are available for the Giant panda and how they compare?
+4. Search your favorite organism in the Taxonomy database and determine what type of genomic data are available and if an assembly or genome exist for it.
 
 ## Mini-report 2 -- Molecular biology databases {#mini2}
 
