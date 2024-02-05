@@ -31,7 +31,7 @@ To further gain expertise in the field of genomics, students are producing three
 
 - [**Mini-Report 1**](#mini1): Sequencing technologies (25 points; this task is related to Chapter 2).
 - [**Mini-Report 2**](#mini2): Molecular biology databases (25 points; this task is related to Chapter 3).
-- [**Mini-Report 3**](#mini3): Apply a coupled DNA barcoding and phylogenetic approach to identify species and infer their evolutionary history (50 points). This report provides students with an introduction to methods applied in the laboratory sessions and expertise to select a comparative article (Chapter 8).
+- [**Mini-Report 3**](#mini3): Species identifications based on DNA barcoding and phylogenetic inference (50 points). This report provides students with an introduction to methods applied in the laboratory sessions and prepare them to analyze NGS data.
 
 Time will be allocated in class to work on these mini-reports, but the instructor expects students to complete those on their own time.
 
@@ -225,7 +225,18 @@ This mini-report is mostly based on the following publication:
 
 In each section, references are provided to help you master the material taught in this assignment.
 
-## Background Information
+## Schedule
+
+This report is subdivided into four parts:
+
+- [**Introduction:**](#IntroMR3) Provide introductions on key theoretical concepts, scientific questions, hypothesis (incl. prediction), methodology, data availability, and report structure and formatting. 
+- [**Part 1:**](#part1) Process and clean ITS DNA sequence electropherograms and infer species working hypothesis.
+- [**Part 2:**](#part2) DNA sequence retrieval and prepare data for analyses.
+- [**Part 3:**](#part3) DNA multiple sequence alignment and phylogenetic inference.
+
+Please see the [Timetable](https://svenbuerki.github.io/Genomics-Bioinformatics/index.html#21_Timetable) for more details on the schedule. 
+
+## Introduction {#IntroMR3}
 
 ### How many species are there on Earth?
 
@@ -276,15 +287,9 @@ A phylogenetic analysis is subdivided into 4 steps:
 3. Test for best-fit model reflecting evolution of DNA region.
 4. Infer phylogenetic tree, which is usually based either on Maximum Likelihood and/or Bayesian criteria.
 
-## Dataset and data availability
+## Introduction of model species {#vanilla}
 
-To support mastering the learning outcomes, we will be using a subset of a DNA dataset focusing on the [vanilla](#vanilla) spice (from the Orchidaceae family) published by @Ellestad2022AJB. 
-
-The data availability statement associated with @Ellestad2022AJB is as follows: All sequence data for this project are available at the National Center for Biotechnology Information (NCBI) under GenBank ITS sequences ON525161–ON525228, GenBank *rbcL* sequences ON531917–ON531986, BioProject accession no. PRJNA841950, and BioSample accession nos. SAMN28632719–SAMN28632734. All raw sequence files are available from the NCBI SRA database, nos. SRR19374405–SRR193744012, SRR19374414, SRR19374417, and SRR19374418. DNA alignments are available at Zenodo: https://doi.org/10.5281/zenodo.6577744
-
-## Model species {#vanilla}
-
-Like porcini [@dentinger2014s], vanilla is one of our most beloved spice, but we still know very little about its biology, taxonomy and evolution [see @Ellestadinpress for a review]. As part of a study aiming at inferring domestication processes in the genus *Vanilla* and species adaptation to drought, fieldwork was conducted in Mexico by Paige Ellestad (an EEB Ph.D. student at BSU) and her in-country partners.
+Like porcini [@dentinger2014s], **vanilla** is one of our most beloved spice, but we still know very little about its biology, taxonomy and evolution [see @Ellestadinpress for a review]. As part of a study aiming at inferring domestication processes in the genus *Vanilla* and species adaptation to drought, fieldwork was conducted in Mexico by Paige Ellestad (an EEB Ph.D. student at BSU) and her in-country partners.
 
 For her Ph.D. dissertation, Paige is applying a DNA barcoding approach coupled with phylogenetic inference (and ecological niche modeling) to answer the following questions:
 
@@ -294,7 +299,7 @@ For her Ph.D. dissertation, Paige is applying a DNA barcoding approach coupled w
 >
 > Q3: What level of genetic diversity is there among each species?
 
-### DNA barcodes generated for vanilla project {#vanbarcode}
+## DNA barcodes generated for the vanilla project {#vanbarcode}
 
 To answer these questions, she sampled >30 locations (mostly plantations, but also wild populations) representing >60 samples and sequenced two DNA barcode regions widely used in plants: one chloroplastic (the coding *rbcL* region) and one nuclear ribosomal (the ITS region, which stands for for "Internal Transcribed Spacer"). These two DNA regions are traditionally used by researchers as DNA barcodes supporting species delimitation and identifications. Since you are already familiar with *rbcL* [see @Hollingsworth2009 for more details], we will be providing more details on the ITS region. The nuclear ribosomal ITS region includes part of 18S, ITS1, 5.8S, ITS2 and part of 26S [see Figure \@ref(fig:ITS), @Cheng2016]. This region is repeated in tandem 1000 of times and duplicated across chromosomes in order to produce ribosomes, which are key to produce proteins. This latter DNA region is shared across kingdoms and plant specific primers have to be used otherwise we may be at risk of amplifying this region for symbiotic organisms [e.g. fungi, see @Cheng2016].
 
@@ -304,7 +309,7 @@ knitr::include_graphics("Images/ITS.png")
 
 DNA extractions of leaf material were conducted at BSU using the Qiagen Plant Mini kit followed by PCR amplifications using plant specific primers [for instance, the IT4p and ITS5p primers for the ITS region; see @Cheng2016]. Sequencing was outsourced to [GENEWIZ](https://www.genewiz.com) and performed using Sanger sequencing technology. PCR amplicons/fragments were only sequenced using forward primers. As per provider, we are expecting high quality DNA sequencing read lengths of up to ca. 1000 bases. The company also mentions that a typical read would provide 800 bases with Phred score of 20.
 
-## Scientific questions {#sciq}
+## Mini-Report 3 scientific questions {#sciq}
 
 For this assignment, students will investigate the following question:
 
@@ -320,25 +325,27 @@ Throughout this project, we will be referring to these vanilla samples/individua
 
 - *PE25*, *PE44*, *PE49* and *PE50*.
 
-## Scientific process {#sciprocess}
+## Hypothesis and methodology {#sciprocess}
 
-The scientific process associated to this assignment can  be summarized as follows (see Figure \@ref(fig:sciproc)):
+Our overachieving question is as follows:
 
-```{r sciproc, echo=FALSE, fig.align="center", fig.cap="The scientific process.", fig.show="asis", out.width = '80%'}
-knitr::include_graphics("Images/Scientific_process.png")
-```
+> To what species of vanilla do individuals presented in Figure \@ref(fig:van) belong to?
 
-1. To what species of vanilla do individuals presented in Figure \@ref(fig:van) belong to?
-    - **Hypothesis:** Individuals belong to the same species (*V. planifolia*) and observed phenotypic variation is due to phenotypic plasticity (= exhibiting responses to contrasting climates). 
-2. To test the hypothesis we are applying the **phylogenetic species concept** [@wheeler1999phylogenetic] (mainly criterion of monophyly) based on DNA sequence data analyzed using a phylogenetic approach. 
-3. ITS barcode data are sequenced for individuals in Figure \@ref(fig:van) and compared to data from GenBank (= reference data).
-4. Analyses are done in 4 steps:
-    - PCR and Sanger sequencing of ITS barcodes for target individuals (= raw data are provided on Google Drive).
-    - Assembly of reference ITS data available on GenBank using R.
-    - BLAST and RAxML Maximum Likelihood phylogenetic analysis (including bootstrap analysis to assess node supports).
-    - Produce figures using R.
-5. Intersect evidence from analyses (especially phylogenetic clustering combined with node supports and taxonomy of ITS sequences from GenBank) to infer species identity of our target individuals. Use criterion of monophyly to help circumscribe species.
-6. See section \@ref(report) for more details.
+Based on evidence detailed above, our **hypothesis** is the following:
+
+> Individuals belong to the same species (*V. planifolia*) and thr observed phenotypic variation is due to phenotypic plasticity (= exhibiting responses to contrasting climates). 
+
+To test our hypothesis, we are applying the **phylogenetic species concept** [@wheeler1999phylogenetic] (mainly criterion of monophyly) using DNA barcoding data analyzed using a phylogenetic approach. If our hypothesis is correct, then we **predict** that all the individuals will form a monophyletic clade and fall with other samples belonging to *V. planifolia*.  
+
+To test this hypothesis, we have generated ITS barcode data for individuals in Figure \@ref(fig:van) and aim at comparing them with data from GenBank (= reference data).
+
+Our **analyses** will be done in 4 steps:
+  1. PCR and Sanger sequencing of ITS barcodes for target individuals (= raw data are provided on Google Drive).
+  2. Assembly of reference ITS data available on GenBank using R.
+  3. BLAST and RAxML Maximum Likelihood phylogenetic analysis (including bootstrap analysis to assess node supports).
+  4. Produce figures using R.
+  
+Finally, we will intersect evidence from all our analyses (especially phylogenetic clustering combined with node supports and taxonomy of ITS sequences from GenBank) to infer species identity of our target individuals. Please see section \@ref(report) for more details our the formatting of the report.
 
 ## Writing your report {#report}
 
@@ -374,19 +381,11 @@ Individual reports should be submitted in either Google Docs, Word or Rmarkdown 
 
 **Upload your reports on the shared Google drive by the 29th of March 2024 before 5 PM MT.** 
 
-## Schedule
-
-Analyses for this report are subdivided into three parts:
-
-- [**Part 1:**](#part1) Process and clean ITS DNA sequence electropherograms and infer species working hypothesis.
-- [**Part 2:**](#part2) DNA sequence retrieval and prepare data for analyses.
-- [**Part 3:**](#part3) DNA multiple sequence alignment and phylogenetic inference.
-
-Please see the [Timetable](https://svenbuerki.github.io/Genomics-Bioinformatics/index.html#21_Timetable) for more details on the schedule. 
-
 ## Project structure and data
 
-The data are deposited on the shared [Google Drive](https://drive.google.com/drive/folders/1iBMwP67FoSTMDX-EpXOlf8utP9k8tu8k?usp=sharing) in a folder entitled `DNA_barcoding` (located in `Mini_Report_3`). All students enrolled in this class have been granted access to this folder. The folder is subdivided into four sub-folders (see Figure \@ref(fig:datastr)) and contains a master spreadsheet `Vanilla_samples_records.xlsx` at its root: 
+To support mastering the learning outcomes, we will be using a subset of a DNA dataset focusing on the [vanilla](#vanilla) spice (from the Orchidaceae family) published by @Ellestad2022AJB.
+
+The data for this assignment are deposited on the shared [Google Drive](https://drive.google.com/drive/folders/1iBMwP67FoSTMDX-EpXOlf8utP9k8tu8k?usp=sharing) in a folder entitled `DNA_barcoding` (located in `Mini_Report_3`). All students enrolled in this class have been granted access to this folder. The folder is subdivided into four sub-folders (see Figure \@ref(fig:datastr)) and contains a master spreadsheet `Vanilla_samples_records.xlsx` at its root: 
 
 - `01_Field_images`: `jpeg` images of samples.
 - `02_Raw_ITS_data_ab1`: `.ab1` sequence electropherograms of ITS sequences. 
@@ -398,6 +397,12 @@ The data are deposited on the shared [Google Drive](https://drive.google.com/dri
 ```{r datastr, echo=FALSE, fig.align="center", fig.cap="Screenshot of the DNA_barcoding folder showing data structure for this project.", fig.show="asis", out.width = '90%'}
 knitr::include_graphics("Images/DNA_barcoding_str.png")
 ```
+
+### Data availability
+
+The data availability statement associated with @Ellestad2022AJB is as follows: 
+
+All sequence data for this project are available at the National Center for Biotechnology Information (NCBI) under GenBank ITS sequences ON525161–ON525228, GenBank *rbcL* sequences ON531917–ON531986, BioProject accession no. PRJNA841950, and BioSample accession nos. SAMN28632719–SAMN28632734. All raw sequence files are available from the NCBI SRA database, nos. SRR19374405–SRR193744012, SRR19374414, SRR19374417, and SRR19374418. DNA alignments are available at Zenodo: https://doi.org/10.5281/zenodo.6577744
 
 ## Part 1 {#part1}
 
