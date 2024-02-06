@@ -210,11 +210,11 @@ The catalogs of chemical compounds and genes contain information about particula
 The following learning outcomes will be taught as part of this Mini-Report:
 
 1. Process and clean DNA sequence electropherograms generated using the [Sanger sequencing approach](https://dnalc.cshl.edu/resources/animations/cycseq.html) (based on PCR amplifications).
-2. Validate DNA sequence and provide species working hypothesis by conducting a BLAST similarity DNA sequences analysis coupled with a distance tree inference. This will be based on DNA sequences deposited on GenBank.
-3. Query GenBank and download DNA sequences for phylogenetic analyses using R packages.
-4. Produce DNA multiple sequence alignments (containing your target DNA sequences and DNA sequences deposited on GenBank) using freely available algorithms.
+2. Validate DNA sequence and provide species working hypothesis by conducting BLAST similarity DNA sequences analyses. This will be based on DNA sequences deposited on [GenBank](https://www.ncbi.nlm.nih.gov/genbank/).
+3. Query GenBank and download DNA sequences for phylogenetic analyses. This will be done using `R` [@R] packages.
+4. Produce DNA multiple sequence alignments (containing both your target DNA sequences and those from GenBank). This will be done using `MUSCLE` [@edgar2004muscle] implemented in `MEGA` [@kumar2018mega].
 5. Infer phylogenetic analysis based on Maximum Likelihood criterion as implemented in RAxML [@Stamatakis2014]. This phylogenetic framework will be used to test and refine species working hypotheses (as inferred in learning outcome #2).
-6. Visualize and interpret phylogenetic analysis.
+6. Visualize and interpret phylogenetic analysis using `R` [@R] packages.
 7. Learn the terminology associated to DNA barcoding and phylogenetic analyses. Several definitions associated to the most used terms is available in the [Lexicon](Lexicon.html).
 
 ## Publications
@@ -301,7 +301,7 @@ For her Ph.D. dissertation, Paige is applying a DNA barcoding approach coupled w
 
 ## DNA barcodes generated for the vanilla project {#vanbarcode}
 
-To answer these questions, she sampled >30 locations (mostly plantations, but also wild populations) representing >60 samples and sequenced two DNA barcode regions widely used in plants: one chloroplastic (the coding *rbcL* region) and one nuclear ribosomal (the ITS region, which stands for for "Internal Transcribed Spacer"). These two DNA regions are traditionally used by researchers as DNA barcodes supporting species delimitation and identifications. Since you are already familiar with *rbcL* [see @Hollingsworth2009 for more details], we will be providing more details on the ITS region. The nuclear ribosomal ITS region includes part of 18S, ITS1, 5.8S, ITS2 and part of 26S [see Figure \@ref(fig:ITS), @Cheng2016]. This region is repeated in tandem 1000 of times and duplicated across chromosomes in order to produce ribosomes, which are key to produce proteins. This latter DNA region is shared across kingdoms and plant specific primers have to be used otherwise we may be at risk of amplifying this region for symbiotic organisms [e.g. fungi, see @Cheng2016].
+To answer these questions, she sampled >30 locations (mostly plantations, but also wild populations) representing >60 samples and sequenced two DNA barcode regions widely used in plants: one chloroplastic (the coding [*rbcL*](https://www.ncbi.nlm.nih.gov/gene/844754) region) and one nuclear ribosomal (the ITS region, which stands for for "Internal Transcribed Spacer"). These two DNA regions are traditionally used by researchers as DNA barcodes supporting species delimitation and identifications. Since you are already familiar with *rbcL* [see @Hollingsworth2009 for more details], we will be providing more details on the ITS region. The nuclear ribosomal ITS region includes part of 18S, ITS1, 5.8S, ITS2 and part of 26S [see Figure \@ref(fig:ITS), @Cheng2016]. This region is repeated in tandem 1000 of times and duplicated across chromosomes in order to produce ribosomes, which are key to produce proteins. This latter DNA region is shared across kingdoms and plant specific primers have to be used otherwise we may be at risk of amplifying this region for symbiotic organisms [e.g. fungi, see @Cheng2016].
 
 ```{r ITS, echo=FALSE, fig.align="center", fig.cap="Map of the ITS nuclear ribsomal region with primers (from Cheng et al, 2016).", fig.show="asis", out.width = '100%'}
 knitr::include_graphics("Images/ITS.png")
@@ -340,6 +340,7 @@ To test our hypothesis, we are applying the **phylogenetic species concept** [@w
 To test this hypothesis, we have generated ITS barcode data for individuals in Figure \@ref(fig:van) and aim at comparing them with data from GenBank (= reference data).
 
 Our **analyses** will be done in 4 steps:
+
   1. PCR and Sanger sequencing of ITS barcodes for target individuals (= raw data are provided on Google Drive).
   2. Assembly of reference ITS data available on GenBank using R.
   3. BLAST and RAxML Maximum Likelihood phylogenetic analysis (including bootstrap analysis to assess node supports).
@@ -874,7 +875,6 @@ print(paste0("After cleaning ", dim(RawGBDat2)[1], " DNA sequences remain."))
 #Snapshot of matrix
 head(RawGBDat2, n=1)
 ```
-
 
 ### Format and merge individual `.seq` files from Part 1 into a `FASTA` file
 

@@ -11,7 +11,7 @@
 
 <meta name="author" content="Sven Buerki - Boise State University" />
 
-<meta name="date" content="2024-02-05" />
+<meta name="date" content="2024-02-06" />
 
 <title>BIOL 497/597 - Genomics &amp; Bioinformatics</title>
 
@@ -383,7 +383,7 @@ div.tocify {
 <h1 class="title toc-ignore">BIOL 497/597 - Genomics &amp; Bioinformatics</h1>
 <h3 class="subtitle">Mini-reports</h3>
 <h4 class="author">Sven Buerki - Boise State University</h4>
-<h4 class="date">2024-02-05</h4>
+<h4 class="date">2024-02-06</h4>
 
 </div>
 
@@ -576,11 +576,11 @@ Other useful tool to perform gene annotations: </p>
 <p>The following learning outcomes will be taught as part of this Mini-Report:</p>
 <ol style="list-style-type: decimal">
 <li>Process and clean DNA sequence electropherograms generated using the <a href="https://dnalc.cshl.edu/resources/animations/cycseq.html">Sanger sequencing approach</a> (based on PCR amplifications).</li>
-<li>Validate DNA sequence and provide species working hypothesis by conducting a BLAST similarity DNA sequences analysis coupled with a distance tree inference. This will be based on DNA sequences deposited on GenBank.</li>
-<li>Query GenBank and download DNA sequences for phylogenetic analyses using R packages.</li>
-<li>Produce DNA multiple sequence alignments (containing your target DNA sequences and DNA sequences deposited on GenBank) using freely available algorithms.</li>
+<li>Validate DNA sequence and provide species working hypothesis by conducting BLAST similarity DNA sequences analyses. This will be based on DNA sequences deposited on <a href="https://www.ncbi.nlm.nih.gov/genbank/">GenBank</a>.</li>
+<li>Query GenBank and download DNA sequences for phylogenetic analyses. This will be done using <code>R</code> <span class="citation">(<a href="#ref-R" role="doc-biblioref">R Core Team, 2016</a>)</span> packages.</li>
+<li>Produce DNA multiple sequence alignments (containing both your target DNA sequences and those from GenBank). This will be done using <code>MUSCLE</code> <span class="citation">(<a href="#ref-edgar2004muscle" role="doc-biblioref">Edgar, 2004</a>)</span> implemented in <code>MEGA</code> <span class="citation">(<a href="#ref-kumar2018mega" role="doc-biblioref">Kumar et al., 2018</a>)</span>.</li>
 <li>Infer phylogenetic analysis based on Maximum Likelihood criterion as implemented in RAxML <span class="citation">(<a href="#ref-Stamatakis2014" role="doc-biblioref">Stamatakis, 2014</a>)</span>. This phylogenetic framework will be used to test and refine species working hypotheses (as inferred in learning outcome #2).</li>
-<li>Visualize and interpret phylogenetic analysis.</li>
+<li>Visualize and interpret phylogenetic analysis using <code>R</code> <span class="citation">(<a href="#ref-R" role="doc-biblioref">R Core Team, 2016</a>)</span> packages.</li>
 <li>Learn the terminology associated to DNA barcoding and phylogenetic analyses. Several definitions associated to the most used terms is available in the <a href="Lexicon.html">Lexicon</a>.</li>
 </ol>
 </div>
@@ -662,7 +662,7 @@ Other useful tool to perform gene annotations: </p>
 </div>
 <div id="vanbarcode" class="section level2" number="4.6">
 <h2><span class="header-section-number">4.6</span> DNA barcodes generated for the vanilla project</h2>
-<p>To answer these questions, she sampled &gt;30 locations (mostly plantations, but also wild populations) representing &gt;60 samples and sequenced two DNA barcode regions widely used in plants: one chloroplastic (the coding <em>rbcL</em> region) and one nuclear ribosomal (the ITS region, which stands for for “Internal Transcribed Spacer”). These two DNA regions are traditionally used by researchers as DNA barcodes supporting species delimitation and identifications. Since you are already familiar with <em>rbcL</em> <span class="citation">(see <a href="#ref-Hollingsworth2009" role="doc-biblioref">Hollingsworth et al., 2009</a> for more details)</span>, we will be providing more details on the ITS region. The nuclear ribosomal ITS region includes part of 18S, ITS1, 5.8S, ITS2 and part of 26S <span class="citation">(see Figure <a href="#fig:ITS">4.1</a>, <a href="#ref-Cheng2016" role="doc-biblioref">Cheng et al., 2016</a>)</span>. This region is repeated in tandem 1000 of times and duplicated across chromosomes in order to produce ribosomes, which are key to produce proteins. This latter DNA region is shared across kingdoms and plant specific primers have to be used otherwise we may be at risk of amplifying this region for symbiotic organisms <span class="citation">(e.g. fungi, see <a href="#ref-Cheng2016" role="doc-biblioref">Cheng et al., 2016</a>)</span>.</p>
+<p>To answer these questions, she sampled &gt;30 locations (mostly plantations, but also wild populations) representing &gt;60 samples and sequenced two DNA barcode regions widely used in plants: one chloroplastic (the coding <a href="https://www.ncbi.nlm.nih.gov/gene/844754"><em>rbcL</em></a> region) and one nuclear ribosomal (the ITS region, which stands for for “Internal Transcribed Spacer”). These two DNA regions are traditionally used by researchers as DNA barcodes supporting species delimitation and identifications. Since you are already familiar with <em>rbcL</em> <span class="citation">(see <a href="#ref-Hollingsworth2009" role="doc-biblioref">Hollingsworth et al., 2009</a> for more details)</span>, we will be providing more details on the ITS region. The nuclear ribosomal ITS region includes part of 18S, ITS1, 5.8S, ITS2 and part of 26S <span class="citation">(see Figure <a href="#fig:ITS">4.1</a>, <a href="#ref-Cheng2016" role="doc-biblioref">Cheng et al., 2016</a>)</span>. This region is repeated in tandem 1000 of times and duplicated across chromosomes in order to produce ribosomes, which are key to produce proteins. This latter DNA region is shared across kingdoms and plant specific primers have to be used otherwise we may be at risk of amplifying this region for symbiotic organisms <span class="citation">(e.g. fungi, see <a href="#ref-Cheng2016" role="doc-biblioref">Cheng et al., 2016</a>)</span>.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:ITS"></span>
 <img src="Images/ITS.png" alt="Map of the ITS nuclear ribsomal region with primers (from Cheng et al, 2016)." width="100%" />
 <p class="caption">
@@ -701,11 +701,13 @@ Figure 4.2: Images of the four samples of vanilla collected in Mexico studied in
 </blockquote>
 <p>To test our hypothesis, we are applying the <strong>phylogenetic species concept</strong> <span class="citation">(<a href="#ref-wheeler1999phylogenetic" role="doc-biblioref">Wheeler, 1999</a>)</span> (mainly criterion of monophyly) using DNA barcoding data analyzed using a phylogenetic approach. If our hypothesis is correct, then we <strong>predict</strong> that all the individuals will form a monophyletic clade and fall with other samples belonging to <em>V. planifolia</em>.</p>
 <p>To test this hypothesis, we have generated ITS barcode data for individuals in Figure <a href="#fig:van">4.2</a> and aim at comparing them with data from GenBank (= reference data).</p>
-<p>Our <strong>analyses</strong> will be done in 4 steps:
-1. PCR and Sanger sequencing of ITS barcodes for target individuals (= raw data are provided on Google Drive).
-2. Assembly of reference ITS data available on GenBank using R.
-3. BLAST and RAxML Maximum Likelihood phylogenetic analysis (including bootstrap analysis to assess node supports).
-4. Produce figures using R.</p>
+<p>Our <strong>analyses</strong> will be done in 4 steps:</p>
+<ol style="list-style-type: decimal">
+<li>PCR and Sanger sequencing of ITS barcodes for target individuals (= raw data are provided on Google Drive).</li>
+<li>Assembly of reference ITS data available on GenBank using R.</li>
+<li>BLAST and RAxML Maximum Likelihood phylogenetic analysis (including bootstrap analysis to assess node supports).</li>
+<li>Produce figures using R.</li>
+</ol>
 <p>Finally, we will intersect evidence from all our analyses (especially phylogenetic clustering combined with node supports and taxonomy of ITS sequences from GenBank) to infer species identity of our target individuals. Please see section <a href="#report">4.9</a> for more details our the formatting of the report.</p>
 </div>
 <div id="report" class="section level2" number="4.9">
@@ -1876,6 +1878,9 @@ Vanilla subtree
 </div>
 <div id="ref-quinto2016dna" class="csl-entry">
 <span class="smallcaps">Quinto, C.A.</span>, <span class="smallcaps">R. Tinoco</span>, and <span class="smallcaps">R.S. Hellberg</span>. 2016. DNA barcoding reveals mislabeling of game meat species on the US commercial market. <em>Food Control</em> 59: 386–392.
+</div>
+<div id="ref-R" class="csl-entry">
+<span class="smallcaps">R Core Team</span>. 2016. R: A language and environment for statistical computing. R Foundation for Statistical Computing, Vienna, Austria. Available at: <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
 </div>
 <div id="ref-Satam2023" class="csl-entry">
 <span class="smallcaps">Satam, H.</span>, <span class="smallcaps">K. Joshi</span>, <span class="smallcaps">U. Mangrolia</span>, <span class="smallcaps">S. Waghoo</span>, <span class="smallcaps">G. Zaidi</span>, <span class="smallcaps">S. Rawool</span>, <span class="smallcaps">R.P. Thakare</span>, et al. 2023. Next-generation sequencing technology: Current trends and advancements. <em>Biology</em> 12: Available at: <a href="https://www.mdpi.com/2079-7737/12/7/997">https://www.mdpi.com/2079-7737/12/7/997</a>.
