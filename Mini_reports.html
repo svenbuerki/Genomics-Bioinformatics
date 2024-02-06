@@ -576,12 +576,12 @@ Other useful tool to perform gene annotations: </p>
 <p>The following learning outcomes will be taught as part of this Mini-Report:</p>
 <ol style="list-style-type: decimal">
 <li>Process and clean DNA sequence electropherograms generated using the <a href="https://dnalc.cshl.edu/resources/animations/cycseq.html">Sanger sequencing approach</a> (based on PCR amplifications).</li>
-<li>Validate DNA sequence and provide species working hypothesis by conducting BLAST similarity DNA sequences analyses. This will be based on DNA sequences deposited on <a href="https://www.ncbi.nlm.nih.gov/genbank/">GenBank</a>.</li>
+<li>Validate DNA sequence and provide species working hypothesis by conducting BLAST similarity DNA sequences analyses. This will be based on DNA sequences deposited on <a href="https://www.ncbi.nlm.nih.gov/genbank/">GenBank</a> <span class="citation">(<a href="#ref-GenBankP" role="doc-biblioref">Benson et al., 2005</a>)</span>.</li>
 <li>Query GenBank and download DNA sequences for phylogenetic analyses. This will be done using <code>R</code> <span class="citation">(<a href="#ref-R" role="doc-biblioref">R Core Team, 2016</a>)</span> packages.</li>
 <li>Produce DNA multiple sequence alignments (containing both your target DNA sequences and those from GenBank). This will be done using <code>MUSCLE</code> <span class="citation">(<a href="#ref-edgar2004muscle" role="doc-biblioref">Edgar, 2004</a>)</span> implemented in <code>MEGA</code> <span class="citation">(<a href="#ref-kumar2018mega" role="doc-biblioref">Kumar et al., 2018</a>)</span>.</li>
-<li>Infer phylogenetic analysis based on Maximum Likelihood criterion as implemented in RAxML <span class="citation">(<a href="#ref-Stamatakis2014" role="doc-biblioref">Stamatakis, 2014</a>)</span>. This phylogenetic framework will be used to test and refine species working hypotheses (as inferred in learning outcome #2).</li>
+<li>Infer phylogenetic analysis based on Maximum Likelihood criterion as implemented in RAxML <span class="citation">(<a href="#ref-Stamatakis2014" role="doc-biblioref">Stamatakis, 2014</a>)</span>. This phylogenetic framework will be used to test and refine species working hypotheses using the phylogenetic species concept <span class="citation">(<a href="#ref-wheeler1999phylogenetic" role="doc-biblioref">Wheeler, 1999</a>)</span>.</li>
 <li>Visualize and interpret phylogenetic analysis using <code>R</code> <span class="citation">(<a href="#ref-R" role="doc-biblioref">R Core Team, 2016</a>)</span> packages.</li>
-<li>Learn the terminology associated to DNA barcoding and phylogenetic analyses. Several definitions associated to the most used terms is available in the <a href="Lexicon.html">Lexicon</a>.</li>
+<li>Learn the terminology associated with DNA barcoding and phylogenetic analyses. Key definitions associated to the most used terms are available in the <a href="Lexicon.html">Lexicon</a>.</li>
 </ol>
 </div>
 <div id="publications" class="section level2" number="4.2">
@@ -609,7 +609,7 @@ Other useful tool to perform gene annotations: </p>
 <h3><span class="header-section-number">4.4.1</span> How many species are there on Earth?</h3>
 <p>Projections of global biodiversity have ranged from 2 to 100 million species <span class="citation">(<a href="#ref-Larsen2017" role="doc-biblioref">Larsen et al., 2017</a>)</span>.</p>
 <p>But these estimations are without accounting for cryptic species! See for instance <span class="citation">Dentinger and Suz (<a href="#ref-dentinger2014s" role="doc-biblioref">2014</a>)</span> for an example on porcini. In this study, the authors used DNA-sequencing to identify three species of mushroom contained within a commercial packet of dried Chinese porcini purchased in London. Surprisingly, all three have never been formally described by science and required new scientific names.</p>
-<p><span class="citation">Larsen et al. (<a href="#ref-Larsen2017" role="doc-biblioref">2017</a>)</span> recently published a keystone paper where they predicted 1 to 6 billion species on Earth! This prediction was based on an average of 6 cryptic species per described species.</p>
+<p><span class="citation">Larsen et al. (<a href="#ref-Larsen2017" role="doc-biblioref">2017</a>)</span> recently published a keystone paper where they predicted <strong>1 to 6 billion species on Earth</strong>! This prediction was based on an average of 6 cryptic species per described species.</p>
 <p>Overall, data presented here demonstrate that <strong>most species on this planet are either poorly known or pending description</strong>.</p>
 <p>In this context, the fields of genetics/genomics (more specifically <a href="#barcode">DNA barcoding</a>) and phylogenetics have the potential to contribute to:</p>
 <ul>
@@ -621,16 +621,16 @@ Other useful tool to perform gene annotations: </p>
 <div id="barcode" class="section level3" number="4.4.2">
 <h3><span class="header-section-number">4.4.2</span> DNA barcoding: Species identification</h3>
 <p>The Consortium for the Barcode of Life (<a href="https://www.ibol.org/phase1/cbol/">CBOL</a>) is an international initiative devoted to developing DNA barcoding as a global standard for the identification of biological species. CBOL has more than 130 Member Organizations from more than 40 countries <span class="citation">(<a href="#ref-CBOL" role="doc-biblioref">CBOL, 2021</a>)</span>.</p>
-<p><strong>DNA barcoding</strong> is a method of species identification using a short section of DNA from a specific gene or genes. The premise of DNA barcoding is that, by comparison with a reference library of such DNA sections, an individual DNA sequence can be used to uniquely identify an organism to species, in the same way that a supermarket scanner uses the familiar black stripes of the UPC barcode to identify an item in its stock against its reference database <span class="citation">(<a href="#ref-CBOL" role="doc-biblioref">CBOL, 2021</a>)</span>. These DNA barcodes are sometimes used in an effort to identify unknown species, parts of an organism, or simply to catalog as many taxa as possible, or to compare with traditional taxonomy in an effort to determine species boundaries. For more details on DNA barcodes applied to plants, please see section <a href="#vanbarcode">below</a> dedicated to vanilla.</p>
+<p><strong>DNA barcoding</strong> is a method of species identification using a short section of DNA from a specific gene or genes. The premise of DNA barcoding is that, by comparison with a reference library of such DNA sections, an individual DNA sequence can be used to uniquely identify an organism to species. This is analogous to a supermarket scanner using the familiar black stripes of the UPC barcode to identify an item in its stock against its reference database <span class="citation">(<a href="#ref-CBOL" role="doc-biblioref">CBOL, 2021</a>)</span>. DNA barcodes are sometimes used in an effort to identify unknown species, parts of an organism, or simply to catalog as many taxa as possible, or to compare with traditional taxonomy in an effort to determine species boundaries. For more details on DNA barcodes applied to plants, please see section <a href="#vanbarcode">below</a> dedicated to vanilla.</p>
 <p>DNA barcoding has a wide range of applications from biodiversity surveys <span class="citation">(e.g. <a href="#ref-telfer2015biodiversity" role="doc-biblioref">Telfer et al., 2015</a>)</span>, illegal trade of wildlife <span class="citation">(e.g. <a href="#ref-gonccalves2015dna" role="doc-biblioref">Gonçalves et al., 2015</a>)</span> to food security <span class="citation">(e.g. <a href="#ref-quinto2016dna" role="doc-biblioref">Quinto et al., 2016</a>)</span>. The DNA barcoding approach has been reviewed by <span class="citation">DeSalle and Goldstein (<a href="#ref-deSalle2019" role="doc-biblioref">2019</a>)</span>.</p>
 <div id="procedure" class="section level4" number="4.4.2.1">
 <h4><span class="header-section-number">4.4.2.1</span> Procedure</h4>
-<p>A DNA barcoding approach is subdivided into 4 steps:</p>
+<p>A DNA barcoding approach is subdivided into four steps:</p>
 <ol style="list-style-type: decimal">
 <li>Isolate DNA from the target sample.</li>
 <li>Amplify the target DNA barcode region using PCR.</li>
 <li>Sequence the PCR products using either Sanger sequencing or NGS (mostly on Illumina platform).</li>
-<li>Compare the resulting sequences against reference databases to find the matching species. Here we will be using DNA sequences from <a href="https://www.ncbi.nlm.nih.gov/genbank/">GenBank</a> as our reference. See Chapter 3 for more details on GenBank.</li>
+<li>Compare the resulting sequences against reference databases to find the matching species. Here, we will be using DNA sequences from <a href="https://www.ncbi.nlm.nih.gov/genbank/">GenBank</a> as our reference <span class="citation">(<a href="#ref-GenBankP" role="doc-biblioref">Benson et al., 2005</a>)</span>. See Chapter 3 for more details on GenBank.</li>
 </ol>
 </div>
 </div>
@@ -640,7 +640,7 @@ Other useful tool to perform gene annotations: </p>
 <p>In this mini-report, we will be focusing on inferring phylogenetic trees based on DNA sequences obtained through the DNA barcoding approach described <a href="#barcode">above</a>.</p>
 <div id="procedure-1" class="section level4" number="4.4.3.1">
 <h4><span class="header-section-number">4.4.3.1</span> Procedure</h4>
-<p>A phylogenetic analysis is subdivided into 4 steps:</p>
+<p>A phylogenetic analysis is subdivided into four steps:</p>
 <ol style="list-style-type: decimal">
 <li>Produce DNA sequences following steps 1 to 3 as described in <a href="#barcode">DNA barcoding section</a>.</li>
 <li>Produce DNA multiple sequence alignments.</li>
@@ -651,7 +651,7 @@ Other useful tool to perform gene annotations: </p>
 </div>
 </div>
 <div id="vanilla" class="section level2" number="4.5">
-<h2><span class="header-section-number">4.5</span> Introduction of model species</h2>
+<h2><span class="header-section-number">4.5</span> Introducing our model species: Vanilla</h2>
 <p>Like porcini <span class="citation">(<a href="#ref-dentinger2014s" role="doc-biblioref">Dentinger and Suz, 2014</a>)</span>, <strong>vanilla</strong> is one of our most beloved spice, but we still know very little about its biology, taxonomy and evolution <span class="citation">(see <a href="#ref-Ellestadinpress" role="doc-biblioref">Ellestad et al., 2021</a> for a review)</span>. As part of a study aiming at inferring domestication processes in the genus <em>Vanilla</em> and species adaptation to drought, fieldwork was conducted in Mexico by Paige Ellestad (an EEB Ph.D. student at BSU) and her in-country partners.</p>
 <p>For her Ph.D. dissertation, Paige is applying a DNA barcoding approach coupled with phylogenetic inference (and ecological niche modeling) to answer the following questions:</p>
 <blockquote>
@@ -661,7 +661,7 @@ Other useful tool to perform gene annotations: </p>
 </blockquote>
 </div>
 <div id="vanbarcode" class="section level2" number="4.6">
-<h2><span class="header-section-number">4.6</span> DNA barcodes generated for the vanilla project</h2>
+<h2><span class="header-section-number">4.6</span> Applied DNA barcodes for the vanilla project</h2>
 <p>To answer these questions, she sampled &gt;30 locations (mostly plantations, but also wild populations) representing &gt;60 samples and sequenced two DNA barcode regions widely used in plants: one chloroplastic (the coding <a href="https://www.ncbi.nlm.nih.gov/gene/844754"><em>rbcL</em></a> region) and one nuclear ribosomal (the ITS region, which stands for for “Internal Transcribed Spacer”). These two DNA regions are traditionally used by researchers as DNA barcodes supporting species delimitation and identifications. Since you are already familiar with <em>rbcL</em> <span class="citation">(see <a href="#ref-Hollingsworth2009" role="doc-biblioref">Hollingsworth et al., 2009</a> for more details)</span>, we will be providing more details on the ITS region. The nuclear ribosomal ITS region includes part of 18S, ITS1, 5.8S, ITS2 and part of 26S <span class="citation">(see Figure <a href="#fig:ITS">4.1</a>, <a href="#ref-Cheng2016" role="doc-biblioref">Cheng et al., 2016</a>)</span>. This region is repeated in tandem 1000 of times and duplicated across chromosomes in order to produce ribosomes, which are key to produce proteins. This latter DNA region is shared across kingdoms and plant specific primers have to be used otherwise we may be at risk of amplifying this region for symbiotic organisms <span class="citation">(e.g. fungi, see <a href="#ref-Cheng2016" role="doc-biblioref">Cheng et al., 2016</a>)</span>.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:ITS"></span>
 <img src="Images/ITS.png" alt="Map of the ITS nuclear ribsomal region with primers (from Cheng et al, 2016)." width="100%" />
@@ -690,7 +690,7 @@ Figure 4.2: Images of the four samples of vanilla collected in Mexico studied in
 </ul>
 </div>
 <div id="sciprocess" class="section level2" number="4.8">
-<h2><span class="header-section-number">4.8</span> Hypothesis and methodology</h2>
+<h2><span class="header-section-number">4.8</span> Question, hypothesis, and methodology</h2>
 <p>Our overachieving question is as follows:</p>
 <blockquote>
 <p>To what species of vanilla do individuals presented in Figure <a href="#fig:van">4.2</a> belong to?</p>
@@ -701,14 +701,14 @@ Figure 4.2: Images of the four samples of vanilla collected in Mexico studied in
 </blockquote>
 <p>To test our hypothesis, we are applying the <strong>phylogenetic species concept</strong> <span class="citation">(<a href="#ref-wheeler1999phylogenetic" role="doc-biblioref">Wheeler, 1999</a>)</span> (mainly criterion of monophyly) using DNA barcoding data analyzed using a phylogenetic approach. If our hypothesis is correct, then we <strong>predict</strong> that all the individuals will form a monophyletic clade and fall with other samples belonging to <em>V. planifolia</em>.</p>
 <p>To test this hypothesis, we have generated ITS barcode data for individuals in Figure <a href="#fig:van">4.2</a> and aim at comparing them with data from GenBank (= reference data).</p>
-<p>Our <strong>analyses</strong> will be done in 4 steps:</p>
+<p>Our <strong>analyses</strong> will be done using the following methodology:</p>
 <ol style="list-style-type: decimal">
-<li>PCR and Sanger sequencing of ITS barcodes for target individuals (= raw data are provided on Google Drive).</li>
-<li>Assembly of reference ITS data available on GenBank using R.</li>
-<li>BLAST and RAxML Maximum Likelihood phylogenetic analysis (including bootstrap analysis to assess node supports).</li>
-<li>Produce figures using R.</li>
+<li>Produce ITS barcodes for target individuals using PCR and Sanger sequencing (= raw data are provided on Google Drive).</li>
+<li>Assembly of reference ITS data available on GenBank using <code>R</code>.</li>
+<li>BLAST and RAxML Maximum Likelihood phylogenetic analyses (including bootstrap analysis to assess node supports) to identify species identity of target samples.</li>
+<li>Produce figures using <code>R</code> to test working hypothesis.</li>
 </ol>
-<p>Finally, we will intersect evidence from all our analyses (especially phylogenetic clustering combined with node supports and taxonomy of ITS sequences from GenBank) to infer species identity of our target individuals. Please see section <a href="#report">4.9</a> for more details our the formatting of the report.</p>
+<p>Finally, we will intersect evidence from all our analyses (especially phylogenetic clustering combined with node supports and taxonomy of ITS sequences from GenBank) to test our hypothesis and infer species identity of our target individuals. Please see section <a href="#report">4.9</a> for more details our the formatting of the report.</p>
 </div>
 <div id="report" class="section level2" number="4.9">
 <h2><span class="header-section-number">4.9</span> Writing your report</h2>
@@ -1815,6 +1815,9 @@ Vanilla subtree
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-ALTSCHUL1990403" class="csl-entry">
 <span class="smallcaps">Altschul, S.F.</span>, <span class="smallcaps">W. Gish</span>, <span class="smallcaps">W. Miller</span>, <span class="smallcaps">E.W. Myers</span>, and <span class="smallcaps">D.J. Lipman</span>. 1990. Basic local alignment search tool. <em>Journal of Molecular Biology</em> 215: 403–410. Available at: <a href="http://www.sciencedirect.com/science/article/pii/S0022283605803602">http://www.sciencedirect.com/science/article/pii/S0022283605803602</a>.
+</div>
+<div id="ref-GenBankP" class="csl-entry">
+<span class="smallcaps">Benson, D.A.</span>, <span class="smallcaps">I. Karsch-Mizrachi</span>, <span class="smallcaps">D.J. Lipman</span>, <span class="smallcaps">J. Ostell</span>, and <span class="smallcaps">D.L. Wheeler</span>. 2005. GenBank. <em>Nucleic Acids Research</em> 33: D34–D38.
 </div>
 <div id="ref-buerki2017alectryon" class="csl-entry">
 <span class="smallcaps">Buerki, S.</span>, <span class="smallcaps">P.P. Lowry II</span>, <span class="smallcaps">J. Munzinger</span>, <span class="smallcaps">M. Tuiwawa</span>, <span class="smallcaps">A. Naikatini</span>, and <span class="smallcaps">M.W. Callmander</span>. 2017. Alectryon vitiensis: A new species of sapindaceae endemic to fiji. <em>Novon: A Journal for Botanical Nomenclature</em> 25: 421–429.

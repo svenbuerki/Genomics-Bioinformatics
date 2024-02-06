@@ -210,12 +210,12 @@ The catalogs of chemical compounds and genes contain information about particula
 The following learning outcomes will be taught as part of this Mini-Report:
 
 1. Process and clean DNA sequence electropherograms generated using the [Sanger sequencing approach](https://dnalc.cshl.edu/resources/animations/cycseq.html) (based on PCR amplifications).
-2. Validate DNA sequence and provide species working hypothesis by conducting BLAST similarity DNA sequences analyses. This will be based on DNA sequences deposited on [GenBank](https://www.ncbi.nlm.nih.gov/genbank/).
+2. Validate DNA sequence and provide species working hypothesis by conducting BLAST similarity DNA sequences analyses. This will be based on DNA sequences deposited on [GenBank](https://www.ncbi.nlm.nih.gov/genbank/) [@GenBankP].
 3. Query GenBank and download DNA sequences for phylogenetic analyses. This will be done using `R` [@R] packages.
 4. Produce DNA multiple sequence alignments (containing both your target DNA sequences and those from GenBank). This will be done using `MUSCLE` [@edgar2004muscle] implemented in `MEGA` [@kumar2018mega].
-5. Infer phylogenetic analysis based on Maximum Likelihood criterion as implemented in RAxML [@Stamatakis2014]. This phylogenetic framework will be used to test and refine species working hypotheses (as inferred in learning outcome #2).
+5. Infer phylogenetic analysis based on Maximum Likelihood criterion as implemented in RAxML [@Stamatakis2014]. This phylogenetic framework will be used to test and refine species working hypotheses using the phylogenetic species concept [@wheeler1999phylogenetic].
 6. Visualize and interpret phylogenetic analysis using `R` [@R] packages.
-7. Learn the terminology associated to DNA barcoding and phylogenetic analyses. Several definitions associated to the most used terms is available in the [Lexicon](Lexicon.html).
+7. Learn the terminology associated with DNA barcoding and phylogenetic analyses. Key definitions associated to the most used terms are available in the [Lexicon](Lexicon.html).
 
 ## Publications
 
@@ -244,7 +244,7 @@ Projections of global biodiversity have ranged from 2 to 100 million species [@L
 
 But these estimations are without accounting for cryptic species! See for instance @dentinger2014s for an example on porcini. In this study, the authors used DNA-sequencing to identify three species of mushroom contained within a commercial packet of dried Chinese porcini purchased in London. Surprisingly, all three have never been formally described by science and required new scientific names.
 
-@Larsen2017 recently published a keystone paper where they predicted 1 to 6 billion species on Earth! This prediction was based on an average of 6 cryptic species per described species.
+@Larsen2017 recently published a keystone paper where they predicted **1 to 6 billion species on Earth**! This prediction was based on an average of 6 cryptic species per described species.
 
 Overall, data presented here demonstrate that **most species on this planet are either poorly known or pending description**. 
 
@@ -259,18 +259,18 @@ Approaches combining these two objectives were applied across lineages. See for 
 
 The Consortium for the Barcode of Life ([CBOL](https://www.ibol.org/phase1/cbol/)) is an international initiative devoted to developing DNA barcoding as a global standard for the identification of biological species. CBOL has more than 130 Member Organizations from more than 40 countries [@CBOL].
 
-**DNA barcoding** is a method of species identification using a short section of DNA from a specific gene or genes. The premise of DNA barcoding is that, by comparison with a reference library of such DNA sections, an individual DNA sequence can be used to uniquely identify an organism to species, in the same way that a supermarket scanner uses the familiar black stripes of the UPC barcode to identify an item in its stock against its reference database [@CBOL]. These DNA barcodes are sometimes used in an effort to identify unknown species, parts of an organism, or simply to catalog as many taxa as possible, or to compare with traditional taxonomy in an effort to determine species boundaries. For more details on DNA barcodes applied to plants, please see section [below](#vanbarcode) dedicated to vanilla.
+**DNA barcoding** is a method of species identification using a short section of DNA from a specific gene or genes. The premise of DNA barcoding is that, by comparison with a reference library of such DNA sections, an individual DNA sequence can be used to uniquely identify an organism to species. This is analogous to a supermarket scanner using the familiar black stripes of the UPC barcode to identify an item in its stock against its reference database [@CBOL]. DNA barcodes are sometimes used in an effort to identify unknown species, parts of an organism, or simply to catalog as many taxa as possible, or to compare with traditional taxonomy in an effort to determine species boundaries. For more details on DNA barcodes applied to plants, please see section [below](#vanbarcode) dedicated to vanilla.
 
 DNA barcoding has a wide range of applications from biodiversity surveys [e.g. @telfer2015biodiversity], illegal trade of wildlife [e.g. @gonccalves2015dna] to food security [e.g. @quinto2016dna]. The DNA barcoding approach has been reviewed by @deSalle2019. 
 
 #### Procedure
 
-A DNA barcoding approach is subdivided into 4 steps:
+A DNA barcoding approach is subdivided into four steps:
 
 1. Isolate DNA from the target sample.
 2. Amplify the target DNA barcode region using PCR.
 3. Sequence the PCR products using either Sanger sequencing or NGS (mostly on Illumina platform).
-4. Compare the resulting sequences against reference databases to find the matching species. Here we will be using DNA sequences from [GenBank](https://www.ncbi.nlm.nih.gov/genbank/) as our reference. See Chapter 3 for more details on GenBank.
+4. Compare the resulting sequences against reference databases to find the matching species. Here, we will be using DNA sequences from [GenBank](https://www.ncbi.nlm.nih.gov/genbank/) as our reference [@GenBankP]. See Chapter 3 for more details on GenBank.
 
 ### Phylogenetic inference
 
@@ -280,14 +280,14 @@ In this mini-report, we will be focusing on inferring phylogenetic trees based o
 
 #### Procedure
 
-A phylogenetic analysis is subdivided into 4 steps:
+A phylogenetic analysis is subdivided into four steps:
 
 1. Produce DNA sequences following steps 1 to 3 as described in [DNA barcoding section](#barcode).
 2. Produce DNA multiple sequence alignments.
 3. Test for best-fit model reflecting evolution of DNA region.
 4. Infer phylogenetic tree, which is usually based either on Maximum Likelihood and/or Bayesian criteria.
 
-## Introduction of model species {#vanilla}
+## Introducing our model species: Vanilla {#vanilla}
 
 Like porcini [@dentinger2014s], **vanilla** is one of our most beloved spice, but we still know very little about its biology, taxonomy and evolution [see @Ellestadinpress for a review]. As part of a study aiming at inferring domestication processes in the genus *Vanilla* and species adaptation to drought, fieldwork was conducted in Mexico by Paige Ellestad (an EEB Ph.D. student at BSU) and her in-country partners.
 
@@ -299,7 +299,7 @@ For her Ph.D. dissertation, Paige is applying a DNA barcoding approach coupled w
 >
 > Q3: What level of genetic diversity is there among each species?
 
-## DNA barcodes generated for the vanilla project {#vanbarcode}
+## Applied DNA barcodes for the vanilla project {#vanbarcode}
 
 To answer these questions, she sampled >30 locations (mostly plantations, but also wild populations) representing >60 samples and sequenced two DNA barcode regions widely used in plants: one chloroplastic (the coding [*rbcL*](https://www.ncbi.nlm.nih.gov/gene/844754) region) and one nuclear ribosomal (the ITS region, which stands for for "Internal Transcribed Spacer"). These two DNA regions are traditionally used by researchers as DNA barcodes supporting species delimitation and identifications. Since you are already familiar with *rbcL* [see @Hollingsworth2009 for more details], we will be providing more details on the ITS region. The nuclear ribosomal ITS region includes part of 18S, ITS1, 5.8S, ITS2 and part of 26S [see Figure \@ref(fig:ITS), @Cheng2016]. This region is repeated in tandem 1000 of times and duplicated across chromosomes in order to produce ribosomes, which are key to produce proteins. This latter DNA region is shared across kingdoms and plant specific primers have to be used otherwise we may be at risk of amplifying this region for symbiotic organisms [e.g. fungi, see @Cheng2016].
 
@@ -325,7 +325,7 @@ Throughout this project, we will be referring to these vanilla samples/individua
 
 - *PE25*, *PE44*, *PE49* and *PE50*.
 
-## Hypothesis and methodology {#sciprocess}
+## Question, hypothesis, and methodology {#sciprocess}
 
 Our overachieving question is as follows:
 
@@ -339,14 +339,14 @@ To test our hypothesis, we are applying the **phylogenetic species concept** [@w
 
 To test this hypothesis, we have generated ITS barcode data for individuals in Figure \@ref(fig:van) and aim at comparing them with data from GenBank (= reference data).
 
-Our **analyses** will be done in 4 steps:
+Our **analyses** will be done using the following methodology:
 
-  1. PCR and Sanger sequencing of ITS barcodes for target individuals (= raw data are provided on Google Drive).
-  2. Assembly of reference ITS data available on GenBank using R.
-  3. BLAST and RAxML Maximum Likelihood phylogenetic analysis (including bootstrap analysis to assess node supports).
-  4. Produce figures using R.
+  1. Produce ITS barcodes for target individuals using PCR and Sanger sequencing (= raw data are provided on Google Drive).
+  2. Assembly of reference ITS data available on GenBank using `R`.
+  3. BLAST and RAxML Maximum Likelihood phylogenetic analyses (including bootstrap analysis to assess node supports) to identify species identity of target samples.
+  4. Produce figures using `R` to test working hypothesis.
   
-Finally, we will intersect evidence from all our analyses (especially phylogenetic clustering combined with node supports and taxonomy of ITS sequences from GenBank) to infer species identity of our target individuals. Please see section \@ref(report) for more details our the formatting of the report.
+Finally, we will intersect evidence from all our analyses (especially phylogenetic clustering combined with node supports and taxonomy of ITS sequences from GenBank) to test our hypothesis and infer species identity of our target individuals. Please see section \@ref(report) for more details our the formatting of the report.
 
 ## Writing your report {#report}
 
