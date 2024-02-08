@@ -635,6 +635,22 @@ org <- "Plants"
 query <- paste0(sp," [All Fields] AND ", DNA," [All Fields] ", org, " [filter]")
 ```
 
+### Using Entrez bollean operators 
+
+Boolean operators provide a way of generating precise queries that produce well-defined sets of results. The Boolean operators used in [Entrez](https://www.ncbi.nlm.nih.gov/books/NBK3837/) and how they work are as follows.
+
+- **AND**: Finds documents that contain terms on both sides of the operator terms, the intersection of both searches.
+- **OR**: Finds documents that contain either term, the union of both searches.
+- **NOT**: Finds documents that contain the term on the left but not the term on the right of the operator, the subtraction of the right hand search from the one on the left.
+
+Entrez requires the Boolean operator AND to be entered in uppercase. This is not required in all databases for the other two operators, but it is simplest to enter all of them in uppercase:
+
+`promoters OR response elements NOT human AND mammals`
+
+Entrez processes all Boolean operators in a left-to-right sequence. Enclosing individual concepts in parentheses changes this priority. The terms inside the parentheses are processed first as a unit and then incorporated into the overall strategy. For example, in the following search statement, the union of response element and promoter results is generated first and then is intersected with the result of the g1p3 search.
+
+`g1p3 AND (response element OR promoter)`
+
 ### Retrieve GenBank DNA sequences matching query
 
 ```{r retrieve, eval=F}
