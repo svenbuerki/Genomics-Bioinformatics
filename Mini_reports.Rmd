@@ -425,7 +425,7 @@ Although `BLAST` can be run locally, we will be using the web portal available h
 
 ### Overview of the DNA sequence data cleaning procedure
 
-When evaluating `.ab1` files (= raw DNA data from an [Applied Biosystems' Sequencing instrument](https://www.thermofisher.com/us/en/home/life-science/sequencing/sanger-sequencing/sanger-sequencing-technology-accessories.html) containing an electropherogram and the DNA base sequence), you should first see the electropherogram and come to a conclusion whether your data can be considered of good quality or not.
+When evaluating `.ab1` files (= raw DNA data from an [Applied Biosystems' Sequencing instrument](https://www.thermofisher.com/us/en/home/life-science/sequencing/sanger-sequencing/sanger-sequencing-technology-accessories.html) containing an electropherogram showing the Phred scores and the DNA base sequence), you should first see the electropherogram and come to a conclusion whether your data can be considered of good quality or not.
 
 Good quality sequencing data/positions are characterized by:
 
@@ -465,7 +465,7 @@ Here, we will be using `its25-ITSp4.ab1` as an example for the analysis. This fi
 
 1. Copy the `DNA_barcoding/` folder onto your computers.
 2. Launch `FinchTV`.
-3. Open `.ab1` file (one at a time) using the `Open` tab or the folder icon. 
+3. Open `.ab1` file (one at a time) using the `File --> Open...` tab or by dragging your `.ab1` file in the main window. 
 4. Make sure that the `Base Position Numbers`, `Base Calls` and `Quality Values` settings are ticked using the `View` tab (Figure \@ref(fig:finchtv)).
 5. Trim the first 10-20 bp of the sequence. This is done by selecting bases using the `Shift` command and then pressing `Delete` (Figure \@ref(fig:finchtvtrim)).
 
@@ -519,7 +519,7 @@ knitr::include_graphics("Images/ExpandTree.png")
 knitr::include_graphics("Images/DNAtree.png")
 ```
 
-15. Open `Vanilla_samples_records.xlsx` and update `Species_BLAST` column with a species name (your first working hypothesis). Don't forget to save the file.
+15. Open `Vanilla_samples_records.xlsx` and update `Species_BLAST` column with a species name (your first working hypothesis) and add the GenBank accession number of the most closely related DNA sequence deposited on GenBank. Don't forget to save the file.
 
 16. Repeat this procedure until you analyzed all the `ab1` files.
 

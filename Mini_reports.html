@@ -11,7 +11,7 @@
 
 <meta name="author" content="Sven Buerki - Boise State University" />
 
-<meta name="date" content="2024-02-06" />
+<meta name="date" content="2024-02-08" />
 
 <title>BIOL 497/597 - Genomics &amp; Bioinformatics</title>
 
@@ -383,7 +383,7 @@ div.tocify {
 <h1 class="title toc-ignore">BIOL 497/597 - Genomics &amp; Bioinformatics</h1>
 <h3 class="subtitle">Mini-reports</h3>
 <h4 class="author">Sven Buerki - Boise State University</h4>
-<h4 class="date">2024-02-06</h4>
+<h4 class="date">2024-02-08</h4>
 
 </div>
 
@@ -798,7 +798,7 @@ Figure 4.3: Screenshot of the DNA_barcoding folder showing data structure for th
 </div>
 <div id="overview-of-the-dna-sequence-data-cleaning-procedure" class="section level3" number="4.11.3">
 <h3><span class="header-section-number">4.11.3</span> Overview of the DNA sequence data cleaning procedure</h3>
-<p>When evaluating <code>.ab1</code> files (= raw DNA data from an <a href="https://www.thermofisher.com/us/en/home/life-science/sequencing/sanger-sequencing/sanger-sequencing-technology-accessories.html">Applied Biosystems’ Sequencing instrument</a> containing an electropherogram and the DNA base sequence), you should first see the electropherogram and come to a conclusion whether your data can be considered of good quality or not.</p>
+<p>When evaluating <code>.ab1</code> files (= raw DNA data from an <a href="https://www.thermofisher.com/us/en/home/life-science/sequencing/sanger-sequencing/sanger-sequencing-technology-accessories.html">Applied Biosystems’ Sequencing instrument</a> containing an electropherogram showing the Phred scores and the DNA base sequence), you should first see the electropherogram and come to a conclusion whether your data can be considered of good quality or not.</p>
 <p>Good quality sequencing data/positions are characterized by:</p>
 <ul>
 <li>Well-defined peak resolution (bad resolution of the first 10-25 bases is acceptable; see Figure <a href="#fig:finchtv">4.4</a>). The Phred score is displayed at top of the window (see bars on Figure <a href="#fig:finchtv">4.4</a>).</li>
@@ -908,7 +908,7 @@ Figure 4.5: Screenshot of DNA sequence electropherogram showing signature of pea
 <ol style="list-style-type: decimal">
 <li>Copy the <code>DNA_barcoding/</code> folder onto your computers.</li>
 <li>Launch <code>FinchTV</code>.</li>
-<li>Open <code>.ab1</code> file (one at a time) using the <code>Open</code> tab or the folder icon.</li>
+<li>Open <code>.ab1</code> file (one at a time) using the <code>File --&gt; Open...</code> tab or by dragging your <code>.ab1</code> file in the main window.</li>
 <li>Make sure that the <code>Base Position Numbers</code>, <code>Base Calls</code> and <code>Quality Values</code> settings are ticked using the <code>View</code> tab (Figure <a href="#fig:finchtv">4.4</a>).</li>
 <li>Trim the first 10-20 bp of the sequence. This is done by selecting bases using the <code>Shift</code> command and then pressing <code>Delete</code> (Figure <a href="#fig:finchtvtrim">4.6</a>).</li>
 </ol>
@@ -984,7 +984,7 @@ Figure 4.13: Position of your DNA sequence on tree.
 </p>
 </div>
 <ol start="15" style="list-style-type: decimal">
-<li><p>Open <code>Vanilla_samples_records.xlsx</code> and update <code>Species_BLAST</code> column with a species name (your first working hypothesis). Don’t forget to save the file.</p></li>
+<li><p>Open <code>Vanilla_samples_records.xlsx</code> and update <code>Species_BLAST</code> column with a species name (your first working hypothesis) and add the GenBank accession number of the most closely related DNA sequence deposited on GenBank. Don’t forget to save the file.</p></li>
 <li><p>Repeat this procedure until you analyzed all the <code>ab1</code> files.</p></li>
 </ol>
 </div>
