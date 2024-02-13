@@ -566,8 +566,12 @@ Please consult this [RStudio article](https://support.rstudio.com/hc/en-us/artic
 
 To infer the ML phylogenetic analysis, the following workflow will be executed:
 
-1. Expand sampling for phylogenetic analyses by downloading ITS DNA sequences of *Vanilla* species deposited on GenBank. This will be done by using the *rentrez* `R` package [@rentrez]. A table with species taxonomy associated to GenBank accessions will also be built. We will also clean the data and save outputs in `FASTA` and `csv` formats.
-2. Format and merge individual `.seq` files from Part 1 into a `FASTA` object/file. This will be done by creating a list of all `.seq` files, opening them individually and merging them into one object using a `for` loop.
+1. Expand sampling for phylogenetic analyses by downloading ITS DNA sequences of *Vanilla* species deposited on GenBank using the following approach: 
+    - Use functions from the *rentrez* `R` package [@rentrez] to download DNA sequences and metadata. 
+    - Build a table with species taxonomy associated to GenBank accessions. 
+    - Clean the data and save outputs in `FASTA` and `csv` formats.
+2. Format and merge individual `.seq` files from Part 1 into a `FASTA` object/file using the following approach: 
+    - Create a list of all `.seq` files, open them individually and merge them into one object (ultimately saved as a file) using a `for` loop.
 3. Merge `FASTA` objects/files from steps 1 and 2 to perform a multiple sequence alignment (msa).
 
 Protocols associated to each step within the workflow are detailed below.
@@ -582,9 +586,28 @@ Here, we are demonstrating an approach to search GenBank for ITS sequences of *V
 4. Tidy dataset based on meta-data.
 5. Write results in `FASTA` and `csv` formats.
 
+### Method to download data from Entrez
+
+The following method (or pseudo-code) is applied to download (here referred to as "fetch") data from Entrez using *rentrez* [@rentrez]:
+
+1. Build GenBank query
+    - **Function:** *paste0()*
+2. Search GenBank using query to retrieve unique IDs associated to target DNA sequences
+    - **Function:** *rentrez::entrez_search()* 
+3. Fetch GenBank DNA sequences using unique IDs
+    - **Function:** *rentrez::entrez_fetch()*
+4. Link GenBank database with other databases (e.g., Taxonomy) to retrieve unique IDs of additional data associated with DNA sequences
+    - **Function:** *rentrez::entrez_link()*
+5. Fetch additional data
+    - **Function:** *rentrez::entrez_fetch()*
+
 ### Create an R script
 
-Before delving into the code, start by creating an `.R` file in `RStudio` and save it at the root of your project (`DNA_barcoding/`) with the following name `01_PART2.R`.
+Before delving into the code, do the following:
+
+1. Launch `RStudio`.
+2. Create a new `.R` script (`File > R Script`).
+3. Save the `.R` script at the root of your project (`DNA_barcoding/`) with the following name `01_PART2.R`.
 
 All the R code provided below will be copied into your newly saved `R` script and executed in class together.
 
@@ -657,7 +680,7 @@ Entrez processes all Boolean operators in a left-to-right sequence. Enclosing in
 ###~~~
 #Retrieve DNA accessions in GenBank
 ###~~~
-GBresults <- rentrez::entrez_search(db="nuccore",term = query, retmax=50000)
+GBresults <- rentrez::entrez_search(db = "nuccore", term = query, retmax = 50000)
 
 #How may hits did we get
 print(GBresults$count)
@@ -689,7 +712,7 @@ Please see the `R` code below for more details on the procedure to retrieve the 
 # to each DNA accession
 
 #Create empty matrix to be populated
-OUT <- matrix(ncol=5, nrow=length(GBresults$ids))
+OUT <- matrix(ncol = 5, nrow = length(GBresults$ids))
 colnames(OUT) <- c("GenBankID", "Species", "Definition", "Seq_length", "Sequence")
 
 #Add GenBank ID
@@ -707,25 +730,25 @@ for(i in 1:length(GBresults$ids)){
   print(paste("Iteration", i, "of", length(GBresults$ids), sep= ' '))
   
   #Download sequence
-  seq <- entrez_fetch(db='nuccore', id=GBresults$ids[i], rettype='fasta', retmode = "text")
+  seq <- entrez_fetch(db = 'nuccore', id = GBresults$ids[i], rettype = 'fasta', retmode = "text")
   
   #Extract definition line
-  OUT[i,3] <- strsplit(seq, split="\n")[[1]][1]
+  OUT[i,3] <- strsplit(seq, split = "\n")[[1]][1]
   
   #Infer seq length
-  nbp <- strsplit(seq, split="\n")
+  nbp <- strsplit(seq, split = "\n")
   OUT[i,4] <- as.numeric(length(strsplit(paste(nbp[[1]][2:length(nbp[[1]])], 
                                                collapse=''),"")[[1]]))
   
   #Extract sequence
-  OUT[i,5] <- as.vector(paste(nbp[[1]][2:length(nbp[[1]])], collapse='')[1])
+  OUT[i,5] <- as.vector(paste(nbp[[1]][2:length(nbp[[1]])], collapse = '')[1])
   
   #Fetch taxon ID associated to GenBank accessions
-  taxID <- entrez_link(dbfrom='nuccore', id=GBresults$ids[i], db='taxonomy')
+  taxID <- entrez_link(dbfrom = 'nuccore', id = GBresults$ids[i], db = 'taxonomy')
 
   #Extract taxonomy: genus and species epithet
   tmp <- strsplit(
-    strsplit(entrez_fetch(db='taxonomy', id=taxID$links, rettype = "native"), 
+    strsplit(entrez_fetch(db = 'taxonomy', id = taxID$links, rettype = "native"), 
              split = '\n')[[1]][1]
     , split = ' ')
   
@@ -741,11 +764,11 @@ SEQ <- as.data.frame(OUT)
 ###~~~
 #Write raw data in 04_Data_analyses
 ###~~~
-FileIDRawcsv <- paste(sp, DNA, gsub("-", "_", Sys.Date()), "Raw_GenBank.csv", sep='_')
+FileIDRawcsv <- paste(sp, DNA, gsub("-", "_", Sys.Date()), "Raw_GenBank.csv", sep = '_')
 #Write FASTA file
 write.table(SEQ, 
             paste("04_Data_analyses/CSV/", 
-                  FileIDRawcsv, sep=''), row.names = F, col.names=T, quote = T)
+                  FileIDRawcsv, sep = ''), row.names = F, col.names = T, quote = T)
 ```
 
 Let's have a look at the data downloaded from GenBank:
@@ -760,7 +783,7 @@ RawGBDat <- read.csv("~/Documents/Classes/Class_Genomics&Bioinfo_Spring/DNA_barc
 print(paste0("GenBank query retrieved ", dim(RawGBDat)[1], " DNA sequences."))
 
 #Snapshot of matrix
-head(RawGBDat, n=1)
+head(RawGBDat, n = 1)
 ```
 
 ### Reload raw GB query in csv
@@ -778,7 +801,7 @@ If you need to restart coding from the previous point, please execute the code b
 SEQfileName <- "Vanilla_internal transcribed spacer_2023_02_14_Raw_GenBank.csv"
 
 #Load the csv in the environment
-RawGBDat2 <- read.csv(paste0("04_Data_analyses/CSV/", SEQfileName), quote = "\"", sep=' ')
+RawGBDat2 <- read.csv(paste0("04_Data_analyses/CSV/", SEQfileName), quote = "\"", sep = ' ')
 
 #Change name of object to make it compatible with code
 SEQ <- RawGBDat2
@@ -855,8 +878,8 @@ We are using `R` to generate a `FASTA` file with the DNA sequences from our GenB
 #Create FASTA
 ###~~~
 FASTAGB <- paste(paste(">", as.vector(gene$GenBankID), "_", 
-                         as.vector(gene$Species), sep=""), 
-                   as.vector(gene$Sequence), sep='\n')
+                         as.vector(gene$Species), sep = ""), 
+                   as.vector(gene$Sequence), sep = '\n')
 
 ###~~~
 #Write FASTA & table with meta-data
@@ -867,14 +890,14 @@ FileIDFASTA <- paste(sp, DNA, gsub("-", "_", Sys.Date()), "GenBank.fasta", sep='
 #Write FASTA file in DNA_barcoding/04_Data_analyses/
 write.table(FASTAGB, 
             paste("04_Data_analyses/FASTA/", 
-                  FileIDFASTA, sep=''), row.names = F, col.names=F, quote = F)
+                  FileIDFASTA, sep = ''), row.names = F, col.names = F, quote = F)
 
 #File name CSV
 FileIDcsv <- paste(sp, DNA, gsub("-", "_", Sys.Date()), "GenBank.csv", sep='_')
 #Write CSV file
 write.table(gene, 
             paste("04_Data_analyses/CSV/", 
-                  FileIDcsv, sep=''), row.names = F, col.names=T, quote = T)
+                  FileIDcsv, sep=''), row.names = F, col.names = T, quote = T)
 ```
 
 Let's have a look at the tidy data:
@@ -889,7 +912,7 @@ RawGBDat2 <- read.csv("~/Documents/Classes/Class_Genomics&Bioinfo_Spring/DNA_bar
 print(paste0("After cleaning ", dim(RawGBDat2)[1], " DNA sequences remain."))
 
 #Snapshot of matrix
-head(RawGBDat2, n=1)
+head(RawGBDat2, n = 1)
 ```
 
 ### Format and merge individual `.seq` files from Part 1 into a `FASTA` file
@@ -911,7 +934,7 @@ Please notice that steps 2 to 5 will take place within a `for` loop.
 ###~~~
 
 #Please adapt path to your working directory/project
-Files <- list.files("03_Processed_ITS_data_FASTA/", pattern='.seq', full.names = T)
+Files <- list.files("03_Processed_ITS_data_FASTA/", pattern = '.seq', full.names = T)
 
 ###~~~
 #Format and merge all files into one file
@@ -944,7 +967,7 @@ FileIDfastaSeq <- paste(sp, DNA, gsub("-", "_", Sys.Date()), "msa_input.fasta", 
 #Write file (= input for msa analysis)
 write.table(seqOUT, file = 
               paste("04_Data_analyses/FASTA/", 
-                    FileIDfastaSeq, sep=''), col.names = F, row.names = F, quote = F)
+                    FileIDfastaSeq, sep = ''), col.names = F, row.names = F, quote = F)
 
 ```
 

@@ -11,7 +11,7 @@
 
 <meta name="author" content="Sven Buerki - Boise State University" />
 
-<meta name="date" content="2024-02-08" />
+<meta name="date" content="2024-02-13" />
 
 <title>BIOL 497/597 - Genomics &amp; Bioinformatics</title>
 
@@ -383,7 +383,7 @@ div.tocify {
 <h1 class="title toc-ignore">BIOL 497/597 - Genomics &amp; Bioinformatics</h1>
 <h3 class="subtitle">Mini-reports</h3>
 <h4 class="author">Sven Buerki - Boise State University</h4>
-<h4 class="date">2024-02-08</h4>
+<h4 class="date">2024-02-13</h4>
 
 </div>
 
@@ -1038,8 +1038,16 @@ Figure 4.14: Snapshot of the RStudio environment showing the four windows and th
 <h3><span class="header-section-number">4.12.5</span> Analytical workflow</h3>
 <p>To infer the ML phylogenetic analysis, the following workflow will be executed:</p>
 <ol style="list-style-type: decimal">
-<li>Expand sampling for phylogenetic analyses by downloading ITS DNA sequences of <em>Vanilla</em> species deposited on GenBank. This will be done by using the <em>rentrez</em> <code>R</code> package <span class="citation">(<a href="#ref-rentrez" role="doc-biblioref">Winter, 2017</a>)</span>. A table with species taxonomy associated to GenBank accessions will also be built. We will also clean the data and save outputs in <code>FASTA</code> and <code>csv</code> formats.</li>
-<li>Format and merge individual <code>.seq</code> files from Part 1 into a <code>FASTA</code> object/file. This will be done by creating a list of all <code>.seq</code> files, opening them individually and merging them into one object using a <code>for</code> loop.</li>
+<li>Expand sampling for phylogenetic analyses by downloading ITS DNA sequences of <em>Vanilla</em> species deposited on GenBank using the following approach:
+<ul>
+<li>Use functions from the <em>rentrez</em> <code>R</code> package <span class="citation">(<a href="#ref-rentrez" role="doc-biblioref">Winter, 2017</a>)</span> to download DNA sequences and metadata.</li>
+<li>Build a table with species taxonomy associated to GenBank accessions.</li>
+<li>Clean the data and save outputs in <code>FASTA</code> and <code>csv</code> formats.</li>
+</ul></li>
+<li>Format and merge individual <code>.seq</code> files from Part 1 into a <code>FASTA</code> object/file using the following approach:
+<ul>
+<li>Create a list of all <code>.seq</code> files, open them individually and merge them into one object (ultimately saved as a file) using a <code>for</code> loop.</li>
+</ul></li>
 <li>Merge <code>FASTA</code> objects/files from steps 1 and 2 to perform a multiple sequence alignment (msa).</li>
 </ol>
 <p>Protocols associated to each step within the workflow are detailed below.</p>
@@ -1057,11 +1065,39 @@ Figure 4.14: Snapshot of the RStudio environment showing the four windows and th
 </div>
 <div id="create-an-r-script" class="section level3" number="4.12.7">
 <h3><span class="header-section-number">4.12.7</span> Create an R script</h3>
-<p>Before delving into the code, start by creating an <code>.R</code> file in <code>RStudio</code> and save it at the root of your project (<code>DNA_barcoding/</code>) with the following name <code>01_PART2.R</code>.</p>
+<p>Before delving into the code, do the following:</p>
+<ol style="list-style-type: decimal">
+<li>Launch <code>RStudio</code>.</li>
+<li>Create a new <code>.R</code> script (<code>File &gt; R Script</code>).</li>
+<li>Save the <code>.R</code> script at the root of your project (<code>DNA_barcoding/</code>) with the following name <code>01_PART2.R</code>.</li>
+</ol>
 <p>All the R code provided below will be copied into your newly saved <code>R</code> script and executed in class together.</p>
 </div>
-<div id="query" class="section level3" number="4.12.8">
-<h3><span class="header-section-number">4.12.8</span> Build a GenBank query</h3>
+<div id="method-to-download-data-from-entrez" class="section level3" number="4.12.8">
+<h3><span class="header-section-number">4.12.8</span> Method to download data from Entrez</h3>
+<p>The following methodology is applied to download (here referred to as “fetch”) data from Entrez using <em>rentrez</em> <span class="citation">(<a href="#ref-rentrez" role="doc-biblioref">Winter, 2017</a>)</span>:</p>
+<ol style="list-style-type: decimal">
+<li>Build GenBank query</li>
+<li>Search GenBank using query to retrieve unique IDs associated to target DNA sequences
+<ul>
+<li><strong>Function:</strong> <em>rentrez::entrez_search()</em></li>
+</ul></li>
+<li>Fetch GenBank DNA sequences using unique IDs
+<ul>
+<li><strong>Function:</strong> <em>rentrez::entrez_fetch()</em></li>
+</ul></li>
+<li>Link GenBank database with other databases (e.g., Taxonomy) to retrieve unique IDs of additional data associated with DNA sequences
+<ul>
+<li><strong>Function:</strong> <em>rentrez::entrez_link()</em></li>
+</ul></li>
+<li>Fetch additional data
+<ul>
+<li><strong>Function:</strong> <em>rentrez::entrez_fetch()</em></li>
+</ul></li>
+</ol>
+</div>
+<div id="query" class="section level3" number="4.12.9">
+<h3><span class="header-section-number">4.12.9</span> Build a GenBank query</h3>
 <p>This R code uses <em>rentrez</em> functions to interact with <a href="https://www.ncbi.nlm.nih.gov/genbank/">GenBank</a> and the nucleotide database to remotely retrieve data based on your query.</p>
 <pre class="r"><code>###~~~
 #Check if package is installed if not then install it
@@ -1104,8 +1140,8 @@ org &lt;- &quot;Plants&quot;
 #Build query: sp AND DNA region
 query &lt;- paste0(sp,&quot; [All Fields] AND &quot;, DNA,&quot; [All Fields] &quot;, org, &quot; [filter]&quot;)</code></pre>
 </div>
-<div id="using-entrez-bollean-operators" class="section level3" number="4.12.9">
-<h3><span class="header-section-number">4.12.9</span> Using Entrez bollean operators</h3>
+<div id="using-entrez-bollean-operators" class="section level3" number="4.12.10">
+<h3><span class="header-section-number">4.12.10</span> Using Entrez bollean operators</h3>
 <p>Boolean operators provide a way of generating precise queries that produce well-defined sets of results. The Boolean operators used in <a href="https://www.ncbi.nlm.nih.gov/books/NBK3837/">Entrez</a> and how they work are as follows.</p>
 <ul>
 <li><strong>AND</strong>: Finds documents that contain terms on both sides of the operator terms, the intersection of both searches.</li>
@@ -1117,18 +1153,18 @@ query &lt;- paste0(sp,&quot; [All Fields] AND &quot;, DNA,&quot; [All Fields] &q
 <p>Entrez processes all Boolean operators in a left-to-right sequence. Enclosing individual concepts in parentheses changes this priority. The terms inside the parentheses are processed first as a unit and then incorporated into the overall strategy. For example, in the following search statement, the union of response element and promoter results is generated first and then is intersected with the result of the g1p3 search.</p>
 <p><code>g1p3 AND (response element OR promoter)</code></p>
 </div>
-<div id="retrieve-genbank-dna-sequences-matching-query" class="section level3" number="4.12.10">
-<h3><span class="header-section-number">4.12.10</span> Retrieve GenBank DNA sequences matching query</h3>
+<div id="retrieve-genbank-dna-sequences-matching-query" class="section level3" number="4.12.11">
+<h3><span class="header-section-number">4.12.11</span> Retrieve GenBank DNA sequences matching query</h3>
 <pre class="r"><code>###~~~
 #Retrieve DNA accessions in GenBank
 ###~~~
-GBresults &lt;- rentrez::entrez_search(db=&quot;nuccore&quot;,term = query, retmax=50000)
+GBresults &lt;- rentrez::entrez_search(db = &quot;nuccore&quot;, term = query, retmax = 50000)
 
 #How may hits did we get
 print(GBresults$count)</code></pre>
 </div>
-<div id="fetch-meta-data-associated-to-sequences" class="section level3" number="4.12.11">
-<h3><span class="header-section-number">4.12.11</span> Fetch meta-data associated to sequences</h3>
+<div id="fetch-meta-data-associated-to-sequences" class="section level3" number="4.12.12">
+<h3><span class="header-section-number">4.12.12</span> Fetch meta-data associated to sequences</h3>
 <p>Even when you execute a query directly on the GenBank portal, there will always be sequences that do neither match your target taxon (here <em>Vanilla</em>) nor your target DNA region. In this context, it is paramount to retrieve meta-data associated to the DNA accessions (stored in <code>GBresults</code>) in order to clean-up your dataset prior to analyses (see next step).</p>
 <p>For each DNA sequence the following meta-data are gathered using functions implemented in <em>rentrez</em>:</p>
 <ul>
@@ -1149,7 +1185,7 @@ print(GBresults$count)</code></pre>
 # to each DNA accession
 
 #Create empty matrix to be populated
-OUT &lt;- matrix(ncol=5, nrow=length(GBresults$ids))
+OUT &lt;- matrix(ncol = 5, nrow = length(GBresults$ids))
 colnames(OUT) &lt;- c(&quot;GenBankID&quot;, &quot;Species&quot;, &quot;Definition&quot;, &quot;Seq_length&quot;, &quot;Sequence&quot;)
 
 #Add GenBank ID
@@ -1167,25 +1203,25 @@ for(i in 1:length(GBresults$ids)){
   print(paste(&quot;Iteration&quot;, i, &quot;of&quot;, length(GBresults$ids), sep= &#39; &#39;))
   
   #Download sequence
-  seq &lt;- entrez_fetch(db=&#39;nuccore&#39;, id=GBresults$ids[i], rettype=&#39;fasta&#39;, retmode = &quot;text&quot;)
+  seq &lt;- entrez_fetch(db = &#39;nuccore&#39;, id = GBresults$ids[i], rettype = &#39;fasta&#39;, retmode = &quot;text&quot;)
   
   #Extract definition line
-  OUT[i,3] &lt;- strsplit(seq, split=&quot;\n&quot;)[[1]][1]
+  OUT[i,3] &lt;- strsplit(seq, split = &quot;\n&quot;)[[1]][1]
   
   #Infer seq length
-  nbp &lt;- strsplit(seq, split=&quot;\n&quot;)
+  nbp &lt;- strsplit(seq, split = &quot;\n&quot;)
   OUT[i,4] &lt;- as.numeric(length(strsplit(paste(nbp[[1]][2:length(nbp[[1]])], 
                                                collapse=&#39;&#39;),&quot;&quot;)[[1]]))
   
   #Extract sequence
-  OUT[i,5] &lt;- as.vector(paste(nbp[[1]][2:length(nbp[[1]])], collapse=&#39;&#39;)[1])
+  OUT[i,5] &lt;- as.vector(paste(nbp[[1]][2:length(nbp[[1]])], collapse = &#39;&#39;)[1])
   
   #Fetch taxon ID associated to GenBank accessions
-  taxID &lt;- entrez_link(dbfrom=&#39;nuccore&#39;, id=GBresults$ids[i], db=&#39;taxonomy&#39;)
+  taxID &lt;- entrez_link(dbfrom = &#39;nuccore&#39;, id = GBresults$ids[i], db = &#39;taxonomy&#39;)
 
   #Extract taxonomy: genus and species epithet
   tmp &lt;- strsplit(
-    strsplit(entrez_fetch(db=&#39;taxonomy&#39;, id=taxID$links, rettype = &quot;native&quot;), 
+    strsplit(entrez_fetch(db = &#39;taxonomy&#39;, id = taxID$links, rettype = &quot;native&quot;), 
              split = &#39;\n&#39;)[[1]][1]
     , split = &#39; &#39;)
   
@@ -1201,11 +1237,11 @@ SEQ &lt;- as.data.frame(OUT)
 ###~~~
 #Write raw data in 04_Data_analyses
 ###~~~
-FileIDRawcsv &lt;- paste(sp, DNA, gsub(&quot;-&quot;, &quot;_&quot;, Sys.Date()), &quot;Raw_GenBank.csv&quot;, sep=&#39;_&#39;)
+FileIDRawcsv &lt;- paste(sp, DNA, gsub(&quot;-&quot;, &quot;_&quot;, Sys.Date()), &quot;Raw_GenBank.csv&quot;, sep = &#39;_&#39;)
 #Write FASTA file
 write.table(SEQ, 
             paste(&quot;04_Data_analyses/CSV/&quot;, 
-                  FileIDRawcsv, sep=&#39;&#39;), row.names = F, col.names=T, quote = T)</code></pre>
+                  FileIDRawcsv, sep = &#39;&#39;), row.names = F, col.names = T, quote = T)</code></pre>
 <p>Let’s have a look at the data downloaded from GenBank:</p>
 <pre><code>## [1] &quot;GenBank query retrieved 185 DNA sequences.&quot;</code></pre>
 <pre><code>##    GenBankID            Species
@@ -1217,8 +1253,8 @@ write.table(SEQ,
 ##                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  Sequence
 ## 1 CGCGGCTGAGGGCAACGCCACGCCGCGCGGGGCGTGCGGTCGTGGCCAATGATTAGGCGCGCGCGGCGCGCCGTGCAGGGCACAACGTTGCAACCCCGGGCGCGCGGTCGGGGGCACCGCGCCCCTGCGCACCGCCGCGGGCACCGCGCACCTGCGTGCGGTCCTGTGCACCGCGCAGGTTGGTTATGTTGGCTGATGAGGGGACAAAAAAGTGCAACTTTTTTCGGGATTTTTAGCGCTGCGGGCTGCTTCTGCACGGATGCGGCGACAACCAATTGGTAGTCTTGCCTCGGCGCATGATGGCATCGTCGCAAAAAAAAAAATCCGAGTTGCGGGCGTGTGCATCGCGCGCCTGACCCGGGCGTGGGCACCGCGCTCCGGCGTGGGGGCATGTTCATCGAGCTCCTGCTTGCGTGCTTTCGAACCGCGCTCCTGTTGGCTTGGCTATCCGCGCGTTCTCGGCGACTAGGTGGGCCGGCATCGTTGCGCTGCAGAACAGAGCAACTTTCGTCGGCATCTTTAGCCCTGTGTTCTCGCGAGGGGACCCAAAAGTGTAACTTTTTTTGGGATTTTTAGCGCCGCGGGCTGCTTCTGCTTGGATATGGTGACAACCCATTGGTAGTCTGCCTCGTCCCAAGATGCGATTGTCGCAATACACGATCGGAAATGTGGKCATGTTCATAACGCACCTGCGGGCGGGCATGTGCACGGCGCGCCGGCSCGTGGGCATTGGCACCGCGCTCCCGCGGGCCGTGGAGTGCACCGCCCCCCGCGCGCGGCGCGCGTCCGTGGGCACGGCTCGGGTGCGTGCGGCGCGACGTGAATGGCACCGCACCGCCGCGCGGATCGTCGATGGCACCGCGCCGCCGCGAGGGTCGCGTGGTCGTGTGCACCTCGCAGGCGGGCGCGGCGCGCCGTGGATTGAACCGCACCGTCGCCCGGGTCGCGCGGCGGTGTGCACCTCGGAGGCTCGCGCCGCGCTTGGAGCGCGATCGAGGGCGCCGCGCCGCGGCGCGCGGTCGTGCGACCCGCGTAAGCGCGCGAGGCGCGTCGGCGCAGGCACCGCGCCCCTACGCGCCCGGCGCGGCCGCGGGCACCGCGCGTCTGGGTGCTGGCCTTTGCGCCTCGCTCCTGCGCACGGGCATGTGCACCGCGCCCCAGCGCGCGGGCATCTCCCCGCGCCCCAGTGCGTGTGCATGTGGACTGCTCTCCCGCGCGCGGCAGCGTGCAACGCGCTCCTGCTGTTTTTTTTGTGGAGTGCGATGTGGTGCACTGTCTGAACTGCTGCCCTCTTCCATCTGCTTTGGGCTTTGTTTCTTAGTGGTGGTTCGTTTTGTCAATTTGGTTGGAGAAATGTGCAAACTCTTTTCGATGTTATGTCATATCTCCGGAGGGCCAATGTAGGGATGAGGTGTTGCTCAAATCGTGTCGTTTAAGCGGTGCAATTTTTGCTTGGCTCTTTGTCGGTTGGGCGTGATTTTCGCTTTGCATGTGGTGCGAGGTATCGCTTGTCGTGCTATGCGGGTGTTAGCCAATGCCTTCATCCCTAATTAGACCCTTTGCGCTTCCTGTTTTAAACATCGTTGAGGCAATTTGGGCTAATGGAGTTGGATTGGGGAGATGCCGTTTTTGCACAAGAGATGTTTGTTGTGGCGCTACTCTGTATGGCTTGGTCACCTCGTGGTGTGGTCTGTCAATACATGAGTAGGGCTCTGTCACTTCGTTGAACCTTCATACGGAGGAAGTCCGCATGTTGTTTTGCCTTTCTATCGGATGGGTAGGTTCCGTTCTATTATTTTTTATGGCGCCGCACGACTACGGTGTTGGAATGGTGGCGTTACGCGATGCCGTCGAACGCATGATCGTACATGCTCCCCTGTTGGCAAGGGCTCGGAAATCACACGTTTCGGTCATATCGTTCTCCAACAAGGAGGGTTGTCCCTGAGGAATGTTATTTGTCGAGAGGCAATGTTTCGGAACTTGGGCGATGGTATCCCAACCTGGGAGCATGCGCTCTTTCCTTTGTGGAGTATCGCCAGACACGACGAACATGTCAAATTACGACATGGGGTTTTGCTTGGCGTTTCATCATTGTATTGCTACCTGGTTGATCCTGCCAGTAGTCATATGCTTGTCTCAAAGATTAAGCCATGCATGTGTAAGTATGAACAATTTCAGACTGTGAAACTGCGAATGGCTCATTAAATCAGTTATAGTTTGTTTGATGGTACTTGCTACTCGGATAACCGTAGTAATTCTAGAGCTAATACGTGCACCAAACCCCGACTTTTGGAAGGGATGCATTTATTAGGTAAAAGGTCGACGCGGGCTTTTGCCCGGCTCCTTGACGATTCATGATAACTTGTCGGATCGCACGGCCTTCGTGCCGGCGATGCATCATTCGAATTTCTGCCCTATCAACTTTCGATGGTAGGATAGGGGCCTACCATGGTGGTGACGGGTGACGGAGAATTAGGGTTCGATTCCGGAGAGGGAGCCTGAGAGACGGCTACCACATCCAAGGAAGGCAGCAGGCGCGCAAATTACCCAATCCTGACACGGGGAGGTAGTGACAATAAATAACAATACCGGGCTCCACGAGTCTGGTAATTGGAATGAGTACAATCTAAATCCCTTAACGAGGATCCATTGGAGGGCAAGTCTGGTGCCAGCAGCCGCGGTAATTCCAGCTCCAATAGCGTATATTTAAGTTGTTGCAGTTAAAAAGCTCGTAGTTGGACCTTGGTTTGGGTCGGTCGGTCCGCCTTTTGGTGTGCACCGCCCGCCCTGATCCTTTTGTCGACGATGCGGTCTGGCCTTAGCTGGCCGGGTCGTGCCCTCGGCGTTGTTACTTTGAAGAAATTAGAGTGCTCAAAGCAAGCCCACGCTCTGGATACATTAGCATGGGATAACATCACAGGATTTCGATCCTATTGTGTTGGCCTTCGGGATCGGAGTAATGATTAAGAGGGACAGTCGTGGGCATTCGTATTTCATAGTCAGAGGTGAAATTCTTGGATTTATGAAAGACGAACCACTGCGAAAGCATTTGCCAAGGATGTTTTCATTAATCAAGAACGAAAGTTGGGGGCTCGAAGACGATCAGATACCGTCCTAGTCTCAACCATAAACGATGCCGACCAGGGATTGGCGGATGTTGCTCTTTGGACTCCGTCAGCACCTTATGAGAAATCAAAGTCTTTGGGTTCCGGGGGGAGTATGGTCGCAAGGCTGAAACTTAAAGGAATTGACGGAAGGGCACCACCAGGAGTGGAGCCTGCGGCTTAATTTGACTCAACACGGGAAAGCTTACCAGGTCCAGACATAGCAAGGATTGACAGATTGAGAGCTCTTTCTTGATTCTATGGGTGGTGGTGCATGGCCGTTCTTAGTTGGTGGAGCGATTTGTCTGGTTAATTCCGTTAACGAACGAGACCTCAGCTTGCTAACTAGCTATGCGGGGTGCAAGCCCTGTGGCCAGCTTCTTAGAGGGACTATGGCCGCTTAGGCCATGGAAGTTTGAGGCAATAACAGGTCTGTGATGCCCTTAGATGTTCTGGGCCGCACGCGCGCTACACTGATGTATTCAACGAGTCCATTGCCTTGGTCGAAAGGCCTGGGTAATCTTATGAAAATTTCATCGTGATGGGGATAGATCATTGCAATTGTTGGTCTTCAACGAGGAATTCCTAGTAAGCGCGAGTCATCAGCTCGCGTTGACTACGTCCCTGCCCTTTGTACACACCGCCCGTCGCTCCTACCGATTGAATGGTCCGGTGAAGTGTTCGGATCGCTGCGATGCGGGCGGTTTGCCGCGTGCGACTCGGCGAGAAGTCCACTGAACCTTATCATTTAGAGGAAGGAGAAGTCGTAACAAGGTTTCCGTAGGTGAACCTGCGGAAGGATCATTGACGAGAGGTTCGAACGATGGAACGATCTGTCCAACGCGTGGGAGTGCGACGGTTGTTCGATGTCGCGTTCTTTCGTAGCGCGTGCTCTCGCGATCACGCGGAGCTCGACGTTATGGGGGATAAACAAAAGCTTATGGGCGTGGTCAGGCGCCAAGGGAGAGCAAATGTTAGGCTGGCAAACGAGTATGCCGTGCGTCGTCAGGTCCATTGAGTCCTGGCAATCGAACGACTCTCGACAACGGATATCTTGGCTCTCGCATCGATGAAGAACGCAGCGAAATGCGATACGTGTTGTGAATTGTAGAATCCCGTGAACCATCCATTTTTTGAACGCAAGTTGCGCCCGAGGATGCAAGCCGAGGGCACGCCTGCATGGGCGTAATGCGACCCGTCGCTCCCTGCGGAAGCCTGGAATCTTTCGGTTTGGTTCCTCGGCCCCGTCGCGGAGGCGATTGATGGCACCCCGTGCGATGGCACGGCGTGTTGAAGCTTGGGGCGACGGTCGACTTCGACACGATACGAGGTGGACGCCACTGGCTGTCGTGGTGTTGGCCAGCAAGAATCGATGTTGTTGTGCGACGAGCAGATGCCCCGCATAGATCCTGCTCCGTCCTCCACGGTGTGGAATCGTGACCCCATGTTAGGTGAGGCTACCCGCCGAGTTTAAGCATATAAATAAGCGGAGGAGAAGGAACTTACAAGGATTCCCTTAGTAACGGCGAGCGAAACGGGACCAGCCCAGTTTGGAAATCGGGCAGCCTGAAGCCTGAATTGTAGTCTGGAGAGGCGTCCTCAGCGACGGATCGGGATCAAGTCCCCTGGAAAGGGGCGCCGGGGAGGGTGAGAGCCCCGTTCGGCCCGTACCCTGCTGCTACACGAGGCGCCGTCAACGAGTCGGGTTGTTTGGGAATGCAGCCCAAATTGGGTGGTAAATTCCGTCCAAGGCTAAATAATTGCGAGAGACCGATAGCGAACAAGTACCGCGAGGGAAAGATGAAAAGGACTTTGAAAAGAGAGTCAAAGAGTGCTTGAAATTGTCGGGAGGGAAGCAGATGGGGGCCGGCGGTGCGCCTCGGCTGGATGCAGAACGTCGAATGACGGTTTGCTGCACGGCTCGAGGAGCGGACCGTCTCGGGCCATCGCGGCGACCGGAGCCCGGGCGCACGTCGCTCGTGGAGAAATCGTCGGCGTGGCCGATCGCAATGCCCGCGCCATCGAGGCGTGCCACGCGGCACCGCGTGCATTGGTGATGGCCAGTGGGCTCCCCATCTGACCCGTCTTGAAACACGGACCAAGGAGTCTGACATGCTTGCGAGTCGACGGGTGGGCAAGCCCGGAAGGCGCAAGGAAGCTGATTGGTGGGATCCCCGTTTGAGGGGTGAGTCATCGACCGACCCAGATCTTTTGTGAAGGGTTCGAGTGAGAGCATGCCTGTCGGGACCCGAAAGATGGTGAACTATGCCTGAGCGGGGCGAAGCCAGAGGAAACTCTGGTGGAGGCCCGCAGCGATACTGACGTGCAAATCGTTCGTCTGACTTGGGTATAGGGGCGAAAGACTAATCGAACCATCTAGTAGCTGGTTCCCTTCGAAGTTTCCCTCAGGATAGCTGGAGCCACAGTCGGAGTTCTATCGGGTAAAGCCAATGATTAGAGGCATCGGGGGCACAATGCCCTCGACCTATTCTCAAACTTTAAATAGGTAGGAGGGCTCGGCTGCTTTGATGAGTTGAGCCAAGGAATCCAGGCTCCAAGTGGGCCATTTTTGGTAAGCAGAACTGGCGATGCGGGATGAACCGAAAGCCGGGTTACGGTGTCCAACTGCGCGCTAACCTAGAGCCCACAAAGGGTGTTGGTCGATTAAGACAGCAGGACGGTGGTCATGGAAGTTGAAATCCGCTAAGGAGTGTGTAACAACTCACCTGCCGAATCAACTAGCCCCGAAAATGGATGGCGCTTAAGCGTGCGACCCACACCTGGCCGTCGGTGCAATGCAAGGCCCCGACGAGTAGGAGGGTGCAACGGTCGCTGCAAAACGTGGGGCGTGAGCCCGCGTGGAGCGTCTGTTGGTGCAGATCTTGGTGGTAGTAGCAAATATTCAAATGAGAACTTTGAAGGCCGAAGGGGGGAAAGGTTCCATGTGAACGGCACTTGCACATGGGTTAGCCGATCCTAAGAGACGGGGGAAACCCGTCGGATAGTGCCATTCGGCACGAGCTTCGAAAGGGAGTCGAGTTAAAATTCTCGAGCCGGGATGTGGCGGTCGATGGCAACGTCAAGTGGTCCGGAGACGTCGGTGGGGGCCTCGGGAAGAGTTATCTTTTCTGCTTAACAGCCCATCGGCCCTGGAAACGGCTCAGCCGGAGGTAGGGCCAAGCGGTTGGAAGAGCACCGCATGTTGAGCGGTGTCCGATGCGCCCCTGGCGACCCTTGAAAATCCGGATGGCCGAGTGCCTTCCACGCCCGGTCGTACTCATAACCGCATCAGGTCTCCAAGGTGAACAGCCTCTGGTCGATGGAGCAATGTAGGCAAGGGAAGTCGGCAAAATGGATCCGTAACTTCGGGAAAAGGATTGGCTCTGAGGGTTGGGCACGGGGGTCCCAATCCCGAACCCATCGGCTGTCGGCGGACTGCTCGAGCTGCTTGCGCGGCGAGAGCGGGTCGACGCGTGCCGGCTGGGGGACGAATTGGGAGCGGCCCCTTCGGGGGCCTTCCCCGGGCGTCGAACAATCGACTCAGAACTGGTACGGACATGGGGAATCCGACTGTTTAATTAAAACAAAGCATTGCGATGGTCCTCGAGGATGCTCACGCAATGTGATTTCTGCCCAGTGCTCTGAATGTCAAAGTGAAGAAATTCAACCAAGCGCGGGTAAACGGCGGGAGTAACTATGACTCTCTTAAGGTAGCCAAATGCCTCGTCATCTAATTAGTGACGCGCATGAATGGATTAACGAGATTCCCACTGTCCCTGTCTACTATCCAGCGAAACCACAGCCAAGGGAACGGGCTTGGCAGAATCAGCGGGGAAAGAAGACCCTGTTGAGCTTGACTCTAGTCCGACTTTGTGAAATGACTTGAGAGGTGTAGCATAAGTGGGAGTCGGCGTGCCGACGGAATTGAAATACCACTACTTTTAACGTTATTTTACTTATTCCGTGAGACGGAGGCGGGGCCCAGCCCCTCCTTTTGGCTCCAAGTCTCGCCTCGGCGAGTCGATCCGGGCGGAAGACATTGTCAGGTGGGGAGTTTGGCTGGGGCGGCACATCTGTTAAAAGATAACGCAGGTGTCCTAAGATGAGCTCAACGAGAACAGAAATCTCGTGTGGAACAAAAGGGTAAAAGCTCGTTTGATTCTGATTTCCAGTACGAATACGAACCGTGAAAGCGTGGCCTATCGATCCTTTAGGCTTTCAGAATTTGAAGCTAGAGGTGTCAGAAAAGTTACCACAGGGATAACTGGCTTGTGGCAGCCAAGCGTTCATAGCGACGTTGCTTTTTGATCCTTCGATGTCGGCTCTTCCTATCATTGTGAAGCAGAATTCACCAAGTGTTGGATTGTTCACCCACCAATAGGGAACGTGAGCTGGGTTTAGACCGTCGTGAGACAGGTTAGTTTTACCCTACTGATGAATGTGTCGTGATAGTAATTCAACCTAGTACGAGAGGAACCGTTGATTCACACAATTGGTCATCGCGCTTGGTTGAAAAGCCAGTGGCGCGAAGCTATCGTGTGTAGGATTATGACTGAACGCCTCTAAGTCAGAATCCACGCTAAGATGCGACGCTTAGGCCTATCGTTCGCCTGTTGGCCTAAAGTAGGGGCTTGGCCCCCAAGGGCACGCGACCACGGGCTAGTCTGGTGTCATAGAAGGTTGGATGGCATGGGCCCCGTAAGAAATGATAGTTAAGAACGAACGATGGGTAGAATCCTTTGCAGACGACTTAAATTTGCGACGGGGCATTGTAAGTGGCAGAGTGGCCTTGCTGCCACGATCCACTGAGATCCAACCCTATGTTGCAGTAGATTCGTCCCCTTCTGCCGCAGAACACGAAGAGCTTGGTTTTTGGTTTTCTAAAGGGGGACCAAGCTCGCTTGCTCTACAGCTCTACTTATTGCGGTACTTTGTGCGGGTCCTGTGCAACTGGCCTTGCGATGCGTCCCTCGGTGGCCCTACCAATGTGTAAGGCTTAAGCCTGACATTGCACGATTCAGTTATCACAAACGTGAAATAGCTATGAAATGCTGAAAAAGGGTTTGAAAAATATCTGCTGGCTCTGTCTACGTGCACATAGAGGCTTGTCTGCACGCACTTTGGGGCTTGTTTGCGTGCACAGCAGCAACCTACGCGCGCTCCATGTTGGCACCAGAAAAGTGTAACTTTTTTCGGGATTTTCAGCGCTGCGGGCTGCTTCTGCATGGATGCGGTGACAACCTATTGGTAGTCTTACCTTGTGCTGCGTGCTGTCTGTGCACCGGGCCTGTTTGCGTGCACGGCAGCAACCTACGCGCGCTCCGTGTTGGCACCAGAAAAGTGTAACTTTTTTCGGGATTTTTAGCGCTGCGGGCTGCTTCTGCATGGATGCGGTGACAACCTATCGGTAGTCTTGCCTCAGCCCAAGATGGCATTGTCGCAAAACACGATCCGGATGGCGTGCATGGGCATCACGCTCCTGCACGCGGGCATGCGCATCCCGCCCGCCTGCGCCGCGCTCCTGCGTGGGGGAAAGTGTGCTTCTCGCTCCTGCGTGTTGGCCTATCCCCGCTTCTTCGGTCGCAAGGTGCGTCCCCCGCATCATGGTCTTGGAGAATCCTGTAACTTTCACCGAGATCATTAGCTATGCGGTCTTCATGAGTGGACCAAAAAGTGTAACTTTTTTCGGGATTTTTAGCGCTGCGGGCTGCGTCTGCATGGATGCGGTGGCAACCTATTGGTAGTCTTGCCTCTTCCCGAGGTGCGACCATCGCAATACACGATCCGGATGGCGTGCATGTGCATCACGCTCCAGCGATTGGGCCGGTGCGGCGATCCGTCGCGGGCACCGTTCCCTTGCTCGGAACGCGCGGCCGTGGGCACCGCGCTCTCGCGCTCGGTCCTGTGCGCCGCGCAAGTTAGCTCTGCGGGCTCGTGAGGGGACCGAAATTTGTAACTTTTTTCCGGATTTTTAGGGCCGCGGGCTGCTTCAGCATGGTTACGGTGACAACCTATTGGTAGTATTTGCACGTCCCGAGATGCGATCGTCTCAAAACACGTTCCGGATGGCGGTCGTGGTCATCACGCTCCTGCGTGTGGGCAAGCGCGCCGCGCGGCCCCCCGACGCACGAGCGCGCGGCGCGATCATTGGCTCTCCGGTCTCCACGAGGGGACAAAAAAGTGCAACTTTTTTCGGGATTTTCAGCGCTGCGGGCTGCTTCTGCATGGATGCGGTGACAGCCTTTTGGTAGTCTTACCTTGTGCACCGGGCCTGTTTGCGTGCACCGCTGCAACCAACGCGCGCTCCATGTTGGCACCAGAAAAGTGTAACTTTTTTCGGGACCTTTCAGCGCGGCGGG</code></pre>
 </div>
-<div id="reload-raw-gb-query-in-csv" class="section level3" number="4.12.12">
-<h3><span class="header-section-number">4.12.12</span> Reload raw GB query in csv</h3>
+<div id="reload-raw-gb-query-in-csv" class="section level3" number="4.12.13">
+<h3><span class="header-section-number">4.12.13</span> Reload raw GB query in csv</h3>
 <p>If you need to restart coding from the previous point, please execute the code below, which will load the Raw GB data from the <code>CSV</code> file saved in <code>04_Data_analyses/CSV</code>.</p>
 <pre class="r"><code>###~~~
 #Load Raw GB query csv file
@@ -1230,13 +1266,13 @@ write.table(SEQ,
 SEQfileName &lt;- &quot;Vanilla_internal transcribed spacer_2023_02_14_Raw_GenBank.csv&quot;
 
 #Load the csv in the environment
-RawGBDat2 &lt;- read.csv(paste0(&quot;04_Data_analyses/CSV/&quot;, SEQfileName), quote = &quot;\&quot;&quot;, sep=&#39; &#39;)
+RawGBDat2 &lt;- read.csv(paste0(&quot;04_Data_analyses/CSV/&quot;, SEQfileName), quote = &quot;\&quot;&quot;, sep = &#39; &#39;)
 
 #Change name of object to make it compatible with code
 SEQ &lt;- RawGBDat2</code></pre>
 </div>
-<div id="tidy-dataset-based-on-meta-data" class="section level3" number="4.12.13">
-<h3><span class="header-section-number">4.12.13</span> Tidy dataset based on meta-data</h3>
+<div id="tidy-dataset-based-on-meta-data" class="section level3" number="4.12.14">
+<h3><span class="header-section-number">4.12.14</span> Tidy dataset based on meta-data</h3>
 <p>Here we apply filters to discard DNA sequences that are:</p>
 <ul>
 <li>Not belonging to the genus <em>Vanilla</em> OR to the target DNA barcode (here the ITS region).</li>
@@ -1291,8 +1327,8 @@ gene &lt;- gene[-which(as.numeric(as.vector(gene$Seq_length)) &lt; 500 | as.nume
 # and need to include those in species field
 gene$Species &lt;- gsub(&quot; &quot;, &quot;_&quot;, gene$Species)</code></pre>
 </div>
-<div id="write-results-of-query-in-a-fasta-and-csv-formats" class="section level3" number="4.12.14">
-<h3><span class="header-section-number">4.12.14</span> Write results of query in a <code>FASTA</code> and <code>csv</code> formats</h3>
+<div id="write-results-of-query-in-a-fasta-and-csv-formats" class="section level3" number="4.12.15">
+<h3><span class="header-section-number">4.12.15</span> Write results of query in a <code>FASTA</code> and <code>csv</code> formats</h3>
 <p>We are using <code>R</code> to generate a <code>FASTA</code> file with the DNA sequences from our GenBank query. To do that we are concatenating information from 3 columns in the <code>gene</code> object:
 - <code>gene$GenBankID</code>: Contains unique GenBank ID for DNA sequence.
 - <code>gene$Species</code>: Contains species taxonomy associated to sequence.
@@ -1301,8 +1337,8 @@ gene$Species &lt;- gsub(&quot; &quot;, &quot;_&quot;, gene$Species)</code></pre>
 #Create FASTA
 ###~~~
 FASTAGB &lt;- paste(paste(&quot;&gt;&quot;, as.vector(gene$GenBankID), &quot;_&quot;, 
-                         as.vector(gene$Species), sep=&quot;&quot;), 
-                   as.vector(gene$Sequence), sep=&#39;\n&#39;)
+                         as.vector(gene$Species), sep = &quot;&quot;), 
+                   as.vector(gene$Sequence), sep = &#39;\n&#39;)
 
 ###~~~
 #Write FASTA &amp; table with meta-data
@@ -1313,14 +1349,14 @@ FileIDFASTA &lt;- paste(sp, DNA, gsub(&quot;-&quot;, &quot;_&quot;, Sys.Date()),
 #Write FASTA file in DNA_barcoding/04_Data_analyses/
 write.table(FASTAGB, 
             paste(&quot;04_Data_analyses/FASTA/&quot;, 
-                  FileIDFASTA, sep=&#39;&#39;), row.names = F, col.names=F, quote = F)
+                  FileIDFASTA, sep = &#39;&#39;), row.names = F, col.names = F, quote = F)
 
 #File name CSV
 FileIDcsv &lt;- paste(sp, DNA, gsub(&quot;-&quot;, &quot;_&quot;, Sys.Date()), &quot;GenBank.csv&quot;, sep=&#39;_&#39;)
 #Write CSV file
 write.table(gene, 
             paste(&quot;04_Data_analyses/CSV/&quot;, 
-                  FileIDcsv, sep=&#39;&#39;), row.names = F, col.names=T, quote = T)</code></pre>
+                  FileIDcsv, sep=&#39;&#39;), row.names = F, col.names = T, quote = T)</code></pre>
 <p>Let’s have a look at the tidy data:</p>
 <pre><code>## [1] &quot;After cleaning 148 DNA sequences remain.&quot;</code></pre>
 <pre><code>##    GenBankID              Species
@@ -1332,8 +1368,8 @@ write.table(gene,
 ##                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    Sequence
 ## 1 AGAGGCGTGAATGATGGAACGATCTGTCCAACATGTGGGAGTGCGACAGTTCGATGTCGCCTTCTTCCGTAGCGCGTGCTCTTGCTTCGACGTGGAGCTCGACGCTACGGGGGATAAACAAAAGCTTATGGGCGTTGTCTGGCGCCAAGGGAGAGCAAATGTTCAAGCTGGCAAACGAGTGTGTTGTCGTCAGGTCCATTGAGTCCTGGCAATCGAACGACTCTCGACAACGGATATCTTGGCTCTCGCATCGATGAAGAACGCAGCTTGAAATGCGATACGTGTTGTGAATTGTAGAATCCCGTGAACCATCCATTTTTTGAACGCAAGTTGCGCCCGAGGATGCAAGCCGAGGGCACGCCTGCATGGGTGTAATGCGACCCGTCGCTCCTTGCGGAAGGCTGGAATCTTTGGTTTGGTTCCTCGTCCCCGTTGTGGAGGCGATTGATGGCACCCCGTGCAATAGCATGGCGTGTCGAAGTGTGGGGCGACGGTCGACTGTCGACATGATAAGAGGTGGGCAGCCACCGGCTGTTGTGGTGTTGGCCAGCAATAATCGATGTTGTCGTGCGACAAGCAGGTGCCCCGCATAGATCCAACTCCGTCCTCGATGGTGT</code></pre>
 </div>
-<div id="format-and-merge-individual-.seq-files-from-part-1-into-a-fasta-file" class="section level3" number="4.12.15">
-<h3><span class="header-section-number">4.12.15</span> Format and merge individual <code>.seq</code> files from Part 1 into a <code>FASTA</code> file</h3>
+<div id="format-and-merge-individual-.seq-files-from-part-1-into-a-fasta-file" class="section level3" number="4.12.16">
+<h3><span class="header-section-number">4.12.16</span> Format and merge individual <code>.seq</code> files from Part 1 into a <code>FASTA</code> file</h3>
 <p>In this section, we are focusing on developing an <code>R</code> code to format and merge our clean sequences from Part 1 by using the following approach:</p>
 <ol style="list-style-type: decimal">
 <li>Establish a list of all <code>.seq</code> files in folder <code>03_Processed_ITS_data_FASTA/</code> using <code>list.files()</code>.</li>
@@ -1349,7 +1385,7 @@ write.table(gene,
 ###~~~
 
 #Please adapt path to your working directory/project
-Files &lt;- list.files(&quot;03_Processed_ITS_data_FASTA/&quot;, pattern=&#39;.seq&#39;, full.names = T)
+Files &lt;- list.files(&quot;03_Processed_ITS_data_FASTA/&quot;, pattern = &#39;.seq&#39;, full.names = T)
 
 ###~~~
 #Format and merge all files into one file
@@ -1382,7 +1418,7 @@ FileIDfastaSeq &lt;- paste(sp, DNA, gsub(&quot;-&quot;, &quot;_&quot;, Sys.Date(
 #Write file (= input for msa analysis)
 write.table(seqOUT, file = 
               paste(&quot;04_Data_analyses/FASTA/&quot;, 
-                    FileIDfastaSeq, sep=&#39;&#39;), col.names = F, row.names = F, quote = F)</code></pre>
+                    FileIDfastaSeq, sep = &#39;&#39;), col.names = F, row.names = F, quote = F)</code></pre>
 <p>Please check that the format of your output file is as expected using a text editor (see Figure <a href="#fig:fastaall">4.15</a>).</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:fastaall"></span>
 <img src="Images/FASTA_single-gene.png" alt="Screenshot of merged FASTA file used as input for msa analysis." width="90%" />
@@ -1391,8 +1427,8 @@ Figure 4.15: Screenshot of merged FASTA file used as input for msa analysis.
 </p>
 </div>
 </div>
-<div id="merge-fasta-objectsfiles-to-perform-multiple-sequence-alignment" class="section level3" number="4.12.16">
-<h3><span class="header-section-number">4.12.16</span> Merge <code>FASTA</code> objects/files to perform multiple sequence alignment</h3>
+<div id="merge-fasta-objectsfiles-to-perform-multiple-sequence-alignment" class="section level3" number="4.12.17">
+<h3><span class="header-section-number">4.12.17</span> Merge <code>FASTA</code> objects/files to perform multiple sequence alignment</h3>
 <p>Here, we are aiming at merging <code>FASTA</code> outputs to produce the input of the multiple sequence alignment. This step is pretty straightforward and involves using the <em>c()</em> function and writing the output.</p>
 <p>The objects containg the GenBank DNA sequences and your DNA sequences are <code>FASTAGB</code> and <code>seqOUT</code>, respectively.</p>
 <pre class="r"><code>###~~~
