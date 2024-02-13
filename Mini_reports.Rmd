@@ -785,6 +785,7 @@ print(paste0("GenBank query retrieved ", dim(RawGBDat)[1], " DNA sequences."))
 #Snapshot of matrix
 head(RawGBDat, n = 1)
 ```
+**HELP:** If you have not been able to download the data, please download the `csv` file on Google Drive at this path: `DNA_barcoding/04_Data_analyses/CSV/Instructor_files/Vanilla_internal transcribed spacer_2024_02_08_Raw_GenBank.csv`
 
 ### Reload raw GB query in csv
 
