@@ -562,6 +562,48 @@ Please consult this [RStudio article](https://support.rstudio.com/hc/en-us/artic
 
 **Tip**: To execute a line of code and send it to the Console you can press `Ctrl+Enter` on Windows or `Command+Enter` on Mac or use the Run toolbar button (see Figure \@ref(fig:IDE)).
 
+### Short tutorial on R built-in functions
+
+In this course, we will be using built-in R functions that are implemented in packages.
+
+Functions are useful when you want to perform a certain task multiple times. A function accepts input **arguments** and produces the output by executing valid R commands that are inside the function.
+
+Arguments have associated **data types** that need to be entered by the user to execute the function and retrieve its output(s).
+
+The basic R data types are as follows:
+    
+  - `numeric`: Numbers, written as either integers or decimals.
+  - `integer`: Whole numbers without any decimal point.
+  - `character` (a.k.a string): A sequence of characters (declared between "" or '')
+  - `logical` (a.k.a. boolean): Binary values, TRUE or FALSE.
+  - `vector`: Elements of a vector using subscripts (using this syntax `c(1,2,3)`).
+  - `matrix`: A matrix from the given set of values (using this function `matrix(ncol = 2, nrow = 3)`).
+  - `data.frame`: Data Frames are data displayed in a format as a table. Data Frames can have different types of data inside it. While the first column can be `character`, the second and third can be `numeric` or `logical`. However, each column should have the same type of data.
+
+We store/save outputs of built-in functions in **variables**. `R` does not have a command for declaring a variable. A variable is created the moment you first assign a value to it. To assign a value to a variable, use the `<-` sign. For instance:
+
+```{r echo = T, eval = T}
+# Assign output of simple math to variable
+x <- 2+2
+
+# You can call variable as follow
+x
+```
+
+To know the **class** of data stored in a variable, you can use the *class()* function as follows:
+
+```{r echo = T, eval = T}
+# What is the class of x
+class(x)
+```
+
+Finally, you can retrieve the **documentation** associated with a built-in function by using the following syntax:
+
+```{r echo = T, eval = T}
+# Pull up documentation for class function
+?class()
+```
+
 ### Analytical workflow 
 
 To infer the ML phylogenetic analysis, the following workflow will be executed:
