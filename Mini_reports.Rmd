@@ -550,7 +550,7 @@ An introduction to R: https://cran.r-project.org/doc/manuals/r-release/R-intro.p
 
 ### RStudio
 
-RStudio is an integrated development environment (IDE) that allows you to interact with R more readily. RStudio is similar to the standard RGUI, but it is considerably more user friendly. It has more drop-down menus, windows with multiple tabs, and many customization options (see Figure \@ref(fig:IDE)). Detailed information on using RStudio can be found at at [RStudio’s website](https://support.rstudio.com/hc/en-us/sections/200107586-Using-RStudio).
+RStudio is an **integrated development environment** (IDE) that allows you to interact with R more readily. RStudio is similar to the standard RGUI, but it is considerably more user friendly. It has more drop-down menus, windows with multiple tabs, and many customization options (see Figure \@ref(fig:IDE)). Detailed information on using RStudio can be found at at [RStudio’s website](https://support.rstudio.com/hc/en-us/sections/200107586-Using-RStudio).
 
 ```{r IDE, echo=FALSE, fig.cap="Snapshot of the RStudio environment showing the four windows and their content.", fig.show="asis", out.width = '100%'}
 knitr::include_graphics("Images/IDE.png")
@@ -562,7 +562,7 @@ Please consult this [RStudio article](https://support.rstudio.com/hc/en-us/artic
 
 **Tip**: To execute a line of code and send it to the Console you can press `Ctrl+Enter` on Windows or `Command+Enter` on Mac or use the Run toolbar button (see Figure \@ref(fig:IDE)).
 
-### Short tutorial on R built-in functions
+### Introduction to R built-in functions
 
 In this course, we will be using built-in R functions that are implemented in packages.
 
@@ -578,7 +578,7 @@ The basic R data types are as follows:
   - `logical` (a.k.a. boolean): Binary values, TRUE or FALSE.
   - `vector`: Elements of a vector using subscripts (using this syntax `c(1,2,3)`).
   - `matrix`: A matrix from the given set of values (using this function `matrix(ncol = 2, nrow = 3)`).
-  - `data.frame`: Data Frames are data displayed in a format as a table. Data Frames can have different types of data inside it. While the first column can be `character`, the second and third can be `numeric` or `logical`. However, each column should have the same type of data.
+  - `data.frame`: Data frames are data displayed in a format as a table. Data frames can have different types of data inside it. While the first column can be `character`, the second and third can be `numeric` or `logical`. However, each column should have the same type of data.
 
 We store/save outputs of built-in functions in **variables**. `R` does not have a command for declaring a variable. A variable is created the moment you first assign a value to it. To assign a value to a variable, use the `<-` sign. For instance:
 

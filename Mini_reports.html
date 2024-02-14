@@ -11,7 +11,7 @@
 
 <meta name="author" content="Sven Buerki - Boise State University" />
 
-<meta name="date" content="2024-02-13" />
+<meta name="date" content="2024-02-14" />
 
 <title>BIOL 497/597 - Genomics &amp; Bioinformatics</title>
 
@@ -383,7 +383,7 @@ div.tocify {
 <h1 class="title toc-ignore">BIOL 497/597 - Genomics &amp; Bioinformatics</h1>
 <h3 class="subtitle">Mini-reports</h3>
 <h4 class="author">Sven Buerki - Boise State University</h4>
-<h4 class="date">2024-02-13</h4>
+<h4 class="date">2024-02-14</h4>
 
 </div>
 
@@ -1021,7 +1021,7 @@ An introduction to R: <a href="https://cran.r-project.org/doc/manuals/r-release/
 </div>
 <div id="rstudio" class="section level3" number="4.12.4">
 <h3><span class="header-section-number">4.12.4</span> RStudio</h3>
-<p>RStudio is an integrated development environment (IDE) that allows you to interact with R more readily. RStudio is similar to the standard RGUI, but it is considerably more user friendly. It has more drop-down menus, windows with multiple tabs, and many customization options (see Figure <a href="#fig:IDE">4.14</a>). Detailed information on using RStudio can be found at at <a href="https://support.rstudio.com/hc/en-us/sections/200107586-Using-RStudio">RStudio’s website</a>.</p>
+<p>RStudio is an <strong>integrated development environment</strong> (IDE) that allows you to interact with R more readily. RStudio is similar to the standard RGUI, but it is considerably more user friendly. It has more drop-down menus, windows with multiple tabs, and many customization options (see Figure <a href="#fig:IDE">4.14</a>). Detailed information on using RStudio can be found at at <a href="https://support.rstudio.com/hc/en-us/sections/200107586-Using-RStudio">RStudio’s website</a>.</p>
 <div class="figure"><span style="display:block;" id="fig:IDE"></span>
 <img src="Images/IDE.png" alt="Snapshot of the RStudio environment showing the four windows and their content." width="100%" />
 <p class="caption">
@@ -1034,8 +1034,8 @@ Figure 4.14: Snapshot of the RStudio environment showing the four windows and th
 <p><strong>Tip</strong>: To execute a line of code and send it to the Console you can press <code>Ctrl+Enter</code> on Windows or <code>Command+Enter</code> on Mac or use the Run toolbar button (see Figure <a href="#fig:IDE">4.14</a>).</p>
 </div>
 </div>
-<div id="short-tutorial-on-r-built-in-functions" class="section level3" number="4.12.5">
-<h3><span class="header-section-number">4.12.5</span> Short tutorial on R built-in functions</h3>
+<div id="introduction-to-r-built-in-functions" class="section level3" number="4.12.5">
+<h3><span class="header-section-number">4.12.5</span> Introduction to R built-in functions</h3>
 <p>In this course, we will be using built-in R functions that are implemented in packages.</p>
 <p>Functions are useful when you want to perform a certain task multiple times. A function accepts input <strong>arguments</strong> and produces the output by executing valid R commands that are inside the function.</p>
 <p>Arguments have associated <strong>data types</strong> that need to be entered by the user to execute the function and retrieve its output(s).</p>
@@ -1047,7 +1047,7 @@ Figure 4.14: Snapshot of the RStudio environment showing the four windows and th
 <li><code>logical</code> (a.k.a. boolean): Binary values, TRUE or FALSE.</li>
 <li><code>vector</code>: Elements of a vector using subscripts (using this syntax <code>c(1,2,3)</code>).</li>
 <li><code>matrix</code>: A matrix from the given set of values (using this function <code>matrix(ncol = 2, nrow = 3)</code>).</li>
-<li><code>data.frame</code>: Data Frames are data displayed in a format as a table. Data Frames can have different types of data inside it. While the first column can be <code>character</code>, the second and third can be <code>numeric</code> or <code>logical</code>. However, each column should have the same type of data.</li>
+<li><code>data.frame</code>: Data frames are data displayed in a format as a table. Data frames can have different types of data inside it. While the first column can be <code>character</code>, the second and third can be <code>numeric</code> or <code>logical</code>. However, each column should have the same type of data.</li>
 </ul>
 <p>We store/save outputs of built-in functions in <strong>variables</strong>. <code>R</code> does not have a command for declaring a variable. A variable is created the moment you first assign a value to it. To assign a value to a variable, use the <code>&lt;-</code> sign. For instance:</p>
 <pre class="r"><code># Assign output of simple math to variable
