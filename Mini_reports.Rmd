@@ -827,11 +827,14 @@ print(paste0("GenBank query retrieved ", dim(RawGBDat)[1], " DNA sequences."))
 #Snapshot of matrix
 head(RawGBDat, n = 1)
 ```
-**HELP:** If you have not been able to download the data, please download the `csv` file on Google Drive at this path: `DNA_barcoding/04_Data_analyses/CSV/Instructor_files/Vanilla_internal transcribed spacer_2024_02_08_Raw_GenBank.csv`
-
 ### Reload raw GB query in csv
 
 If you need to restart coding from the previous point, please execute the code below, which will load the Raw GB data from the `CSV` file saved in `04_Data_analyses/CSV`.
+
+To do so, do the following:
+
+- Download the `csv` file produced by the instructor on Google Drive at this path: `DNA_barcoding/04_Data_analyses/CSV/Instructor_files/Vanilla_internal transcribed spacer_2024_02_08_Raw_GenBank.csv`
+- Save the file under the right path in `DNA_barcoding`.
 
 ```{r reload, eval=F}
 ###~~~
@@ -849,6 +852,12 @@ RawGBDat2 <- read.csv(paste0("04_Data_analyses/CSV/", SEQfileName), quote = "\""
 #Change name of object to make it compatible with code
 SEQ <- RawGBDat2
 ```
+
+#### Question
+
+> Write code to determine how many DNA sequences where downloaded from GenBank?
+
+To answer this question, use `SEQ` as input.
 
 ### Tidy dataset based on meta-data
 
