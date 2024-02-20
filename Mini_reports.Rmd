@@ -1153,6 +1153,8 @@ knitr::include_graphics("Images/MUSCLEMega_filename.png")
 The `RAxML` algorithm will be used to conduct the ML phylogenetic analysis and infer node statistical supports using the bootstrap procedure [@RaxML]. This algorithm has been implemented on a web service platform accessible at this URL:
     - https://raxml-ng.vital-it.ch/#/
 
+**WARNING:** If the RAxML web service platform is down, the instructor will run the analysis locally (on a Linux computer). Please click [here](#RAxMLLoc) for more details on the procedure.
+
 To perform the ML phylogenetic analysis:
 
 1. Go on the [RAxML portal](https://raxml-ng.vital-it.ch/#/).
@@ -1179,6 +1181,46 @@ knitr::include_graphics("Images/RAxML_results.png")
     - `result.raxml.support`: Best ML tree (same tree than in `result.raxml.bestTree`) with node supports (inferred from data in `result.raxml.bootstraps`) in newick format.
     - `sequenceAlignment.fasta`: Your input aligned FASTA file. 
 7. You can open `result.raxml.support` in `FigTree` to visualize it and locate the four samples of vanilla from Mexico. We will learn how to process phylogenetic trees in R in the next section.
+
+### Run RAxML locally {#RAxMLLoc}
+
+Connect to Linux computer:
+
+```{bash, eval = F}
+ssh svenbuerki@10.24.180.203
+```
+
+Navigate to the right folder:
+
+```{bash, eval = F}
+cd /media/SeaGate/Mini_Report_3/RAxML_analysis/
+```
+
+Run the RAxML analysis locally:
+
+This analysis is done on the output of the MUSCLE analysis
+`Vanilla_internal\ transcribed\ spacer_2024_02_20_GenBank_seq_msa_output.fas`
+
+```{bash, eval = F}
+raxmlHPC-PTHREADS -T 20 -f a -m GTRGAMMA -p 12345 -o 1789804116_Vanilla_inodora -x 12345 -# 100 -s Vanilla_internal\ transcribed\ spacer_2024_02_20_GenBank_seq_msa_output.fas -n Vanilla_ML.tre
+```
+
+**Arguments** - Short definitions
+
+  - `-T` : number of threads
+  - `-m` : molecular model to build the phylogenetic tree
+  - `-o` : outgroup taxon to root analysis
+  - `-p` and `-x` : seed numbers for analysis
+  - `-#` : number of bootstrap analyses 
+  - `-s` : input file in FASTA format
+  - `-n` : output file
+
+**Output files**
+
+  - All 1000 bootstrapped trees : `RAxML_bootstrap.Vanilla_ML.tre`
+  - Best-scoring ML tree : `RAxML_bestTree.Vanilla_ML.tre`
+  - Best-scoring ML tree with support values : `RAxML_bipartitions.Vanilla_ML.tre` (FILE FOR NEXT ANALYSES)
+  - Best-scoring ML tree with support values as branch labels : `RAxML_bipartitionsBranchLabels.Vanilla_ML.tre`
 
 ### Visualize phylogenetic tree and interpret results
 

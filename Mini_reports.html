@@ -1618,6 +1618,7 @@ Figure 4.21: Screenshot showing how to save file in MEGA.
 <h3><span class="header-section-number">4.13.5</span> Infer ML phylogenetic tree based on msa file</h3>
 <p>The <code>RAxML</code> algorithm will be used to conduct the ML phylogenetic analysis and infer node statistical supports using the bootstrap procedure <span class="citation">(<a href="#ref-RaxML" role="doc-biblioref">Kozlov et al., 2019</a>)</span>. This algorithm has been implemented on a web service platform accessible at this URL:
 - <a href="https://raxml-ng.vital-it.ch/#/" class="uri">https://raxml-ng.vital-it.ch/#/</a></p>
+<p><strong>WARNING:</strong> If the RAxML web service platform is down, the instructor will run the analysis locally (on a Linux computer). Please click <a href="#RAxMLLoc">here</a> for more details on the procedure.</p>
 <p>To perform the ML phylogenetic analysis:</p>
 <ol style="list-style-type: decimal">
 <li>Go on the <a href="https://raxml-ng.vital-it.ch/#/">RAxML portal</a>.</li>
@@ -1653,10 +1654,38 @@ Figure 4.23: Screenshot of RAxML portal showing results of your analysis. The be
 <li>You can open <code>result.raxml.support</code> in <code>FigTree</code> to visualize it and locate the four samples of vanilla from Mexico. We will learn how to process phylogenetic trees in R in the next section.</li>
 </ol>
 </div>
-<div id="visualize-phylogenetic-tree-and-interpret-results" class="section level3" number="4.13.6">
-<h3><span class="header-section-number">4.13.6</span> Visualize phylogenetic tree and interpret results</h3>
-<div id="introduction-to-newick-tree-format" class="section level4" number="4.13.6.1">
-<h4><span class="header-section-number">4.13.6.1</span> Introduction to Newick tree format</h4>
+<div id="RAxMLLoc" class="section level3" number="4.13.6">
+<h3><span class="header-section-number">4.13.6</span> Run RAxML locally</h3>
+<p>Connect to Linux computer:</p>
+<pre class="bash"><code>ssh svenbuerki@10.24.180.203</code></pre>
+<p>Navigate to the right folder:</p>
+<pre class="bash"><code>cd /media/SeaGate/Mini_Report_3/RAxML_analysis/</code></pre>
+<p>Run the RAxML analysis locally:</p>
+<p>This analysis is done on the output of the MUSCLE analysis
+<code>Vanilla_internal\ transcribed\ spacer_2024_02_20_GenBank_seq_msa_output.fas</code></p>
+<pre class="bash"><code>raxmlHPC-PTHREADS -T 20 -f a -m GTRGAMMA -p 12345 -o 1789804116_Vanilla_inodora -x 12345 -# 100 -s Vanilla_internal\ transcribed\ spacer_2024_02_20_GenBank_seq_msa_output.fas -n Vanilla_ML.tre</code></pre>
+<p><strong>Arguments</strong> - Short definitions</p>
+<ul>
+<li><code>-T</code> : number of threads</li>
+<li><code>-m</code> : molecular model to build the phylogenetic tree</li>
+<li><code>-o</code> : outgroup taxon to root analysis</li>
+<li><code>-p</code> and <code>-x</code> : seed numbers for analysis</li>
+<li><code>-#</code> : number of bootstrap analyses</li>
+<li><code>-s</code> : input file in FASTA format</li>
+<li><code>-n</code> : output file</li>
+</ul>
+<p><strong>Output files</strong></p>
+<ul>
+<li>All 1000 bootstrapped trees : <code>RAxML_bootstrap.Vanilla_ML.tre</code></li>
+<li>Best-scoring ML tree : <code>RAxML_bestTree.Vanilla_ML.tre</code></li>
+<li>Best-scoring ML tree with support values : <code>RAxML_bipartitions.Vanilla_ML.tre</code> (FILE FOR NEXT ANALYSES)</li>
+<li>Best-scoring ML tree with support values as branch labels : <code>RAxML_bipartitionsBranchLabels.Vanilla_ML.tre</code></li>
+</ul>
+</div>
+<div id="visualize-phylogenetic-tree-and-interpret-results" class="section level3" number="4.13.7">
+<h3><span class="header-section-number">4.13.7</span> Visualize phylogenetic tree and interpret results</h3>
+<div id="introduction-to-newick-tree-format" class="section level4" number="4.13.7.1">
+<h4><span class="header-section-number">4.13.7.1</span> Introduction to Newick tree format</h4>
 <p>The Newick Standard for representing trees in computer-readable form makes use of the <strong>correspondence between trees and nested parentheses</strong>. We owe this format to the British mathematician <a href="https://mathshistory.st-andrews.ac.uk/Biographies/Cayley/">Arthur Cayley</a>. Here we will be providing an overview of the Newick format using the R package <em>ape</em> <span class="citation">(<a href="#ref-ape" role="doc-biblioref">Paradis et al., 2004</a>)</span>.</p>
 <p>To produce the “dummy” phylogenetic tree displayed in Figure <a href="#fig:intronewick">4.24</a>, the following syntax should be applied:</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:intronewick"></span>
@@ -1744,8 +1773,8 @@ Figure 4.26: Rooted tree showing relationsip between 4 species with branch lengt
 </p>
 </div>
 </div>
-<div id="phylo-class-and-phylogenetic-tree-in-r" class="section level4" number="4.13.6.2">
-<h4><span class="header-section-number">4.13.6.2</span> <code>phylo</code> class and phylogenetic tree in R</h4>
+<div id="phylo-class-and-phylogenetic-tree-in-r" class="section level4" number="4.13.7.2">
+<h4><span class="header-section-number">4.13.7.2</span> <code>phylo</code> class and phylogenetic tree in R</h4>
 <p>Here, we will be introducing the <code>phylo</code> class implemented in R packages dealing with phylogenetic analyses. To study this topic, we will be using the phylogenetic tree with branch lengths and node supports (see Figure <a href="#fig:newickbrlensnode">4.26</a>).</p>
 <pre class="r"><code>###~~~
 #Tree in Newick format with branch lengths and node supports
@@ -1794,8 +1823,8 @@ tr$node.label</code></pre>
 tr$edge.length</code></pre>
 <pre><code>## [1] 2.0 4.0 4.2 1.0 2.0 3.0</code></pre>
 </div>
-<div id="vanilla-phylogenetic-tree" class="section level4" number="4.13.6.3">
-<h4><span class="header-section-number">4.13.6.3</span> Vanilla phylogenetic tree</h4>
+<div id="vanilla-phylogenetic-tree" class="section level4" number="4.13.7.3">
+<h4><span class="header-section-number">4.13.7.3</span> Vanilla phylogenetic tree</h4>
 <p>In this section, we will be analyzing the output of the RAxML analysis focusing on <code>result.raxml.support</code>, which contains the phylogenetic tree with node supports (here obtained through the bootstrap method). The file is stored in <code>04_Data_analyses/Phylogenetic_analysis/result_raxml_45818</code>.</p>
 <p>Our analyses are divided into seven steps:</p>
 <ol style="list-style-type: decimal">
