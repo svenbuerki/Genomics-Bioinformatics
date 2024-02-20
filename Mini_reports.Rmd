@@ -1067,6 +1067,10 @@ write.table(FASTAall, file =
                     FileIDfastaALL, sep=''), col.names = F, row.names = F, quote = F)
 ```
 
+#### Question
+
+> Why would you need to use readLines() instead of read.csv() to open a FASTA file?  
+
 ## Part 3 {#part3}
 
 ### Aim
