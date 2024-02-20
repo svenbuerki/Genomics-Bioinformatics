@@ -1222,6 +1222,14 @@ raxmlHPC-PTHREADS -T 20 -f a -m GTRGAMMA -p 12345 -o 1789804116_Vanilla_inodora 
   - Best-scoring ML tree with support values : `RAxML_bipartitions.Vanilla_ML.tre` (FILE FOR NEXT ANALYSES)
   - Best-scoring ML tree with support values as branch labels : `RAxML_bipartitionsBranchLabels.Vanilla_ML.tre`
 
+**Files on Google Drive**
+
+The output files are available on Google Drive at this path:
+
+`DNA_barcoding > 04_Data_analyses > Phylogenetic_analyses > RAxML_analysis`
+
+Download the folder on your computer and save it under the same path.
+
 ### Visualize phylogenetic tree and interpret results
 
 #### Introduction to Newick tree format
