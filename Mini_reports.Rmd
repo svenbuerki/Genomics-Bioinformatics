@@ -926,7 +926,7 @@ gene$Species <- gsub(" ", "_", gene$Species)
 
 > Q3: Write code to determine if your samping skewed towards specific taxa? If yes, which ones? 
 
-### Write results of query in a `FASTA` and `csv` formats 
+### Write results of query in `FASTA` and `csv` formats 
 
 We are using `R` to generate a `FASTA` file with the DNA sequences from our GenBank query. To do that we are concatenating information from 3 columns in the `gene` object:
 - `gene$GenBankID`: Contains unique GenBank ID for DNA sequence.
@@ -942,7 +942,7 @@ FASTAGB <- paste(paste(">", as.vector(gene$GenBankID), "_",
                    as.vector(gene$Sequence), sep = '\n')
 
 ###~~~
-#Write FASTA & table with meta-data
+#Write FASTA & CSV (incl. meta-data) files
 ###~~~
 
 ##File name FASTA
