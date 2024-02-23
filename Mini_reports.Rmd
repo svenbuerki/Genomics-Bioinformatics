@@ -1187,7 +1187,7 @@ knitr::include_graphics("Images/RAxML_results.png")
 Connect to Linux computer:
 
 ```{bash, eval = F}
-ssh svenbuerki@10.24.180.203
+ssh svenbuerki@XX.XX.XXX.XXX
 ```
 
 Navigate to the right folder:
