@@ -924,7 +924,7 @@ gene$Species <- gsub(" ", "_", gene$Species)
 
 > Q2: Write code to determine how many taxa of Vanilla are in your sampling?
 
-> Q3: Write code to determine if your samping skewed towards specific taxa? If yes, which ones? 
+> Q3: Write code to determine if your sampling is skewed towards specific taxa? If yes, which ones? 
 
 ### Write results of query in `FASTA` and `csv` formats 
 
