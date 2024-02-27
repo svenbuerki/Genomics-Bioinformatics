@@ -1373,6 +1373,14 @@ tr$node.label
 tr$edge.length
 ```
 
+#### Challenge
+
+> Using this knowledge, draw and code a phylogenetic tree with 8 samples (tips) containing branch lengths and node supports
+
+This challenge is done in small groups and each group will take turn to (*i*) draw their phylogenetic tree on the white board, and (*ii*) code it using the newick syntax.
+
+**Tip:** To make sure that your phylogenetic tree is correct, code it and execute it in `R` using the *ape* functions shown above.  
+
 #### Vanilla phylogenetic tree 
 
 In this section, we will be analyzing the output of the RAxML analysis focusing on `result.raxml.support`, which contains the phylogenetic tree with node supports (here obtained through the bootstrap method). The file is stored in `04_Data_analyses/Phylogenetic_analysis/RAxML_analysis`.   
