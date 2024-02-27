@@ -1375,7 +1375,7 @@ tr$edge.length
 
 #### Vanilla phylogenetic tree 
 
-In this section, we will be analyzing the output of the RAxML analysis focusing on `result.raxml.support`, which contains the phylogenetic tree with node supports (here obtained through the bootstrap method). The file is stored in `04_Data_analyses/Phylogenetic_analysis/result_raxml_45818`.   
+In this section, we will be analyzing the output of the RAxML analysis focusing on `result.raxml.support`, which contains the phylogenetic tree with node supports (here obtained through the bootstrap method). The file is stored in `04_Data_analyses/Phylogenetic_analysis/RAxML_analysis`.   
 
 Our analyses are divided into seven steps:
 
@@ -1392,7 +1392,7 @@ Our analyses are divided into seven steps:
 #1. Load Vanilla RAxML ITS tree
 ###~~~
 #Please adjust path based on your computer (= delete "Data/")
-ITS <- ape::read.tree(file="Data/04_Data_analyses/Phylogenetic_analyses/result_raxml_45818/result.raxml.support")
+ITS <- ape::read.tree(file="Data/04_Data_analyses/Phylogenetic_analyses/RAxML_analysis/RAxML_bipartitions.Vanilla_ML.tre")
 
 ###~~~
 #2. Discard bootstrap values < 50%
@@ -1465,7 +1465,7 @@ ape::tiplabels(tip = grep("^PE", VanITS$tip.label), pch = 16, col = "red", offse
 ###~~~
 #Use the pdf function to create pdf
 # Adjust path for your computer (= delete "Data/")
-pdf("Data/04_Data_analyses/Phylogenetic_analyses/result_raxml_45818/VanSubTree.pdf")
+pdf("Data/04_Data_analyses/Phylogenetic_analyses/RAxML_analysis/VanSubTree.pdf")
 #Plot tree in radial mode
 ape::plot.phylo(VanITS, cex = .4, use.edge.length = F, tip.color = tipcolVan, type = "radial", label.offset = 0.04, no.margin = TRUE)
 #Add bootstrap supports
@@ -1483,8 +1483,8 @@ Click on the button below to inspect the *Vanilla* subtree in `pdf` format. Ask 
 
 <button class="btn btn-primary" data-toggle="collapse" data-target="#VanSub">Vanilla subtree</button>
 <div id="VanSub" class="collapse">    
-<object data="Data/04_Data_analyses/Phylogenetic_analyses/result_raxml_45818/VanSubTree.pdf" width="750px" height="750px">
-    <embed src="Data/04_Data_analyses/Phylogenetic_analyses/result_raxml_45818/VanSubTree.pdf">
+<object data="Data/04_Data_analyses/Phylogenetic_analyses/RAxML_analysis/VanSubTree.pdf" width="750px" height="750px">
+    <embed src="Data/04_Data_analyses/Phylogenetic_analyses/RAxML_analysis/VanSubTree.pdf">
     </embed>
 </object>
 </div>
