@@ -1232,6 +1232,11 @@ Download the folder on your computer and save it under the same path.
 
 ### Visualize phylogenetic tree and interpret results
 
+#### Learning outcomes
+
+- Learn the newick syntax to represent phylogenetic trees
+- Produce figures of phylogenetic trees using `R` functions implemented in the *ape* package 
+
 #### Introduction to Newick tree format
 
 The Newick Standard for representing trees in computer-readable form makes use of the **correspondence between trees and nested parentheses**. We owe this format to the British mathematician [Arthur Cayley](https://mathshistory.st-andrews.ac.uk/Biographies/Cayley/). Here we will be providing an overview of the Newick format using the R package *ape* [@ape].
@@ -1248,6 +1253,10 @@ library(ape)
 tr1 <- "(A._speciosa,(B._dimorpha,(C._elegans,D._viridis)));"
 plot(read.tree(text=tr1))
 ```
+
+##### Code to produce your first phylogenetic tree
+
+Before starting, create a new `R` script entitled `02_Part3_exercises.R` saved at the root of `DNA_barcoding`. 
 
 ```{r newick, eval=F, echo=T}
 ###~~~
@@ -1394,6 +1403,10 @@ Our analyses are divided into seven steps:
 5. Ladderize and plot phylogenetic tree (using *ape::ladderize()* and *ape::plot.phylo()* functions; see Figure \@ref(fig:Vantreeall)). We will also color in red the tips associated with your vanilla samples to improve readability.
 6. Extract subtree containing our vanilla samples (using *ape::getMRCA()* and *ape::extract.clade()* functions) and plot tree (this time using the radial plotting mode; see Figure \@ref(fig:Vantreesub)). To better visualize your vanilla samples, we will plot a red circle next to their tips (using the *ape::tiplabels()* function) and rename them based on Figure \@ref(fig:van). 
 7. Export phylogenetic tree from step 6 in `pdf` format.
+
+##### Code to generate figures of the phylogenetic tree
+
+Before starting, create a new `R` script entitled `03_Part3_PhyloFig.R` saved at the root of `DNA_barcoding`. 
 
 ```{r Vantreeall, fig.align="center", fig.cap="RaxML ITS rooted phylogenetic tree of species of Vanilla.", fig.show="asis", out.width = '100%'}
 ###~~~
