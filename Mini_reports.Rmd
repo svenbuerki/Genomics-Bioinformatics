@@ -1497,10 +1497,14 @@ ape::tiplabels(tip = grep("^PE", VanITS$tip.label), pch = 16, col = "red", offse
 dev.off()
 ```
 
-Click on the button below to inspect the *Vanilla* subtree in `pdf` format. Ask yourself this question:
+### Discussion
 
->What species do the samples of vanilla analyzed here belong to (see Figure \@ref(fig:van))?
+Click on the button below to inspect the final *Vanilla* phylogenetic tree (in `pdf` format) and answer this scientific question:
+
+>What species do the samples of vanilla analyzed here belong to (see Figure \@ref(fig:van)) and **why**?
 >
+
+**Note:** It is not sufficient to provide taxonomic names for the analyzed samples, you have to motivate why you are advocating for these names.
 
 <button class="btn btn-primary" data-toggle="collapse" data-target="#VanSub">Vanilla subtree</button>
 <div id="VanSub" class="collapse">    
