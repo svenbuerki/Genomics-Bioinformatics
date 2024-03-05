@@ -133,6 +133,12 @@ When you launch Putty, a configuration window will pop up and you will enter i) 
 knitr::include_graphics("Images/putty-session-config.png")
 ```
 
+## Exercises
+
+1. Retrieve your user ID and IP address
+2. Remotely connect to your account using the `ssh` protocol
+3. Exit your remote terminal session using `exit`
+
 # Safely run computer jobs {#runjob}
 
 Some of the analyses that we will be conducting in this class will take several days to be completed. In this case, it is paramount to run those analyses in a safe environment. By safe, we mean **making sure that analyses will not be inadvertently cut** either by yourself or by other users (and trust me it happens!). In this section, we will be reviewing protocols implemented in `tmux` to run and access multiple parallel terminal sessions. 
@@ -253,11 +259,11 @@ $ tmux kill-session -t JOB2
 
 Please do the following short exercises on your assigned computer account (see \autoref{tab:tab_grp}) to get accustomed with the material presented in this document.
 
-1. Retrieve your user ID and IP address.
-2. Remotely connect to your account using the `ssh` protocol.
-3. Create a new `tmux` session and rename it `Bio1`. 
-4. Access the `Bio1 tmux` session.
-5. Terminate the `Bio1 tmux` session and confirm that it has been properly terminated (using a learned `tmux` command).
+1. Retrieve your user ID and IP address
+2. Remotely connect to your account using the `ssh` protocol
+3. Create a new `tmux` session and rename it `Bio1` 
+4. Access the `Bio1 tmux` session
+5. Terminate the `Bio1 tmux` session and confirm that it has been properly terminated (using a learned `tmux` command)
 
 # Linux commands {#lcmd}
 
@@ -387,4 +393,4 @@ To practice the material learned so far and gain confidence before pursuing our 
 11. Go back to the home directory using `cd ..`
 12. Remove `My_jobs/` using `rm -r`
 13. Check that `My_jobs/` has been deleted
-14. Exit your session using `exit`
+14. Exit your remote terminal session using `exit`
