@@ -1,6 +1,6 @@
 ---
 title: "Tutorials"
-subtitle: "Introduction to Linux operating system"
+subtitle: "Bioinformatics toolkit for genomics"
 date: "`r Sys.Date()`"
 output:
 #  bookdown::pdf_document2:
@@ -44,25 +44,35 @@ knitr::write_bib(.packages(), file = 'packages.bib')
 
 # Introduction
 
-This webpage contains several tutorials providing introductions to different facets of the Linux operating systems. Information presented here are especially relevant for [Chapter 4](https://svenbuerki.github.io/Genomics-Bioinformatics/Chapters.html#6_Chapter_4) and the [Lab assignment](https://svenbuerki.github.io/Genomics-Bioinformatics/Mining_draft_genome.html). 
+This webpage contains several tutorials providing introductions to different facets of the Linux operating system here focusing on the [Ubuntu](https://en.wikipedia.org/wiki/Ubuntu) distribution. Information presented here are especially relevant for [Chapter 4](https://svenbuerki.github.io/Genomics-Bioinformatics/Chapters.html#6_Chapter_4) and the [Lab assignment](https://svenbuerki.github.io/Genomics-Bioinformatics/Mining_draft_genome.html). 
 
-# Computer accounts and IP addresses
+# Learning outcomes
 
-Details on Linux computer accounts and IP addresses are summarized in this [Google document](https://docs.google.com/document/d/1t0DdQBes42Gzo8XWgc9JL2xEGjv1kbfoVE7Vznx6C9I/edit?usp=sharing).
+1. Learn procedure to [remotely access](#remote) linux computers using the `ssh` protocol.
+2. Learn procedure to [safely run computer jobs](#runjob) using the `tmux` protocol.
+3. Learn [Linux commands](#lcmd) to conduct genomic analyses. 
 
-# Remotely accessing Linux computers
+# Your computer accounts
 
-To remotely access your assigned computer you need to know:
+Details on your Linux computer accounts and their IP addresses are summarized in this [Google document](https://docs.google.com/document/d/1t0DdQBes42Gzo8XWgc9JL2xEGjv1kbfoVE7Vznx6C9I/edit?usp=sharing). Your assigned user ID are provided in this [spreadsheet](https://docs.google.com/spreadsheets/d/1cRM1yasUfDa98ecyz_-RxUOw8cU4wkQx4O5Wxw3y4yU/edit?usp=sharing).
 
-i) your user ID and password (see [Google document](https://docs.google.com/document/d/1t0DdQBes42Gzo8XWgc9JL2xEGjv1kbfoVE7Vznx6C9I/edit?usp=sharing)).
-ii) the IP address of the computer you want to connect to. If you want to remotely access the lab computers from a Windows machine, please read the protocol described [below](#Putty) before going any further into this document.
-iii) If you are accessing the Linux computers outside of BSU campus, you will need to use the VPN protocol.
+# Remotely access Linux computers {#remote}
+
+To remotely access your assigned Linux computer accounts using `ssh` protocol, you need to know:
+
+1. Your user ID and password (see [Google document](https://docs.google.com/document/d/1t0DdQBes42Gzo8XWgc9JL2xEGjv1kbfoVE7Vznx6C9I/edit?usp=sharing)).
+2. The IP address of the computer you want to connect to. If you want to remotely access the lab computers from a Windows machine, please read the protocol described [below](#Putty) before going any further into this document.
+
+**Warning:** If you are accessing the Linux computers outside of BSU campus, you will need to use the VPN protocol.
 
 ## What is an IP address?
 
-An **I**nternet **P**rotocol address is a numerical label such as 192.0.2.1 that is connected to a computer network that uses the Internet Protocol for communication. An IP address serves two main functions: network interface identification and location addressing.
+An **I**nternet **P**rotocol address is a numerical label such as 192.0.2.1 that is connected to a computer network that uses the Internet Protocol for communication. An IP address serves two main functions: 
 
-## How to find the IP address of your computer
+1. Network interface identification
+2. Location addressing
+
+## How to find the IP address?
 
 The procedure summarized here allows retrieving the computer IP address on the Ubuntu operating system (16.04 LTS; Figure \@ref(fig:IP)):
 
@@ -78,7 +88,7 @@ knitr::include_graphics("Images/IP_Ubuntu.png")
 
 ### Command lines to get IP address
 
-On a Linux OS, you can get the IP address of the computer by typing tyhe following commands in a Terminal:
+On a Linux OS, you can get the IP address of the computer by typing the following commands in a Terminal:
 
 ```{bash eval=F, echo=T}
 #Get IP address
@@ -90,16 +100,15 @@ ip a
 ifconfig -a
 ```
 
+## The `ssh` protocol
 
-## The ssh protocol
-
-The ssh protocol (also referred to as **S**ecure **Sh**ell) is a method for secure remote login from one computer to another (Figure \@ref(fig:sshFig)). It provides several alternative options for strong authentication, and it protects communications security and integrity with strong encryption.
+The `ssh` protocol (also referred to as **S**ecure **Sh**ell) is a method for secure remote login from one computer to another (Figure \@ref(fig:sshFig)). It provides several alternative options for strong authentication, and it protects communications security and integrity with strong encryption.
 
 ```{r sshFig, echo=FALSE, fig.align="center", fig.cap="Overview of ssh protocol. Credit: https://www.wallarm.com/what/what-is-ssh-protocol", fig.show="asis", out.width = '80%'}
 knitr::include_graphics("Images/SSH_Preview.png")
 ```
 
-Once you have gathered all required information (i.e., IP address and username) and installed [Putty](#Putty) if you have a Windows opertaing system, please open a `Terminal` or command prompt window and type the following command to remotely access your account using the ssh protocol (see Figure \@ref(fig:ssh)):
+Once you have gathered all required information (i.e., IP address and username) and installed [Putty](#Putty) if you have a Windows operating system, please open a `Terminal` or command prompt window and type the following command to remotely access your account using the `ssh` protocol (see Figure \@ref(fig:ssh)):
 
 ```{bash eval=F}
 # General command
@@ -114,7 +123,7 @@ $ ssh bioinformatics@132.178.143.53
 knitr::include_graphics("Images/ssh_screen.png")
 ```
 
-## Install Putty on Windows to ssh {#Putty}
+## Install Putty on Windows {#Putty}
 
 Putty is one of the best software used on Windows to remotely access computers. Download the program at this URL http://www.putty.org and follow instructions to install it on your computer.
 
@@ -124,12 +133,13 @@ When you launch Putty, a configuration window will pop up and you will enter i) 
 knitr::include_graphics("Images/putty-session-config.png")
 ```
 
+# Safely run computer jobs {#runjob}
 
-# Running bioinformatic analyses - `tmux`
+Some of the analyses that we will be conducting in this class will take several days to be completed. In this case, it is paramount to run those analyses in a safe environment. By safe, we mean **making sure that analyses will not be inadvertently cut** either by yourself or by other users (and trust me it happens!). In this section, we will be reviewing protocols implemented in `tmux` to run and access multiple parallel terminal sessions. 
 
-Some of the analyses that we will be conducting in this course will take several days to be completed. In this case, it is paramount to run those analyses in a safe environment. By safe, we mean making sure that analyses will not be inadvertently cut either by yourself or by other users (and trust me it happens!). In this section, we will be reviewing protocols implemented in `tmux` to run and access multiple parallel terminal sessions. 
+## The `tmux` protocol
 
-`tmux` is an open-source terminal multiplexer for Unix-like operating systems. It allows multiple terminal sessions to be accessed simultaneously in a single window. It is useful for running more than one command-line program at the same time. As long as the user knows the unique ID of their `tmux` session, the `tmux` session will be accessible by anybody and remain open after closing your `ssh` connection. For those reasons, **the `tmux` protocol is very useful when multiple users are sharing the same account and/or want to work remotely**.
+`tmux` is an open-source **t**erminal **mu**ltiple**x**er for Unix-like operating systems. It allows multiple terminal sessions to be accessed simultaneously in a single window. It is useful for running more than one command-line program at the same time. As long as the user knows the unique ID of their `tmux` session, the `tmux` session will be accessible by anybody and remain open after closing your `ssh` connection. For those reasons, **the `tmux` protocol is very useful when multiple users are sharing the same account and/or want to work remotely**.
 
 This software is installed by default on the Linux operating system, but it can also be installed on Mac OS using the following command:
 
@@ -137,7 +147,11 @@ This software is installed by default on the Linux operating system, but it can 
 $ brew install tmux
 ```
 
-## How to create, exit, rename, list, access & terminate tmux sessions
+## How to operate `tmux` sessions
+
+In this section, we will learn how to create, exit, rename, list, access, and terminate `tmux` sessions.
+
+### Create a new session
 
 To **create** a new `tmux` session using the `Terminal` type:
 
@@ -145,17 +159,23 @@ To **create** a new `tmux` session using the `Terminal` type:
 $ tmux
 ```
 
-To **exit** the 'tmux` session (after executing your job) type the following combination of keystrokes:
+### Exit a new session
+
+Once you have started your job, you can safely **exit** the `tmux` session without killing your job by typing the following combination of keystrokes:
 ```{bash eval=F}
 Ctrl+b and d
 ```
 
 At this point, you could safely log off of your remote session (by typing `exit` in the Terminal), while knowing that your analysis would keep running safely inside the `tmux` session.
 
+### Access your session
+
 To **access** a `tmux` session and check the status of your analysis, do it as follows:
 ```{bash eval=F}
 $ tmux attach
 ```
+
+### Name your session
 
 The command executed above implies that there is only one `tmux` session running on your computer. If you intend to **run multiple side-by-side sessions, you should name each session** using the following command:
 
@@ -173,6 +193,8 @@ One you have executed the commands, you will be able to **rename your session** 
 knitr::include_graphics("Images/tmux_rename.png")
 ```
 
+### Create and rename a session
+
 You can also **create a new session and directly name it** as follows:
 
 ```{bash eval=F}
@@ -182,6 +204,8 @@ $ tmux new -s session_name
 #Example 
 $ tmux new -s JOB2
 ```
+
+### List all sessions
 
 You can get a **list of all running `tmux` sessions** by using the following command (\@ref(fig:tmuxsession)):
 
@@ -193,6 +217,8 @@ $ tmux list-sessions
 knitr::include_graphics("Images/tmux_access_session.png")
 ```
 
+### Access a specific session
+
 To access a `tmux` session type the following command (Figure \@ref(fig:tmuxsession)):
 ```{bash eval=F}
 #General command
@@ -201,13 +227,17 @@ $ tmux attach -t ID_Session
 $ tmux attach -t JOB1
 ```
 
+### Terminate a session
+
 You can **terminate** a `tmux` session by accessing it using commands provided above and then type the inline `exit` command. This will bring you back to the main Terminal and show that your `tmux` session was terminated as shown in Figure \@ref(fig:tmuxterm).
 
 ```{r tmuxterm, echo=FALSE, fig.align="center", fig.cap="Screenshot of Terminal showing tmux command to access a specific session (here JOB1) and the result after terminating the session (using the exit command).", fig.show="asis", out.width = '80%'}
 knitr::include_graphics("Images/tmux_terminate.png")
 ```
 
-Finally, you can also **kill a session** without accession to it as follows:
+### Kill a specific session
+
+Finally, you can also **kill a session** without accessing it as follows:
 
 ```{bash eval=F}
 #General command
@@ -217,19 +247,21 @@ $ tmux kill-session -t ID_Session
 $ tmux kill-session -t JOB2
 ```
 
+**Warning:** Apply caution when applying this procedure since it will kill the `tmux` session and job with limited abilities to recover ongoing data.  
+
 ## Exercises
 
-Please do the following short exercises on your assigned computers (see \autoref{tab:tab_grp}) to get accustomed with the material presented in this document.
+Please do the following short exercises on your assigned computer account (see \autoref{tab:tab_grp}) to get accustomed with the material presented in this document.
 
-1. Retrieve your computer's IP address.
-2. Remotely connect to another computer in the computer room using `ssh` protocol.
+1. Retrieve your user ID and IP address.
+2. Remotely connect to your account using the `ssh` protocol.
 3. Create a new `tmux` session and rename it `Bio1`. 
 4. Access the `Bio1 tmux` session.
 5. Terminate the `Bio1 tmux` session and confirm that it has been properly terminated (using a learned `tmux` command).
 
-# Linux Commands Cheat Sheet
+# Linux commands {#lcmd}
 
-Please find below common linux commands. These commands will help you navigate in the Terminal and support your bioinformatic analyses.
+Please find below common Linux commands. These commands will help you navigate in the Terminal and support your genomics analyses.
 
 ## <a name="file-system"></a>File System
 
@@ -332,3 +364,27 @@ Examples of `chmod` settings:
 `gzip file` — compresses file and renames it to file.gz.  
 `gzip -d file.gz` — decompresses file.gz back to file.  
 
+## Exercises
+
+To practice the material learned so far and gain confidence before pursuing our genomic journey, please do the following exercises:
+
+1. Remotely connect to your account using `ssh`
+2. List the content of the home directory (`~`) using `ls`
+3. Navigate to `Documents/` using `cd`
+4. Create a new folder entitled `My_jobs` using `mkdir` and use `ls` to check that it was created.
+5. Navigate in `My_jobs/`
+6. Create a new text file entitled `README.txt` using `vim`. This will open a new window to edit your file
+7. Edit your text file as follows:
+    - Type `Shift` and `i` to go into `insert` mode
+    - Type the following text: "Hello!"
+    - Exit the `insert` mode by hitting `Esc`
+    - Save and exit text file by typing this command: `:wq!`
+    - This bring you back to your folder
+8. Check that your file exists and that it has a size (= not empty) by using `ls -alh`
+    - What is the size of `README.txt` in kilo bytes?
+9. Delete `README.txt` using `rm`
+10. Check that `README.txt` has been deleted
+11. Go back to the home directory using `cd ..`
+12. Remove `My_jobs/` using `rm -r`
+13. Check that `My_jobs/` has been deleted
+14. Exit your session using `exit`
