@@ -274,6 +274,10 @@ More details on this assignment is available [here](https://svenbuerki.github.io
 
 # Chapter 4 {#Chap4}
 
+## Bioinformatics toolkit for genomics
+
+Before getting into conducting bioinformatics analyses to *de novo* assemble a draft nuclear genome, we will devote time to learn computing procedures. Please click [here](Tutorials.html) to access this material. 
+
 ## Objectives
 
 In this chapter, we aim at training students in producing a draft nuclear genome for a non-model organism using Illumina data.
