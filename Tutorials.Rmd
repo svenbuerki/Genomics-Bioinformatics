@@ -193,7 +193,7 @@ $ tmux
 Ctrl+b and $
 ```
 
-One you have executed the commands, you will be able to **rename your session** as wished (Figure \@ref(fig:tmuxrename)).
+One you have executed the commands, you will be able to **rename your session** as wished and when you are finished type `Return` or `Enter` to complete the task (Figure \@ref(fig:tmuxrename)).
 
 ```{r tmuxrename, echo=FALSE, fig.align="center", fig.cap="Screenshot of Terminal showing procedure to rename a tmux session (here JOB1).", fig.show="asis", out.width = '80%'}
 knitr::include_graphics("Images/tmux_rename.png")
