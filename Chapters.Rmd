@@ -278,9 +278,9 @@ More details on this assignment is available [here](https://svenbuerki.github.io
 
 Before getting into conducting bioinformatics analyses to *de novo* assemble a draft nuclear genome, we will devote time to learn computing procedures. Please click [here](Tutorials.html) to access this material. 
 
-## Objectives
+## Aim and objectives
 
-In this chapter, we aim at training students in producing a draft nuclear genome for a non-model organism using Illumina data.
+In this chapter, we **aim at training students in producing a draft nuclear genome for a non-model organism using Illumina data**.
 
 The whole-genome shotgun (WGS) sequencing dataset published by @Zhang2017 on the orchid species *Apostasia shenzhenica* is used as case-study. This dataset provides an opportunity to gain firsthand experience in analyzing NGS data. @Zhang2017 have also produced RNA-Seq data, which were used in their study to support genome annotation. @Zhang2017 is available in our shared [Google Drive](https://drive.google.com/file/d/1S1FWnEmxBC3_Ghl40S5GhcTVecQ2X4qd/view?usp=sharing).
 
@@ -296,7 +296,7 @@ Before you start working on Chapter 4, please make sure that you have completed 
 
 The two presentations (in `pdf` format) associated to material presented in Chapter 4 can be downloaded here:
 
-- <a href="Lectures/Chapter_04_Spring2022.pdf" target="_blank">Overview of *de novo* genome assembly procedure</a>.
+- <a href="Lectures/Chapter_04_Spring.pdf" target="_blank">Overview of *de novo* genome assembly procedure</a>.
 - <a href="Lectures/Chapter_04_Orchid_Genome_presentation.pdf" target="_blank">Presentation of orchid dataset,  sequencing approach and results</a>.
 
 ## Presenting the NGS data
@@ -360,23 +360,38 @@ The five main steps associated to the objectives of PART 1 are as follows (see F
 knitr::include_graphics("Images/Cleaning_reads.png")
 ```
 
-### Getting ready!
+### Copy the Project to your account
 
-Before starting coding, each student has to copy the `02_Kmers_analyses/` folder located in `/home/Genomics_shared/Chapter_04` in their `~/Documents/` folder.
+Before starting coding, each student has to copy the `02_Kmers_analyses/` folder project located in `/home/Genomics_shared/Chapter_04` in their `~/Documents/` folder.
 
 To do that, please execute the following commands in a `Terminal` window:
+
+1. Remotely connect to your computer account using `ssh`
+
+2. Start a new `tmux` session and rename it `Part1`
+
+3. Execute the code below to copy the data on your account:
+
 ```{bash eval=F, echo=T}
 #Navigate to /home/Genomics_shared/Chapter_04
 cd /home/Genomics_shared/Chapter_04
 
-#Copy all files in 02_Kmers_analyses/ in ~/Documents/
+#Copy all files in 02_Kmers_analyses/ in ~/Documents/ (This takes ca. 10 minutes to complete)
 cp -r 02_Kmers_analyses/ ~/Documents/
 
 #Navigate to ~/Documents/02_Kmers_analyses/ to start the analyses
 cd ~/Documents/02_Kmers_analyses/
 ```
 
-The instructor encourages you to explore the content of `02_Kmers_analyses/` using the UNIX command `ls -al`. In the tutorial, the instructor will only refer to the name of the folder containing information about the analyses and not provide their full paths. 
+#### Questions
+
+Use this [resource](Tutorials.html) to:
+
+> Which command can be applied to list the content of `02_Kmers_analyses/`?
+
+> What is in `02_Kmers_analyses/`?
+
+> How much space this folder takes on your computer?  
 
 ### Bioinformatic tools
 
@@ -404,24 +419,38 @@ The SRA format (containing raw NGS data) can be quite difficult to play with. He
 
 > The command to download the SRA file is available below, but please **don't execute the command since the file weighs >35GB and it takes a LONG time to download**.
 
-Before starting, open a Terminal and navigate to the `/home/Genomics_shared/Chapter_04/01_SRA` folder using the `cd` command. This folder contains the `SRA` file (`SRR5759389_pe12.fastq`) that we will be using in this tutorial. You could download it by executing the following command:
-
 ```{bash eval = F}
 #Download PE reads (properly edited) in interleave format using SRA Toolkit
 # !! DON'T EXECUTE THIS COMMAND !!
 fastq-dump --split-files --defline-seq '@$ac.$si.$sg/$ri' --defline-qual '+' -Z SRR5759389 	> SRR5759389_pe12.fastq
 ```
 
+#### Questions
+
+Open a Terminal, connect to your `Part1` `tmux` session and navigate to the `/home/Genomics_shared/Chapter_04/01_SRA` folder using the `cd` command. This folder contains the `SRA` file (`SRR5759389_pe12.fastq`) that we will be using in this tutorial. 
+
+Use this [resource](Tutorials.html) to:
+
+> Identify a command to show the first 10 lines of `SRR5759389_pe12.fastq`
+
+> What is the format of `SRR5759389_pe12.fastq` and why do you reach this conclusion?
+
 ### Step 2: Reads QCs {#Step2}
 
-The program `FastQC` is used to obtain preliminary information about the Illumina library (see Figure \@ref(fig:SRA)). To run this program navigate to the `FastQC/` folder using `cd` and execute the following command:
+The program `FastQC` is used to obtain preliminary information about the Illumina library (see Figure \@ref(fig:SRA)). To run this program navigate to the `FastQC/` folder using `cd` and execute the following command (MAKE SURE YOU ARE IN YOUR `tmux` SESSION):
 
 ```{bash eval = F}
 #Reads QCs with FastQC 
 ./FastQC_program/fastqc -o ~/Documents/02_Kmers_analyses/FastQC/ /home/Genomics_shared/Chapter_04/01_SRA/SRR5759389_pe12.fastq 
 ```
 
-This analysis generates the `SRR5759389_pe12_fastqc.html` output file. We will have a group discussion to inspect this file and draw general conclusions on the quality of the raw data. This step will have to be repeated after completion of the step3 (reads cleaning) to confirm that our reads trimming and cleaning procedure was successful. To inspect this file click [here](Data/SRR5759389_pe12_fastqc.html).
+#### Question
+
+This analysis generates the `SRR5759389_pe12_fastqc.html` output file. This step will have to be repeated after completion of the step3 (reads cleaning) to confirm that our reads trimming and cleaning procedure was successful. To inspect this file click [here](Data/SRR5759389_pe12_fastqc.html).
+
+In small groups, inspect the output files and work to answer the following question: 
+
+> What conclusions can you draw on the quality of the raw data based on the FastQC analyses?
 
 ### File transferring
 

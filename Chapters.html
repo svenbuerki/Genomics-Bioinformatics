@@ -11,7 +11,7 @@
 
 <meta name="author" content="Sven Buerki - Boise State University" />
 
-<meta name="date" content="2024-03-05" />
+<meta name="date" content="2024-03-07" />
 
 <title>BIOL 497/597 - Genomics &amp; Bioinformatics</title>
 
@@ -383,7 +383,7 @@ div.tocify {
 <h1 class="title toc-ignore">BIOL 497/597 - Genomics &amp; Bioinformatics</h1>
 <h3 class="subtitle">Chapters</h3>
 <h4 class="author">Sven Buerki - Boise State University</h4>
-<h4 class="date">2024-03-05</h4>
+<h4 class="date">2024-03-07</h4>
 
 </div>
 
@@ -605,9 +605,9 @@ $(document).ready(function() {
 <h2><span class="header-section-number">6.1</span> Bioinformatics toolkit for genomics</h2>
 <p>Before getting into conducting bioinformatics analyses to <em>de novo</em> assemble a draft nuclear genome, we will devote time to learn computing procedures. Please click <a href="Tutorials.html">here</a> to access this material.</p>
 </div>
-<div id="objectives" class="section level2" number="6.2">
-<h2><span class="header-section-number">6.2</span> Objectives</h2>
-<p>In this chapter, we aim at training students in producing a draft nuclear genome for a non-model organism using Illumina data.</p>
+<div id="aim-and-objectives" class="section level2" number="6.2">
+<h2><span class="header-section-number">6.2</span> Aim and objectives</h2>
+<p>In this chapter, we <strong>aim at training students in producing a draft nuclear genome for a non-model organism using Illumina data</strong>.</p>
 <p>The whole-genome shotgun (WGS) sequencing dataset published by <span class="citation">Zhang et al. (<a href="#ref-Zhang2017" role="doc-biblioref">2017</a>)</span> on the orchid species <em>Apostasia shenzhenica</em> is used as case-study. This dataset provides an opportunity to gain firsthand experience in analyzing NGS data. <span class="citation">Zhang et al. (<a href="#ref-Zhang2017" role="doc-biblioref">2017</a>)</span> have also produced RNA-Seq data, which were used in their study to support genome annotation. <span class="citation">Zhang et al. (<a href="#ref-Zhang2017" role="doc-biblioref">2017</a>)</span> is available in our shared <a href="https://drive.google.com/file/d/1S1FWnEmxBC3_Ghl40S5GhcTVecQ2X4qd/view?usp=sharing">Google Drive</a>.</p>
 <p>The chapter is subdivided into three parts:</p>
 <ul>
@@ -621,7 +621,7 @@ $(document).ready(function() {
 <h2><span class="header-section-number">6.3</span> Download presentations</h2>
 <p>The two presentations (in <code>pdf</code> format) associated to material presented in Chapter 4 can be downloaded here:</p>
 <ul>
-<li><a href="Lectures/Chapter_04_Spring2022.pdf" target="_blank">Overview of <em>de novo</em> genome assembly procedure</a>.</li>
+<li><a href="Lectures/Chapter_04_Spring.pdf" target="_blank">Overview of <em>de novo</em> genome assembly procedure</a>.</li>
 <li><a href="Lectures/Chapter_04_Orchid_Genome_presentation.pdf" target="_blank">Presentation of orchid dataset, sequencing approach and results</a>.</li>
 </ul>
 </div>
@@ -691,19 +691,36 @@ Figure 6.3: Overview of the analytical workflow applied here to prepare/clean Il
 </p>
 </div>
 </div>
-<div id="getting-ready" class="section level3" number="6.8.2">
-<h3><span class="header-section-number">6.8.2</span> Getting ready!</h3>
-<p>Before starting coding, each student has to copy the <code>02_Kmers_analyses/</code> folder located in <code>/home/Genomics_shared/Chapter_04</code> in their <code>~/Documents/</code> folder.</p>
+<div id="copy-the-project-to-your-account" class="section level3" number="6.8.2">
+<h3><span class="header-section-number">6.8.2</span> Copy the Project to your account</h3>
+<p>Before starting coding, each student has to copy the <code>02_Kmers_analyses/</code> folder project located in <code>/home/Genomics_shared/Chapter_04</code> in their <code>~/Documents/</code> folder.</p>
 <p>To do that, please execute the following commands in a <code>Terminal</code> window:</p>
+<ol style="list-style-type: decimal">
+<li><p>Remotely connect to your computer account using <code>ssh</code></p></li>
+<li><p>Start a new <code>tmux</code> session and rename it <code>Part1</code></p></li>
+<li><p>Execute the code below to copy the data on your account:</p></li>
+</ol>
 <pre class="bash"><code>#Navigate to /home/Genomics_shared/Chapter_04
 cd /home/Genomics_shared/Chapter_04
 
-#Copy all files in 02_Kmers_analyses/ in ~/Documents/
+#Copy all files in 02_Kmers_analyses/ in ~/Documents/ (This takes ca. 10 minutes to complete)
 cp -r 02_Kmers_analyses/ ~/Documents/
 
 #Navigate to ~/Documents/02_Kmers_analyses/ to start the analyses
 cd ~/Documents/02_Kmers_analyses/</code></pre>
-<p>The instructor encourages you to explore the content of <code>02_Kmers_analyses/</code> using the UNIX command <code>ls -al</code>. In the tutorial, the instructor will only refer to the name of the folder containing information about the analyses and not provide their full paths.</p>
+<div id="questions" class="section level4" number="6.8.2.1">
+<h4><span class="header-section-number">6.8.2.1</span> Questions</h4>
+<p>Use this <a href="Tutorials.html">resource</a> to:</p>
+<blockquote>
+<p>Which command can be applied to list the content of <code>02_Kmers_analyses/</code>?</p>
+</blockquote>
+<blockquote>
+<p>What is in <code>02_Kmers_analyses/</code>?</p>
+</blockquote>
+<blockquote>
+<p>How much space this folder takes on your computer?</p>
+</blockquote>
+</div>
 </div>
 <div id="bioinformatic-tools" class="section level3" number="6.8.3">
 <h3><span class="header-section-number">6.8.3</span> Bioinformatic tools</h3>
@@ -736,17 +753,34 @@ cd ~/Documents/02_Kmers_analyses/</code></pre>
 <blockquote>
 <p>The command to download the SRA file is available below, but please <strong>don’t execute the command since the file weighs &gt;35GB and it takes a LONG time to download</strong>.</p>
 </blockquote>
-<p>Before starting, open a Terminal and navigate to the <code>/home/Genomics_shared/Chapter_04/01_SRA</code> folder using the <code>cd</code> command. This folder contains the <code>SRA</code> file (<code>SRR5759389_pe12.fastq</code>) that we will be using in this tutorial. You could download it by executing the following command:</p>
 <pre class="bash"><code>#Download PE reads (properly edited) in interleave format using SRA Toolkit
 # !! DON&#39;T EXECUTE THIS COMMAND !!
 fastq-dump --split-files --defline-seq &#39;@$ac.$si.$sg/$ri&#39; --defline-qual &#39;+&#39; -Z SRR5759389  &gt; SRR5759389_pe12.fastq</code></pre>
+<div id="questions-1" class="section level4" number="6.8.4.1">
+<h4><span class="header-section-number">6.8.4.1</span> Questions</h4>
+<p>Open a Terminal, connect to your <code>Part1</code> <code>tmux</code> session and navigate to the <code>/home/Genomics_shared/Chapter_04/01_SRA</code> folder using the <code>cd</code> command. This folder contains the <code>SRA</code> file (<code>SRR5759389_pe12.fastq</code>) that we will be using in this tutorial.</p>
+<p>Use this <a href="Tutorials.html">resource</a> to:</p>
+<blockquote>
+<p>Identify a command to show the first 10 lines of <code>SRR5759389_pe12.fastq</code></p>
+</blockquote>
+<blockquote>
+<p>What is the format of <code>SRR5759389_pe12.fastq</code> and why do you reach this conclusion?</p>
+</blockquote>
+</div>
 </div>
 <div id="Step2" class="section level3" number="6.8.5">
 <h3><span class="header-section-number">6.8.5</span> Step 2: Reads QCs</h3>
-<p>The program <code>FastQC</code> is used to obtain preliminary information about the Illumina library (see Figure <a href="#fig:SRA">6.1</a>). To run this program navigate to the <code>FastQC/</code> folder using <code>cd</code> and execute the following command:</p>
+<p>The program <code>FastQC</code> is used to obtain preliminary information about the Illumina library (see Figure <a href="#fig:SRA">6.1</a>). To run this program navigate to the <code>FastQC/</code> folder using <code>cd</code> and execute the following command (MAKE SURE YOU ARE IN YOUR <code>tmux</code> SESSION):</p>
 <pre class="bash"><code>#Reads QCs with FastQC 
 ./FastQC_program/fastqc -o ~/Documents/02_Kmers_analyses/FastQC/ /home/Genomics_shared/Chapter_04/01_SRA/SRR5759389_pe12.fastq </code></pre>
-<p>This analysis generates the <code>SRR5759389_pe12_fastqc.html</code> output file. We will have a group discussion to inspect this file and draw general conclusions on the quality of the raw data. This step will have to be repeated after completion of the step3 (reads cleaning) to confirm that our reads trimming and cleaning procedure was successful. To inspect this file click <a href="Data/SRR5759389_pe12_fastqc.html">here</a>.</p>
+<div id="question" class="section level4" number="6.8.5.1">
+<h4><span class="header-section-number">6.8.5.1</span> Question</h4>
+<p>This analysis generates the <code>SRR5759389_pe12_fastqc.html</code> output file. This step will have to be repeated after completion of the step3 (reads cleaning) to confirm that our reads trimming and cleaning procedure was successful. To inspect this file click <a href="Data/SRR5759389_pe12_fastqc.html">here</a>.</p>
+<p>In small groups, inspect the output files and work to answer the following question:</p>
+<blockquote>
+<p>What conclusions can you draw on the quality of the raw data based on the FastQC analyses?</p>
+</blockquote>
+</div>
 </div>
 <div id="file-transferring" class="section level3" number="6.8.6">
 <h3><span class="header-section-number">6.8.6</span> File transferring</h3>
@@ -919,7 +953,7 @@ dev.off()</code></pre>
 Figure 6.6: Histogram of GC values inferred from the cleaned library of reads (SRR5759389). See text for more details.
 </p>
 </div>
-<div id="question" class="section level5" number="6.8.8.1.1">
+<div id="question-1" class="section level5" number="6.8.8.1.1">
 <h5><span class="header-section-number">6.8.8.1.1</span> Question</h5>
 <blockquote>
 <p>To your knowledge, based on data presented in Figure <a href="#fig:GC">6.6</a>, is the SRR5759389 library contaminated with alien DNA?</p>
@@ -976,7 +1010,7 @@ samtools view -F 0x904 -c PEFY01_map_pe.sorted.bam
 #How many unique reads mapped the chloroplast genome
 samtools view -F 0x904 -c LC199394_map_pe.sorted.bam</code></pre>
 </div>
-<div id="question-1" class="section level5" number="6.8.8.2.4">
+<div id="question-2" class="section level5" number="6.8.8.2.4">
 <h5><span class="header-section-number">6.8.8.2.4</span> Question</h5>
 <blockquote>
 <p>What are the proportions of nuclear and chloroplast reads in your library as well as potential contaminants?</p>
@@ -1064,7 +1098,7 @@ dev.off()</code></pre>
 <div id="transfer-files-onto-your-personnal-computer" class="section level4" number="6.8.9.2">
 <h4><span class="header-section-number">6.8.9.2</span> Transfer files onto your personnal computer</h4>
 <p>Please use <code>FileZilla</code> or the <code>sftp</code> protocol (if you have a UNIX-based OS) to transfer <code>GenomeSize.pdf</code> and <code>Orchid_21mer_SRR5759389_pe12_max100.trimmed.norare.histo</code> onto your personal computer. The latter file will be required to conduct the <code>GenomeScope</code> analysis (see below).</p>
-<div id="questions" class="section level5" number="6.8.9.2.1">
+<div id="questions-2" class="section level5" number="6.8.9.2.1">
 <h5><span class="header-section-number">6.8.9.2.1</span> Questions</h5>
 <blockquote>
 <p>What is the haploid genome size of <em>Apostasia shenzhenica</em>?</p>
@@ -1311,7 +1345,7 @@ N50_contig-NG50_contig_length_difference        NaN
 Number_of_contigs_in_scaffolds  178065
 Number_of_contigs_not_in_scaffolds(Singleton)   148213
 Average_number_of_contigs_per_scaffold  3.1</code></pre>
-<div id="questions-1" class="section level4" number="6.10.2.1">
+<div id="questions-3" class="section level4" number="6.10.2.1">
 <h4><span class="header-section-number">6.10.2.1</span> Questions</h4>
 <blockquote>
 <p>Why does the scaffold sequence contain Ns?</p>
