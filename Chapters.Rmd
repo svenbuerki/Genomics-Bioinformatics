@@ -437,7 +437,38 @@ Use this [resource](Tutorials.html) to:
 
 ### Step 2: Reads QCs {#Step2}
 
-The program `FastQC` is used to obtain preliminary information about the Illumina library (see Figure \@ref(fig:SRA)). To run this program navigate to the `FastQC/` folder using `cd` and execute the following command (MAKE SURE YOU ARE IN YOUR `tmux` SESSION):
+#### Theoretical background
+
+To determine the quality of the raw Illumina data, we are conducting analyses to evaluate the following criteria: 
+
+- Basic Statistics
+    + Total # of sequences
+    + Sequence length
+    + %GC
+- Per base sequence quality
+    + Quality scores across all bases
+- Per sequence quality scores
+    + Quality score distribution across all sequences
+- Per base sequence content
+    + Sequence content across all bases
+- Per sequence GC content
+    + GC distribution over all sequences
+- Per base N content
+    + N content across all bases
+- Sequence Length Distribution
+    + Distribution of sequence lengths over all sequences
+- Sequence Duplication Levels
+    + Percent of sequences remaining if deduplicated 70.44% 
+- Overrepresented sequences
+    + No overrepresented sequences
+- Adapter Content
+    + Percent adapter
+
+By intersecting results provided by these analyses, we can determine best-practices to conduct reads cleaning (incl. removal of contaminants) and determine whether our Illumina data are suitable for genomic analyses.   
+ 
+#### Bioinformatics
+
+The program `FastQC` is used to obtain preliminary information about the raw Illumina data (see Figure \@ref(fig:SRA)). To run this program navigate to the `FastQC/` folder using `cd` and execute the following command (MAKE SURE YOU ARE IN YOUR `tmux` SESSION):
 
 ```{bash eval = F}
 #Reads QCs with FastQC 
@@ -451,6 +482,8 @@ This analysis generates the `SRR5759389_pe12_fastqc.html` output file. This step
 In small groups, inspect the output files and work to answer the following question: 
 
 > What conclusions can you draw on the quality of the raw data based on the FastQC analyses?
+
+**Note:** Go over each category outputted by the `FastQC` analyses and determine why these metrics were inferred and how they help you drawing conclusions on your data.
 
 ### File transferring
 
@@ -508,7 +541,9 @@ Reads will be cleaned/trimmed based on (see Figure \@ref(fig:part1workflow)):
 
 Finally, we will format the clean data for *de novo* genome assembly, which will be conducted using `SOAPdenovo2` [@Luo2012].
 
-#### What is a k-mer?
+#### Theoritical background
+
+##### What is a k-mer?
 
 A `k-mer` is a substring of length $k$ in a string of DNA bases. For a given sequence of length $L$,  and a k-mer size of $k$, the total k-mer’s possible ($n$) will be given by $(L-k) + 1$. For instance, in a sequence of length of 9 ($L$), and a k-mer length of 2 ($k$), the number of k-mer’s generated will be: $n = (9-2) + 1 = 8$.
 
@@ -526,7 +561,7 @@ Please find below the plot of k-mer frequencies inferred from the trimmed librar
 knitr::include_graphics("Images/GenomeSize_trimmed.png")
 ```
 
-#### K-mer graph and PCR effect {#kmers}
+##### K-mer graph and PCR effect {#kmers}
 
 The peak around 25 in Figure \@ref(fig:kmerstrimmed) is the coverage with the highest number of different 21-mers. This means that there are $1.4e^7$ unique 21-mers (frequency) that have been observed 25 times (coverage). The normal-like distribution is due to the fact that the sequencing did not provide a perfect coverage of the whole genome. Some regions have less coverage, whereas others have a little more coverage, but the average coverage depth is around 25.
 
@@ -545,7 +580,19 @@ The k-mers in bold are the incorrect 3-mers that are now unique and end up at th
 
 Overall, the **general rule** is that for a given sequence, **a single PCR error will result in $k$ unique and incorrect k-mers**.
 
-#### Trim reads based on Phred quality scores
+#### Bioinformatics
+
+Please follow the approach below to:
+
+- Trim reads based on Phred quality scores
+- Normalize high coverage reads, remove PCR errors and low quality reads
+- Remove intermediate files
+- Prepare data for  *de novo* genome assembly
+- Reads QCs on cleaned reads
+
+**Note:** Perform the analyses in your `tmux` session entitled `Part1`.
+
+##### Trim reads based on Phred quality scores
 
 Let's start the cleaning of our interleaved PE reads by trimming reads using Phred scores (33) as implemented in `seqtk`. Before executing the commands below, `cd` to the `khmer/` folder:
 
@@ -556,7 +603,7 @@ seqtk trimfq /home/Genomics_shared/Chapter_04/01_SRA/SRR5759389_pe12.fastq > SRR
 
 Using Phred scores to clean our data is not going to deal with PCR errors and potential effects of high repeated DNA sequences on the *de novo* assembly. Below, we will use information on k-mer distributions to address these issues and clean our dataset accordingly.
 
-#### Normalize high coverage reads, remove PCR errors and low quality reads
+##### Normalize high coverage reads, remove PCR errors and low quality reads
 
 In the next commands, `khmer` [@khmer2015] will be used to:
 
@@ -581,7 +628,7 @@ khmer filter-abund.py -V kmer.counts -o SRR5759389_pe12.max100.trimmed.norare.fa
 seqtk seq -q 10 -N -L 80 SRR5759389_pe12.max100.trimmed.norare.fastq | seqtk dropse > SRR5759389_pe12.max100.trimmed.norare.noshort.fastq
 ```
 
-#### Remove intermediate files 
+##### Remove intermediate files 
 
 To save disk space and avoid cluttering the computer (with redundant information), please remove the following intermediate files as follows:
 
@@ -593,7 +640,7 @@ rm SRR5759389_pe12.max100.trimmed.norare.fastq
 
 Each of the file that you discarded is >30G of data!
 
-#### Prepare data for  *de novo* genome assembly {#prepreads}
+##### Prepare data for  *de novo* genome assembly {#prepreads}
 
 In this last section, our cleaned reads are prepared for the *de novo* genome assembly analysis conducted in `SOAPdenovo2` [@Luo2012] (done in [PART 2](#PART2)). This is achieved by using `khmer` and renaming files using `mv` as follows:
 
@@ -606,7 +653,7 @@ mv SRR5759389_pe12.max100.trimmed.norare.noshort.fastq.1 SRR5759389.pe1.clean.fa
 mv SRR5759389_pe12.max100.trimmed.norare.noshort.fastq.2 SRR5759389.pe2.clean.fastq
 ```
 
-#### Reads QCs on cleaned reads
+##### Reads QCs on cleaned reads
 
 Use `FastQC` to validate the reads cleaning conducted above. Please see [Step 2](#Step2) for more details on the methodology. 
 

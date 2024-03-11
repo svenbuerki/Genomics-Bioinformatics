@@ -11,7 +11,7 @@
 
 <meta name="author" content="Sven Buerki - Boise State University" />
 
-<meta name="date" content="2024-03-07" />
+<meta name="date" content="2024-03-10" />
 
 <title>BIOL 497/597 - Genomics &amp; Bioinformatics</title>
 
@@ -383,7 +383,7 @@ div.tocify {
 <h1 class="title toc-ignore">BIOL 497/597 - Genomics &amp; Bioinformatics</h1>
 <h3 class="subtitle">Chapters</h3>
 <h4 class="author">Sven Buerki - Boise State University</h4>
-<h4 class="date">2024-03-07</h4>
+<h4 class="date">2024-03-10</h4>
 
 </div>
 
@@ -770,16 +770,69 @@ fastq-dump --split-files --defline-seq &#39;@$ac.$si.$sg/$ri&#39; --defline-qual
 </div>
 <div id="Step2" class="section level3" number="6.8.5">
 <h3><span class="header-section-number">6.8.5</span> Step 2: Reads QCs</h3>
-<p>The program <code>FastQC</code> is used to obtain preliminary information about the Illumina library (see Figure <a href="#fig:SRA">6.1</a>). To run this program navigate to the <code>FastQC/</code> folder using <code>cd</code> and execute the following command (MAKE SURE YOU ARE IN YOUR <code>tmux</code> SESSION):</p>
+<div id="theoretical-background" class="section level4" number="6.8.5.1">
+<h4><span class="header-section-number">6.8.5.1</span> Theoretical background</h4>
+<p>To determine the quality of the raw Illumina data, we are conducting analyses to evaluate the following criteria:</p>
+<ul>
+<li>Basic Statistics
+<ul>
+<li>Total # of sequences</li>
+<li>Sequence length</li>
+<li>%GC</li>
+</ul></li>
+<li>Per base sequence quality
+<ul>
+<li>Quality scores across all bases</li>
+</ul></li>
+<li>Per sequence quality scores
+<ul>
+<li>Quality score distribution across all sequences</li>
+</ul></li>
+<li>Per base sequence content
+<ul>
+<li>Sequence content across all bases</li>
+</ul></li>
+<li>Per sequence GC content
+<ul>
+<li>GC distribution over all sequences</li>
+</ul></li>
+<li>Per base N content
+<ul>
+<li>N content across all bases</li>
+</ul></li>
+<li>Sequence Length Distribution
+<ul>
+<li>Distribution of sequence lengths over all sequences</li>
+</ul></li>
+<li>Sequence Duplication Levels
+<ul>
+<li>Percent of sequences remaining if deduplicated 70.44%</li>
+</ul></li>
+<li>Overrepresented sequences
+<ul>
+<li>No overrepresented sequences</li>
+</ul></li>
+<li>Adapter Content
+<ul>
+<li>Percent adapter</li>
+</ul></li>
+</ul>
+<p>By intersecting results provided by these analyses, we can determine best-practices to conduct reads cleaning (incl. removal of contaminants) and determine whether our Illumina data are suitable for genomic analyses.</p>
+</div>
+<div id="bioinformatics" class="section level4" number="6.8.5.2">
+<h4><span class="header-section-number">6.8.5.2</span> Bioinformatics</h4>
+<p>The program <code>FastQC</code> is used to obtain preliminary information about the raw Illumina data (see Figure <a href="#fig:SRA">6.1</a>). To run this program navigate to the <code>FastQC/</code> folder using <code>cd</code> and execute the following command (MAKE SURE YOU ARE IN YOUR <code>tmux</code> SESSION):</p>
 <pre class="bash"><code>#Reads QCs with FastQC 
 ./FastQC_program/fastqc -o ~/Documents/02_Kmers_analyses/FastQC/ /home/Genomics_shared/Chapter_04/01_SRA/SRR5759389_pe12.fastq </code></pre>
-<div id="question" class="section level4" number="6.8.5.1">
-<h4><span class="header-section-number">6.8.5.1</span> Question</h4>
+</div>
+<div id="question" class="section level4" number="6.8.5.3">
+<h4><span class="header-section-number">6.8.5.3</span> Question</h4>
 <p>This analysis generates the <code>SRR5759389_pe12_fastqc.html</code> output file. This step will have to be repeated after completion of the step3 (reads cleaning) to confirm that our reads trimming and cleaning procedure was successful. To inspect this file click <a href="Data/SRR5759389_pe12_fastqc.html">here</a>.</p>
 <p>In small groups, inspect the output files and work to answer the following question:</p>
 <blockquote>
 <p>What conclusions can you draw on the quality of the raw data based on the FastQC analyses?</p>
 </blockquote>
+<p><strong>Note:</strong> Go over each category outputted by the <code>FastQC</code> analyses and determine why these metrics were inferred and how they help you drawing conclusions on your data.</p>
 </div>
 </div>
 <div id="file-transferring" class="section level3" number="6.8.6">
@@ -836,8 +889,10 @@ Figure 6.4: Snapshot of FileZilla program used to transfer files between compute
 </ul>
 <p>Finally, we will format the clean data for <em>de novo</em> genome assembly, which will be conducted using <code>SOAPdenovo2</code> <span class="citation">(<a href="#ref-Luo2012" role="doc-biblioref">Luo et al., 2012</a>)</span>.</p>
 </div>
-<div id="what-is-a-k-mer" class="section level4" number="6.8.7.2">
-<h4><span class="header-section-number">6.8.7.2</span> What is a k-mer?</h4>
+<div id="theoritical-background" class="section level4" number="6.8.7.2">
+<h4><span class="header-section-number">6.8.7.2</span> Theoritical background</h4>
+<div id="what-is-a-k-mer" class="section level5" number="6.8.7.2.1">
+<h5><span class="header-section-number">6.8.7.2.1</span> What is a k-mer?</h5>
 <p>A <code>k-mer</code> is a substring of length <span class="math inline">\(k\)</span> in a string of DNA bases. For a given sequence of length <span class="math inline">\(L\)</span>, and a k-mer size of <span class="math inline">\(k\)</span>, the total k-mer’s possible (<span class="math inline">\(n\)</span>) will be given by <span class="math inline">\((L-k) + 1\)</span>. For instance, in a sequence of length of 9 (<span class="math inline">\(L\)</span>), and a k-mer length of 2 (<span class="math inline">\(k\)</span>), the number of k-mer’s generated will be: <span class="math inline">\(n = (9-2) + 1 = 8\)</span>.</p>
 <blockquote>
 <p>All eight 2-mers of the sequence “AATTGGCCG” are:
@@ -856,8 +911,8 @@ Figure 6.5: Distribution of 21-mer frequencies based on the trimmed library with
 </p>
 </div>
 </div>
-<div id="kmers" class="section level4" number="6.8.7.3">
-<h4><span class="header-section-number">6.8.7.3</span> K-mer graph and PCR effect</h4>
+<div id="kmers" class="section level5" number="6.8.7.2.2">
+<h5><span class="header-section-number">6.8.7.2.2</span> K-mer graph and PCR effect</h5>
 <p>The peak around 25 in Figure <a href="#fig:kmerstrimmed">6.5</a> is the coverage with the highest number of different 21-mers. This means that there are <span class="math inline">\(1.4e^7\)</span> unique 21-mers (frequency) that have been observed 25 times (coverage). The normal-like distribution is due to the fact that the sequencing did not provide a perfect coverage of the whole genome. Some regions have less coverage, whereas others have a little more coverage, but the average coverage depth is around 25.</p>
 <p>The large number of unique k-mers (<span class="math inline">\(1.7e^7\)</span>) that have a frequency of 1 (right left side of the graph; Figure <a href="#fig:kmerstrimmed">6.5</a>) is most likely due to PCR errors. Please find below an example explaining how PCR errors impact on the k-mer procedure.</p>
 <p>All 3-mers of the sequence “AATTGGCCG” are:</p>
@@ -871,15 +926,27 @@ Figure 6.5: Distribution of 21-mer frequencies based on the trimmed library with
 <p>The k-mers in bold are the incorrect 3-mers that are now unique and end up at the beginning of the graph in Figure <a href="#fig:kmerstrimmed">6.5</a>.</p>
 <p>Overall, the <strong>general rule</strong> is that for a given sequence, <strong>a single PCR error will result in <span class="math inline">\(k\)</span> unique and incorrect k-mers</strong>.</p>
 </div>
-<div id="trim-reads-based-on-phred-quality-scores" class="section level4" number="6.8.7.4">
-<h4><span class="header-section-number">6.8.7.4</span> Trim reads based on Phred quality scores</h4>
+</div>
+<div id="bioinformatics-1" class="section level4" number="6.8.7.3">
+<h4><span class="header-section-number">6.8.7.3</span> Bioinformatics</h4>
+<p>Please follow the approach below to:</p>
+<ul>
+<li>Trim reads based on Phred quality scores</li>
+<li>Normalize high coverage reads, remove PCR errors and low quality reads</li>
+<li>Remove intermediate files</li>
+<li>Prepare data for <em>de novo</em> genome assembly</li>
+<li>Reads QCs on cleaned reads</li>
+</ul>
+<p><strong>Note:</strong> Perform the analyses in your <code>tmux</code> session entitled <code>Part1</code>.</p>
+<div id="trim-reads-based-on-phred-quality-scores" class="section level5" number="6.8.7.3.1">
+<h5><span class="header-section-number">6.8.7.3.1</span> Trim reads based on Phred quality scores</h5>
 <p>Let’s start the cleaning of our interleaved PE reads by trimming reads using Phred scores (33) as implemented in <code>seqtk</code>. Before executing the commands below, <code>cd</code> to the <code>khmer/</code> folder:</p>
 <pre class="bash"><code>#Trim reads based on Phred scores (default of 33)
 seqtk trimfq /home/Genomics_shared/Chapter_04/01_SRA/SRR5759389_pe12.fastq &gt; SRR5759389_pe12.trimmed.fastq</code></pre>
 <p>Using Phred scores to clean our data is not going to deal with PCR errors and potential effects of high repeated DNA sequences on the <em>de novo</em> assembly. Below, we will use information on k-mer distributions to address these issues and clean our dataset accordingly.</p>
 </div>
-<div id="normalize-high-coverage-reads-remove-pcr-errors-and-low-quality-reads" class="section level4" number="6.8.7.5">
-<h4><span class="header-section-number">6.8.7.5</span> Normalize high coverage reads, remove PCR errors and low quality reads</h4>
+<div id="normalize-high-coverage-reads-remove-pcr-errors-and-low-quality-reads" class="section level5" number="6.8.7.3.2">
+<h5><span class="header-section-number">6.8.7.3.2</span> Normalize high coverage reads, remove PCR errors and low quality reads</h5>
 <p>In the next commands, <code>khmer</code> <span class="citation">(<a href="#ref-khmer2015" role="doc-biblioref">Crusoe et al., 2015</a>)</span> will be used to:</p>
 <ol style="list-style-type: decimal">
 <li>Normalize high coverage reads (&gt;100x) based on median coverage (to optimize RAM requirements for <em>de novo</em> genome assembly).</li>
@@ -894,16 +961,16 @@ khmer filter-abund.py -V kmer.counts -o SRR5759389_pe12.max100.trimmed.norare.fa
 <pre class="bash"><code>#3. Final clean-up of reads (remove low quality bases, short sequences, and non-paired reads)
 seqtk seq -q 10 -N -L 80 SRR5759389_pe12.max100.trimmed.norare.fastq | seqtk dropse &gt; SRR5759389_pe12.max100.trimmed.norare.noshort.fastq</code></pre>
 </div>
-<div id="remove-intermediate-files" class="section level4" number="6.8.7.6">
-<h4><span class="header-section-number">6.8.7.6</span> Remove intermediate files</h4>
+<div id="remove-intermediate-files" class="section level5" number="6.8.7.3.3">
+<h5><span class="header-section-number">6.8.7.3.3</span> Remove intermediate files</h5>
 <p>To save disk space and avoid cluttering the computer (with redundant information), please remove the following intermediate files as follows:</p>
 <pre class="bash"><code>#Removing intermediate, temporary files to save disk space
 rm SRR5759389_pe12.max100.trimmed.fastq
 rm SRR5759389_pe12.max100.trimmed.norare.fastq</code></pre>
 <p>Each of the file that you discarded is &gt;30G of data!</p>
 </div>
-<div id="prepreads" class="section level4" number="6.8.7.7">
-<h4><span class="header-section-number">6.8.7.7</span> Prepare data for <em>de novo</em> genome assembly</h4>
+<div id="prepreads" class="section level5" number="6.8.7.3.4">
+<h5><span class="header-section-number">6.8.7.3.4</span> Prepare data for <em>de novo</em> genome assembly</h5>
 <p>In this last section, our cleaned reads are prepared for the <em>de novo</em> genome assembly analysis conducted in <code>SOAPdenovo2</code> <span class="citation">(<a href="#ref-Luo2012" role="doc-biblioref">Luo et al., 2012</a>)</span> (done in <a href="#PART2">PART 2</a>). This is achieved by using <code>khmer</code> and renaming files using <code>mv</code> as follows:</p>
 <pre class="bash"><code>#De-interleave filtered reads (to be ready for de novo assembly in SOAPdenovo2)
 khmer split-paired-reads.py SRR5759389_pe12.max100.trimmed.norare.noshort.fastq
@@ -912,9 +979,10 @@ khmer split-paired-reads.py SRR5759389_pe12.max100.trimmed.norare.noshort.fastq
 mv SRR5759389_pe12.max100.trimmed.norare.noshort.fastq.1 SRR5759389.pe1.clean.fastq
 mv SRR5759389_pe12.max100.trimmed.norare.noshort.fastq.2 SRR5759389.pe2.clean.fastq</code></pre>
 </div>
-<div id="reads-qcs-on-cleaned-reads" class="section level4" number="6.8.7.8">
-<h4><span class="header-section-number">6.8.7.8</span> Reads QCs on cleaned reads</h4>
+<div id="reads-qcs-on-cleaned-reads" class="section level5" number="6.8.7.3.5">
+<h5><span class="header-section-number">6.8.7.3.5</span> Reads QCs on cleaned reads</h5>
 <p>Use <code>FastQC</code> to validate the reads cleaning conducted above. Please see <a href="#Step2">Step 2</a> for more details on the methodology.</p>
+</div>
 </div>
 </div>
 <div id="step-4-whats-in-the-reads" class="section level3" number="6.8.8">
@@ -1151,7 +1219,7 @@ Figure 6.9: Output of the GenomeScope analysis.
 <li><code>SRR5759389.pe1.clean.fastq</code></li>
 <li><code>SRR5759389.pe2.clean.fastq</code></li>
 </ul>
-<p><strong>WARNING:</strong> You have to complete section <a href="#prepreads">6.8.7.7</a> before starting this section.</p>
+<p><strong>WARNING:</strong> You have to complete section <a href="#prepreads">6.8.7.3.4</a> before starting this section.</p>
 </div>
 <div id="analytical-workflow-1" class="section level3" number="6.9.3">
 <h3><span class="header-section-number">6.9.3</span> Analytical workflow</h3>
