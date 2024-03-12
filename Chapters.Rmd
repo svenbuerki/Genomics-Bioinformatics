@@ -468,20 +468,25 @@ By intersecting results provided by these analyses, we can determine best-practi
  
 #### Bioinformatics
 
-The program `FastQC` is used to obtain preliminary information about the raw Illumina data (see Figure \@ref(fig:SRA)). To run this program navigate to the `FastQC/` folder using `cd` and execute the following command (MAKE SURE YOU ARE IN YOUR `tmux` SESSION):
+The program `FastQC` is used to obtain preliminary information about the raw Illumina data (see Figure \@ref(fig:SRA)). To perform this analysis do the following:
 
+1. Attach to your Part1 `tmux` session
+2. Navigate to `~/Documents/02_Kmers_analyses/FastQC` using `cd`
+3. Type to following command:
+  - **Input:** `01_SRA/SRR5759389_pe12.fastq`
+  - **Output:** `SRR5759389_pe12_fastqc.html`
 ```{bash eval = F}
 #Reads QCs with FastQC 
 ./FastQC_program/fastqc -o ~/Documents/02_Kmers_analyses/FastQC/ /home/Genomics_shared/Chapter_04/01_SRA/SRR5759389_pe12.fastq 
 ```
 
+This step will have to be repeated after completion of the step3 (reads cleaning) to confirm that our reads trimming and cleaning procedure was successful. To inspect `SRR5759389_pe12_fastqc.html` click [here](Data/SRR5759389_pe12_fastqc.html).
+
 #### Question
 
-This analysis generates the `SRR5759389_pe12_fastqc.html` output file. This step will have to be repeated after completion of the step3 (reads cleaning) to confirm that our reads trimming and cleaning procedure was successful. To inspect this file click [here](Data/SRR5759389_pe12_fastqc.html).
+In small groups, inspect the output file and answer the following question: 
 
-In small groups, inspect the output files and work to answer the following question: 
-
-> What conclusions can you draw on the quality of the raw data based on the FastQC analyses?
+> What conclusions can you draw on the quality of the raw data based on the FastQC analysis?
 
 **Note:** Go over each category outputted by the `FastQC` analyses and determine why these metrics were inferred and how they help you drawing conclusions on your data.
 
@@ -598,7 +603,7 @@ Let's start the cleaning of our interleaved PE reads by trimming reads using Phr
 
 Before executing the commands below do the following:
 
-1. Connect to your Part1 `tmux` session
+1. Attach to your Part1 `tmux` session
 2. Navigate to `~/Documents/02_Kmers_analyses/khmer` using `cd`
 3. Type to following command:
   - **Input:** `SRR5759389_pe12.fastq`

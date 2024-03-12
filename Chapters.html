@@ -821,16 +821,25 @@ fastq-dump --split-files --defline-seq &#39;@$ac.$si.$sg/$ri&#39; --defline-qual
 </div>
 <div id="bioinformatics" class="section level4" number="6.8.5.2">
 <h4><span class="header-section-number">6.8.5.2</span> Bioinformatics</h4>
-<p>The program <code>FastQC</code> is used to obtain preliminary information about the raw Illumina data (see Figure <a href="#fig:SRA">6.1</a>). To run this program navigate to the <code>FastQC/</code> folder using <code>cd</code> and execute the following command (MAKE SURE YOU ARE IN YOUR <code>tmux</code> SESSION):</p>
+<p>The program <code>FastQC</code> is used to obtain preliminary information about the raw Illumina data (see Figure <a href="#fig:SRA">6.1</a>). To perform this analysis do the following:</p>
+<ol style="list-style-type: decimal">
+<li>Attach to your Part1 <code>tmux</code> session</li>
+<li>Navigate to <code>~/Documents/02_Kmers_analyses/FastQC</code> using <code>cd</code></li>
+<li>Type to following command:</li>
+</ol>
+<ul>
+<li><strong>Input:</strong> <code>01_SRA/SRR5759389_pe12.fastq</code></li>
+<li><strong>Output:</strong> <code>SRR5759389_pe12_fastqc.html</code></li>
+</ul>
 <pre class="bash"><code>#Reads QCs with FastQC 
 ./FastQC_program/fastqc -o ~/Documents/02_Kmers_analyses/FastQC/ /home/Genomics_shared/Chapter_04/01_SRA/SRR5759389_pe12.fastq </code></pre>
+<p>This step will have to be repeated after completion of the step3 (reads cleaning) to confirm that our reads trimming and cleaning procedure was successful. To inspect <code>SRR5759389_pe12_fastqc.html</code> click <a href="Data/SRR5759389_pe12_fastqc.html">here</a>.</p>
 </div>
 <div id="question" class="section level4" number="6.8.5.3">
 <h4><span class="header-section-number">6.8.5.3</span> Question</h4>
-<p>This analysis generates the <code>SRR5759389_pe12_fastqc.html</code> output file. This step will have to be repeated after completion of the step3 (reads cleaning) to confirm that our reads trimming and cleaning procedure was successful. To inspect this file click <a href="Data/SRR5759389_pe12_fastqc.html">here</a>.</p>
-<p>In small groups, inspect the output files and work to answer the following question:</p>
+<p>In small groups, inspect the output file and answer the following question:</p>
 <blockquote>
-<p>What conclusions can you draw on the quality of the raw data based on the FastQC analyses?</p>
+<p>What conclusions can you draw on the quality of the raw data based on the FastQC analysis?</p>
 </blockquote>
 <p><strong>Note:</strong> Go over each category outputted by the <code>FastQC</code> analyses and determine why these metrics were inferred and how they help you drawing conclusions on your data.</p>
 </div>
@@ -943,7 +952,7 @@ Figure 6.5: Distribution of 21-mer frequencies based on the trimmed library with
 <p>Let’s start the cleaning of our interleaved PE reads by trimming reads using Phred scores (33) as implemented in <code>seqtk</code>.</p>
 <p>Before executing the commands below do the following:</p>
 <ol style="list-style-type: decimal">
-<li>Connect to your Part1 <code>tmux</code> session</li>
+<li>Attach to your Part1 <code>tmux</code> session</li>
 <li>Navigate to <code>~/Documents/02_Kmers_analyses/khmer</code> using <code>cd</code></li>
 <li>Type to following command:</li>
 </ol>
