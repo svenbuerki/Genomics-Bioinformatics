@@ -594,10 +594,18 @@ Please follow the approach below to:
 
 ##### Trim reads based on Phred quality scores
 
-Let's start the cleaning of our interleaved PE reads by trimming reads using Phred scores (33) as implemented in `seqtk`. Before executing the commands below, `cd` to the `khmer/` folder:
+Let's start the cleaning of our interleaved PE reads by trimming reads using Phred scores (33) as implemented in `seqtk`. 
 
+Before executing the commands below do the following:
+
+1. Connect to your Part1 `tmux` session
+2. Navigate to `~/Documents/02_Kmers_analyses/khmer` using `cd`
+3. Type to following command:
+  - **Input:** `SRR5759389_pe12.fastq`
+  - **Output:** `SRR5759389_pe12.trimmed.fastq`
 ```{bash, eval = F}
 #Trim reads based on Phred scores (default of 33)
+# --> This code uses the raw Illumina data deposited on our shared folder
 seqtk trimfq /home/Genomics_shared/Chapter_04/01_SRA/SRR5759389_pe12.fastq > SRR5759389_pe12.trimmed.fastq
 ```
 
@@ -611,26 +619,35 @@ In the next commands, `khmer` [@khmer2015] will be used to:
 2. Filter low abundance reads (most likely PCR errors). 
 3. Final clean-up of reads to remove low quality bases, short sequences, and non-paired reads
 
-To conduct these analyses, run the following commands in the Terminal:
+To conduct these analyses, run the following commands in your Part1 `tmux` session (you should be in `~/Documents/02_Kmers_analyses/khmer`):
 
+1.  Normalize high coverage reads (>100x) based on median reads coverage using k-mer frequencies
+  - **Input:** `SRR5759389_pe12.trimmed.fastq`
+  - **Output:** `SRR5759389_pe12.max100.trimmed.fastq`
 ```{bash, eval = F}
-#1. Normalize high coverage reads (>100x) based on median reads coverage using k-mer frequencies
+# Normalize high coverage reads (>100x)
 khmer normalize-by-median.py -p --ksize 21 -C 100 -M 1e9 -s kmer.counts -o SRR5759389_pe12.max100.trimmed.fastq SRR5759389_pe12.trimmed.fastq
 ```
 
+2. Filter low abundance reads based on k-mer frequencies to minimize PCR errors
+  - **Input:** `SRR5759389_pe12.max100.trimmed.fastq`
+  - **Output:** `SRR5759389_pe12.max100.trimmed.norare.fastq`
 ```{bash, eval = F}
-#2. Filter low abundance reads based on k-mer frequencies to minimize PCR errors
+# Filter low abundance reads based on k-mer frequencies to minimize PCR errors
 khmer filter-abund.py -V kmer.counts -o SRR5759389_pe12.max100.trimmed.norare.fastq SRR5759389_pe12.max100.trimmed.fastq
 ```
 
+3. Final clean-up of reads (remove low quality bases, short sequences, and non-paired reads)
+  - **Input:** `SRR5759389_pe12.max100.trimmed.norare.fastq`
+  - **Output:** `SRR5759389_pe12.max100.trimmed.norare.noshort.fastq`
 ```{bash, eval = F}
-#3. Final clean-up of reads (remove low quality bases, short sequences, and non-paired reads)
+# Final clean-up of reads (remove low quality bases, short sequences, and non-paired reads)
 seqtk seq -q 10 -N -L 80 SRR5759389_pe12.max100.trimmed.norare.fastq | seqtk dropse > SRR5759389_pe12.max100.trimmed.norare.noshort.fastq
 ```
 
 ##### Remove intermediate files 
 
-To save disk space and avoid cluttering the computer (with redundant information), please remove the following intermediate files as follows:
+To save disk space and avoid cluttering the computer (with redundant information), please remove the following intermediate files as follows uisng the `rm` command:
 
 ```{bash, eval = F}
 #Removing intermediate, temporary files to save disk space
@@ -638,20 +655,36 @@ rm SRR5759389_pe12.max100.trimmed.fastq
 rm SRR5759389_pe12.max100.trimmed.norare.fastq
 ```
 
-Each of the file that you discarded is >30G of data!
+--> Each of the file that you discarded is >30G of data!
 
 ##### Prepare data for  *de novo* genome assembly {#prepreads}
 
 In this last section, our cleaned reads are prepared for the *de novo* genome assembly analysis conducted in `SOAPdenovo2` [@Luo2012] (done in [PART 2](#PART2)). This is achieved by using `khmer` and renaming files using `mv` as follows:
 
+1. De-interleave filtered reads (to be ready for *de novo* assembly in SOAPdenovo2)
+  - **Input:** `SRR5759389_pe12.max100.trimmed.norare.noshort.fastq`
+  - **Output:** 
+    + R1: `SRR5759389_pe12.max100.trimmed.norare.noshort.fastq.1` 
+    + R2: `SRR5759389_pe12.max100.trimmed.norare.noshort.fastq.2`
 ```{bash, eval = F}
-#De-interleave filtered reads (to be ready for de novo assembly in SOAPdenovo2)
+# De-interleave filtered reads
 khmer split-paired-reads.py SRR5759389_pe12.max100.trimmed.norare.noshort.fastq
+```
 
-#Rename output reads to something more human-friendly
+2. Rename output reads to something more human-friendly
+  - **Input:** 
+    + R1: `SRR5759389_pe12.max100.trimmed.norare.noshort.fastq.1` 
+    + R2: `SRR5759389_pe12.max100.trimmed.norare.noshort.fastq.2`
+  - **Output:** 
+    + R1: `SRR5759389.pe1.clean.fastq` 
+    + R2: `SRR5759389.pe2.clean.fastq`
+```{bash, eval = F}
+#Rename output reads
 mv SRR5759389_pe12.max100.trimmed.norare.noshort.fastq.1 SRR5759389.pe1.clean.fastq
 mv SRR5759389_pe12.max100.trimmed.norare.noshort.fastq.2 SRR5759389.pe2.clean.fastq
 ```
+
+--> These final files are the input files for the *de novo* analysis. 
 
 ##### Reads QCs on cleaned reads
 

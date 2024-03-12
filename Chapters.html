@@ -11,7 +11,7 @@
 
 <meta name="author" content="Sven Buerki - Boise State University" />
 
-<meta name="date" content="2024-03-10" />
+<meta name="date" content="2024-03-12" />
 
 <title>BIOL 497/597 - Genomics &amp; Bioinformatics</title>
 
@@ -383,7 +383,7 @@ div.tocify {
 <h1 class="title toc-ignore">BIOL 497/597 - Genomics &amp; Bioinformatics</h1>
 <h3 class="subtitle">Chapters</h3>
 <h4 class="author">Sven Buerki - Boise State University</h4>
-<h4 class="date">2024-03-10</h4>
+<h4 class="date">2024-03-12</h4>
 
 </div>
 
@@ -940,8 +940,19 @@ Figure 6.5: Distribution of 21-mer frequencies based on the trimmed library with
 <p><strong>Note:</strong> Perform the analyses in your <code>tmux</code> session entitled <code>Part1</code>.</p>
 <div id="trim-reads-based-on-phred-quality-scores" class="section level5" number="6.8.7.3.1">
 <h5><span class="header-section-number">6.8.7.3.1</span> Trim reads based on Phred quality scores</h5>
-<p>Let’s start the cleaning of our interleaved PE reads by trimming reads using Phred scores (33) as implemented in <code>seqtk</code>. Before executing the commands below, <code>cd</code> to the <code>khmer/</code> folder:</p>
+<p>Let’s start the cleaning of our interleaved PE reads by trimming reads using Phred scores (33) as implemented in <code>seqtk</code>.</p>
+<p>Before executing the commands below do the following:</p>
+<ol style="list-style-type: decimal">
+<li>Connect to your Part1 <code>tmux</code> session</li>
+<li>Navigate to <code>~/Documents/02_Kmers_analyses/khmer</code> using <code>cd</code></li>
+<li>Type to following command:</li>
+</ol>
+<ul>
+<li><strong>Input:</strong> <code>SRR5759389_pe12.fastq</code></li>
+<li><strong>Output:</strong> <code>SRR5759389_pe12.trimmed.fastq</code></li>
+</ul>
 <pre class="bash"><code>#Trim reads based on Phred scores (default of 33)
+# --&gt; This code uses the raw Illumina data deposited on our shared folder
 seqtk trimfq /home/Genomics_shared/Chapter_04/01_SRA/SRR5759389_pe12.fastq &gt; SRR5759389_pe12.trimmed.fastq</code></pre>
 <p>Using Phred scores to clean our data is not going to deal with PCR errors and potential effects of high repeated DNA sequences on the <em>de novo</em> assembly. Below, we will use information on k-mer distributions to address these issues and clean our dataset accordingly.</p>
 </div>
@@ -953,31 +964,78 @@ seqtk trimfq /home/Genomics_shared/Chapter_04/01_SRA/SRR5759389_pe12.fastq &gt; 
 <li>Filter low abundance reads (most likely PCR errors).</li>
 <li>Final clean-up of reads to remove low quality bases, short sequences, and non-paired reads</li>
 </ol>
-<p>To conduct these analyses, run the following commands in the Terminal:</p>
-<pre class="bash"><code>#1. Normalize high coverage reads (&gt;100x) based on median reads coverage using k-mer frequencies
+<p>To conduct these analyses, run the following commands in your Part1 <code>tmux</code> session (you should be in <code>~/Documents/02_Kmers_analyses/khmer</code>):</p>
+<ol style="list-style-type: decimal">
+<li>Normalize high coverage reads (&gt;100x) based on median reads coverage using k-mer frequencies</li>
+</ol>
+<ul>
+<li><strong>Input:</strong> <code>SRR5759389_pe12.trimmed.fastq</code></li>
+<li><strong>Output:</strong> <code>SRR5759389_pe12.max100.trimmed.fastq</code></li>
+</ul>
+<pre class="bash"><code># Normalize high coverage reads (&gt;100x)
 khmer normalize-by-median.py -p --ksize 21 -C 100 -M 1e9 -s kmer.counts -o SRR5759389_pe12.max100.trimmed.fastq SRR5759389_pe12.trimmed.fastq</code></pre>
-<pre class="bash"><code>#2. Filter low abundance reads based on k-mer frequencies to minimize PCR errors
+<ol start="2" style="list-style-type: decimal">
+<li>Filter low abundance reads based on k-mer frequencies to minimize PCR errors</li>
+</ol>
+<ul>
+<li><strong>Input:</strong> <code>SRR5759389_pe12.max100.trimmed.fastq</code></li>
+<li><strong>Output:</strong> <code>SRR5759389_pe12.max100.trimmed.norare.fastq</code></li>
+</ul>
+<pre class="bash"><code># Filter low abundance reads based on k-mer frequencies to minimize PCR errors
 khmer filter-abund.py -V kmer.counts -o SRR5759389_pe12.max100.trimmed.norare.fastq SRR5759389_pe12.max100.trimmed.fastq</code></pre>
-<pre class="bash"><code>#3. Final clean-up of reads (remove low quality bases, short sequences, and non-paired reads)
+<ol start="3" style="list-style-type: decimal">
+<li>Final clean-up of reads (remove low quality bases, short sequences, and non-paired reads)</li>
+</ol>
+<ul>
+<li><strong>Input:</strong> <code>SRR5759389_pe12.max100.trimmed.norare.fastq</code></li>
+<li><strong>Output:</strong> <code>SRR5759389_pe12.max100.trimmed.norare.noshort.fastq</code></li>
+</ul>
+<pre class="bash"><code># Final clean-up of reads (remove low quality bases, short sequences, and non-paired reads)
 seqtk seq -q 10 -N -L 80 SRR5759389_pe12.max100.trimmed.norare.fastq | seqtk dropse &gt; SRR5759389_pe12.max100.trimmed.norare.noshort.fastq</code></pre>
 </div>
 <div id="remove-intermediate-files" class="section level5" number="6.8.7.3.3">
 <h5><span class="header-section-number">6.8.7.3.3</span> Remove intermediate files</h5>
-<p>To save disk space and avoid cluttering the computer (with redundant information), please remove the following intermediate files as follows:</p>
+<p>To save disk space and avoid cluttering the computer (with redundant information), please remove the following intermediate files as follows uisng the <code>rm</code> command:</p>
 <pre class="bash"><code>#Removing intermediate, temporary files to save disk space
 rm SRR5759389_pe12.max100.trimmed.fastq
 rm SRR5759389_pe12.max100.trimmed.norare.fastq</code></pre>
-<p>Each of the file that you discarded is &gt;30G of data!</p>
+<p>–&gt; Each of the file that you discarded is &gt;30G of data!</p>
 </div>
 <div id="prepreads" class="section level5" number="6.8.7.3.4">
 <h5><span class="header-section-number">6.8.7.3.4</span> Prepare data for <em>de novo</em> genome assembly</h5>
 <p>In this last section, our cleaned reads are prepared for the <em>de novo</em> genome assembly analysis conducted in <code>SOAPdenovo2</code> <span class="citation">(<a href="#ref-Luo2012" role="doc-biblioref">Luo et al., 2012</a>)</span> (done in <a href="#PART2">PART 2</a>). This is achieved by using <code>khmer</code> and renaming files using <code>mv</code> as follows:</p>
-<pre class="bash"><code>#De-interleave filtered reads (to be ready for de novo assembly in SOAPdenovo2)
-khmer split-paired-reads.py SRR5759389_pe12.max100.trimmed.norare.noshort.fastq
-
-#Rename output reads to something more human-friendly
+<ol style="list-style-type: decimal">
+<li>De-interleave filtered reads (to be ready for <em>de novo</em> assembly in SOAPdenovo2)</li>
+</ol>
+<ul>
+<li><strong>Input:</strong> <code>SRR5759389_pe12.max100.trimmed.norare.noshort.fastq</code></li>
+<li><strong>Output:</strong>
+<ul>
+<li>R1: <code>SRR5759389_pe12.max100.trimmed.norare.noshort.fastq.1</code></li>
+<li>R2: <code>SRR5759389_pe12.max100.trimmed.norare.noshort.fastq.2</code></li>
+</ul></li>
+</ul>
+<pre class="bash"><code># De-interleave filtered reads
+khmer split-paired-reads.py SRR5759389_pe12.max100.trimmed.norare.noshort.fastq</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Rename output reads to something more human-friendly</li>
+</ol>
+<ul>
+<li><strong>Input:</strong>
+<ul>
+<li>R1: <code>SRR5759389_pe12.max100.trimmed.norare.noshort.fastq.1</code></li>
+<li>R2: <code>SRR5759389_pe12.max100.trimmed.norare.noshort.fastq.2</code></li>
+</ul></li>
+<li><strong>Output:</strong>
+<ul>
+<li>R1: <code>SRR5759389.pe1.clean.fastq</code></li>
+<li>R2: <code>SRR5759389.pe2.clean.fastq</code></li>
+</ul></li>
+</ul>
+<pre class="bash"><code>#Rename output reads
 mv SRR5759389_pe12.max100.trimmed.norare.noshort.fastq.1 SRR5759389.pe1.clean.fastq
 mv SRR5759389_pe12.max100.trimmed.norare.noshort.fastq.2 SRR5759389.pe2.clean.fastq</code></pre>
+<p>–&gt; These final files are the input files for the <em>de novo</em> analysis.</p>
 </div>
 <div id="reads-qcs-on-cleaned-reads" class="section level5" number="6.8.7.3.5">
 <h5><span class="header-section-number">6.8.7.3.5</span> Reads QCs on cleaned reads</h5>
