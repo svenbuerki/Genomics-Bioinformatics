@@ -645,6 +645,7 @@ khmer filter-abund.py -V kmer.counts -o SRR5759389_pe12.max100.trimmed.norare.fa
 ##### Final clean-up of reads
 
 Final clean-up of reads to remove low quality bases, short sequences, and non-paired reads
+
   - **Input:** `SRR5759389_pe12.max100.trimmed.norare.fastq`
   - **Output:** `SRR5759389_pe12.max100.trimmed.norare.noshort.fastq`
 ```{bash, eval = F}

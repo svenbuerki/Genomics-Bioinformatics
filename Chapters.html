@@ -995,9 +995,11 @@ khmer filter-abund.py -V kmer.counts -o SRR5759389_pe12.max100.trimmed.norare.fa
 </div>
 <div id="final-clean-up-of-reads" class="section level5" number="6.8.7.3.3">
 <h5><span class="header-section-number">6.8.7.3.3</span> Final clean-up of reads</h5>
-<p>Final clean-up of reads to remove low quality bases, short sequences, and non-paired reads
-- <strong>Input:</strong> <code>SRR5759389_pe12.max100.trimmed.norare.fastq</code>
-- <strong>Output:</strong> <code>SRR5759389_pe12.max100.trimmed.norare.noshort.fastq</code></p>
+<p>Final clean-up of reads to remove low quality bases, short sequences, and non-paired reads</p>
+<ul>
+<li><strong>Input:</strong> <code>SRR5759389_pe12.max100.trimmed.norare.fastq</code></li>
+<li><strong>Output:</strong> <code>SRR5759389_pe12.max100.trimmed.norare.noshort.fastq</code></li>
+</ul>
 <pre class="bash"><code># Final clean-up of reads (remove low quality bases, short sequences, and non-paired reads)
 seqtk seq -q 10 -N -L 80 SRR5759389_pe12.max100.trimmed.norare.fastq | seqtk dropse &gt; SRR5759389_pe12.max100.trimmed.norare.noshort.fastq</code></pre>
 </div>
