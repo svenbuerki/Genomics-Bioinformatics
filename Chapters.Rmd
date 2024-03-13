@@ -616,7 +616,7 @@ seqtk trimfq /home/Genomics_shared/Chapter_04/01_SRA/SRR5759389_pe12.fastq > SRR
 
 Using Phred scores to clean our data is not going to deal with PCR errors and potential effects of high repeated DNA sequences on the *de novo* assembly. Below, we will use information on k-mer distributions to address these issues and clean our dataset accordingly.
 
-##### Normalize high coverage reads, remove PCR errors and low quality reads
+##### Normalize high coverage reads and filter low abundance reads based on k-mer frequencies
 
 In the next commands, `khmer` [@khmer2015] will be used to:
 
@@ -642,7 +642,9 @@ khmer normalize-by-median.py -p --ksize 21 -C 100 -M 1e9 -s kmer.counts -o SRR57
 khmer filter-abund.py -V kmer.counts -o SRR5759389_pe12.max100.trimmed.norare.fastq SRR5759389_pe12.max100.trimmed.fastq
 ```
 
-3. Final clean-up of reads (remove low quality bases, short sequences, and non-paired reads)
+##### Final clean-up of reads
+
+Final clean-up of reads to remove low quality bases, short sequences, and non-paired reads
   - **Input:** `SRR5759389_pe12.max100.trimmed.norare.fastq`
   - **Output:** `SRR5759389_pe12.max100.trimmed.norare.noshort.fastq`
 ```{bash, eval = F}
@@ -664,7 +666,7 @@ rm SRR5759389_pe12.max100.trimmed.norare.fastq
 
 ##### Prepare data for  *de novo* genome assembly {#prepreads}
 
-In this last section, our cleaned reads are prepared for the *de novo* genome assembly analysis conducted in `SOAPdenovo2` [@Luo2012] (done in [PART 2](#PART2)). This is achieved by using `khmer` and renaming files using `mv` as follows:
+In this last section, our cleaned reads are prepared for the *de novo* genome assembly analysis conducted in `SOAPdenovo2` [@Luo2012] (done in [PART 2](#PART2)). This is achieved by using `khmer` to de-interleave reads and rename files using `mv` as follows:
 
 1. De-interleave filtered reads (to be ready for *de novo* assembly in SOAPdenovo2)
   - **Input:** `SRR5759389_pe12.max100.trimmed.norare.noshort.fastq`
