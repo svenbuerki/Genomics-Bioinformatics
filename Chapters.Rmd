@@ -700,15 +700,33 @@ Use `FastQC` to validate the reads cleaning conducted above. Please see [Step 2]
 
 ### Step 4: What's "in" the reads?
 
-Before conducting the *de novo* genome assembly (using the cleaned reads produced in [Step 3](#Step3), it is paramount to assess whether the data are contaminated and also to provide a first estimate of proportions of reads belonging to either nuclear or plastid genomes. To investigate these topics, the instructor proposes that we assess i) potential contamination by inferring reads GC contents and ii) map the clean reads against nuclear and chloroplast genome assemblies to assess proportions of reads belonging to either genomes in our library.
+After inspecting the output of the reads QC analyses, we discovered that our Illumina library contained two [distinct sequence content patterns](#Step2). This evidence together with the nature of the organism that we are studying allowed us to **hypothesize** that our data were enriched in plastid (or chloroplast) DNA over nuclear DNA. In this context, we **predict** that the 32x sequencing nuclear genome coverage inferred based on the raw data could be significantly lower. To test our hypothesis and determine the actual sequencing coverage of the nuclear genome, it is paramount to:
 
-**WARNING:** All the analyses from this step rely on `SRR5759389_pe12.max100.trimmed.norare.noshort.fastq`. If you have not been able to generate the latter file, please copy it from our shared hard drive space into your `khmer/` folder. The path is as follows:
+- Determine whether the data are contaminated
+- Provide an estimate of the proportions of reads belonging to either nuclear or chloroplast genomes. 
+
+#### Analytical workflow
+
+To investigate these topics, the instructor proposes that we conduct the following analyses:
+
+1. Determine potential library contamination by inferring reads GC contents
+2. Map clean reads against a reference nuclear genome
+3. Map clean reads against a reference chloroplast genome
+4. Determine proportion of clean reads belonging to either genomes in our library
+
+#### Input data
+
+All the analyses from this step rely on `SRR5759389_pe12.max100.trimmed.norare.noshort.fastq`. If you have not been able to generate the latter file, please copy it from our shared hard drive space into your `khmer/` folder. The path is as follows:
 
 ```{bash, eval = F}
 ## SRR5759389_pe12.max100.trimmed.norare.noshort.fastq
 # can be found at this path
 /home/Genomics_shared/Chapter_04/02_Kmers_analyses/khmer/instructor_files
 ```
+
+#### Group work
+
+Students are divided into 3-4 small groups. Each group work as a team to conduct the analyses and answer questions. Prior to assigning tasks, the group has to work on a workflow describing the analyses (input/output), used software (and arguments) and carefully reading the material prior to running jobs in secured `tmux` sessions. 
 
 #### Reads GC contents
 
@@ -830,7 +848,7 @@ samtools view -F 0x904 -c PEFY01_map_pe.sorted.bam
 samtools view -F 0x904 -c LC199394_map_pe.sorted.bam
 ```
 
-##### Question
+##### Questions
 
 > What are the proportions of nuclear and chloroplast reads in your library as well as potential contaminants?
 

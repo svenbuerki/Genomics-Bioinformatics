@@ -11,7 +11,7 @@
 
 <meta name="author" content="Sven Buerki - Boise State University" />
 
-<meta name="date" content="2024-03-13" />
+<meta name="date" content="2024-03-14" />
 
 <title>BIOL 497/597 - Genomics &amp; Bioinformatics</title>
 
@@ -383,7 +383,7 @@ div.tocify {
 <h1 class="title toc-ignore">BIOL 497/597 - Genomics &amp; Bioinformatics</h1>
 <h3 class="subtitle">Chapters</h3>
 <h4 class="author">Sven Buerki - Boise State University</h4>
-<h4 class="date">2024-03-13</h4>
+<h4 class="date">2024-03-14</h4>
 
 </div>
 
@@ -1055,13 +1055,34 @@ mv SRR5759389_pe12.max100.trimmed.norare.noshort.fastq.2 SRR5759389.pe2.clean.fa
 </div>
 <div id="step-4-whats-in-the-reads" class="section level3" number="6.8.8">
 <h3><span class="header-section-number">6.8.8</span> Step 4: What’s “in” the reads?</h3>
-<p>Before conducting the <em>de novo</em> genome assembly (using the cleaned reads produced in <a href="#Step3">Step 3</a>, it is paramount to assess whether the data are contaminated and also to provide a first estimate of proportions of reads belonging to either nuclear or plastid genomes. To investigate these topics, the instructor proposes that we assess i) potential contamination by inferring reads GC contents and ii) map the clean reads against nuclear and chloroplast genome assemblies to assess proportions of reads belonging to either genomes in our library.</p>
-<p><strong>WARNING:</strong> All the analyses from this step rely on <code>SRR5759389_pe12.max100.trimmed.norare.noshort.fastq</code>. If you have not been able to generate the latter file, please copy it from our shared hard drive space into your <code>khmer/</code> folder. The path is as follows:</p>
+<p>After inspecting the output of the reads QC analyses, we discovered that our Illumina library contained two <a href="#Step2">distinct sequence content patterns</a>. This evidence together with the nature of the organism that we are studying allowed us to <strong>hypothesize</strong> that our data were enriched in plastid (or chloroplast) DNA over nuclear DNA. In this context, we <strong>predict</strong> that the 32x sequencing nuclear genome coverage inferred based on the raw data could be significantly lower. To test our hypothesis and determine the actual sequencing coverage of the nuclear genome, it is paramount to:</p>
+<ul>
+<li>Determine whether the data are contaminated</li>
+<li>Provide an estimate of the proportions of reads belonging to either nuclear or chloroplast genomes.</li>
+</ul>
+<div id="analytical-workflow-1" class="section level4" number="6.8.8.1">
+<h4><span class="header-section-number">6.8.8.1</span> Analytical workflow</h4>
+<p>To investigate these topics, the instructor proposes that we conduct the following analyses:</p>
+<ol style="list-style-type: decimal">
+<li>Determine potential library contamination by inferring reads GC contents</li>
+<li>Map clean reads against a reference nuclear genome</li>
+<li>Map clean reads against a reference chloroplast genome</li>
+<li>Determine proportion of clean reads belonging to either genomes in our library</li>
+</ol>
+</div>
+<div id="input-data" class="section level4" number="6.8.8.2">
+<h4><span class="header-section-number">6.8.8.2</span> Input data</h4>
+<p>All the analyses from this step rely on <code>SRR5759389_pe12.max100.trimmed.norare.noshort.fastq</code>. If you have not been able to generate the latter file, please copy it from our shared hard drive space into your <code>khmer/</code> folder. The path is as follows:</p>
 <pre class="bash"><code>## SRR5759389_pe12.max100.trimmed.norare.noshort.fastq
 # can be found at this path
 /home/Genomics_shared/Chapter_04/02_Kmers_analyses/khmer/instructor_files</code></pre>
-<div id="reads-gc-contents" class="section level4" number="6.8.8.1">
-<h4><span class="header-section-number">6.8.8.1</span> Reads GC contents</h4>
+</div>
+<div id="group-work" class="section level4" number="6.8.8.3">
+<h4><span class="header-section-number">6.8.8.3</span> Group work</h4>
+<p>Students are divided into 3-4 small groups. Each group work as a team to conduct the analyses and answer questions. Prior to assigning tasks, the group has to work on a workflow describing the analyses (input/output), used software (and arguments) and carefully reading the material prior to running jobs in secured <code>tmux</code> sessions.</p>
+</div>
+<div id="reads-gc-contents" class="section level4" number="6.8.8.4">
+<h4><span class="header-section-number">6.8.8.4</span> Reads GC contents</h4>
 <p>The GC content of a sequence library can provide evidence of contamination or the presence of sequence from multiple organisms (since most organisms have specific GC profiles). A GC plot inferred from a non-contaminated library would display a smooth, unimodal distribution. The existence of shoulders, or in more extreme cases a bimodal distribution, could be indicative of the presence of sequence reads from an organism with a different GC content, which is most likely a contaminant (see Figure <a href="#fig:part1workflow">6.3</a>).</p>
 <p>Here we infer GC contents for all clean reads using the perl script <code>GC_content.pl</code>. This script requires reads to be in <code>fasta</code> format. We will then start by converting our <code>fastq</code> file into <code>fasta</code> by using <code>seqtk</code>. Data are available in the <code>GC_content/</code> folder. Please see below for the commands to be executed:</p>
 <pre class="bash"><code>#Convert fastq to fasta
@@ -1089,18 +1110,18 @@ dev.off()</code></pre>
 Figure 6.6: Histogram of GC values inferred from the cleaned library of reads (SRR5759389). See text for more details.
 </p>
 </div>
-<div id="question-1" class="section level5" number="6.8.8.1.1">
-<h5><span class="header-section-number">6.8.8.1.1</span> Question</h5>
+<div id="question-1" class="section level5" number="6.8.8.4.1">
+<h5><span class="header-section-number">6.8.8.4.1</span> Question</h5>
 <blockquote>
 <p>To your knowledge, based on data presented in Figure <a href="#fig:GC">6.6</a>, is the SRR5759389 library contaminated with alien DNA?</p>
 </blockquote>
 </div>
 </div>
-<div id="mapping-reads-against-reference-genomes" class="section level4" number="6.8.8.2">
-<h4><span class="header-section-number">6.8.8.2</span> Mapping reads against reference genomes</h4>
+<div id="mapping-reads-against-reference-genomes" class="section level4" number="6.8.8.5">
+<h4><span class="header-section-number">6.8.8.5</span> Mapping reads against reference genomes</h4>
 <p>Here we aim at assessing the proportions of reads in the clean library belonging to either nuclear or chloroplast genomes by mapping our clean reads against two reference genomes using <code>bwa</code> <span class="citation">(<a href="#ref-bwa2009" role="doc-biblioref">Li and Durbin, 2009</a>)</span> and <code>samtools</code> <span class="citation">(<a href="#ref-samtools2009" role="doc-biblioref">Li, Handsaker, et al., 2009</a>)</span>. Data are available in <code>Map_reads/</code>.</p>
-<div id="mapping-reads-against-the-nuclear-genome" class="section level5" number="6.8.8.2.1">
-<h5><span class="header-section-number">6.8.8.2.1</span> Mapping reads against the nuclear genome</h5>
+<div id="mapping-reads-against-the-nuclear-genome" class="section level5" number="6.8.8.5.1">
+<h5><span class="header-section-number">6.8.8.5.1</span> Mapping reads against the nuclear genome</h5>
 <p>The nuclear genome of <em>Apostasia shenzhenica</em> published by <span class="citation">Zhang et al. (<a href="#ref-Zhang2017" role="doc-biblioref">2017</a>)</span> is not listed in the NCBI database as “Genome”, but rather as “Assembly” (see BioProject <a href="https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA310678">PRJNA310678</a>). Please see Figure <a href="#fig:NuclearNCBI">6.7</a> for more details on the genome. This file (a compressed FASTA) is already available in your folder, but you could download it as follows:</p>
 <pre class="bash"><code>#Get Fasta files for genomes of reference
 #PEFY01 nuclear genome of Apostasia 
@@ -1123,8 +1144,8 @@ samtools index PEFY01_map_pe.sorted.bam</code></pre>
 <p>BWA is a software package for mapping low-divergent sequences against a large reference genome, such as the human genome. It consists of three algorithms: BWA-backtrack, BWA-SW and BWA-MEM. The first algorithm is designed for Illumina sequence reads up to 100bp, while the rest two for longer sequences ranged from 70bp to 1Mbp. BWA-MEM and BWA-SW share similar features such as long-read support and split alignment, but BWA-MEM, which is the latest, is generally recommended for high-quality queries as it is faster and more accurate. BWA-MEM also has better performance than BWA-backtrack for 70-100bp Illumina reads.</p>
 </blockquote>
 </div>
-<div id="mapping-reads-against-the-chloroplast-genome" class="section level5" number="6.8.8.2.2">
-<h5><span class="header-section-number">6.8.8.2.2</span> Mapping reads against the chloroplast genome</h5>
+<div id="mapping-reads-against-the-chloroplast-genome" class="section level5" number="6.8.8.5.2">
+<h5><span class="header-section-number">6.8.8.5.2</span> Mapping reads against the chloroplast genome</h5>
 <p>The chloroplast genome of <em>Apostasia shenzhenica</em> was not published. To assess the proportion of chloroplastic reads in our Illumina cleaned reads, we will use the chloroplast genome of a sister species, <em>A. wallichii</em> <span class="citation">(<a href="#ref-Niu2017" role="doc-biblioref">Niu et al., 2017</a>)</span>, which is available on the NCBI website under the accession number <code>LC199394</code>. This file (in FASTA) is already available in your folder and you do not have to download it.</p>
 <p>Please execute the commands below to map the clean reads against the reference chloroplast genome of the sister species:</p>
 <pre class="bash"><code>#Mapping reads against the chloropolast genome of a sister species
@@ -1133,8 +1154,8 @@ bwa index -a bwtsw LC199394.fasta
 bwa mem -t 20 LC199394.fasta ~/Documents/02_Kmers_analyses/khmer/SRR5759389_pe12.max100.trimmed.norare.noshort.fastq | samtools view -buS - | samtools sort - -o LC199394_map_pe.sorted.bam
 samtools index LC199394_map_pe.sorted.bam</code></pre>
 </div>
-<div id="counting-reads-belonging-to-either-nuclear-or-plastid-genomes" class="section level5" number="6.8.8.2.3">
-<h5><span class="header-section-number">6.8.8.2.3</span> Counting reads belonging to either nuclear or plastid genomes</h5>
+<div id="counting-reads-belonging-to-either-nuclear-or-plastid-genomes" class="section level5" number="6.8.8.5.3">
+<h5><span class="header-section-number">6.8.8.5.3</span> Counting reads belonging to either nuclear or plastid genomes</h5>
 <p>We have now all the information at hand to count how many reads are matching with either nuclear or chloroplast genomes (and infer proportions). Remember that it is just a very preliminary assessment, which aims at assessing the quality of the library and its suitability for <em>de novo</em> genome assembly.</p>
 <p>To reach this goal, we will start by counting the total number of cleaned reads using <code>count_fastq.sh</code> as follows:</p>
 <pre class="bash"><code>#Count the tot. number of clean reads
@@ -1146,8 +1167,8 @@ samtools view -F 0x904 -c PEFY01_map_pe.sorted.bam
 #How many unique reads mapped the chloroplast genome
 samtools view -F 0x904 -c LC199394_map_pe.sorted.bam</code></pre>
 </div>
-<div id="question-2" class="section level5" number="6.8.8.2.4">
-<h5><span class="header-section-number">6.8.8.2.4</span> Question</h5>
+<div id="questions-2" class="section level5" number="6.8.8.5.4">
+<h5><span class="header-section-number">6.8.8.5.4</span> Questions</h5>
 <blockquote>
 <p>What are the proportions of nuclear and chloroplast reads in your library as well as potential contaminants?</p>
 </blockquote>
@@ -1234,7 +1255,7 @@ dev.off()</code></pre>
 <div id="transfer-files-onto-your-personnal-computer" class="section level4" number="6.8.9.2">
 <h4><span class="header-section-number">6.8.9.2</span> Transfer files onto your personnal computer</h4>
 <p>Please use <code>FileZilla</code> or the <code>sftp</code> protocol (if you have a UNIX-based OS) to transfer <code>GenomeSize.pdf</code> and <code>Orchid_21mer_SRR5759389_pe12_max100.trimmed.norare.histo</code> onto your personal computer. The latter file will be required to conduct the <code>GenomeScope</code> analysis (see below).</p>
-<div id="questions-2" class="section level5" number="6.8.9.2.1">
+<div id="questions-3" class="section level5" number="6.8.9.2.1">
 <h5><span class="header-section-number">6.8.9.2.1</span> Questions</h5>
 <blockquote>
 <p>What is the haploid genome size of <em>Apostasia shenzhenica</em>?</p>
@@ -1289,7 +1310,7 @@ Figure 6.9: Output of the GenomeScope analysis.
 </ul>
 <p><strong>WARNING:</strong> You have to complete section <a href="#prepreads">6.8.7.3.5</a> before starting this section.</p>
 </div>
-<div id="analytical-workflow-1" class="section level3" number="6.9.3">
+<div id="analytical-workflow-2" class="section level3" number="6.9.3">
 <h3><span class="header-section-number">6.9.3</span> Analytical workflow</h3>
 <p>To achieve our overarching objective, our next classes will be divided into two steps:</p>
 <ul>
@@ -1481,7 +1502,7 @@ N50_contig-NG50_contig_length_difference        NaN
 Number_of_contigs_in_scaffolds  178065
 Number_of_contigs_not_in_scaffolds(Singleton)   148213
 Average_number_of_contigs_per_scaffold  3.1</code></pre>
-<div id="questions-3" class="section level4" number="6.10.2.1">
+<div id="questions-4" class="section level4" number="6.10.2.1">
 <h4><span class="header-section-number">6.10.2.1</span> Questions</h4>
 <blockquote>
 <p>Why does the scaffold sequence contain Ns?</p>
