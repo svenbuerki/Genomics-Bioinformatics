@@ -709,10 +709,10 @@ After inspecting the output of the reads QC analyses, we discovered that our Ill
 
 To investigate these topics, the instructor proposes that we conduct the following analyses:
 
-1. Determine potential library contamination by inferring reads GC contents
-2. Map clean reads against a reference nuclear genome
-3. Map clean reads against a reference chloroplast genome
-4. Determine proportion of clean reads belonging to either genomes in our library
+1. [Determine potential library contamination by inferring reads GC contents](#GCcounts)
+2. [Map clean reads against a reference nuclear genome](#mapnrDNA)
+3. [Map clean reads against a reference chloroplast genome](#mapcpDNA)
+4. [Determine proportion of clean reads belonging to either genomes in our library](#countReads)
 
 #### Input data
 
@@ -728,16 +728,29 @@ All the analyses from this step rely on `SRR5759389_pe12.max100.trimmed.norare.n
 
 Students are divided into 3-4 small groups. Each group work as a team to conduct the analyses and answer questions. Prior to assigning tasks, the group has to work on a workflow describing the analyses (input/output), used software (and arguments) and carefully reading the material prior to running jobs in secured `tmux` sessions. 
 
-#### Reads GC contents
+#### Reads GC contents {#GCcounts}
 
-The GC content of a sequence library can provide evidence of contamination or the presence of sequence from multiple organisms (since most organisms have specific GC profiles). A GC plot inferred from a non-contaminated library would display a smooth, unimodal distribution. The existence of shoulders, or in more extreme cases a bimodal distribution, could be indicative of the presence of sequence reads from  an organism with a different GC content, which is most likely a contaminant (see Figure \@ref(fig:part1workflow)). 
+The GC content of a sequence library can provide evidence of contamination or the presence of sequence from multiple organisms (since most organisms have specific GC profiles). A GC plot inferred from a non-contaminated library would display a smooth, uni-modal distribution. The existence of shoulders, or in more extreme cases a bi-modal distribution, could be indicative of the presence of sequence reads from  an organism with a different GC content, which is most likely a contaminant (see Figure \@ref(fig:part1workflow)). 
 
-Here we infer GC contents for all clean reads using the perl script `GC_content.pl`. This script requires reads to be in `fasta` format. We will then start by converting our `fastq` file into `fasta` by using `seqtk`. Data are available in the `GC_content/` folder. Please see below for the commands to be executed:
+##### Bioinformatics
+
+Here we infer GC contents for all clean reads using the perl script `GC_content.pl`. This script requires reads to be in `fasta` format. We will then start by converting our `fastq` file into `fasta` by using `seqtk`. Data are available in the `~/Documents/02_Kmers_analyses/GC_content/` folder. Please see below for the commands to be executed:
+
+1. Convert clean reads from `fastq` to `fasta`
+
+- **Input:** `SRR5759389_pe12.max100.trimmed.norare.noshort.fastq`
+- **Output:** `SRR5759389_pe12.max100.trimmed.norare.noshort.fasta`
 
 ```{bash, eval = F}
 #Convert fastq to fasta
 seqtk seq -a ~/Documents/02_Kmers_analyses/khmer/SRR5759389_pe12.max100.trimmed.norare.noshort.fastq > SRR5759389_pe12.max100.trimmed.norare.noshort.fasta
 ```
+
+2. Infer GC content of all cleaned reads in `fasta` format
+
+- **Input:** `SRR5759389_pe12.max100.trimmed.norare.noshort.fasta`
+- **Output:** `gc_out.txt` --> Don't execute command and just use this file for next analyses
+
 
 **PLEASE DON'T EXECUTE THE COMMAND BELOW!** It takes few hours to calculate reads GC contents. Use the output of this command `gc_out.txt` (weighing ca. 5GB), which is available in the `GC_content/` folder to carry on our analyses. 
 
@@ -746,12 +759,22 @@ seqtk seq -a ~/Documents/02_Kmers_analyses/khmer/SRR5759389_pe12.max100.trimmed.
 ./GC_content.pl SRR5759389_pe12.max100.trimmed.norare.noshort.fasta > gc_out.txt
 ```
 
+3. Mine reads GC content in large file
+
+- **Input:** `gc_out.txt`
+- **Output:** `gc_simple.txt`
+
 The next command extracts the column containing the GC content per read from `gc_out.txt` (located in `GC_content/`). Since the file is very big, we use the BASH command `awk` to extract this information instead of `R`.
 
 ```{bash, eval = F}
 #Extract reads GC contents (the file is big and can't be processed easily)
 awk '{print$2}' gc_out.txt > gc_simple.txt
 ```
+
+4. Infer histogram of GC contents in cleaned library
+
+- **Input:** `gc_simple.txt`
+- **Output:** `GC_content_hist.pdf`
 
 The last part of the analysis will be executed in `R` where we will load the data and create a histogram to look at the distribution of reads GC contents.
 
@@ -784,7 +807,7 @@ knitr::include_graphics("Images/GC_content_hist.png")
 
 Here we aim at assessing the proportions of reads in the clean library belonging to either nuclear or chloroplast genomes by mapping our clean reads against two reference genomes using `bwa` [@bwa2009] and `samtools` [@samtools2009].  Data are available in `Map_reads/`.
 
-##### Mapping reads against the nuclear genome
+##### Mapping reads against the nuclear genome {#mapnrDNA}
 
 The nuclear genome of *Apostasia shenzhenica* published by @Zhang2017 is not listed in the NCBI database as "Genome", but rather as "Assembly" (see BioProject [PRJNA310678](https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA310678)). Please see Figure \@ref(fig:NuclearNCBI) for more details on the genome. This file (a compressed FASTA) is already available in your folder, but you could download it as follows:
 
@@ -798,7 +821,15 @@ wget ftp://ftp.ncbi.nlm.nih.gov/sra/wgs_aux/PE/FY/PEFY01/PEFY01.1.fsa_nt.gz
 knitr::include_graphics("Images/Nuclear_genome_assembly.png")
 ```
 
+##### Bioinformatics
+
 Please go through the commands below to map your clean reads against the reference nuclear genome assembly:
+
+1. Map `fastq` cleaned reads to nuclear reference genome assembly (in `fasta`) using `bowtie`
+
+- **Input:** `SRR5759389_pe12.max100.trimmed.norare.noshort.fastq` and `PEFY01.1.fsa_nt.gz`
+- **Output:** `PEFY01_map_pe.sorted.bam`
+  * This file will be used as input for counting reads
 
 ```{bash eval=F, echo=T}
 #Mapping clean reads against reference genome using bwa and converting into human readable format using samtools
@@ -813,11 +844,19 @@ We will be devoting time to decipher these commands during our Lab sessions. For
 
 > BWA is a software package for mapping low-divergent sequences against a large reference genome, such as the human genome. It consists of three algorithms: BWA-backtrack, BWA-SW and BWA-MEM. The first algorithm is designed for Illumina sequence reads up to 100bp, while the rest two for longer sequences ranged from 70bp to 1Mbp. BWA-MEM and BWA-SW share similar features such as long-read support and split alignment, but BWA-MEM, which is the latest, is generally recommended for high-quality queries as it is faster and more accurate. BWA-MEM also has better performance than BWA-backtrack for 70-100bp Illumina reads.
 
-##### Mapping reads against the chloroplast genome
+##### Mapping reads against the chloroplast genome {#mapcpDNA}
 
 The chloroplast genome of *Apostasia shenzhenica* was not published. To assess the proportion of chloroplastic reads in our Illumina cleaned reads, we will use the chloroplast genome of a sister species, *A. wallichii* [@Niu2017], which is available on the NCBI website under the accession number `LC199394`. This file (in FASTA) is already available in your folder and you do not have to download it.
 
+##### Bioinformatics
+
 Please execute the commands below to map the clean reads against the reference chloroplast genome of the sister species: 
+
+1. Map `fastq` cleaned reads to chloroplast genome assembly (in `fasta`) using `bowtie`
+
+- **Input:** `SRR5759389_pe12.max100.trimmed.norare.noshort.fastq` and `LC199394.fasta`
+- **Output:** `LC199394_map_pe.sorted.bam`
+  * This file will be used as input for counting reads
 
 ```{bash eval= F, echo=T}
 #Mapping reads against the chloropolast genome of a sister species
@@ -827,16 +866,26 @@ bwa mem -t 20 LC199394.fasta ~/Documents/02_Kmers_analyses/khmer/SRR5759389_pe12
 samtools index LC199394_map_pe.sorted.bam
 ```
 
-##### Counting reads belonging to either nuclear or plastid genomes
+##### Counting reads belonging to nuclear and chloroplast genomes {#countReads}
 
 We have now all the information at hand to count how many reads are matching with either nuclear or chloroplast genomes (and infer proportions). Remember that it is just a very preliminary assessment, which aims at assessing the quality of the library and its suitability for *de novo* genome assembly.
 
-To reach this goal, we will start by counting the total number of cleaned reads using `count_fastq.sh` as follows:
+##### Bioinformatics
+
+1. Count the total number of cleaned reads using `count_fastq.sh`
+
+- **Input:** `SRR5759389_pe12.max100.trimmed.norare.noshort.fastq`
+- **Output:** A number echoed on the screen.
 
 ```{bash eval=F, echo=T}
-#Count the tot. number of clean reads
+#Count the total number of clean reads
 ./count_fastq.sh ~/Documents/02_Kmers_analyses/khmer/SRR5759389_pe12.max100.trimmed.norare.noshort.fastq
 ```
+
+2. Count the number of cleaned reads mapping to each genome
+
+- **Input:** `PEFY01_map_pe.sorted.bam` and `LC199394_map_pe.sorted.bam`
+- **Output:** Two numbers (one per command) echoed on the screen.
 
 Now, we will use `samtools` to count how many unique reads mapped the reference genomes:
 
@@ -847,6 +896,10 @@ samtools view -F 0x904 -c PEFY01_map_pe.sorted.bam
 #How many unique reads mapped the chloroplast genome
 samtools view -F 0x904 -c LC199394_map_pe.sorted.bam
 ```
+
+3. Infer the proportion of cleaned reads belonging to each genome
+
+The instructor let you work on code to determine these values.
 
 ##### Questions
 
