@@ -855,8 +855,8 @@ Please execute the commands below to map the clean reads against the reference c
 1. Map `fastq` cleaned reads to chloroplast genome assembly (in `fasta`) using `bowtie`
 
 - **Input:** `SRR5759389_pe12.max100.trimmed.norare.noshort.fastq` and `LC199394.fasta`
-- **Output:** `LC199394_map_pe.sorted.bam`
-  * This file will be used as input for counting reads
+- **Output:** `LC199394_map_pe.sorted.bam` 
+    * This file will be used as input for counting reads
 
 ```{bash eval= F, echo=T}
 #Mapping reads against the chloropolast genome of a sister species
@@ -915,7 +915,11 @@ In this section, we aim at utilizing data on [k-mer](#kmers) frequencies to **es
 
 #### Methodology
 
-The `JELLYFISH` [@Jellyfish2011] program is a tool for fast, memory-efficient counting of k-mers in DNA sequences. `JELLYFISH` is a command-line program that reads FASTA and multi-FASTA files containing DNA sequences and it outputs k-mer counts in an binary format (which can easily be translated into a human-readable text). Finally, the output of `JELLYFISH` will be used to estimate the genome size and complexity of the *Apostasia shenzhenica* nuclear genome by using `R` and `GenomeScope` [@genomescope].   
+The `JELLYFISH` [@Jellyfish2011] program is a tool for fast, memory-efficient counting of k-mers in DNA sequences. `JELLYFISH` is a command-line program that reads FASTA and multi-FASTA files containing DNA sequences and it outputs k-mer counts in an binary format (which can easily be translated into a human-readable text). Finally, the output of `JELLYFISH` will be used to estimate the genome size and complexity of the *Apostasia shenzhenica* nuclear genome by using `R` and `GenomeScope` [@genomescope].
+
+#### Group work
+
+In this section, the `JELLYFISH` analysis has to be done in groups, but the rest of the analyses (in `R` and with `GenomeScope`) can be done individually.
 
 #### Generate countings of k-mers
 
@@ -936,6 +940,12 @@ jellyfish count -t 30 -C -m 21 -s 5G -o Orchid_21mer_SRR5759389_pe12_max100.trim
 
 jellyfish histo -o Orchid_21mer_SRR5759389_pe12_max100.trimmed.norare.histo Orchid_21mer_SRR5759389_pe12_max100.trimmed.norare
 ```
+
+**Note:** To ensure that everybody can run the rest of the analyses on their own, copy `Orchid_21mer_SRR5759389_pe12_max100.trimmed.norare.histo` into the shared folder at this path:
+
+- `/home/Genomics_shared/Chapter_04/02_Kmers_analyses/`
+
+Each member of the group will then copy this file over to their account (at the right path) to pursue the analyses.
 
 #### Infer genome size with `R`
 
