@@ -907,22 +907,39 @@ The instructor let you work on code to determine these values.
 
 > Based on your previous answer, is this library suitable to assemble the nuclear genome of *Apostasia shenzhenica*? 
 
-### Step 5: Estimate genome size and other genomic features using k-mer frequencies
+### Step 5: Estimate genome size and other genomic features
 
-In this section, data on [k-mer](#kmers) frequencies are used to estimate nuclear genome size and tease apart the proportion of the genome associated with low copy genes (also referred to as unique sequences) and repetitive DNA. The `JELLYFISH` [@Jellyfish2011] program is a tool for fast, memory-efficient counting of k-mers in DNA. `JELLYFISH` is a command-line program that reads FASTA and multi-FASTA files containing DNA sequences and it outputs k-mer counts in an binary format (which can easily be translated into a human-readable text). We will be using the apporach implemented in `JELLYFISH` to estimate the genome size and complexity of the *Apostasia shenzhenica* nuclear genome based on the Illumina data.   
+#### Aim
 
-#### Estimate genome size
+In this section, we aim at utilizing data on [k-mer](#kmers) frequencies to **estimate the nuclear genome size and tease apart the proportion of the genome associated with low copy genes** (also referred to as unique sequences) **and repetitive DNA**. 
 
-Here, we are using `JELLYFISH` to generate countings of 21-mers based on the cleaned Illumina reads. We will subsequently input the output of this program into `R` to estimate the genome size based on k-mer frequencies. The data are available in `Jellyfish/`.  
+#### Methodology
+
+The `JELLYFISH` [@Jellyfish2011] program is a tool for fast, memory-efficient counting of k-mers in DNA sequences. `JELLYFISH` is a command-line program that reads FASTA and multi-FASTA files containing DNA sequences and it outputs k-mer counts in an binary format (which can easily be translated into a human-readable text). Finally, the output of `JELLYFISH` will be used to estimate the genome size and complexity of the *Apostasia shenzhenica* nuclear genome by using `R` and `GenomeScope` [@genomescope].   
+
+#### Generate countings of k-mers
+
+Here, we are using `JELLYFISH` to generate countings of 21-mers based on the cleaned Illumina reads (`SRR5759389_pe12.max100.trimmed.norare.noshort.fastq`). We will subsequently input the output of this program into `R` to estimate the genome size based on k-mer frequencies. 
+
+The data are available in `Jellyfish/` and all analyses must be done in your `tmux` Part1 session.  
+
+- **Input:** `SRR5759389_pe12.max100.trimmed.norare.noshort.fastq`
+- **Output:** `Orchid_21mer_SRR5759389_pe12_max100.trimmed.norare.histo`
+
+**Note:** This job uses 30 CPUs (or Central Processing Units) to infer k-mers and it would be best to work in groups to execute these tasks.
 
 ```{bash eval=F, echo=T}
- #Run jellyfish to obtain k-mer counts and frequencies (based on trimmed, normalized and filtered reads)
-jellyfish count -t 30 -C -m 21 -s 5G -o 	Orchid_21mer_SRR5759389_pe12_max100.trimmed.norare ~/Documents/02_Kmers_analyses/khmer/SRR5759389_pe12.max100.trimmed.norare.noshort.fastq
+# 1. Navigate to the right folder (Jellyfish/) using cd
+
+# 2. Run jellyfish to obtain k-mer counts and frequencies (based on trimmed, normalized and filtered reads)
+jellyfish count -t 30 -C -m 21 -s 5G -o Orchid_21mer_SRR5759389_pe12_max100.trimmed.norare ~/Documents/02_Kmers_analyses/khmer/SRR5759389_pe12.max100.trimmed.norare.noshort.fastq
 
 jellyfish histo -o Orchid_21mer_SRR5759389_pe12_max100.trimmed.norare.histo Orchid_21mer_SRR5759389_pe12_max100.trimmed.norare
 ```
 
-Once the analyses are completed, please open an `R` session (in e.g. `RStudio`) and execute the following command to estimate the haploid (1x) genome size. Here, genome size is estimate as follows:
+#### Infer genome size with `R`
+
+Once the `JELLYFISH` analysis is completed, please open an `R` session and execute the following command to estimate the haploid (1x) genome size. Here, genome size is estimate as follows:
 
 ```{r echo=T, eval=F}
 #Genome size (N) is equal to:
@@ -948,7 +965,7 @@ See https://bookdown.org/yihui/rmarkdown-cookbook/read-chunk.html
 
 Please use `FileZilla` or the `sftp` protocol (if you have a UNIX-based OS) to transfer `GenomeSize.pdf` and `Orchid_21mer_SRR5759389_pe12_max100.trimmed.norare.histo` onto your personal computer. The latter file will be required to conduct the `GenomeScope` analysis (see below).
 
-##### Questions
+#### Questions
 
 > What is the haploid genome size of *Apostasia shenzhenica*?
 
@@ -958,9 +975,11 @@ Please use `FileZilla` or the `sftp` protocol (if you have a UNIX-based OS) to t
 
 #### Use GenomeScope to estimate heterozygosity, unique genes, repetitive DNA and PCR errors
 
-Finally, the last step of our preliminary analyses prior to *de novo* genome assembly is aimed at estimating heterozygosity, unique genes, repetitive DNA and PCR errors. These analyses are conducted by using the approach implemented in the online tool `GenomeScope` [@genomescope]. The authors of this program developed an equation to model the shape and size of the k-mer graph by using four negative binomial peaks which shape and size are determined by % heterozygosity, % PCR duplication, and % PCR Error. 
+##### Aim
 
-##### Let's run the analysis 
+Finally, the last step of our preliminary analyses prior to *de novo* genome assembly aims at **estimating heterozygosity, unique genes, repetitive DNA and PCR errors**. These analyses are conducted by using the approach implemented in the online tool `GenomeScope` [@genomescope]. The authors of this program developed an equation to model the shape and size of the k-mer graph by using four negative binomial peaks which shape and size are determined by % heterozygosity, % PCR duplication, and % PCR Error. 
+
+##### Bioinformatics 
 
 Open a web browser and navigate to the GenomeScope website (http://qb.cshl.edu/genomescope/). Once on the website, upload `Orchid_21mer_SRR5759389_pe12_max100.trimmed.norare.histo` by dragging your file onto the small window and set the analysis as provided in Figure \@ref(fig:GenScope1).
 
@@ -977,6 +996,14 @@ Please see this [tutorial](https://bioinformaticsworkbook.org/dataAnalysis/Genom
 ```{r GenScope2, echo=FALSE, fig.align="center", fig.cap="Output of the GenomeScope analysis.", fig.show="asis", out.width = '80%'}
 knitr::include_graphics("Images/genomescope1.png")
 ```
+
+#### Questions
+
+> How do estimations of genome size differ between R and GenomeScope?
+
+> What is the level of genomic heterozygosity of *Apostasia shenzhenica*?
+
+> Is the genome of *Apostasia shenzhenica* enriched in repeats?
 
 ## PART 2: *De novo* genome assembly {#PART2}
 

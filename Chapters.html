@@ -11,7 +11,7 @@
 
 <meta name="author" content="Sven Buerki - Boise State University" />
 
-<meta name="date" content="2024-03-15" />
+<meta name="date" content="2024-03-25" />
 
 <title>BIOL 497/597 - Genomics &amp; Bioinformatics</title>
 
@@ -383,7 +383,7 @@ div.tocify {
 <h1 class="title toc-ignore">BIOL 497/597 - Genomics &amp; Bioinformatics</h1>
 <h3 class="subtitle">Chapters</h3>
 <h4 class="author">Sven Buerki - Boise State University</h4>
-<h4 class="date">2024-03-15</h4>
+<h4 class="date">2024-03-25</h4>
 
 </div>
 
@@ -1255,17 +1255,35 @@ samtools view -F 0x904 -c LC199394_map_pe.sorted.bam</code></pre>
 </div>
 </div>
 </div>
-<div id="step-5-estimate-genome-size-and-other-genomic-features-using-k-mer-frequencies" class="section level3" number="6.8.9">
-<h3><span class="header-section-number">6.8.9</span> Step 5: Estimate genome size and other genomic features using k-mer frequencies</h3>
-<p>In this section, data on <a href="#kmers">k-mer</a> frequencies are used to estimate nuclear genome size and tease apart the proportion of the genome associated with low copy genes (also referred to as unique sequences) and repetitive DNA. The <code>JELLYFISH</code> <span class="citation">(<a href="#ref-Jellyfish2011" role="doc-biblioref">Marçais and Kingsford, 2011</a>)</span> program is a tool for fast, memory-efficient counting of k-mers in DNA. <code>JELLYFISH</code> is a command-line program that reads FASTA and multi-FASTA files containing DNA sequences and it outputs k-mer counts in an binary format (which can easily be translated into a human-readable text). We will be using the apporach implemented in <code>JELLYFISH</code> to estimate the genome size and complexity of the <em>Apostasia shenzhenica</em> nuclear genome based on the Illumina data.</p>
-<div id="estimate-genome-size" class="section level4" number="6.8.9.1">
-<h4><span class="header-section-number">6.8.9.1</span> Estimate genome size</h4>
-<p>Here, we are using <code>JELLYFISH</code> to generate countings of 21-mers based on the cleaned Illumina reads. We will subsequently input the output of this program into <code>R</code> to estimate the genome size based on k-mer frequencies. The data are available in <code>Jellyfish/</code>.</p>
-<pre class="bash"><code> #Run jellyfish to obtain k-mer counts and frequencies (based on trimmed, normalized and filtered reads)
-jellyfish count -t 30 -C -m 21 -s 5G -o     Orchid_21mer_SRR5759389_pe12_max100.trimmed.norare ~/Documents/02_Kmers_analyses/khmer/SRR5759389_pe12.max100.trimmed.norare.noshort.fastq
+<div id="step-5-estimate-genome-size-and-other-genomic-features" class="section level3" number="6.8.9">
+<h3><span class="header-section-number">6.8.9</span> Step 5: Estimate genome size and other genomic features</h3>
+<div id="aim" class="section level4" number="6.8.9.1">
+<h4><span class="header-section-number">6.8.9.1</span> Aim</h4>
+<p>In this section, we aim at utilizing data on <a href="#kmers">k-mer</a> frequencies to <strong>estimate the nuclear genome size and tease apart the proportion of the genome associated with low copy genes</strong> (also referred to as unique sequences) <strong>and repetitive DNA</strong>.</p>
+</div>
+<div id="methodology" class="section level4" number="6.8.9.2">
+<h4><span class="header-section-number">6.8.9.2</span> Methodology</h4>
+<p>The <code>JELLYFISH</code> <span class="citation">(<a href="#ref-Jellyfish2011" role="doc-biblioref">Marçais and Kingsford, 2011</a>)</span> program is a tool for fast, memory-efficient counting of k-mers in DNA sequences. <code>JELLYFISH</code> is a command-line program that reads FASTA and multi-FASTA files containing DNA sequences and it outputs k-mer counts in an binary format (which can easily be translated into a human-readable text). Finally, the output of <code>JELLYFISH</code> will be used to estimate the genome size and complexity of the <em>Apostasia shenzhenica</em> nuclear genome by using <code>R</code> and <code>GenomeScope</code> <span class="citation">(<a href="#ref-genomescope" role="doc-biblioref">Vurture et al., 2017</a>)</span>.</p>
+</div>
+<div id="generate-countings-of-k-mers" class="section level4" number="6.8.9.3">
+<h4><span class="header-section-number">6.8.9.3</span> Generate countings of k-mers</h4>
+<p>Here, we are using <code>JELLYFISH</code> to generate countings of 21-mers based on the cleaned Illumina reads (<code>SRR5759389_pe12.max100.trimmed.norare.noshort.fastq</code>). We will subsequently input the output of this program into <code>R</code> to estimate the genome size based on k-mer frequencies.</p>
+<p>The data are available in <code>Jellyfish/</code> and all analyses must be done in your <code>tmux</code> Part1 session.</p>
+<ul>
+<li><strong>Input:</strong> <code>SRR5759389_pe12.max100.trimmed.norare.noshort.fastq</code></li>
+<li><strong>Output:</strong> <code>Orchid_21mer_SRR5759389_pe12_max100.trimmed.norare.histo</code></li>
+</ul>
+<p><strong>Note:</strong> This job uses 30 CPUs (or Central Processing Units) to infer k-mers and it would be best to work in groups to execute these tasks.</p>
+<pre class="bash"><code># 1. Navigate to the right folder (Jellyfish/) using cd
+
+# 2. Run jellyfish to obtain k-mer counts and frequencies (based on trimmed, normalized and filtered reads)
+jellyfish count -t 30 -C -m 21 -s 5G -o Orchid_21mer_SRR5759389_pe12_max100.trimmed.norare ~/Documents/02_Kmers_analyses/khmer/SRR5759389_pe12.max100.trimmed.norare.noshort.fastq
 
 jellyfish histo -o Orchid_21mer_SRR5759389_pe12_max100.trimmed.norare.histo Orchid_21mer_SRR5759389_pe12_max100.trimmed.norare</code></pre>
-<p>Once the analyses are completed, please open an <code>R</code> session (in e.g. <code>RStudio</code>) and execute the following command to estimate the haploid (1x) genome size. Here, genome size is estimate as follows:</p>
+</div>
+<div id="infer-genome-size-with-r" class="section level4" number="6.8.9.4">
+<h4><span class="header-section-number">6.8.9.4</span> Infer genome size with <code>R</code></h4>
+<p>Once the <code>JELLYFISH</code> analysis is completed, please open an <code>R</code> session and execute the following command to estimate the haploid (1x) genome size. Here, genome size is estimate as follows:</p>
 <pre class="r"><code>#Genome size (N) is equal to:
 N = Total numbers of k-mers / Peak of coverage (here ca. 22x)
 N = Area under the curve / Peak of coverage</code></pre>
@@ -1329,11 +1347,12 @@ pdf(&quot;GenomeSize.pdf&quot;)
 GenomeSize(Clean, plotKmers = &quot;TRUE&quot;)
 dev.off()</code></pre>
 </div>
-<div id="transfer-files-onto-your-personnal-computer" class="section level4" number="6.8.9.2">
-<h4><span class="header-section-number">6.8.9.2</span> Transfer files onto your personnal computer</h4>
+<div id="transfer-files-onto-your-personnal-computer" class="section level4" number="6.8.9.5">
+<h4><span class="header-section-number">6.8.9.5</span> Transfer files onto your personnal computer</h4>
 <p>Please use <code>FileZilla</code> or the <code>sftp</code> protocol (if you have a UNIX-based OS) to transfer <code>GenomeSize.pdf</code> and <code>Orchid_21mer_SRR5759389_pe12_max100.trimmed.norare.histo</code> onto your personal computer. The latter file will be required to conduct the <code>GenomeScope</code> analysis (see below).</p>
-<div id="questions-3" class="section level5" number="6.8.9.2.1">
-<h5><span class="header-section-number">6.8.9.2.1</span> Questions</h5>
+</div>
+<div id="questions-3" class="section level4" number="6.8.9.6">
+<h4><span class="header-section-number">6.8.9.6</span> Questions</h4>
 <blockquote>
 <p>What is the haploid genome size of <em>Apostasia shenzhenica</em>?</p>
 </blockquote>
@@ -1344,12 +1363,14 @@ dev.off()</code></pre>
 <p>Finally, are the latter two estimations close to the 349 Mb provided in <span class="citation">Zhang et al. (<a href="#ref-Zhang2017" role="doc-biblioref">2017</a>)</span>?</p>
 </blockquote>
 </div>
+<div id="use-genomescope-to-estimate-heterozygosity-unique-genes-repetitive-dna-and-pcr-errors" class="section level4" number="6.8.9.7">
+<h4><span class="header-section-number">6.8.9.7</span> Use GenomeScope to estimate heterozygosity, unique genes, repetitive DNA and PCR errors</h4>
+<div id="aim-1" class="section level5" number="6.8.9.7.1">
+<h5><span class="header-section-number">6.8.9.7.1</span> Aim</h5>
+<p>Finally, the last step of our preliminary analyses prior to <em>de novo</em> genome assembly aims at <strong>estimating heterozygosity, unique genes, repetitive DNA and PCR errors</strong>. These analyses are conducted by using the approach implemented in the online tool <code>GenomeScope</code> <span class="citation">(<a href="#ref-genomescope" role="doc-biblioref">Vurture et al., 2017</a>)</span>. The authors of this program developed an equation to model the shape and size of the k-mer graph by using four negative binomial peaks which shape and size are determined by % heterozygosity, % PCR duplication, and % PCR Error.</p>
 </div>
-<div id="use-genomescope-to-estimate-heterozygosity-unique-genes-repetitive-dna-and-pcr-errors" class="section level4" number="6.8.9.3">
-<h4><span class="header-section-number">6.8.9.3</span> Use GenomeScope to estimate heterozygosity, unique genes, repetitive DNA and PCR errors</h4>
-<p>Finally, the last step of our preliminary analyses prior to <em>de novo</em> genome assembly is aimed at estimating heterozygosity, unique genes, repetitive DNA and PCR errors. These analyses are conducted by using the approach implemented in the online tool <code>GenomeScope</code> <span class="citation">(<a href="#ref-genomescope" role="doc-biblioref">Vurture et al., 2017</a>)</span>. The authors of this program developed an equation to model the shape and size of the k-mer graph by using four negative binomial peaks which shape and size are determined by % heterozygosity, % PCR duplication, and % PCR Error.</p>
-<div id="lets-run-the-analysis" class="section level5" number="6.8.9.3.1">
-<h5><span class="header-section-number">6.8.9.3.1</span> Let’s run the analysis</h5>
+<div id="bioinformatics-6" class="section level5" number="6.8.9.7.2">
+<h5><span class="header-section-number">6.8.9.7.2</span> Bioinformatics</h5>
 <p>Open a web browser and navigate to the GenomeScope website (<a href="http://qb.cshl.edu/genomescope/" class="uri">http://qb.cshl.edu/genomescope/</a>). Once on the website, upload <code>Orchid_21mer_SRR5759389_pe12_max100.trimmed.norare.histo</code> by dragging your file onto the small window and set the analysis as provided in Figure <a href="#fig:GenScope1">6.8</a>.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:GenScope1"></span>
 <img src="Images/Screen.png" alt="Screen shot of the GenomeScope portal to help you setting your analysis." width="100%" />
@@ -1358,8 +1379,8 @@ Figure 6.8: Screen shot of the GenomeScope portal to help you setting your analy
 </p>
 </div>
 </div>
-<div id="interpreting-results-of-genomescope" class="section level5" number="6.8.9.3.2">
-<h5><span class="header-section-number">6.8.9.3.2</span> Interpreting results of GenomeScope</h5>
+<div id="interpreting-results-of-genomescope" class="section level5" number="6.8.9.7.3">
+<h5><span class="header-section-number">6.8.9.7.3</span> Interpreting results of GenomeScope</h5>
 <p>The output of <code>GenomeScope</code> is displayed in Figure <a href="#fig:GenScope2">6.9</a>. The program outputs two plots and the only difference between those is that the the second plot is using a log transformation for the axes. This transformation allows better teasing apart the different elements studied here. The big peak at 25 in the graph above is in fact the diploid homozygous (i.e., AA) portions of the genome that account for the identical 21-mers from both strands of the DNA (haploid genome mostly composed of single-copy genes). The dotted line corresponds to the predicted center of that peak. The absence of a shoulder to the left of the peak suggests that this genome has a very low level of heterozygosity (i.e., AB). The red line on the left corresponds to PCR errors. Finally, the proportion of unique sequences, which would correspond to low-copy genes is depicted by the yellow line and the amount of repetitive DNA is estimated by comparing the “space” between the black and yellow lines (on the right side of the graph).</p>
 <p>Please see this <a href="https://bioinformaticsworkbook.org/dataAnalysis/GenomeAssembly/genomescope.html#gsc.tab=0">tutorial</a> for more information on the model implemented in <code>GenomeScope</code> and interpretation of the results.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:GenScope2"></span>
@@ -1369,6 +1390,18 @@ Figure 6.9: Output of the GenomeScope analysis.
 </p>
 </div>
 </div>
+</div>
+<div id="questions-4" class="section level4" number="6.8.9.8">
+<h4><span class="header-section-number">6.8.9.8</span> Questions</h4>
+<blockquote>
+<p>How do estimations of genome size differ between R and GenomeScope?</p>
+</blockquote>
+<blockquote>
+<p>What is the level of genomic heterozygosity of <em>Apostasia shenzhenica</em>?</p>
+</blockquote>
+<blockquote>
+<p>Is the genome of <em>Apostasia shenzhenica</em> enriched in repeats?</p>
+</blockquote>
 </div>
 </div>
 </div>
@@ -1579,7 +1612,7 @@ N50_contig-NG50_contig_length_difference        NaN
 Number_of_contigs_in_scaffolds  178065
 Number_of_contigs_not_in_scaffolds(Singleton)   148213
 Average_number_of_contigs_per_scaffold  3.1</code></pre>
-<div id="questions-4" class="section level4" number="6.10.2.1">
+<div id="questions-5" class="section level4" number="6.10.2.1">
 <h4><span class="header-section-number">6.10.2.1</span> Questions</h4>
 <blockquote>
 <p>Why does the scaffold sequence contain Ns?</p>
