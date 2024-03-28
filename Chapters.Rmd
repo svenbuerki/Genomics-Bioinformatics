@@ -1079,9 +1079,11 @@ Overall, because we estimated in the previous tutorial that this library provide
 
 Running a `SOAPdenovo2` analysis is a three steps process:
 
-- **Step 1:** Create a folder and copy the de-interleaved cleaned paired-end 'fastq' files.
+- **Step 1:** Create a folder and move the de-interleaved cleaned paired-end 'fastq' files.
 - **Step 2:** Create a `SOAPdenovo2` configuration file providing settings for the analysis.
 - **Step 3:** Run the *de novo* genome assembly analysis.
+
+**Run the code in a `tmux` session!**
 
 ##### Step 1
 	
@@ -1091,17 +1093,28 @@ Use the `mkdir` command to create a new folder entitled `SOAPdenovo/` in `~/Docu
 mkdir SOAPdenovo2
 ```
 
-Copy the paired-end cleaned reads files (i.e. input files for the *de novo* analysis) in `SOAPdenovo2/` using the `cp` command as follows:
+Move the paired-end cleaned reads files (i.e. input files for the *de novo* analysis) in `SOAPdenovo2/` using the `mv` command as follows:
 
 ```{bash eval=F, echo=T}
-#Copy the split pe files in SOAPdenovo2
-cp ~/Documents/02_Kmers_analyses/khmer/SRR5759389.pe* ~/Documents/02_Kmers_analyses/SOAPdenovo2/
+#Move the split pe files in SOAPdenovo2
+# WARNING: You have to be in the SOAPdenovo2 folder
+mv ../khmer/SRR5759389.pe* .
 ```
 
 ##### Step 2
 
-`SOAPdenovo2` requires a configuration file to run the analysis. Please create a file entitled `soap_config.txt` deposited in `SOAPdenovo2/` using `vim`. Fill the latter file with the information provided below to set-up the analysis:
+`SOAPdenovo2` requires a configuration file to run the analysis. 
 
+Please create a file entitled `soap_config.txt` deposited in `SOAPdenovo2/` using `vim`.
+
+1. Type the following command in the terminal, which will create the new file and open a `vim` session:  
+```{bash, eval = F, echo = T}
+vim soap_config.txt
+```
+
+2. Type `Shift` and `I` on your keyboard to enter into `INSERT` mode.
+
+3. Copy and paste the text below in the `vim` session:
 ```{bash eval=F, echo=T}
 max_rd_len=90          # maximal read length
 [LIB]            # One [LIB] section per library
@@ -1115,16 +1128,18 @@ q2=SRR5759389.pe2.clean.fastq
 
 To better understand the settings contained in this file, comments have been provided to explain each parameter. The last 2 lines contain the names of the input files. This is a very simple analysis based only on one paired-end Illumina library (`[LIB]`).
 
+4. Hit `Esc` on your keyboard to quit the `INSERT` mode and type `:wq!` to save the document and exit  from `vim`.
+
 ##### Step 3
 	
 Once the input and configuration files are sorted, just type the following command in your terminal to start the analysis:
 
 ```{bash eval=F, echo=T}
 #Run the de novo analysis
-soapdenovo2-63mer all -s soap_config.txt -K 63 -R -p 16 -o SRR5759239_assembly
+soapdenovo2-63mer all -s soap_config.txt -K 63 -R -p 5 -o SRR5759239_assembly
 ```
 
-Here, `SOAPdenovo2` works with a k-mer size of 63 (`-K`). The analysis will be performed on 16 threads (or CPUs) (`-p`) and the program will save the output files under `SRR5759239_assembly` as shown by the `-o` argument.
+Here, `SOAPdenovo2` works with a k-mer size of 63 (`-K`). The analysis will be performed on 5 threads (or CPUs) (`-p`) and the program will save the output files under `SRR5759239_assembly` as shown by the `-o` argument.
 	  
 The analysis will run for SEVERAL HOURS. Please log out from your sessions, but DON'T SWITCH OFF COMPUTERS.	 
 

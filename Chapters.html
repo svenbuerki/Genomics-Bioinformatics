@@ -11,7 +11,7 @@
 
 <meta name="author" content="Sven Buerki - Boise State University" />
 
-<meta name="date" content="2024-03-25" />
+<meta name="date" content="2024-03-28" />
 
 <title>BIOL 497/597 - Genomics &amp; Bioinformatics</title>
 
@@ -383,7 +383,7 @@ div.tocify {
 <h1 class="title toc-ignore">BIOL 497/597 - Genomics &amp; Bioinformatics</h1>
 <h3 class="subtitle">Chapters</h3>
 <h4 class="author">Sven Buerki - Boise State University</h4>
-<h4 class="date">2024-03-25</h4>
+<h4 class="date">2024-03-28</h4>
 
 </div>
 
@@ -1476,21 +1476,32 @@ Figure 6.9: Output of the GenomeScope analysis.
 <h4><span class="header-section-number">6.9.4.5</span> Running <code>SOAPdenovo2</code> analysis</h4>
 <p>Running a <code>SOAPdenovo2</code> analysis is a three steps process:</p>
 <ul>
-<li><strong>Step 1:</strong> Create a folder and copy the de-interleaved cleaned paired-end ‘fastq’ files.</li>
+<li><strong>Step 1:</strong> Create a folder and move the de-interleaved cleaned paired-end ‘fastq’ files.</li>
 <li><strong>Step 2:</strong> Create a <code>SOAPdenovo2</code> configuration file providing settings for the analysis.</li>
 <li><strong>Step 3:</strong> Run the <em>de novo</em> genome assembly analysis.</li>
 </ul>
+<p><strong>Run the code in a <code>tmux</code> session!</strong></p>
 <div id="step-1" class="section level5" number="6.9.4.5.1">
 <h5><span class="header-section-number">6.9.4.5.1</span> Step 1</h5>
 <p>Use the <code>mkdir</code> command to create a new folder entitled <code>SOAPdenovo/</code> in <code>~/Documents/02_Kmers_analyses/</code> as follows:</p>
 <pre class="bash"><code>mkdir SOAPdenovo2</code></pre>
-<p>Copy the paired-end cleaned reads files (i.e. input files for the <em>de novo</em> analysis) in <code>SOAPdenovo2/</code> using the <code>cp</code> command as follows:</p>
-<pre class="bash"><code>#Copy the split pe files in SOAPdenovo2
-cp ~/Documents/02_Kmers_analyses/khmer/SRR5759389.pe* ~/Documents/02_Kmers_analyses/SOAPdenovo2/</code></pre>
+<p>Move the paired-end cleaned reads files (i.e. input files for the <em>de novo</em> analysis) in <code>SOAPdenovo2/</code> using the <code>mv</code> command as follows:</p>
+<pre class="bash"><code>#Move the split pe files in SOAPdenovo2
+# WARNING: You have to be in the SOAPdenovo2 folder
+mv ../khmer/SRR5759389.pe* .</code></pre>
 </div>
 <div id="step-2" class="section level5" number="6.9.4.5.2">
 <h5><span class="header-section-number">6.9.4.5.2</span> Step 2</h5>
-<p><code>SOAPdenovo2</code> requires a configuration file to run the analysis. Please create a file entitled <code>soap_config.txt</code> deposited in <code>SOAPdenovo2/</code> using <code>vim</code>. Fill the latter file with the information provided below to set-up the analysis:</p>
+<p><code>SOAPdenovo2</code> requires a configuration file to run the analysis.</p>
+<p>Please create a file entitled <code>soap_config.txt</code> deposited in <code>SOAPdenovo2/</code> using <code>vim</code>.</p>
+<ol style="list-style-type: decimal">
+<li>Type the following command in the terminal, which will create the new file and open a <code>vim</code> session:</li>
+</ol>
+<pre class="bash"><code>vim soap_config.txt</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Type <code>Shift</code> and <code>I</code> on your keyboard to enter into <code>INSERT</code> mode.</p></li>
+<li><p>Copy and paste the text below in the <code>vim</code> session:</p></li>
+</ol>
 <pre class="bash"><code>max_rd_len=90          # maximal read length
 [LIB]            # One [LIB] section per library
 avg_ins=180             # average insert size
@@ -1500,13 +1511,16 @@ rank=1                  # in which order the reads are used while scaffolding
 q1=SRR5759389.pe1.clean.fastq
 q2=SRR5759389.pe2.clean.fastq</code></pre>
 <p>To better understand the settings contained in this file, comments have been provided to explain each parameter. The last 2 lines contain the names of the input files. This is a very simple analysis based only on one paired-end Illumina library (<code>[LIB]</code>).</p>
+<ol start="4" style="list-style-type: decimal">
+<li>Hit <code>Esc</code> on your keyboard to quit the <code>INSERT</code> mode and type <code>:wq!</code> to save the document and exit from <code>vim</code>.</li>
+</ol>
 </div>
 <div id="step-3" class="section level5" number="6.9.4.5.3">
 <h5><span class="header-section-number">6.9.4.5.3</span> Step 3</h5>
 <p>Once the input and configuration files are sorted, just type the following command in your terminal to start the analysis:</p>
 <pre class="bash"><code>#Run the de novo analysis
-soapdenovo2-63mer all -s soap_config.txt -K 63 -R -p 16 -o SRR5759239_assembly</code></pre>
-<p>Here, <code>SOAPdenovo2</code> works with a k-mer size of 63 (<code>-K</code>). The analysis will be performed on 16 threads (or CPUs) (<code>-p</code>) and the program will save the output files under <code>SRR5759239_assembly</code> as shown by the <code>-o</code> argument.</p>
+soapdenovo2-63mer all -s soap_config.txt -K 63 -R -p 5 -o SRR5759239_assembly</code></pre>
+<p>Here, <code>SOAPdenovo2</code> works with a k-mer size of 63 (<code>-K</code>). The analysis will be performed on 5 threads (or CPUs) (<code>-p</code>) and the program will save the output files under <code>SRR5759239_assembly</code> as shown by the <code>-o</code> argument.</p>
 <p>The analysis will run for SEVERAL HOURS. Please log out from your sessions, but DON’T SWITCH OFF COMPUTERS.</p>
 <p>The output file of the <code>SOAPdenovo2</code> analysis are presented in section <a href="#outputdenovo">6.10.2</a>.</p>
 </div>
