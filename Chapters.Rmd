@@ -1136,7 +1136,7 @@ Once the input and configuration files are sorted, just type the following comma
 
 ```{bash eval=F, echo=T}
 #Run the de novo analysis
-soapdenovo2-63mer all -s soap_config.txt -K 63 -R -p 5 -o SRR5759239_assembly
+soapdenovo2-63mer all -s soap_config.txt -K 63 -R -p 5 -o SRR5759389_assembly
 ```
 
 Here, `SOAPdenovo2` works with a k-mer size of 63 (`-K`). The analysis will be performed on 5 threads (or CPUs) (`-p`) and the program will save the output files under `SRR5759239_assembly` as shown by the `-o` argument.

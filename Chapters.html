@@ -11,7 +11,7 @@
 
 <meta name="author" content="Sven Buerki - Boise State University" />
 
-<meta name="date" content="2024-03-28" />
+<meta name="date" content="2024-03-29" />
 
 <title>BIOL 497/597 - Genomics &amp; Bioinformatics</title>
 
@@ -383,7 +383,7 @@ div.tocify {
 <h1 class="title toc-ignore">BIOL 497/597 - Genomics &amp; Bioinformatics</h1>
 <h3 class="subtitle">Chapters</h3>
 <h4 class="author">Sven Buerki - Boise State University</h4>
-<h4 class="date">2024-03-28</h4>
+<h4 class="date">2024-03-29</h4>
 
 </div>
 
@@ -1519,7 +1519,7 @@ q2=SRR5759389.pe2.clean.fastq</code></pre>
 <h5><span class="header-section-number">6.9.4.5.3</span> Step 3</h5>
 <p>Once the input and configuration files are sorted, just type the following command in your terminal to start the analysis:</p>
 <pre class="bash"><code>#Run the de novo analysis
-soapdenovo2-63mer all -s soap_config.txt -K 63 -R -p 5 -o SRR5759239_assembly</code></pre>
+soapdenovo2-63mer all -s soap_config.txt -K 63 -R -p 5 -o SRR5759389_assembly</code></pre>
 <p>Here, <code>SOAPdenovo2</code> works with a k-mer size of 63 (<code>-K</code>). The analysis will be performed on 5 threads (or CPUs) (<code>-p</code>) and the program will save the output files under <code>SRR5759239_assembly</code> as shown by the <code>-o</code> argument.</p>
 <p>The analysis will run for SEVERAL HOURS. Please log out from your sessions, but DON’T SWITCH OFF COMPUTERS.</p>
 <p>The output file of the <code>SOAPdenovo2</code> analysis are presented in section <a href="#outputdenovo">6.10.2</a>.</p>
