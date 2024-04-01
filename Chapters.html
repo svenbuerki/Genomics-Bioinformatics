@@ -11,7 +11,7 @@
 
 <meta name="author" content="Sven Buerki - Boise State University" />
 
-<meta name="date" content="2024-03-29" />
+<meta name="date" content="2024-04-01" />
 
 <title>BIOL 497/597 - Genomics &amp; Bioinformatics</title>
 
@@ -383,7 +383,7 @@ div.tocify {
 <h1 class="title toc-ignore">BIOL 497/597 - Genomics &amp; Bioinformatics</h1>
 <h3 class="subtitle">Chapters</h3>
 <h4 class="author">Sven Buerki - Boise State University</h4>
-<h4 class="date">2024-03-29</h4>
+<h4 class="date">2024-04-01</h4>
 
 </div>
 
@@ -1531,7 +1531,8 @@ soapdenovo2-63mer all -s soap_config.txt -K 63 -R -p 5 -o SRR5759389_assembly</c
 <h2><span class="header-section-number">6.10</span> PART 3: Validation of the draft genome</h2>
 <div id="objective-1" class="section level3" number="6.10.1">
 <h3><span class="header-section-number">6.10.1</span> Objective</h3>
-<p>In this part, students are learning how to use <code>QUAST</code> to assess the quality of the <em>de novo</em> genome assembly inferred in PART 2 using <code>SOAPdenovo2</code>. <code>QUAST</code> is used to validate the assembly (based on one PE Illumina library; <code>SRR5759389</code>) by comparing it with the assembly published by <span class="citation">Zhang et al. (<a href="#ref-Zhang2017" role="doc-biblioref">2017</a>)</span> (available under the GenBank accession number: <code>PEFY01</code>). Such approach is especially useful to assess the level of misassemblies (see Figure <a href="#fig:assemblyworkflow">6.10</a>). Please keep in mind that this assembly has only been inferred from one PE Illumina library.</p>
+<p>In this part, students are learning how to use <code>QUAST</code> to <strong>assess the quality of the <em>de novo</em> genome assembly</strong> inferred in PART 2 using <code>SOAPdenovo2</code>.</p>
+<p><code>QUAST</code> is used to validate the assembly (based on one PE Illumina library; <code>SRR5759389</code>) by comparing it with the assembly published by <span class="citation">Zhang et al. (<a href="#ref-Zhang2017" role="doc-biblioref">2017</a>)</span> (available under the GenBank accession number: <code>PEFY01</code>). Such approach is especially <strong>useful to assess the level of misassembly</strong> (see Figure <a href="#fig:assemblyworkflow">6.10</a>). Please keep in mind that this assembly has only been inferred from one PE Illumina library.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:assemblyworkflow"></span>
 <img src="Images/Assembly_workflow.png" alt="Overview of the assembly workflow. Here are few key definitions: Contig: A contiguous sequence of bases. Unitig: A type of contig for which there are no competing choices in terms of internal overlaps (they usually stop before a repeat sequence). Scaffold: A sequence of contigs separated by gaps (Ns). See PART 2 for more details." width="80%" />
 <p class="caption">
@@ -1541,8 +1542,10 @@ Figure 6.10: Overview of the assembly workflow. Here are few key definitions: Co
 </div>
 <div id="outputdenovo" class="section level3" number="6.10.2">
 <h3><span class="header-section-number">6.10.2</span> <code>SOAPdenovo2</code> assembly files</h3>
-<p>The input of the <code>QUAST</code> analysis is the <code>fasta</code> assembly file produced by <code>SOAPdenovo2</code> containing scaffolds (see Figure <a href="#fig:assemblyworkflow">6.10</a>). This file is entitled <code>SRR5759239_assembly.scafSeq</code> and it is located in the <code>SOAPdenovo2/</code> folder (see PART 2 for more details).</p>
-<p>Navigate to the file location and inspect it by using the <code>head</code> command. It should be similar to the example provided below:</p>
+<p>The input of the <code>QUAST</code> analysis is the <code>fasta</code> assembly file produced by <code>SOAPdenovo2</code> containing scaffolds (see Figure <a href="#fig:assemblyworkflow">6.10</a>). This file is entitled <code>SRR5759389_assembly.scafSeq</code> and it is located in the <code>SOAPdenovo2/</code> folder (see PART 2 for more details).</p>
+<div id="inspecting-assembly-files" class="section level4" number="6.10.2.1">
+<h4><span class="header-section-number">6.10.2.1</span> Inspecting assembly files</h4>
+<p>Navigate to the file location and inspect <code>SRR5759389_assembly.scafSeq</code> by using the <code>head</code> command. It should be similar to the example provided below:</p>
 <pre class="bash"><code>&gt;scaffold2  6.9
 TATATATATTAGCATTAAATTAACTTTATTTTCATTCTTTCACAAAGCTCGAAACAAAGAT
 ATCACCAAACAACTATGGCTTAGCAAACACATCATTTATACGAGAAATATTAACGATTTG
@@ -1550,8 +1553,8 @@ AGTGGTGTATGTAGGTTTATGTTCTGAAGTTAACTCGCCCTTTTTTTTTTTTTTCTTAAGT
 ACTGATTNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNTTCTTCTTCT
 TCTAATCATAATATATGTGGTGCTTGCATTTGTGTGCCATGGTGTCACCCTCCCTTCTTG
 CATTGGCCATTGACTCTACTCTTCCCCTCATCAGTGTCTTCCTGTTTAAATTGTAAACCA</code></pre>
-<p>You can also inspect some general statistics on your assembly (both at scaffold and contig levels) by consulting <code>SRR5759239_assembly.scafStatistics</code>. Please find below a print out of the content of this latter file:</p>
-<pre class="bash"><code>&lt;-- Information for assembly Scaffold &#39;SRR5759239_assembly.scafSeq&#39;.(cut_off_length &lt; 100bp) --&gt;
+<p>You can also gather general statistics on your assembly (both at scaffold and contig levels) by consulting <code>SRR5759389_assembly.scafStatistics</code>. Please find below a print out of the content of this latter file:</p>
+<pre class="bash"><code>&lt;-- Information for assembly Scaffold &#39;SRR5759389_assembly.scafSeq&#39;.(cut_off_length &lt; 100bp) --&gt;
 
 Size_includeN   319316154
 Size_withoutN   316496824
@@ -1594,7 +1597,7 @@ N90     649     74738
 NG50    NaN     NaN
 N50_scaffold-NG50_scaffold_length_difference    NaN
 
-&lt;-- Information for assembly Contig &#39;SRR5759239_assembly.contig&#39;.(cut_off_length &lt; 100bp) --&gt;
+&lt;-- Information for assembly Contig &#39;SRR5759389_assembly.contig&#39;.(cut_off_length &lt; 100bp) --&gt;
 
 Size_includeN   323703442
 Size_withoutN   323703442
@@ -1635,24 +1638,39 @@ N50_contig-NG50_contig_length_difference        NaN
 Number_of_contigs_in_scaffolds  178065
 Number_of_contigs_not_in_scaffolds(Singleton)   148213
 Average_number_of_contigs_per_scaffold  3.1</code></pre>
-<div id="questions-5" class="section level4" number="6.10.2.1">
-<h4><span class="header-section-number">6.10.2.1</span> Questions</h4>
+</div>
+<div id="questions-5" class="section level4" number="6.10.2.2">
+<h4><span class="header-section-number">6.10.2.2</span> Questions</h4>
 <blockquote>
-<p>Why does the scaffold sequence contain Ns?</p>
+<p>Why do scaffold sequences contain Ns?</p>
 </blockquote>
 <p>Use the workflow presented in Figure <a href="#fig:assemblyworkflow">6.10</a> to answer this question.</p>
 <blockquote>
-<p>What is the assembly length and its overall quality? What kind of analyses could be conducted on this assembly?</p>
+<p>What are the assembly length, N50 statistics and overall quality (i.e., how fragmented is the genome assembly) of the <em>de novo</em> assembly at contig and scaffold levels?</p>
+</blockquote>
+<blockquote>
+<p>What proportion of the nuclear genome of <em>Apostasia shenzhenica</em> was assembled?</p>
+</blockquote>
+<blockquote>
+<p>Does the assembly contain only nuclear genomic data?</p>
+</blockquote>
+<blockquote>
+<p>Based on all the data at hand, what part of the genome could be annotated?</p>
 </blockquote>
 </div>
 </div>
 <div id="introduction-to-quast" class="section level3" number="6.10.3">
 <h3><span class="header-section-number">6.10.3</span> Introduction to QUAST</h3>
 <p><code>QUAST</code> stands for <strong>QU</strong>ality <strong>AS</strong>sessment <strong>T</strong>ool for genome assemblies <span class="citation">(<a href="#ref-QUAST" role="doc-biblioref">Gurevich et al., 2013</a>)</span>. The manual of this program is available here: <a href="http://quast.sourceforge.net/docs/manual.html" class="uri">http://quast.sourceforge.net/docs/manual.html</a></p>
-<p><code>QUAST</code> is using <code>MUMmer v3.23</code> <span class="citation">(<a href="#ref-Kurtz2004" role="doc-biblioref">Kurtz et al., 2004</a>)</span> to align assemblies to a reference genome and to provide metrics depending on alignments. Unlike other similar software, <code>QUAST</code> can also compute metrics that are useful for assessing assemblies of previously un-sequenced species (i.e. non model organisms).</p>
+<p><code>QUAST</code> uses <code>MUMmer v3.23</code> <span class="citation">(<a href="#ref-Kurtz2004" role="doc-biblioref">Kurtz et al., 2004</a>)</span> to</p>
+<ul>
+<li>align assemblies to a reference genome</li>
+<li>provide metrics depending on alignments</li>
+</ul>
+<p>Unlike other similar software, <code>QUAST</code> can also compute metrics that are useful for assessing assemblies of previously un-sequenced species (i.e. non model organisms).</p>
 <div id="quast-metrics" class="section level4" number="6.10.3.1">
 <h4><span class="header-section-number">6.10.3.1</span> <code>QUAST</code> metrics</h4>
-<p>The metrics evaluated by <code>QUAST</code> can be subidvided into several groups as follows:</p>
+<p>The metrics evaluated by <code>QUAST</code> can be subdivided into several groups as follows:</p>
 <ul>
 <li><strong>Contig sizes:</strong> The following metrics (except for NGx) can be evaluated with or without a reference genome.
 <ul>
@@ -1691,17 +1709,17 @@ Average_number_of_contigs_per_scaffold  3.1</code></pre>
 </ul>
 </div>
 </div>
-<div id="running-quast" class="section level3" number="6.10.4">
-<h3><span class="header-section-number">6.10.4</span> Running QUAST</h3>
+<div id="computing-a-quast-analysis" class="section level3" number="6.10.4">
+<h3><span class="header-section-number">6.10.4</span> Computing a QUAST analysis</h3>
 <p><code>QUAST</code> is written in <code>python</code> and can be run on Linux or MacOS. The assembly and reference genome files have to be in <code>fasta</code> formats (they can be compressed). The output files are in <code>html</code> and <code>pdf</code> formats.</p>
-<div id="fitting-the-quast-analysis-to-our-data-and-resources" class="section level4" number="6.10.4.1">
-<h4><span class="header-section-number">6.10.4.1</span> Fitting the QUAST analysis to our data and resources</h4>
+<div id="fitting-the-quast-analysis-to-our-data-and-computers" class="section level4" number="6.10.4.1">
+<h4><span class="header-section-number">6.10.4.1</span> Fitting the QUAST analysis to our data and computers</h4>
 <p>In this section, we are reviewing our data and computational resources and learning the procedure to best-fit those to the options provided in the <code>QUAST</code> program:</p>
 <ul>
 <li>The <code>SOAPdenovo2</code> assembly is made of scaffolds and not contigs. This will have to be stated by using the <code>--scaffolds</code> option.</li>
 <li>The reference nuclear genome (<code>PEFY01.1.fsa_nt.gz</code>) is compressed. <code>QUAST</code> can handle compressed files, but not all software can.</li>
 <li>The reference genome is fragmented (i.e. there are still gaps). This will have to be stated by using the <code>--fragmented</code> option.</li>
-<li><code>QUAST</code> can be run in parallel (i.e. simultaneously using multiple threads/CPUs to speed up the analysis). We will take advantage of the 32 cores of our computers and set the <code>--threads</code> option to 20.</li>
+<li><code>QUAST</code> can be run in parallel (i.e. simultaneously using multiple threads/CPUs to speed up the analysis). We will take advantage of the 32 cores of our computers and set the <code>--threads</code> option to 5 (to allow all students to run the analyses in parallel on the same computer).</li>
 </ul>
 </div>
 <div id="setting-up-the-analysis" class="section level4" number="6.10.4.2">
@@ -1717,23 +1735,36 @@ quast.py [options] &lt;contig_file(s)&gt;</code></pre>
 <li><code>--fragmented</code>: Reference genome is fragmented (e.g. a scaffold reference). <code>QUAST</code> will try to detect misassemblies caused by the fragmentation and mark them fake (will be excluded from <code># misassemblies</code>).</li>
 </ul>
 <p>If you want to get more information about options available in <code>QUAST</code>, please consult the <a href="http://quast.sourceforge.net/docs/manual.html">manual</a>.</p>
-<p>The command provided below will run a <code>QUAST</code> analysis on the <code>SOAPdenovo2</code> <em>de novo</em> assembly file using <code>PEFY01.1.fsa_nt.gz</code> as reference genome sequence. The output of the analysis will also contain statistics solely based on the <code>SOAPdenovo2</code> <em>de novo</em> assembly.</p>
+</div>
+<div id="bioinformatics-7" class="section level4" number="6.10.4.3">
+<h4><span class="header-section-number">6.10.4.3</span> Bioinformatics</h4>
+<p>The command provided below will run a <code>QUAST</code> analysis on the <code>SOAPdenovo2</code> <em>de novo</em> assembly file using two <strong>input files</strong>:</p>
+<ul>
+<li><code>SRR5759389_assembly.scafSeq</code> as output of the <em>de novo</em> analysis</li>
+<li><code>PEFY01.1.fsa_nt.gz</code> as reference genome sequence</li>
+</ul>
+<div id="step-by-step-analysis" class="section level5" number="6.10.4.3.1">
+<h5><span class="header-section-number">6.10.4.3.1</span> Step-by-step analysis</h5>
 <p>Before starting the <code>QUAST</code> analysis execute the following tasks:</p>
 <ol style="list-style-type: decimal">
-<li>Open a terminal window and go to <code>02_Kmers_analyses/</code>.</li>
-<li>Create a new folder entitled <code>QUAST/</code> using the <code>mkdir</code> command.</li>
-<li>Use the <code>cd</code> command to go to <code>QUAST/</code>.</li>
-<li>Check that <code>PEFY01.1.fsa_nt.gz</code> is in this path: <code>~/Documents/02_Kmers_analyses/Map_reads/</code>.</li>
-<li>Check that <code>SRR5759239_assembly.scafSeq</code> is in this path: <code>~/Documents/02_Kmers_analyses/SOAPdenovo2/</code>.</li>
+<li>Open a terminal window, connect to your <code>tmux</code> session, and navigate to <code>02_Kmers_analyses/</code>.</li>
+<li>Check that the input files are in the following paths:
+<ul>
+<li><code>PEFY01.1.fsa_nt.gz</code>: <code>~/Documents/02_Kmers_analyses/Map_reads/</code></li>
+<li><code>SRR5759389_assembly.scafSeq</code>: <code>~/Documents/02_Kmers_analyses/SOAPdenovo2/</code></li>
+</ul></li>
+<li>Create a new folder entitled <code>QUAST/</code> using the <code>mkdir</code> command at the root of <code>02_Kmers_analyses/</code>.</li>
+<li>Use the <code>cd</code> command to navigate to <code>QUAST/</code>.</li>
+<li>Once you have completed all the tasks, execute the following command to run the <code>QUAST</code> analysis:</li>
 </ol>
-<p>Once you have completed all the tasks, execute the following command:</p>
 <pre class="bash"><code>#Run QUAST on the SOAPdenovo2 assembly using the reference nuclear genome
-quast.py -R ~/Documents/02_Kmers_analyses/Map_reads/PEFY01.1.fsa_nt.gz --threads 20 --scaffolds --fragmented ~/Documents/02_Kmers_analyses/SOAPdenovo2/SRR5759239_assembly.scafSeq  </code></pre>
+quast.py -R ../Map_reads/PEFY01.1.fsa_nt.gz --threads 5 --scaffolds --fragmented ../SOAPdenovo2/SRR5759389_assembly.scafSeq</code></pre>
+</div>
 </div>
 </div>
 <div id="quast-output-files" class="section level3" number="6.10.5">
 <h3><span class="header-section-number">6.10.5</span> <code>QUAST</code> output files</h3>
-<p>By default, the output files of the analysis will be saved in a folder named as follows:</p>
+<p>By default, the <strong>output files</strong> of the analysis will be saved in a folder named as follows:</p>
 <pre class="bash"><code>quast_results/results_&lt;date_time&gt;</code></pre>
 <p>In each folder, there will be a suite of output files, please find below the ones that are more relevant to our goals:</p>
 <ul>
@@ -1756,9 +1787,24 @@ Figure 6.11: Screenshot of the report.html file showing the statistics and plots
 Figure 6.12: Screenshot of the icarus.html file showing the alignment of the SOAPdenovo2 de novo assembly against the reference genome.
 </p>
 </div>
-<div id="task" class="section level4" number="6.10.5.1">
-<h4><span class="header-section-number">6.10.5.1</span> Task</h4>
-<p>Open <a href="Data/PART3_QUAST_results/report.html">report.html</a> and look at the statistics, plots and alignments (available by clicking on the <code>Icarus</code> tab; see Figure <a href="#fig:QUAST">6.11</a>).</p>
+<div id="task-and-questions" class="section level4" number="6.10.5.1">
+<h4><span class="header-section-number">6.10.5.1</span> Task and Questions</h4>
+<p>Do the following <strong>tasks</strong>:</p>
+<ol style="list-style-type: decimal">
+<li>Transfer <a href="Data/PART3_QUAST_results/report.html">report.html</a> on your computer.</li>
+<li>Inspect the statistics, plots and alignments (available by clicking on the <code>Icarus</code> tab; see Figure <a href="#fig:QUAST">6.11</a>).</li>
+</ol>
+<p><strong>Questions</strong></p>
+<blockquote>
+<p>What is your overall assessment of the quality of the <em>de novo</em> assembly?</p>
+</blockquote>
+<p>To reach your conclusion, ask yourself the following questions:</p>
+<blockquote>
+<p>Did <code>SOAPdenovo2</code> do a good job at assembling contigs into scaffolds?</p>
+</blockquote>
+<blockquote>
+<p>What could be the implication(s) of using scaffolds to conduct gene annotation?</p>
+</blockquote>
 </div>
 </div>
 </div>

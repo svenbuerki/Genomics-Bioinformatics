@@ -1149,7 +1149,9 @@ The output file of the `SOAPdenovo2` analysis are presented in section \@ref(out
 
 ### Objective
 
-In this part, students are learning how to use `QUAST` to assess the quality of the *de novo* genome assembly inferred in PART 2 using `SOAPdenovo2`. `QUAST` is used to validate the assembly (based on one PE Illumina library; `SRR5759389`) by comparing it with the assembly published by @Zhang2017 (available under the GenBank accession number: `PEFY01`). Such approach is especially useful to assess the level of misassemblies (see Figure \@ref(fig:assemblyworkflow)). Please keep in mind that this assembly has only been inferred from one PE Illumina library.
+In this part, students are learning how to use `QUAST` to **assess the quality of the *de novo* genome assembly** inferred in PART 2 using `SOAPdenovo2`. 
+
+`QUAST` is used to validate the assembly (based on one PE Illumina library; `SRR5759389`) by comparing it with the assembly published by @Zhang2017 (available under the GenBank accession number: `PEFY01`). Such approach is especially **useful to assess the level of misassembly** (see Figure \@ref(fig:assemblyworkflow)). Please keep in mind that this assembly has only been inferred from one PE Illumina library.
 
 ```{r assemblyworkflow, echo=FALSE, fig.align="center", fig.cap="Overview of the assembly workflow. Here are few key definitions: Contig: A contiguous sequence of bases. Unitig: A type of contig for which there are no competing choices in terms of internal overlaps (they usually stop before a repeat sequence). Scaffold: A sequence of contigs separated by gaps (Ns). See PART 2 for more details.", fig.show="asis", out.width = '80%'}
 knitr::include_graphics("Images/Assembly_workflow.png")
@@ -1157,9 +1159,11 @@ knitr::include_graphics("Images/Assembly_workflow.png")
 
 ### `SOAPdenovo2` assembly files {#outputdenovo}
 
-The input of the `QUAST` analysis is the `fasta` assembly file produced by `SOAPdenovo2` containing scaffolds (see Figure \@ref(fig:assemblyworkflow)). This file is entitled `SRR5759239_assembly.scafSeq` and it is located in the `SOAPdenovo2/` folder (see PART 2 for more details).
+The input of the `QUAST` analysis is the `fasta` assembly file produced by `SOAPdenovo2` containing scaffolds (see Figure \@ref(fig:assemblyworkflow)). This file is entitled `SRR5759389_assembly.scafSeq` and it is located in the `SOAPdenovo2/` folder (see PART 2 for more details).
 
-Navigate to the file location and inspect it by using the `head` command. It should be similar to the example provided below:
+#### Inspecting assembly files
+
+Navigate to the file location and inspect `SRR5759389_assembly.scafSeq` by using the `head` command. It should be similar to the example provided below:
 
 ```{bash eval=F, echo=T}
 >scaffold2  6.9
@@ -1171,10 +1175,10 @@ TCTAATCATAATATATGTGGTGCTTGCATTTGTGTGCCATGGTGTCACCCTCCCTTCTTG
 CATTGGCCATTGACTCTACTCTTCCCCTCATCAGTGTCTTCCTGTTTAAATTGTAAACCA
 ```
 
-You can also inspect some general statistics on your assembly (both at scaffold and contig levels) by consulting `SRR5759239_assembly.scafStatistics`. Please find below a print out of the content of this latter file:
+You can also gather general statistics on your assembly (both at scaffold and contig levels) by consulting `SRR5759389_assembly.scafStatistics`. Please find below a print out of the content of this latter file:
 
 ```{bash echo=T, eval=F}
-<-- Information for assembly Scaffold 'SRR5759239_assembly.scafSeq'.(cut_off_length < 100bp) -->
+<-- Information for assembly Scaffold 'SRR5759389_assembly.scafSeq'.(cut_off_length < 100bp) -->
 
 Size_includeN   319316154
 Size_withoutN   316496824
@@ -1217,7 +1221,7 @@ N90     649     74738
 NG50    NaN     NaN
 N50_scaffold-NG50_scaffold_length_difference    NaN
 
-<-- Information for assembly Contig 'SRR5759239_assembly.contig'.(cut_off_length < 100bp) -->
+<-- Information for assembly Contig 'SRR5759389_assembly.contig'.(cut_off_length < 100bp) -->
 
 Size_includeN   323703442
 Size_withoutN   323703442
@@ -1260,24 +1264,34 @@ Number_of_contigs_not_in_scaffolds(Singleton)   148213
 Average_number_of_contigs_per_scaffold  3.1
 ```
 
-
 #### Questions
 
-> Why does the scaffold sequence contain Ns?
+> Why do scaffold sequences contain Ns?
 
 Use the workflow presented in Figure \@ref(fig:assemblyworkflow) to answer this question.
 
-> What is the assembly length and its overall quality? What kind of analyses could be conducted on this assembly?
+> What are the assembly length, N50 statistics and overall quality (i.e., how fragmented is the genome assembly) of the *de novo* assembly at contig and scaffold levels? 
+
+> What proportion of the nuclear genome of *Apostasia shenzhenica* was assembled?
+
+> Does the assembly contain only nuclear genomic data?
+
+> Based on all the data at hand, what part of the genome could be annotated?
 
 ### Introduction to QUAST
 
 `QUAST` stands for **QU**ality **AS**sessment **T**ool for genome assemblies [@QUAST]. The manual of this program is available here: http://quast.sourceforge.net/docs/manual.html
 	
-`QUAST` is using `MUMmer v3.23` [@Kurtz2004] to align assemblies to a reference genome and to provide metrics depending on alignments. Unlike other similar software, `QUAST` can also compute metrics that are useful for assessing assemblies of previously un-sequenced species (i.e. non model organisms). 
+`QUAST` uses `MUMmer v3.23` [@Kurtz2004] to
+
+  - align assemblies to a reference genome
+  - provide metrics depending on alignments
+  
+Unlike other similar software, `QUAST` can also compute metrics that are useful for assessing assemblies of previously un-sequenced species (i.e. non model organisms). 
 
 #### `QUAST` metrics
 
-The metrics evaluated by `QUAST` can be subidvided into several groups as follows:
+The metrics evaluated by `QUAST` can be subdivided into several groups as follows:
 
 - **Contig sizes:** The following metrics (except for NGx) can be evaluated with or without a reference genome. 
   - No. of contigs: The total number of contigs in the assembly.
@@ -1306,18 +1320,18 @@ The metrics evaluated by `QUAST` can be subidvided into several groups as follow
   - GC content plots: These show the distribution of GC content in the contigs. The $x$ value shows the per cent of GC (from 0 to 100). The $y$ value shows the number of non-overlapping 100 bp windows whose GC content is $x$. This distribution is often Gaussian; however, if there are contaminants with a different GC content, there will often be a superposition of multiple Gaussians.
   - Contig alignment plots: These show alignment of contigs to the reference genome and the positions of misassemblies in these contigs. Colour coding indicates when block boundaries are shared by multiple assemblies, and to show misassembled blocks. 
 
-### Running QUAST
+### Computing a QUAST analysis
 
 `QUAST` is written in `python` and can be run on Linux or MacOS. The assembly and reference genome files have to be in `fasta` formats (they can be compressed).  The output files are in `html` and `pdf` formats.
 
-#### Fitting the QUAST analysis to our data and resources
+#### Fitting the QUAST analysis to our data and computers
 
 In this section, we are reviewing our data and computational resources and learning the procedure to best-fit those to the options provided in the `QUAST` program:
 
 - The `SOAPdenovo2` assembly is made of scaffolds and not contigs. This will have to be stated by using the `--scaffolds` option.
 - The reference nuclear genome (`PEFY01.1.fsa_nt.gz`) is compressed. `QUAST` can handle compressed files, but not all software can.
 - The reference genome is fragmented (i.e. there are still gaps). This will have to be stated by using the `--fragmented` option.
-- `QUAST` can be run in parallel (i.e. simultaneously using multiple threads/CPUs to speed up the analysis). We will take advantage of the 32 cores of our computers and set the `--threads` option to 20. 
+- `QUAST` can be run in parallel (i.e. simultaneously using multiple threads/CPUs to speed up the analysis). We will take advantage of the 32 cores of our computers and set the `--threads` option to 5 (to allow all students to run the analyses in parallel on the same computer). 
 
 #### Setting-up the analysis
 
@@ -1337,26 +1351,33 @@ quast.py [options] <contig_file(s)>
 
 If you want to get more information about options available in `QUAST`, please consult the [manual](http://quast.sourceforge.net/docs/manual.html). 
 
-The command provided below will run a `QUAST` analysis on the `SOAPdenovo2` *de novo* assembly file using `PEFY01.1.fsa_nt.gz` as reference genome sequence. The output of the analysis will also contain statistics solely based on the `SOAPdenovo2` *de novo* assembly.  
+#### Bioinformatics
+
+The command provided below will run a `QUAST` analysis on the `SOAPdenovo2` *de novo* assembly file using two **input files**:
+
+  - `SRR5759389_assembly.scafSeq` as output of the *de novo* analysis
+  - `PEFY01.1.fsa_nt.gz` as reference genome sequence
+  
+##### Step-by-step analysis
 
 Before starting the `QUAST` analysis execute the following tasks:
 
-1. Open a terminal window and go to `02_Kmers_analyses/`.
-2. Create a new folder entitled `QUAST/` using the `mkdir` command.
-3. Use the `cd` command to go to `QUAST/`.
-4. Check that `PEFY01.1.fsa_nt.gz` is in this path: `~/Documents/02_Kmers_analyses/Map_reads/`.
-5. Check that `SRR5759239_assembly.scafSeq` is in this path: `~/Documents/02_Kmers_analyses/SOAPdenovo2/`.
-
-Once you have completed all the tasks, execute the following command: 
+1. Open a terminal window, connect to your `tmux` session, and navigate to `02_Kmers_analyses/`.
+2. Check that the input files are in the following paths:
+    - `PEFY01.1.fsa_nt.gz`: `~/Documents/02_Kmers_analyses/Map_reads/`
+    - `SRR5759389_assembly.scafSeq`: `~/Documents/02_Kmers_analyses/SOAPdenovo2/`
+3. Create a new folder entitled `QUAST/` using the `mkdir` command at the root of `02_Kmers_analyses/`.
+4. Use the `cd` command to navigate to `QUAST/`.
+5. Once you have completed all the tasks, execute the following command to run the `QUAST` analysis: 
 
 ```{bash eval=F, echo=T}
 #Run QUAST on the SOAPdenovo2 assembly using the reference nuclear genome
-quast.py -R ~/Documents/02_Kmers_analyses/Map_reads/PEFY01.1.fsa_nt.gz --threads 20 --scaffolds --fragmented ~/Documents/02_Kmers_analyses/SOAPdenovo2/SRR5759239_assembly.scafSeq  
+quast.py -R ../Map_reads/PEFY01.1.fsa_nt.gz --threads 5 --scaffolds --fragmented ../SOAPdenovo2/SRR5759389_assembly.scafSeq
 ```
 
 ### `QUAST` output files
 
-By default, the output files of the analysis will be saved in a folder named as follows:
+By default, the **output files** of the analysis will be saved in a folder named as follows:
 
 ```{bash eval=F, echo=T}
 quast_results/results_<date_time>
@@ -1378,8 +1399,21 @@ knitr::include_graphics("Images/QUAST_output.png")
 knitr::include_graphics("Images/ICARUS_output.png")
 ```
 
-#### Task
+#### Task and Questions
 
-Open [report.html](Data/PART3_QUAST_results/report.html) and look at the statistics, plots and alignments (available by clicking on the `Icarus` tab; see Figure \@ref(fig:QUAST)). 
+Do the following **tasks**:
+
+1. Transfer [report.html](Data/PART3_QUAST_results/report.html) on your computer.
+2. Inspect the statistics, plots and alignments (available by clicking on the `Icarus` tab; see Figure \@ref(fig:QUAST)).
+
+**Questions**
+
+> What is your overall assessment of the quality of the *de novo* assembly? 
+
+To reach your conclusion, ask yourself the following questions: 
+
+> Did `SOAPdenovo2` do a good job at assembling contigs into scaffolds?
+
+> What could be the implication(s) of using scaffolds to conduct gene annotation? 
 
 # References
