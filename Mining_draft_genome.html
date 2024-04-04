@@ -11,7 +11,7 @@
 
 <meta name="author" content="Sven Buerki &amp; Anthony Melton - Boise State University" />
 
-<meta name="date" content="2023-12-26" />
+<meta name="date" content="2024-04-04" />
 
 <title>BIOL 497/597 - Genomics &amp; Bioinformatics</title>
 
@@ -383,7 +383,7 @@ div.tocify {
 <h1 class="title toc-ignore">BIOL 497/597 - Genomics &amp; Bioinformatics</h1>
 <h3 class="subtitle">Lab: Mining sagebrush draft genome</h3>
 <h4 class="author">Sven Buerki &amp; Anthony Melton - Boise State University</h4>
-<h4 class="date">2023-12-26</h4>
+<h4 class="date">2024-04-04</h4>
 
 </div>
 
@@ -396,14 +396,25 @@ $(document).ready(function() {
 </script>
 <div id="intro" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> Introduction</h1>
-<p>This document supports analyses aiming at mining the sagebrush (<em>Artemisia tridentata</em> Nutt; Asteraceae) draft genome for Aquaporin (AQP) genes and it is based on data and analyses presented in <span class="citation">Melton et al. (<a href="#ref-Melton2021" role="doc-biblioref">2021</a>)</span>. AQPs are multi-exon genes (see Figure <a href="#fig:multigene">1.1</a>) encoding for a large family of proteins known to function in the transport of water and other molecules across cell membranes <span class="citation">(reviewed in <a href="#ref-li2014plant" role="doc-biblioref">Li et al., 2014</a>)</span>.</p>
+<p>This document supports analyses aiming at mining the sagebrush (<em>Artemisia tridentata</em> Nutt; Asteraceae) draft genome for <strong>Aquaporin</strong> (AQP) genes and it is based on data and analyses presented in <span class="citation">Melton et al. (<a href="#ref-Melton2021" role="doc-biblioref">2021</a>)</span>. AQPs are multi-exon genes (see Figure <a href="#fig:multigene">1.1</a>) encoding for a large family of <strong>proteins known to function in the transport of water and other molecules across cell membranes</strong> <span class="citation">(reviewed in <a href="#ref-li2014plant" role="doc-biblioref">Li et al., 2014</a>)</span>.</p>
 <div class="figure"><span style="display:block;" id="fig:multigene"></span>
 <img src="Images/multi_exon_gene.png" alt="Flowchart showing the structure of a multi-exon gene and different resulting proteins. As a reminder, exons are pieces of coding DNA that encode proteins. Different exons code for different domains of a protein. The domains may be encoded by a single exon or multiple exons spliced together. In the case of multi-exon genes, the presence of exons and introns allows for greater molecular evolution through the process of exon shuffling and alternative splicing. Exon shuffling occurs when exons on sister chromosomes are exchanged during recombination. This allows for the formation of new genes. On the other hand, exons also allow for multiple proteins to be translated from the same gene through alternative splicing. This process allows the exons to be arranged in different combinations when the introns are removed/spliced. The different configurations can include the complete removal of an exon, the inclusion of part of an exon, or the inclusion of part of an intron. Alternative splicing can occur in the same location to produce different variants of a gene with a similar role, such as the human slo gene, or it can occur in different cell or tissue types, such as the mouse alpha-amylase gene. Alternative splicing, and defects in alternative splicing, can result in a number of diseases including cancer." width="80%" />
 <p class="caption">
 Figure 1.1: Flowchart showing the structure of a multi-exon gene and different resulting proteins. As a reminder, exons are pieces of coding DNA that encode proteins. Different exons code for different domains of a protein. The domains may be encoded by a single exon or multiple exons spliced together. In the case of multi-exon genes, the presence of exons and introns allows for greater molecular evolution through the process of exon shuffling and alternative splicing. Exon shuffling occurs when exons on sister chromosomes are exchanged during recombination. This allows for the formation of new genes. On the other hand, exons also allow for multiple proteins to be translated from the same gene through alternative splicing. This process allows the exons to be arranged in different combinations when the introns are removed/spliced. The different configurations can include the complete removal of an exon, the inclusion of part of an exon, or the inclusion of part of an intron. Alternative splicing can occur in the same location to produce different variants of a gene with a similar role, such as the human slo gene, or it can occur in different cell or tissue types, such as the mouse alpha-amylase gene. Alternative splicing, and defects in alternative splicing, can result in a number of diseases including cancer.
 </p>
 </div>
-<p>The defining <strong>characteristics of AQP proteins</strong> include having <strong>six membrane-spanning alpha-helices</strong> and <strong>two hydrophobic loops</strong> containing conserved <strong>asparagine-proline-alanine (NPA) motif</strong> which form a barrel surrounding a central pore-like region that contains additional protein density (see Figure <a href="#fig:AQPex">1.2</a>). While the NPA motifs are generally highly conserved, there are some AQP genes that have undergone mutations of the alanine residue in the NPA motif <span class="citation">(<a href="#ref-ishibashi2006aquaporin" role="doc-biblioref">Ishibashi, 2006</a>)</span>.</p>
+<div id="aqp-defining-characteristics" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> AQP defining characteristics</h2>
+<p>The defining <strong>characteristics of AQP proteins</strong> include having:</p>
+<ul>
+<li><strong>Six membrane-spanning alpha-helices</strong></li>
+<li><strong>Two hydrophobic loops</strong></li>
+<li>Each loop contains conserved <strong>asparagine-proline-alanine (NPA) motif</strong> forming a barrel surrounding a central pore-like region that contains additional protein density (see Figure <a href="#fig:AQPex">1.2</a>)</li>
+</ul>
+<p>While the NPA motifs are generally highly conserved, there are some AQP genes that have undergone mutations of the alanine residue in the NPA motif <span class="citation">(<a href="#ref-ishibashi2006aquaporin" role="doc-biblioref">Ishibashi, 2006</a>)</span>.</p>
+</div>
+<div id="aqp-subfamilies" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> AQP subfamilies</h2>
 <p>AQPs in flowering plants comprise five subfamilies <span class="citation">(<a href="#ref-danielson2008unexpected" role="doc-biblioref">Danielson and Johanson, 2008</a>)</span>:</p>
 <ol style="list-style-type: decimal">
 <li>NOD26-like intrinsic proteins (NIPs);</li>
@@ -418,6 +429,7 @@ Figure 1.1: Flowchart showing the structure of a multi-exon gene and different r
 <p class="caption">
 Figure 1.2: Example of a 3D model of an Aquaporin protein recovered in the sagebrush genome. NPA motifs are shown by red/orange colors
 </p>
+</div>
 </div>
 </div>
 <div id="learning-outcomes" class="section level1" number="2">
@@ -459,9 +471,9 @@ Figure 1.2: Example of a 3D model of an Aquaporin protein recovered in the sageb
 <div id="report" class="section level1" number="4">
 <h1><span class="header-section-number">4</span> Group lab report (TOTAL: 150 points)</h1>
 <p>The instructor provides below information to complete the group report. All the material, data, code and references required to complete this report are provided here and are covered in class. In this context, students will have to focus on formatting their reports following guidelines presented here as well as making sure that their code is working and ready to be shared. Please DON’T FORGET TO PROVIDE REFERENCES FOR SOFTWARE/PACKAGES cited in the Material &amp; Methods section.</p>
-<div id="apply-the-imrad-format-and-supply-code" class="section level2" number="4.1">
-<h2><span class="header-section-number">4.1</span> Apply the IMRAD format and supply code</h2>
-<p>Your group reports will be structured and organized following the <strong>IMMRAD</strong> format: <strong>I</strong>ntroduction, <strong>M</strong>aterial &amp; <strong>M</strong>ethods, <strong>R</strong>esults, and <strong>D</strong>iscussion. This format is widely used to report experimental research in many scientific disciplines. In addition, you will be complementing your reports with an <strong>Abstract</strong>. Finally, since this research relies heavily on bioinformatics, students will complete their reports by supplying their commented code/scripts. Please see <a href="https://svenbuerki.github.io/Genomics-Bioinformatics/Mini_reports.html#46_Writing_your_report">Mini-Report 3</a> for more details.</p>
+<div id="apply-the-imrad-format-and-supply-data-and-code" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Apply the IMRAD format and supply data and code</h2>
+<p>Your group reports will be structured and organized following the <strong>IMMRAD</strong> format: <strong>I</strong>ntroduction, <strong>M</strong>aterial &amp; <strong>M</strong>ethods, <strong>R</strong>esults, and <strong>D</strong>iscussion. This format is widely used to report experimental research in many scientific disciplines. In addition, you will be complementing your reports with an <strong>Abstract</strong>. Finally, since this research relies heavily on bioinformatics, students will complete their reports by supplying their data and commented code/scripts. Please see <a href="https://svenbuerki.github.io/Genomics-Bioinformatics/Mini_reports.html#46_Writing_your_report">Mini-Report 3</a> for more details.</p>
 </div>
 <div id="report-deadline" class="section level2" number="4.2">
 <h2><span class="header-section-number">4.2</span> Report deadline</h2>
