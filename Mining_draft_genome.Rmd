@@ -39,7 +39,7 @@ The defining **characteristics of AQP proteins** include having:
 
   - **Six membrane-spanning alpha-helices**
   - **Two hydrophobic loops**
-  - Each loop contains conserved **asparagine-proline-alanine (NPA) motif** forming a barrel surrounding a central pore-like region that contains additional protein density (see Figure \@ref(fig:AQPex)) 
+  - Each loop contains a conserved **asparagine-proline-alanine (NPA) motif** forming a barrel surrounding a central pore-like region that contains additional protein density (see Figure \@ref(fig:AQPex)) 
   
 While the NPA motifs are generally highly conserved, there are some AQP genes that have undergone mutations of the alanine residue in the NPA motif [@ishibashi2006aquaporin]. 
 
@@ -117,10 +117,10 @@ Presentations will have to be deposited in advance onto a shared Google Drive fo
 
 Overall, our analytical workflow is subdivided into 4 modules as follows:
 
-- [**Module 1:**](#mod1) Set-up environment and identify scaffolds containing AQP genes.
-- [**Module 2:**](#mod2) Extract scaffolds identified in module 1 and find **O**pen **R**eading **F**rames.
-- [**Module 3:**](#mod3) Annotate ORFs and assemble AQP protein(s).
-- [**Module 4:**](#mod4) Validate AQP protein sequences and infer their function(s).
+- [**Module 1:**](#mod1) Set-up environment and identify scaffolds containing AQP genes
+- [**Module 2:**](#mod2) Extract scaffolds identified in module 1 and find **O**pen **R**eading **F**rames
+- [**Module 3:**](#mod3) Annotate ORFs and assemble AQP protein(s)
+- [**Module 4:**](#mod4) Validate AQP protein sequences and infer their function(s)
 
 # Project structure
 
@@ -155,6 +155,8 @@ ssh bio_11@132.178.142.214
 
 ## Install `R` v.4.1.3
 
+**!!WARNING: YOU DON'T HAVE TO EXECUTE CODE IN THIS SECTION!!**
+
 The code used in this lab depends on a specific version of `R` (version 4.1.3 (2022-03-10) -- "One Push-Up") and it needs to be installed on your computer prior to starting the tutorial. This can be done by following the procedure described in these two websites:
 
 - http://genomespot.blogspot.com/2020/06/installing-r-40-on-ubuntu-1804.html
@@ -165,7 +167,12 @@ The code used in this lab depends on a specific version of `R` (version 4.1.3 (2
 
 ## Start R session and associated R script
 
-Before starting this tutorial, please start a new `tmux` session and then navigate to `DraftGenomeMineR/` and start a new `R` session:
+### To do before starting
+
+Before starting this tutorial, do the following:
+
+- Start a new `tmux` session entitled "Lab" on your remote computer
+- Navigate to `DraftGenomeMineR/` and start a new `R` session:
 
 ```{bash, eval=F}
 #Navigate to DraftGenomeMineR/
@@ -175,9 +182,9 @@ cd DraftGenomeMineR/
 R
 ```
 
-Open a Text editor or RStudio and **save all the code in an R script on your personal computer** (as done in Mini-Report 3). Saving all your code in an R script will allow you to reproduce these analyses with your assigned scaffold.
+- Save the R code provided below in an R script on your personnal computer
 
-## Install R packages
+## R dependencies
 
 **!!! DON'T EXECUTE THIS CODE !!** The instructor already installed the R packages on your computers.
 
@@ -205,6 +212,8 @@ install.packages("seqinr")
 ```
 
 ## Load R packages and user-defined functions
+
+To conduct the analyses, you will need to load R packages and user-defined functions. Please copy the following code in your R script and then execute it. 
 
 Create an object with all the required R packages and load them:
 
@@ -235,7 +244,7 @@ sapply(files.sources, source)
 
 ## Set environment for BLAST analysis
 
-To be able to navigate between folders within our project, we will set a object entitled `project.folder`, which contains the path to the root of the folder.
+To be able to navigate between folders within our project, we will set an object entitled `project.folder`, which contains the path to the root of the project folder.
 
 To create this object, do as follows:
 
@@ -254,7 +263,19 @@ Set working directory to `project.folder` as follows:
 setwd(project.folder)
 ```
 
-## Running BLAST analysis
+## Run the BLAST analysis
+
+### Overview
+
+In this section, you will perform a BLAST analysis to identify scaffolds containing AQP genes. For this analysis, you will need the following files:
+
+- **Input:** 
+    + `Draft_Genome_Assembly.fasta`: The file containing all the scaffolds (= draft genome)
+    + `FASTAs/PIP1_3.fa`: The file containing an AQP protein sequence used to mine the draft genome 
+- **Output:** 
+    + `Unique_Filtered_Blast_Hit_Info.csv`: A CSV containing the results of the BLAST analysis (= which scaffold matches the AQP protein sequence)
+
+### Bioinformatics
 
 Set general parameters for the BLAST analysis:
 
@@ -407,9 +428,23 @@ project.folder <- getwd()
 setwd(project.folder)
 ```
 
-## Extracting scaffold(s) in *de novo* assembly
+## Extract scaffold(s) in draft genome
 
-Open `Unique_Filtered_Blast_Hit_Info.csv` containing results of BLAST analysis and extract name of target scaffold(s).
+### Overview
+
+In this section, you will use the output of the BLAST analysis to extract the scaffold containing the AQP gene. For this analysis, you will need the following files:
+
+- **Input:** 
+    + `FASTAs/Draft_Genome_Assembly.fasta`: The file containing all the scaffolds (= draft genome)
+    +  `Unique_Filtered_Blast_Hit_Info.csv`: A CSV containing the results of the BLAST analysis (= which scaffold matches the AQP protein sequence) 
+- **Output:** 
+    + `Output_FASTAs/Scaffold151535.fa`: A FASTA file with the scaffold containing the AQP gene
+
+**!!NOTE: Don't forget to copy paste the code in your R script!!**
+
+### Bioinformatics
+
+In `R`, open `Unique_Filtered_Blast_Hit_Info.csv` containing results of BLAST analysis and extract name of target scaffold(s).
 
 ```{r, eval=F}
 #Open BLAST file
@@ -450,7 +485,22 @@ scaffoldFASTA <- apply(scaffold, 1, paste, collapse="\n")
 write.table(scaffoldFASTA, "Output_FASTAs/Scaffold151535.fa", row.names = F, col.names=F, quote = F)
 ```
 
-## Finding ORFs along scaffold(s)
+## Find ORFs along scaffold(s)
+
+### Overview
+
+In this section, you will find ORFs along the scaffold containing the AQP gene. For this analysis, you will need the following files:
+
+- **Input:** 
+    + `Output_FASTAs/Scaffold151535.fa`: A FASTA file with the scaffold containing the AQP gene
+- **Output:** 
+    + `ORFs_report/Scaffold151535_ORFs.csv`: A CSV file with all predicted ORFs along scaffold
+    + `AA_ORFs/Scaffold151535_ORFs.fa`: A FASTA file with AA sequences for all predicted ORFs (= input for module 3)
+    + `ORFs_map/Scaffold151535_ORFs_annotated.pdf`: A PDF with the map of all recovered ORFs along the scaffold
+
+**!!NOTE: Don't forget to copy paste the code in your R script!!**
+
+### Bioinformatics
 
 We will now find ORFs in scaffold(s) using *findORFsTranslateDNA2AA()*. This user-defined function (UDF) relies on functions from the *ORFik* R package. The output will be saved in `ORFs_report/`.
 

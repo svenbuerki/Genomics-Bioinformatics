@@ -11,7 +11,7 @@
 
 <meta name="author" content="Sven Buerki &amp; Anthony Melton - Boise State University" />
 
-<meta name="date" content="2024-04-04" />
+<meta name="date" content="2024-04-08" />
 
 <title>BIOL 497/597 - Genomics &amp; Bioinformatics</title>
 
@@ -383,7 +383,7 @@ div.tocify {
 <h1 class="title toc-ignore">BIOL 497/597 - Genomics &amp; Bioinformatics</h1>
 <h3 class="subtitle">Lab: Mining sagebrush draft genome</h3>
 <h4 class="author">Sven Buerki &amp; Anthony Melton - Boise State University</h4>
-<h4 class="date">2024-04-04</h4>
+<h4 class="date">2024-04-08</h4>
 
 </div>
 
@@ -409,7 +409,7 @@ Figure 1.1: Flowchart showing the structure of a multi-exon gene and different r
 <ul>
 <li><strong>Six membrane-spanning alpha-helices</strong></li>
 <li><strong>Two hydrophobic loops</strong></li>
-<li>Each loop contains conserved <strong>asparagine-proline-alanine (NPA) motif</strong> forming a barrel surrounding a central pore-like region that contains additional protein density (see Figure <a href="#fig:AQPex">1.2</a>)</li>
+<li>Each loop contains a conserved <strong>asparagine-proline-alanine (NPA) motif</strong> forming a barrel surrounding a central pore-like region that contains additional protein density (see Figure <a href="#fig:AQPex">1.2</a>)</li>
 </ul>
 <p>While the NPA motifs are generally highly conserved, there are some AQP genes that have undergone mutations of the alanine residue in the NPA motif <span class="citation">(<a href="#ref-ishibashi2006aquaporin" role="doc-biblioref">Ishibashi, 2006</a>)</span>.</p>
 </div>
@@ -490,10 +490,10 @@ Figure 1.2: Example of a 3D model of an Aquaporin protein recovered in the sageb
 <h1><span class="header-section-number">6</span> Analytical workflow</h1>
 <p>Overall, our analytical workflow is subdivided into 4 modules as follows:</p>
 <ul>
-<li><a href="#mod1"><strong>Module 1:</strong></a> Set-up environment and identify scaffolds containing AQP genes.</li>
-<li><a href="#mod2"><strong>Module 2:</strong></a> Extract scaffolds identified in module 1 and find <strong>O</strong>pen <strong>R</strong>eading <strong>F</strong>rames.</li>
-<li><a href="#mod3"><strong>Module 3:</strong></a> Annotate ORFs and assemble AQP protein(s).</li>
-<li><a href="#mod4"><strong>Module 4:</strong></a> Validate AQP protein sequences and infer their function(s).</li>
+<li><a href="#mod1"><strong>Module 1:</strong></a> Set-up environment and identify scaffolds containing AQP genes</li>
+<li><a href="#mod2"><strong>Module 2:</strong></a> Extract scaffolds identified in module 1 and find <strong>O</strong>pen <strong>R</strong>eading <strong>F</strong>rames</li>
+<li><a href="#mod3"><strong>Module 3:</strong></a> Annotate ORFs and assemble AQP protein(s)</li>
+<li><a href="#mod4"><strong>Module 4:</strong></a> Validate AQP protein sequences and infer their function(s)</li>
 </ul>
 </div>
 <div id="project-structure" class="section level1" number="7">
@@ -527,6 +527,7 @@ ssh bio_11@132.178.142.214</code></pre>
 </div>
 <div id="install-r-v.4.1.3" class="section level2" number="8.3">
 <h2><span class="header-section-number">8.3</span> Install <code>R</code> v.4.1.3</h2>
+<p><strong>!!WARNING: YOU DON’T HAVE TO EXECUTE CODE IN THIS SECTION!!</strong></p>
 <p>The code used in this lab depends on a specific version of <code>R</code> (version 4.1.3 (2022-03-10) – “One Push-Up”) and it needs to be installed on your computer prior to starting the tutorial. This can be done by following the procedure described in these two websites:</p>
 <ul>
 <li><p><a href="http://genomespot.blogspot.com/2020/06/installing-r-40-on-ubuntu-1804.html" class="uri">http://genomespot.blogspot.com/2020/06/installing-r-40-on-ubuntu-1804.html</a></p></li>
@@ -536,16 +537,25 @@ ssh bio_11@132.178.142.214</code></pre>
 </div>
 <div id="start-r-session-and-associated-r-script" class="section level2" number="8.4">
 <h2><span class="header-section-number">8.4</span> Start R session and associated R script</h2>
-<p>Before starting this tutorial, please start a new <code>tmux</code> session and then navigate to <code>DraftGenomeMineR/</code> and start a new <code>R</code> session:</p>
+<div id="to-do-before-starting" class="section level3" number="8.4.1">
+<h3><span class="header-section-number">8.4.1</span> To do before starting</h3>
+<p>Before starting this tutorial, do the following:</p>
+<ul>
+<li>Start a new <code>tmux</code> session entitled “Lab” on your remote computer</li>
+<li>Navigate to <code>DraftGenomeMineR/</code> and start a new <code>R</code> session:</li>
+</ul>
 <pre class="bash"><code>#Navigate to DraftGenomeMineR/
 cd DraftGenomeMineR/
 
 #Start R session
 R</code></pre>
-<p>Open a Text editor or RStudio and <strong>save all the code in an R script on your personal computer</strong> (as done in Mini-Report 3). Saving all your code in an R script will allow you to reproduce these analyses with your assigned scaffold.</p>
+<ul>
+<li>Save the R code provided below in an R script on your personnal computer</li>
+</ul>
 </div>
-<div id="install-r-packages" class="section level2" number="8.5">
-<h2><span class="header-section-number">8.5</span> Install R packages</h2>
+</div>
+<div id="r-dependencies" class="section level2" number="8.5">
+<h2><span class="header-section-number">8.5</span> R dependencies</h2>
 <p><strong>!!! DON’T EXECUTE THIS CODE !!</strong> The instructor already installed the R packages on your computers.</p>
 <p>Some of the packages used here cannot be installed with R and require <strong>BiocManager</strong> to be installed. The code below shows how to install the R packages required for this tutorial.</p>
 <pre class="r"><code>#Check if BiocManager is installed and if not install it
@@ -569,6 +579,7 @@ install.packages(&quot;seqinr&quot;)</code></pre>
 </div>
 <div id="load-r-packages-and-user-defined-functions" class="section level2" number="8.6">
 <h2><span class="header-section-number">8.6</span> Load R packages and user-defined functions</h2>
+<p>To conduct the analyses, you will need to load R packages and user-defined functions. Please copy the following code in your R script and then execute it.</p>
 <p>Create an object with all the required R packages and load them:</p>
 <pre class="r"><code># This will make a list of packages that another function will use to make sure they are all installed and loaded.
 list.of.packages &lt;- c(&quot;ape&quot;,
@@ -591,7 +602,7 @@ sapply(files.sources, source)</code></pre>
 </div>
 <div id="set-environment-for-blast-analysis" class="section level2" number="8.7">
 <h2><span class="header-section-number">8.7</span> Set environment for BLAST analysis</h2>
-<p>To be able to navigate between folders within our project, we will set a object entitled <code>project.folder</code>, which contains the path to the root of the folder.</p>
+<p>To be able to navigate between folders within our project, we will set an object entitled <code>project.folder</code>, which contains the path to the root of the project folder.</p>
 <p>To create this object, do as follows:</p>
 <pre class="r"><code>#Copy the output of getwd() in the object as follows:
 project.folder &lt;- getwd()</code></pre>
@@ -601,8 +612,25 @@ project.folder &lt;- getwd()</code></pre>
 <pre class="r"><code>#Set working directory
 setwd(project.folder)</code></pre>
 </div>
-<div id="running-blast-analysis" class="section level2" number="8.8">
-<h2><span class="header-section-number">8.8</span> Running BLAST analysis</h2>
+<div id="run-the-blast-analysis" class="section level2" number="8.8">
+<h2><span class="header-section-number">8.8</span> Run the BLAST analysis</h2>
+<div id="overview" class="section level3" number="8.8.1">
+<h3><span class="header-section-number">8.8.1</span> Overview</h3>
+<p>In this section, you will perform a BLAST analysis to identify scaffolds containing AQP genes. For this analysis, you will need the following files:</p>
+<ul>
+<li><strong>Input:</strong>
+<ul>
+<li><code>Draft_Genome_Assembly.fasta</code>: The file containing all the scaffolds (= draft genome)</li>
+<li><code>FASTAs/PIP1_3.fa</code>: The file containing an AQP protein sequence used to mine the draft genome</li>
+</ul></li>
+<li><strong>Output:</strong>
+<ul>
+<li><code>Unique_Filtered_Blast_Hit_Info.csv</code>: A CSV containing the results of the BLAST analysis (= which scaffold matches the AQP protein sequence)</li>
+</ul></li>
+</ul>
+</div>
+<div id="bioinformatics" class="section level3" number="8.8.2">
+<h3><span class="header-section-number">8.8.2</span> Bioinformatics</h3>
 <p>Set general parameters for the BLAST analysis:</p>
 <pre class="r"><code># There are a few parameters that need to be set. 
 # Let&#39;s create some R objects to store file paths and parameters for the BLAST search.
@@ -659,6 +687,7 @@ blast.hits.to.extract &lt;- subset(x = cl.filt.unique, SubjectID == cl.filt.uniq
 <pre class="r"><code># We have evaluated the top BLAST hits and can see a clear best hit. Let&#39;s save this data so we can extract just that scaffold later.
 write.csv(x = blast.hits.to.extract, file = &quot;Unique_Filtered_Blast_Hit_Info.csv&quot;, row.names = F)</code></pre>
 <p>Quit R and inspect the content of <code>Unique_Filtered_Blast_Hit_Info.csv</code> using e.g. <code>vim</code>.</p>
+</div>
 </div>
 </div>
 <div id="mod2" class="section level1" number="9">
@@ -725,9 +754,27 @@ project.folder &lt;- getwd()
 #Set wd
 setwd(project.folder)</code></pre>
 </div>
-<div id="extracting-scaffolds-in-de-novo-assembly" class="section level2" number="9.3">
-<h2><span class="header-section-number">9.3</span> Extracting scaffold(s) in <em>de novo</em> assembly</h2>
-<p>Open <code>Unique_Filtered_Blast_Hit_Info.csv</code> containing results of BLAST analysis and extract name of target scaffold(s).</p>
+<div id="extract-scaffolds-in-draft-genome" class="section level2" number="9.3">
+<h2><span class="header-section-number">9.3</span> Extract scaffold(s) in draft genome</h2>
+<div id="overview-1" class="section level3" number="9.3.1">
+<h3><span class="header-section-number">9.3.1</span> Overview</h3>
+<p>In this section, you will use the output of the BLAST analysis to extract the scaffold containing the AQP gene. For this analysis, you will need the following files:</p>
+<ul>
+<li><strong>Input:</strong>
+<ul>
+<li><code>FASTAs/Draft_Genome_Assembly.fasta</code>: The file containing all the scaffolds (= draft genome)</li>
+<li><code>Unique_Filtered_Blast_Hit_Info.csv</code>: A CSV containing the results of the BLAST analysis (= which scaffold matches the AQP protein sequence)</li>
+</ul></li>
+<li><strong>Output:</strong>
+<ul>
+<li><code>Output_FASTAs/Scaffold151535.fa</code>: A FASTA file with the scaffold containing the AQP gene</li>
+</ul></li>
+</ul>
+<p><strong>!!NOTE: Don’t forget to copy paste the code in your R script!!</strong></p>
+</div>
+<div id="bioinformatics-1" class="section level3" number="9.3.2">
+<h3><span class="header-section-number">9.3.2</span> Bioinformatics</h3>
+<p>In <code>R</code>, open <code>Unique_Filtered_Blast_Hit_Info.csv</code> containing results of BLAST analysis and extract name of target scaffold(s).</p>
 <pre class="r"><code>#Open BLAST file
 cl.filt.unique &lt;- read.csv(file = &quot;Unique_Filtered_Blast_Hit_Info.csv&quot;) # Output of module 1
 
@@ -761,8 +808,28 @@ scaffoldFASTA &lt;- apply(scaffold, 1, paste, collapse=&quot;\n&quot;)
 #Save/export FASTA file
 write.table(scaffoldFASTA, &quot;Output_FASTAs/Scaffold151535.fa&quot;, row.names = F, col.names=F, quote = F)</code></pre>
 </div>
-<div id="finding-orfs-along-scaffolds" class="section level2" number="9.4">
-<h2><span class="header-section-number">9.4</span> Finding ORFs along scaffold(s)</h2>
+</div>
+<div id="find-orfs-along-scaffolds" class="section level2" number="9.4">
+<h2><span class="header-section-number">9.4</span> Find ORFs along scaffold(s)</h2>
+<div id="overview-2" class="section level3" number="9.4.1">
+<h3><span class="header-section-number">9.4.1</span> Overview</h3>
+<p>In this section, you will find ORFs along the scaffold containing the AQP gene. For this analysis, you will need the following files:</p>
+<ul>
+<li><strong>Input:</strong>
+<ul>
+<li><code>Output_FASTAs/Scaffold151535.fa</code>: A FASTA file with the scaffold containing the AQP gene</li>
+</ul></li>
+<li><strong>Output:</strong>
+<ul>
+<li><code>ORFs_report/Scaffold151535_ORFs.csv</code>: A CSV file with all predicted ORFs along scaffold</li>
+<li><code>AA_ORFs/Scaffold151535_ORFs.fa</code>: A FASTA file with AA sequences for all predicted ORFs (= input for module 3)</li>
+<li><code>ORFs_map/Scaffold151535_ORFs_annotated.pdf</code>: A PDF with the map of all recovered ORFs along the scaffold</li>
+</ul></li>
+</ul>
+<p><strong>!!NOTE: Don’t forget to copy paste the code in your R script!!</strong></p>
+</div>
+<div id="bioinformatics-2" class="section level3" number="9.4.2">
+<h3><span class="header-section-number">9.4.2</span> Bioinformatics</h3>
 <p>We will now find ORFs in scaffold(s) using <em>findORFsTranslateDNA2AA()</em>. This user-defined function (UDF) relies on functions from the <em>ORFik</em> R package. The output will be saved in <code>ORFs_report/</code>.</p>
 <p>Let’s first look at the structure of the <em>findORFsTranslateDNA2AA()</em> function to understand the applied approach:</p>
 <pre class="r"><code>##################################
@@ -837,6 +904,7 @@ orf.report[order(-orf.report$width),]
 # Look at translated ORFs (=AA sequences)
 translated.orfs &lt;- readLines(&quot;AA_ORFs/Scaffold151535_ORFs.fa&quot;)
 head(translated.orfs)</code></pre>
+</div>
 </div>
 <div id="produce-maps-of-recovered-orfs-along-scaffolds" class="section level2" number="9.5">
 <h2><span class="header-section-number">9.5</span> Produce maps of recovered ORFs along scaffold(s)</h2>
