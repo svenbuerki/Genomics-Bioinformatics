@@ -527,8 +527,8 @@ ssh bio_11@132.178.142.214</code></pre>
 </div>
 <div id="install-r-v.4.1.3" class="section level2" number="8.3">
 <h2><span class="header-section-number">8.3</span> Install <code>R</code> v.4.1.3</h2>
-<p><strong>!!WARNING: YOU DON’T HAVE TO EXECUTE CODE IN THIS SECTION!!</strong></p>
-<p>The code used in this lab depends on a specific version of <code>R</code> (version 4.1.3 (2022-03-10) – “One Push-Up”) and it needs to be installed on your computer prior to starting the tutorial. This can be done by following the procedure described in these two websites:</p>
+<p><strong>!!WARNING: YOU DON’T HAVE TO INSTALL R!!</strong></p>
+<p>The code used in this lab depends on a specific version of <code>R</code> (version 4.1.3 (2022-03-10) – “One Push-Up”) and it needs to be installed on your computer prior to starting the tutorial. This can be done by following the procedure described on these two websites:</p>
 <ul>
 <li><p><a href="http://genomespot.blogspot.com/2020/06/installing-r-40-on-ubuntu-1804.html" class="uri">http://genomespot.blogspot.com/2020/06/installing-r-40-on-ubuntu-1804.html</a></p></li>
 <li><p><a href="https://www.digitalocean.com/community/tutorials/how-to-install-r-on-ubuntu-18-04" class="uri">https://www.digitalocean.com/community/tutorials/how-to-install-r-on-ubuntu-18-04</a></p></li>
@@ -541,6 +541,7 @@ ssh bio_11@132.178.142.214</code></pre>
 <h3><span class="header-section-number">8.4.1</span> To do before starting</h3>
 <p>Before starting this tutorial, do the following:</p>
 <ul>
+<li>Remotely connect to your computer</li>
 <li>Start a new <code>tmux</code> session entitled “Lab” on your remote computer</li>
 <li>Navigate to <code>DraftGenomeMineR/</code> and start a new <code>R</code> session:</li>
 </ul>
@@ -550,14 +551,14 @@ cd DraftGenomeMineR/
 #Start R session
 R</code></pre>
 <ul>
-<li>Save the R code provided below in an R script on your personnal computer</li>
+<li>Create and save a new R file in RStudio entitled <code>Lab_mining_genome.R</code> on your personal computer</li>
 </ul>
 </div>
 </div>
 <div id="r-dependencies" class="section level2" number="8.5">
 <h2><span class="header-section-number">8.5</span> R dependencies</h2>
-<p><strong>!!! DON’T EXECUTE THIS CODE !!</strong> The instructor already installed the R packages on your computers.</p>
-<p>Some of the packages used here cannot be installed with R and require <strong>BiocManager</strong> to be installed. The code below shows how to install the R packages required for this tutorial.</p>
+<p><strong>!!! DON’T EXECUTE THIS CODE !!</strong> The instructor already installed the R packages on your computers, but the code below shows you how these packages were installed.</p>
+<p>Some of the required packages cannot be installed with <em>install.packages()</em> and require the <strong>BiocManager</strong> R package to be installed. We are also installing some packing directly from GitHub repositories.</p>
 <pre class="r"><code>#Check if BiocManager is installed and if not install it
 if (!require(&quot;BiocManager&quot;, quietly = TRUE))
     install.packages(&quot;BiocManager&quot;)
@@ -579,8 +580,12 @@ install.packages(&quot;seqinr&quot;)</code></pre>
 </div>
 <div id="load-r-packages-and-user-defined-functions" class="section level2" number="8.6">
 <h2><span class="header-section-number">8.6</span> Load R packages and user-defined functions</h2>
-<p>To conduct the analyses, you will need to load R packages and user-defined functions. Please copy the following code in your R script and then execute it.</p>
-<p>Create an object with all the required R packages and load them:</p>
+<p>To conduct the analyses, you need to load R packages and source R user-defined functions. Please copy the following code in your R script and then execute it.</p>
+<div id="bioinformatics" class="section level3" number="8.6.1">
+<h3><span class="header-section-number">8.6.1</span> Bioinformatics</h3>
+<ol style="list-style-type: decimal">
+<li>Create an object with all the required R packages and load them:</li>
+</ol>
 <pre class="r"><code># This will make a list of packages that another function will use to make sure they are all installed and loaded.
 list.of.packages &lt;- c(&quot;ape&quot;,
                       &quot;Biostrings&quot;,
@@ -595,22 +600,33 @@ list.of.packages &lt;- c(&quot;ape&quot;,
 
 # Use lapply to load all of the packages in the list.
 lapply(list.of.packages, require, character.only = TRUE)</code></pre>
-<p>Load all the user-defined function located in <code>Functions/</code>:</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Load all the user-defined function located in <code>Functions/</code>:</li>
+</ol>
 <pre class="r"><code># Load all of the functions written for DraftGenomeMineR     
 files.sources &lt;- list.files(&quot;Functions&quot;, full.names=T)
 sapply(files.sources, source)</code></pre>
 </div>
+</div>
 <div id="set-environment-for-blast-analysis" class="section level2" number="8.7">
 <h2><span class="header-section-number">8.7</span> Set environment for BLAST analysis</h2>
 <p>To be able to navigate between folders within our project, we will set an object entitled <code>project.folder</code>, which contains the path to the root of the project folder.</p>
+<div id="bioinformatics-1" class="section level3" number="8.7.1">
+<h3><span class="header-section-number">8.7.1</span> Bioinformatics</h3>
 <p>To create this object, do as follows:</p>
+<ol style="list-style-type: decimal">
+<li>Create an object with working directory</li>
+</ol>
 <pre class="r"><code>#Copy the output of getwd() in the object as follows:
 project.folder &lt;- getwd()</code></pre>
-<p>Call <code>project.folder</code> to check that it is right. It should be:
+<p>Call <code>project.folder</code> in the Console to check that it is correct. It should return:
 <code>"~/DraftGenomeMineR"</code>.</p>
-<p>Set working directory to <code>project.folder</code> as follows:</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Set working directory to <code>project.folder</code> as follows:</li>
+</ol>
 <pre class="r"><code>#Set working directory
 setwd(project.folder)</code></pre>
+</div>
 </div>
 <div id="run-the-blast-analysis" class="section level2" number="8.8">
 <h2><span class="header-section-number">8.8</span> Run the BLAST analysis</h2>
@@ -629,9 +645,11 @@ setwd(project.folder)</code></pre>
 </ul></li>
 </ul>
 </div>
-<div id="bioinformatics" class="section level3" number="8.8.2">
+<div id="bioinformatics-2" class="section level3" number="8.8.2">
 <h3><span class="header-section-number">8.8.2</span> Bioinformatics</h3>
-<p>Set general parameters for the BLAST analysis:</p>
+<ol style="list-style-type: decimal">
+<li>Set general parameters for the BLAST analysis:</li>
+</ol>
 <pre class="r"><code># There are a few parameters that need to be set. 
 # Let&#39;s create some R objects to store file paths and parameters for the BLAST search.
 
@@ -648,17 +666,23 @@ query.type &lt;- &quot;AA&quot;
 blast.type &lt;- &quot;tblastn&quot;
 make.BlastDB &lt;- T
 BlastDB.type &lt;- &quot;nucl&quot;</code></pre>
-<p>Read in the sagebrush draft genome assembly in <code>FASTA</code> format:</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Read in the sagebrush draft genome assembly in <code>FASTA</code> format:</li>
+</ol>
 <pre class="r"><code># Read in the genome assembly file
 genome &lt;- readLines(con = genome.path)
 head(genome) # Print the top 6 lines of the fasta. There should be no spaces in what is printed. Each header should be on one line, followed by its entire scaffold on the next.</code></pre>
-<p>Make a BLAST database for query:</p>
+<ol start="3" style="list-style-type: decimal">
+<li>Make a BLAST database for query:</li>
+</ol>
 <pre class="r"><code># Do you need to make a BLAST database or use an existing one?
 if(make.BlastDB == TRUE){
   setwd(&quot;BlastDBs/&quot;)
   makeblastdb(file = genome.file.name, dbtype = BlastDB.type)
 }</code></pre>
-<p>Read in the query file in <code>FASTA</code> format:</p>
+<ol start="4" style="list-style-type: decimal">
+<li>Read in the query file in <code>FASTA</code> format:</li>
+</ol>
 <pre class="r"><code># Read in the query. What type of molecule is the query? DNA (or RNA) or amino acid sequences?
 setwd(project.folder) # Previous lines changed the wd, so we need to go back to the project folder.
 if (query.type == &quot;DNA&quot;) {
@@ -668,12 +692,16 @@ if (query.type == &quot;DNA&quot;) {
   query &lt;- readAAStringSet(filepath = query.file.path,
                            format = &quot;fasta&quot;)
 }</code></pre>
-<p>Perform BLAST analysis (<code>BLAST</code> needs to be installed on the computer):</p>
+<ol start="5" style="list-style-type: decimal">
+<li>Perform BLAST analysis (<code>BLAST</code> needs to be installed on the computer):</li>
+</ol>
 <pre class="r"><code># Now we have everything set up and can perform a BLAST search.
 bl &lt;- blast(db = blast.db.path, type = blast.type) # Create an object with the BLAST database and the type of BLAST search to perform.
 cl &lt;- predict(bl, query) # Perform the BLAST search
 head(cl) # Look at the top BLAST hits</code></pre>
-<p>Filter output of BLAST analysis:</p>
+<ol start="6" style="list-style-type: decimal">
+<li>Filter output of BLAST analysis:</li>
+</ol>
 <pre class="r"><code># We can now filter out bad BLAST hits using a few thresholds and parameters. This leaves us with only the best matches to our query.
 # What parameters do you think would give you just the best candidates to be your gene of interest?
 cl.filt &lt;- subset(x = cl, Perc.Ident &gt;= perc.ident &amp; E &lt;= max.e)
@@ -683,10 +711,14 @@ nrow(cl)
 nrow(cl.filt)
 nrow(cl.filt.unique)
 blast.hits.to.extract &lt;- subset(x = cl.filt.unique, SubjectID == cl.filt.unique[1,2])</code></pre>
-<p>Write output of BLAST analysis in <code>csv</code> file:</p>
+<ol start="7" style="list-style-type: decimal">
+<li>Write output of BLAST analysis in <code>csv</code> file:</li>
+</ol>
 <pre class="r"><code># We have evaluated the top BLAST hits and can see a clear best hit. Let&#39;s save this data so we can extract just that scaffold later.
 write.csv(x = blast.hits.to.extract, file = &quot;Unique_Filtered_Blast_Hit_Info.csv&quot;, row.names = F)</code></pre>
-<p>Quit R and inspect the content of <code>Unique_Filtered_Blast_Hit_Info.csv</code> using e.g. <code>vim</code>.</p>
+<ol start="8" style="list-style-type: decimal">
+<li>Quit R (using <em>quit()</em>) and inspect the content of <code>Unique_Filtered_Blast_Hit_Info.csv</code> using e.g. <code>vim</code>.</li>
+</ol>
 </div>
 </div>
 </div>
@@ -772,15 +804,19 @@ setwd(project.folder)</code></pre>
 </ul>
 <p><strong>!!NOTE: Don’t forget to copy paste the code in your R script!!</strong></p>
 </div>
-<div id="bioinformatics-1" class="section level3" number="9.3.2">
+<div id="bioinformatics-3" class="section level3" number="9.3.2">
 <h3><span class="header-section-number">9.3.2</span> Bioinformatics</h3>
-<p>In <code>R</code>, open <code>Unique_Filtered_Blast_Hit_Info.csv</code> containing results of BLAST analysis and extract name of target scaffold(s).</p>
+<ol style="list-style-type: decimal">
+<li>In <code>R</code>, open <code>Unique_Filtered_Blast_Hit_Info.csv</code> containing results of BLAST analysis and extract name of target scaffold(s)</li>
+</ol>
 <pre class="r"><code>#Open BLAST file
 cl.filt.unique &lt;- read.csv(file = &quot;Unique_Filtered_Blast_Hit_Info.csv&quot;) # Output of module 1
 
 #Scaffold IDs
 cl.filt.unique$SubjectID</code></pre>
-<p>Extract scaffold(s) sequences from draft genome file (<code>FASTAs/Draft_Genome_Assembly.fasta</code>).</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Extract scaffold(s) sequences from draft genome file (<code>FASTAs/Draft_Genome_Assembly.fasta</code>)</li>
+</ol>
 <pre class="r"><code>#Open draft genome file
 genome &lt;- readLines(&quot;FASTAs/Draft_Genome_Assembly.fasta&quot;)
 
@@ -828,7 +864,7 @@ write.table(scaffoldFASTA, &quot;Output_FASTAs/Scaffold151535.fa&quot;, row.name
 </ul>
 <p><strong>!!NOTE: Don’t forget to copy paste the code in your R script!!</strong></p>
 </div>
-<div id="bioinformatics-2" class="section level3" number="9.4.2">
+<div id="bioinformatics-4" class="section level3" number="9.4.2">
 <h3><span class="header-section-number">9.4.2</span> Bioinformatics</h3>
 <p>We will now find ORFs in scaffold(s) using <em>findORFsTranslateDNA2AA()</em>. This user-defined function (UDF) relies on functions from the <em>ORFik</em> R package. The output will be saved in <code>ORFs_report/</code>.</p>
 <p>Let’s first look at the structure of the <em>findORFsTranslateDNA2AA()</em> function to understand the applied approach:</p>
@@ -878,7 +914,9 @@ findORFsTranslateDNA2AA &lt;- function(scaffold, scaffoldID, MinLen){
   #Save pos file
   write.csv(pos, file = paste(&quot;ORFs_report/&quot;,pos$scaffoldID[i], &quot;_&quot;, &quot;ORFs.csv&quot;, sep=&#39;&#39;), col.names = T, row.names = F, quote = F)
 } </code></pre>
-<p>Now, we can use <em>findORFsTranslateDNA2AA()</em> on our data:</p>
+<ol style="list-style-type: decimal">
+<li>Now, we can apply <em>findORFsTranslateDNA2AA()</em> to our data:</li>
+</ol>
 <pre class="r"><code># Open FASTA file with target scaffold
 scaffold &lt;- readLines(&quot;Output_FASTAs/Scaffold151535.fa&quot;)
 scaffoldID &lt;- grep(pattern = &quot;^&gt;&quot;, x = scaffold, value = T)
@@ -891,7 +929,9 @@ tryCatch(
       findORFsTranslateDNA2AA(scaffold = scaffold, scaffoldID = scaffoldID[i], MinLen = 40)
     }
   })</code></pre>
-<p>We should now have ORFs reports and <code>FASTA</code> files of translated ORFs. Let’s check these outputs.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>We should now have ORFs reports and <code>FASTA</code> files of translated ORFs. Let’s check these outputs.</li>
+</ol>
 <pre class="r"><code># Open the CSV output of the UDF containing data on predicted ORFs and associated sequences 
 orf.report &lt;- read.csv(&quot;ORFs_report/Scaffold151535_ORFs.csv&quot;)
 
@@ -909,6 +949,9 @@ head(translated.orfs)</code></pre>
 <div id="produce-maps-of-recovered-orfs-along-scaffolds" class="section level2" number="9.5">
 <h2><span class="header-section-number">9.5</span> Produce maps of recovered ORFs along scaffold(s)</h2>
 <p>Here, we are visualizing the ORFs recovered by our analysis along each scaffold by producing maps saved in <code>pdf</code> format in <code>ORFs_map/</code>. The code also checks if the folder <code>ORFs_map/</code> where files will be saved exists and if not creates it.</p>
+<div id="bioinformatics-5" class="section level3" number="9.5.1">
+<h3><span class="header-section-number">9.5.1</span> Bioinformatics</h3>
+<p>First study the code provided below and then execute it. Don’t forget to copy and paste it in your R script.</p>
 <pre class="r"><code>###
 #Build map of scaffold with ORFs
 ###
@@ -966,12 +1009,13 @@ for(i in 1:length(ORFfiles)){
   #Close pdf
   dev.off()
 }</code></pre>
-<p>Figure <a href="#fig:scaffmap">9.1</a> shows the location of predicted ORFs along <code>Scaffold151535</code> inferred by the code displayed above.</p>
+<p>Figure <a href="#fig:scaffmap">9.1</a> shows the location of the predicted ORFs along <code>Scaffold151535</code> inferred by the code displayed above.</p>
 <div class="figure"><span style="display:block;" id="fig:scaffmap"></span>
 <img src="Images/Scaffold151535_ORFs_annotated.png" alt="Map of predicted ORFs along scaffold151535." width="100%" />
 <p class="caption">
 Figure 9.1: Map of predicted ORFs along scaffold151535.
 </p>
+</div>
 </div>
 </div>
 </div>
@@ -1019,10 +1063,13 @@ Figure 10.3: Output of the protein BLAST analysis. Use the dropdown button to se
 <li>What ORFs are coding for Aquaporin gene products?</li>
 </ol>
 </div>
-<div id="question" class="section level3" number="10.2.3">
-<h3><span class="header-section-number">10.2.3</span> Question</h3>
+<div id="questions" class="section level3" number="10.2.3">
+<h3><span class="header-section-number">10.2.3</span> Questions</h3>
 <blockquote>
-<p>Based on the output of the BLAST analysis and the ORFs map (Figure <a href="#fig:scaffmap">9.1</a>), is the Aquaporin gene sequence in <code>Scaffold151535</code> complete?</p>
+<p>How many ORFs on <code>Scaffold151535</code> are coding for AQP exons and which are they?</p>
+</blockquote>
+<blockquote>
+<p>Based on the BLAST analysis and the ORFs map (Figure <a href="#fig:scaffmap">9.1</a>), do you predict that the Aquaporin gene sequence in <code>Scaffold151535</code> is complete or not? Please motivate your answer</p>
 </blockquote>
 </div>
 </div>
@@ -1227,7 +1274,7 @@ if(nrow(tmp) &gt; 0){
 ##
 # If you want to write the data, execute the following command (don&#39;t forget to adjust your path)
 #write.csv(NPAdat, file=&#39;Scaffold151535_ORF_26_NPA_motifs.csv&#39;, row.names = F, quote = F)</code></pre>
-<div id="question-1" class="section level3" number="11.3.1">
+<div id="question" class="section level3" number="11.3.1">
 <h3><span class="header-section-number">11.3.1</span> Question</h3>
 <blockquote>
 <p>Based on your number of NPA motifs, how many hydrophobic loops does your Aquaporin protein contain?</p>

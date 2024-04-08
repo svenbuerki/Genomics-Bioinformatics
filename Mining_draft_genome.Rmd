@@ -155,9 +155,9 @@ ssh bio_11@132.178.142.214
 
 ## Install `R` v.4.1.3
 
-**!!WARNING: YOU DON'T HAVE TO EXECUTE CODE IN THIS SECTION!!**
+**!!WARNING: YOU DON'T HAVE TO INSTALL R!!**
 
-The code used in this lab depends on a specific version of `R` (version 4.1.3 (2022-03-10) -- "One Push-Up") and it needs to be installed on your computer prior to starting the tutorial. This can be done by following the procedure described in these two websites:
+The code used in this lab depends on a specific version of `R` (version 4.1.3 (2022-03-10) -- "One Push-Up") and it needs to be installed on your computer prior to starting the tutorial. This can be done by following the procedure described on these two websites:
 
 - http://genomespot.blogspot.com/2020/06/installing-r-40-on-ubuntu-1804.html
 
@@ -171,6 +171,7 @@ The code used in this lab depends on a specific version of `R` (version 4.1.3 (2
 
 Before starting this tutorial, do the following:
 
+- Remotely connect to your computer
 - Start a new `tmux` session entitled "Lab" on your remote computer
 - Navigate to `DraftGenomeMineR/` and start a new `R` session:
 
@@ -182,13 +183,13 @@ cd DraftGenomeMineR/
 R
 ```
 
-- Save the R code provided below in an R script on your personnal computer
+- Create and save a new R file in RStudio entitled `Lab_mining_genome.R` on your personal computer
 
 ## R dependencies
 
-**!!! DON'T EXECUTE THIS CODE !!** The instructor already installed the R packages on your computers.
+**!!! DON'T EXECUTE THIS CODE !!** The instructor already installed the R packages on your computers, but the code below shows you how these packages were installed.
 
-Some of the packages used here cannot be installed with R and require **BiocManager** to be installed. The code below shows how to install the R packages required for this tutorial.
+Some of the required packages cannot be installed with *install.packages()* and require the **BiocManager** R package to be installed. We are also installing some packing directly from GitHub repositories.
 
 ```{r eval=F, echo=T}
 #Check if BiocManager is installed and if not install it
@@ -213,9 +214,11 @@ install.packages("seqinr")
 
 ## Load R packages and user-defined functions
 
-To conduct the analyses, you will need to load R packages and user-defined functions. Please copy the following code in your R script and then execute it. 
+To conduct the analyses, you need to load R packages and source R user-defined functions. Please copy the following code in your R script and then execute it. 
 
-Create an object with all the required R packages and load them:
+### Bioinformatics
+
+1. Create an object with all the required R packages and load them:
 
 ```{r, eval=F}
 # This will make a list of packages that another function will use to make sure they are all installed and loaded.
@@ -234,7 +237,7 @@ list.of.packages <- c("ape",
 lapply(list.of.packages, require, character.only = TRUE)
 ```
 
-Load all the user-defined function located in `Functions/`:
+2. Load all the user-defined function located in `Functions/`:
 
 ```{r, eval=F}
 # Load all of the functions written for DraftGenomeMineR     
@@ -246,17 +249,21 @@ sapply(files.sources, source)
 
 To be able to navigate between folders within our project, we will set an object entitled `project.folder`, which contains the path to the root of the project folder.
 
+### Bioinformatics
+
 To create this object, do as follows:
+
+1. Create an object with working directory
 
 ```{r, eval=F}
 #Copy the output of getwd() in the object as follows:
 project.folder <- getwd()
 ```
 
-Call `project.folder` to check that it is right. It should be:
+Call `project.folder` in the Console to check that it is correct. It should return:
 `"~/DraftGenomeMineR"`.
 
-Set working directory to `project.folder` as follows:
+2. Set working directory to `project.folder` as follows:
 
 ```{r, eval=F}
 #Set working directory
@@ -277,7 +284,7 @@ In this section, you will perform a BLAST analysis to identify scaffolds contain
 
 ### Bioinformatics
 
-Set general parameters for the BLAST analysis:
+1. Set general parameters for the BLAST analysis:
 
 ```{r, eval=F}
 # There are a few parameters that need to be set. 
@@ -298,7 +305,7 @@ make.BlastDB <- T
 BlastDB.type <- "nucl"
 ```
 
-Read in the sagebrush draft genome assembly in `FASTA` format:
+2. Read in the sagebrush draft genome assembly in `FASTA` format:
 
 ```{r, eval=F}
 # Read in the genome assembly file
@@ -306,7 +313,7 @@ genome <- readLines(con = genome.path)
 head(genome) # Print the top 6 lines of the fasta. There should be no spaces in what is printed. Each header should be on one line, followed by its entire scaffold on the next.
 ```
 
-Make a BLAST database for query:
+3. Make a BLAST database for query:
 
 ```{r, eval=F}
 # Do you need to make a BLAST database or use an existing one?
@@ -316,7 +323,7 @@ if(make.BlastDB == TRUE){
 }
 ```
 
-Read in the query file in `FASTA` format:
+4. Read in the query file in `FASTA` format:
 
 ```{r, eval=F}
 # Read in the query. What type of molecule is the query? DNA (or RNA) or amino acid sequences?
@@ -330,7 +337,7 @@ if (query.type == "DNA") {
 }
 ```
 
-Perform BLAST analysis (`BLAST` needs to be installed on the computer):
+5. Perform BLAST analysis (`BLAST` needs to be installed on the computer):
 
 ```{r, eval=F}
 # Now we have everything set up and can perform a BLAST search.
@@ -339,7 +346,7 @@ cl <- predict(bl, query) # Perform the BLAST search
 head(cl) # Look at the top BLAST hits
 ```
 
-Filter output of BLAST analysis:
+6. Filter output of BLAST analysis:
 
 ```{r, eval=F}
 # We can now filter out bad BLAST hits using a few thresholds and parameters. This leaves us with only the best matches to our query.
@@ -353,14 +360,14 @@ nrow(cl.filt.unique)
 blast.hits.to.extract <- subset(x = cl.filt.unique, SubjectID == cl.filt.unique[1,2])
 ```
 
-Write output of BLAST analysis in `csv` file:
+7. Write output of BLAST analysis in `csv` file:
 
 ```{r, eval=F}
 # We have evaluated the top BLAST hits and can see a clear best hit. Let's save this data so we can extract just that scaffold later.
 write.csv(x = blast.hits.to.extract, file = "Unique_Filtered_Blast_Hit_Info.csv", row.names = F)
 ```
 
-Quit R and inspect the content of `Unique_Filtered_Blast_Hit_Info.csv` using e.g. `vim`.
+8. Quit R (using *quit()*) and inspect the content of `Unique_Filtered_Blast_Hit_Info.csv` using e.g. `vim`.
 
 # Module 2 {#mod2}
 
@@ -444,7 +451,7 @@ In this section, you will use the output of the BLAST analysis to extract the sc
 
 ### Bioinformatics
 
-In `R`, open `Unique_Filtered_Blast_Hit_Info.csv` containing results of BLAST analysis and extract name of target scaffold(s).
+1. In `R`, open `Unique_Filtered_Blast_Hit_Info.csv` containing results of BLAST analysis and extract name of target scaffold(s)
 
 ```{r, eval=F}
 #Open BLAST file
@@ -454,7 +461,7 @@ cl.filt.unique <- read.csv(file = "Unique_Filtered_Blast_Hit_Info.csv") # Output
 cl.filt.unique$SubjectID
 ```
 
-Extract scaffold(s) sequences from draft genome file (`FASTAs/Draft_Genome_Assembly.fasta`).
+2. Extract scaffold(s) sequences from draft genome file (`FASTAs/Draft_Genome_Assembly.fasta`)
 
 ```{r, eval=F}
 #Open draft genome file
@@ -555,7 +562,7 @@ findORFsTranslateDNA2AA <- function(scaffold, scaffoldID, MinLen){
 } 
 ```
 
-Now, we can use *findORFsTranslateDNA2AA()* on our data:
+1. Now, we can apply *findORFsTranslateDNA2AA()* to our data:
 
 ```{r, eval=F}
 # Open FASTA file with target scaffold
@@ -572,7 +579,7 @@ tryCatch(
   })
 ```
 
-We should now have ORFs reports and `FASTA` files of translated ORFs. Let's check these outputs.
+2. We should now have ORFs reports and `FASTA` files of translated ORFs. Let's check these outputs.
 
 ```{r, eval=F}
 # Open the CSV output of the UDF containing data on predicted ORFs and associated sequences 
@@ -592,6 +599,10 @@ head(translated.orfs)
 ## Produce maps of recovered ORFs along scaffold(s)
 
 Here, we are visualizing the ORFs recovered by our analysis along each scaffold by producing maps saved in `pdf` format in `ORFs_map/`. The code also checks if the folder `ORFs_map/` where files will be saved exists and if not creates it.  
+
+### Bioinformatics
+
+First study the code provided below and then execute it. Don't forget to copy and paste it in your R script.
 
 ```{r, eval=F}
 ###
@@ -653,7 +664,7 @@ for(i in 1:length(ORFfiles)){
 }
 ```
 
-Figure \@ref(fig:scaffmap) shows the location of predicted ORFs along `Scaffold151535` inferred by the code displayed above. 
+Figure \@ref(fig:scaffmap) shows the location of the predicted ORFs along `Scaffold151535` inferred by the code displayed above. 
 
 ```{r scaffmap, echo=FALSE, fig.cap="Map of predicted ORFs along scaffold151535.", out.width = '100%', fig.pos= "h"}
 knitr::include_graphics("Images/Scaffold151535_ORFs_annotated.png")
@@ -692,10 +703,11 @@ knitr::include_graphics("Images/proteinBLASToutput.png")
 ```
 5. What ORFs are coding for Aquaporin gene products?
 
-### Question
+### Questions
 
-> Based on the output of the BLAST analysis and the ORFs map (Figure \@ref(fig:scaffmap)), is the Aquaporin gene sequence in `Scaffold151535` complete?
-> 
+> How many ORFs on `Scaffold151535` are coding for AQP exons and which are they? 
+
+> Based on the BLAST analysis and the ORFs map (Figure \@ref(fig:scaffmap)), do you predict that the Aquaporin gene sequence in `Scaffold151535` is complete or not? Please motivate your answer
 
 ## Extract ORF(s) identified by protein BLAST analysis to reconstruct Aquaporin gene sequence
 
