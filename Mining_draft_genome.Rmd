@@ -670,6 +670,14 @@ Figure \@ref(fig:scaffmap) shows the location of the predicted ORFs along `Scaff
 knitr::include_graphics("Images/Scaffold151535_ORFs_annotated.png")
 ```
 
+## Questions
+
+> How many ORFs were discovered on `Scaffold151535`?
+
+> How many ORFs are on the `+` and `-` strands?
+
+Write an `R` code based on `ORFs_report/Scaffold151535_ORFs.csv` to answer the questions.  
+
 # Module 3 {#mod3}
 
 ## Objectives
