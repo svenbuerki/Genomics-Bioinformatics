@@ -11,7 +11,7 @@
 
 <meta name="author" content="Sven Buerki &amp; Anthony Melton - Boise State University" />
 
-<meta name="date" content="2024-04-10" />
+<meta name="date" content="2024-04-11" />
 
 <title>BIOL 497/597 - Genomics &amp; Bioinformatics</title>
 
@@ -383,7 +383,7 @@ div.tocify {
 <h1 class="title toc-ignore">BIOL 497/597 - Genomics &amp; Bioinformatics</h1>
 <h3 class="subtitle">Lab: Mining sagebrush draft genome</h3>
 <h4 class="author">Sven Buerki &amp; Anthony Melton - Boise State University</h4>
-<h4 class="date">2024-04-10</h4>
+<h4 class="date">2024-04-11</h4>
 
 </div>
 
@@ -1087,9 +1087,9 @@ Figure 10.3: Output of the protein BLAST analysis. Use the dropdown button to se
 <h2><span class="header-section-number">10.3</span> Extract ORF(s) identified by protein BLAST analysis to reconstruct Aquaporin gene sequence</h2>
 <p>Students are tasked to develop an R code producing the DNA sequence of Aquaporin gene located on identified scaffold and its associated protein sequence.</p>
 </div>
-<div id="a-user-defined-function-to-produce-the-protein-sequence" class="section level2" number="10.4">
-<h2><span class="header-section-number">10.4</span> A user-defined function to produce the protein sequence</h2>
-<p>Please find below a user defined function (UDF) to concatenate ORFs into a protein sequence in <code>FASTA</code> format. This function implements defensive programming aiming at providing the users with meaningful error messages to debug their code.</p>
+<div id="a-user-defined-function-to-produce-a-protein-sequence" class="section level2" number="10.4">
+<h2><span class="header-section-number">10.4</span> A user-defined function to produce a protein sequence</h2>
+<p>Please find below a user defined function (UDF) that concatenates ORFs into a protein sequence in <code>FASTA</code> format. This function implements defensive programming aiming at providing the users with meaningful error messages to debug their code.</p>
 <p>In this UDF, defensive programming has been implemented 2-ways:</p>
 <ol style="list-style-type: decimal">
 <li>The code <strong>checks that the <code>FASTA</code> file declared in <code>fastaAA</code> exists</strong> in the working directory (or in the provided path) and stops and return an error message pertaining to this issue if it doesn’t.</li>
@@ -1138,8 +1138,15 @@ ORFs2protSeq &lt;- function(fastaAA, ORFsToCat, stopCodon){
   }
   return(protSeqOUT)
 }</code></pre>
-<p>We apply the UDF <em>ORFs2protSeq</em> to <code>Scaffolds_groups.fasta</code> (= <code>fastaAA</code>). First, we will use an example where the <code>ORFsToCat</code> argument contains ORFs that are not found in the <code>FASTA</code> file to demonstrate how defensive programming was implemented in the UDF.</p>
-<pre class="r"><code>#Name of the FASTA file
+<div id="bioinformatics-6" class="section level3" number="10.4.1">
+<h3><span class="header-section-number">10.4.1</span> Bioinformatics</h3>
+<p>In this section, we apply the UDF <em>ORFs2protSeq</em> to <code>Scaffolds_groups.fasta</code> (= <code>fastaAA</code>). First, we will use an example where the <code>ORFsToCat</code> argument contains ORFs that are not found in the <code>FASTA</code> file to demonstrate how defensive programming was implemented in the UDF.</p>
+<p>The step-by-step approach is as follows:</p>
+<ol style="list-style-type: decimal">
+<li><p>Copy the UDF <em>ORFs2protSeq()</em> in your R code and execute it to source the function in the global environment (on the remote computer)</p></li>
+<li><p>Apply <em>ORFs2protSeq()</em> to a FASTA file containing ORFs</p></li>
+</ol>
+<pre class="r"><code>#Name of the FASTA file (make sure the path is correct)
 fastaAA &lt;- &quot;Data/Scaffold151535_ORFs.fa&quot;
 
 #Fasta headers of the ORFs you want to concatenate
@@ -1152,7 +1159,9 @@ stopCodon &lt;- TRUE
 #Apply UDF
 ORFs2protSeq(fastaAA, ORFsToCat, stopCodon)</code></pre>
 <pre><code>## Error: &gt;Scaffold151535_ORF_1tt &gt;Scaffold151535_ORF_13c couldn&#39;t be found in Data/Scaffold151535_ORFs.fa  Please fix the error(s).</code></pre>
-<p>Second, we apply the UDF again, but with matching ORFs (= they are declared in the <code>FASTA</code> file).</p>
+<ol start="3" style="list-style-type: decimal">
+<li>Apply the UDF again, but this time with matching ORFs (= they are declared in the <code>FASTA</code> file)</li>
+</ol>
 <pre class="r"><code>#Name of the FASTA file
 fastaAA &lt;- &quot;Data/Scaffold151535_ORFs.fa&quot;
 
@@ -1168,6 +1177,10 @@ ORFs2protSeq(fastaAA, ORFsToCat, stopCodon)</code></pre>
 <pre><code>## [1] &quot;Producing protein sequence with &gt;Scaffold151535_ORF_1, &gt;Scaffold151535_ORF_13, &gt;Scaffold151535_ORF_2&quot;
 ## [1] &quot;&gt;Protein_sequence_from_Scaffold151535_ORF_1|Scaffold151535_ORF_13|Scaffold151535_ORF_2\nMSSKPEIFEISSNDSTSSDSITSPWSSYFPSTYSNSVSKKSTAARSGKKVSTSVNPPVTTQALSMTSKRTQVLGLPTKENYAKITAKGKGKRTLTMEYLTILPEASALFNICLIGWSVMNFIGWASKYLRSLLAICSRARANFSMGAMHLCMHVCNEMLLVSVKIKLLVFIHHQCQNTTWYIVTCLDLTYQLNSYFKHKQKTQLHTFPTL&quot;</code></pre>
 <pre><code>## [1] &quot;&gt;Protein_sequence_from_Scaffold151535_ORF_1|Scaffold151535_ORF_13|Scaffold151535_ORF_2\nMSSKPEIFEISSNDSTSSDSITSPWSSYFPSTYSNSVSKKSTAARSGKKVSTSVNPPVTTQALSMTSKRTQVLGLPTKENYAKITAKGKGKRTLTMEYLTILPEASALFNICLIGWSVMNFIGWASKYLRSLLAICSRARANFSMGAMHLCMHVCNEMLLVSVKIKLLVFIHHQCQNTTWYIVTCLDLTYQLNSYFKHKQKTQLHTFPTL&quot;</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>Amend the above code to save the output of <em>ORFs2protSeq()</em> in a <code>FASTA</code> file located at a specific path on your remote computer</li>
+</ol>
+</div>
 </div>
 </div>
 <div id="mod4" class="section level1" number="11">

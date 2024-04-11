@@ -721,9 +721,9 @@ knitr::include_graphics("Images/proteinBLASToutput.png")
 
 Students are tasked to develop an R code producing the DNA sequence of Aquaporin gene located on identified scaffold and its associated protein sequence.
 
-## A user-defined function to produce the protein sequence
+## A user-defined function to produce a protein sequence
 
-Please find below a user defined function (UDF) to concatenate ORFs into a protein sequence in `FASTA` format. This function implements defensive programming aiming at providing the users with meaningful error messages to debug their code.
+Please find below a user defined function (UDF) that concatenates ORFs into a protein sequence in `FASTA` format. This function implements defensive programming aiming at providing the users with meaningful error messages to debug their code.
 
 In this UDF, defensive programming has been implemented 2-ways:
 
@@ -778,10 +778,18 @@ ORFs2protSeq <- function(fastaAA, ORFsToCat, stopCodon){
 }
 ```
 
-We apply the UDF *ORFs2protSeq* to `Scaffolds_groups.fasta` (= `fastaAA`). First, we will use an example where the `ORFsToCat` argument contains ORFs that are not found in the `FASTA` file to demonstrate how defensive programming was implemented in the UDF.
+### Bioinformatics
+
+In this section, we apply the UDF *ORFs2protSeq* to `Scaffolds_groups.fasta` (= `fastaAA`). First, we will use an example where the `ORFsToCat` argument contains ORFs that are not found in the `FASTA` file to demonstrate how defensive programming was implemented in the UDF. 
+
+The step-by-step approach is as follows:
+
+1. Copy the UDF *ORFs2protSeq()* in your R code and execute it to source the function in the global environment (on the remote computer)
+
+2. Apply *ORFs2protSeq()* to a FASTA file containing ORFs
 
 ```{r eval = T, echo = T, error=TRUE, warning = F}
-#Name of the FASTA file
+#Name of the FASTA file (make sure the path is correct)
 fastaAA <- "Data/Scaffold151535_ORFs.fa"
 
 #Fasta headers of the ORFs you want to concatenate
@@ -794,7 +802,8 @@ stopCodon <- TRUE
 #Apply UDF
 ORFs2protSeq(fastaAA, ORFsToCat, stopCodon)
 ```
-Second, we apply the UDF again, but with matching ORFs (= they are declared in the `FASTA` file).
+
+3. Apply the UDF again, but this time with matching ORFs (= they are declared in the `FASTA` file)
 
 ```{r eval = T, echo = T, error=TRUE, warning = F}
 #Name of the FASTA file
@@ -810,6 +819,8 @@ stopCodon <- TRUE
 #Apply UDF
 ORFs2protSeq(fastaAA, ORFsToCat, stopCodon)
 ```
+
+4. Amend the above code to save the output of *ORFs2protSeq()* in a `FASTA` file located at a specific path on your remote computer
 
 # Module 4 {#mod4}
 
