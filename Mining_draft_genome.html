@@ -1189,9 +1189,9 @@ ORFs2protSeq(fastaAA, ORFsToCat, stopCodon)</code></pre>
 <h2><span class="header-section-number">11.1</span> Objectives</h2>
 <p>The objectives of this module are to validate the AQP protein sequences obtained in <a href="#mod3">module 3</a> and infer its function. This will be done by conducting the following analyses:</p>
 <ol style="list-style-type: decimal">
-<li>Prediction of protein transmembrane helices based on the approach implemented in <a href="http://www.cbs.dtu.dk/services/TMHMM/">TMHMM</a> <span class="citation">(<a href="#ref-krogh2001predicting" role="doc-biblioref">Krogh et al., 2001</a>)</span>. This approach relies on <a href="https://www.sciencedirect.com/topics/biochemistry-genetics-and-molecular-biology/hidden-markov-model">Hidden Markov Models</a>.</li>
-<li>Identifying NPA motifs using R script relying on <em>Biostring</em> <span class="citation">(<a href="#ref-Biostrings" role="doc-biblioref">Pagès et al., 2019</a>)</span> and <em>IRanges</em> <span class="citation">(<a href="#ref-IRanges" role="doc-biblioref">Lawrence et al., 2013</a>)</span> packages.</li>
-<li>Model 3D AQP protein using approach implemented in <a href="http://www.sbg.bio.ic.ac.uk/~phyre2/html/page.cgi?id=index">Phyre<sup>2</sup></a> and predict protein (therefore its function). The approach for protein modeling, prediction and analysis is presented in <span class="citation">Kelley et al. (<a href="#ref-kelley2015phyre2" role="doc-biblioref">2015</a>)</span>.</li>
+<li>Predict the number of protein transmembrane helices based on the approach implemented in <a href="http://www.cbs.dtu.dk/services/TMHMM/">TMHMM</a> <span class="citation">(<a href="#ref-krogh2001predicting" role="doc-biblioref">Krogh et al., 2001</a>)</span>. This approach relies on <a href="https://www.sciencedirect.com/topics/biochemistry-genetics-and-molecular-biology/hidden-markov-model">Hidden Markov Models</a>.</li>
+<li>Identify NPA motifs using an <code>R</code> script relying on <em>Biostring</em> <span class="citation">(<a href="#ref-Biostrings" role="doc-biblioref">Pagès et al., 2019</a>)</span> and <em>IRanges</em> <span class="citation">(<a href="#ref-IRanges" role="doc-biblioref">Lawrence et al., 2013</a>)</span> packages.</li>
+<li>Model 3D AQP protein using an approach implemented in <a href="http://www.sbg.bio.ic.ac.uk/~phyre2/html/page.cgi?id=index">Phyre<sup>2</sup></a> and predict protein (therefore its function). The approach for protein modeling, prediction and analysis is presented in <span class="citation">Kelley et al. (<a href="#ref-kelley2015phyre2" role="doc-biblioref">2015</a>)</span>.</li>
 </ol>
 <div id="predictions" class="section level3" number="11.1.1">
 <h3><span class="header-section-number">11.1.1</span> Predictions</h3>
@@ -1204,8 +1204,8 @@ ORFs2protSeq(fastaAA, ORFsToCat, stopCodon)</code></pre>
 </ol>
 </div>
 </div>
-<div id="predictions-of-number-of-protein-transmembrane-helices-thm-and-outside-loops" class="section level2" number="11.2">
-<h2><span class="header-section-number">11.2</span> Predictions of number of protein transmembrane helices (THM) (and outside loops)</h2>
+<div id="predict-the-number-of-protein-transmembrane-helices-thm-and-outside-loops" class="section level2" number="11.2">
+<h2><span class="header-section-number">11.2</span> Predict the number of protein transmembrane helices (THM) (and outside loops)</h2>
 <p>To conduct this analysis (based on <code>&gt;Scaffold151535_ORF_26</code>) do the following:</p>
 <ol style="list-style-type: decimal">
 <li>Go to the TMHMM website: <a href="https://services.healthtech.dtu.dk/service.php?TMHMM-2.0" class="uri">https://services.healthtech.dtu.dk/service.php?TMHMM-2.0</a></li>
@@ -1229,9 +1229,9 @@ Figure 11.2: Snapshot of TMHMM results.
 </ul></li>
 </ol>
 </div>
-<div id="identifying-the-number-of-npa-motifs-and-type" class="section level2" number="11.3">
-<h2><span class="header-section-number">11.3</span> Identifying the number of NPA motifs and type</h2>
-<p>In this section, we are identifying the location and type of NPA motif along the AQP protein sequence. The instructors provide a template of an R code (based on <code>Scaffold151535_ORF_26</code>) to conduct this task relying on the <em>Biostring</em> <span class="citation">(<a href="#ref-Biostrings" role="doc-biblioref">Pagès et al., 2019</a>)</span> and <em>IRanges</em> <span class="citation">(<a href="#ref-IRanges" role="doc-biblioref">Lawrence et al., 2013</a>)</span> packages. These latter packages should already be installed on your computer, but if they are not then install and load them as follows:</p>
+<div id="identify-the-number-of-npa-motifs-and-type" class="section level2" number="11.3">
+<h2><span class="header-section-number">11.3</span> Identify the number of NPA motifs and type</h2>
+<p>In this section, we are identifying the location and type of NPA motif along the AQP protein sequence. The instructors provide a template of an <code>R</code> code (based on <code>Scaffold151535_ORF_26</code>) to conduct this task relying on the <em>Biostring</em> <span class="citation">(<a href="#ref-Biostrings" role="doc-biblioref">Pagès et al., 2019</a>)</span> and <em>IRanges</em> <span class="citation">(<a href="#ref-IRanges" role="doc-biblioref">Lawrence et al., 2013</a>)</span> packages. These latter packages should already be installed on your computer, but if they are not then install and load them as follows:</p>
 <pre class="r"><code>#Install Biostrings and IRanges (deposited on Bioconductor)
 BiocManager::install(&quot;Biostrings&quot;)
 BiocManager::install(&quot;IRanges&quot;)

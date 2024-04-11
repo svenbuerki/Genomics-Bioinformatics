@@ -828,9 +828,9 @@ ORFs2protSeq(fastaAA, ORFsToCat, stopCodon)
 
 The objectives of this module are to validate the AQP protein sequences obtained in [module 3](#mod3) and infer its function. This will be done by conducting the following analyses:
 
-1. Prediction of protein transmembrane helices based on the approach implemented in [TMHMM](http://www.cbs.dtu.dk/services/TMHMM/) [@krogh2001predicting]. This approach relies on [Hidden Markov Models](https://www.sciencedirect.com/topics/biochemistry-genetics-and-molecular-biology/hidden-markov-model).
-2. Identifying NPA motifs using R script relying on *Biostring* [@Biostrings] and *IRanges* [@IRanges] packages. 
-3. Model 3D AQP protein using approach implemented in [Phyre^2^](http://www.sbg.bio.ic.ac.uk/~phyre2/html/page.cgi?id=index) and predict protein (therefore its function). The approach for protein modeling, prediction and analysis is presented in @kelley2015phyre2. 
+1. Predict the number of protein transmembrane helices based on the approach implemented in [TMHMM](http://www.cbs.dtu.dk/services/TMHMM/) [@krogh2001predicting]. This approach relies on [Hidden Markov Models](https://www.sciencedirect.com/topics/biochemistry-genetics-and-molecular-biology/hidden-markov-model).
+2. Identify NPA motifs using an `R` script relying on *Biostring* [@Biostrings] and *IRanges* [@IRanges] packages. 
+3. Model 3D AQP protein using an approach implemented in [Phyre^2^](http://www.sbg.bio.ic.ac.uk/~phyre2/html/page.cgi?id=index) and predict protein (therefore its function). The approach for protein modeling, prediction and analysis is presented in @kelley2015phyre2. 
 
 ### Predictions
 
@@ -841,7 +841,7 @@ To be valid, the AQP protein sequence should have:
   3. Two NPA motifs (one per loop).
   4. Mutations in the NPA motifs (at N or A positions) changes affinity with water and therefore suggests different substrate (i.e., this would be indicative of a change of function).
 
-## Predictions of number of protein transmembrane helices (THM) (and outside loops)
+## Predict the number of protein transmembrane helices (THM) (and outside loops)
 
 To conduct this analysis (based on `>Scaffold151535_ORF_26`) do the following:
 
@@ -857,9 +857,9 @@ knitr::include_graphics("Images/TMHMM_input.png")
 knitr::include_graphics("Images/TMHMM_results.png")
 ```
 
-## Identifying the number of NPA motifs and type
+## Identify the number of NPA motifs and type
 
-In this section, we are identifying the location and type of NPA motif along the AQP protein sequence. The instructors provide a template of an R code (based on `Scaffold151535_ORF_26`) to conduct this task relying on the *Biostring* [@Biostrings] and *IRanges* [@IRanges] packages. These latter packages should already be installed on your computer, but if they are not then install and load them as follows:
+In this section, we are identifying the location and type of NPA motif along the AQP protein sequence. The instructors provide a template of an `R` code (based on `Scaffold151535_ORF_26`) to conduct this task relying on the *Biostring* [@Biostrings] and *IRanges* [@IRanges] packages. These latter packages should already be installed on your computer, but if they are not then install and load them as follows:
 
 ```{r eval=F, echo=T}
 #Install Biostrings and IRanges (deposited on Bioconductor)
