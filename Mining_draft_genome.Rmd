@@ -933,8 +933,8 @@ print(NPAdat)
 
 ### Question
 
-> Based on your number of NPA motifs, how many hydrophobic loops does your Aquaporin protein contain?
->
+> Based on your number of NPA motifs, how many hydrophobic loops does your Aquaporin protein contain? How does this result compare with the output of the TMHMM analysis?
+> 
 
 ## Model 3D AQP protein
 
