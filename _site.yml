@@ -5,11 +5,11 @@ navbar:
   left:
     - text: "Home"
       href: index.html
-    - text: "Timetable"
+    - text: "Schedule"
       href: Timetable.html
     - text: "Chapters"
       href: Chapters.html 
-    - text: "Mini-reports"
+    - text: "Mini-Reports"
       href: Mini_reports.html
     - text: "Lab."
       href: Mining_draft_genome.html  
@@ -17,7 +17,7 @@ navbar:
       href: Tutorials.html
     - text: "Lexicon"
       href: Lexicon.html
-    - text: "R functions"
+    - text: "R Functions"
       href: R_Functions.html
     - text: "References"
       href: References.html

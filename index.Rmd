@@ -47,80 +47,87 @@ knitr::write_bib(.packages(), file = 'packages.bib')
 <div style="text-align: right"> [Download pdf version](index.pdf) </div>
 <div style="text-align: right"> [Raw data on GitHub](https://github.com/svenbuerki/Genomics-Bioinformatics) </div>
 
-# Instructor
+# Meeting Time and Place
 
--   Name: Sven Buerki
--   Office: Science building, office 114 (ground floor).
--   Email: [svenbuerki\@boisestate.edu](mailto:svenbuerki@boisestate.edu){.email}
--   Office hours: By appointment.
+- Days: Wednesday
+- Times: 9:00 AM to 11:45 AM
+- Location: SCNC146B
 
-# Class ethos
+---
 
-> Everyone here is smart; distinguish yourself by being kind.
->
-> `r tufte::quote_footer('Kindness in Science is an inclusive approach that fosters diversity, 	respect, wellbeing & openness leading to better science outcomes.')`
+# Instructor Information
 
-```{r kindness, echo=FALSE, fig.align='right', out.width = '40%', fig.pos= "h"}
-knitr::include_graphics("Images/Kindness.png")
-```
+- Name: Sven Buerki (he/his)
+- Office location: Science building, office 228 (first floor)
+- Office hours: By appointment
+- Email address: [svenbuerki\@boisestate.edu](mailto:svenbuerki@boisestate.edu){.email}
+- Preferred way to contact me: By email or in class
 
-# Class details
+---
 
-## Teaching mode and class location
+# Pre-requisite
 
-In-person in [Science Bldg, Rm 149](https://maps.boisestate.edu/?id=715#!m/89069).
+**BIOL 310: Genetics (3-0-3; F, S, SU).**  
+A study of the principles of genetics as they relate to living organisms.
 
-## Meeting days and times
+**Prerequisites:** BIOL 191–192 *or* BIOL 191 and BIOL 320.  
+**Pre-/Corequisite:** CHEM 301 or CHEM 307.
 
--   **Lecture sessions:** Wednesdays from 9:00-10:50 AM.
--   **Laboratory sessions:** Fridays from 9:00-10:30 AM.
+---
 
-Please see section \@ref(timetable) for tentative timetable for this course.
+# Welcome
 
-## Health and safety protocols
+Welcome to the course! I am looking forward to getting to know you this semester. To get started, please familiarize yourself with this syllabus and our [website](https://svenbuerki.github.io/Genomics-Bioinformatics/index.html). I developed this course to provide a welcoming environment and effective learning experience for all students. If you encounter barriers in this course, please bring them to my attention so that I may work to address them, and reach out to me at any time if you have questions about course content or assignments. 
 
-**Our priority is your safety!**
+---
 
-The following rules apply for in-person classes:
+# Course Format
 
-- You can use sanitizing wipes to clean surfaces (desk and keyboard) at beginning and end of class.
-- **NO required seat assignments**.
-- Students should not attend class in person if they have any of the listed infectious diseases within the [Communicable Disease Policy](https://www.boisestate.edu/policy/facilities-planning-campus-safety/communicable-disease/).
+This is a face to face course that will meet one times a week. Our class sessions include important information and opportunities to apply what you are learning with your peers. To best achieve the learning outcomes for the course, it is important that you attend class and be engaged with the content, me and each other. You should expect to spend approximately 9 hours each week on work for this course (including in and out of class time).
 
-For more information consult the [BSU campus public health](https://www.boisestate.edu/publichealth/) website.
+---
 
-# Course goal and description
+# Course Description, Goal, and Objectives
 
-The goal of this course is to provide students with the theoretical and applied knowledge in genomics and bioinformatics to sequence, assemble and annotate eukaryote genomes [@Saitou2013; @Satam2023], especially for non-model organisms [@Russell2017] (see Figure \@ref(fig:flowchart)). To provide an authentic research experience, we will be using examples from the instructor's research on sagebrush (*Artemisia tridentata*; Asteraceae) genomics [e.g., @Melton2021; @Melton2022].
+## Goal
+
+The primary ***goal*** of this course is to provide students with both theoretical and applied knowledge in genomics and bioinformatics required to sequence, assemble, and annotate eukaryotic genomes [@Saitou2013; @Satam2023], with particular emphasis on non-model organisms [@Russell2017]. The overall structure of the course and progression of topics are illustrated in Figure \@ref(fig:flowchart).
 
 ```{r flowchart, echo=FALSE, fig.cap="Overview of the structure of the course. See text for more details.", out.width = '100%', fig.pos= "h"}
 knitr::include_graphics("Images/Flowchart_course_crop.png")
 ```
 
-A suite of [unix-based open source software](https://opensource.com/article/18/5/differences-between-linux-and-unix) will be used to perform genomic analyses (see Figure \@ref(fig:BioinfoWorkflow)). In addition to learning how to execute these programs, students will also be taught procedures to install them therefore gaining critical expertise for their career. Finally, students will produce scientific reports and present their results therefore promoting developing their dissemination skills. Reports together with documents provided by the instructor will provide students with a framework allowing them to analyze their own genomic data.
+## Objectives
+
+To achieve this goal, the course is designed around three core ***objectives***:
+
+- Building strong **genomics knowledge**
+- Developing practical **bioinformatics skills**
+- Enhancing **scientific dissemination** abilities
+
+Together, these objectives prepare students to engage with modern genomic research, from data generation and analysis to effective communication of results.
+
+The first objective is to develop **genomics knowledge** through lectures that introduce foundational concepts in genome biology, sequencing technologies, and genome analysis, reinforced by applied examples that reflect real research workflows (Figure \@ref(fig:flowchart)). To provide an authentic research experience, the course draws on examples and case studies from the instructor’s research program [e.g., @Ellestad2022AJB; @Melton2021; @Melton2022].
+
+The second objective is to develop **bioinformatics proficiency** through hands-on use of a suite of [unix-based open source software](https://opensource.com/article/18/5/differences-between-linux-and-unix) to perform genomic analyses, from raw sequence data to assembled and annotated genomes. Students will work through complete bioinformatics workflows commonly used to generate draft genome assemblies and annotations (Figure \@ref(fig:BioinfoWorkflow)). In addition to learning how to execute bioinformatics programs, students will be taught how to install and manage software, gaining critical and transferable technical expertise. Reports and supporting documents provided by the instructor will give students a structured framework for analyzing and interpreting their own genomic datasets. Computational work will be conducted on computers running the [Ubuntu Linux operating system](https://ubuntu.com/), which is widely used in genomics research. This environment will allow students to become familiar with `bash/shell`, `Python`, and `R`, and will provide an on-ramp to using research computing clusters (e.g., the [BSU Borah research cluster](https://www.boisestate.edu/rcs/2020/10/12/boise-state-university-launches-borah-a-new-peak-computing-system-for-idaho/)).
 
 ```{r BioinfoWorkflow, echo=FALSE, fig.cap="Overview of an example of an approach applied to produce a draft genome assembly. In this course, students will become accustomed with such approach and master some specific key steps.", out.width = '100%'}
 knitr::include_graphics("Images/Workflow_Bioinformatics.png")
 ```
 
-# Course format
+The third objective is to foster **scientific dissemination and critical evaluation** by engaging students in writing, presenting, and discussing scientific papers and their own genomic analyses. Through these activities, students will develop the ability to clearly communicate results and to critically assess the methodological quality, rigor, and reproducibility of published genomic studies.
 
-This course provides a mixture of classic lectures together with more applied, hands-on bioinformatic tutorials (conducted both during lecture and lab sessions). Tutorials are designed to support students in mastering theoretical genomic concepts through their implementations in bioinformatic protocols. As mentioned above, the genomic field heavily relies on bioinformatic expertise, especially related to unix-based software.
+---
 
-We will be working on computers running the [Ubuntu Linux operating system](https://ubuntu.com/). This operating system is widely used in genomic research. Using these computers will provide opportunities for students to become familiar with `bash/shell`, `Python` and `R` and they provide an on-ramp to using research computing clusters (e.g. [BSU Borah research cluster](https://www.boisestate.edu/rcs/2020/10/12/boise-state-university-launches-borah-a-new-peak-computing-system-for-idaho/)). Finally, lecture sessions will also serve as a platform to:
+# Course Content
 
-- Work on graded [mini-reports](#minireport). 
-- Study the genomic literature through a [journal club](#journalclub). 
+Throughout the course, **bioinformatics will be used as a central conduit for studying genomics**, allowing students to explore genomic concepts through hands-on data analysis and computational workflows.
 
-While reading scientific papers, we will be focusing on mastering methodological concepts allowing students to assess the quality and reproducibility of published genomic studies.
-
-# Content of the course
-
-The course is subdivided into nine chapters segregated between lecture and laboratory sessions as follows (see Figure \@ref(fig:flowchart)):
+The course is subdivided into nine chapters distributed between lecture and laboratory sessions as follows (see Figure \@ref(fig:flowchart)):
 
 **Lecture sessions:**
 
-- **Chapter 1**: DNA & RNA.
+- **Chapter 1**: DNA and RNA.
 - **Chapter 2**: Next-generation sequencing.
 - **Chapter 3**: Genome databases.
 - **Chapter 4**: Genome assembly.
@@ -132,182 +139,198 @@ The course is subdivided into nine chapters segregated between lecture and labor
 
 - **Chapter 9**: Applied bioinformatics.
 
-# Course learning outcomes
+---
 
-Please find below a non-exhaustive list of learning outcomes associated to the chapters presented above (Figure \@ref(fig:flowchart)):
+# Course Learning Outcomes
 
-**Chapter 1: DNA & RNA**
+Below is a non-exhaustive list of learning outcomes associated with each chapter of the course (see Figure \@ref(fig:flowchart)). Collectively, these outcomes align with three core learning outcomes that span the entire course and reflect its emphasis on **genomics**, **bioinformatics**, and **scientific dissemination**.
 
--   Understand the differences between "Genetics" and "Genomics".
--   Know the basic dogma that DNA is transcribed to RNA, which is translated to protein.
--   Appreciate the diversity of genome organization in organelles, prokaryotes and eukaryotes.
--   Appreciate that organelle genomes have forged eukaryotic chromosomes and that this has to be accounted for in designing genome assembly projects.
--   Appreciate that eukaryotic genomes contain extensive repetitive regions of several different kinds.
--   Appreciate the diversity of published genomes and their differences in the level of completeness.
--   Understand the importance of computer science and bioinformatics in producing the raw sequence data and assembly genomes.
--   Understand the challenges in sequencing a genome.
+## Core Learning Outcomes
 
-**Chapter 2: Next-generation sequencing**
+By the end of this course, students will be able to:
 
--   Learn the next-generation sequencing (NGS) jargon underpinning genome assembly and annotation.
--   Understand the general principle of genome sequencing (wet-lab) and assembly (bioinformatics workflow) (see Figure \@ref(fig:BioinfoWorkflow)).
--   Be familiar and know the limitations of the following NGS platforms [@Satam2023]:
-    -   Illumina.
-    -   PacBio.
-    -   Oxford Nanopore.
--   Be accustomed to handle NGS data output, especially FASTA and FASTQ files.
--   Learn protocols to quantify the quality of the nucleobases generated by NGS platforms using Phred quality score.
+1. **Genomics**: Explain key concepts in genome biology and critically evaluate genome sequencing, assembly, annotation, and comparative genomics strategies, with particular attention to eukaryotic and non-model organisms.
 
-**Chapter 3: Genome databases**
+2. **Bioinformatics**: Apply bioinformatics tools and computational workflows to analyze genomic and transcriptomic data, including data quality assessment, assembly, annotation, and comparative analyses, using unix-based open-source software.
 
--   Understand the importance of computer science and bioinformatics in:
-    -   Producing raw data.
-    -   Creating databases in molecular biology.
-    -   Archiving and careful curation of the data.
-    -   Distributing them via the Internet.
-    -   Creating information-retrieval tools to allow effective mining of the data for research application.
--   Gain knowledge on major molecular biology databases, which are key to the assembly and annotation of genomes:
-    -   Nucleic acid sequences databases.
-    -   Protein sequences databases.
-    -   Gene ontology databases.
-    -   Metabolic pathways databases.
-    -   Specialized annotated genome portals.
--   Learn protocols to query genomic information and remotely download files from GenBank.
+3. **Scientific Dissemination**: Effectively communicate genomic research through written reports and oral presentations, and critically evaluate published genomic studies for methodological rigor, data quality, and reproducibility.
 
-**Chapter 4: Genome assembly**
+## Chapter-Specific Learning Outcomes
 
--   Understand key steps involved in producing a genome assembly and best strategies to get there.
--   Be able to perform reads quality checks as follows:
-    -   Read quality assessments.
-        -   Read trimming.
-        -   Contaminant screening.
-        -   k-mer counting.
-        -   Genome size estimation.
-        -   Read error correction.
--   Understand the use of de Bruijn graphs for *de novo* genome assembly.
--   Gain an overview of current genome assemblers and their specificity.
--   Study the benefit of long reads in closing gaps and correcting draft genome assemblies.
+### Chapter 1: DNA & RNA
 
-**Chapter 5: Transcriptome assembly**
+- Understand the differences between *genetics* and *genomics*.
+- Understand the central dogma: DNA is transcribed into RNA, which is translated into protein.
+- Appreciate the diversity of genome organization in organelles, prokaryotes, and eukaryotes.
+- Understand how organelle genomes have contributed to the evolution of eukaryotic chromosomes and how this impacts genome assembly project design.
+- Appreciate that eukaryotic genomes contain extensive and diverse repetitive regions.
+- Appreciate the diversity of published genomes and variation in their levels of completeness.
+- Understand the importance of computer science and bioinformatics in generating raw sequencing data and assembling genomes.
+- Understand the major challenges associated with sequencing and assembling genomes.
 
--   Learn about the types of RNA molecules in cell.
--   Study the link between the transcriptome and proteome via the genetic code.
--   Understand key steps involved in producing a transcriptome assembly and best strategies to get there. We will mostly compare referenced-based vs. *de novo* strategies, but also look at the "combined strategy".
--   Gain an overview of current transcriptome assemblers and their specificity.
+### Chapter 2: Next-Generation Sequencing
 
-**Chapter 6: Structural annotation**
+- Learn the terminology associated with next-generation sequencing (NGS) that underpins genome assembly and annotation.
+- Understand the general principles of genome sequencing (wet-lab) and genome assembly (bioinformatics workflows) (see Figure \@ref(fig:BioinfoWorkflow)).
+- Be familiar with the major NGS platforms and their limitations [@Satam2023]:
+  - Illumina  
+  - PacBio  
+  - Oxford Nanopore
+- Become proficient in handling NGS data outputs, particularly FASTA and FASTQ files.
+- Learn how to assess nucleotide quality using Phred quality scores.
 
--   Learn what we exactly mean by the term "genome annotation".
--   Understand key steps involved in genome annotation and best strategies to get there.
--   Be familiar with the following key stages of the structural genome annotation process:
-    -   Repeat identification.
-    -   Evidence alignment.
-    -   *Ab initio* gene prediction.
-    -   Evidence-driven gene prediction.
-    -   Introduction to available structural annotation software.
+### Chapter 3: Genome Databases
 
-**Chapter 7: Functional annotation**
+- Understand the role of computer science and bioinformatics in:
+  - Producing raw sequencing data,
+  - Creating molecular biology databases,
+  - Archiving and curating genomic data,
+  - Distributing data via the Internet,
+  - Developing tools for efficient data retrieval and mining.
+- Gain knowledge of major molecular biology databases relevant to genome assembly and annotation, including:
+  - Nucleic acid sequence databases,
+  - Protein sequence databases,
+  - Gene ontology databases,
+  - Metabolic pathway databases,
+  - Specialized annotated genome portals.
+- Learn protocols to query genomic information and remotely download data from GenBank.
 
--   Be aware of the challenges to obtain accurate data on gene functions.
--   Study and compare available pipelines to perform automated annotations of genomes.
--   Review approaches to assess annotation quality.
--   Be familiar with functional annotation software.
--   Overview of the procedure to submit annotated genomes to public databases.
+### Chapter 4: Genome Assembly
 
-**Chapter 8: Comparative genomics**
+- Understand the key steps involved in producing a genome assembly and strategies to optimize assembly quality.
+- Perform read-quality assessments, including:
+  - Read trimming,
+  - Contaminant screening,
+  - *k*-mer counting,
+  - Genome size estimation,
+  - Read error correction.
+- Understand the use of de Bruijn graphs for *de novo* genome assembly.
+- Gain an overview of commonly used genome assemblers and their specific applications.
+- Understand the benefits of long-read sequencing for closing gaps and improving draft genome assemblies.
 
--   Learn to read and present a scientific paper reporting new genomic or transcriptomic data.
--   Complement expertise by reading and discussing scientific publications during the [journal club](journalclub) sessions.
+### Chapter 5: Transcriptome Assembly
 
-**Chapter 9: Applied Bioinformatics** 
+- Learn about the different types of RNA molecules in the cell.
+- Understand the relationship between the transcriptome and proteome through the genetic code.
+- Understand key steps involved in transcriptome assembly and strategies to optimize results, including comparisons between reference-based, *de novo*, and combined approaches.
+- Gain an overview of commonly used transcriptome assemblers and their specific applications.
 
-In this chapter, we will be using data produced by the instructor's lab to learn protocols to: 
+### Chapter 6: Structural Annotation
 
-- Analyze Sanger sequence data.
-- Conduct phylogenetic analyses.
-- Clean Illumina reads.
-- Assemble draft genome.
-- Mine scaffolds in an Illumina draft genome containing target genes.
-- Validate mining by locating Open Reading Frames (ORFs), reconstructing protein sequences and inferring gene phylogenetic trees.
+- Understand what is meant by the term *genome annotation*.
+- Understand key steps involved in structural genome annotation and best practices.
+- Become familiar with major stages of the structural annotation process:
+  - Repeat identification,
+  - Evidence alignment,
+  - *Ab initio* gene prediction,
+  - Evidence-driven gene prediction,
+  - Overview of commonly used structural annotation software.
+
+### Chapter 7: Functional Annotation
+
+- Understand the challenges associated with accurately assigning gene functions.
+- Study and compare available pipelines for automated functional genome annotation.
+- Review approaches used to assess annotation quality.
+- Become familiar with commonly used functional annotation software.
+- Gain an overview of procedures for submitting annotated genomes to public databases.
+
+### Chapter 8: Comparative Genomics
+
+- Learn how to read, interpret, and present scientific papers reporting new genomic or transcriptomic data.
+- Develop expertise through structured reading and discussion of scientific publications during [journal club](#journalclub) sessions.
+
+### Chapter 9: Applied Bioinformatics
+
+In this chapter, students will use data produced by the instructor’s laboratory to learn practical bioinformatics protocols to:
+
+- Analyze Sanger sequencing data,
+- Conduct phylogenetic analyses,
+- Perform quality control and cleaning of Illumina reads,
+- Assemble draft genomes,
+- Mine draft genome scaffolds for target genes,
+- Validate gene mining by identifying open reading frames (ORFs), reconstructing protein sequences, and inferring gene phylogenetic trees,
 - Annotate validated genes.
 
-Please see section \@ref(timetable) for tentative timetable associated to these chapters.
+---
 
-# Pre-requisite
+# Course Schedule
 
-**BIOL 310 GENETICS (3-0-3)(F,S,SU).** A study of the principles of genetics as they relate to living organisms.
-PREREQ: BIOL 191-192 or BIOL 191 and BIOL 320.
-PRE/COREQ: CHEM 301 or 307.
+The tentative schedule for this course is available [here](Timetable.html). The instructor wants to warn students that he might adjust the schedule to accommodate any needs. However, in case of changes, the instructor will make sure to contact enrolled students to keep them posted.
 
-# Sharing teaching material
+---
 
-Teaching material will be shared with students on [GitHub](https://github.com/svenbuerki/Genomics-Bioinformatics) and Google drive. Google drive will mostly be used to share:
+# Course Resources
 
-- Sensitive material (e.g. IP addresses and passwords of lab computers). 
-- Scientific publications.
-- Documents related to class assignments.
+Teaching materials for this course will be shared with students via the dedicated [course website](https://svenbuerki.github.io/Genomics-Bioinformatics/index.html), [GitHub repository](https://github.com/svenbuerki/Genomics-Bioinformatics), and Google Drive.
 
-Students will also be uploading their assignments on Google Drive. 
+## Shared Google Drive
 
-The URL to the shared Google drive is (the instructor will grant you access to this folder prior to the start of the semester): 
+Google Drive will primarily be used to share:
 
-- https://drive.google.com/drive/folders/1BFZFJeR8tW8N7QLfngqIVbjqEkDuIyWj?usp=sharing
+- Sensitive material (e.g., IP addresses and passwords for lab computers).  
+- Scientific publications.  
+- Documents related to class assignments.  
 
-# Publications, textbooks and websites supporting this course
+Students will also upload their assignments to Google Drive.
 
-The reading material at the basis of this class is composed of a mixture of publications and chapters from four textbooks [@Brown2017; @Lesk2017; @Dale2012; @deSalle2013].
-The instructor has copies of these textbooks and students are welcome to consult them at anytime.
+The URL to the shared Google Drive folder is provided below. The instructor will grant access to this folder prior to the start of the semester:
 
-A list of references used in this course is provided [here](References.html).
+- [Shared Google Drive Folder](https://drive.google.com/drive/folders/1BFZFJeR8tW8N7QLfngqIVbjqEkDuIyWj?usp=sharing)
 
-In addition, there is also a plethora of website devoted to genomic and transcriptomic data.
-Please find a selection below:
+## Publications, Textbooks, and Online Resources
 
--   [Next-generation sequencing online course](https://www.ebi.ac.uk/training/online/course/ebi-next-generation-sequencing-practical-course).
--   [Genomics and comparative genomics website](https://www.integratedbreeding.net/courses/genomics-and-comparative-genomics/www.generationcp.org/genomics/index390e.html?page=1131).
+The reading materials for this course consist of a combination of **scientific publications** and **textbook chapters** [@Brown2017; @Lesk2017; @Dale2012; @deSalle2013]. The instructor has copies of these textbooks, and students are welcome to consult them at any time.
 
-# Bioinformatic tools
+A comprehensive list of references used in this course is provided [here](References.html). In addition, there are numerous online resources dedicated to genomic and transcriptomic data. A selection is provided below:
+
+- [Next-Generation Sequencing Online Course](https://www.ebi.ac.uk/training/online/course/ebi-next-generation-sequencing-practical-course)  
+- [Genomics and Comparative Genomics Resources](https://www.integratedbreeding.net/courses/genomics-and-comparative-genomics/www.generationcp.org/genomics/index390e.html?page=1131)
+
+Finally, the instructor has assembled a [Lexicon](Lexicon.html) containing definitions of key concepts used in this course. If you encounter a term that is **not included in the Lexicon**, please contact the instructor to have it added.
+
+---
+
+# Bioinformatics Tools
 
 Although we will be using software installed on the Linux computers, the instructor is advising students to install the following programs on their personal computers:
 
 - The **R** statistical language that will allow you to gather data and analyze it.
-- The **LaTeX** and **Markdown** markup languages that you can use to create documents (slideshows, articles, books, webpages) for presenting your findings.
+- The **Markdown** and **LaTeX** markup languages that you can use to create documents (slideshows, articles, books, webpages) for presenting your findings.
 - The *knitr* and *rmarkdown* **packages** for R and other tools, including **command-line shell programs** like GNU Make and Git version control, for dynamically tiding your data gathering, analysis, and presentation documents together so that they can be easily reproduced.
 - **RStudio**, a program that brings all of these tools together in one place.
 
-## Installing the main software
+## Installing Software
 
 As shown above, **R** and **RStudio** are at the core of this course and will have to be installed on your computers. This can be easily done by downloading the software from the following websites:
 
 - **R**: https://www.r-project.org
 - **RStudio**: https://www.rstudio.com/products/rstudio/download/
 
-There is a preview release of RStudio including a new visual Markdown editing mode, which is handy when you are using this program extensively. You can download it [here](https://rstudio.github.io/visual-markdown-editing/#/), but this version might not be as stable as the other version made available on the main webpage (see above). 
+The download pages for these software tools include detailed installation instructions; please refer to them for more information.
 
-The download webpages for these software have comprehensive information on how to install them, so please refer to those pages for more information.
+## Installing Markup Software
 
-## Installing Markup languages
-
-If you are planning to create `LaTeX` documents, you will need to install a `Tex` distribution. Please refer to this website for more details: https://www.latex-project.org/get/
+If you are planning to create LaTeX documents, you will need to install a Tex distribution. Please refer to this website for more details: https://www.latex-project.org/get/
 
 If you want to create Markdown documents you can separately install the *rmarkdown* package in R (see [below](#Rpack) for more details).
 
-## <a name="Rpack"></a>Installing R packages
+## <a name="Rpack"></a>Installing R Packages {#Rpack}
 
-We will be using a number of R packages especially designed to support reproducible research. Many of those packages are not included in the default `R` installation and will need to be installed separately. 
-To install key packages used in class, copy the following code and paste it into your R console:
+We will be using several R packages specifically designed to support reproducible research. Many of these packages are not included in the default R installation and must be installed separately.
+
+To install the core packages used in this course, copy the following code and paste it into your R console:
 
 ```{r eval=FALSE, tidy=TRUE}
 install.packages(c("brew", "countrycode", "devtools", "dplyr", "ggplot2", "googleVis", "knitr", "rmarkdown", "tidyr", "xtable"))
 ```
 
-Once you enter this code, you may be asked to select a CRAN "mirror" to download the packages from. Simply select the mirror closest to you.
+Once you run this code, you may be prompted to select a CRAN "mirror" to download the packages from. Simply choose the mirror closest to your location.
 
-Finally, it is highly likely that we will have to install additional packages. In this case, you can simply install it by using the same R function `install.packages()` or by using RStudio as follows: Select "Tools" -> "Install Packages ..." and then type the name of the package in the window (make sure to tick the "Install dependencies" box).
+It is also likely that we will need to install additional packages throughout the course. When that happens, you can install them using the same R function `install.packages()`, or through RStudio by selecting "Tools" → "Install Packages...", entering the package name in the dialog box, and ensuring the "Install dependencies" option is checked.
 
-## <a name="Cheat"></a>RStudio Cheat Sheets
+## <a name="Cheat"></a>RStudio Cheat Sheets {#Cheat}
 
-RStudio provides a suite of cheat sheets that can be accessed by going to the "Help" menu and selecting "Cheatsheets". 
+RStudio offers a collection of cheat sheets accessible from the "Help" menu by selecting "Cheatsheets."
 
 Five cheat sheets are especially relevant to chapters taught in this course:
 
@@ -317,41 +340,36 @@ Five cheat sheets are especially relevant to chapters taught in this course:
   - *R Markdown Cheat Sheet*
   - *R Markdown Reference Guide*
 
-## R tutorials
+These documents together with the material presented in [course resources](#Publis) will provide the basis to design your [bioinformatics tutorials](#BioTut). 
+
+## R Tutorials
 
 Please find below two documents providing a comprehensive introduction to R:
 
 - R for beginners (a tutorial by Emmanuel Paradis): https://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf
 - An introduction to R: https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf
 
-# Journal club {#journalclub}
+---
 
-The aim of the journal club is to train students to read scientific publications related to genomic data.
-Journal clubs will also provide opportunities for students to learn how to present their scientific publications.
+# Assessments and Grading
 
-Students are expected to have read the scientific publications before coming to class.
-The instructor will start by briefly summarizing the methodology and main outcomes of the study and the rest of the class will be devoted to general discussion (please come with some questions and have a critical, but positive mind set).
+Students will develop and demonstrate mastery of the course learning outcomes by producing written reports and delivering oral presentations, either individually or collaboratively in groups. Rather than relying on traditional exams, this course emphasizes hands-on application: you will build both theoretical genomics understanding and practical bioinformatics skills, and apply them directly to authentic research projects.  
 
-Please find below the list of publications that we will discuss in class (see section \@ref(timetable) for information on dates):
+**Graduate students:** Graduate students enrolled in this course are held to a higher standard and are expected to take on **leadership roles** during group assignments. This includes guiding discussions, coordinating group efforts, and ensuring that analyses and reports meet the advanced expectations appropriate for graduate-level work.
 
--   **Publication 1:** @Li2009 published a draft genome of the giant panda and screened for genes responsible for the detoxification of cyanide produced by bamboos. The presentation slides (in `pdf` format) of this publication can be downloaded <a href="Lectures/Journal_Club_Giant_panda.pdf" target="_blank">here</a>.
--   **Publication 2:** @Ming2015 published the draft genome of the pineapple and investigated the origin of CAM photosynthesis in this lineage.
+## Assessments
 
-If you are not familiar with approaches to read scientific publications, please come and seek advice. For undergraduate students, there is a class BIOL 306 that you could take next semester. Please find below the details of this class:
+Students will be evaluated based on the following five mandatory assessments:
 
-**BIOL 306 COMMUNICATION IN THE BIOLOGICAL SCIENCES (3-0-3)(F,S)(CID)** Development of written and oral communication skills necessary for future careers in the biological sciences.
-Skills include summarizing and evaluating scientific research, and communicating scientific information to targeted audiences.
-PREREQ: BIOL 304 and ENGL 101, 102.
+-  Three individual mini-reports (2 × 25 points and 1 × 50 points; **total: 100 points**).  
+-  One group lab report (**150 points**).  
+-  One group lab presentation (**50 points**).  
 
-# Assessments
+These assessments sum to a total of **300 points**. Table \@ref(tab:mygrade) shows the grading scale used in this course.
 
-## Tests conducted during this course and grading
+## Grading Policy 
 
--   3 individual mini-reports (2x 25 points and 1x 50 points, TOTAL: 100 points).
--   1 group lab report (150 points).
--   1 group lab presentation (50 points).
-
-Exams are summing to a total of **300 points** and grading will follow the scale presented in Table \@ref(tab:mygrade). Consult the [Timetable](timetable) for information on dates when assignments are due.
+The grading scale for this course is in Table \@ref(tab:mygrade).
 
 ```{r mygrade, echo=FALSE}
 library(bookdown)
@@ -361,179 +379,203 @@ knitr::kable(grades, caption = "Grading scale applied in this course.") %>%
   kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
 ```
 
-## Mini-reports (TOTAL: 100 points) {#minireport}
+You can look at all of your scores by accessing Grades in the Canvas course menu. 
 
-To further gain expertise in this field, students will be producing three mini-reports on the following topics (see Figure \@ref(fig:flowchart)):
+## Mini-Reports (TOTAL: 100 points) {#minireport}
 
-- **Mini-Report 1**: Sequencing technologies (25 points; this task is related to Chapter 2).
-- **Mini-Report 2**: Molecular biology databases (25 points; this task is related to Chapter 3).
-- **Mini-Report 3**: Apply a coupled DNA barcoding and phylogenetic approach to identify species and infer their evolutionary history (50 points). This report provides students with an introduction to methods applied in the laboratory sessions and expertise to select their comparative article ([Chapter 8](#chap8)).
+To further develop expertise in genomics and bioinformatics, students will produce three [mini-reports](Mini_reports.html) that align with the course’s core learning outcomes:  
 
-Time will be allocated in class to work on these mini-reports, but the instructor expects students to complete those on their own time.
+- **Mini-Report 1: Sequencing technologies** (**25 points**; related to Chapter 2)  
+  - **Genomics:** Demonstrate understanding of genome sequencing principles and technologies.  
+  - **Bioinformatics:** Explore how sequencing data are generated and processed.  
+  - **Scientific dissemination:** Communicate technical information clearly in written form.  
 
-The webpage dedicated to the Mini Reports is available [here](Mini_reports.html). 
+- **Mini-Report 2: Molecular biology databases** (**25 points**; related to Chapter 3)  
+  - **Genomics:** Explain the role of databases in genome assembly and annotation.  
+  - **Bioinformatics:** Apply protocols to query and retrieve genomic data.  
+  - **Scientific dissemination:** Summarize and present information from multiple sources accurately.  
 
-## Group lab report (TOTAL: 150 points)
+- **Mini-Report 3: DNA barcoding and phylogenetic analysis** (**50 points**; related to Chapter 8)  
+  - **Genomics:** Apply comparative genomics concepts to identify species and infer evolutionary relationships.  
+  - **Bioinformatics:** Perform basic analyses, including sequence alignment and phylogenetic reconstruction.  
+  - **Scientific dissemination:** Integrate methods and results into a coherent written report and justify the choice of comparative articles.  
 
-### Research topic
+Time will be allocated during class to work on these mini-reports; however, students are expected to complete them independently outside of class.
 
-Students will be working in groups to produce a report associated to the following research question:
+## Group Lab Report (TOTAL: 150 points)
+
+Students will work in groups to produce a report addressing the following research question:
 
 > What Aquaporin genes are encoded in the sagebrush genome (*Artemisia tridentata*) and what are their functions?
->
 
-To gain further insights into Aquaporins and sagebrush and the bioinformatic analyses, students will be reading this companion publication [@Melton2021].
+To gain further insights into Aquaporins, sagebrush, and the associated bioinformatic analyses, students will read the companion publication [@Melton2021].
 
-### Associated scripts
+### Associated Scripts
 
-Students can access `bash` and `R` scripts associated to their lab report [here](Mining_draft_genome.html).
+Students can access `bash` and `R` scripts associated with this lab report [here](Mining_draft_genome.html).
 
-### Details on reporting
+### Details on Reporting
 
-Lab reports will be formal documents written in the form of scientific manuscripts (Introduction, Material & Methods, Results, Discussion and References sections).
+Lab reports should be formal scientific documents, structured like manuscripts with the following sections: Introduction, Materials & Methods, Results, Discussion, and References.  
 
-The instructor does not fix a minimum number of words or pages, but urges students to be succinct and avoid redundancy.
+- The instructor does not set a minimum word or page count but expects reports to be **concise, clear, and free of redundancy**.  
+- All evidence and documentation must be provided to allow an **external reviewer to replicate analyses**. Students are expected to include associated data and code to support reproducible science; guidance on these protocols will be provided during lab sessions.  
+- For group projects, each member must contribute equally. If participation is deemed insufficient, the instructor may assign individual grades.
 
-Please make sure that you present all evidence allowing an external reviewer to replicate your analyses. In order to achieve this goal and support reproducible science, students will have to provide associated data and code underpinning their research. The instructor will provide guidance on these protocols during lab sessions.
+### Alignment with Course Learning Outcomes
 
-Please note that if students are working in group then each student should contribute equally to the project. If participation is not judge adequate within a group, then the instructor will grade students individually.
+- **Genomics:** Apply knowledge of genome structure and gene function to identify and interpret Aquaporin genes in a non-model eukaryotic genome.  
+- **Bioinformatics:** Use computational tools and scripts (`bash` and `R`) to analyze sequence data, perform gene mining, and validate results.  
+- **Scientific Dissemination:** Communicate findings effectively through a structured written report, ensuring clarity, reproducibility, and proper scientific documentation.  
 
-## Group lab presentation (TOTAL: 50 points)
+## Group Lab Presentation (TOTAL: 50 points)
 
-Students will use their lab reports to prepare 10 minutes presentations (+ 5 minutes for questions) taking place during the final weeks of the semester.
+Students will use their group lab reports to prepare **10-minute presentations**, followed by **5 minutes for questions**, scheduled during the final weeks of the semester.  
 
-The instructor expects each student to take part to the presentation and to be involved in answering questions.
+- Each student is expected to actively participate in the presentation and contribute to answering questions from the audience.  
+- Presentations must be submitted in advance, either uploaded to the shared Google Drive folder or sent directly to the instructor.  
 
-Presentations will have to be deposited in advance onto a shared Google drive folder or be sent to the instructor prior to the presentation.
+### Alignment with Course Learning Outcomes
 
-## Extra credits
+- **Genomics:** Clearly explain the biological context, genome organization, and functional interpretation of Aquaporin genes in *Artemisia tridentata*.  
+- **Bioinformatics:** Summarize the computational analyses performed, including the use of `bash` and `R` scripts, and demonstrate understanding of the bioinformatic workflow.  
+- **Scientific Dissemination:** Communicate research findings effectively in an oral format, respond to questions with clarity, and demonstrate the ability to convey complex genomic and bioinformatic concepts to peers.
 
-For students interested in getting some extra credits, the instructor will provide two opportunities to score a total of 30 extra credits. Students will be able to allocate these extra credits to any of their tests (by sending an email to the instructor with credits allocation). These two non-mandatory assignments have strict deadlines (see [Timetable](#timetable)). This means that the instructor will consider that if students have not turned-in their assignment on time that they are not interested in getting extra credits. To facilitate students' time management, credits allocated to each question will be provided. These opportunities should provide students with the ability to claim extra credits (and therefore improve their overall grade) while also learning about several aspects of genome assembly and annotation. As usual, students can work in groups, but they have to submit individual assignments.
+## Extra Credits
 
-The non-mandatory assignments will be accessible here:
+For students interested in earning extra credits, the instructor will provide **two opportunities** to earn a total of **30 extra credits**. Students may allocate these extra credits to any of their assessments by sending an email to the instructor specifying the allocation.  
 
-- Non-mandatory assignment 1 <!-- (Non_mandatory_assignment_1.html).--> 
-- Non-mandatory assignment 2 <!--(Non_mandatory_assignment_2.html).-->
+These two non-mandatory assignments have **strict deadlines** (see [Timetable](#timetable)). **No extensions will be granted**, and any work submitted after the deadline **will not be considered**. Students who do not submit by the deadline will be deemed not interested in earning the extra credits.  
 
-# Late work policy
+To support time management, the number of credits assigned to each question will be provided in advance. These opportunities allow students to **improve their overall grade** while gaining additional experience in genome assembly and annotation. As with other assignments, students may work in groups, but **each student must submit their own individual assignment**.
 
-The instructor expects students to deliver their assignments on time and set enough time aside to work on their projects (see above for more details).
-However, if you have any issues preventing completion of your work on time, please contact the instructor as soon as possible to find common solutions.
+---
 
-# Engagement expectations
+# Expectation for Student Success
 
-The **instructor is expecting students to attend classes and actively engage by asking questions and giving feedback** on teaching material and course content.
+My goal is that every student is successful in this course, but I need your help to achieve that. In order to do your part to ensure your success in this course, please: 
 
-If you are judging that additional content should be covered in class, please contact the instructor.
-The instructor will do his very best to obtain information or seek support from colleagues to cover the requested material.
-Finally, the instructor is aware that COVID could potentially impact yourselves and your families.
-In the case that you have any issues attending class, please contact the instructor by email ([svenbuerki\@boisestate.edu](mailto:svenbuerki@boisestate.edu){.email}) asap and see below for more details.
+- **Attend class.** We will be using class time to practice and apply what we are learning, so it is important for your and your fellow students’ learning that you are present and participatory. You can miss two class periods without it affecting your grade. If you have to miss beyond two classes, please email me as soon as possible to discuss ways to help you participate in classroom activities asynchronously as appropriate.
+- **Ask questions.** Learning is all about asking questions, so always feel free to do so in this class. 
+- **Be respectful of your fellow students.** While working together to build this community, we ask all members to:
+  - Share their unique experiences, values, and beliefs, if comfortable doing so.
+  - Listen deeply to one another.
+  - Honor the uniqueness of their peers.
+  - Create a respectful environment in this course and across the campus community.
+- **Check announcements or e-mails regularly.** Announcements will serve as courtesy reminders and also point you to any new materials or changes. 
+- **Do the pre-class assignments.** In order to make the most of our class time, it is important that all students complete the pre-class assignments so we can jump into our application activities. 
 
-# What you can expect of me
+If you are unable to attend class, please contact the instructor as soon as possible via email at svenbuerki@boisestate.edu.
 
-The instructor will be prepared for class, on time and not leave early.
-He will also be respectful of you and your opinions.
-Overall, **the instructor wants to foster a kind and respectful class environment where all students can express themselves and share their opinions**.
-This means that meaningful and constructive dialogue is encouraged in this class and it requires a degree of mutual respect, willingness to listen, and tolerance of opposing points of view.
-Respect for individual differences and alternative viewpoints will be maintained at all times in this class.
-One's words and use of language should be temperate and within acceptable bounds of civility and decency.
-Finally, the instructor will reply to emails and grade tests as soon as possible (and provide positive criticism) to allow students mastering the material presented in class.
+---
 
-# This course was designed with you in mind
+# Expectations for Me
 
-The instructor has developed this course to provide a welcoming environment and effective, equitable learning experience for all students.
-If you encounter barriers in this course, please bring them to my attention so that I may work to address them.
+In support of my goal that every student be successful in this course, you can expect that I: 
 
-## This class's community is inclusive
+- **Will be available to answer questions throughout the course.** I encourage you to visit me during Student Hours to ask any questions about the course material or to further your curiosity in the subject matter. You may also email me with questions or concerns or ask to meet via Zoom or on campus outside of the Student Hours, and I will do my best to accommodate your needs.
+- **Will provide regular feedback on your work in a timely fashion.** I will return completed work to you, with feedback, within one week of the due date. 
+- **Will continuously work on improving your learning experience through my own class observations and based on your feedback.** You will have the opportunity to provide feedback to me at the midpoint of the semester, and via the end of course evaluations. 
 
-Students in this class represent a rich variety of backgrounds and perspectives.
-The Biological Sciences department is committed to providing an atmosphere for learning that respects diversity and creates inclusive environments in our courses.
-While working together to build this community, we ask all members to:
+---
 
--   Share their unique experiences, values, and beliefs, if comfortable doing so.
--   Listen deeply to one another.
--   Honor the uniqueness of their peers.
--   Appreciate the opportunity we have to learn from each other in this community.
--   Use this opportunity together to discuss ways in which we can create an inclusive environment in this course and across the campus community.
--   Recognize opportunities to invite a community member to exhibit more inclusive, equitable speech or behavior---and then also invite them into further conversation. We also expect community members to respond with gratitude and to take a moment of reflection when they receive such an invitation, rather than react immediately from defensiveness.
--   Keep confidential any discussions that the community has of a personal (or professional) nature, unless the speaker has given explicit permission to share what they have said.
--   Respect the right of students to be addressed and referred to by the names and pronouns that correspond to their gender identities, including the use of non-binary pronouns.
+# This Class Welcomes Everyone
 
-## We use each other's preferred names and pronouns
+Students in this class represent a rich variety of backgrounds and perspectives. The (program/dept) is committed to providing an environment where similarities and differences are respected, supported, and valued.  While working together to build this community, we ask all members to:
 
-Please let the instructor know of your preferred or adopted name and gender pronoun(s), and he will make those changes to his own records and address you that way in all cases.
+- share their unique experiences, values, and beliefs, if comfortable doing so.
+- listen deeply to one another.
+- honor the uniqueness of their peers.
+- appreciate the opportunity we have to learn from each other in this community.
+- use this opportunity together to discuss ways in which we can create a welcoming and respectful environment in this course and across the campus community.
+- recognize opportunities to invite a community member to exhibit more respectful speech or behavior—and then also invite them into further conversation. We also expect community members to respond with gratitude and to take a moment of reflection when they receive such an invitation, rather than react immediately from defensiveness.
+- keep confidential any discussions that the community has of a personal (or professional) nature, unless the speaker has given explicit permission to share what they have said.
 
-To change to a preferred name so that it displays on all BSU sites, including Blackboard and the course roster, contact the Registrar's Office at (208) 426-4249.
-Note that only a legal name change can alter your name on BSU official and legal documents (e.g., your transcript).
+As your instructor, my goal is to make sure that our learning environment is effective for everyone. This means, in part, that each student is encouraged to share perspectives relevant to the course material and that our class activities and discussions are conducted in a way that supports everyone’s learning.
 
-## This course is accessible to students with disabilities
+---
 
-The instructor recognizes that navigating your education and life can often be more difficult if you have disabilities.
-I want you to achieve at your highest capacity in this class.
-If you have a disability, the instructor needs to know if you encounter inequitable opportunities in this course related to: - Accessing and understanding course materials.
-- Engaging with course materials and other students in the course.
-- Demonstrating your skills and knowledge on assignments and exams.
+# Student Well-being
 
-If you have a documented disability, you may be eligible for accommodations in all of your courses.
-To learn more, make an appointment with the university's [Educational Access Center](https://www.boisestate.edu/eac/).
+If you are struggling for any reason (e.g., family emergency, financial/basic needs, mental/physical health concerns, caregiving responsibilities, etc.) and believe these struggles may impact your performance in the course, I encourage you to reach out to me if you are comfortable doing so, and I will refer you to an appropriate university resource. You may also reach out directly to the outreach team in the Office of the Dean of Students at (208) 426-1527 or email studentoutreach@boisestate.edu for support. The [Student Life Essentials page](https://www.boisestate.edu/student-life/) is also a great place to find helpful resources. If you notice a significant change in your mood, sleep, feelings of hopelessness or a lack of self worth, consider connecting immediately with [Counseling Services](https://www.boisestate.edu/healthservices/counseling/) (1529 Belmont Street, Norco Building) at (208) 426-1459 or email healthservices@boisestate.edu.
 
-## For students responsible for children
+---
 
-The instructor recognizes the unique challenges that can arise for students who are also parents or guardians of children.
-If you have any specific needs related to this topic, please contact the instructor asap.
+# What Do you Need?
 
-# Academic integrity
+The university has many resources designed to support you as a learner and human being. Among these are:
 
-To create a welcoming, engaging, and effective learning environment, the instructor expects all of us to exhibit behavior that reflects Boise State's [Statement of Shared Values](https://www.boisestate.edu/president/values/statement-of-shared-values/).
-The Shared Values emphasize academic excellence, caring, citizenship, fairness, respect, responsibility, and trustworthiness.
-In keeping with these values, the instructor expects students in this course to uphold the standards outlined in the Boise State University [Student Code of Conduct](https://www.boisestate.edu/policy/student-affairs/code-of-conduct/).
+- [Albertsons Library](https://library.boisestate.edu/) provides a treasure trove of physical and electronic resources. 
+  - As you enter the library, straight ahead you’ll find the Reference Desk, where librarians can help you find the information and resources you need. 
+  - The Circulation Desk lets students borrow various technologies.
+  - The MakerLab on the second floor offers tools for student use, and there are friendly staff in the MakerLab to help you learn how.
+- The [Writing Center](https://www.boisestate.edu/writingcenter/) offers individual consultations tailored to your needs, including making sense of writing assignment instructions, brainstorming, crafting a thesis, organizing an essay, revisions, citations, and more.
+- [Counseling Services](https://www.boisestate.edu/healthservices/counseling) helps you tap into your strengths and find resources to deal more effectively with concerns that impact your pursuit of personal and academic goals. It emphasizes prevention and early detection and provides a broad spectrum of short-term counseling, consultative, evaluative, teaching, and training functions. Counseling staff consists of licensed counselors, psychologists, and closely supervised trainees/post-graduate interns.
+- Food assistance: If you are hungry and cannot afford to purchase food, the campus has some resources to help you. You can visit the [campus food pantry](https://www.boisestate.edu/campusfoodpantry/) or [get free meals in the campus dining hall](https://www.boisestate.edu/deanofstudents/student-support/food-help/meal-assistance/).
 
-# Student well-being
+---
 
-If you are struggling for any reason (COVID, relationship, family, or life's stresses) and believe these may impact your performance in the course, the instructor is encouraging you to contact the Dean of Students at (208) 426-1527 or email [deanofstudents\@boisestate.edu](mailto:deanofstudents@boisestate.edu){.email} for support.
-Additionally, if you are comfortable doing so, please reach out to me and I will provide any resources or accommodations that I can.
-If you notice a significant change in your mood, sleep, feelings of hopelessness or a lack of self worth, consider connecting immediately with Counseling Services (1529 Belmont Street, Norco Building) at (208) 426-1459 or email [healthservices\@boisestate.edu](mailto:healthservices@boisestate.edu){.email}.
+# Course Policies
 
-## What do you need?
+## Academic Integrity
 
-The university has many resources designed to support you as a learner and human being.
-Among these are:
+Academic Excellence is a [Shared Value](https://www.boisestate.edu/president/values/statement-of-shared-values/) at Boise State, and part of your responsibility in pursuing academic excellence includes avoiding cheating, plagiarism, and any other kind of academic misconduct. If I find a student responsible for academic misconduct in our class, the outcome of their choice to not fully engage in their learning might range from a 'revise & resubmit' up to an 'F (failure) for the course.' For more info, please read [The Student Code of Conduct (Policy 2020), Section 7: Academic Misconduct Complaints, Violations, Processes and Sanctions](https://www.boisestate.edu/policy/student-affairs/code-of-conduct/#academic_misconduct).
 
--   [Albertsons Library](https://library.boisestate.edu/) provides a treasure trove of physical and electronic resources.
+## Artifical Intelligence (AI) Use in The Course
 
-    -   As you enter the library, straight ahead you'll find the Reference Desk, where librarians can help you find the information and resources you need.
-    -   The Circulation Desk lets students borrow various technologies.
-    -   The MakerLab on the second floor offers tools for student use, and there are friendly staff in the MakerLab to help you learn how.
+In this course, I want to see your thoughts, understand your reasoning, and hear your voice. However, there are moments in this course where you might find it useful to use generative AI tools in support of your learning.
+ 
+You may use generative AI tools for specified activities and assignments if their use supports, rather than undermines, your learning. While generative AI can help to advance your learning, its usefulness depends on the purpose of each activity or assignment. You will find guidelines for generative AI use in the instructions for each assignment; please read them very carefully, as these guidelines differ by assignment.
 
--   The [Writing Center](https://www.boisestate.edu/writingcenter/) offers individual consultations tailored to your needs, including making sense of writing assignment instructions, brainstorming, crafting a thesis, organizing an essay, revisions, citations, and more.
+If you use ChatGPT, Gemini, Grammarly, Midjourney, or other AI tools in support of your work in this course, cite any ideas, text, images, or other media generated by the tool using the instructions and format of the [Modern Language Association](https://style.mla.org/citing-generative-ai/) (MLA), [American Psychological Association](https://apastyle.apa.org/blog/how-to-cite-chatgpt) (APA), [Chicago Manual of Style](https://www.chicagomanualofstyle.org/qanda/data/faq/topics/Documentation/faq0422.html), or other citation style as appropriate. When you use a tool in an assignment, include a brief, clear description of how you used it. If you use generative AI, you must not let this tool replace your thinking and work. In fact, it is your responsibility to ensure you are fully engaging in learning and submitting authentic work. To learn more about how to learn successfully and avoid academic misconduct behaviors, please review the [Student Code of Conduct](https://www.boisestate.edu/policy/student-affairs/code-of-conduct/) with special attention to [Section 8: Procedures for Academic Misconduct](https://www.boisestate.edu/policy/student-affairs/code-of-conduct/#procedures). 
 
--   [Counseling Services](https://www.boisestate.edu/healthservices/counseling) helps you tap into your strengths and find resources to deal more effectively with concerns that impact your pursuit of personal and academic goals. It emphasizes prevention and early detection and provides a broad spectrum of short-term counseling, consultative, evaluative, teaching, and training functions. Counseling staff consists of licensed counselors, psychologists, and closely supervised trainees/post-graduate interns.
+If you are unsure of whether or when to use generative AI tools in this course, please reach out to me. I am eager to learn about how we might use them in new ways to meaningfully advance your learning and prepare you for your future beyond Boise State.
 
--   The [Gender Equity Center](https://www.boisestate.edu/genderequity/) provides specialized, brief, no-cost, confidential support for campus members affected by:
+## Communicable Disease Policy
 
-    -   Identity-related harassment.
-    -   Sexual harassment, sexual assault, unhealthy relationships, and stalking.
-    -   Life experiences related to gender, sexual orientation, and allyship.
-    -   Life transitions and crisis.
-    -   Personal, financial, or academic roadblocks.
+Boise State has a [Communicable Disease Policy (Policy 9270)](https://www.boisestate.edu/policy/facilities-planning-campus-safety/communicable-disease/#:~:text=Students%2C%20faculty%2C%20and%20other%20employees,to%20the%20Public%20Health%20Office.) that guides everyone working and learning in our community. The policy has two key implications:
 
--   [Multicultural Student Services](https://www.boisestate.edu/mss/) works with all students interested in equity and social justice, students from different cultures, countries and ethnicities. The staff understands cultural differences and perspectives, and knows what it's like living in a dominant culture. The training and the programs Multicultural Student Services provides can help you navigate through political correctness and into respectful dialogue. This center also provides:
+1.	Any illness covered by the policy must be reported to Boise State Public Health by the impacted individual,
+2.	Faculty are required to accommodate any student impacted by any illness covered by the policy as directed by Boise State Public Health. 
 
-    -   Support and guidance for planning cultural festivals and events.
-    -   In-center tutoring and studying lounge.
-    -   Volunteer opportunities.
-    -   Mentoring and Training.
-    -   Programs and events.
+## Late Work Policy
 
--   Food assistance: If you are hungry and cannot afford to purchase food, the campus has some resources to help you. You can visit the [campus food pantry](https://www.boisestate.edu/deanofstudents/student-support/food-help/food-pantry/) or [get free meals in the campus dining hall](https://www.boisestate.edu/deanofstudents/student-support/food-help/meal-assistance/).
+Due dates for all assignments are provided on the course [schedule](https://svenbuerki.github.io/Genomics-Bioinformatics/Timetable.html). Unless otherwise stated, assignments are **due on those dates**.  
 
-# Timetable {#timetable}
+The instructor recognizes that unforeseen circumstances may arise. If this happens, please contact the instructor **ahead of the due date**, or **as soon as possible afterwards**, so that we can establish a plan for submitting the assignment as close to the original due date as possible.  
 
-A tentative timetable for the Spring semester 2024 is presented in the [Timetable](Timetable.html) tab.
+**Automatic Late Penalty:**
+
+- If a student fails to submit an assignment by the due date **without a valid excuse**, a **10% penalty** will be applied to the assignment grade.  
+- In such cases, the instructor will reach out to the student to establish a **new submission deadline** and clarify expectations for completing the assignment.  
+
+Assignments that are not submitted within **two weeks of the due date** and for which the student has not communicated with the instructor will be recorded as **Incomplete** in Canvas until a plan is agreed upon.
+
+---
+
+# Note on Course Content and Idaho Law
+
+Under Idaho law (Section § 67-5909D), some university courses with content related to diversity, equity, inclusion, or critical theory may be subject to certain restrictions. However, the law affirms and does not limit free discussion in the learning environment. Like all Boise State courses, this course supports open inquiry, intellectual honesty, and respectful engagement with a range of perspectives, all of which are consistent with student rights and responsibilities described in the [Student Code of Conduct (Policy 2020)](https://www.boisestate.edu/policy/student-affairs/code-of-conduct/). 
+
+This course may include content that touches on concepts related to diversity, equity, inclusion (DEI), or critical theory—such as systemic inequality, cultural identity, or gender and race in society. If these topics are included, it is because they are relevant to the learning outcomes for this course and are explored to support critical thinking, deeper understanding, and respectful engagement with different perspectives. As part of the course, you may be asked to apply or explain ideas that come from a particular perspective. However, you are not required to adopt such perspectives as your own.
+
+Our learning environment is a space for open dialogue and thoughtful discussion, including complex or challenging topics. Everyone is expected to engage with curiosity, listen respectfully, and contribute in ways that support a productive and welcoming learning environment. Boise State and the Idaho State Board of Education affirm the importance of free expression and academic inquiry. As outlined in SBOE Policy III.B:
+
+> “Membership in the academic community imposes on administrators, faculty members, other institutional employees, and students an obligation to respect the dignity of others, to acknowledge the right of others to express differing opinions, and to foster and defend intellectual honesty, freedom of inquiry and instruction, and free expression on and off the campus of an institution.”
+
+Disruptive behavior that interferes with the learning environment will not be tolerated and may result in removal from this course, in line with university policy (See [Policy 3240 Maintaining Effective Learning Environments](https://www.boisestate.edu/policy/academic-affairs-student/maintaining-effective-learning-environments/)).
+
+In this course, I will foster critical discussion and analysis, and a respectful consideration of a wide range of ideas, in accordance with the [Faculty Code of Rights, Responsibilities, and Conduct (Policy 4000)](https://www.boisestate.edu/policy/academic-affairs-faculty-administration/faculty-code-of-rights-responsibilities-and-conduct/). You are encouraged to think critically, question ideas, and form your own conclusions. As always, you have the freedom to choose courses that align with your academic goals—if you have concerns about course content, please talk with your instructor or advisor. Refer to the academic calendar for important deadlines related to course withdrawal.
+
+To learn more about the law and its impact at Boise State, visit the [Provost Office’s Information Regarding Section 67-5909D page](https://www.boisestate.edu/academics/information-regarding-section-67-5909d-course-and-curriculum/).
+
+---
 
 # References
 
 <div id="refs"></div>
+
+---
 
 # Appendix 1 {.appendix}
 

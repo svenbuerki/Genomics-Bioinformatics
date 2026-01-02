@@ -719,7 +719,7 @@ knitr::include_graphics("Images/proteinBLASToutput.png")
 
 ## Extract ORF(s) identified by protein BLAST analysis to reconstruct Aquaporin gene sequence
 
-Students are tasked to develop an R code producing the DNA sequence of Aquaporin gene located on identified scaffold and its associated protein sequence.
+Students are tasked to develop an R code producing the AA sequence of Aquaporin gene located on identified scaffold and its associated protein sequence.
 
 ## A user-defined function to produce a protein sequence
 
