@@ -157,6 +157,8 @@ By the end of this course, students will be able to:
 
 ## Chapter-Specific Learning Outcomes
 
+> **Note:** Material associated with Chapters 5–8 (Transcriptome Assembly, Structural Annotation, Functional Annotation, and Comparative Genomics) will be studied primarily through **Mini-Report 3** and the **Group Lab Assignment**. This approach is designed to help students engage with the material through authentic, evidence-based research, reinforcing learning by applying theoretical concepts to real genomic datasets.
+
 ### Chapter 1: DNA & RNA
 
 - Understand the differences between *genetics* and *genomics*.
