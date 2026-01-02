@@ -1,5 +1,5 @@
 ---
-title: "Timetable"
+title: "Schedule"
 date: "`r Sys.Date()`"
 output:
 #  bookdown::pdf_document2:
@@ -41,9 +41,13 @@ library(tufte)
 knitr::write_bib(.packages(), file = 'packages.bib')
 ```
 
-# Key deadlines
+# Assignment Deadlines
 
-To facilitate communication, deadlines and point allocations for the assignments associated with this course are provided in Table \@ref(tab:deadlines). Please see [here](https://svenbuerki.github.io/Genomics-Bioinformatics/index.html#13_Grading_information) for more information on each assignment. All assignments should be submitted on [Google Drive](https://drive.google.com/drive/folders/1BFZFJeR8tW8N7QLfngqIVbjqEkDuIyWj?usp=sharing).
+To facilitate communication, **deadlines** and **point allocations** for all course assignments are provided in Table \@ref(tab:deadlines).  
+
+For more detailed information on each assignment, please see [Assessments and Grading](https://svenbuerki.github.io/Genomics-Bioinformatics/index.html#12_Assessments_and_Grading).  
+
+All assignments must be submitted via [Google Drive](https://drive.google.com/drive/folders/1BFZFJeR8tW8N7QLfngqIVbjqEkDuIyWj?usp=sharing).
 
 ```{r deadlines, echo=FALSE}
 ###~~~
@@ -51,22 +55,25 @@ To facilitate communication, deadlines and point allocations for the assignments
 ###~~~
 deadlines <- data.frame(read.csv("Data/deadlines.csv"))
 
+# Convert to Date class and then format as "YYYY-MM-DD"
+deadlines$Date <- format(as.Date(deadlines$Date, format = "%m/%d/%y"), "%Y-%m-%d")
+
 ###~~~
 #Plot deadlines in doc
 ###~~~
-knitr::kable(deadlines,  caption = "Deadlines of graded assignments for the Genomics and Bioinformatics course during the Spring semester 2024.") %>%
+knitr::kable(deadlines,  caption = "Deadlines of graded assignments for Genomics and Bioinformatics, Spring 2026 semester.", format = "html", row.names = FALSE) %>%
   kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
 ```
 
-# Timetable
+# Schedule
 
-The tentative timetable for this course is available in Table \@ref(tab:timetab). The instructor wants to warn students that he might adjust the timetable to accommodate any needs. However, in case of changes, the instructor will make sure to contact enrolled students to keep them posted.
+The tentative schedule for this course is provided in Table \@ref(tab:timetab). Please note that the instructor may adjust our schedule to accommodate the course’s progress and students’ needs. Any changes will be communicated to enrolled students in a timely manner.
 
 ```{r timetab, echo=FALSE}
 ###~~~
 # Build a data frame with all dates from beginning to end of Fall semester
 ###~~~
-dates <- data.frame(seq.Date(from=as.Date("2024/01/08"), to=as.Date("2024/04/29"), by="day"))
+dates <- data.frame(seq.Date(from=as.Date("2026/01/12"), to=as.Date("2026/05/01"), by="day"))
 #Assign a name to the col (allows using $)
 colnames(dates) <- "Date"
 
@@ -80,19 +87,19 @@ dates$Weekday <- weekdays(dates$Date)
 # Classes only take place on Wed and Fri. So, extract dates matching class weekdays
 ###~~~
 #Subset dates based on selected weekdays
-datesclass <- subset(dates, dates$Weekday %in% c("Wednesday", "Friday"))
+datesclass <- subset(dates, dates$Weekday %in% c("Wednesday"))
 
 ###~~~
 # Add week ID (from 1 to 16) to object from step 4
 ###~~~
 #Create weekID vector and add it in front of dataframe
-datesclass <- data.frame(WeekID = sort(rep(seq(from=1, to=16, by=1), 2)), datesclass)
+datesclass <- data.frame(WeekID = sort(rep(seq(from=1, to=16, by=1), 1)), datesclass)
 
 ###~~~
 # Exclude dates falling during holiday break
 ###~~~
 #Establish vector of dates related to holidays
-holiday <- seq.Date(from=as.Date("2024/03/18"), to=as.Date("2024/03/22"), by="day")
+holiday <- seq.Date(from=as.Date("2026/03/16"), to=as.Date("2026/03/20"), by="day")
 
 #Find and exclude holidays
 datesclass <- datesclass[-which(datesclass$Date %in% holiday),]
@@ -100,25 +107,19 @@ datesclass <- datesclass[-which(datesclass$Date %in% holiday),]
 ###~~~
 #Read in csv with topics and tasks
 ###~~~
-topic <- read.csv("Data/topics_classes.csv") 
+topic <- read.csv("Data/topics_classes_2026.csv") 
+topic <- as.data.frame(topic)
 
 ###~~~
 #Produce final timetable
 ###~~~
-
 timetable <- data.frame(datesclass, topic)
-#Some editing to better print table in pdf doc
-timetable <- as.matrix(timetable)
-rownames(timetable) <- rep("", nrow(timetable))
-colnames(timetable)[5] <- "Homework/Deadlines"
-#colnames(timetable)[6] <- "Teaching mode"
+
 ###~~~
 #Plot timetable in doc
 ###~~~
-
-knitr::kable(timetable,  caption = "Tentative timetable for the Genomics and Bioinformatics course during the Spring semester 2024.") %>%
+knitr::kable(timetable,  caption = "Tentative schedule for Genomics and Bioinformatics, Spring 2026 semester.", format = "html", row.names = FALSE) %>%
   kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
-
 #PDF
 #landscape(knitr::kable(timetable, caption = "Tentative timetable for the Spring semester 2023.", booktabs = T) 
 #                       %>% kable_styling(latex_options = c("striped","scale_down"))
