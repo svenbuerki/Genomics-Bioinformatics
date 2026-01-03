@@ -86,32 +86,64 @@ knitr::opts_chunk$set(fig.pos = 'H')
 refs <- bibtex::read.bib("References.bib")
 ```
 
+<!-- THIS code adds a copy/paste button to copy code -->
+```{r klippy-code, echo=FALSE, results='asis'}
+# Enable klippy button
+if (requireNamespace("klippy", quietly = TRUE)) klippy::klippy(position = c("top", "right"))
+```
+
+<!-- THIS CODE CHUNK is used for pdf viewing -->
+
+```{r embendpdf, echo = F, results='hide'}
+embed_pdf <- function(pdf_path, unique_id) {
+  cat(glue::glue('
+<div style="text-align: center;">
+  <iframe id="pdfFrame{unique_id}" allowfullscreen src="{pdf_path}" width="100%" height="600px" style="border:none;">
+    <p>Your browser does not support PDFs. <a href="{pdf_path}">Download the PDF</a>.</p>
+  </iframe>
+</div>
+  '))
+}
+```
+
 # Introduction
 
-This webpage contains information related to the chapters covered in the Genomics & Bioinformatics course at BSU. The instructor will provide links to download the presentations as well as tutorials to complete in-class exercises (see e.g. [Chapter 4](#Chap4)).
+This webpage contains materials associated with the chapters covered in **BIOL 497/597 – Genomics & Bioinformatics**, a course taught at BSU. In addition to this content, the instructor provides PDF presentations and hands-on tutorials designed to support in-class exercises (see, for example, [Chapter 4](#Chap4)).
+
+<hr style="border: 1.5px solid #999; margin: 2em 0;">
 
 # Syllabus
 
-The syllabus can be accessed [here](https://svenbuerki.github.io/Genomics-Bioinformatics/index.html). In addition, you can download the presentation slides (in `pdf` format) <a href="Lectures/Chapter_00_Syllabus_Spring.pdf" target="_blank">here</a>.
+The syllabus can be accessed [here](https://svenbuerki.github.io/Genomics-Bioinformatics/index.html).
+
+<hr style="border: 1.5px solid #999; margin: 2em 0;">
 
 # Chapter 1
 
-This chapter provides the theoretical background information (incl. definitions; see [Lexicon](Lexicon.html)) necessary to support material taught in this course. We will review information on DNA and RNA that are important for genomic projects, especially to support genome sequencing, assembly and annotation.
+## Goal
 
-## Learning outcomes
+The ***goal*** of this chapter is to establish the foundational genomics concepts required for the remainder of the course. Students will develop a shared theoretical framework—including key definitions (see [Lexicon](Lexicon.html))—that underpins genome sequencing, assembly, and annotation workflows. Emphasis is placed on the structure, organization, and function of DNA and RNA as they relate directly to the design and interpretation of genomic research projects.
+
+---
+
+## Learning Outcomes
 
 The key learning outcomes of this chapter are:
 
--   Understand the differences between "Genetics" and "Genomics".
--   Know the basic dogma that DNA is transcribed to RNA, which is translated to protein. This will be especially important for the [Lab. report](Mining_draft_genome.html).
--   Appreciate the diversity of genome organization in organelles, prokaryotes and eukaryotes [e.g., @Saitou2013].
--   Appreciate that organelle genomes have forged eukaryotic chromosomes and that this has to be accounted for in designing genome assembly projects [e.g., @Timmis2004].
--   Appreciate that eukaryotic genomes contain extensive repetitive regions of several different kinds.
--   Appreciate the diversity of published genomes and their differences in the level of completeness.
--   Understand the importance of computer science and bioinformatics in producing the raw sequence data and assembly genomes.
--   Understand the challenges in sequencing a genome.
+- Understand the differences between *genetics* and *genomics*.
+- Understand the central dogma: DNA is transcribed into RNA, which is translated into protein.
+  + This will be especially important for the [Lab. report](Mining_draft_genome.html).
+- Appreciate the diversity of genome organization in organelles, prokaryotes, and eukaryotes [e.g., @Saitou2013].
+- Understand how organelle genomes have contributed to the evolution of eukaryotic chromosomes and how this impacts genome assembly project design [e.g., @Timmis2004].
+- Appreciate that eukaryotic genomes contain extensive and diverse repetitive regions.
+- Appreciate the diversity of published genomes and variation in their levels of completeness.
+  + This topic will be further investigated in a [group activity](#genomediveristy)
+- Understand the importance of computer science and bioinformatics in generating raw sequencing data and assembling genomes.
+- Understand the major challenges associated with sequencing and assembling genomes.
 
-## Publications 
+---
+
+## Resources 
 
 This chapter is mostly based on the following resources:
 
@@ -132,9 +164,104 @@ This chapter is mostly based on the following resources:
 - @Sen2011 - **Chloroplast genome function and evolution**
 - @Timmis2004 - **Evolution of chloroplast genomes (gene trafficking)**
 
-## Download presentation
+---
 
-The presentation slides (in `pdf` format) of Chapter 1 can be downloaded <a href="Lectures/Chapter_01_Spring.pdf" target="_blank">here</a>.
+## Teaching Material {#teachmatchap1}
+
+The presentation associated with this class is available here:
+
+```{r echo = F, results='asis'}
+embed_pdf("Lectures/Chapter_01_Spring.pdf", "1")
+```
+
+---
+
+## 🤝 In-Class Group Activity: Exploring Genome Diversity and Completeness Using NCBI {#genomediveristy}
+
+### Learning Outcome
+
+Students will **appreciate the diversity of published genomes and the variation in their levels of completeness** by exploring and comparing genome assemblies available in the NCBI database.
+
+---
+
+### Activity Overview
+
+In this 30-minute in-class activity, students will work in small groups to explore and compare genome assemblies from different organisms using NCBI resources.
+
+The ***objective*** is to recognize how genome completeness varies across taxa and sequencing strategies, and to reflect on the biological and technical factors that influence genome assembly quality.
+
+---
+
+### Materials
+
+- [NCBI – National Center for Biotechnology Information](https://www.ncbi.nlm.nih.gov)  
+- [NCBI – Genome Database](https://www.ncbi.nlm.nih.gov/datasets/genome/)  
+- [Lexicon](https://svenbuerki.github.io/Genomics-Bioinformatics/Lexicon.html)
+- [Teaching Material](#teachmatchap1) (from slide 56 onward)
+
+---
+
+### Activity Structure <span style="color:gray;">(30 minutes)</span>
+
+#### Context and Setup
+
+As discussed in lecture:
+
+- Published genomes vary widely in their level of completeness and overall quality.
+- Genome assembly quality is influenced by biological features (e.g., genome size, repetitive content, ploidy) as well as technical factors (e.g., sequencing technology, sequencing depth).
+- The goal of this activity is to critically evaluate real genomic data rather than to label genomes as “good” or “bad.”
+
+---
+
+#### Group Exploration (10 minutes)
+
+Students will work in groups of **2–4**.
+
+Each group will select **two organisms** representing different biological categories (e.g., model vs. non-model organisms, prokaryotes vs. eukaryotes).
+
+**Suggested organism pairings include:**
+
+- *Homo sapiens* vs. *Artemisia tridentata*  
+- *Arabidopsis thaliana* vs. a non-model plant species  
+- *Escherichia coli* vs. a eukaryotic genome  
+
+For each organism, navigate to the [**NCBI Genome**](https://www.ncbi.nlm.nih.gov/datasets/genome/) page and record the following information:
+
+- Assembly level (Complete Genome, Chromosome, Scaffold, or Contig)  
+- Genome size  
+- Number of scaffolds or contigs  
+- N50 value (if available)  
+- Sequencing technology (if reported)  
+- Year of release  
+- Annotation status (e.g., RefSeq, GenBank only)  
+
+<div class="info">
+  <p><strong>💡 Information</strong></p>
+  <ul>
+    <li>Use this activity to become familiar with genomics terminology by consulting the <a href="https://svenbuerki.github.io/Genomics-Bioinformatics/Lexicon.html">Lexicon</a> and other reliable resources as needed.</li>
+  </ul>
+</div>
+
+---
+
+#### Group Discussion (10 minutes)
+
+Within each group, discuss the following questions:
+
+- How do the two genomes differ in terms of completeness?
+- What biological factors might explain these differences?
+- What technical or historical factors might explain these differences?
+- Which genome would you trust more for downstream analyses, and why?
+
+Each group should identify **one key observation** to share with the class.
+
+---
+
+#### Whole-Class Debrief (10 minutes)
+
+Each group will briefly share their key observation with the class to promote collective discussion and synthesis of ideas.
+
+<hr style="border: 1.5px solid #999; margin: 2em 0;">
 
 # Chapter 2
 
@@ -199,7 +326,7 @@ To become more familiar with NGS technology (incl. jargon) and its application t
 
 The presentation used by the instructor to summarize the publication and initiate a group discussion is available [here](Lectures/Journal_Club_Giant_panda.pdf). 
 
-# Chapter 3
+# Chapter 3 {#chapter3}
 
 ## Learning outcomes
 

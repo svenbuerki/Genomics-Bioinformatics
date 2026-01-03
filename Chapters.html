@@ -11,7 +11,7 @@
 
 <meta name="author" content="Sven Buerki - Boise State University" />
 
-<meta name="date" content="2024-04-01" />
+<meta name="date" content="2026-01-03" />
 
 <title>BIOL 497/597 - Genomics &amp; Bioinformatics</title>
 
@@ -345,13 +345,13 @@ div.tocify {
   <a href="index.html">Home</a>
 </li>
 <li>
-  <a href="Timetable.html">Timetable</a>
+  <a href="Timetable.html">Schedule</a>
 </li>
 <li>
   <a href="Chapters.html">Chapters</a>
 </li>
 <li>
-  <a href="Mini_reports.html">Mini-reports</a>
+  <a href="Mini_reports.html">Mini-Reports</a>
 </li>
 <li>
   <a href="Mining_draft_genome.html">Lab.</a>
@@ -363,7 +363,7 @@ div.tocify {
   <a href="Lexicon.html">Lexicon</a>
 </li>
 <li>
-  <a href="R_Functions.html">R functions</a>
+  <a href="R_Functions.html">R Functions</a>
 </li>
 <li>
   <a href="References.html">References</a>
@@ -383,7 +383,7 @@ div.tocify {
 <h1 class="title toc-ignore">BIOL 497/597 - Genomics &amp; Bioinformatics</h1>
 <h3 class="subtitle">Chapters</h3>
 <h4 class="author">Sven Buerki - Boise State University</h4>
-<h4 class="date">2024-04-01</h4>
+<h4 class="date">2026-01-03</h4>
 
 </div>
 
@@ -394,56 +394,176 @@ $(document).ready(function() {
   $('#header').css('margin-right', '120px')
 });
 </script>
+<!-- THIS code adds a copy/paste button to copy code -->
+<!-- THIS CODE CHUNK is used for pdf viewing -->
 <div id="introduction" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> Introduction</h1>
-<p>This webpage contains information related to the chapters covered in the Genomics &amp; Bioinformatics course at BSU. The instructor will provide links to download the presentations as well as tutorials to complete in-class exercises (see e.g. <a href="#Chap4">Chapter 4</a>).</p>
+<p>This webpage contains materials associated with the chapters covered in <strong>BIOL 497/597 – Genomics &amp; Bioinformatics</strong>, a course taught at BSU. In addition to this content, the instructor provides PDF presentations and hands-on tutorials designed to support in-class exercises (see, for example, <a href="#Chap4">Chapter 4</a>).</p>
+<hr style="border: 1.5px solid #999; margin: 2em 0;">
 </div>
 <div id="syllabus" class="section level1" number="2">
 <h1><span class="header-section-number">2</span> Syllabus</h1>
-<p>The syllabus can be accessed <a href="https://svenbuerki.github.io/Genomics-Bioinformatics/index.html">here</a>. In addition, you can download the presentation slides (in <code>pdf</code> format) <a href="Lectures/Chapter_00_Syllabus_Spring.pdf" target="_blank">here</a>.</p>
+<p>The syllabus can be accessed <a href="https://svenbuerki.github.io/Genomics-Bioinformatics/index.html">here</a>.</p>
+<hr style="border: 1.5px solid #999; margin: 2em 0;">
 </div>
 <div id="chapter-1" class="section level1" number="3">
 <h1><span class="header-section-number">3</span> Chapter 1</h1>
-<p>This chapter provides the theoretical background information (incl. definitions; see <a href="Lexicon.html">Lexicon</a>) necessary to support material taught in this course. We will review information on DNA and RNA that are important for genomic projects, especially to support genome sequencing, assembly and annotation.</p>
-<div id="learning-outcomes" class="section level2" number="3.1">
-<h2><span class="header-section-number">3.1</span> Learning outcomes</h2>
+<div id="goal" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Goal</h2>
+<p>The <strong><em>goal</em></strong> of this chapter is to establish the foundational genomics concepts required for the remainder of the course. Students will develop a shared theoretical framework—including key definitions (see <a href="Lexicon.html">Lexicon</a>)—that underpins genome sequencing, assembly, and annotation workflows. Emphasis is placed on the structure, organization, and function of DNA and RNA as they relate directly to the design and interpretation of genomic research projects.</p>
+<hr />
+</div>
+<div id="learning-outcomes" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Learning Outcomes</h2>
 <p>The key learning outcomes of this chapter are:</p>
 <ul>
-<li>Understand the differences between “Genetics” and “Genomics”.</li>
-<li>Know the basic dogma that DNA is transcribed to RNA, which is translated to protein. This will be especially important for the <a href="Mining_draft_genome.html">Lab. report</a>.</li>
-<li>Appreciate the diversity of genome organization in organelles, prokaryotes and eukaryotes <span class="citation">(e.g., <a href="#ref-Saitou2013" role="doc-biblioref">Saitou, 2013</a>)</span>.</li>
-<li>Appreciate that organelle genomes have forged eukaryotic chromosomes and that this has to be accounted for in designing genome assembly projects <span class="citation">(e.g., <a href="#ref-Timmis2004" role="doc-biblioref">Timmis et al., 2004</a>)</span>.</li>
-<li>Appreciate that eukaryotic genomes contain extensive repetitive regions of several different kinds.</li>
-<li>Appreciate the diversity of published genomes and their differences in the level of completeness.</li>
-<li>Understand the importance of computer science and bioinformatics in producing the raw sequence data and assembly genomes.</li>
-<li>Understand the challenges in sequencing a genome.</li>
+<li>Understand the differences between <em>genetics</em> and <em>genomics</em>.</li>
+<li>Understand the central dogma: DNA is transcribed into RNA, which is translated into protein.
+<ul>
+<li>This will be especially important for the <a href="Mining_draft_genome.html">Lab. report</a>.</li>
+</ul></li>
+<li>Appreciate the diversity of genome organization in organelles, prokaryotes, and eukaryotes <span class="citation">(e.g., <a href="#ref-Saitou2013">Saitou, 2013</a>)</span>.</li>
+<li>Understand how organelle genomes have contributed to the evolution of eukaryotic chromosomes and how this impacts genome assembly project design <span class="citation">(e.g., <a href="#ref-Timmis2004">Timmis et al., 2004</a>)</span>.</li>
+<li>Appreciate that eukaryotic genomes contain extensive and diverse repetitive regions.</li>
+<li>Appreciate the diversity of published genomes and variation in their levels of completeness.
+<ul>
+<li>This topic will be further investigated in a <a href="#genomediveristy">group activity</a></li>
+</ul></li>
+<li>Understand the importance of computer science and bioinformatics in generating raw sequencing data and assembling genomes.</li>
+<li>Understand the major challenges associated with sequencing and assembling genomes.</li>
 </ul>
+<hr />
 </div>
-<div id="publications" class="section level2" number="3.2">
-<h2><span class="header-section-number">3.2</span> Publications</h2>
+<div id="resources" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Resources</h2>
 <p>This chapter is mostly based on the following resources:</p>
 <ul>
-<li><span class="citation">Aransay (<a href="#ref-aransay_field_2016" role="doc-biblioref">2016</a>)</span> - <strong>Sequencing strategy</strong></li>
-<li><span class="citation">Asaf et al. (<a href="#ref-Asaf2016" role="doc-biblioref">2016</a>)</span> - <strong>Synonymous vs. non-synonymous substitutions</strong></li>
-<li><span class="citation">Bradnam et al. (<a href="#ref-Bradnam2013" role="doc-biblioref">2013</a>)</span> - <strong>De novo genome assembly contest</strong></li>
-<li><span class="citation">Doležel et al. (<a href="#ref-Doležel2007" role="doc-biblioref">2007</a>)</span> - <strong>Flow cytometry</strong></li>
-<li><span class="citation">Ellestad et al. (<a href="#ref-Ellestad2022Plants" role="doc-biblioref">2022</a>)</span> - <strong>SNPs in Vanilla</strong></li>
-<li><span class="citation">Greenberg and Soreq (<a href="#ref-GREENBERG201397" role="doc-biblioref">2013</a>)</span> - <strong>Alternative splicing</strong></li>
-<li><span class="citation">Hu et al. (<a href="#ref-Hu2021" role="doc-biblioref">2021</a>)</span> - <strong>SNPs in Corn</strong></li>
-<li><span class="citation">Liao et al. (<a href="#ref-Liao2023" role="doc-biblioref">2023</a>)</span> - <strong>Repeats in human genome</strong></li>
-<li><span class="citation">Melton et al. (<a href="#ref-Melton2021" role="doc-biblioref">2021</a>)</span> - <strong>Paralogs in sagebrush</strong></li>
-<li><span class="citation">Melton et al. (<a href="#ref-Melton2022" role="doc-biblioref">2022</a>)</span> - <strong>Sagebrush genome and repeats</strong></li>
-<li><span class="citation">Nurk et al. (<a href="#ref-Nurk2022" role="doc-biblioref">2022</a>)</span> - <strong>The complete sequence of a human genome</strong></li>
-<li><span class="citation">Öhman and Bass (<a href="#ref-OHMAN2001125" role="doc-biblioref">2001</a>)</span> - <strong>RNA editing</strong></li>
-<li><span class="citation">Pellicer et al. (<a href="#ref-Pellicer2010" role="doc-biblioref">2010</a>)</span> - <strong>Plant genome size</strong></li>
-<li><span class="citation">Rice et al. (<a href="#ref-Rice2013" role="doc-biblioref">2013</a>)</span> - <strong>Plant mitochondrial genome evolution</strong></li>
-<li><span class="citation">Sen et al. (<a href="#ref-Sen2011" role="doc-biblioref">2011</a>)</span> - <strong>Chloroplast genome function and evolution</strong></li>
-<li><span class="citation">Timmis et al. (<a href="#ref-Timmis2004" role="doc-biblioref">2004</a>)</span> - <strong>Evolution of chloroplast genomes (gene trafficking)</strong></li>
+<li><span class="citation">Aransay (<a href="#ref-aransay_field_2016">2016</a>)</span> - <strong>Sequencing strategy</strong></li>
+<li><span class="citation">Asaf et al. (<a href="#ref-Asaf2016">2016</a>)</span> - <strong>Synonymous vs. non-synonymous substitutions</strong></li>
+<li><span class="citation">Bradnam et al. (<a href="#ref-Bradnam2013">2013</a>)</span> - <strong>De novo genome assembly contest</strong></li>
+<li><span class="citation">Doležel et al. (<a href="#ref-Dole%C5%BEel2007">2007</a>)</span> - <strong>Flow cytometry</strong></li>
+<li><span class="citation">Ellestad et al. (<a href="#ref-Ellestad2022Plants">2022</a>)</span> - <strong>SNPs in Vanilla</strong></li>
+<li><span class="citation">Greenberg and Soreq (<a href="#ref-GREENBERG201397">2013</a>)</span> - <strong>Alternative splicing</strong></li>
+<li><span class="citation">Hu et al. (<a href="#ref-Hu2021">2021</a>)</span> - <strong>SNPs in Corn</strong></li>
+<li><span class="citation">Liao et al. (<a href="#ref-Liao2023">2023</a>)</span> - <strong>Repeats in human genome</strong></li>
+<li><span class="citation">Melton et al. (<a href="#ref-Melton2021">2021</a>)</span> - <strong>Paralogs in sagebrush</strong></li>
+<li><span class="citation">Melton et al. (<a href="#ref-Melton2022">2022</a>)</span> - <strong>Sagebrush genome and repeats</strong></li>
+<li><span class="citation">Nurk et al. (<a href="#ref-Nurk2022">2022</a>)</span> - <strong>The complete sequence of a human genome</strong></li>
+<li><span class="citation">Öhman and Bass (<a href="#ref-OHMAN2001125">2001</a>)</span> - <strong>RNA editing</strong></li>
+<li><span class="citation">Pellicer et al. (<a href="#ref-Pellicer2010">2010</a>)</span> - <strong>Plant genome size</strong></li>
+<li><span class="citation">Rice et al. (<a href="#ref-Rice2013">2013</a>)</span> - <strong>Plant mitochondrial genome evolution</strong></li>
+<li><span class="citation">Sen et al. (<a href="#ref-Sen2011">2011</a>)</span> - <strong>Chloroplast genome function and evolution</strong></li>
+<li><span class="citation">Timmis et al. (<a href="#ref-Timmis2004">2004</a>)</span> - <strong>Evolution of chloroplast genomes (gene trafficking)</strong></li>
+</ul>
+<hr />
+</div>
+<div id="teachmatchap1" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> Teaching Material</h2>
+<p>The presentation associated with this class is available here:</p>
+<div style="text-align: center;">
+<iframe id="pdfFrame1" allowfullscreen src="Lectures/Chapter_01_Spring.pdf" width="100%" height="600px" style="border:none;">
+<p>
+Your browser does not support PDFs. <a href="Lectures/Chapter_01_Spring.pdf">Download the PDF</a>.
+</p>
+<p></iframe></p>
+</div>
+<hr />
+</div>
+<div id="genomediveristy" class="section level2" number="3.5">
+<h2><span class="header-section-number">3.5</span> 🤝 In-Class Group Activity: Exploring Genome Diversity and Completeness Using NCBI</h2>
+<div id="learning-outcome" class="section level3" number="3.5.1">
+<h3><span class="header-section-number">3.5.1</span> Learning Outcome</h3>
+<p>Students will <strong>appreciate the diversity of published genomes and the variation in their levels of completeness</strong> by exploring and comparing genome assemblies available in the NCBI database.</p>
+<hr />
+</div>
+<div id="activity-overview" class="section level3" number="3.5.2">
+<h3><span class="header-section-number">3.5.2</span> Activity Overview</h3>
+<p>In this 30-minute in-class activity, students will work in small groups to explore and compare genome assemblies from different organisms using NCBI resources.</p>
+<p>The <strong><em>objective</em></strong> is to recognize how genome completeness varies across taxa and sequencing strategies, and to reflect on the biological and technical factors that influence genome assembly quality.</p>
+<hr />
+</div>
+<div id="materials" class="section level3" number="3.5.3">
+<h3><span class="header-section-number">3.5.3</span> Materials</h3>
+<ul>
+<li><a href="https://www.ncbi.nlm.nih.gov">NCBI – National Center for Biotechnology Information</a><br />
+</li>
+<li><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/">NCBI – Genome Database</a><br />
+</li>
+<li><a href="https://svenbuerki.github.io/Genomics-Bioinformatics/Lexicon.html">Lexicon</a></li>
+<li><a href="#teachmatchap1">Teaching Material</a> (from slide 56 onward)</li>
+</ul>
+<hr />
+</div>
+<div id="activity-structure-30-minutes" class="section level3" number="3.5.4">
+<h3><span class="header-section-number">3.5.4</span> Activity Structure <span style="color:gray;">(30 minutes)</span></h3>
+<div id="context-and-setup" class="section level4" number="3.5.4.1">
+<h4><span class="header-section-number">3.5.4.1</span> Context and Setup</h4>
+<p>As discussed in lecture:</p>
+<ul>
+<li>Published genomes vary widely in their level of completeness and overall quality.</li>
+<li>Genome assembly quality is influenced by biological features (e.g., genome size, repetitive content, ploidy) as well as technical factors (e.g., sequencing technology, sequencing depth).</li>
+<li>The goal of this activity is to critically evaluate real genomic data rather than to label genomes as “good” or “bad.”</li>
+</ul>
+<hr />
+</div>
+<div id="group-exploration-10-minutes" class="section level4" number="3.5.4.2">
+<h4><span class="header-section-number">3.5.4.2</span> Group Exploration (10 minutes)</h4>
+<p>Students will work in groups of <strong>2–4</strong>.</p>
+<p>Each group will select <strong>two organisms</strong> representing different biological categories (e.g., model vs. non-model organisms, prokaryotes vs. eukaryotes).</p>
+<p><strong>Suggested organism pairings include:</strong></p>
+<ul>
+<li><em>Homo sapiens</em> vs. <em>Artemisia tridentata</em><br />
+</li>
+<li><em>Arabidopsis thaliana</em> vs. a non-model plant species<br />
+</li>
+<li><em>Escherichia coli</em> vs. a eukaryotic genome</li>
+</ul>
+<p>For each organism, navigate to the <a href="https://www.ncbi.nlm.nih.gov/datasets/genome/"><strong>NCBI Genome</strong></a> page and record the following information:</p>
+<ul>
+<li>Assembly level (Complete Genome, Chromosome, Scaffold, or Contig)<br />
+</li>
+<li>Genome size<br />
+</li>
+<li>Number of scaffolds or contigs<br />
+</li>
+<li>N50 value (if available)<br />
+</li>
+<li>Sequencing technology (if reported)<br />
+</li>
+<li>Year of release<br />
+</li>
+<li>Annotation status (e.g., RefSeq, GenBank only)</li>
+</ul>
+<div class="info">
+<p>
+<strong>💡 Information</strong>
+</p>
+<ul>
+<li>
+Use this activity to become familiar with genomics terminology by consulting the <a href="https://svenbuerki.github.io/Genomics-Bioinformatics/Lexicon.html">Lexicon</a> and other reliable resources as needed.
+</li>
 </ul>
 </div>
-<div id="download-presentation" class="section level2" number="3.3">
-<h2><span class="header-section-number">3.3</span> Download presentation</h2>
-<p>The presentation slides (in <code>pdf</code> format) of Chapter 1 can be downloaded <a href="Lectures/Chapter_01_Spring.pdf" target="_blank">here</a>.</p>
+<hr />
+</div>
+<div id="group-discussion-10-minutes" class="section level4" number="3.5.4.3">
+<h4><span class="header-section-number">3.5.4.3</span> Group Discussion (10 minutes)</h4>
+<p>Within each group, discuss the following questions:</p>
+<ul>
+<li>How do the two genomes differ in terms of completeness?</li>
+<li>What biological factors might explain these differences?</li>
+<li>What technical or historical factors might explain these differences?</li>
+<li>Which genome would you trust more for downstream analyses, and why?</li>
+</ul>
+<p>Each group should identify <strong>one key observation</strong> to share with the class.</p>
+<hr />
+</div>
+<div id="whole-class-debrief-10-minutes" class="section level4" number="3.5.4.4">
+<h4><span class="header-section-number">3.5.4.4</span> Whole-Class Debrief (10 minutes)</h4>
+<p>Each group will briefly share their key observation with the class to promote collective discussion and synthesis of ideas.</p>
+<hr style="border: 1.5px solid #999; margin: 2em 0;">
+</div>
+</div>
 </div>
 </div>
 <div id="chapter-2" class="section level1" number="4">
@@ -467,16 +587,16 @@ $(document).ready(function() {
 <li>Become familiar with reading the genomics literature.</li>
 </ul>
 </div>
-<div id="publications-1" class="section level2" number="4.2">
+<div id="publications" class="section level2" number="4.2">
 <h2><span class="header-section-number">4.2</span> Publications</h2>
 <p>This chapter is mostly based on the following resources:</p>
 <ul>
-<li><span class="citation">Heather and Chain (<a href="#ref-HEATHER20161" role="doc-biblioref">2016</a>)</span> - <strong>The sequence of sequencers: The history of sequencing DNA</strong></li>
-<li><span class="citation">Ignatov (<a href="#ref-Ignatov2019" role="doc-biblioref">2019</a>)</span> - <strong>Fragmenting DNA for NGS sequencing</strong></li>
-<li><span class="citation">Marx (<a href="#ref-Marx2023" role="doc-biblioref">2023</a>)</span> - <strong>Long-read sequencing</strong></li>
-<li><span class="citation">Nurk et al. (<a href="#ref-Nurk2022" role="doc-biblioref">2022</a>)</span> - <strong>The complete sequence of a human genome</strong></li>
-<li><span class="citation">Satam et al. (<a href="#ref-Satam2023" role="doc-biblioref">2023</a>)</span> - <strong>Next-Generation Sequencing technology: current trends and advancements</strong></li>
-<li><span class="citation">Watson and Crick (<a href="#ref-WATSON1953" role="doc-biblioref">1953</a>)</span> - <strong>Structure for Deoxyribose Nucleic Acid</strong></li>
+<li><span class="citation">Heather and Chain (<a href="#ref-HEATHER20161">2016</a>)</span> - <strong>The sequence of sequencers: The history of sequencing DNA</strong></li>
+<li><span class="citation">Ignatov (<a href="#ref-Ignatov2019">2019</a>)</span> - <strong>Fragmenting DNA for NGS sequencing</strong></li>
+<li><span class="citation">Marx (<a href="#ref-Marx2023">2023</a>)</span> - <strong>Long-read sequencing</strong></li>
+<li><span class="citation">Nurk et al. (<a href="#ref-Nurk2022">2022</a>)</span> - <strong>The complete sequence of a human genome</strong></li>
+<li><span class="citation">Satam et al. (<a href="#ref-Satam2023">2023</a>)</span> - <strong>Next-Generation Sequencing technology: current trends and advancements</strong></li>
+<li><span class="citation">Watson and Crick (<a href="#ref-WATSON1953">1953</a>)</span> - <strong>Structure for Deoxyribose Nucleic Acid</strong></li>
 </ul>
 <p><strong>Note:</strong> These publications will be very helpful to complete <a href="#minrep1">Mini-report 1</a>.</p>
 </div>
@@ -492,7 +612,7 @@ $(document).ready(function() {
 <li><a href="https://www.science.org/content/article/how-seriously-read-scientific-paper"><strong>How to (seriously) read a scientific paper</strong></a></li>
 </ul>
 </div>
-<div id="download-presentation-1" class="section level2" number="4.4">
+<div id="download-presentation" class="section level2" number="4.4">
 <h2><span class="header-section-number">4.4</span> Download presentation</h2>
 <p>The presentation slides (in <code>pdf</code> format) of Chapter 2 can be downloaded <a href="Lectures/Chapter_02_Spring.pdf" target="_blank">here</a>.</p>
 </div>
@@ -509,11 +629,11 @@ $(document).ready(function() {
 </div>
 <div id="jc1" class="section level2" number="4.6">
 <h2><span class="header-section-number">4.6</span> Journal Club</h2>
-<p>To become more familiar with NGS technology (incl. jargon) and its application to assemble and annotate reference genomes, we are reading a publication on the Giant panda <span class="citation">(<a href="#ref-Li2009" role="doc-biblioref">Li, Fan, et al., 2009</a>)</span> for our first journal club (available on <a href="https://drive.google.com/drive/folders/1-Fkz0NnlqqeSq5DbSeDGn43xbturaPnu?usp=sharing">Google Drive</a>).</p>
+<p>To become more familiar with NGS technology (incl. jargon) and its application to assemble and annotate reference genomes, we are reading a publication on the Giant panda <span class="citation">(<a href="#ref-Li2009">Li, Fan, et al., 2009</a>)</span> for our first journal club (available on <a href="https://drive.google.com/drive/folders/1-Fkz0NnlqqeSq5DbSeDGn43xbturaPnu?usp=sharing">Google Drive</a>).</p>
 <p>The presentation used by the instructor to summarize the publication and initiate a group discussion is available <a href="Lectures/Journal_Club_Giant_panda.pdf">here</a>.</p>
 </div>
 </div>
-<div id="chapter-3" class="section level1" number="5">
+<div id="chapter3" class="section level1" number="5">
 <h1><span class="header-section-number">5</span> Chapter 3</h1>
 <div id="learning-outcomes-2" class="section level2" number="5.1">
 <h2><span class="header-section-number">5.1</span> Learning outcomes</h2>
@@ -537,14 +657,14 @@ $(document).ready(function() {
 <li>Present protocols to query genomic information and remotely download files from GenBank (this topic will be further investigated in <a href="Mini_reports.html">Mini-Report 3</a> and <a href="#Chap4">Chapter 4</a>).</li>
 </ul>
 </div>
-<div id="publications-2" class="section level2" number="5.2">
+<div id="publications-1" class="section level2" number="5.2">
 <h2><span class="header-section-number">5.2</span> Publications</h2>
 <p>This chapter is mostly based on the following resources:</p>
 <ul>
-<li><span class="citation">Benson et al. (<a href="#ref-GenBankP" role="doc-biblioref">2005</a>)</span> - <strong>GenBank</strong></li>
-<li><span class="citation">Consortium (<a href="#ref-UniProt2014" role="doc-biblioref">2014</a>)</span> - <strong>Protein sequence databases</strong></li>
-<li><span class="citation">Consortium (<a href="#ref-GO2020" role="doc-biblioref">2020</a>)</span> - <strong>Gene ontology database</strong></li>
-<li><span class="citation">Kanehisa et al. (<a href="#ref-KEGG2022" role="doc-biblioref">2022</a>)</span> - <strong>Metabolic pathways databases</strong></li>
+<li><span class="citation">Benson et al. (<a href="#ref-GenBankP">2005</a>)</span> - <strong>GenBank</strong></li>
+<li><span class="citation">Consortium (<a href="#ref-UniProt2014">2014</a>)</span> - <strong>Protein sequence databases</strong></li>
+<li><span class="citation">Consortium (<a href="#ref-GO2020">2020</a>)</span> - <strong>Gene ontology database</strong></li>
+<li><span class="citation">Kanehisa et al. (<a href="#ref-KEGG2022">2022</a>)</span> - <strong>Metabolic pathways databases</strong></li>
 </ul>
 </div>
 <div id="web-resources-1" class="section level2" number="5.3">
@@ -555,7 +675,7 @@ $(document).ready(function() {
 <li><strong>NCBI BioProject Help Book</strong>: This <a href="https://www.ncbi.nlm.nih.gov/books/NBK54364/">book</a> provides definitions of terms associated to submitted data to NCBI.</li>
 </ul>
 </div>
-<div id="download-presentation-2" class="section level2" number="5.4">
+<div id="download-presentation-1" class="section level2" number="5.4">
 <h2><span class="header-section-number">5.4</span> Download presentation</h2>
 <p>The presentation slides (in <code>pdf</code> format) of Chapter 3 can be downloaded <a href="Lectures/Chapter_03_Spring.pdf" target="_blank">here</a>.</p>
 </div>
@@ -566,14 +686,14 @@ $(document).ready(function() {
 <li>submitting genomic data to accredited data repositories such as NCBI where data can be freely accessed</li>
 <li>providing data availability statements in publications pointing to their data</li>
 </ol>
-<p>To provide more insights into these practices here is an example of <a href="https://academic.oup.com/g3journal/pages/data-policy">data policy</a> from the <em>G3</em> journal and a <a href="https://academic.oup.com/g3journal/article/12/7/jkac122/6585877?searchresult=1#365097953">data availability statement</a> from the sagebrush genome <span class="citation">(<a href="#ref-Melton2022" role="doc-biblioref">Melton et al., 2022</a>)</span>.</p>
+<p>To provide more insights into these practices here is an example of <a href="https://academic.oup.com/g3journal/pages/data-policy">data policy</a> from the <em>G3</em> journal and a <a href="https://academic.oup.com/g3journal/article/12/7/jkac122/6585877?searchresult=1#365097953">data availability statement</a> from the sagebrush genome <span class="citation">(<a href="#ref-Melton2022">Melton et al., 2022</a>)</span>.</p>
 </div>
 <div id="exercises" class="section level2" number="5.6">
 <h2><span class="header-section-number">5.6</span> Exercises</h2>
 <p>Here the goal is to get familiar with NCBI by doing the following exercises:</p>
 <ol style="list-style-type: decimal">
 <li>Navigate to <a href="https://www.ncbi.nlm.nih.gov/">NCBI</a> and start getting familiar with its structure and available databases.</li>
-<li>Questions associated with the sagebrush (<em>Artemisia tridentata</em>; Asteraceae) genome published by <span class="citation">Melton et al. (<a href="#ref-Melton2022" role="doc-biblioref">2022</a>)</span>:
+<li>Questions associated with the sagebrush (<em>Artemisia tridentata</em>; Asteraceae) genome published by <span class="citation">Melton et al. (<a href="#ref-Melton2022">2022</a>)</span>:
 <ul>
 <li>What is the BioProject accession number?</li>
 <li>How many SRA experiments were produced?</li>
@@ -584,7 +704,7 @@ $(document).ready(function() {
 <li>What is the genome coverage?</li>
 <li>What assembly method was used to produce the assembly?</li>
 </ul></li>
-<li>Use <span class="citation">Li, Fan, et al. (<a href="#ref-Li2009" role="doc-biblioref">2009</a>)</span> and NCBI to determine how many genomes are available for the Giant panda and how they compare?</li>
+<li>Use <span class="citation">Li, Fan, et al. (<a href="#ref-Li2009">2009</a>)</span> and NCBI to determine how many genomes are available for the Giant panda and how they compare?</li>
 <li>Search your favorite organism in the Taxonomy database and determine what type of genomic data are available and if an assembly or genome exist for it.</li>
 </ol>
 </div>
@@ -592,9 +712,9 @@ $(document).ready(function() {
 <h2><span class="header-section-number">5.7</span> Mini-report 2 – Molecular biology databases</h2>
 <p>To have a full overview of available molecular biology databases and assess their contributions to genome annotation, students are tasked to produce individual mini-reports on the following molecular databases:</p>
 <ul>
-<li><strong>Molecular database 1:</strong> Protein sequences databases <span class="citation">(e.g., <a href="#ref-UniProt2014" role="doc-biblioref">Consortium, 2014</a>)</span>.</li>
-<li><strong>Molecular database 2:</strong> Gene ontology databases <span class="citation">(e.g., <a href="#ref-GO2020" role="doc-biblioref">Consortium, 2020</a>)</span>.</li>
-<li><strong>Molecular database 3:</strong> Metabolic pathways databases <span class="citation">(e.g., <a href="#ref-KEGG2022" role="doc-biblioref">Kanehisa et al., 2022</a>)</span>.</li>
+<li><strong>Molecular database 1:</strong> Protein sequences databases <span class="citation">(e.g., <a href="#ref-UniProt2014">Consortium, 2014</a>)</span>.</li>
+<li><strong>Molecular database 2:</strong> Gene ontology databases <span class="citation">(e.g., <a href="#ref-GO2020">Consortium, 2020</a>)</span>.</li>
+<li><strong>Molecular database 3:</strong> Metabolic pathways databases <span class="citation">(e.g., <a href="#ref-KEGG2022">Kanehisa et al., 2022</a>)</span>.</li>
 </ul>
 <p>More details on this assignment is available <a href="https://svenbuerki.github.io/Genomics-Bioinformatics/Mini_reports.html#mini2">here</a>.</p>
 </div>
@@ -608,7 +728,7 @@ $(document).ready(function() {
 <div id="aim-and-objectives" class="section level2" number="6.2">
 <h2><span class="header-section-number">6.2</span> Aim and objectives</h2>
 <p>In this chapter, we <strong>aim at training students in producing a draft nuclear genome for a non-model organism using Illumina data</strong>.</p>
-<p>The whole-genome shotgun (WGS) sequencing dataset published by <span class="citation">Zhang et al. (<a href="#ref-Zhang2017" role="doc-biblioref">2017</a>)</span> on the orchid species <em>Apostasia shenzhenica</em> is used as case-study. This dataset provides an opportunity to gain firsthand experience in analyzing NGS data. <span class="citation">Zhang et al. (<a href="#ref-Zhang2017" role="doc-biblioref">2017</a>)</span> have also produced RNA-Seq data, which were used in their study to support genome annotation. <span class="citation">Zhang et al. (<a href="#ref-Zhang2017" role="doc-biblioref">2017</a>)</span> is available in our shared <a href="https://drive.google.com/file/d/1S1FWnEmxBC3_Ghl40S5GhcTVecQ2X4qd/view?usp=sharing">Google Drive</a>.</p>
+<p>The whole-genome shotgun (WGS) sequencing dataset published by <span class="citation">Zhang et al. (<a href="#ref-Zhang2017">2017</a>)</span> on the orchid species <em>Apostasia shenzhenica</em> is used as case-study. This dataset provides an opportunity to gain firsthand experience in analyzing NGS data. <span class="citation">Zhang et al. (<a href="#ref-Zhang2017">2017</a>)</span> have also produced RNA-Seq data, which were used in their study to support genome annotation. <span class="citation">Zhang et al. (<a href="#ref-Zhang2017">2017</a>)</span> is available in our shared <a href="https://drive.google.com/file/d/1S1FWnEmxBC3_Ghl40S5GhcTVecQ2X4qd/view?usp=sharing">Google Drive</a>.</p>
 <p>The chapter is subdivided into three parts:</p>
 <ul>
 <li><a href="#PART1"><strong>PART 1:</strong></a> Preparing/cleaning Illumina reads for <em>de novo</em> nuclear genome assembly and inferring genome size and complexity.</li>
@@ -629,7 +749,7 @@ $(document).ready(function() {
 <h2><span class="header-section-number">6.4</span> Presenting the NGS data</h2>
 <p>Details on the WGS PE Illumina library studied here are provided in Figure <a href="#fig:SRA">6.1</a>. The SRA accession number is <a href="https://trace.ncbi.nlm.nih.gov/Traces/sra/?run=SRR5759389">SRR5759389</a> and the most important information to know about this data are that the fragments insert-size of the library is 180 bp and that the length of each PE read is 90 bp. Note that the authors have performed a round of PCR amplification during their library preparation. This step is know to potentially introduce errors in reads, which could be identified by performing k-mer analyses.</p>
 <p>The number of bases shown in Figure <a href="#fig:SRA">6.1</a> was inferred as follows: <span class="math inline">\(\text{N bases} = \text{N. spots * reads length (bp)}\)</span>. In this example, <span class="math inline">\(\text{N bases} = 84.1e6 * 180 (90 + 90) = 15.1e9bp = 15.1Gbp\)</span>.</p>
-<p>You can also obtain a rough estimate of haploid genome coverage (x) by using the following equation: <span class="math inline">\(\text{Raw haploid genome coverage (x)} = \text{N bases / Genome size (haploid)}\)</span>. In this example, <span class="math inline">\(\text{Raw haploid genome coverage (x)} = 15.1e9 / 471.0e6 = 32x\)</span>. The estimation of haploid genome size was taken from <span class="citation">Zhang et al. (<a href="#ref-Zhang2017" role="doc-biblioref">2017</a>)</span>.</p>
+<p>You can also obtain a rough estimate of haploid genome coverage (x) by using the following equation: <span class="math inline">\(\text{Raw haploid genome coverage (x)} = \text{N bases / Genome size (haploid)}\)</span>. In this example, <span class="math inline">\(\text{Raw haploid genome coverage (x)} = 15.1e9 / 471.0e6 = 32x\)</span>. The estimation of haploid genome size was taken from <span class="citation">Zhang et al. (<a href="#ref-Zhang2017">2017</a>)</span>.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:SRA"></span>
 <img src="Images/SRR5759389_details.png" alt="Details on the WGS library (SRA accession number: SRR5759389) used in this tutorial. " width="100%" />
 <p class="caption">
@@ -675,7 +795,7 @@ Figure 6.2: Workflow applied to assemble and annotate a genome for non-model org
 <p>The five main steps associated to the objectives of PART 1 are as follows (see Figure <a href="#fig:part1workflow">6.3</a>):</p>
 <ul>
 <li><strong>Step 1:</strong> Download SRA file containing raw WGS data and simultaneously convert it into an interleaved PE <code>fasqt</code> format file. This latter format (where both reads are paired and combined into one file) is the input for most bioinformatic programs.</li>
-<li><strong>Step 2:</strong> Infer reads Quality Checks (QCs) using standard statistics implemented in <code>FastQC</code> <span class="citation">(<a href="#ref-FastQC" role="doc-biblioref">Andrews, 2012</a>)</span>.</li>
+<li><strong>Step 2:</strong> Infer reads Quality Checks (QCs) using standard statistics implemented in <code>FastQC</code> <span class="citation">(<a href="#ref-FastQC">Andrews, 2012</a>)</span>.</li>
 <li><strong>Step 3:</strong> Perform reads cleaning based on Phread scores and k-mer frequencies.</li>
 <li><strong>Step 4:</strong> What’s “in” the reads? This will be done in two phases as follows:
 <ul>
@@ -727,21 +847,21 @@ cd ~/Documents/02_Kmers_analyses/</code></pre>
 <p>Although all the bioinformatic tools (software) necessary to complete this tutorial are already installed on your Linux computers, URLs to their repositories (incl. documentations) are provided below together with details on their publications (when available). Software are sorted by steps in our analytical workflow (see Figure <a href="#fig:part1workflow">6.3</a>):</p>
 <ul>
 <li><strong>Step 1:</strong> <code>fastq-dump</code>: <a href="https://www.ncbi.nlm.nih.gov/sra/docs/toolkitsoft/" class="uri">https://www.ncbi.nlm.nih.gov/sra/docs/toolkitsoft/</a>.</li>
-<li><strong>Step 2:</strong> <code>FastQC</code> <span class="citation">(<a href="#ref-FastQC" role="doc-biblioref">Andrews, 2012</a>)</span>: <a href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/" class="uri">https://www.bioinformatics.babraham.ac.uk/projects/fastqc/</a>.</li>
+<li><strong>Step 2:</strong> <code>FastQC</code> <span class="citation">(<a href="#ref-FastQC">Andrews, 2012</a>)</span>: <a href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/" class="uri">https://www.bioinformatics.babraham.ac.uk/projects/fastqc/</a>.</li>
 <li><strong>Step 3:</strong>
 <ul>
 <li><code>seqtk</code>: <a href="https://github.com/lh3/seqtk" class="uri">https://github.com/lh3/seqtk</a>.</li>
-<li><code>khmer</code> <span class="citation">(<a href="#ref-khmer2015" role="doc-biblioref">Crusoe et al., 2015</a>)</span>: <a href="https://github.com/dib-lab/khmer" class="uri">https://github.com/dib-lab/khmer</a>.</li>
+<li><code>khmer</code> <span class="citation">(<a href="#ref-khmer2015">Crusoe et al., 2015</a>)</span>: <a href="https://github.com/dib-lab/khmer" class="uri">https://github.com/dib-lab/khmer</a>.</li>
 </ul></li>
 <li><strong>Step 4:</strong>
 <ul>
-<li><code>bwa</code> <span class="citation">(<a href="#ref-bwa2009" role="doc-biblioref">Li and Durbin, 2009</a>)</span>: <a href="http://bio-bwa.sourceforge.net" class="uri">http://bio-bwa.sourceforge.net</a>.</li>
-<li><code>samtools</code><span class="citation">(<a href="#ref-samtools2009" role="doc-biblioref">Li, Handsaker, et al., 2009</a>)</span>: <a href="http://samtools.sourceforge.net" class="uri">http://samtools.sourceforge.net</a>.</li>
+<li><code>bwa</code> <span class="citation">(<a href="#ref-bwa2009">Li and Durbin, 2009</a>)</span>: <a href="http://bio-bwa.sourceforge.net" class="uri">http://bio-bwa.sourceforge.net</a>.</li>
+<li><code>samtools</code><span class="citation">(<a href="#ref-samtools2009">Li, Handsaker, et al., 2009</a>)</span>: <a href="http://samtools.sourceforge.net" class="uri">http://samtools.sourceforge.net</a>.</li>
 </ul></li>
 <li><strong>Step 5:</strong>
 <ul>
-<li><code>jellyfish</code> <span class="citation">(<a href="#ref-Jellyfish2011" role="doc-biblioref">Marçais and Kingsford, 2011</a>)</span>: <a href="http://www.genome.umd.edu/jellyfish.html" class="uri">http://www.genome.umd.edu/jellyfish.html</a>.</li>
-<li><code>GenomeScope</code> <span class="citation">(<a href="#ref-genomescope" role="doc-biblioref">Vurture et al., 2017</a>)</span>: <a href="http://qb.cshl.edu/genomescope/" class="uri">http://qb.cshl.edu/genomescope/</a>.</li>
+<li><code>jellyfish</code> <span class="citation">(<a href="#ref-Jellyfish2011">Marçais and Kingsford, 2011</a>)</span>: <a href="http://www.genome.umd.edu/jellyfish.html" class="uri">http://www.genome.umd.edu/jellyfish.html</a>.</li>
+<li><code>GenomeScope</code> <span class="citation">(<a href="#ref-genomescope">Vurture et al., 2017</a>)</span>: <a href="http://qb.cshl.edu/genomescope/" class="uri">http://qb.cshl.edu/genomescope/</a>.</li>
 </ul></li>
 </ul>
 <p>If you are remotely connecting to the Linux computers please <strong>install <a href="https://filezilla-project.org/">FileZilla</a> to support file transfer</strong>. Please see section <a href="#sftp">6.8.6.2</a> for more details on how to set up remote connection for transferring files. Finally, the <code>R</code> software is also used in steps 4 and 5. You can find more details on this software in the <a href="index.html">Syllabus</a> and <a href="Mini_reports.html">Mini-Report</a> webpages.</p>
@@ -896,7 +1016,7 @@ Figure 6.4: Snapshot of FileZilla program used to transfer files between compute
 </ul></li>
 <li>A final round of cleaning by removing low quality bases, short sequences, and non-paired reads.</li>
 </ul>
-<p>Finally, we will format the clean data for <em>de novo</em> genome assembly, which will be conducted using <code>SOAPdenovo2</code> <span class="citation">(<a href="#ref-Luo2012" role="doc-biblioref">Luo et al., 2012</a>)</span>.</p>
+<p>Finally, we will format the clean data for <em>de novo</em> genome assembly, which will be conducted using <code>SOAPdenovo2</code> <span class="citation">(<a href="#ref-Luo2012">Luo et al., 2012</a>)</span>.</p>
 </div>
 <div id="theoritical-background" class="section level4" number="6.8.7.2">
 <h4><span class="header-section-number">6.8.7.2</span> Theoritical background</h4>
@@ -907,7 +1027,7 @@ Figure 6.4: Snapshot of FileZilla program used to transfer files between compute
 <p>All eight 2-mers of the sequence “AATTGGCCG” are:
 AA, AT, TT, TG, GG, GC, CC, CG</p>
 </blockquote>
-<p>In most studies, the authors provide an estimate of sequencing coverage prior to assembly <span class="citation">(e.g. 73 fold in the case of the giant panda genome, <a href="#ref-Li2009" role="doc-biblioref">Li, Fan, et al., 2009</a>)</span>, but the real coverage distribution will be influenced by factors including DNA quality, library preparation and local GC content. On average, you might expect most of the genome (especially the single/low copy genes) to be covered between 20 and 70x. One way of rapidly examining the coverage distribution before assembling a reference genome is to chop your cleaned sequence reads into short “k-mers” of 21 nucleotides, and count how often you get each possible k-mer. By doing so, you will find out that:</p>
+<p>In most studies, the authors provide an estimate of sequencing coverage prior to assembly <span class="citation">(e.g. 73 fold in the case of the giant panda genome, <a href="#ref-Li2009">Li, Fan, et al., 2009</a>)</span>, but the real coverage distribution will be influenced by factors including DNA quality, library preparation and local GC content. On average, you might expect most of the genome (especially the single/low copy genes) to be covered between 20 and 70x. One way of rapidly examining the coverage distribution before assembling a reference genome is to chop your cleaned sequence reads into short “k-mers” of 21 nucleotides, and count how often you get each possible k-mer. By doing so, you will find out that:</p>
 <ul>
 <li>Many sequences are extremely rare (e.g., once). These are likely to be PCR errors that appeared during library preparation or sequencing, or could be rare somatic mutations). Such sequences can confuse assembly software; eliminating them can decrease subsequent memory and CPU requirements.</li>
 <li>Other sequences may exist at 10,000x coverage. These could be pathogens or repetitive elements. Often, there is no benefit to retaining all copies of such sequences because the assembly software will be confused by them; while retaining a small proportion such reads could significantly reduce CPU, memory and space requirements.</li>
@@ -967,7 +1087,7 @@ seqtk trimfq /home/Genomics_shared/Chapter_04/01_SRA/SRR5759389_pe12.fastq &gt; 
 </div>
 <div id="normalize-high-coverage-reads-and-filter-low-abundance-reads-based-on-k-mer-frequencies" class="section level5" number="6.8.7.3.2">
 <h5><span class="header-section-number">6.8.7.3.2</span> Normalize high coverage reads and filter low abundance reads based on k-mer frequencies</h5>
-<p>In the next commands, <code>khmer</code> <span class="citation">(<a href="#ref-khmer2015" role="doc-biblioref">Crusoe et al., 2015</a>)</span> will be used to:</p>
+<p>In the next commands, <code>khmer</code> <span class="citation">(<a href="#ref-khmer2015">Crusoe et al., 2015</a>)</span> will be used to:</p>
 <ol style="list-style-type: decimal">
 <li>Normalize high coverage reads (&gt;100x) based on median coverage (to optimize RAM requirements for <em>de novo</em> genome assembly).</li>
 <li>Filter low abundance reads (most likely PCR errors).</li>
@@ -1013,7 +1133,7 @@ rm SRR5759389_pe12.max100.trimmed.norare.fastq</code></pre>
 </div>
 <div id="prepreads" class="section level5" number="6.8.7.3.5">
 <h5><span class="header-section-number">6.8.7.3.5</span> Prepare data for <em>de novo</em> genome assembly</h5>
-<p>In this last section, our cleaned reads are prepared for the <em>de novo</em> genome assembly analysis conducted in <code>SOAPdenovo2</code> <span class="citation">(<a href="#ref-Luo2012" role="doc-biblioref">Luo et al., 2012</a>)</span> (done in <a href="#PART2">PART 2</a>). This is achieved by using <code>khmer</code> to de-interleave reads and rename files using <code>mv</code> as follows:</p>
+<p>In this last section, our cleaned reads are prepared for the <em>de novo</em> genome assembly analysis conducted in <code>SOAPdenovo2</code> <span class="citation">(<a href="#ref-Luo2012">Luo et al., 2012</a>)</span> (done in <a href="#PART2">PART 2</a>). This is achieved by using <code>khmer</code> to de-interleave reads and rename files using <code>mv</code> as follows:</p>
 <ol style="list-style-type: decimal">
 <li>De-interleave filtered reads (to be ready for <em>de novo</em> assembly in SOAPdenovo2)</li>
 </ol>
@@ -1150,10 +1270,10 @@ Figure 6.6: Histogram of GC values inferred from the cleaned library of reads (S
 </div>
 <div id="mapping-reads-against-reference-genomes" class="section level4" number="6.8.8.5">
 <h4><span class="header-section-number">6.8.8.5</span> Mapping reads against reference genomes</h4>
-<p>Here we aim at assessing the proportions of reads in the clean library belonging to either nuclear or chloroplast genomes by mapping our clean reads against two reference genomes using <code>bwa</code> <span class="citation">(<a href="#ref-bwa2009" role="doc-biblioref">Li and Durbin, 2009</a>)</span> and <code>samtools</code> <span class="citation">(<a href="#ref-samtools2009" role="doc-biblioref">Li, Handsaker, et al., 2009</a>)</span>. Data are available in <code>Map_reads/</code>.</p>
+<p>Here we aim at assessing the proportions of reads in the clean library belonging to either nuclear or chloroplast genomes by mapping our clean reads against two reference genomes using <code>bwa</code> <span class="citation">(<a href="#ref-bwa2009">Li and Durbin, 2009</a>)</span> and <code>samtools</code> <span class="citation">(<a href="#ref-samtools2009">Li, Handsaker, et al., 2009</a>)</span>. Data are available in <code>Map_reads/</code>.</p>
 <div id="mapnrDNA" class="section level5" number="6.8.8.5.1">
 <h5><span class="header-section-number">6.8.8.5.1</span> Mapping reads against the nuclear genome</h5>
-<p>The nuclear genome of <em>Apostasia shenzhenica</em> published by <span class="citation">Zhang et al. (<a href="#ref-Zhang2017" role="doc-biblioref">2017</a>)</span> is not listed in the NCBI database as “Genome”, but rather as “Assembly” (see BioProject <a href="https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA310678">PRJNA310678</a>). Please see Figure <a href="#fig:NuclearNCBI">6.7</a> for more details on the genome. This file (a compressed FASTA) is already available in your folder, but you could download it as follows:</p>
+<p>The nuclear genome of <em>Apostasia shenzhenica</em> published by <span class="citation">Zhang et al. (<a href="#ref-Zhang2017">2017</a>)</span> is not listed in the NCBI database as “Genome”, but rather as “Assembly” (see BioProject <a href="https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA310678">PRJNA310678</a>). Please see Figure <a href="#fig:NuclearNCBI">6.7</a> for more details on the genome. This file (a compressed FASTA) is already available in your folder, but you could download it as follows:</p>
 <pre class="bash"><code>#Get Fasta files for genomes of reference
 #PEFY01 nuclear genome of Apostasia 
 wget ftp://ftp.ncbi.nlm.nih.gov/sra/wgs_aux/PE/FY/PEFY01/PEFY01.1.fsa_nt.gz</code></pre>
@@ -1190,7 +1310,7 @@ samtools index PEFY01_map_pe.sorted.bam</code></pre>
 </div>
 <div id="mapcpDNA" class="section level5" number="6.8.8.5.3">
 <h5><span class="header-section-number">6.8.8.5.3</span> Mapping reads against the chloroplast genome</h5>
-<p>The chloroplast genome of <em>Apostasia shenzhenica</em> was not published. To assess the proportion of chloroplastic reads in our Illumina cleaned reads, we will use the chloroplast genome of a sister species, <em>A. wallichii</em> <span class="citation">(<a href="#ref-Niu2017" role="doc-biblioref">Niu et al., 2017</a>)</span>, which is available on the NCBI website under the accession number <code>LC199394</code>. This file (in FASTA) is already available in your folder and you do not have to download it.</p>
+<p>The chloroplast genome of <em>Apostasia shenzhenica</em> was not published. To assess the proportion of chloroplastic reads in our Illumina cleaned reads, we will use the chloroplast genome of a sister species, <em>A. wallichii</em> <span class="citation">(<a href="#ref-Niu2017">Niu et al., 2017</a>)</span>, which is available on the NCBI website under the accession number <code>LC199394</code>. This file (in FASTA) is already available in your folder and you do not have to download it.</p>
 </div>
 <div id="bioinformatics-4" class="section level5" number="6.8.8.5.4">
 <h5><span class="header-section-number">6.8.8.5.4</span> Bioinformatics</h5>
@@ -1263,7 +1383,7 @@ samtools view -F 0x904 -c LC199394_map_pe.sorted.bam</code></pre>
 </div>
 <div id="methodology" class="section level4" number="6.8.9.2">
 <h4><span class="header-section-number">6.8.9.2</span> Methodology</h4>
-<p>The <code>JELLYFISH</code> <span class="citation">(<a href="#ref-Jellyfish2011" role="doc-biblioref">Marçais and Kingsford, 2011</a>)</span> program is a tool for fast, memory-efficient counting of k-mers in DNA sequences. <code>JELLYFISH</code> is a command-line program that reads FASTA and multi-FASTA files containing DNA sequences and it outputs k-mer counts in an binary format (which can easily be translated into a human-readable text). Finally, the output of <code>JELLYFISH</code> will be used to estimate the genome size and complexity of the <em>Apostasia shenzhenica</em> nuclear genome by using <code>R</code> and <code>GenomeScope</code> <span class="citation">(<a href="#ref-genomescope" role="doc-biblioref">Vurture et al., 2017</a>)</span>.</p>
+<p>The <code>JELLYFISH</code> <span class="citation">(<a href="#ref-Jellyfish2011">Marçais and Kingsford, 2011</a>)</span> program is a tool for fast, memory-efficient counting of k-mers in DNA sequences. <code>JELLYFISH</code> is a command-line program that reads FASTA and multi-FASTA files containing DNA sequences and it outputs k-mer counts in an binary format (which can easily be translated into a human-readable text). Finally, the output of <code>JELLYFISH</code> will be used to estimate the genome size and complexity of the <em>Apostasia shenzhenica</em> nuclear genome by using <code>R</code> and <code>GenomeScope</code> <span class="citation">(<a href="#ref-genomescope">Vurture et al., 2017</a>)</span>.</p>
 </div>
 <div id="group-work-1" class="section level4" number="6.8.9.3">
 <h4><span class="header-section-number">6.8.9.3</span> Group work</h4>
@@ -1369,14 +1489,14 @@ dev.off()</code></pre>
 <p>How does this genome size estimation compare with the one conducted based on reads that were only trimmed provided in Figure <a href="#fig:kmerstrimmed">6.5</a>?</p>
 </blockquote>
 <blockquote>
-<p>Finally, are the latter two estimations close to the 349 Mb provided in <span class="citation">Zhang et al. (<a href="#ref-Zhang2017" role="doc-biblioref">2017</a>)</span>?</p>
+<p>Finally, are the latter two estimations close to the 349 Mb provided in <span class="citation">Zhang et al. (<a href="#ref-Zhang2017">2017</a>)</span>?</p>
 </blockquote>
 </div>
 <div id="use-genomescope-to-estimate-heterozygosity-unique-genes-repetitive-dna-and-pcr-errors" class="section level4" number="6.8.9.8">
 <h4><span class="header-section-number">6.8.9.8</span> Use GenomeScope to estimate heterozygosity, unique genes, repetitive DNA and PCR errors</h4>
 <div id="aim-1" class="section level5" number="6.8.9.8.1">
 <h5><span class="header-section-number">6.8.9.8.1</span> Aim</h5>
-<p>Finally, the last step of our preliminary analyses prior to <em>de novo</em> genome assembly aims at <strong>estimating heterozygosity, unique genes, repetitive DNA and PCR errors</strong>. These analyses are conducted by using the approach implemented in the online tool <code>GenomeScope</code> <span class="citation">(<a href="#ref-genomescope" role="doc-biblioref">Vurture et al., 2017</a>)</span>. The authors of this program developed an equation to model the shape and size of the k-mer graph by using four negative binomial peaks which shape and size are determined by % heterozygosity, % PCR duplication, and % PCR Error.</p>
+<p>Finally, the last step of our preliminary analyses prior to <em>de novo</em> genome assembly aims at <strong>estimating heterozygosity, unique genes, repetitive DNA and PCR errors</strong>. These analyses are conducted by using the approach implemented in the online tool <code>GenomeScope</code> <span class="citation">(<a href="#ref-genomescope">Vurture et al., 2017</a>)</span>. The authors of this program developed an equation to model the shape and size of the k-mer graph by using four negative binomial peaks which shape and size are determined by % heterozygosity, % PCR duplication, and % PCR Error.</p>
 </div>
 <div id="bioinformatics-6" class="section level5" number="6.8.9.8.2">
 <h5><span class="header-section-number">6.8.9.8.2</span> Bioinformatics</h5>
@@ -1433,7 +1553,7 @@ Figure 6.9: Output of the GenomeScope analysis.
 <h3><span class="header-section-number">6.9.3</span> Analytical workflow</h3>
 <p>To achieve our overarching objective, our next classes will be divided into two steps:</p>
 <ul>
-<li><strong>Step 1:</strong> Set-up and perform a <em>de novo</em> genome assembly based on cleaned paired-end (PE) Illumina reads using <code>SOAPdenovo2</code> <span class="citation">(<a href="#ref-Luo2012" role="doc-biblioref">Luo et al., 2012</a>)</span>.</li>
+<li><strong>Step 1:</strong> Set-up and perform a <em>de novo</em> genome assembly based on cleaned paired-end (PE) Illumina reads using <code>SOAPdenovo2</code> <span class="citation">(<a href="#ref-Luo2012">Luo et al., 2012</a>)</span>.</li>
 <li><strong>Step 2:</strong> Provide theoretical knowledge on <em>de novo</em> genome assembly methods by focusing on de Bruijn graphs.</li>
 </ul>
 </div>
@@ -1441,12 +1561,12 @@ Figure 6.9: Output of the GenomeScope analysis.
 <h3><span class="header-section-number">6.9.4</span> Step 1: Perform <em>de novo</em> genome assembly analysis</h3>
 <div id="specific-objective" class="section level4" number="6.9.4.1">
 <h4><span class="header-section-number">6.9.4.1</span> Specific objective</h4>
-<p>Here, students will be learning the procedure to set-up and perform a <em>de novo</em> genome assembly using cleaned PE Illumina reads as implemented in <code>SOAPdenovo2</code> <span class="citation">(<a href="#ref-Luo2012" role="doc-biblioref">Luo et al., 2012</a>)</span>. The analysis will be conducted on the output files obtained after cleaning reads based on Phred scores and k-mer distributions (see section <a href="#dataPART2">6.9.2</a> for more details on the input files).</p>
-<p><code>SOAPdenovo2</code> is the updated version of the program that was used by <span class="citation">Li, Fan, et al. (<a href="#ref-Li2009" role="doc-biblioref">2009</a>)</span> to assemble the nuclear genome of the giant panda. The draft nuclear genome of <em>Apostasia shenzhenica</em> was not inferred with this latter program, but with <code>ALLPATHS-LG</code> <span class="citation">(<a href="#ref-Gnerre1513" role="doc-biblioref">Gnerre et al., 2011</a>)</span>. The draft assembly was obtained based on multiple Illumina short-reads libraries exhibiting different insert-sizes <span class="citation">(see <a href="#ref-Zhang2017" role="doc-biblioref">Zhang et al., 2017</a>)</span>. The authors have conducted a final round of gap closures to polish their assembly based on PacBio long-reads. It will therefore be interesting to compare our assembly based on one Illumina library with the one obtained by <span class="citation">Zhang et al. (<a href="#ref-Zhang2017" role="doc-biblioref">2017</a>)</span> inferred uisng a combination of short and long read data. Further information justifying using <code>SOAPdenovo2</code> instead of <code>ALLPATHS-LG</code> are provided below.</p>
+<p>Here, students will be learning the procedure to set-up and perform a <em>de novo</em> genome assembly using cleaned PE Illumina reads as implemented in <code>SOAPdenovo2</code> <span class="citation">(<a href="#ref-Luo2012">Luo et al., 2012</a>)</span>. The analysis will be conducted on the output files obtained after cleaning reads based on Phred scores and k-mer distributions (see section <a href="#dataPART2">6.9.2</a> for more details on the input files).</p>
+<p><code>SOAPdenovo2</code> is the updated version of the program that was used by <span class="citation">Li, Fan, et al. (<a href="#ref-Li2009">2009</a>)</span> to assemble the nuclear genome of the giant panda. The draft nuclear genome of <em>Apostasia shenzhenica</em> was not inferred with this latter program, but with <code>ALLPATHS-LG</code> <span class="citation">(<a href="#ref-Gnerre1513">Gnerre et al., 2011</a>)</span>. The draft assembly was obtained based on multiple Illumina short-reads libraries exhibiting different insert-sizes <span class="citation">(see <a href="#ref-Zhang2017">Zhang et al., 2017</a>)</span>. The authors have conducted a final round of gap closures to polish their assembly based on PacBio long-reads. It will therefore be interesting to compare our assembly based on one Illumina library with the one obtained by <span class="citation">Zhang et al. (<a href="#ref-Zhang2017">2017</a>)</span> inferred uisng a combination of short and long read data. Further information justifying using <code>SOAPdenovo2</code> instead of <code>ALLPATHS-LG</code> are provided below.</p>
 </div>
 <div id="background-on-soapdenovo2" class="section level4" number="6.9.4.2">
 <h4><span class="header-section-number">6.9.4.2</span> Background on <code>SOAPdenovo2</code></h4>
-<p><code>SOAPdenovo2</code> <span class="citation">(<a href="#ref-Luo2012" role="doc-biblioref">Luo et al., 2012</a>)</span> is a short-read genome assembler, which was especially developed to handle Illumina reads and to build <code>de novo</code> draft assemblies for human-sized genomes. This program creates new opportunities for building reference sequences and carrying out accurate analyses of unexplored genomes in a cost effective way. As stated above, <code>SOAPdenovo2</code> aims for large eukaryote genomes, but it also works well on bacteria and fungi genomes. It runs on 64-bit Linux system with a minimum of 5GB of physical memory. For big genomes like human (3.2Gbp), about 150GB of memory are required.</p>
+<p><code>SOAPdenovo2</code> <span class="citation">(<a href="#ref-Luo2012">Luo et al., 2012</a>)</span> is a short-read genome assembler, which was especially developed to handle Illumina reads and to build <code>de novo</code> draft assemblies for human-sized genomes. This program creates new opportunities for building reference sequences and carrying out accurate analyses of unexplored genomes in a cost effective way. As stated above, <code>SOAPdenovo2</code> aims for large eukaryote genomes, but it also works well on bacteria and fungi genomes. It runs on 64-bit Linux system with a minimum of 5GB of physical memory. For big genomes like human (3.2Gbp), about 150GB of memory are required.</p>
 <p>In our case, we have estimated the haploid genome size of <em>Apostasia shenzhenica</em> to be around 340Mbp in our previous tutorial. This latter evidence therefore suggests that is adapted to assemble a draft genome for this species of orchid.</p>
 </div>
 <div id="structure-of-soapdenovo2" class="section level4" number="6.9.4.3">
@@ -1460,7 +1580,7 @@ Figure 6.9: Output of the GenomeScope analysis.
 <li>Scaffold construction.</li>
 <li>Gap closure.</li>
 </ol>
-<p>Please read <span class="citation">Luo et al. (<a href="#ref-Luo2012" role="doc-biblioref">2012</a>)</span> for more details on the approach implemented in <code>SOAPdenovo2</code>.</p>
+<p>Please read <span class="citation">Luo et al. (<a href="#ref-Luo2012">2012</a>)</span> for more details on the approach implemented in <code>SOAPdenovo2</code>.</p>
 </div>
 <div id="why-are-we-using-soapdenovo2-to-assemble-this-genome" class="section level4" number="6.9.4.4">
 <h4><span class="header-section-number">6.9.4.4</span> Why are we using SOAPdenovo2 to assemble this genome?</h4>
@@ -1532,7 +1652,7 @@ soapdenovo2-63mer all -s soap_config.txt -K 63 -R -p 5 -o SRR5759389_assembly</c
 <div id="objective-1" class="section level3" number="6.10.1">
 <h3><span class="header-section-number">6.10.1</span> Objective</h3>
 <p>In this part, students are learning how to use <code>QUAST</code> to <strong>assess the quality of the <em>de novo</em> genome assembly</strong> inferred in PART 2 using <code>SOAPdenovo2</code>.</p>
-<p><code>QUAST</code> is used to validate the assembly (based on one PE Illumina library; <code>SRR5759389</code>) by comparing it with the assembly published by <span class="citation">Zhang et al. (<a href="#ref-Zhang2017" role="doc-biblioref">2017</a>)</span> (available under the GenBank accession number: <code>PEFY01</code>). Such approach is especially <strong>useful to assess the level of misassembly</strong> (see Figure <a href="#fig:assemblyworkflow">6.10</a>). Please keep in mind that this assembly has only been inferred from one PE Illumina library.</p>
+<p><code>QUAST</code> is used to validate the assembly (based on one PE Illumina library; <code>SRR5759389</code>) by comparing it with the assembly published by <span class="citation">Zhang et al. (<a href="#ref-Zhang2017">2017</a>)</span> (available under the GenBank accession number: <code>PEFY01</code>). Such approach is especially <strong>useful to assess the level of misassembly</strong> (see Figure <a href="#fig:assemblyworkflow">6.10</a>). Please keep in mind that this assembly has only been inferred from one PE Illumina library.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:assemblyworkflow"></span>
 <img src="Images/Assembly_workflow.png" alt="Overview of the assembly workflow. Here are few key definitions: Contig: A contiguous sequence of bases. Unitig: A type of contig for which there are no competing choices in terms of internal overlaps (they usually stop before a repeat sequence). Scaffold: A sequence of contigs separated by gaps (Ns). See PART 2 for more details." width="80%" />
 <p class="caption">
@@ -1661,8 +1781,8 @@ Average_number_of_contigs_per_scaffold  3.1</code></pre>
 </div>
 <div id="introduction-to-quast" class="section level3" number="6.10.3">
 <h3><span class="header-section-number">6.10.3</span> Introduction to QUAST</h3>
-<p><code>QUAST</code> stands for <strong>QU</strong>ality <strong>AS</strong>sessment <strong>T</strong>ool for genome assemblies <span class="citation">(<a href="#ref-QUAST" role="doc-biblioref">Gurevich et al., 2013</a>)</span>. The manual of this program is available here: <a href="http://quast.sourceforge.net/docs/manual.html" class="uri">http://quast.sourceforge.net/docs/manual.html</a></p>
-<p><code>QUAST</code> uses <code>MUMmer v3.23</code> <span class="citation">(<a href="#ref-Kurtz2004" role="doc-biblioref">Kurtz et al., 2004</a>)</span> to</p>
+<p><code>QUAST</code> stands for <strong>QU</strong>ality <strong>AS</strong>sessment <strong>T</strong>ool for genome assemblies <span class="citation">(<a href="#ref-QUAST">Gurevich et al., 2013</a>)</span>. The manual of this program is available here: <a href="http://quast.sourceforge.net/docs/manual.html" class="uri">http://quast.sourceforge.net/docs/manual.html</a></p>
+<p><code>QUAST</code> uses <code>MUMmer v3.23</code> <span class="citation">(<a href="#ref-Kurtz2004">Kurtz et al., 2004</a>)</span> to</p>
 <ul>
 <li>align assemblies to a reference genome</li>
 <li>provide metrics depending on alignments</li>
@@ -1825,7 +1945,7 @@ Figure 6.12: Screenshot of the icarus.html file showing the alignment of the SOA
 <span class="smallcaps">Benson, D.A.</span>, <span class="smallcaps">I. Karsch-Mizrachi</span>, <span class="smallcaps">D.J. Lipman</span>, <span class="smallcaps">J. Ostell</span>, and <span class="smallcaps">D.L. Wheeler</span>. 2005. GenBank. <em>Nucleic Acids Research</em> 33: D34–D38.
 </div>
 <div id="ref-Bradnam2013" class="csl-entry">
-<span class="smallcaps">Bradnam, K.R.</span>, <span class="smallcaps">J.N. Fass</span>, <span class="smallcaps">A. Alexandrov</span>, <span class="smallcaps">P. Baranay</span>, <span class="smallcaps">M. Bechner</span>, <span class="smallcaps">I. Birol</span>, <span class="smallcaps">S. Boisvert</span>, et al. 2013. Assemblathon 2: Evaluating de novo methods of genome assembly in three vertebrate species. <em>GigaScience</em> 2: 1–31. Available at:<a href=" + http://dx.doi.org/10.1186/2047-217X-2-10"> + http://dx.doi.org/10.1186/2047-217X-2-10</a>.
+<span class="smallcaps">Bradnam, K.R.</span>, <span class="smallcaps">J.N. Fass</span>, <span class="smallcaps">A. Alexandrov</span>, <span class="smallcaps">P. Baranay</span>, <span class="smallcaps">M. Bechner</span>, <span class="smallcaps">I. Birol</span>, <span class="smallcaps">S. Boisvert</span>, et al. 2013. Assemblathon 2: Evaluating de novo methods of genome assembly in three vertebrate species. <em>GigaScience</em> 2: 1–31. Available at:<a href="%20+%20http://dx.doi.org/10.1186/2047-217X-2-10"> + http://dx.doi.org/10.1186/2047-217X-2-10</a>.
 </div>
 <div id="ref-GO2020" class="csl-entry">
 <span class="smallcaps">Consortium, T.G.O.</span> 2020. <span class="nocase">The Gene Ontology resource: enriching a GOld mine</span>. <em>Nucleic Acids Research</em> 49: D325–D334. Available at: <a href="https://doi.org/10.1093/nar/gkaa1113">https://doi.org/10.1093/nar/gkaa1113</a>.
@@ -1849,7 +1969,7 @@ Figure 6.12: Screenshot of the icarus.html file showing the alignment of the SOA
 <span class="smallcaps">Greenberg, D.S.</span>, and <span class="smallcaps">H. Soreq</span>. 2013. Alternative splicing. <em>In</em> S. Maloy, and K. Hughes [eds.], Brenner’s encyclopedia of genetics (second edition), 97–98. Academic Press, San Diego. Available at: <a href="https://www.sciencedirect.com/science/article/pii/B9780123749840000437">https://www.sciencedirect.com/science/article/pii/B9780123749840000437</a>.
 </div>
 <div id="ref-QUAST" class="csl-entry">
-<span class="smallcaps">Gurevich, A.</span>, <span class="smallcaps">V. Saveliev</span>, <span class="smallcaps">N. Vyahhi</span>, and <span class="smallcaps">G. Tesler</span>. 2013. QUAST: Quality assessment tool for genome assemblies. <em>Bioinformatics</em> 29: 1072–1075. Available at:<a href=" + http://dx.doi.org/10.1093/bioinformatics/btt086"> + http://dx.doi.org/10.1093/bioinformatics/btt086</a>.
+<span class="smallcaps">Gurevich, A.</span>, <span class="smallcaps">V. Saveliev</span>, <span class="smallcaps">N. Vyahhi</span>, and <span class="smallcaps">G. Tesler</span>. 2013. QUAST: Quality assessment tool for genome assemblies. <em>Bioinformatics</em> 29: 1072–1075. Available at:<a href="%20+%20http://dx.doi.org/10.1093/bioinformatics/btt086"> + http://dx.doi.org/10.1093/bioinformatics/btt086</a>.
 </div>
 <div id="ref-HEATHER20161" class="csl-entry">
 <span class="smallcaps">Heather, J.M.</span>, and <span class="smallcaps">B. Chain</span>. 2016. The sequence of sequencers: The history of sequencing DNA. <em>Genomics</em> 107: 1–8. Available at: <a href="https://www.sciencedirect.com/science/article/pii/S0888754315300410">https://www.sciencedirect.com/science/article/pii/S0888754315300410</a>.
@@ -1867,10 +1987,10 @@ Figure 6.12: Screenshot of the icarus.html file showing the alignment of the SOA
 <span class="smallcaps">Kurtz, S.</span>, <span class="smallcaps">A. Phillippy</span>, <span class="smallcaps">A.L. Delcher</span>, <span class="smallcaps">M. Smoot</span>, <span class="smallcaps">M. Shumway</span>, <span class="smallcaps">C. Antonescu</span>, and <span class="smallcaps">S.L. Salzberg</span>. 2004. Versatile and open software for comparing large genomes. <em>Genome Biology</em> 5: R12. Available at: <a href="https://doi.org/10.1186/gb-2004-5-2-r12">https://doi.org/10.1186/gb-2004-5-2-r12</a>.
 </div>
 <div id="ref-bwa2009" class="csl-entry">
-<span class="smallcaps">Li, H.</span>, and <span class="smallcaps">R. Durbin</span>. 2009. Fast and accurate short read alignment with burrows–wheeler transform. <em>Bioinformatics</em> 25: 1754–1760. Available at:<a href=" + http://dx.doi.org/10.1093/bioinformatics/btp324"> + http://dx.doi.org/10.1093/bioinformatics/btp324</a>.
+<span class="smallcaps">Li, H.</span>, and <span class="smallcaps">R. Durbin</span>. 2009. Fast and accurate short read alignment with burrows–wheeler transform. <em>Bioinformatics</em> 25: 1754–1760. Available at:<a href="%20+%20http://dx.doi.org/10.1093/bioinformatics/btp324"> + http://dx.doi.org/10.1093/bioinformatics/btp324</a>.
 </div>
 <div id="ref-samtools2009" class="csl-entry">
-<span class="smallcaps">Li, H.</span>, <span class="smallcaps">B. Handsaker</span>, <span class="smallcaps">A. Wysoker</span>, <span class="smallcaps">T. Fennell</span>, <span class="smallcaps">J. Ruan</span>, <span class="smallcaps">N. Homer</span>, <span class="smallcaps">G. Marth</span>, et al. 2009. The sequence alignment/map format and SAMtools. <em>Bioinformatics</em> 25: 2078–2079. Available at:<a href=" + http://dx.doi.org/10.1093/bioinformatics/btp352"> + http://dx.doi.org/10.1093/bioinformatics/btp352</a>.
+<span class="smallcaps">Li, H.</span>, <span class="smallcaps">B. Handsaker</span>, <span class="smallcaps">A. Wysoker</span>, <span class="smallcaps">T. Fennell</span>, <span class="smallcaps">J. Ruan</span>, <span class="smallcaps">N. Homer</span>, <span class="smallcaps">G. Marth</span>, et al. 2009. The sequence alignment/map format and SAMtools. <em>Bioinformatics</em> 25: 2078–2079. Available at:<a href="%20+%20http://dx.doi.org/10.1093/bioinformatics/btp352"> + http://dx.doi.org/10.1093/bioinformatics/btp352</a>.
 </div>
 <div id="ref-Li2009" class="csl-entry">
 <span class="smallcaps">Li, R.</span>, <span class="smallcaps">W. Fan</span>, <span class="smallcaps">G. Tian</span>, <span class="smallcaps">H. Zhu</span>, <span class="smallcaps">L. He</span>, <span class="smallcaps">J. Cai</span>, <span class="smallcaps">Q. Huang</span>, et al. 2009. The sequence and de novo assembly of the giant panda genome. <em>Nature</em> 463: 311 EP–. Available at: <a href="http://dx.doi.org/10.1038/nature08696">http://dx.doi.org/10.1038/nature08696</a>.
@@ -1882,7 +2002,7 @@ Figure 6.12: Screenshot of the icarus.html file showing the alignment of the SOA
 <span class="smallcaps">Luo, R.</span>, <span class="smallcaps">B. Liu</span>, <span class="smallcaps">Y. Xie</span>, <span class="smallcaps">Z. Li</span>, <span class="smallcaps">W. Huang</span>, <span class="smallcaps">J. Yuan</span>, <span class="smallcaps">G. He</span>, et al. 2012. SOAPdenovo2: An empirically improved memory-efficient short-read de novo assembler. <em>GigaScience</em> 1: 18. Available at: <a href="https://doi.org/10.1186/2047-217X-1-18">https://doi.org/10.1186/2047-217X-1-18</a>.
 </div>
 <div id="ref-Jellyfish2011" class="csl-entry">
-<span class="smallcaps">Marçais, G.</span>, and <span class="smallcaps">C. Kingsford</span>. 2011. A fast, lock-free approach for efficient parallel counting of occurrences of k-mers. <em>Bioinformatics</em> 27: 764–770. Available at:<a href=" + http://dx.doi.org/10.1093/bioinformatics/btr011"> + http://dx.doi.org/10.1093/bioinformatics/btr011</a>.
+<span class="smallcaps">Marçais, G.</span>, and <span class="smallcaps">C. Kingsford</span>. 2011. A fast, lock-free approach for efficient parallel counting of occurrences of k-mers. <em>Bioinformatics</em> 27: 764–770. Available at:<a href="%20+%20http://dx.doi.org/10.1093/bioinformatics/btr011"> + http://dx.doi.org/10.1093/bioinformatics/btr011</a>.
 </div>
 <div id="ref-Marx2023" class="csl-entry">
 <span class="smallcaps">Marx, V.</span> 2023. Method of the year: Long-read sequencing. <em>Nature Methods</em> 20: 6–11. Available at: <a href="https://doi.org/10.1038/s41592-022-01730-w">https://doi.org/10.1038/s41592-022-01730-w</a>.
@@ -1903,7 +2023,7 @@ Figure 6.12: Screenshot of the icarus.html file showing the alignment of the SOA
 <span class="smallcaps">Öhman, M.</span>, and <span class="smallcaps">B.L. Bass</span>. 2001. 8 - RNA editing. <em>In</em> D. Söll, S. Nishimura, and P. Moore [eds.], RNA, 125–136. Pergamon, Oxford. Available at: <a href="https://www.sciencedirect.com/science/article/pii/B9780080434087500290">https://www.sciencedirect.com/science/article/pii/B9780080434087500290</a>.
 </div>
 <div id="ref-Pellicer2010" class="csl-entry">
-<span class="smallcaps">Pellicer, J.</span>, <span class="smallcaps">M.F. Fay</span>, and <span class="smallcaps">I.J. Leitch</span>. 2010. The largest eukaryotic genome of them all? <em>Botanical Journal of the Linnean Society</em> 164: 10–15. Available at:<a href=" + http://dx.doi.org/10.1111/j.1095-8339.2010.01072.x"> + http://dx.doi.org/10.1111/j.1095-8339.2010.01072.x</a>.
+<span class="smallcaps">Pellicer, J.</span>, <span class="smallcaps">M.F. Fay</span>, and <span class="smallcaps">I.J. Leitch</span>. 2010. The largest eukaryotic genome of them all? <em>Botanical Journal of the Linnean Society</em> 164: 10–15. Available at:<a href="%20+%20http://dx.doi.org/10.1111/j.1095-8339.2010.01072.x"> + http://dx.doi.org/10.1111/j.1095-8339.2010.01072.x</a>.
 </div>
 <div id="ref-Rice2013" class="csl-entry">
 <span class="smallcaps">Rice, D.W.</span>, <span class="smallcaps">A.J. Alverson</span>, <span class="smallcaps">A.O. Richardson</span>, <span class="smallcaps">G.J. Young</span>, <span class="smallcaps">M.V. Sanchez-Puerta</span>, <span class="smallcaps">J. Munzinger</span>, <span class="smallcaps">K. Barry</span>, et al. 2013. Horizontal transfer of entire genomes via mitochondrial fusion in the angiosperm amborella. <em>Science</em> 342: 1468–1473. Available at: <a href="https://science.sciencemag.org/content/342/6165/1468">https://science.sciencemag.org/content/342/6165/1468</a>.
@@ -1921,7 +2041,7 @@ Figure 6.12: Screenshot of the icarus.html file showing the alignment of the SOA
 <span class="smallcaps">Timmis, J.N.</span>, <span class="smallcaps">M.A. Ayliffe</span>, <span class="smallcaps">C.Y. Huang</span>, and <span class="smallcaps">W. Martin</span>. 2004. Endosymbiotic gene transfer: Organelle genomes forge eukaryotic chromosomes. <em>Nature Reviews Genetics</em> 5: 123 EP–. Available at: <a href="http://dx.doi.org/10.1038/nrg1271">http://dx.doi.org/10.1038/nrg1271</a>.
 </div>
 <div id="ref-genomescope" class="csl-entry">
-<span class="smallcaps">Vurture, G.W.</span>, <span class="smallcaps">F.J. Sedlazeck</span>, <span class="smallcaps">M. Nattestad</span>, <span class="smallcaps">C.J. Underwood</span>, <span class="smallcaps">H. Fang</span>, <span class="smallcaps">J. Gurtowski</span>, and <span class="smallcaps">M.C. Schatz</span>. 2017. GenomeScope: Fast reference-free genome profiling from short reads. <em>Bioinformatics</em> 33: 2202–2204. Available at:<a href=" + http://dx.doi.org/10.1093/bioinformatics/btx153"> + http://dx.doi.org/10.1093/bioinformatics/btx153</a>.
+<span class="smallcaps">Vurture, G.W.</span>, <span class="smallcaps">F.J. Sedlazeck</span>, <span class="smallcaps">M. Nattestad</span>, <span class="smallcaps">C.J. Underwood</span>, <span class="smallcaps">H. Fang</span>, <span class="smallcaps">J. Gurtowski</span>, and <span class="smallcaps">M.C. Schatz</span>. 2017. GenomeScope: Fast reference-free genome profiling from short reads. <em>Bioinformatics</em> 33: 2202–2204. Available at:<a href="%20+%20http://dx.doi.org/10.1093/bioinformatics/btx153"> + http://dx.doi.org/10.1093/bioinformatics/btx153</a>.
 </div>
 <div id="ref-WATSON1953" class="csl-entry">
 <span class="smallcaps">Watson, J.D.</span>, and <span class="smallcaps">F.H.C. Crick</span>. 1953. Molecular structure of nucleic acids: A structure for deoxyribose nucleic acid. <em>Nature</em> 171: 737–738. Available at: <a href="https://doi.org/10.1038/171737a0">https://doi.org/10.1038/171737a0</a>.
