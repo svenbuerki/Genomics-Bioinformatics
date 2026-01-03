@@ -65,6 +65,13 @@ knitr::kable(deadlines,  caption = "Deadlines of graded assignments for Genomics
   kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
 ```
 
+<div class="info">
+  <p><strong>💡 Information</strong></p>
+  <ul>
+    <li>Extra credit assignments will be announced later in the semester. Deadlines will be posted here.</li>
+  </ul>
+</div>
+
 # Schedule
 
 The tentative schedule for this course is provided in Table \@ref(tab:timetab). Please note that the instructor may adjust our schedule to accommodate the course’s progress and students’ needs. Any changes will be communicated to enrolled students in a timely manner.
