@@ -137,6 +137,7 @@ The course is subdivided into nine chapters distributed between lecture and labo
 - **Chapter 4**: Genome assembly.
 - **Chapter 5**: Transcriptome assembly.
 - **Chapter 6**: Structural annotation.
+- **Chapter 7**: Functional annotation.
 - **Chapter 8**: Comparative genomics.
 
 **Laboratory sessions:**
@@ -161,7 +162,7 @@ By the end of this course, students will be able to:
 
 ## Chapter-Specific Learning Outcomes
 
-> **Note:** Material associated with Chapters 5–8 (Transcriptome Assembly, Structural Annotation, Functional Annotation, and Comparative Genomics) will be studied primarily through **Mini-Report 3** and the **Group Lab Assignment**. This approach is designed to help students engage with the material through authentic, evidence-based research, reinforcing learning by applying theoretical concepts to real genomic datasets.
+> **Note:** Material associated with Chapters 5–8 (Transcriptome Assembly, Structural Annotation, Functional Annotation, and Comparative Genomics) will be studied primarily through **Mini-Report 3** and the **Group Lab Assignment** (corresponding to Chapter 9). This approach is designed to help students engage with the material through authentic, evidence-based research, reinforcing learning by applying theoretical concepts to real genomic datasets.
 
 ### Chapter 1: DNA & RNA
 
@@ -243,7 +244,7 @@ By the end of this course, students will be able to:
 ### Chapter 8: Comparative Genomics
 
 - Learn how to read, interpret, and present scientific papers reporting new genomic or transcriptomic data.
-- Develop expertise through structured reading and discussion of scientific publications during [journal club](#journalclub) sessions.
+- Develop expertise through structured reading and discussion of scientific publications [e.g., @Li2009; @Ellestad2022AJB].
 
 ### Chapter 9: Applied Bioinformatics
 
