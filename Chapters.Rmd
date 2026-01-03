@@ -293,6 +293,7 @@ This chapter is mostly based on the following resources:
 
 - @HEATHER20161 - **The sequence of sequencers: The history of sequencing DNA**
 - @Ignatov2019 - **Fragmenting DNA for NGS sequencing**
+- @Li2009 - **Giant Panda genome paper**
 - @Marx2023 - **Long-read sequencing**
 - @Nurk2022 - **The complete sequence of a human genome**
 - @Satam2023 - **Next-Generation Sequencing technology: current trends and advancements**
@@ -332,8 +333,9 @@ embed_pdf("Lectures/Chapter_02_Spring.pdf", "2")
 
 ### Paper
 
-- Li et al., 2010, *Nature* 463: 311–317. DOI: [10.1038/nature08696](https://doi.org/10.1038/nature08696)
-- Available on [Google Drive](https://drive.google.com/drive/folders/1-Fkz0NnlqqeSq5DbSeDGn43xbturaPnu?usp=sharing))
+- @Li2009 - **Giant Panda genome paper** 
+  + *Nature* 463: 311–317. DOI: [10.1038/nature08696](https://doi.org/10.1038/nature08696)
+- Available on [Google Drive](https://drive.google.com/drive/folders/1-Fkz0NnlqqeSq5DbSeDGn43xbturaPnu?usp=sharing)
 
 ---
 
