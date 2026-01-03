@@ -27,40 +27,40 @@ $(document).ready(function() {
 
 ```{r packages, echo=FALSE, warning=FALSE, include=FALSE, cache = FALSE}
 ###~~~
-# Load R packages
+# 1. Define required packages
 ###~~~
-#Create vector w/ R packages
-# --> If you have a new dependency, don't forget to add it in this vector
-pkg <- c("knitr", "rmarkdown", "bookdown", "formattable", "kableExtra", "dplyr", "magrittr", "prettydoc", "htmltools", "knitcitations", "bibtex", "devtools", "kfigr", "data.tree", "DT", "DiagrammeR", "rticles")
+pkg <- c(
+  "knitr", "rmarkdown", "bookdown", "formattable", "kableExtra",
+  "dplyr", "magrittr", "prettydoc", "htmltools", "knitcitations",
+  "bibtex", "devtools", "kfigr", "data.tree", "DT", "DiagrammeR",
+  "rticles", "klippy"
+)
 
-##~~~
-#2. Check if pkg are installed
-##~~~
-print("Check if packages are installed")
-#This line outputs a list of packages that are not installed
-new.pkg <- pkg[!(pkg %in% installed.packages())]
+###~~~
+# 2. Set CRAN mirror (prevents contrib.url error)
+###~~~
+options(repos = c(CRAN = "https://cloud.r-project.org"))
 
-##~~~
-#3. Install missing packages
-##~~~
-# Using an if/else statement to check whether packages have to be installed
-# WARNING: If your target R package is not deposited on CRAN then need to adjust code/function
+###~~~
+# 3. Install missing packages (optional)
+# NOTE: Only run manually once, not every time you knit!
+###~~~
+new.pkg <- pkg[!(pkg %in% installed.packages()[, "Package"])]
 if(length(new.pkg) > 0){
-  print(paste("Install missing package(s):", new.pkg, sep=' '))
+  message("Installing missing package(s): ", paste(new.pkg, collapse = ", "))
   install.packages(new.pkg, dependencies = TRUE)
-}else{
-  print("All packages are already installed!")
+} else {
+  message("All packages are already installed!")
 }
 
-##~~~
-#4. Load all packages
-##~~~
-print("Load packages and return status")
-#Here we use the sapply() function to require all the packages
-# To know more about the function type ?sapply() in R console
+###~~~
+# 4. Load all packages
+###~~~
 sapply(pkg, require, character.only = TRUE)
 
-#Generate BibTex citation file for all R packages used to produce report
+###~~~
+# 5. Generate BibTeX file for all loaded packages
+###~~~
 knitr::write_bib(.packages(), file = 'packages.bib')
 ```
 
