@@ -1,11 +1,11 @@
 ---
 title: "BIOL 497/597 - Genomics & Bioinformatics"
-subtitle: "Syllabus & Timetable"
+subtitle: "Syllabus"
 author: "Sven Buerki - Boise State University"
 date: "`r Sys.Date()`"
 output:
-#  bookdown::pdf_document2:
-#    toc: TRUE
+  bookdown::pdf_document2:
+    toc: TRUE
   bookdown::html_document2: 
     toc: TRUE
     toc_float: TRUE
@@ -44,14 +44,14 @@ library(tufte)
 knitr::write_bib(.packages(), file = 'packages.bib')
 ```
 
-<div style="text-align: right"> [Download pdf version](index.pdf) </div>
+<div style="text-align: right"> [Download pdf version](BIOL497_597_Genomics_Bioinformatics_Syllabus_BUERKI.pdf) </div>
 <div style="text-align: right"> [Raw data on GitHub](https://github.com/svenbuerki/Genomics-Bioinformatics) </div>
 
 # Meeting Time and Place
 
-- Days: Wednesday
-- Times: 9:00 AM to 11:45 AM
-- Location: SCNC146B
+- Day: Wednesday
+- Time: 9:00 AM to 11:45 AM
+- Location: SCNC146B ([Science Building; 2133 Cesar Chavez Ln.](https://maps.boisestate.edu/?id=715#!m/89069?share))
 
 ---
 
@@ -257,7 +257,7 @@ In this chapter, students will use data produced by the instructor’s laborator
 
 # Course Schedule
 
-The tentative schedule for this course is available [here](Timetable.html). The instructor wants to warn students that he might adjust the schedule to accommodate any needs. However, in case of changes, the instructor will make sure to contact enrolled students to keep them posted.
+The tentative schedule for this course is available [here](https://svenbuerki.github.io/Genomics-Bioinformatics/Timetable.html). The instructor wants to warn students that he might adjust the schedule to accommodate any needs. However, in case of changes, the instructor will make sure to contact enrolled students to keep them posted.
 
 ---
 
@@ -283,12 +283,12 @@ The URL to the shared Google Drive folder is provided below. The instructor will
 
 The reading materials for this course consist of a combination of **scientific publications** and **textbook chapters** [@Brown2017; @Lesk2017; @Dale2012; @deSalle2013]. The instructor has copies of these textbooks, and students are welcome to consult them at any time.
 
-A comprehensive list of references used in this course is provided [here](References.html). In addition, there are numerous online resources dedicated to genomic and transcriptomic data. A selection is provided below:
+A comprehensive list of references used in this course is provided [here](https://svenbuerki.github.io/Genomics-Bioinformatics/References.html). In addition, there are numerous online resources dedicated to genomic and transcriptomic data. A selection is provided below:
 
 - [Next-Generation Sequencing Online Course](https://www.ebi.ac.uk/training/online/course/ebi-next-generation-sequencing-practical-course)  
 - [Genomics and Comparative Genomics Resources](https://www.integratedbreeding.net/courses/genomics-and-comparative-genomics/www.generationcp.org/genomics/index390e.html?page=1131)
 
-Finally, the instructor has assembled a [Lexicon](Lexicon.html) containing definitions of key concepts used in this course. If you encounter a term that is **not included in the Lexicon**, please contact the instructor to have it added.
+Finally, the instructor has assembled a [Lexicon](https://svenbuerki.github.io/Genomics-Bioinformatics/Lexicon.html) containing definitions of key concepts used in this course. If you encounter a term that is **not included in the Lexicon**, please contact the instructor to have it added.
 
 ---
 
@@ -385,7 +385,7 @@ You can look at all of your scores by accessing Grades in the Canvas course menu
 
 ## Mini-Reports (TOTAL: 100 points) {#minireport}
 
-To further develop expertise in genomics and bioinformatics, students will produce three [mini-reports](Mini_reports.html) that align with the course’s core learning outcomes:  
+To further develop expertise in genomics and bioinformatics, students will produce three [mini-reports](https://svenbuerki.github.io/Genomics-Bioinformatics/Mini_reports.html) that align with the course’s core learning outcomes:  
 
 - **Mini-Report 1: Sequencing technologies** (**25 points**; related to Chapter 2)  
   - **Genomics:** Demonstrate understanding of genome sequencing principles and technologies.  
@@ -414,7 +414,7 @@ To gain further insights into Aquaporins, sagebrush, and the associated bioinfor
 
 ### Associated Scripts
 
-Students can access `bash` and `R` scripts associated with this lab report [here](Mining_draft_genome.html).
+Students can access `bash` and `R` scripts associated with this lab report [here](https://svenbuerki.github.io/Genomics-Bioinformatics/Mining_draft_genome.html).
 
 ### Details on Reporting
 
@@ -447,7 +447,7 @@ Students will use their group lab reports to prepare **10-minute presentations**
 
 For students interested in earning extra credits, the instructor will provide **two opportunities** to earn a total of **30 extra credits**. Students may allocate these extra credits to any of their assessments by sending an email to the instructor specifying the allocation.  
 
-These two non-mandatory assignments have **strict deadlines** (see [Timetable](#timetable)). **No extensions will be granted**, and any work submitted after the deadline **will not be considered**. Students who do not submit by the deadline will be deemed not interested in earning the extra credits.  
+These two non-mandatory assignments have **strict deadlines** (see [Schedule](https://svenbuerki.github.io/Genomics-Bioinformatics/Timetable.html)). **No extensions will be granted**, and any work submitted after the deadline **will not be considered**. Students who do not submit by the deadline will be deemed not interested in earning the extra credits.  
 
 To support time management, the number of credits assigned to each question will be provided in advance. These opportunities allow students to **improve their overall grade** while gaining additional experience in genome assembly and annotation. As with other assignments, students may work in groups, but **each student must submit their own individual assignment**.
 
