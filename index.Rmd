@@ -4,12 +4,12 @@ subtitle: "Syllabus"
 author: "Sven Buerki - Boise State University"
 date: "`r Sys.Date()`"
 output:
+  bookdown::pdf_document2:
+    toc: TRUE
   bookdown::html_document2: 
     toc: TRUE
     toc_float: TRUE
     self_contained: TRUE
-  bookdown::pdf_document2:
-    toc: TRUE
 link-citations: yes
 fontsize: 12pt
 urlcolor: blue
@@ -49,9 +49,10 @@ knitr::write_bib(.packages(), file = 'packages.bib')
 
 # Meeting Time and Place
 
-- Day: Wednesday
-- Time: 9:00 AM to 11:45 AM
-- Location: SCNC146B ([Science Building; 2133 Cesar Chavez Ln.](https://maps.boisestate.edu/?id=715#!m/89069?share))
+- **Day:** Wednesday
+- **Time:** 9:00 AM to 11:45 AM
+- **Location:** [Raptor Research Center Building, Rm 119](https://maps.boisestate.edu/?id=715#!m/115308?share)
+- **Important Information:** Students must bring their **Bronco Card** to access the building using key card readers located at the east, west, or north entrances. Because the Raptor Research Building is on the edge of campus, it is kept secure and requires card access for entry. **Please carry your Bronco Card to every class session held in this building, as you will not be able to enter without it.**
 
 ---
 
