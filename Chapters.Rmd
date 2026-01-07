@@ -122,11 +122,17 @@ The syllabus can be accessed [here](https://svenbuerki.github.io/Genomics-Bioinf
 
 ## Goal
 
-The ***goal*** of this chapter is to establish the foundational genomics concepts required for the remainder of the course. Students will develop a shared theoretical framework—including key definitions (see [Lexicon](Lexicon.html))—that underpins genome sequencing, assembly, and annotation workflows. Emphasis is placed on the structure, organization, and function of DNA and RNA as they relate directly to the design and interpretation of genomic research projects.
+The ***goal*** of this chapter is to establish the foundational genomics concepts required for the remainder of the course. Students will develop a shared theoretical framework—including key definitions (see [Lexicon](Lexicon.html))—that underpins genome sequencing, assembly, and annotation workflows. Emphasis is placed on the structure, organization, and function of DNA and RNA as they directly inform the design and interpretation of genomic research projects.
 
 ---
 
-## Learning Outcomes
+## Chapter Structure
+
+The [learning outcomes](#chap1lernout) of this chapter will be addressed through a combination of a [lecture](#teachmatchap1), which introduces core genomics concepts and definitions, and an in-class [group activity](#genomediveristy) focused on exploring genome diversity and variation in assembly completeness.
+
+---
+
+## Learning Outcomes {#chap1lernout}
 
 The key learning outcomes of this chapter are:
 
@@ -166,7 +172,7 @@ This chapter is mostly based on the following resources:
 
 ---
 
-## Teaching Material {#teachmatchap1}
+## Lecture {#teachmatchap1}
 
 The presentation associated with this class is available here:
 
@@ -176,17 +182,17 @@ embed_pdf("Lectures/Chapter_01_Spring.pdf", "1")
 
 ---
 
-## 🤝 In-Class Group Activity: Exploring Genome Diversity and Completeness Using NCBI {#genomediveristy}
+## 🤝 Group Activity: Exploring Genome Diversity and Completeness {#genomediveristy}
 
 ### Learning Outcome
 
-Students will **appreciate the diversity of published genomes and the variation in their levels of completeness** by exploring and comparing genome assemblies available in the NCBI database.
+Students **appreciate the diversity of published genomes and the variation in their levels of completeness** by exploring and comparing genome assemblies available in the NCBI database.
 
 ---
 
 ### Activity Overview
 
-In this 30-minute in-class activity, students will work in small groups to explore and compare genome assemblies from different organisms using NCBI resources.
+In this **1 hour and 40 minutes** in-class group activity, students work in small groups to explore, compare, and critically evaluate genome assemblies from different organisms using NCBI resources.
 
 The ***objective*** is to recognize how genome completeness varies across taxa and sequencing strategies, and to reflect on the biological and technical factors that influence genome assembly quality.
 
@@ -196,14 +202,14 @@ The ***objective*** is to recognize how genome completeness varies across taxa a
 
 - [NCBI – National Center for Biotechnology Information](https://www.ncbi.nlm.nih.gov)  
 - [NCBI – Genome Database](https://www.ncbi.nlm.nih.gov/datasets/genome/)  
-- [Lexicon](https://svenbuerki.github.io/Genomics-Bioinformatics/Lexicon.html)
-- [Teaching Material](#teachmatchap1) (from slide 56 onward)
+- [Lexicon](https://svenbuerki.github.io/Genomics-Bioinformatics/Lexicon.html)  
+- [Lecture Material](#teachmatchap1) (from slide 56 onward)
 
 ---
 
-### Activity Structure <span style="color:gray;">(30 minutes)</span>
+### Activity Structure <span style="color:gray;">(1 hour 40 minutes)</span>
 
-#### Context and Setup
+#### Context and Setup (15 minutes)
 
 As discussed in lecture:
 
@@ -211,13 +217,15 @@ As discussed in lecture:
 - Genome assembly quality is influenced by biological features (e.g., genome size, repetitive content, ploidy) as well as technical factors (e.g., sequencing technology, sequencing depth).
 - The goal of this activity is to critically evaluate real genomic data rather than to label genomes as “good” or “bad.”
 
+During this time, key assembly metrics (e.g., assembly level, N50, scaffold vs. contig) are reviewed, and students clarify expectations and terminology before group work begins.
+
 ---
 
-#### Group Exploration (10 minutes)
+#### Group Exploration (35 minutes)
 
-Students will work in groups of **2–4**.
+Students work in groups of **2–4**.
 
-Each group will select **two organisms** representing different biological categories (e.g., model vs. non-model organisms, prokaryotes vs. eukaryotes).
+Each group selects **two organisms** representing different biological categories (e.g., model vs. non-model organisms, prokaryotes vs. eukaryotes).
 
 **Suggested organism pairings include:**
 
@@ -225,7 +233,7 @@ Each group will select **two organisms** representing different biological categ
 - *Arabidopsis thaliana* vs. a non-model plant species  
 - *Escherichia coli* vs. a eukaryotic genome  
 
-For each organism, navigate to the [**NCBI Genome**](https://www.ncbi.nlm.nih.gov/datasets/genome/) page and record the following information:
+For each organism, groups navigate to the [**NCBI Genome**](https://www.ncbi.nlm.nih.gov/datasets/genome/) page and record the following information:
 
 - Assembly level (Complete Genome, Chromosome, Scaffold, or Contig)  
 - Genome size  
@@ -235,6 +243,8 @@ For each organism, navigate to the [**NCBI Genome**](https://www.ncbi.nlm.nih.go
 - Year of release  
 - Annotation status (e.g., RefSeq, GenBank only)  
 
+Groups are encouraged to explore multiple assemblies for the same organism (when available) to observe how assembly quality has changed over time.
+
 <div class="info">
   <p><strong>💡 Information</strong></p>
   <ul>
@@ -242,24 +252,36 @@ For each organism, navigate to the [**NCBI Genome**](https://www.ncbi.nlm.nih.go
   </ul>
 </div>
 
+Throughout this phase, questions, comparisons, and observations naturally emerge within and across groups.
+
 ---
 
-#### Group Discussion (10 minutes)
+#### Group Discussion and Synthesis (30 minutes)
 
-Within each group, discuss the following questions:
+Within each group, students discuss the following questions:
 
-- How do the two genomes differ in terms of completeness?
+- How do the two genomes differ in terms of completeness and assembly quality?
 - What biological factors might explain these differences?
-- What technical or historical factors might explain these differences?
+- What technical, historical, or funding-related factors might explain these differences?
 - Which genome would you trust more for downstream analyses, and why?
+- How might your choice of genome assembly influence the biological conclusions you could draw?
 
-Each group should identify **one key observation** to share with the class.
+Each group identifies **two key observations** they find most informative or surprising and prepares to share them with the class.
 
 ---
 
-#### Whole-Class Debrief (10 minutes)
+#### Whole-Class Debrief (20 minutes)
 
-Each group will briefly share their key observation with the class to promote collective discussion and synthesis of ideas.
+Groups share their key observations with the class.
+
+As a class, students collectively highlight and discuss:
+
+- Common patterns observed across taxa,
+- Differences between model and non-model organisms,
+- The impact of sequencing technology and assembly strategy on genome completeness,
+- Questions or concerns that arise when evaluating genome quality for downstream analyses.
+
+Key points raised by the class are recorded and revisited in later chapters on genome assembly and annotation, reinforcing how early evaluation of genome quality shapes genomic research decisions.
 
 <hr style="border: 1.5px solid #999; margin: 2em 0;">
 
@@ -271,7 +293,13 @@ The ***goal*** of this chapter is to provide students with a conceptual understa
 
 ---
 
-## Learning Outcomes
+## Chapter Structure
+
+The [learning outcomes](#chap2lernout) of this chapter are addressed through a combination of a [lecture](#teachmatchap2), which introduces next-generation sequencing technologies, and a [group activity](#grpactivitychap2) that develops genomics terminology and critical reading skills by analyzing a publication on the giant panda genome. Finally, the lecture will also provide key concepts for [Mini-Report 1](#minrep1).
+
+---
+
+## Learning Outcomes {#chap2lernout}
 
 - Learn the terminology associated with next-generation sequencing (NGS) that underpins genome assembly and annotation (see [Lexicon](https://svenbuerki.github.io/Genomics-Bioinformatics/Lexicon.html)).
 - Understand the general principles of genome sequencing (wet-lab) and genome assembly (bioinformatics workflows).
@@ -319,7 +347,7 @@ The following resources are helpful to complete [Mini-Report 1](#minrep1) and su
 
 ---
 
-## Teaching Material {#teachmatchap1}
+## Lecture {#teachmatchap2}
 
 The presentation associated with this class is available here:
 
@@ -329,76 +357,94 @@ embed_pdf("Lectures/Chapter_02_Spring.pdf", "2")
 
 ---
 
-## 🤝 In-Class Group Activity: Reading the Giant Panda Genome Paper {#grpactivitychap2}
+## 🤝 Group Activity: Reading the Giant Panda Genome Paper {#grpactivitychap2}
 
 ### Paper
 
-- @Li2009 - **Giant Panda genome paper** 
-  + *Nature* 463: 311–317. DOI: [10.1038/nature08696](https://doi.org/10.1038/nature08696)
+- @Li2009 – **Giant Panda genome paper**  
+  + *Nature* 463: 311–317. DOI: [10.1038/nature08696](https://doi.org/10.1038/nature08696)  
 - Available on [Google Drive](https://drive.google.com/drive/folders/1-Fkz0NnlqqeSq5DbSeDGn43xbturaPnu?usp=sharing)
 
 ---
 
 ### Learning Outcome
 
-Students will learn how to read and critically evaluate genomics publications by analyzing a real genome assembly study.
+Students **develop skills in reading and critically evaluating genomics publications** by analyzing a real genome assembly study.
 
 ---
 
 ### Activity Overview
 
-In this 30-minute activity, students will work in groups of **2–4** to explore the giant panda genome paper. The goal is to develop skills in:
+In this **1 hour and 40 minutes** in-class activity, students work in groups of **2–4** to explore the giant panda genome paper. The goal is to:
 
-- Interpreting genome assembly metrics
-- Evaluating technical and biological conclusions
-- Linking genomic data to scientific reasoning
-- Practicing evidence-based discussion
+- Interpret genome assembly metrics  
+- Evaluate technical and biological conclusions  
+- Connect genomic data to scientific reasoning  
+- Practice evidence-based discussion and group synthesis
 
 ---
 
 ### Materials
 
 - Full text of the giant panda genome paper  
-- A presentation used by the instructor to summarize the publication and initiate a group discussion is available [here](Lectures/Journal_Club_Giant_panda.pdf)
-- [NCBI Genome Database](https://www.ncbi.nlm.nih.gov/datasets/genome/) (optional reference)
+- Instructor presentation summarizing the publication and initiating discussion: [Journal Club: Giant Panda](Lectures/Journal_Club_Giant_panda.pdf)  
+- [NCBI Genome Database](https://www.ncbi.nlm.nih.gov/datasets/genome/) (optional reference)  
 - [Lexicon](https://svenbuerki.github.io/Genomics-Bioinformatics/Lexicon.html)
 
 ---
 
-### Activity Structure <span style="color:gray;">(30 minutes)</span>
+### Activity Structure <span style="color:gray;">(1 hour 40 minutes)</span>
 
-#### Group Reading and Annotation (10 minutes)
+#### Context and Setup (15 minutes)
 
-- Each group reads the paper, focusing on methods, results, and figures.  
-- Annotate the text or take notes on terms, methods, or metrics you are unsure about.  
-- Refer to the **Lexicon** for key terms (e.g., N50, scaffolds, assembly completeness).
-
----
-
-#### Guided Group Questions (10 minutes)
-
-Each group answers the following questions collaboratively:
-
-1. **Research Motivation:** What biological or evolutionary questions motivated this genome project? Why is it significant?  
-2. **Sequencing Strategy:** What sequencing technologies were used? What limitations might they have?  
-3. **Assembly Quality:** How do the authors assess assembly completeness and quality? Which metrics are most informative?  
-4. **Biological Insights:** What conclusions do the authors draw (diet, metabolism, evolution)? How strong is the evidence?  
-5. **Reproducibility and Critique:** What information allows others to reproduce the study? How might modern methods improve it?
-
-**Tip:** Assign one question to each group member to discuss in depth, then combine answers.
+- Review key assembly metrics introduced in lecture (e.g., scaffolds, N50, assembly completeness).  
+- Discuss the importance of evaluating both **technical methods** and **biological conclusions** when reading genomics papers.  
+- Clarify expectations for group work, including collaborative note-taking and critical discussion.  
 
 ---
 
-#### Whole-Class Debrief (10 minutes)
+#### Group Reading and Annotation (30 minutes)
 
-- Each group shares **one key insight** or **critical question** with the class.  
-- Instructor facilitates discussion, highlighting different interpretations and teaching points:
-  - How to evaluate assembly completeness
-  - How to link technical methods to biological conclusions
-  - How to critically read genomics publications
+- Groups read the paper, focusing on methods, results, and figures.  
+- Annotate the text or take notes on terms, methods, metrics, or claims that are unclear.  
+- Use the **Lexicon** to clarify unfamiliar genomics terminology (e.g., N50, scaffolds, assembly completeness).  
+- Identify sections where assembly methods influence biological interpretations.
+
+---
+
+#### Guided Group Questions (30 minutes)
+
+Each group collaboratively answers the following questions:
+
+1. **Research Motivation:** What biological or evolutionary questions drive this genome project? Why is it significant?  
+2. **Sequencing Strategy:** Which sequencing technologies are used? What limitations or biases might they introduce?  
+3. **Assembly Quality:** How do the authors evaluate assembly completeness and quality? Which metrics are most informative?  
+4. **Biological Insights:** What conclusions do the authors draw (e.g., diet, metabolism, evolution)? How strong is the evidence?  
+5. **Reproducibility and Critique:** What information allows others to reproduce the study? How could modern methods improve it?
+
+**Tip:** Assign one or two questions to each group member to analyze deeply, then share answers within the group to build consensus.
+
+---
+
+#### Group Synthesis and Preparation for Class Discussion (15 minutes)
+
+- Groups identify **two or three key insights** or **critical questions** they want to share with the class.  
+- Prepare a short summary (bullet points or figure highlights) to support discussion.  
+- Focus on evidence-based reasoning and how assembly metrics relate to biological conclusions.
+
+---
+
+#### Whole-Class Debrief and Discussion (20 minutes)
+
+- Groups present their key insights or critical questions to the class.  
+- Class collectively identifies:  
+  - Patterns in assembly quality and completeness  
+  - Connections between technical methods and biological conclusions  
+  - Strengths and limitations of the study  
+  - Lessons for reading and evaluating genomics publications  
 
 <div class="info">
-<p><strong>💡 Tip:</strong> Use figures and tables as your primary reference. Focus on evidence rather than narrative statements. Treat this as a collaborative, evidence-based research exercise.</p>
+<p><strong>💡 Tip:</strong> Treat figures and tables as primary evidence. Focus on interpreting data rather than relying on narrative text. Discuss observations collaboratively, highlighting multiple perspectives.</p>
 </div>
 
 ---
