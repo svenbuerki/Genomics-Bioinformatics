@@ -41,7 +41,20 @@ library(tufte)
 knitr::write_bib(.packages(), file = 'packages.bib')
 ```
 
-# Assignment Deadlines
+
+# Course Information Hub
+
+Welcome to the central hub for course organization in **BIOL 497/597 – Genomics & Bioinformatics**. This webpage consolidates all essential information related to **assignment deadlines**, the **weekly schedule**, and the **typical structure of class meetings**.  
+
+Here you will find:  
+
+- [**Assignment Deadlines:**](#ass) Dates and point allocations for graded work, along with submission instructions.
+- [**Tentative Weekly Schedule:**](#schedule) Topics, activities, and milestones for each class session.  
+- [**Class Structure:**](#classstr) Overview of how lectures, laboratory exercises, and group activities are integrated throughout the semester.  
+
+This page serves as a single reference point to help you plan your semester, stay on top of coursework, and engage fully with both theoretical and applied aspects of genomics and bioinformatics.
+
+# Assignment Deadlines {#ass}
 
 To facilitate communication, **deadlines** and **point allocations** for all course assignments are provided in Table \@ref(tab:deadlines).  
 
@@ -72,7 +85,7 @@ knitr::kable(deadlines,  caption = "Deadlines of graded assignments for Genomics
   </ul>
 </div>
 
-# Schedule
+# Schedule {#schedule}
 
 The tentative schedule for this course is provided in Table \@ref(tab:timetab). Please note that the instructor may adjust our schedule to accommodate the course’s progress and students’ needs. Any changes will be communicated to enrolled students in a timely manner.
 
@@ -133,4 +146,34 @@ knitr::kable(timetable,  caption = "Tentative schedule for Genomics and Bioinfor
 #)
 ```
 
+# Class Structure {#classstr}
+
+The weekly class structure is summarized in Table \@ref(tab:classstr).
+
+A typical class meeting is structured as follows:
+
+- An initial **lecture component** (ca. 50 minutes) introducing key concepts and methods  
+- A brief **break and transition period**  
+- A **laboratory session** (ca. 1 hour 40 minutes), which may include group activities, guided exercises, or computer-based data analysis 
+
+During the **first several weeks of the semester**, class time will emphasize lectures and structured group activities to build foundational knowledge and skills. As the semester progresses, the course will gradually transition to **primarily computer-based laboratory work**, with increased emphasis on independent and applied problem-solving.
+
+```{r classstr, echo=FALSE, warning = F, message = F}
+###~~~
+# Read in csv with weekly class structure, prevent R from changing names
+class <- read.csv("Data/Class_structure.csv", check.names = FALSE) 
+class <- as.data.frame(class)
+
+###~~~
+# Update column names for columns 2 to 4 to display times nicely
+colnames(class)[2:4] <- c("9:00–9:50 a.m.", "9:50–10:05 a.m.", "10:05–11:45 a.m.")
+
+###~~~
+# Plot timetable in document
+knitr::kable(class, 
+             caption = "Weekly class structure for Genomics and Bioinformatics, Spring 2026 semester.", 
+             format = "html", 
+             row.names = FALSE) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
+```
 
