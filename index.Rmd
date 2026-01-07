@@ -84,11 +84,19 @@ Welcome to the course! I am looking forward to getting to know you this semester
 
 # Course Format
 
-This is a **face-to-face course** that meets **once a week**. Our class sessions include important information and opportunities to apply what you are learning with your peers.  
+This is a **face-to-face course** that meets **once per week**. Each class session combines lecture, collaborative activities, and hands-on laboratory work designed to help you apply course concepts in real time with your peers.
 
-To achieve the learning outcomes for the course, it is important that you **attend class** and actively engage with the content, with me, and with each other.  
+A typical class meeting is structured as follows:
 
-You should expect to spend approximately **9 hours per week** on work for this course, including both **in-class** and **out-of-class** time.
+- An initial **lecture component** (ca. 50 minutes) introducing key concepts and methods  
+- A brief **break and transition period**  
+- A **laboratory session** (ca. 1 hour 40 minutes), which may include group activities, guided exercises, or computer-based data analysis 
+
+During the **first several weeks of the semester**, class time will emphasize lectures and structured group activities to build foundational knowledge and skills. As the semester progresses, the course will gradually transition to **primarily computer-based laboratory work**, with increased emphasis on independent and applied problem-solving.
+
+To achieve the learning outcomes of the course, it is essential that you **attend class regularly** and actively engage with the material, your classmates, and the instructor.
+
+You should expect to spend approximately **9 hours per week** on this course, including both **in-class** instruction and **out-of-class** work such as readings, assignments, and project development.
 
 ---
 
