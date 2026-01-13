@@ -66,7 +66,7 @@ All assignments must be submitted via [Google Drive](https://drive.google.com/dr
 ###~~~
 # Load data
 ###~~~
-deadlines <- data.frame(read.csv("Data/deadlines.csv"))
+deadlines <- data.frame(read.csv("Data/deadlines_2026.csv"))
 
 # Convert to Date class and then format as "YYYY-MM-DD"
 deadlines$Date <- format(as.Date(deadlines$Date, format = "%m/%d/%y"), "%Y-%m-%d")
