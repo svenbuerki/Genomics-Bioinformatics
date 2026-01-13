@@ -218,78 +218,115 @@ Students will be assessed on their ability to research, synthesize, and communic
 
 <hr style="border: 1.5px solid #999; margin: 2em 0;">
 
-# Mini-Report 2 -- Molecular Biology Databases {#mini2}
+# Mini-Report 2 — Molecular Biology Databases {#mini2}
 
-To have a full overview of available molecular biology databases and assess their contributions to genome annotation, students are tasked to produce individual mini-reports on the following molecular databases:
+To develop a comprehensive understanding of molecular biology databases and their role in genome annotation, students will produce **individual mini-reports** on one of the following major database categories:
 
-- **Molecular database 1:** [Protein sequences databases](#prot) [e.g., @UniProt2014].
-- **Molecular database 2:** [Gene ontology databases](#GO) [e.g., @GO2020].
-- **Molecular database 3:** [Metabolic pathways databases](#KEGG) [e.g., @KEGG2022].
+- **Molecular database 1:** [Protein sequence databases](#prot) [e.g., @UniProt2014]  
+- **Molecular database 2:** [Gene Ontology databases](#GO) [e.g., @GO2020] 
+- **Molecular database 3:** [Metabolic pathway databases](#KEGG) [e.g., @KEGG2022]  
+
+---
 
 ## Background Information
 
-Each student was assigned a molecular database to work on (please see [Google spreadsheet](https://docs.google.com/spreadsheets/d/1cRM1yasUfDa98ecyz_-RxUOw8cU4wkQx4O5Wxw3y4yU/edit?usp=sharing) for more information). 
+Each student is assigned one molecular database category (see the [Google spreadsheet](https://docs.google.com/spreadsheets/d/1cRM1yasUfDa98ecyz_-RxUOw8cU4wkQx4O5Wxw3y4yU/edit?usp=sharing)).
 
-This individual assignment is mandatory and will be graded. Please see this task as an opportunity to consolidate your knowledge on molecular databases and writing scientific reports.   
+This **individual assignment is mandatory and graded**. Treat this task as an opportunity to deepen your understanding of how biological databases support genome annotation while strengthening your scientific writing skills.
 
-Time will be allocated in class on the 2nd of February 2024 to allow students to work on their assignments. Reports are due on **the 21st of February 2024** and should be uploaded on the shared [Google Drive](https://drive.google.com/drive/folders/1BFZFJeR8tW8N7QLfngqIVbjqEkDuIyWj?usp=sharing) in the `Mini_Report_2` folder.
+Time is allocated in class on week 4, to work on this assignment. Reports are due on **February 18, 2026**, and must be uploaded to the shared [Google Drive](https://drive.google.com/drive/folders/1BFZFJeR8tW8N7QLfngqIVbjqEkDuIyWj?usp=sharing) in the `Mini_Report_2` folder.
 
-## Structure of mini-reports {#structure2}
+---
 
-Please structure your reports to cover the following aspects:
+## Structure of Mini-Reports {#structure2}
 
-- Provide a brief summary of the purpose/mission of your assigned molecular database to introduce its overarching goals and objectives.
-- Provide an overview of the available databases falling under your major type of molecular biology data.
-- Highlight potential contributions (and limitations) of these databases to support genome annotation.
-- Provide an overview or survey of available bioinformatic tools and resources to query/access these databases and conduct analyses. 
-- Complement reports with information relevant/specific to your data repositories. 
+Your report should clearly address the following components:
 
-## Reporting format
+- A brief overview of the **purpose and mission** of your assigned molecular database category  
+- An overview of the **major databases** within this category  
+- An explanation of how these databases **contribute to genome annotation**, including strengths and limitations  
+- A survey of **bioinformatics tools and interfaces** used to query, access, and analyze these databases  
+- Additional information specific to your data repositories that supports understanding and use  
 
-Follow the same reporting format than with Mini-Report 1.
+---
 
-## Format to name document
+## Reporting Format
 
-**Name your report document following this pattern**: `Molecular database_Surname`.
+Follow the **same formatting guidelines** used for **Mini-Report 1**.
+
+> **Notes:**  
+> - Maximum length: 2 pages (excluding title page and references)  
+> - Font: Arial 11 pt or Times New Roman 12 pt, single-spaced, 1-inch margins  
+> - Figures and tables are encouraged  
+> - Submit via Google Drive in the `Mini_Report_2` folder  
+> - Failure to follow formatting rules results in penalty points  
+
+---
+
+## Format to Name Document
+
+**Name your file using the following format:**  
+`Molecular_database_Surname`
+
+---
 
 ## Resources
 
-The instructor provided below short descriptions of each of the major types of molecular biology databases. Students are encouraged to use the information provided below to prime their research and start populating their reports. Please do not forget to provide citations and references in your reports following information provided in Mini-Report 1.
+The instructor provides the following summaries to help you begin. Use these, along with external literature and web resources, to build your report. All claims must be supported with **proper citations**, following the guidelines used in Mini-Report 1.
 
-### Proteins sequences databases {#prot}
+---
 
-There are three major protein sequences databases:
+### Protein Sequence Databases {#prot}
 
-- **PIR** (Protein Information Resource in Washington, USA): [http://pir.georgetown.edu](http://pir.georgetown.edu)
-- **SWISS-PROT** (in Geneva, Switzerland): [http://www.uniprot.org/statistics/Swiss-Prot](http://www.uniprot.org/statistics/Swiss-Prot)
-- **TrEMBL** (in Hinxton, UK): [http://www.uniprot.org/statistics/TrEMBL](http://www.uniprot.org/statistics/TrEMBL)  
+Three major protein sequence databases exist:
 
-In 2002, these three databases coordinated their efforts to form the **UniProt** consortium [@UniProt2014]. The partners in this enterprise share the database, but continue to offer separate information-retrieval tools for access. The UniProtKB database is available at this URL: [http://www.uniprot.org](http://www.uniprot.org). This latter database will be especially important to retrieve information on gene annotations (Chapters 6, 7) using the online tool available at this URL: [http://www.uniprot.org/uploadlists/](http://www.uniprot.org/uploadlists/). This will be done by specifically looking at Gene ontology (see [GeneOntology](#GO)).
+- **PIR** (Protein Information Resource, USA): <http://pir.georgetown.edu>  
+- **SWISS-PROT** (Switzerland): <http://www.uniprot.org/statistics/Swiss-Prot>  
+- **TrEMBL** (United Kingdom): <http://www.uniprot.org/statistics/TrEMBL>  
 
-### Gene ontology databases {#GO}
+In 2002, these databases formed the **UniProt Consortium** [@UniProt2014]. UniProtKB is available at <http://www.uniprot.org> and plays a central role in gene annotation. UniProt integrates Gene Ontology annotations (see below) and provides tools such as <http://www.uniprot.org/uploadlists/>.
 
-Gene Ontology [GO, @GO2020] ([http://www.geneontology.org](http://www.geneontology.org)): the framework for the model of biology. The GO defines concepts/classes used to describe gene function, and relationships between these concepts. It classifies functions along three aspects:
+---
 
-- **Cellular component:** This term describes a component of a cell that is part of a larger object, such as an anatomical structure (e.g. rough endoplasmic reticulum or nucleus) or a gene product group (e.g. ribosome, proteasome or a protein dimer).
-- **Biological process:** A biological process term describes a series of events accomplished by one or more organized assemblies of molecular functions. Examples of broad biological process terms are "cellular physiological process" or "signal transduction". Examples of more specific terms are "pyrimidine metabolic process" or "alpha-glucoside transport". The general rule to assist in distinguishing between a biological process and a molecular function is that a process must have more than one distinct steps.
-A biological process is not equivalent to a pathway. At present, the GO does not try to represent the dynamics or dependencies that would be required to fully describe a pathway.
-- **Molecular function:** Molecular function terms are describing activities occurring at the molecular level, such as "catalytic activity" or "binding activity". GO molecular function terms represent activities rather than the entities (molecules or complexes) that perform the actions, and do not specify where, when, or in what context the action takes place. Molecular functions generally correspond to activities that can be performed by individual gene products, but some activities are performed by assembled complexes of gene products. Examples of broad functional terms are "catalytic activity" and "transporter activity"; examples of narrower functional terms are "adenylate cyclase activity" or "toll receptor binding".
-It is easy to confuse a gene product name with its molecular function; for that reason GO molecular functions are often appended with the word "activity".
+### Gene Ontology {#GO}
 
-GO is also available for all the protein sequences deposited on the UniProt database. 
-Other useful tool to perform gene annotations: \url{http://amigo.geneontology.org/amigo/search/annotation} 
+The **Gene Ontology (GO)** [@GO2020] (<http://www.geneontology.org>) provides a structured vocabulary to describe gene functions. GO classifies gene products along three axes:
 
-### Metabolic pathways databases {#KEGG}
+- **Cellular Component** – where a gene product functions  
+- **Biological Process** – what broader biological goal it contributes to  
+- **Molecular Function** – the biochemical activity performed  
 
-The Kyoto Encyclopedia of Genes and Genomes [KEGG, @KEGG2022] ([http://www.genome.jp/kegg/](http://www.genome.jp/kegg/)) collects individual genomes, gene products, and their functions, but its special strength lies in its integration of biochemical and genetic information. KEGG focuses on interactions: molecular assemblies, and metabolic and regulatory networks. KEGG organizes five data types into a comprehensive system:
+GO terms are integrated into UniProt and can be explored using tools such as  
+<http://amigo.geneontology.org/amigo/search/annotation>.
 
-- Catalogs of chemical compounds in living cells.
-- Gene catalogs.
-- Genome maps.
-- Pathway maps.
-- Orthologue tables.
+---
 
-The catalogs of chemical compounds and genes contain information about particular molecules or sequences. Genome maps integrate the genes themselves according to their chromosomal position. Pathway maps describe potential networks of molecular activities, both metabolic and regulatory. One enzyme in one organism would be referred to in KEGG in its orthologue tables, which link the enzyme to related ones in other organisms. This permits analysis of relationships between the metabolic pathways of different organisms. 
+### Metabolic Pathway Databases {#KEGG}
+
+The **Kyoto Encyclopedia of Genes and Genomes (KEGG)** [@KEGG2022] (<http://www.genome.jp/kegg/>) integrates genomic, biochemical, and pathway information. KEGG links:
+
+- Genes  
+- Proteins  
+- Compounds  
+- Metabolic and regulatory pathways  
+- Orthologous gene families  
+
+This integration allows comparative analyses of metabolic and regulatory systems across organisms.
+
+---
+
+## Evaluation Rubric (25 points total)
+
+| Category | Points | Description |
+|--------|--------|-------------|
+| **Scientific Accuracy & Depth** | 8 | Demonstrates correct understanding of the database type and its role in genome annotation |
+| **Coverage of Assigned Topics** | 6 | Addresses all required components listed in the report structure |
+| **Critical Analysis** | 5 | Evaluates strengths, limitations, and practical uses of the database |
+| **Clarity & Organization** | 4 | Well-structured, logical flow, and clear writing |
+| **References & Citation Quality** | 2 | Appropriate use of peer-reviewed and authoritative sources |
+
+**Formatting penalties:**  
+Up to **–5 points** may be deducted for failure to follow formatting, naming, or submission guidelines.
 
 <hr style="border: 1.5px solid #999; margin: 2em 0;">
 
