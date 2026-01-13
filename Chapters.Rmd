@@ -260,11 +260,17 @@ Throughout this phase, questions, comparisons, and observations naturally emerge
 
 Within each group, students discuss the following questions:
 
-- How do the two genomes differ in terms of completeness and assembly quality?
-- What biological factors might explain these differences?
-- What technical, historical, or funding-related factors might explain these differences?
-- Which genome would you trust more for downstream analyses, and why?
-- How might your choice of genome assembly influence the biological conclusions you could draw?
+- How do the two genomes differ in terms of **size, completeness, and assembly quality**?  
+  - Consider metrics or features that indicate completeness, such as the number of scaffolds/contigs, N50, and presence of core genes.  
+- What **biological factors** (e.g., genome size, repetitive content, ploidy) might explain differences in genome completeness or assembly quality?  
+- What **technical, historical, or funding-related factors** (e.g., sequencing technology, coverage, date of publication) might explain these differences?  
+- Which genome would you **trust more for downstream analyses**, and why?  
+  - Identify the evidence supporting your choice.  
+- How might your **criteria for evaluating genome completeness** influence the biological conclusions you could draw from these assemblies?
+
+<div class="info">
+  <p><strong>💡 Tip:</strong> Focus on evidence from assembly metrics and consider both biological and technical contexts. Use this discussion to practice critical evaluation of genomic data.</p>
+</div>
 
 Each group identifies **two key observations** they find most informative or surprising and prepares to share them with the class.
 
