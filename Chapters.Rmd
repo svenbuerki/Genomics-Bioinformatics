@@ -223,15 +223,15 @@ During this time, key assembly metrics (e.g., assembly level, N50, scaffold vs. 
 
 #### Group Exploration (35 minutes)
 
-Students work in groups of **2–4**.
+Students will work in groups of **3–4**. Each group should include at least one graduate student to help guide the discussion.
 
 Each group selects **two organisms** representing different biological categories (e.g., model vs. non-model organisms, prokaryotes vs. eukaryotes).
 
 **Suggested organism pairings include:**
 
-- *Homo sapiens* vs. *Artemisia tridentata*  
-- *Arabidopsis thaliana* vs. a non-model plant species  
-- *Escherichia coli* vs. a eukaryotic genome  
+- [*Homo sapiens*](https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000001405.40/) vs. [*Artemisia tridentata*](https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_023558565.1/) 
+- [*Arabidopsis thaliana*](https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000001735.4/) vs. a non-model plant species  
+- [*Escherichia coli*](https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000005845.2/) vs. a eukaryotic genome
 
 For each organism, groups navigate to the [**NCBI Genome**](https://www.ncbi.nlm.nih.gov/datasets/genome/) page and record the following information:
 
@@ -375,7 +375,7 @@ Students **develop skills in reading and critically evaluating genomics publicat
 
 ### Activity Overview
 
-In this **1 hour and 40 minutes** in-class activity, students work in groups of **2–4** to explore the giant panda genome paper. The goal is to:
+In this **1 hour and 40 minutes** in-class activity, students work in groups of **3–4** to explore the giant panda genome paper (each group includes at least one graduate student to help guide the discussion). The goal is to:
 
 - Interpret genome assembly metrics  
 - Evaluate technical and biological conclusions  
