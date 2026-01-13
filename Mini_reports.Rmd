@@ -35,76 +35,141 @@ To further gain expertise in the field of genomics, students are producing three
 
 Time will be allocated in class to work on these mini-reports, but the instructor expects students to complete those on their own time.
 
-# Mini-report 1 -- Sequencing platforms & technologies {#mini1}
+<hr style="border: 1.5px solid #999; margin: 2em 0;">
 
-To have a full overview of available sequencing platforms, students are tasked to **produce individual mini-reports** on the following sequencing platforms and their associated technologies:
+# Mini-Report 1 -- Sequencing Platforms & Technologies {#mini1}
 
-- **Sequencing platform 1:** Illumina.
-- **Sequencing platform 2:** PacBio.
-- **Sequencing platform 3:** Oxford Nanopore.
+To gain a comprehensive understanding of current sequencing platforms, students are tasked with **producing individual mini-reports** on one of the following sequencing platforms and their associated technologies:
 
-## Background information
+- **Sequencing platform 1:** Illumina  
+- **Sequencing platform 2:** PacBio  
+- **Sequencing platform 3:** Oxford Nanopore  
 
-Each student was assigned a sequencing platform to work on (please see [Google spreadsheet](https://docs.google.com/spreadsheets/d/1cRM1yasUfDa98ecyz_-RxUOw8cU4wkQx4O5Wxw3y4yU/edit?usp=sharing) for more information). 
+---
 
-The **individual assignment is mandatory and will be graded**. Please see this task as an opportunity to consolidate your knowledge on next-generation sequencing technologies and writing scientific reports.   
+## Background Information
 
-Time will be allocated in class on the 19th of January 2024 to allow students to work on their assignments. Reports are due on **the 2nd of February 2024** and should be uploaded on the shared [Google Drive](https://drive.google.com/drive/folders/1BFZFJeR8tW8N7QLfngqIVbjqEkDuIyWj?usp=sharing) in the `Mini_Report_1` folder.
+Each student has been assigned a sequencing platform to research (please see the [Google spreadsheet](https://docs.google.com/spreadsheets/d/1cRM1yasUfDa98ecyz_-RxUOw8cU4wkQx4O5Wxw3y4yU/edit?usp=sharing) for assignments).  
 
-## Structure of mini-reports {#structure}
+This **individual assignment is mandatory and will be graded**. Consider this task an opportunity to:  
 
-Please structure your reports to ensure covering the following aspects:
+- Consolidate your understanding of next-generation sequencing technologies  
+- Practice writing concise and evidence-based scientific reports  
 
-- Introduce the sequencing technology (incl. library preparation and DNA requirements).
-- Provide an overview of the available sequencing systems or platforms.
-- Outline the research potential/applicability of the sequencing systems or platform. 
-- Provide any additional information such as e.g. price, accessibility, technical support, that you feel are relevant to your sequencing platform. 
+Time will be allocated in class on week 3 for students to work on their assignments.  
+
+Reports are due on **February 4, 2026** and must be uploaded to the shared [Google Drive](https://drive.google.com/drive/folders/1BFZFJeR8tW8N7QLfngqIVbjqEkDuIyWj?usp=sharing) in the folder `Mini_Report_1`.  
+
+<div class="info">
+  <p><strong>💡 Tip:</strong> Focus on comparing sequencing technologies in terms of read length, accuracy, throughput, and typical applications. Use reliable sources and cite appropriately.</p>
+</div>
+
+---
+
+## Structure of Mini-Reports {#structure}
+
+To ensure consistency and clarity, please structure your mini-reports to cover the following aspects:
+
+- **Introduction of the sequencing technology:** Include details on library preparation, DNA input requirements, and key principles.  
+- **Overview of sequencing systems or platforms:** Describe the main systems available for your assigned technology.  
+- **Research potential and applicability:** Explain how the platform can be applied in different research contexts.  
+- **Additional information:** Include any relevant details such as cost, accessibility, technical support, or other practical considerations.
+
+---
 
 ## Warning
 
-For this assignment, students are not allowed to use AI to complete their work.
+For this assignment, students **must not use AI tools** to generate or complete their work.
 
-## Reporting format
+---
 
-Maximum **two pages**, single spaced, using either Arial 11 pt or Times New Roman 12 pt, and with all margins set to 1 inch. The two pages do not include a title page and a references section. 
+## Reporting Format
 
-The **title page** should include the following information: 
+- Maximum **two pages**, single-spaced  
+- Font: **Arial 11 pt** or **Times New Roman 12 pt**  
+- Margins: **1 inch** on all sides  
 
-1. Name of the sequencing platform as title. 
-2. Name of student contributing the report. 
+> Note: The two pages do **not** include a title page or the references section.
 
-The **references section** should contain full citations of all references cited in the text. Each reference cited in the References section should be clearly cited in the text to support transparency in your work and reproducible science. 
+---
 
-A **citation is a way of giving credit to individuals for their creative and intellectual works that you utilized to support your research**. It can also be used to locate particular sources and combat plagiarism. Typically, a citation can include the author's name, date, location of the publishing company, journal title, or DOI (Digital Object Identifier). **Citation styles dictate the information necessary for a citation and how the information is ordered, as well as punctuation and other formatting**. There are different citation styles (see Figure \@ref(fig:citationstyle)) and the instructor let you pick the one you like. However, please make sure to only use one citation style in your mini-report.  
+### Title Page
+
+The title page should include:  
+
+1. The **name of the sequencing platform** as the report title  
+2. The **name of the student** submitting the report  
+
+---
+
+### References Section
+
+Include a full list of all references cited in your report. Each reference must be properly cited in the text to support **transparency and reproducibility**.  
+
+**Citing web resources:** When citing online materials, include the following information: author, title of the web page, URL, and date accessed. Example:
+
+> Wetterstrand KA. DNA Sequencing Costs: Data from the NHGRI Genome Sequencing Program (GSP). Available at: www.genome.gov/sequencingcostsdata. Accessed 2023-01-16.
+
+**Why citations matter:**  
+- Citations give credit to individuals for the creative and intellectual work that you rely upon.  
+- They allow readers to locate sources and help prevent plagiarism.  
+- A citation can include the author’s name, year, journal title, DOI, or publisher information.  
+
+**Citation style:**  
+- Different citation styles exist (see Figure \@ref(fig:citationstyle))  
+- Choose a style you prefer, but use **one consistent style** throughout your report.  
+- Follow formatting rules for order, punctuation, and necessary information.  
 
 ```{r citationstyle, echo=FALSE, fig.cap="Example of citation styles for an article published in Plants.", out.width = '50%', fig.align='center'}
 knitr::include_graphics("Images/Citation_styles_example.png")
 ```
 
-In the case of web resources, please provide the following information in your citation: author, title (of the web page), URL and accessed date. Here is an example:
+---
 
-Wetterstrand KA. DNA Sequencing Costs: Data from the NHGRI Genome Sequencing Program (GSP) Available at: www.genome.gov/sequencingcostsdata. Accessed 2023-01-16.
+### Figures
 
+Please keep in mind that **a figure can convey a lot more information than a long text**. Use figures effectively to illustrate comparisons or key points. Your reports should follow the structure presented in section \@ref(structure).
 
-Please keep in mind that a figure can convey a lot more information than a long text! Your reports should follow the structure presented in section \@ref(structure). 
+<div class="info">
+  <p><strong>💡 Tip:</strong> Focus on presenting clear, concise, and accurate information. Use figures or tables if they help illustrate comparisons between sequencing platforms. Ensure your references are correctly cited and fully listed to support reproducibility.</p>
+</div>
 
-## Format to name document
+---
 
-**Name your report document following this pattern**: `Sequencing platform_Surname`.
+## Naming Your Document
+
+**Please name your report following this pattern:**  
+`SequencingPlatform_Surname`  
+
+> Example: `Illumina_Smith.pdf`
+
+---
 
 ## Resources
 
-The instructor has provided `pdf` documents devoted to each sequencing platform below to support students in starting their assignments. Please see @Satam2023 for a review on this subject and @Marx2023 for more information on long-read sequencing.
+To support your work on this assignment, the instructor provides **PDF documents** for each sequencing platform. These resources serve as a starting point for understanding the technology and its applications.  
 
-In addition, please use information available from manufacturers' websites (see below), publications, online NGS training sites (e.g. EMBL-EBI Training), Google, YouTube and Wikipedia to prepare your reports and presentations. Do not forget to provide citations supporting your claims in your reports. I let you decide which reference style you want to use (look at your favorite journals for examples).
+Additionally, students are encouraged to consult:  
 
-Here are a few additional online references to support your assignment:
+- **Primary literature** (e.g., @Satam2023 for an NGS overview; @Marx2023 for long-read sequencing)  
+- **Manufacturer websites** for up-to-date technical specifications  
+- **Online training platforms** (e.g., EMBL-EBI NGS courses)  
+- **Other reputable sources** including publications, Google Scholar, YouTube tutorials, and Wikipedia  
 
-- **An Overview of Next-Generation Sequencing**: https://www.technologynetworks.com/genomics/articles/an-overview-of-next-generation-sequencing-346532
-- **Illumina official website**: https://www.illumina.com/
-- **PacBio official website**: https://www.pacb.com/
-- **Oxford Nanopore official website**: https://nanoporetech.com/
+> **Important:** Always provide proper citations for any material you reference. You may choose your preferred citation style, but ensure it is applied consistently throughout your report. Refer to your favorite journals for examples.
 
+---
+
+### Selected Online References
+
+- **An Overview of Next-Generation Sequencing**  
+  <https://www.technologynetworks.com/genomics/articles/an-overview-of-next-generation-sequencing-346532>  
+- **Illumina Official Website**  
+  <https://www.illumina.com/>  
+- **PacBio Official Website**  
+  <https://www.pacb.com/>  
+- **Oxford Nanopore Official Website**  
+  <https://nanoporetech.com/>
 
 <button class="btn btn-primary" data-toggle="collapse" data-target="#Illumina">Data on Illumina</button>
 <div id="Illumina" class="collapse">    
@@ -130,7 +195,30 @@ Here are a few additional online references to support your assignment:
 </object>
 </div>
 
-# Mini-report 2 -- Molecular biology databases {#mini2}
+## Evaluation Rubric (Total: 25 points)
+
+Students will be assessed on their ability to research, synthesize, and communicate information about their assigned sequencing platform. The rubric below outlines how points will be allocated.
+
+| Criteria | Description | Points |
+|----------|-------------|-------|
+| **Introduction & Background** | Clearly introduces the sequencing platform, including library preparation, DNA requirements, and historical context. Demonstrates understanding of the technology's purpose. | 5 |
+| **Platform Overview** | Provides a comprehensive overview of the assigned sequencing system(s), including technical specifications, workflow, and key features. | 5 |
+| **Applications & Relevance** | Discusses potential research applications, advantages, and limitations of the sequencing technology. Connects platform capabilities to biological questions. | 5 |
+| **Use of Resources & Citations** | Properly cites all sources used (primary literature, websites, databases, PDFs). Web resources include author, title, URL, and access date. Consistent citation style is applied throughout. | 5 |
+| **Clarity, Organization & Formatting** | Report is well-structured (title page, main text, references). Ideas are presented logically, concisely, and in a readable format. Figures and tables, if included, enhance understanding. Minor formatting errors (e.g., font size, spacing, margins) will result in **up to 1 point deduction**. Major formatting deviations (e.g., missing title page, wrong font, excessive length) may result in **up to 2 points deduction**. | 5 |
+
+**Total:** 25 points
+
+> **Notes:**  
+> - Maximum length: 2 pages (excluding title page and references)  
+> - Font: Arial 11 pt or Times New Roman 12 pt, single-spaced, 1-inch margins  
+> - Figures and tables are encouraged to illustrate key points concisely  
+> - Reports will be submitted via the shared Google Drive in the `Mini_Report_1` folder  
+> - Students should **strictly follow formatting guidelines** to avoid penalty points.
+
+<hr style="border: 1.5px solid #999; margin: 2em 0;">
+
+# Mini-Report 2 -- Molecular Biology Databases {#mini2}
 
 To have a full overview of available molecular biology databases and assess their contributions to genome annotation, students are tasked to produce individual mini-reports on the following molecular databases:
 
@@ -138,7 +226,7 @@ To have a full overview of available molecular biology databases and assess thei
 - **Molecular database 2:** [Gene ontology databases](#GO) [e.g., @GO2020].
 - **Molecular database 3:** [Metabolic pathways databases](#KEGG) [e.g., @KEGG2022].
 
-## Background information
+## Background Information
 
 Each student was assigned a molecular database to work on (please see [Google spreadsheet](https://docs.google.com/spreadsheets/d/1cRM1yasUfDa98ecyz_-RxUOw8cU4wkQx4O5Wxw3y4yU/edit?usp=sharing) for more information). 
 
@@ -203,7 +291,9 @@ The Kyoto Encyclopedia of Genes and Genomes [KEGG, @KEGG2022] ([http://www.genom
 
 The catalogs of chemical compounds and genes contain information about particular molecules or sequences. Genome maps integrate the genes themselves according to their chromosomal position. Pathway maps describe potential networks of molecular activities, both metabolic and regulatory. One enzyme in one organism would be referred to in KEGG in its orthologue tables, which link the enzyme to related ones in other organisms. This permits analysis of relationships between the metabolic pathways of different organisms. 
 
-# Mini-report 3 -- Species identifications based on DNA barcoding and phylogenetic inference {#mini3}
+<hr style="border: 1.5px solid #999; margin: 2em 0;">
+
+# Mini-Report 3 -- DNA-based Species Identification and Phylogenetic Inference {#mini3}
 
 ## Learning outcomes
 

@@ -11,7 +11,7 @@
 
 <meta name="author" content="Sven Buerki - Boise State University" />
 
-<meta name="date" content="2024-03-01" />
+<meta name="date" content="2026-01-13" />
 
 <title>BIOL 497/597 - Genomics &amp; Bioinformatics</title>
 
@@ -345,13 +345,13 @@ div.tocify {
   <a href="index.html">Home</a>
 </li>
 <li>
-  <a href="Timetable.html">Timetable</a>
+  <a href="Timetable.html">Schedule</a>
 </li>
 <li>
   <a href="Chapters.html">Chapters</a>
 </li>
 <li>
-  <a href="Mini_reports.html">Mini-reports</a>
+  <a href="Mini_reports.html">Mini-Reports</a>
 </li>
 <li>
   <a href="Mining_draft_genome.html">Lab.</a>
@@ -363,7 +363,7 @@ div.tocify {
   <a href="Lexicon.html">Lexicon</a>
 </li>
 <li>
-  <a href="R_Functions.html">R functions</a>
+  <a href="R_Functions.html">R Functions</a>
 </li>
 <li>
   <a href="References.html">References</a>
@@ -383,7 +383,7 @@ div.tocify {
 <h1 class="title toc-ignore">BIOL 497/597 - Genomics &amp; Bioinformatics</h1>
 <h3 class="subtitle">Mini-reports</h3>
 <h4 class="author">Sven Buerki - Boise State University</h4>
-<h4 class="date">2024-03-01</h4>
+<h4 class="date">2026-01-13</h4>
 
 </div>
 
@@ -403,69 +403,153 @@ $(document).ready(function() {
 <li><a href="#mini3"><strong>Mini-Report 3</strong></a>: Species identifications based on DNA barcoding and phylogenetic inference (50 points). This report provides students with an introduction to methods applied in the laboratory sessions and prepare them to analyze NGS data.</li>
 </ul>
 <p>Time will be allocated in class to work on these mini-reports, but the instructor expects students to complete those on their own time.</p>
+<hr style="border: 1.5px solid #999; margin: 2em 0;">
 </div>
 <div id="mini1" class="section level1" number="2">
-<h1><span class="header-section-number">2</span> Mini-report 1 – Sequencing platforms &amp; technologies</h1>
-<p>To have a full overview of available sequencing platforms, students are tasked to <strong>produce individual mini-reports</strong> on the following sequencing platforms and their associated technologies:</p>
+<h1><span class="header-section-number">2</span> Mini-Report 1 – Sequencing Platforms &amp; Technologies</h1>
+<p>To gain a comprehensive understanding of current sequencing platforms, students are tasked with <strong>producing individual mini-reports</strong> on one of the following sequencing platforms and their associated technologies:</p>
 <ul>
-<li><strong>Sequencing platform 1:</strong> Illumina.</li>
-<li><strong>Sequencing platform 2:</strong> PacBio.</li>
-<li><strong>Sequencing platform 3:</strong> Oxford Nanopore.</li>
+<li><strong>Sequencing platform 1:</strong> Illumina<br />
+</li>
+<li><strong>Sequencing platform 2:</strong> PacBio<br />
+</li>
+<li><strong>Sequencing platform 3:</strong> Oxford Nanopore</li>
 </ul>
+<hr />
 <div id="background-information" class="section level2" number="2.1">
-<h2><span class="header-section-number">2.1</span> Background information</h2>
-<p>Each student was assigned a sequencing platform to work on (please see <a href="https://docs.google.com/spreadsheets/d/1cRM1yasUfDa98ecyz_-RxUOw8cU4wkQx4O5Wxw3y4yU/edit?usp=sharing">Google spreadsheet</a> for more information).</p>
-<p>The <strong>individual assignment is mandatory and will be graded</strong>. Please see this task as an opportunity to consolidate your knowledge on next-generation sequencing technologies and writing scientific reports.</p>
-<p>Time will be allocated in class on the 19th of January 2024 to allow students to work on their assignments. Reports are due on <strong>the 2nd of February 2024</strong> and should be uploaded on the shared <a href="https://drive.google.com/drive/folders/1BFZFJeR8tW8N7QLfngqIVbjqEkDuIyWj?usp=sharing">Google Drive</a> in the <code>Mini_Report_1</code> folder.</p>
+<h2><span class="header-section-number">2.1</span> Background Information</h2>
+<p>Each student has been assigned a sequencing platform to research (please see the <a href="https://docs.google.com/spreadsheets/d/1cRM1yasUfDa98ecyz_-RxUOw8cU4wkQx4O5Wxw3y4yU/edit?usp=sharing">Google spreadsheet</a> for assignments).</p>
+<p>This <strong>individual assignment is mandatory and will be graded</strong>. Consider this task an opportunity to:</p>
+<ul>
+<li>Consolidate your understanding of next-generation sequencing technologies<br />
+</li>
+<li>Practice writing concise and evidence-based scientific reports</li>
+</ul>
+<p>Time will be allocated in class on week 3 for students to work on their assignments.</p>
+<p>Reports are due on <strong>February 4, 2026</strong> and must be uploaded to the shared <a href="https://drive.google.com/drive/folders/1BFZFJeR8tW8N7QLfngqIVbjqEkDuIyWj?usp=sharing">Google Drive</a> in the folder <code>Mini_Report_1</code>.</p>
+<div class="info">
+<p>
+<strong>💡 Tip:</strong> Focus on comparing sequencing technologies in terms of read length, accuracy, throughput, and typical applications. Use reliable sources and cite appropriately.
+</p>
+</div>
+<hr />
 </div>
 <div id="structure" class="section level2" number="2.2">
-<h2><span class="header-section-number">2.2</span> Structure of mini-reports</h2>
-<p>Please structure your reports to ensure covering the following aspects:</p>
+<h2><span class="header-section-number">2.2</span> Structure of Mini-Reports</h2>
+<p>To ensure consistency and clarity, please structure your mini-reports to cover the following aspects:</p>
 <ul>
-<li>Introduce the sequencing technology (incl. library preparation and DNA requirements).</li>
-<li>Provide an overview of the available sequencing systems or platforms.</li>
-<li>Outline the research potential/applicability of the sequencing systems or platform.</li>
-<li>Provide any additional information such as e.g. price, accessibility, technical support, that you feel are relevant to your sequencing platform.</li>
+<li><strong>Introduction of the sequencing technology:</strong> Include details on library preparation, DNA input requirements, and key principles.<br />
+</li>
+<li><strong>Overview of sequencing systems or platforms:</strong> Describe the main systems available for your assigned technology.<br />
+</li>
+<li><strong>Research potential and applicability:</strong> Explain how the platform can be applied in different research contexts.<br />
+</li>
+<li><strong>Additional information:</strong> Include any relevant details such as cost, accessibility, technical support, or other practical considerations.</li>
 </ul>
+<hr />
 </div>
 <div id="warning" class="section level2" number="2.3">
 <h2><span class="header-section-number">2.3</span> Warning</h2>
-<p>For this assignment, students are not allowed to use AI to complete their work.</p>
+<p>For this assignment, students <strong>must not use AI tools</strong> to generate or complete their work.</p>
+<hr />
 </div>
 <div id="reporting-format" class="section level2" number="2.4">
-<h2><span class="header-section-number">2.4</span> Reporting format</h2>
-<p>Maximum <strong>two pages</strong>, single spaced, using either Arial 11 pt or Times New Roman 12 pt, and with all margins set to 1 inch. The two pages do not include a title page and a references section.</p>
-<p>The <strong>title page</strong> should include the following information:</p>
+<h2><span class="header-section-number">2.4</span> Reporting Format</h2>
+<ul>
+<li>Maximum <strong>two pages</strong>, single-spaced<br />
+</li>
+<li>Font: <strong>Arial 11 pt</strong> or <strong>Times New Roman 12 pt</strong><br />
+</li>
+<li>Margins: <strong>1 inch</strong> on all sides</li>
+</ul>
+<blockquote>
+<p>Note: The two pages do <strong>not</strong> include a title page or the references section.</p>
+</blockquote>
+<hr />
+<div id="title-page" class="section level3" number="2.4.1">
+<h3><span class="header-section-number">2.4.1</span> Title Page</h3>
+<p>The title page should include:</p>
 <ol style="list-style-type: decimal">
-<li>Name of the sequencing platform as title.</li>
-<li>Name of student contributing the report.</li>
+<li>The <strong>name of the sequencing platform</strong> as the report title<br />
+</li>
+<li>The <strong>name of the student</strong> submitting the report</li>
 </ol>
-<p>The <strong>references section</strong> should contain full citations of all references cited in the text. Each reference cited in the References section should be clearly cited in the text to support transparency in your work and reproducible science.</p>
-<p>A <strong>citation is a way of giving credit to individuals for their creative and intellectual works that you utilized to support your research</strong>. It can also be used to locate particular sources and combat plagiarism. Typically, a citation can include the author’s name, date, location of the publishing company, journal title, or DOI (Digital Object Identifier). <strong>Citation styles dictate the information necessary for a citation and how the information is ordered, as well as punctuation and other formatting</strong>. There are different citation styles (see Figure <a href="#fig:citationstyle">2.1</a>) and the instructor let you pick the one you like. However, please make sure to only use one citation style in your mini-report.</p>
+<hr />
+</div>
+<div id="references-section" class="section level3" number="2.4.2">
+<h3><span class="header-section-number">2.4.2</span> References Section</h3>
+<p>Include a full list of all references cited in your report. Each reference must be properly cited in the text to support <strong>transparency and reproducibility</strong>.</p>
+<p><strong>Citing web resources:</strong> When citing online materials, include the following information: author, title of the web page, URL, and date accessed. Example:</p>
+<blockquote>
+<p>Wetterstrand KA. DNA Sequencing Costs: Data from the NHGRI Genome Sequencing Program (GSP). Available at: www.genome.gov/sequencingcostsdata. Accessed 2023-01-16.</p>
+</blockquote>
+<p><strong>Why citations matter:</strong><br />
+- Citations give credit to individuals for the creative and intellectual work that you rely upon.<br />
+- They allow readers to locate sources and help prevent plagiarism.<br />
+- A citation can include the author’s name, year, journal title, DOI, or publisher information.</p>
+<p><strong>Citation style:</strong><br />
+- Different citation styles exist (see Figure <a href="#fig:citationstyle">2.1</a>)<br />
+- Choose a style you prefer, but use <strong>one consistent style</strong> throughout your report.<br />
+- Follow formatting rules for order, punctuation, and necessary information.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:citationstyle"></span>
 <img src="Images/Citation_styles_example.png" alt="Example of citation styles for an article published in Plants." width="50%" />
 <p class="caption">
 Figure 2.1: Example of citation styles for an article published in Plants.
 </p>
 </div>
-<p>In the case of web resources, please provide the following information in your citation: author, title (of the web page), URL and accessed date. Here is an example:</p>
-<p>Wetterstrand KA. DNA Sequencing Costs: Data from the NHGRI Genome Sequencing Program (GSP) Available at: www.genome.gov/sequencingcostsdata. Accessed 2023-01-16.</p>
-<p>Please keep in mind that a figure can convey a lot more information than a long text! Your reports should follow the structure presented in section <a href="#structure">2.2</a>.</p>
+<hr />
 </div>
-<div id="format-to-name-document" class="section level2" number="2.5">
-<h2><span class="header-section-number">2.5</span> Format to name document</h2>
-<p><strong>Name your report document following this pattern</strong>: <code>Sequencing platform_Surname</code>.</p>
+<div id="figures" class="section level3" number="2.4.3">
+<h3><span class="header-section-number">2.4.3</span> Figures</h3>
+<p>Please keep in mind that <strong>a figure can convey a lot more information than a long text</strong>. Use figures effectively to illustrate comparisons or key points. Your reports should follow the structure presented in section <a href="#structure">2.2</a>.</p>
+<div class="info">
+<p>
+<strong>💡 Tip:</strong> Focus on presenting clear, concise, and accurate information. Use figures or tables if they help illustrate comparisons between sequencing platforms. Ensure your references are correctly cited and fully listed to support reproducibility.
+</p>
+</div>
+<hr />
+</div>
+</div>
+<div id="naming-your-document" class="section level2" number="2.5">
+<h2><span class="header-section-number">2.5</span> Naming Your Document</h2>
+<p><strong>Please name your report following this pattern:</strong><br />
+<code>SequencingPlatform_Surname</code></p>
+<blockquote>
+<p>Example: <code>Illumina_Smith.pdf</code></p>
+</blockquote>
+<hr />
 </div>
 <div id="resources" class="section level2" number="2.6">
 <h2><span class="header-section-number">2.6</span> Resources</h2>
-<p>The instructor has provided <code>pdf</code> documents devoted to each sequencing platform below to support students in starting their assignments. Please see <span class="citation">Satam et al. (<a href="#ref-Satam2023" role="doc-biblioref">2023</a>)</span> for a review on this subject and <span class="citation">Marx (<a href="#ref-Marx2023" role="doc-biblioref">2023</a>)</span> for more information on long-read sequencing.</p>
-<p>In addition, please use information available from manufacturers’ websites (see below), publications, online NGS training sites (e.g. EMBL-EBI Training), Google, YouTube and Wikipedia to prepare your reports and presentations. Do not forget to provide citations supporting your claims in your reports. I let you decide which reference style you want to use (look at your favorite journals for examples).</p>
-<p>Here are a few additional online references to support your assignment:</p>
+<p>To support your work on this assignment, the instructor provides <strong>PDF documents</strong> for each sequencing platform. These resources serve as a starting point for understanding the technology and its applications.</p>
+<p>Additionally, students are encouraged to consult:</p>
 <ul>
-<li><strong>An Overview of Next-Generation Sequencing</strong>: <a href="https://www.technologynetworks.com/genomics/articles/an-overview-of-next-generation-sequencing-346532" class="uri">https://www.technologynetworks.com/genomics/articles/an-overview-of-next-generation-sequencing-346532</a></li>
-<li><strong>Illumina official website</strong>: <a href="https://www.illumina.com/" class="uri">https://www.illumina.com/</a></li>
-<li><strong>PacBio official website</strong>: <a href="https://www.pacb.com/" class="uri">https://www.pacb.com/</a></li>
-<li><strong>Oxford Nanopore official website</strong>: <a href="https://nanoporetech.com/" class="uri">https://nanoporetech.com/</a></li>
+<li><strong>Primary literature</strong> (e.g., <span class="citation">Satam et al. (<a href="#ref-Satam2023">2023</a>)</span> for an NGS overview; <span class="citation">Marx (<a href="#ref-Marx2023">2023</a>)</span> for long-read sequencing)<br />
+</li>
+<li><strong>Manufacturer websites</strong> for up-to-date technical specifications<br />
+</li>
+<li><strong>Online training platforms</strong> (e.g., EMBL-EBI NGS courses)<br />
+</li>
+<li><strong>Other reputable sources</strong> including publications, Google Scholar, YouTube tutorials, and Wikipedia</li>
+</ul>
+<blockquote>
+<p><strong>Important:</strong> Always provide proper citations for any material you reference. You may choose your preferred citation style, but ensure it is applied consistently throughout your report. Refer to your favorite journals for examples.</p>
+</blockquote>
+<hr />
+<div id="selected-online-references" class="section level3" number="2.6.1">
+<h3><span class="header-section-number">2.6.1</span> Selected Online References</h3>
+<ul>
+<li><strong>An Overview of Next-Generation Sequencing</strong><br />
+<a href="https://www.technologynetworks.com/genomics/articles/an-overview-of-next-generation-sequencing-346532" class="uri">https://www.technologynetworks.com/genomics/articles/an-overview-of-next-generation-sequencing-346532</a><br />
+</li>
+<li><strong>Illumina Official Website</strong><br />
+<a href="https://www.illumina.com/" class="uri">https://www.illumina.com/</a><br />
+</li>
+<li><strong>PacBio Official Website</strong><br />
+<a href="https://www.pacb.com/" class="uri">https://www.pacb.com/</a><br />
+</li>
+<li><strong>Oxford Nanopore Official Website</strong><br />
+<a href="https://nanoporetech.com/" class="uri">https://nanoporetech.com/</a></li>
 </ul>
 <button class="btn btn-primary" data-toggle="collapse" data-target="#Illumina">
 Data on Illumina
@@ -496,16 +580,72 @@ Data on Nanopore
 </div>
 </div>
 </div>
+<div id="evaluation-rubric-total-25-points" class="section level2" number="2.7">
+<h2><span class="header-section-number">2.7</span> Evaluation Rubric (Total: 25 points)</h2>
+<p>Students will be assessed on their ability to research, synthesize, and communicate information about their assigned sequencing platform. The rubric below outlines how points will be allocated.</p>
+<table>
+<colgroup>
+<col width="33%" />
+<col width="43%" />
+<col width="23%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Criteria</th>
+<th>Description</th>
+<th>Points</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Introduction &amp; Background</strong></td>
+<td>Clearly introduces the sequencing platform, including library preparation, DNA requirements, and historical context. Demonstrates understanding of the technology’s purpose.</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td><strong>Platform Overview</strong></td>
+<td>Provides a comprehensive overview of the assigned sequencing system(s), including technical specifications, workflow, and key features.</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td><strong>Applications &amp; Relevance</strong></td>
+<td>Discusses potential research applications, advantages, and limitations of the sequencing technology. Connects platform capabilities to biological questions.</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td><strong>Use of Resources &amp; Citations</strong></td>
+<td>Properly cites all sources used (primary literature, websites, databases, PDFs). Web resources include author, title, URL, and access date. Consistent citation style is applied throughout.</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td><strong>Clarity, Organization &amp; Formatting</strong></td>
+<td>Report is well-structured (title page, main text, references). Ideas are presented logically, concisely, and in a readable format. Figures and tables, if included, enhance understanding. Minor formatting errors (e.g., font size, spacing, margins) will result in <strong>up to 1 point deduction</strong>. Major formatting deviations (e.g., missing title page, wrong font, excessive length) may result in <strong>up to 2 points deduction</strong>.</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Total:</strong> 25 points</p>
+<blockquote>
+<p><strong>Notes:</strong><br />
+- Maximum length: 2 pages (excluding title page and references)<br />
+- Font: Arial 11 pt or Times New Roman 12 pt, single-spaced, 1-inch margins<br />
+- Figures and tables are encouraged to illustrate key points concisely<br />
+- Reports will be submitted via the shared Google Drive in the <code>Mini_Report_1</code> folder<br />
+- Students should <strong>strictly follow formatting guidelines</strong> to avoid penalty points.</p>
+</blockquote>
+<hr style="border: 1.5px solid #999; margin: 2em 0;">
+</div>
+</div>
 <div id="mini2" class="section level1" number="3">
-<h1><span class="header-section-number">3</span> Mini-report 2 – Molecular biology databases</h1>
+<h1><span class="header-section-number">3</span> Mini-Report 2 – Molecular Biology Databases</h1>
 <p>To have a full overview of available molecular biology databases and assess their contributions to genome annotation, students are tasked to produce individual mini-reports on the following molecular databases:</p>
 <ul>
-<li><strong>Molecular database 1:</strong> <a href="#prot">Protein sequences databases</a> <span class="citation">(e.g., <a href="#ref-UniProt2014" role="doc-biblioref">Consortium, 2014</a>)</span>.</li>
-<li><strong>Molecular database 2:</strong> <a href="#GO">Gene ontology databases</a> <span class="citation">(e.g., <a href="#ref-GO2020" role="doc-biblioref">Consortium, 2020</a>)</span>.</li>
-<li><strong>Molecular database 3:</strong> <a href="#KEGG">Metabolic pathways databases</a> <span class="citation">(e.g., <a href="#ref-KEGG2022" role="doc-biblioref">Kanehisa et al., 2022</a>)</span>.</li>
+<li><strong>Molecular database 1:</strong> <a href="#prot">Protein sequences databases</a> <span class="citation">(e.g., <a href="#ref-UniProt2014">Consortium, 2014</a>)</span>.</li>
+<li><strong>Molecular database 2:</strong> <a href="#GO">Gene ontology databases</a> <span class="citation">(e.g., <a href="#ref-GO2020">Consortium, 2020</a>)</span>.</li>
+<li><strong>Molecular database 3:</strong> <a href="#KEGG">Metabolic pathways databases</a> <span class="citation">(e.g., <a href="#ref-KEGG2022">Kanehisa et al., 2022</a>)</span>.</li>
 </ul>
 <div id="background-information-1" class="section level2" number="3.1">
-<h2><span class="header-section-number">3.1</span> Background information</h2>
+<h2><span class="header-section-number">3.1</span> Background Information</h2>
 <p>Each student was assigned a molecular database to work on (please see <a href="https://docs.google.com/spreadsheets/d/1cRM1yasUfDa98ecyz_-RxUOw8cU4wkQx4O5Wxw3y4yU/edit?usp=sharing">Google spreadsheet</a> for more information).</p>
 <p>This individual assignment is mandatory and will be graded. Please see this task as an opportunity to consolidate your knowledge on molecular databases and writing scientific reports.</p>
 <p>Time will be allocated in class on the 2nd of February 2024 to allow students to work on their assignments. Reports are due on <strong>the 21st of February 2024</strong> and should be uploaded on the shared <a href="https://drive.google.com/drive/folders/1BFZFJeR8tW8N7QLfngqIVbjqEkDuIyWj?usp=sharing">Google Drive</a> in the <code>Mini_Report_2</code> folder.</p>
@@ -525,7 +665,7 @@ Data on Nanopore
 <h2><span class="header-section-number">3.3</span> Reporting format</h2>
 <p>Follow the same reporting format than with Mini-Report 1.</p>
 </div>
-<div id="format-to-name-document-1" class="section level2" number="3.4">
+<div id="format-to-name-document" class="section level2" number="3.4">
 <h2><span class="header-section-number">3.4</span> Format to name document</h2>
 <p><strong>Name your report document following this pattern</strong>: <code>Molecular database_Surname</code>.</p>
 </div>
@@ -540,11 +680,11 @@ Data on Nanopore
 <li><strong>SWISS-PROT</strong> (in Geneva, Switzerland): <a href="http://www.uniprot.org/statistics/Swiss-Prot">http://www.uniprot.org/statistics/Swiss-Prot</a></li>
 <li><strong>TrEMBL</strong> (in Hinxton, UK): <a href="http://www.uniprot.org/statistics/TrEMBL">http://www.uniprot.org/statistics/TrEMBL</a></li>
 </ul>
-<p>In 2002, these three databases coordinated their efforts to form the <strong>UniProt</strong> consortium <span class="citation">(<a href="#ref-UniProt2014" role="doc-biblioref">Consortium, 2014</a>)</span>. The partners in this enterprise share the database, but continue to offer separate information-retrieval tools for access. The UniProtKB database is available at this URL: <a href="http://www.uniprot.org">http://www.uniprot.org</a>. This latter database will be especially important to retrieve information on gene annotations (Chapters 6, 7) using the online tool available at this URL: <a href="http://www.uniprot.org/uploadlists/">http://www.uniprot.org/uploadlists/</a>. This will be done by specifically looking at Gene ontology (see <a href="#GO">GeneOntology</a>).</p>
+<p>In 2002, these three databases coordinated their efforts to form the <strong>UniProt</strong> consortium <span class="citation">(<a href="#ref-UniProt2014">Consortium, 2014</a>)</span>. The partners in this enterprise share the database, but continue to offer separate information-retrieval tools for access. The UniProtKB database is available at this URL: <a href="http://www.uniprot.org">http://www.uniprot.org</a>. This latter database will be especially important to retrieve information on gene annotations (Chapters 6, 7) using the online tool available at this URL: <a href="http://www.uniprot.org/uploadlists/">http://www.uniprot.org/uploadlists/</a>. This will be done by specifically looking at Gene ontology (see <a href="#GO">GeneOntology</a>).</p>
 </div>
 <div id="GO" class="section level3" number="3.5.2">
 <h3><span class="header-section-number">3.5.2</span> Gene ontology databases</h3>
-<p>Gene Ontology <span class="citation">(GO, <a href="#ref-GO2020" role="doc-biblioref">Consortium, 2020</a>)</span> (<a href="http://www.geneontology.org">http://www.geneontology.org</a>): the framework for the model of biology. The GO defines concepts/classes used to describe gene function, and relationships between these concepts. It classifies functions along three aspects:</p>
+<p>Gene Ontology <span class="citation">(GO, <a href="#ref-GO2020">Consortium, 2020</a>)</span> (<a href="http://www.geneontology.org">http://www.geneontology.org</a>): the framework for the model of biology. The GO defines concepts/classes used to describe gene function, and relationships between these concepts. It classifies functions along three aspects:</p>
 <ul>
 <li><strong>Cellular component:</strong> This term describes a component of a cell that is part of a larger object, such as an anatomical structure (e.g. rough endoplasmic reticulum or nucleus) or a gene product group (e.g. ribosome, proteasome or a protein dimer).</li>
 <li><strong>Biological process:</strong> A biological process term describes a series of events accomplished by one or more organized assemblies of molecular functions. Examples of broad biological process terms are “cellular physiological process” or “signal transduction”. Examples of more specific terms are “pyrimidine metabolic process” or “alpha-glucoside transport”. The general rule to assist in distinguishing between a biological process and a molecular function is that a process must have more than one distinct steps.
@@ -557,7 +697,7 @@ Other useful tool to perform gene annotations: </p>
 </div>
 <div id="KEGG" class="section level3" number="3.5.3">
 <h3><span class="header-section-number">3.5.3</span> Metabolic pathways databases</h3>
-<p>The Kyoto Encyclopedia of Genes and Genomes <span class="citation">(KEGG, <a href="#ref-KEGG2022" role="doc-biblioref">Kanehisa et al., 2022</a>)</span> (<a href="http://www.genome.jp/kegg/">http://www.genome.jp/kegg/</a>) collects individual genomes, gene products, and their functions, but its special strength lies in its integration of biochemical and genetic information. KEGG focuses on interactions: molecular assemblies, and metabolic and regulatory networks. KEGG organizes five data types into a comprehensive system:</p>
+<p>The Kyoto Encyclopedia of Genes and Genomes <span class="citation">(KEGG, <a href="#ref-KEGG2022">Kanehisa et al., 2022</a>)</span> (<a href="http://www.genome.jp/kegg/">http://www.genome.jp/kegg/</a>) collects individual genomes, gene products, and their functions, but its special strength lies in its integration of biochemical and genetic information. KEGG focuses on interactions: molecular assemblies, and metabolic and regulatory networks. KEGG organizes five data types into a comprehensive system:</p>
 <ul>
 <li>Catalogs of chemical compounds in living cells.</li>
 <li>Gene catalogs.</li>
@@ -566,21 +706,22 @@ Other useful tool to perform gene annotations: </p>
 <li>Orthologue tables.</li>
 </ul>
 <p>The catalogs of chemical compounds and genes contain information about particular molecules or sequences. Genome maps integrate the genes themselves according to their chromosomal position. Pathway maps describe potential networks of molecular activities, both metabolic and regulatory. One enzyme in one organism would be referred to in KEGG in its orthologue tables, which link the enzyme to related ones in other organisms. This permits analysis of relationships between the metabolic pathways of different organisms.</p>
+<hr style="border: 1.5px solid #999; margin: 2em 0;">
 </div>
 </div>
 </div>
 <div id="mini3" class="section level1" number="4">
-<h1><span class="header-section-number">4</span> Mini-report 3 – Species identifications based on DNA barcoding and phylogenetic inference</h1>
+<h1><span class="header-section-number">4</span> Mini-Report 3 – DNA-based Species Identification and Phylogenetic Inference</h1>
 <div id="learning-outcomes" class="section level2" number="4.1">
 <h2><span class="header-section-number">4.1</span> Learning outcomes</h2>
 <p>The following learning outcomes will be taught as part of this Mini-Report:</p>
 <ol style="list-style-type: decimal">
 <li>Process and clean DNA sequence electropherograms generated using the <a href="https://dnalc.cshl.edu/resources/animations/cycseq.html">Sanger sequencing approach</a> (based on PCR amplifications).</li>
-<li>Validate DNA sequence and provide species working hypothesis by conducting BLAST similarity DNA sequences analyses. This will be based on DNA sequences deposited on <a href="https://www.ncbi.nlm.nih.gov/genbank/">GenBank</a> <span class="citation">(<a href="#ref-GenBankP" role="doc-biblioref">Benson et al., 2005</a>)</span>.</li>
-<li>Query GenBank and download DNA sequences for phylogenetic analyses. This will be done using <code>R</code> <span class="citation">(<a href="#ref-R" role="doc-biblioref">R Core Team, 2016</a>)</span> packages.</li>
-<li>Produce DNA multiple sequence alignments (containing both your target DNA sequences and those from GenBank). This will be done using <code>MUSCLE</code> <span class="citation">(<a href="#ref-edgar2004muscle" role="doc-biblioref">Edgar, 2004</a>)</span> implemented in <code>MEGA</code> <span class="citation">(<a href="#ref-kumar2018mega" role="doc-biblioref">Kumar et al., 2018</a>)</span>.</li>
-<li>Infer phylogenetic analysis based on Maximum Likelihood criterion as implemented in RAxML <span class="citation">(<a href="#ref-Stamatakis2014" role="doc-biblioref">Stamatakis, 2014</a>)</span>. This phylogenetic framework will be used to test and refine species working hypotheses using the phylogenetic species concept <span class="citation">(<a href="#ref-wheeler1999phylogenetic" role="doc-biblioref">Wheeler, 1999</a>)</span>.</li>
-<li>Visualize and interpret phylogenetic analysis using <code>R</code> <span class="citation">(<a href="#ref-R" role="doc-biblioref">R Core Team, 2016</a>)</span> packages.</li>
+<li>Validate DNA sequence and provide species working hypothesis by conducting BLAST similarity DNA sequences analyses. This will be based on DNA sequences deposited on <a href="https://www.ncbi.nlm.nih.gov/genbank/">GenBank</a> <span class="citation">(<a href="#ref-GenBankP">Benson et al., 2005</a>)</span>.</li>
+<li>Query GenBank and download DNA sequences for phylogenetic analyses. This will be done using <code>R</code> <span class="citation">(<a href="#ref-R">R Core Team, 2016</a>)</span> packages.</li>
+<li>Produce DNA multiple sequence alignments (containing both your target DNA sequences and those from GenBank). This will be done using <code>MUSCLE</code> <span class="citation">(<a href="#ref-edgar2004muscle">Edgar, 2004</a>)</span> implemented in <code>MEGA</code> <span class="citation">(<a href="#ref-kumar2018mega">Kumar et al., 2018</a>)</span>.</li>
+<li>Infer phylogenetic analysis based on Maximum Likelihood criterion as implemented in RAxML <span class="citation">(<a href="#ref-Stamatakis2014">Stamatakis, 2014</a>)</span>. This phylogenetic framework will be used to test and refine species working hypotheses using the phylogenetic species concept <span class="citation">(<a href="#ref-wheeler1999phylogenetic">Wheeler, 1999</a>)</span>.</li>
+<li>Visualize and interpret phylogenetic analysis using <code>R</code> <span class="citation">(<a href="#ref-R">R Core Team, 2016</a>)</span> packages.</li>
 <li>Learn the terminology associated with DNA barcoding and phylogenetic analyses. Key definitions associated to the most used terms are available in the <a href="Lexicon.html">Lexicon</a>.</li>
 </ol>
 </div>
@@ -588,7 +729,7 @@ Other useful tool to perform gene annotations: </p>
 <h2><span class="header-section-number">4.2</span> Publications</h2>
 <p>This mini-report is mostly based on the following publication:</p>
 <ul>
-<li><span class="citation">Ellestad et al. (<a href="#ref-Ellestad2022AJB" role="doc-biblioref">2022</a>)</span> - <strong>DNA barcoding and phylogenetics of Vanilla</strong></li>
+<li><span class="citation">Ellestad et al. (<a href="#ref-Ellestad2022AJB">2022</a>)</span> - <strong>DNA barcoding and phylogenetics of Vanilla</strong></li>
 </ul>
 <p>In each section, references are provided to help you master the material taught in this assignment.</p>
 </div>
@@ -607,22 +748,22 @@ Other useful tool to perform gene annotations: </p>
 <h2><span class="header-section-number">4.4</span> Introduction</h2>
 <div id="how-many-species-are-there-on-earth" class="section level3" number="4.4.1">
 <h3><span class="header-section-number">4.4.1</span> How many species are there on Earth?</h3>
-<p>Projections of global biodiversity have ranged from 2 to 100 million species <span class="citation">(<a href="#ref-Larsen2017" role="doc-biblioref">Larsen et al., 2017</a>)</span>.</p>
-<p>But these estimations are without accounting for cryptic species! See for instance <span class="citation">Dentinger and Suz (<a href="#ref-dentinger2014s" role="doc-biblioref">2014</a>)</span> for an example on porcini. In this study, the authors used DNA-sequencing to identify three species of mushroom contained within a commercial packet of dried Chinese porcini purchased in London. Surprisingly, all three have never been formally described by science and required new scientific names.</p>
-<p><span class="citation">Larsen et al. (<a href="#ref-Larsen2017" role="doc-biblioref">2017</a>)</span> recently published a keystone paper where they predicted <strong>1 to 6 billion species on Earth</strong>! This prediction was based on an average of 6 cryptic species per described species.</p>
+<p>Projections of global biodiversity have ranged from 2 to 100 million species <span class="citation">(<a href="#ref-Larsen2017">Larsen et al., 2017</a>)</span>.</p>
+<p>But these estimations are without accounting for cryptic species! See for instance <span class="citation">Dentinger and Suz (<a href="#ref-dentinger2014s">2014</a>)</span> for an example on porcini. In this study, the authors used DNA-sequencing to identify three species of mushroom contained within a commercial packet of dried Chinese porcini purchased in London. Surprisingly, all three have never been formally described by science and required new scientific names.</p>
+<p><span class="citation">Larsen et al. (<a href="#ref-Larsen2017">2017</a>)</span> recently published a keystone paper where they predicted <strong>1 to 6 billion species on Earth</strong>! This prediction was based on an average of 6 cryptic species per described species.</p>
 <p>Overall, data presented here demonstrate that <strong>most species on this planet are either poorly known or pending description</strong>.</p>
 <p>In this context, the fields of genetics/genomics (more specifically <a href="#barcode">DNA barcoding</a>) and phylogenetics have the potential to contribute to:</p>
 <ul>
 <li>species identifications and naming (taxonomy).</li>
 <li>infer evolutionary frameworks allowing developing working hypotheses on species boundaries, relationships and their spatio-temporal histories (e.g. knowing how did species cope with past climatic conditions will provide insights into their adaptive capacity to forecasted conditions).</li>
 </ul>
-<p>Approaches combining these two objectives were applied across lineages. See for instance, an article describing a new species belonging to the soapberry family (Sapindaceae) endemic to Fiji <span class="citation">(<a href="#ref-buerki2017alectryon" role="doc-biblioref">Buerki et al., 2017</a>)</span>. In this study, the phylogeny is used to confirm the new taxon and place it within a larger evolutionary and biogeographical framework. Finally, this evidence is coupled with occurrence data to infer a species extinction risk following IUCN guidelines.</p>
+<p>Approaches combining these two objectives were applied across lineages. See for instance, an article describing a new species belonging to the soapberry family (Sapindaceae) endemic to Fiji <span class="citation">(<a href="#ref-buerki2017alectryon">Buerki et al., 2017</a>)</span>. In this study, the phylogeny is used to confirm the new taxon and place it within a larger evolutionary and biogeographical framework. Finally, this evidence is coupled with occurrence data to infer a species extinction risk following IUCN guidelines.</p>
 </div>
 <div id="barcode" class="section level3" number="4.4.2">
 <h3><span class="header-section-number">4.4.2</span> DNA barcoding: Species identification</h3>
-<p>The Consortium for the Barcode of Life (<a href="https://www.ibol.org/phase1/cbol/">CBOL</a>) is an international initiative devoted to developing DNA barcoding as a global standard for the identification of biological species. CBOL has more than 130 Member Organizations from more than 40 countries <span class="citation">(<a href="#ref-CBOL" role="doc-biblioref">CBOL, 2021</a>)</span>.</p>
-<p><strong>DNA barcoding</strong> is a method of species identification using a short section of DNA from a specific gene or genes. The premise of DNA barcoding is that, by comparison with a reference library of such DNA sections, an individual DNA sequence can be used to uniquely identify an organism to species. This is analogous to a supermarket scanner using the familiar black stripes of the UPC barcode to identify an item in its stock against its reference database <span class="citation">(<a href="#ref-CBOL" role="doc-biblioref">CBOL, 2021</a>)</span>. DNA barcodes are sometimes used in an effort to identify unknown species, parts of an organism, or simply to catalog as many taxa as possible, or to compare with traditional taxonomy in an effort to determine species boundaries. For more details on DNA barcodes applied to plants, please see section <a href="#vanbarcode">below</a> dedicated to vanilla.</p>
-<p>DNA barcoding has a wide range of applications from biodiversity surveys <span class="citation">(e.g. <a href="#ref-telfer2015biodiversity" role="doc-biblioref">Telfer et al., 2015</a>)</span>, illegal trade of wildlife <span class="citation">(e.g. <a href="#ref-gonccalves2015dna" role="doc-biblioref">Gonçalves et al., 2015</a>)</span> to food security <span class="citation">(e.g. <a href="#ref-quinto2016dna" role="doc-biblioref">Quinto et al., 2016</a>)</span>. The DNA barcoding approach has been reviewed by <span class="citation">DeSalle and Goldstein (<a href="#ref-deSalle2019" role="doc-biblioref">2019</a>)</span>.</p>
+<p>The Consortium for the Barcode of Life (<a href="https://www.ibol.org/phase1/cbol/">CBOL</a>) is an international initiative devoted to developing DNA barcoding as a global standard for the identification of biological species. CBOL has more than 130 Member Organizations from more than 40 countries <span class="citation">(<a href="#ref-CBOL">CBOL, 2021</a>)</span>.</p>
+<p><strong>DNA barcoding</strong> is a method of species identification using a short section of DNA from a specific gene or genes. The premise of DNA barcoding is that, by comparison with a reference library of such DNA sections, an individual DNA sequence can be used to uniquely identify an organism to species. This is analogous to a supermarket scanner using the familiar black stripes of the UPC barcode to identify an item in its stock against its reference database <span class="citation">(<a href="#ref-CBOL">CBOL, 2021</a>)</span>. DNA barcodes are sometimes used in an effort to identify unknown species, parts of an organism, or simply to catalog as many taxa as possible, or to compare with traditional taxonomy in an effort to determine species boundaries. For more details on DNA barcodes applied to plants, please see section <a href="#vanbarcode">below</a> dedicated to vanilla.</p>
+<p>DNA barcoding has a wide range of applications from biodiversity surveys <span class="citation">(e.g. <a href="#ref-telfer2015biodiversity">Telfer et al., 2015</a>)</span>, illegal trade of wildlife <span class="citation">(e.g. <a href="#ref-gonccalves2015dna">Gonçalves et al., 2015</a>)</span> to food security <span class="citation">(e.g. <a href="#ref-quinto2016dna">Quinto et al., 2016</a>)</span>. The DNA barcoding approach has been reviewed by <span class="citation">DeSalle and Goldstein (<a href="#ref-deSalle2019">2019</a>)</span>.</p>
 <div id="procedure" class="section level4" number="4.4.2.1">
 <h4><span class="header-section-number">4.4.2.1</span> Procedure</h4>
 <p>A DNA barcoding approach is subdivided into four steps:</p>
@@ -630,13 +771,13 @@ Other useful tool to perform gene annotations: </p>
 <li>Isolate DNA from the target sample.</li>
 <li>Amplify the target DNA barcode region using PCR.</li>
 <li>Sequence the PCR products using either Sanger sequencing or NGS (mostly on Illumina platform).</li>
-<li>Compare the resulting sequences against reference databases to find the matching species. Here, we will be using DNA sequences from <a href="https://www.ncbi.nlm.nih.gov/genbank/">GenBank</a> as our reference <span class="citation">(<a href="#ref-GenBankP" role="doc-biblioref">Benson et al., 2005</a>)</span>. See Chapter 3 for more details on GenBank.</li>
+<li>Compare the resulting sequences against reference databases to find the matching species. Here, we will be using DNA sequences from <a href="https://www.ncbi.nlm.nih.gov/genbank/">GenBank</a> as our reference <span class="citation">(<a href="#ref-GenBankP">Benson et al., 2005</a>)</span>. See Chapter 3 for more details on GenBank.</li>
 </ol>
 </div>
 </div>
 <div id="phylogenetic-inference" class="section level3" number="4.4.3">
 <h3><span class="header-section-number">4.4.3</span> Phylogenetic inference</h3>
-<p>As described in <span class="citation">Masters and Pozzi (<a href="#ref-Masters2017" role="doc-biblioref">2017</a>)</span>, <strong>phylogenetic inference is the practice of reconstructing the evolutionary history of related species by grouping them in successively more inclusive sets based on shared ancestry</strong>. Homologous characters in independent lineages are similar because they have been inherited from a common ancestor, and they alone should be used in phylogenetic reconstructions. Homoplasies are characters that appear similar, but have evolved from different ancestral states. They may mislead interpretations of evolutionary history. Both molecular and morphological datasets are subject to obfuscation by homoplasy. <strong>Methods of phylogenetic inference aim to distinguish between homologous (signal) and homoplastic (noise) resemblance.</strong> Molecular datasets tend to be very large and are analyzed using statistical techniques that fit the data to models of molecular evolution. These methods are not well suited to morphological data, and combined analyses including both kinds of data tend to obscure the morphological signal. Rates of molecular change may be used to estimate divergence ages.</p>
+<p>As described in <span class="citation">Masters and Pozzi (<a href="#ref-Masters2017">2017</a>)</span>, <strong>phylogenetic inference is the practice of reconstructing the evolutionary history of related species by grouping them in successively more inclusive sets based on shared ancestry</strong>. Homologous characters in independent lineages are similar because they have been inherited from a common ancestor, and they alone should be used in phylogenetic reconstructions. Homoplasies are characters that appear similar, but have evolved from different ancestral states. They may mislead interpretations of evolutionary history. Both molecular and morphological datasets are subject to obfuscation by homoplasy. <strong>Methods of phylogenetic inference aim to distinguish between homologous (signal) and homoplastic (noise) resemblance.</strong> Molecular datasets tend to be very large and are analyzed using statistical techniques that fit the data to models of molecular evolution. These methods are not well suited to morphological data, and combined analyses including both kinds of data tend to obscure the morphological signal. Rates of molecular change may be used to estimate divergence ages.</p>
 <p>In this mini-report, we will be focusing on inferring phylogenetic trees based on DNA sequences obtained through the DNA barcoding approach described <a href="#barcode">above</a>.</p>
 <div id="procedure-1" class="section level4" number="4.4.3.1">
 <h4><span class="header-section-number">4.4.3.1</span> Procedure</h4>
@@ -652,7 +793,7 @@ Other useful tool to perform gene annotations: </p>
 </div>
 <div id="vanilla" class="section level2" number="4.5">
 <h2><span class="header-section-number">4.5</span> Introducing our model species: Vanilla</h2>
-<p>Like porcini <span class="citation">(<a href="#ref-dentinger2014s" role="doc-biblioref">Dentinger and Suz, 2014</a>)</span>, <strong>vanilla</strong> is one of our most beloved spice, but we still know very little about its biology, taxonomy and evolution <span class="citation">(see <a href="#ref-Ellestadinpress" role="doc-biblioref">Ellestad et al., 2021</a> for a review)</span>. As part of a study aiming at inferring domestication processes in the genus <em>Vanilla</em> and species adaptation to drought, fieldwork was conducted in Mexico by Paige Ellestad (an EEB Ph.D. student at BSU) and her in-country partners.</p>
+<p>Like porcini <span class="citation">(<a href="#ref-dentinger2014s">Dentinger and Suz, 2014</a>)</span>, <strong>vanilla</strong> is one of our most beloved spice, but we still know very little about its biology, taxonomy and evolution <span class="citation">(see <a href="#ref-Ellestadinpress">Ellestad et al., 2021</a> for a review)</span>. As part of a study aiming at inferring domestication processes in the genus <em>Vanilla</em> and species adaptation to drought, fieldwork was conducted in Mexico by Paige Ellestad (an EEB Ph.D. student at BSU) and her in-country partners.</p>
 <p>For her Ph.D. dissertation, Paige is applying a DNA barcoding approach coupled with phylogenetic inference (and ecological niche modeling) to answer the following questions:</p>
 <blockquote>
 <p>Q1: What species of vanilla are cultivated in Mexico?</p>
@@ -662,14 +803,14 @@ Other useful tool to perform gene annotations: </p>
 </div>
 <div id="vanbarcode" class="section level2" number="4.6">
 <h2><span class="header-section-number">4.6</span> Applied DNA barcodes for the vanilla project</h2>
-<p>To answer these questions, she sampled &gt;30 locations (mostly plantations, but also wild populations) representing &gt;60 samples and sequenced two DNA barcode regions widely used in plants: one chloroplastic (the coding <a href="https://www.ncbi.nlm.nih.gov/gene/844754"><em>rbcL</em></a> region) and one nuclear ribosomal (the ITS region, which stands for for “Internal Transcribed Spacer”). These two DNA regions are traditionally used by researchers as DNA barcodes supporting species delimitation and identifications. Since you are already familiar with <em>rbcL</em> <span class="citation">(see <a href="#ref-Hollingsworth2009" role="doc-biblioref">Hollingsworth et al., 2009</a> for more details)</span>, we will be providing more details on the ITS region. The nuclear ribosomal ITS region includes part of 18S, ITS1, 5.8S, ITS2 and part of 26S <span class="citation">(see Figure <a href="#fig:ITS">4.1</a>, <a href="#ref-Cheng2016" role="doc-biblioref">Cheng et al., 2016</a>)</span>. This region is repeated in tandem 1000 of times and duplicated across chromosomes in order to produce ribosomes, which are key to produce proteins. This latter DNA region is shared across kingdoms and plant specific primers have to be used otherwise we may be at risk of amplifying this region for symbiotic organisms <span class="citation">(e.g. fungi, see <a href="#ref-Cheng2016" role="doc-biblioref">Cheng et al., 2016</a>)</span>.</p>
+<p>To answer these questions, she sampled &gt;30 locations (mostly plantations, but also wild populations) representing &gt;60 samples and sequenced two DNA barcode regions widely used in plants: one chloroplastic (the coding <a href="https://www.ncbi.nlm.nih.gov/gene/844754"><em>rbcL</em></a> region) and one nuclear ribosomal (the ITS region, which stands for for “Internal Transcribed Spacer”). These two DNA regions are traditionally used by researchers as DNA barcodes supporting species delimitation and identifications. Since you are already familiar with <em>rbcL</em> <span class="citation">(see <a href="#ref-Hollingsworth2009">Hollingsworth et al., 2009</a> for more details)</span>, we will be providing more details on the ITS region. The nuclear ribosomal ITS region includes part of 18S, ITS1, 5.8S, ITS2 and part of 26S <span class="citation">(see Figure <a href="#fig:ITS">4.1</a>, <a href="#ref-Cheng2016">Cheng et al., 2016</a>)</span>. This region is repeated in tandem 1000 of times and duplicated across chromosomes in order to produce ribosomes, which are key to produce proteins. This latter DNA region is shared across kingdoms and plant specific primers have to be used otherwise we may be at risk of amplifying this region for symbiotic organisms <span class="citation">(e.g. fungi, see <a href="#ref-Cheng2016">Cheng et al., 2016</a>)</span>.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:ITS"></span>
 <img src="Images/ITS.png" alt="Map of the ITS nuclear ribsomal region with primers (from Cheng et al, 2016)." width="100%" />
 <p class="caption">
 Figure 4.1: Map of the ITS nuclear ribsomal region with primers (from Cheng et al, 2016).
 </p>
 </div>
-<p>DNA extractions of leaf material were conducted at BSU using the Qiagen Plant Mini kit followed by PCR amplifications using plant specific primers [for instance, the IT4p and ITS5p primers for the ITS region; see <span class="citation">Cheng et al. (<a href="#ref-Cheng2016" role="doc-biblioref">2016</a>)</span>]. Sequencing was outsourced to <a href="https://www.genewiz.com">GENEWIZ</a> and performed using Sanger sequencing technology. PCR amplicons/fragments were only sequenced using forward primers. As per provider, we are expecting high quality DNA sequencing read lengths of up to ca. 1000 bases. The company also mentions that a typical read would provide 800 bases with Phred score of 20.</p>
+<p>DNA extractions of leaf material were conducted at BSU using the Qiagen Plant Mini kit followed by PCR amplifications using plant specific primers [for instance, the IT4p and ITS5p primers for the ITS region; see <span class="citation">Cheng et al. (<a href="#ref-Cheng2016">2016</a>)</span>]. Sequencing was outsourced to <a href="https://www.genewiz.com">GENEWIZ</a> and performed using Sanger sequencing technology. PCR amplicons/fragments were only sequenced using forward primers. As per provider, we are expecting high quality DNA sequencing read lengths of up to ca. 1000 bases. The company also mentions that a typical read would provide 800 bases with Phred score of 20.</p>
 </div>
 <div id="sciq" class="section level2" number="4.7">
 <h2><span class="header-section-number">4.7</span> Mini-Report 3 scientific questions</h2>
@@ -699,7 +840,7 @@ Figure 4.2: Images of the four samples of vanilla collected in Mexico studied in
 <blockquote>
 <p>Individuals belong to the same species (<em>V. planifolia</em>) and thr observed phenotypic variation is due to phenotypic plasticity (= exhibiting responses to contrasting climates).</p>
 </blockquote>
-<p>To test our hypothesis, we are applying the <strong>phylogenetic species concept</strong> <span class="citation">(<a href="#ref-wheeler1999phylogenetic" role="doc-biblioref">Wheeler, 1999</a>)</span> (mainly criterion of monophyly) using DNA barcoding data analyzed using a phylogenetic approach. If our hypothesis is correct, then we <strong>predict</strong> that all the individuals will form a monophyletic clade and fall with other samples belonging to <em>V. planifolia</em>.</p>
+<p>To test our hypothesis, we are applying the <strong>phylogenetic species concept</strong> <span class="citation">(<a href="#ref-wheeler1999phylogenetic">Wheeler, 1999</a>)</span> (mainly criterion of monophyly) using DNA barcoding data analyzed using a phylogenetic approach. If our hypothesis is correct, then we <strong>predict</strong> that all the individuals will form a monophyletic clade and fall with other samples belonging to <em>V. planifolia</em>.</p>
 <p>To test this hypothesis, we have generated ITS barcode data for individuals in Figure <a href="#fig:van">4.2</a> and aim at comparing them with data from GenBank (= reference data).</p>
 <p>Our <strong>analyses</strong> will be done using the following methodology:</p>
 <ol style="list-style-type: decimal">
@@ -752,7 +893,7 @@ Figure 4.2: Images of the four samples of vanilla collected in Mexico studied in
 </div>
 <div id="project-structure-and-data" class="section level2" number="4.10">
 <h2><span class="header-section-number">4.10</span> Project structure and data</h2>
-<p>To support mastering the learning outcomes, we will be using a subset of a DNA dataset focusing on the <a href="#vanilla">vanilla</a> spice (from the Orchidaceae family) published by <span class="citation">Ellestad et al. (<a href="#ref-Ellestad2022AJB" role="doc-biblioref">2022</a>)</span>.</p>
+<p>To support mastering the learning outcomes, we will be using a subset of a DNA dataset focusing on the <a href="#vanilla">vanilla</a> spice (from the Orchidaceae family) published by <span class="citation">Ellestad et al. (<a href="#ref-Ellestad2022AJB">2022</a>)</span>.</p>
 <p>The data for this assignment are deposited on the shared <a href="https://drive.google.com/drive/folders/1iBMwP67FoSTMDX-EpXOlf8utP9k8tu8k?usp=sharing">Google Drive</a> in a folder entitled <code>DNA_barcoding</code> (located in <code>Mini_Report_3</code>). All students enrolled in this class have been granted access to this folder. The folder is subdivided into four sub-folders (see Figure <a href="#fig:datastr">4.3</a>) and contains a master spreadsheet <code>Vanilla_samples_records.xlsx</code> at its root:</p>
 <ul>
 <li><code>01_Field_images</code>: <code>jpeg</code> images of samples.</li>
@@ -770,7 +911,7 @@ Figure 4.3: Screenshot of the DNA_barcoding folder showing data structure for th
 </div>
 <div id="data-availability" class="section level3" number="4.10.1">
 <h3><span class="header-section-number">4.10.1</span> Data availability</h3>
-<p>The data availability statement associated with <span class="citation">Ellestad et al. (<a href="#ref-Ellestad2022AJB" role="doc-biblioref">2022</a>)</span> is as follows:</p>
+<p>The data availability statement associated with <span class="citation">Ellestad et al. (<a href="#ref-Ellestad2022AJB">2022</a>)</span> is as follows:</p>
 <p>All sequence data for this project are available at the National Center for Biotechnology Information (NCBI) under GenBank ITS sequences ON525161–ON525228, GenBank <em>rbcL</em> sequences ON531917–ON531986, BioProject accession no. PRJNA841950, and BioSample accession nos. SAMN28632719–SAMN28632734. All raw sequence files are available from the NCBI SRA database, nos. SRR19374405–SRR193744012, SRR19374414, SRR19374417, and SRR19374418. DNA alignments are available at Zenodo: <a href="https://doi.org/10.5281/zenodo.6577744" class="uri">https://doi.org/10.5281/zenodo.6577744</a></p>
 </div>
 </div>
@@ -787,7 +928,7 @@ Figure 4.3: Screenshot of the DNA_barcoding folder showing data structure for th
 <p>The bioinformatic tools used in part 1 are as follows:</p>
 <ol style="list-style-type: decimal">
 <li><code>FinchTV</code>: A popular desktop software developed by Geospiza, Inc. for viewing trace data from Sanger DNA Sequencing. <code>FinchTV</code> is freely available and operates on Windows and Mac platforms. Start by downloading and installing the software on your computers at this URL: <a href="https://digitalworldbiology.com/FinchTV" class="uri">https://digitalworldbiology.com/FinchTV</a></li>
-<li><code>BLAST</code>: The Basic Local Alignment Search Tool <span class="citation">(BLAST, <a href="#ref-ALTSCHUL1990403" role="doc-biblioref">Altschul et al., 1990</a>)</span> will be applied onto cleaned DNA sequences to:
+<li><code>BLAST</code>: The Basic Local Alignment Search Tool <span class="citation">(BLAST, <a href="#ref-ALTSCHUL1990403">Altschul et al., 1990</a>)</span> will be applied onto cleaned DNA sequences to:
 <ul>
 <li>Confirm that the DNA sequences correspond to the correct DNA region (here ITS region).</li>
 <li>Validate that DNA sequences belong to the right taxon (here belonging to the genus <em>Vanilla</em>) and are therefore not contaminated.</li>
@@ -819,7 +960,7 @@ Figure 4.4: Screenshot of FinchTV app.
 </div>
 <div id="iupac-codes" class="section level3" number="4.11.4">
 <h3><span class="header-section-number">4.11.4</span> IUPAC codes</h3>
-<p>Nuclear DNA regions such as ITS could show evidence of recombination. This means that there could be polymorphism at a specific base [also know as single-nucleotide polymorphism or SNP; see <span class="citation">Poplin et al. (<a href="#ref-Poplin2018" role="doc-biblioref">2018</a>)</span> for bioinformatics technics to identify SNPs based on NGS data]. The signature of recombination in an electropherogram would be recognized by the occurrence of “peak under peak” (Figure <a href="#fig:peakunderpeak">4.5</a>). The International Union of Pure and Applied Chemistry (IUPAC) has defined a standard representation of DNA bases by single characters that specify either a single base (e.g. G for guanine, A for adenine) or a set of bases (e.g. R for either G or A). UCSC uses these single character codes to represent multiple observed alleles of single-base polymorphisms (Table <a href="#tab:IUPAC">4.1</a>).</p>
+<p>Nuclear DNA regions such as ITS could show evidence of recombination. This means that there could be polymorphism at a specific base [also know as single-nucleotide polymorphism or SNP; see <span class="citation">Poplin et al. (<a href="#ref-Poplin2018">2018</a>)</span> for bioinformatics technics to identify SNPs based on NGS data]. The signature of recombination in an electropherogram would be recognized by the occurrence of “peak under peak” (Figure <a href="#fig:peakunderpeak">4.5</a>). The International Union of Pure and Applied Chemistry (IUPAC) has defined a standard representation of DNA bases by single characters that specify either a single base (e.g. G for guanine, A for adenine) or a set of bases (e.g. R for either G or A). UCSC uses these single character codes to represent multiple observed alleles of single-base polymorphisms (Table <a href="#tab:IUPAC">4.1</a>).</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:peakunderpeak"></span>
 <img src="Images/peak_under_peak.png" alt="Screenshot of DNA sequence electropherogram showing signature of peak under peak suggesting recombination." width="20%" />
 <p class="caption">
@@ -1008,7 +1149,7 @@ Figure 4.13: Position of your DNA sequence on tree.
 </ul></li>
 <li><code>R</code> package:
 <ul>
-<li><em>rentrez</em> <span class="citation">(<a href="#ref-rentrez" role="doc-biblioref">Winter, 2017</a>)</span>: <a href="https://cran.r-project.org/web/packages/rentrez/index.html" class="uri">https://cran.r-project.org/web/packages/rentrez/index.html</a></li>
+<li><em>rentrez</em> <span class="citation">(<a href="#ref-rentrez">Winter, 2017</a>)</span>: <a href="https://cran.r-project.org/web/packages/rentrez/index.html" class="uri">https://cran.r-project.org/web/packages/rentrez/index.html</a></li>
 </ul></li>
 </ul>
 <p>If you don’t know how to install an R package, don’t worry, this topic is covered <a href="#query">here</a>.</p>
@@ -1070,7 +1211,7 @@ class(x)</code></pre>
 <ol style="list-style-type: decimal">
 <li>Expand sampling for phylogenetic analyses by downloading ITS DNA sequences of <em>Vanilla</em> species deposited on GenBank using the following approach:
 <ul>
-<li>Use functions from the <em>rentrez</em> <code>R</code> package <span class="citation">(<a href="#ref-rentrez" role="doc-biblioref">Winter, 2017</a>)</span> to download DNA sequences and metadata.</li>
+<li>Use functions from the <em>rentrez</em> <code>R</code> package <span class="citation">(<a href="#ref-rentrez">Winter, 2017</a>)</span> to download DNA sequences and metadata.</li>
 <li>Build a table with species taxonomy associated to GenBank accessions.</li>
 <li>Clean the data and save outputs in <code>FASTA</code> and <code>csv</code> formats.</li>
 </ul></li>
@@ -1084,7 +1225,7 @@ class(x)</code></pre>
 </div>
 <div id="download-and-write-dna-sequences-and-retrieve-taxonomy" class="section level3" number="4.12.7">
 <h3><span class="header-section-number">4.12.7</span> Download and write DNA sequences and retrieve taxonomy</h3>
-<p>Here, we are demonstrating an approach to search GenBank for ITS sequences of <em>Vanilla</em> species using <em>rentrez</em> <span class="citation">(<a href="#ref-rentrez" role="doc-biblioref">Winter, 2017</a>)</span>. Students are tasked to study/examine and execute the code and finally adapt it to search for ITS sequences. The code is subdivided into the following steps:</p>
+<p>Here, we are demonstrating an approach to search GenBank for ITS sequences of <em>Vanilla</em> species using <em>rentrez</em> <span class="citation">(<a href="#ref-rentrez">Winter, 2017</a>)</span>. Students are tasked to study/examine and execute the code and finally adapt it to search for ITS sequences. The code is subdivided into the following steps:</p>
 <ol style="list-style-type: decimal">
 <li>Build a GenBank query. But prior to that we will load R package and set our working directory.</li>
 <li>Retrieve DNA sequences matching query deposited on GenBank.</li>
@@ -1095,7 +1236,7 @@ class(x)</code></pre>
 </div>
 <div id="method-to-download-data-from-entrez" class="section level3" number="4.12.8">
 <h3><span class="header-section-number">4.12.8</span> Method to download data from Entrez</h3>
-<p>The following method (or pseudo-code) is applied to download (here referred to as “fetch”) data from Entrez using <em>rentrez</em> <span class="citation">(<a href="#ref-rentrez" role="doc-biblioref">Winter, 2017</a>)</span>:</p>
+<p>The following method (or pseudo-code) is applied to download (here referred to as “fetch”) data from Entrez using <em>rentrez</em> <span class="citation">(<a href="#ref-rentrez">Winter, 2017</a>)</span>:</p>
 <ol style="list-style-type: decimal">
 <li>Build GenBank query
 <ul>
@@ -1529,12 +1670,12 @@ write.table(FASTAall, file =
 <h3><span class="header-section-number">4.13.2</span> Bioinformatic tools</h3>
 <p>To execute Part 3, you need to install the following software and R packages on your computer:</p>
 <ul>
-<li><code>MEGA</code> <span class="citation">(<a href="#ref-kumar2018mega" role="doc-biblioref">Kumar et al., 2018</a>)</span>: Please download the GUI version of the software associated to your operating system at this URL:
+<li><code>MEGA</code> <span class="citation">(<a href="#ref-kumar2018mega">Kumar et al., 2018</a>)</span>: Please download the GUI version of the software associated to your operating system at this URL:
 <ul>
 <li><a href="https://www.megasoftware.net/" class="uri">https://www.megasoftware.net/</a></li>
 </ul></li>
 <li><code>FigTree</code> (a software to visualize and manipulate trees): <a href="https://github.com/rambaut/figtree/releases" class="uri">https://github.com/rambaut/figtree/releases</a></li>
-<li><code>R</code> package: <em>ape</em> <span class="citation">(<a href="#ref-ape" role="doc-biblioref">Paradis et al., 2004</a>)</span>.</li>
+<li><code>R</code> package: <em>ape</em> <span class="citation">(<a href="#ref-ape">Paradis et al., 2004</a>)</span>.</li>
 </ul>
 <p>If you don’t remember how to install an R package, don’t worry, this topic was covered <a href="#query">here</a>.</p>
 </div>
@@ -1542,7 +1683,7 @@ write.table(FASTAall, file =
 <h3><span class="header-section-number">4.13.3</span> Analytical workflow</h3>
 <p>To infer the ML phylogenetic analysis, the following workflow will be executed: implemented:</p>
 <ol style="list-style-type: decimal">
-<li>Conduct the msa analysis using the <code>MUSCLE</code> algorithm <span class="citation">(<a href="#ref-edgar2004muscle" role="doc-biblioref">Edgar, 2004</a>)</span>. This algorithm is implemented in <code>MEGA</code>. The input data for this analysis is <code>Vanilla_internal transcribed spacer_2021_02_09_GenBank_seq_msa_input.fasta</code>, which is stored in <code>04_Data_analyses/FASTA/</code>.</li>
+<li>Conduct the msa analysis using the <code>MUSCLE</code> algorithm <span class="citation">(<a href="#ref-edgar2004muscle">Edgar, 2004</a>)</span>. This algorithm is implemented in <code>MEGA</code>. The input data for this analysis is <code>Vanilla_internal transcribed spacer_2021_02_09_GenBank_seq_msa_input.fasta</code>, which is stored in <code>04_Data_analyses/FASTA/</code>.</li>
 <li>Check and manually edit msa. This will be done in <code>MEGA</code>.</li>
 <li>Infer ML phylogenetic tree based on msa file. This will be done using the <code>RAxML</code> algorithm (available on a web platform).</li>
 <li>Visualize phylogenetic tree and interpret results.</li>
@@ -1569,7 +1710,7 @@ write.table(FASTAall, file =
 Figure 4.16: Screenshot of DNA matrix in MEGA.
 </p>
 </div>
-<p>4.To start a <code>MUSCLE</code> analysis do has shown in Figure <a href="#fig:muscle">4.17</a> (<code>Alignment -&gt; Align by MUSCLE</code>. A window will open saying <code>Nothing selected for alignment. Select all?</code>, click the <code>OK</code> button. Further details on the <code>MUSCLE</code> algorithm can be found in <span class="citation">Edgar (<a href="#ref-edgar2004muscle" role="doc-biblioref">2004</a>)</span>.</p>
+<p>4.To start a <code>MUSCLE</code> analysis do has shown in Figure <a href="#fig:muscle">4.17</a> (<code>Alignment -&gt; Align by MUSCLE</code>. A window will open saying <code>Nothing selected for alignment. Select all?</code>, click the <code>OK</code> button. Further details on the <code>MUSCLE</code> algorithm can be found in <span class="citation">Edgar (<a href="#ref-edgar2004muscle">2004</a>)</span>.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:muscle"></span>
 <img src="Images/MUSCLEMega.png" alt="Screenshot showing how to start a MUSCLE analysis in MEGA." width="100%" />
 <p class="caption">
@@ -1616,7 +1757,7 @@ Figure 4.21: Screenshot showing how to save file in MEGA.
 </div>
 <div id="infer-ml-phylogenetic-tree-based-on-msa-file" class="section level3" number="4.13.5">
 <h3><span class="header-section-number">4.13.5</span> Infer ML phylogenetic tree based on msa file</h3>
-<p>The <code>RAxML</code> algorithm will be used to conduct the ML phylogenetic analysis and infer node statistical supports using the bootstrap procedure <span class="citation">(<a href="#ref-RaxML" role="doc-biblioref">Kozlov et al., 2019</a>)</span>. This algorithm has been implemented on a web service platform accessible at this URL:
+<p>The <code>RAxML</code> algorithm will be used to conduct the ML phylogenetic analysis and infer node statistical supports using the bootstrap procedure <span class="citation">(<a href="#ref-RaxML">Kozlov et al., 2019</a>)</span>. This algorithm has been implemented on a web service platform accessible at this URL:
 - <a href="https://raxml-ng.vital-it.ch/#/" class="uri">https://raxml-ng.vital-it.ch/#/</a></p>
 <p><strong>WARNING:</strong> If the RAxML web service platform is down, the instructor will run the analysis locally (on a Linux computer). Please click <a href="#RAxMLLoc">here</a> for more details on the procedure.</p>
 <p>To perform the ML phylogenetic analysis:</p>
@@ -1697,7 +1838,7 @@ Figure 4.23: Screenshot of RAxML portal showing results of your analysis. The be
 </div>
 <div id="introduction-to-newick-tree-format" class="section level4" number="4.13.7.2">
 <h4><span class="header-section-number">4.13.7.2</span> Introduction to Newick tree format</h4>
-<p>The Newick Standard for representing trees in computer-readable form makes use of the <strong>correspondence between trees and nested parentheses</strong>. We owe this format to the British mathematician <a href="https://mathshistory.st-andrews.ac.uk/Biographies/Cayley/">Arthur Cayley</a>. Here we will be providing an overview of the Newick format using the R package <em>ape</em> <span class="citation">(<a href="#ref-ape" role="doc-biblioref">Paradis et al., 2004</a>)</span>.</p>
+<p>The Newick Standard for representing trees in computer-readable form makes use of the <strong>correspondence between trees and nested parentheses</strong>. We owe this format to the British mathematician <a href="https://mathshistory.st-andrews.ac.uk/Biographies/Cayley/">Arthur Cayley</a>. Here we will be providing an overview of the Newick format using the R package <em>ape</em> <span class="citation">(<a href="#ref-ape">Paradis et al., 2004</a>)</span>.</p>
 <p>To produce the “dummy” phylogenetic tree displayed in Figure <a href="#fig:intronewick">4.24</a>, the following syntax should be applied:</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:intronewick"></span>
 <img src="Mini_reports_files/figure-html/intronewick-1.png" alt="Rooted tree showing relationsip between 4 species." width="100%" />
@@ -1809,7 +1950,7 @@ tr</code></pre>
 ## Node labels:
 ##   100, 90, 60
 ## 
-## Rooted; includes branch lengths.</code></pre>
+## Rooted; includes branch length(s).</code></pre>
 <pre class="r"><code>###~~~
 #Check class
 ###~~~
@@ -1854,7 +1995,7 @@ tr$edge.length</code></pre>
 <li>Load ITS tree using the <em>ape::read.tree()</em> function.</li>
 <li>Discard bootstrap values &lt; 50% since these nodes are not statistically supported. This is done by finding nodes matching this criterion (in <code>ITS$node.label</code>) and replacing their values by nothing (<code>""</code>).</li>
 <li>Rename tips to facilitate reading. Since all accessions belong to same genus, we will replace “<em>Vanilla</em>” by “<em>V.</em>”.</li>
-<li>Root phylogenetic tree with outgroup taxon (using the <em>ape::root()</em> function). Analyses conducted by Paige <span class="citation">(<a href="#ref-Ellestad2022AJB" role="doc-biblioref">Ellestad et al., 2022</a>)</span> showed that <em>Vanilla inodora</em> (represented by the sample <code>1789804116_Vanilla_inodora</code>) is a suitable outgroup taxon.</li>
+<li>Root phylogenetic tree with outgroup taxon (using the <em>ape::root()</em> function). Analyses conducted by Paige <span class="citation">(<a href="#ref-Ellestad2022AJB">Ellestad et al., 2022</a>)</span> showed that <em>Vanilla inodora</em> (represented by the sample <code>1789804116_Vanilla_inodora</code>) is a suitable outgroup taxon.</li>
 <li>Ladderize and plot phylogenetic tree (using <em>ape::ladderize()</em> and <em>ape::plot.phylo()</em> functions; see Figure <a href="#fig:Vantreeall">4.27</a>). We will also color in red the tips associated with your vanilla samples to improve readability.</li>
 <li>Extract subtree containing our vanilla samples (using <em>ape::getMRCA()</em> and <em>ape::extract.clade()</em> functions) and plot tree (this time using the radial plotting mode; see Figure <a href="#fig:Vantreesub">4.28</a>). To better visualize your vanilla samples, we will plot a red circle next to their tips (using the <em>ape::tiplabels()</em> function) and rename them based on Figure <a href="#fig:van">4.2</a>.</li>
 <li>Export phylogenetic tree from step 6 in <code>pdf</code> format.</li>
