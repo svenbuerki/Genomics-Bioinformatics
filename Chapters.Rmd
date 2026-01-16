@@ -393,6 +393,8 @@ In this **1 hour and 40 minutes** in-class activity, students work in groups of 
 ### Materials
 
 - Full text of the giant panda genome paper  
+- [How to read a scientific paper](https://www.science.org/content/article/how-read-scientific-paper) 
+- [How to (seriously) read a scientific paper](https://www.science.org/content/article/how-seriously-read-scientific-paper)
 - Instructor presentation summarizing the publication and initiating discussion: [Journal Club: Giant Panda](Lectures/Journal_Club_Giant_panda.pdf)  
 - [NCBI Genome Database](https://www.ncbi.nlm.nih.gov/datasets/genome/) (optional reference)  
 - [Lexicon](https://svenbuerki.github.io/Genomics-Bioinformatics/Lexicon.html)
