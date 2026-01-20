@@ -386,7 +386,9 @@ Students **develop skills in reading and critically evaluating genomics publicat
 
 ### Activity Overview
 
-In this **1 hour and 40 minutes** in-class activity, students work in groups of **3–4** to explore the giant panda genome paper (each group includes at least one graduate student to help guide the discussion). The goal is to:
+In this **1 hour and 40 minutes** in-class activity, students work in groups of **3–4** to explore the giant panda genome paper (each group includes at least one graduate student to help guide the discussion). 
+
+The ***goals*** are to:
 
 - Interpret genome assembly metrics  
 - Evaluate technical and biological conclusions  
@@ -410,7 +412,7 @@ In this **1 hour and 40 minutes** in-class activity, students work in groups of 
 
 #### Context and Setup (15 minutes)
 
-- Review key assembly metrics introduced in lecture (e.g., scaffolds, N50, assembly completeness).  
+- Review key assembly metrics introduced in [Chapter 1's group activity](#genomediversity) and in slides 8–10 of this [presentation](Lectures/Journal_Club_Giant_panda.pdf) (e.g., scaffolds, N50, assembly completeness).
 - Discuss the importance of evaluating both **technical methods** and **biological conclusions** when reading genomics papers.  
 - Clarify expectations for group work, including collaborative note-taking and critical discussion.  
 
@@ -433,17 +435,19 @@ Each group collaboratively answers the following questions:
 2. **Sequencing Strategy:** Which sequencing technologies are used? What limitations or biases might they introduce?  
 3. **Assembly Quality:** How do the authors evaluate assembly completeness and quality? Which metrics are most informative?  
 4. **Biological Insights:** What conclusions do the authors draw (e.g., diet, metabolism, evolution)? How strong is the evidence?  
-5. **Reproducibility and Critique:** What information allows others to reproduce the study? How could modern methods improve it?
+5. **Historical Context and Impact:** When was this paper published, and why was it considered groundbreaking at the time? How did assembling a eukaryotic genome using only Illumina data influence subsequent genome projects and the development of modern genomics?  
+6. **Reproducibility and Critique:** What information allows others to reproduce the study? How could modern sequencing technologies and assembly approaches improve this work today?
 
-**Tip:** Assign one or two questions to each group member to analyze deeply, then share answers within the group to build consensus.
+**Tip:** Assign one or two questions to each group member to analyze in depth, then share answers within the group to build consensus.
 
 ---
 
 #### Group Synthesis and Preparation for Class Discussion (15 minutes)
 
-- Groups identify **two or three key insights** or **critical questions** they want to share with the class.  
+- Each group identifies **two to three key insights** or **critical questions** they want to share with the class.  
+- Groups designate **one or two group members** to serve as spokespersons for the whole-class debrief and discussion.
 - Prepare a short summary (bullet points or figure highlights) to support discussion.  
-- Focus on evidence-based reasoning and how assembly metrics relate to biological conclusions.
+- Focus on evidence-based reasoning and on how assembly metrics relate to biological conclusions.
 
 ---
 
