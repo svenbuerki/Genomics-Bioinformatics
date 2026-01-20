@@ -122,7 +122,11 @@ The syllabus can be accessed [here](https://svenbuerki.github.io/Genomics-Bioinf
 
 ## Goal
 
-The ***goal*** of this chapter is to establish the foundational genomics concepts required for the remainder of the course. Students will develop a shared theoretical framework—including key definitions (see [Lexicon](Lexicon.html))—that underpins genome sequencing, assembly, and annotation workflows. Emphasis is placed on the structure, organization, and function of DNA and RNA as they directly inform the design and interpretation of genomic research projects.
+The ***goal*** of this chapter is to establish the foundational genomics concepts required for the remainder of the course. 
+
+Students will develop a shared theoretical framework—including key definitions (see [Lexicon](Lexicon.html))—that underpins genome sequencing, assembly, and annotation workflows. 
+
+In this chapter, an emphasis will be placed on the structure, organization, and function of DNA and RNA as they directly inform the design and interpretation of genomic research projects.
 
 ---
 
@@ -141,7 +145,7 @@ The key learning outcomes of this chapter are:
   + This will be especially important for the [Lab. report](Mining_draft_genome.html).
 - Appreciate the diversity of genome organization in organelles, prokaryotes, and eukaryotes [e.g., @Saitou2013].
 - Understand how organelle genomes have contributed to the evolution of eukaryotic chromosomes and how this impacts genome assembly project design [e.g., @Timmis2004].
-- Appreciate that eukaryotic genomes contain extensive and diverse repetitive regions.
+- Appreciate that eukaryotic genomes contain extensive and diverse repetitive regions [e.g., the sagebrush genome contains approximately 78% repetitive elements, @Melton2022].
 - Appreciate the diversity of published genomes and variation in their levels of completeness.
   + This topic will be further investigated in a [group activity](#genomediveristy)
 - Understand the importance of computer science and bioinformatics in generating raw sequencing data and assembling genomes.
