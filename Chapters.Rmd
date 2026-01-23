@@ -466,6 +466,78 @@ Each group collaboratively answers the following questions:
 
 ---
 
+## 🧠 Quiz: Planning a Eukaryotic Genome Assembly {#quiz_genomeplanning}
+
+### Objective
+
+This quiz asks you to think about the **essential biological information** needed **before** starting a *de novo* genome assembly project for a eukaryotic organism.
+
+---
+
+### 👥 How This Quiz Works
+
+- Students work in groups of **3–4**.  
+- The quiz has **two group-work parts (15 minutes each)** followed by a **whole-class debrief (10 minutes)**.  
+- Groups should agree on shared answers and be prepared to explain their reasoning.  
+- Not every group needs to answer every question aloud — the goal is to compare ideas and build a shared understanding as a class.
+
+Focus on *reasoning*, not just short answers.
+
+---
+
+### Part 1 — Key Biological Information <span style="color:gray;">(15 minutes)</span>
+
+Before beginning a genome assembly project, researchers must understand fundamental properties of the genome they want to sequence.
+
+**Question 1**  
+What are the **two most important pieces of biological information** you would want to know before starting a *de novo* genome assembly project for a eukaryotic organism?
+
+✏️ *Write your answer in 1–2 sentences.*
+
+---
+
+**Question 2**  
+Why is **each** of these two pieces of information important for genome assembly?  
+Describe how they influence sequencing strategy, assembly difficulty, or downstream analysis.
+
+✏️ *Write 2–4 sentences.*
+
+---
+
+### Part 2 — How Could You Obtain This Information? <span style="color:gray;">(15 minutes)</span>
+
+Now think about how scientists would **measure or estimate** the types of genome features you identified in Part 1.
+
+For **each** of the biological properties your group selected, answer the following:
+
+**Question 3**  
+What **experimental approaches** could be used to measure or estimate this property *before* or *during* a genome sequencing project?
+
+*Consider lab-based techniques, microscopy, or molecular methods.*
+
+---
+
+**Question 4**  
+What **sequence-based or computational approaches** might help estimate this property once some sequencing data become available?
+
+---
+
+✏️ *For each property, list at least one experimental and one computational approach, and briefly describe what information each method provides.*
+
+---
+
+### Part 3 — Whole-Class Debrief <span style="color:gray;">(10 minutes)</span>
+
+- Groups volunteer to share their answers and reasoning.  
+- The class compares different approaches and discusses:
+  - Why are these two pieces of biological information foundational for assembly design  
+  - How different methods provide complementary information  
+  - What additional genome features might complicate assembly  
+
+The goal of this discussion is to connect **biological knowledge** with **practical genome assembly planning**.
+
+---
+
 ## Mini-Report 1 {#minrep1}
 
 As part of this chapter, students are tasked to to produce individual mini-reports on the following sequencing platforms and their associated technologies:
