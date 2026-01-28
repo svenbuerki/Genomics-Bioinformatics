@@ -1,6 +1,6 @@
 ---
 title: "BIOL 497/597 - Genomics & Bioinformatics"
-subtitle: "Mini-reports"
+subtitle: "Mini-Reports"
 author: "Sven Buerki - Boise State University"
 date: "`r Sys.Date()`"
 output:
@@ -58,7 +58,7 @@ This **individual assignment is mandatory and will be graded**. Consider this ta
 
 Time will be allocated in class on week 3 for students to work on their assignments.  
 
-Reports are due on **February 4, 2026** and must be uploaded to the shared [Google Drive](https://drive.google.com/drive/folders/1BFZFJeR8tW8N7QLfngqIVbjqEkDuIyWj?usp=sharing) in the folder `Mini_Report_1`.  
+Reports are due on **February 6, 2026** and must be uploaded to the shared [Google Drive](https://drive.google.com/drive/folders/1BFZFJeR8tW8N7QLfngqIVbjqEkDuIyWj?usp=sharing) in the folder `Mini_Report_1`.  
 
 <div class="info">
   <p><strong>💡 Tip:</strong> Focus on comparing sequencing technologies in terms of read length, accuracy, throughput, and typical applications. Use reliable sources and cite appropriately.</p>
