@@ -345,7 +345,7 @@ This chapter is mostly based on the following resources:
   </ul>
 </div>
 
-### Web resources
+### Web Resources
 
 The following resources are helpful to complete [Mini-Report 1](#minrep1) and support reading scientific publications ([Journal Club](#jc1)):
 
@@ -560,68 +560,138 @@ More details on this assignment is available [here](https://svenbuerki.github.io
 
 # Chapter 3 {#chapter3}
 
-## Learning outcomes
+## Goal
 
--   Understand the importance of computer science and bioinformatics in:
-    -   Producing raw data.
-    -   Creating databases in molecular biology.
-    -   Archiving and careful curation of the data.
-    -   Distributing data via the Internet.
-    -   Creating information-retrieval tools to allow effective mining of the data for research application.
--   Gain knowledge on major molecular biology databases, which are key to the assembly and annotation of genomes:
-    -   Nucleic acid sequences databases.
-    -   Protein sequences databases.
-    -   Gene ontology databases.
-    -   Metabolic pathways databases.
-    -   Specialized annotated genome portals.
--   Present protocols to query genomic information and remotely download files from GenBank (this topic will be further investigated in [Mini-Report 3](Mini_reports.html) and [Chapter 4](#Chap4)). 
+The ***goal*** of this chapter is to help you understand how biological data are stored, organized, and accessed in modern genomics. 
 
-## Publications
+By the end of the chapter, you should feel confident navigating major molecular databases and understanding how they support *de novo* genome assembly, annotation, and downstream biological interpretation.
 
-This chapter is mostly based on the following resources:
+---
 
-- @GenBankP - **GenBank**
-- @UniProt2014 - **Protein sequence databases**
-- @GO2020 - **Gene ontology database**
-- @KEGG2022 - **Metabolic pathways databases** 
+## Chapter Structure
 
-## Web resources
+The [learning outcomes](#chap3lernout) of this chapter are addressed through a combination of:
 
-- [**International Nucleotide Sequence Database Collaboration**](https://www.insdc.org/)
-- [**NCBI**](https://www.ncbi.nlm.nih.gov/) - National Center for Biotechnology Information
-- **NCBI BioProject Help Book**: This [book](https://www.ncbi.nlm.nih.gov/books/NBK54364/) provides definitions of terms associated to submitted data to NCBI.
+- A [**lecture**](#teachmatchap3), which introduces molecular databases and their role in genomics  
+- A mandatory assignment, [**Mini-Report 2**](#minrep2), which allows you to explore different types of molecular databases and understand how they contribute to *de novo* genome assembly and annotation  
 
-## Download presentation
+Together, these components will help you connect theoretical knowledge about databases with practical skills in retrieving and using genomic data.
 
-The presentation slides (in `pdf` format) of Chapter 3 can be downloaded <a href="Lectures/Chapter_03_Spring.pdf" target="_blank">here</a>.
+---
 
-## Data availability
+## Learning Outcomes {#chap3lernout}
 
-To support reproducibility, research institutions, funders and publishers are requiring scientists to support their research by 
+By the end of this chapter, you will be able to:
 
-1. submitting genomic data to accredited data repositories such as NCBI where data can be freely accessed
-2. providing data availability statements in publications pointing to their data
+- **Explain** the role of computer science and bioinformatics in modern molecular biology, including how they support:
+  - The production of raw biological data  
+  - The creation and maintenance of molecular databases  
+  - The archiving and curation of biological data  
+  - The distribution of data via the internet  
+  - The development of information-retrieval tools for biological research  
 
-To provide more insights into these practices here is an example of [data policy](https://academic.oup.com/g3journal/pages/data-policy) from the *G3* journal and a [data availability statement](https://academic.oup.com/g3journal/article/12/7/jkac122/6585877?searchresult=1#365097953) from the sagebrush genome [@Melton2022].  
+- **Describe** the purpose, structure, and content of major molecular biology databases that are essential for genome assembly and annotation, including:
+  - Nucleic acid sequence databases  
+  - Protein sequence databases  
+  - Gene Ontology databases  
+  - Metabolic pathway databases  
+  - Specialized, annotated genome portals  
+
+- **Apply** basic bioinformatics protocols to query genomic information and remotely download sequence data from GenBank  
+  - (These practical skills will be further developed in [Mini-Report 3](Mini_reports.html) and [Chapter 4](#Chap4).)
+
+---
+
+## Resources
+
+### Publications
+
+This chapter is primarily based on the following resources:
+
+- @GenBankP — **GenBank**  
+- @UniProt2014 — **Protein sequence databases**  
+- @GO2020 — **Gene Ontology database**  
+- @KEGG2022 — **Metabolic pathways databases**  
+
+### Web Resources
+
+- [**International Nucleotide Sequence Database Collaboration (INSDC)**](https://www.insdc.org/)  
+- [**NCBI**](https://www.ncbi.nlm.nih.gov/) — National Center for Biotechnology Information  
+- **NCBI BioProject Help Book**: This [guide](https://www.ncbi.nlm.nih.gov/books/NBK54364/) provides definitions of terms associated with data submissions to NCBI.
+
+---
+
+## Lecture
+
+The presentation associated with this class is available here:
+
+```{r echo = F, results='asis'}
+embed_pdf("Lectures/Chapter_03_Spring.pdf", "2")
+```
+
+## Data Availability
+
+To support **reproducibility and transparency** in science, research institutions, funding agencies, and journals increasingly require that researchers make their data publicly accessible. This typically involves:
+
+- Submitting genomic and other molecular data to accredited public repositories (such as **NCBI**) where the data can be freely accessed and reused  
+- Including a **data availability statement** in publications that clearly explains where and how the data can be accessed  
+
+To better understand these practices, review:
+
+- An example of a journal [data policy](https://academic.oup.com/g3journal/pages/data-policy) from the journal *G3*  
+- A real [data availability statement](https://academic.oup.com/g3journal/article/12/7/jkac122/6585877?searchresult=1#365097953) from the sagebrush genome study [@Melton2022]  
+
+These examples illustrate how researchers communicate where their data are stored and how other scientists can access them.
+
+---
 
 ## Exercises
 
-Here the goal is to get familiar with NCBI by doing the following exercises:
+The goal of these exercises is to help you become familiar with **NCBI databases** and understand how genomic data are linked to scientific publications.
 
-1. Navigate to [NCBI](https://www.ncbi.nlm.nih.gov/) and start getting familiar with its structure and available databases.
-2. Questions associated with the sagebrush (*Artemisia tridentata*; Asteraceae) genome published by @Melton2022:
-    - What is the BioProject accession number?
-    - How many SRA experiments were produced?
-    - What type of sequencing was used to generate the SRA data?
-    - How much data in Gbases and Tbytes was generated for this project?
-    - What level is the genome assembly at?
-    - What is the genome size (in Gb)?
-    - What is the genome coverage?
-    - What assembly method was used to produce the assembly?
-3. Use @Li2009 and NCBI to determine how many genomes are available for the Giant panda and how they compare?
-4. Search your favorite organism in the Taxonomy database and determine what type of genomic data are available and if an assembly or genome exist for it.
+### 1. Explore NCBI
 
-## Mini-report 2 -- Molecular biology databases {#mini2}
+Go to [NCBI](https://www.ncbi.nlm.nih.gov/) and spend a few minutes exploring its structure.  
+Identify the main types of databases available (e.g., Nucleotide, Genome, SRA, BioProject, Taxonomy).
+
+---
+
+### 2. Investigating the Sagebrush Genome Project
+
+Using the paper by @Melton2022 and NCBI resources, answer the following questions about the sagebrush (*Artemisia tridentata*; family Asteraceae) genome project:
+
+- What is the **BioProject accession number**?  
+- How many **SRA experiments** were generated?  
+- What type(s) of **sequencing technology** were used to produce the SRA data?  
+- How much sequencing data was generated (in **Gbases** and **terabytes**)?  
+- What is the **assembly level** of the genome?  
+- What is the reported **genome size** (in Gb)?  
+- What is the estimated **genome coverage**?  
+- What **assembly method or software** was used?
+
+---
+
+### 3. Comparing Genomes in the Giant Panda
+
+Using @Li2009 and NCBI:
+
+- How many **genome assemblies** are currently available for the giant panda?  
+- In what ways do these assemblies differ (e.g., assembly level, sequencing technology, date of release)?
+
+---
+
+### 4. Your Organism of Interest
+
+Search for your **favorite organism** in the **NCBI Taxonomy** database and explore its genomic resources.
+
+- What types of **genomic data** are available (e.g., genome assembly, transcriptome, raw reads)?  
+- Is a **reference genome assembly** available? If so, at what assembly level?
+
+Be prepared to briefly share what you found.
+
+---
+
+## Mini-Report 2 -- Molecular biology databases {#mini2}
 
 To have a full overview of available molecular biology databases and assess their contributions to genome annotation, students are tasked to produce individual mini-reports on the following molecular databases:
 
@@ -631,9 +701,11 @@ To have a full overview of available molecular biology databases and assess thei
 
 More details on this assignment is available [here](https://svenbuerki.github.io/Genomics-Bioinformatics/Mini_reports.html#mini2).
 
+<hr style="border: 1.5px solid #999; margin: 2em 0;">
+
 # Chapter 4 {#Chap4}
 
-## Bioinformatics toolkit for genomics
+## Bioinformatics Toolkit for Genomics
 
 Before getting into conducting bioinformatics analyses to *de novo* assemble a draft nuclear genome, we will devote time to learn computing procedures. Please click [here](Tutorials.html) to access this material. 
 

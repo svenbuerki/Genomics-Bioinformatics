@@ -11,7 +11,7 @@
 
 <meta name="author" content="Sven Buerki - Boise State University" />
 
-<meta name="date" content="2026-01-23" />
+<meta name="date" content="2026-01-30" />
 
 <title>BIOL 497/597 - Genomics &amp; Bioinformatics</title>
 
@@ -383,7 +383,7 @@ div.tocify {
 <h1 class="title toc-ignore">BIOL 497/597 - Genomics &amp; Bioinformatics</h1>
 <h3 class="subtitle">Chapters</h3>
 <h4 class="author">Sven Buerki - Boise State University</h4>
-<h4 class="date">2026-01-23</h4>
+<h4 class="date">2026-01-30</h4>
 
 </div>
 
@@ -660,7 +660,7 @@ These publications will be very helpful to complete <a href="#minrep1">Mini-Repo
 </div>
 </div>
 <div id="web-resources" class="section level3" number="4.4.2">
-<h3><span class="header-section-number">4.4.2</span> Web resources</h3>
+<h3><span class="header-section-number">4.4.2</span> Web Resources</h3>
 <p>The following resources are helpful to complete <a href="#minrep1">Mini-Report 1</a> and support reading scientific publications (<a href="#jc1">Journal Club</a>):</p>
 <ul>
 <li><a href="https://www.boisestate.edu/sequencing-core/"><strong>BSU Sequencing Core</strong></a>. Our University is offering a suite of genomics services and they have an Illumina NextSeq 1000 instrument.</li>
@@ -908,81 +908,168 @@ What <strong>sequence-based or computational approaches</strong> might help esti
 </div>
 <div id="chapter3" class="section level1" number="5">
 <h1><span class="header-section-number">5</span> Chapter 3</h1>
-<div id="learning-outcomes" class="section level2" number="5.1">
-<h2><span class="header-section-number">5.1</span> Learning outcomes</h2>
+<div id="goal-2" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Goal</h2>
+<p>The <strong><em>goal</em></strong> of this chapter is to help you understand how biological data are stored, organized, and accessed in modern genomics.</p>
+<p>By the end of the chapter, you should feel confident navigating major molecular databases and understanding how they support <em>de novo</em> genome assembly, annotation, and downstream biological interpretation.</p>
+<hr />
+</div>
+<div id="chapter-structure-2" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Chapter Structure</h2>
+<p>The <a href="#chap3lernout">learning outcomes</a> of this chapter are addressed through a combination of:</p>
 <ul>
-<li>Understand the importance of computer science and bioinformatics in:
+<li>A <a href="#teachmatchap3"><strong>lecture</strong></a>, which introduces molecular databases and their role in genomics<br />
+</li>
+<li>A mandatory assignment, <a href="#minrep2"><strong>Mini-Report 2</strong></a>, which allows you to explore different types of molecular databases and understand how they contribute to <em>de novo</em> genome assembly and annotation</li>
+</ul>
+<p>Together, these components will help you connect theoretical knowledge about databases with practical skills in retrieving and using genomic data.</p>
+<hr />
+</div>
+<div id="chap3lernout" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> Learning Outcomes</h2>
+<p>By the end of this chapter, you will be able to:</p>
 <ul>
-<li>Producing raw data.</li>
-<li>Creating databases in molecular biology.</li>
-<li>Archiving and careful curation of the data.</li>
-<li>Distributing data via the Internet.</li>
-<li>Creating information-retrieval tools to allow effective mining of the data for research application.</li>
+<li><strong>Explain</strong> the role of computer science and bioinformatics in modern molecular biology, including how they support:
+<ul>
+<li>The production of raw biological data<br />
+</li>
+<li>The creation and maintenance of molecular databases<br />
+</li>
+<li>The archiving and curation of biological data<br />
+</li>
+<li>The distribution of data via the internet<br />
+</li>
+<li>The development of information-retrieval tools for biological research</li>
 </ul></li>
-<li>Gain knowledge on major molecular biology databases, which are key to the assembly and annotation of genomes:
+<li><strong>Describe</strong> the purpose, structure, and content of major molecular biology databases that are essential for genome assembly and annotation, including:
 <ul>
-<li>Nucleic acid sequences databases.</li>
-<li>Protein sequences databases.</li>
-<li>Gene ontology databases.</li>
-<li>Metabolic pathways databases.</li>
-<li>Specialized annotated genome portals.</li>
+<li>Nucleic acid sequence databases<br />
+</li>
+<li>Protein sequence databases<br />
+</li>
+<li>Gene Ontology databases<br />
+</li>
+<li>Metabolic pathway databases<br />
+</li>
+<li>Specialized, annotated genome portals</li>
 </ul></li>
-<li>Present protocols to query genomic information and remotely download files from GenBank (this topic will be further investigated in <a href="Mini_reports.html">Mini-Report 3</a> and <a href="#Chap4">Chapter 4</a>).</li>
+<li><strong>Apply</strong> basic bioinformatics protocols to query genomic information and remotely download sequence data from GenBank
+<ul>
+<li>(These practical skills will be further developed in <a href="Mini_reports.html">Mini-Report 3</a> and <a href="#Chap4">Chapter 4</a>.)</li>
+</ul></li>
+</ul>
+<hr />
+</div>
+<div id="resources-2" class="section level2" number="5.4">
+<h2><span class="header-section-number">5.4</span> Resources</h2>
+<div id="publications-1" class="section level3" number="5.4.1">
+<h3><span class="header-section-number">5.4.1</span> Publications</h3>
+<p>This chapter is primarily based on the following resources:</p>
+<ul>
+<li><span class="citation">Benson et al. (<a href="#ref-GenBankP">2005</a>)</span> — <strong>GenBank</strong><br />
+</li>
+<li><span class="citation">Consortium (<a href="#ref-UniProt2014">2014</a>)</span> — <strong>Protein sequence databases</strong><br />
+</li>
+<li><span class="citation">Consortium (<a href="#ref-GO2020">2020</a>)</span> — <strong>Gene Ontology database</strong><br />
+</li>
+<li><span class="citation">Kanehisa et al. (<a href="#ref-KEGG2022">2022</a>)</span> — <strong>Metabolic pathways databases</strong></li>
 </ul>
 </div>
-<div id="publications-1" class="section level2" number="5.2">
-<h2><span class="header-section-number">5.2</span> Publications</h2>
-<p>This chapter is mostly based on the following resources:</p>
+<div id="web-resources-1" class="section level3" number="5.4.2">
+<h3><span class="header-section-number">5.4.2</span> Web Resources</h3>
 <ul>
-<li><span class="citation">Benson et al. (<a href="#ref-GenBankP">2005</a>)</span> - <strong>GenBank</strong></li>
-<li><span class="citation">Consortium (<a href="#ref-UniProt2014">2014</a>)</span> - <strong>Protein sequence databases</strong></li>
-<li><span class="citation">Consortium (<a href="#ref-GO2020">2020</a>)</span> - <strong>Gene ontology database</strong></li>
-<li><span class="citation">Kanehisa et al. (<a href="#ref-KEGG2022">2022</a>)</span> - <strong>Metabolic pathways databases</strong></li>
+<li><a href="https://www.insdc.org/"><strong>International Nucleotide Sequence Database Collaboration (INSDC)</strong></a><br />
+</li>
+<li><a href="https://www.ncbi.nlm.nih.gov/"><strong>NCBI</strong></a> — National Center for Biotechnology Information<br />
+</li>
+<li><strong>NCBI BioProject Help Book</strong>: This <a href="https://www.ncbi.nlm.nih.gov/books/NBK54364/">guide</a> provides definitions of terms associated with data submissions to NCBI.</li>
 </ul>
+<hr />
 </div>
-<div id="web-resources-1" class="section level2" number="5.3">
-<h2><span class="header-section-number">5.3</span> Web resources</h2>
+</div>
+<div id="lecture" class="section level2" number="5.5">
+<h2><span class="header-section-number">5.5</span> Lecture</h2>
+<p>The presentation associated with this class is available here:</p>
+<div style="text-align: center;">
+<iframe id="pdfFrame2" allowfullscreen src="Lectures/Chapter_03_Spring.pdf" width="100%" height="600px" style="border:none;">
+<p>
+Your browser does not support PDFs. <a href="Lectures/Chapter_03_Spring.pdf">Download the PDF</a>.
+</p>
+<p></iframe></p>
+</div>
+</div>
+<div id="data-availability" class="section level2" number="5.6">
+<h2><span class="header-section-number">5.6</span> Data Availability</h2>
+<p>To support <strong>reproducibility and transparency</strong> in science, research institutions, funding agencies, and journals increasingly require that researchers make their data publicly accessible. This typically involves:</p>
 <ul>
-<li><a href="https://www.insdc.org/"><strong>International Nucleotide Sequence Database Collaboration</strong></a></li>
-<li><a href="https://www.ncbi.nlm.nih.gov/"><strong>NCBI</strong></a> - National Center for Biotechnology Information</li>
-<li><strong>NCBI BioProject Help Book</strong>: This <a href="https://www.ncbi.nlm.nih.gov/books/NBK54364/">book</a> provides definitions of terms associated to submitted data to NCBI.</li>
+<li>Submitting genomic and other molecular data to accredited public repositories (such as <strong>NCBI</strong>) where the data can be freely accessed and reused<br />
+</li>
+<li>Including a <strong>data availability statement</strong> in publications that clearly explains where and how the data can be accessed</li>
 </ul>
-</div>
-<div id="download-presentation" class="section level2" number="5.4">
-<h2><span class="header-section-number">5.4</span> Download presentation</h2>
-<p>The presentation slides (in <code>pdf</code> format) of Chapter 3 can be downloaded <a href="Lectures/Chapter_03_Spring.pdf" target="_blank">here</a>.</p>
-</div>
-<div id="data-availability" class="section level2" number="5.5">
-<h2><span class="header-section-number">5.5</span> Data availability</h2>
-<p>To support reproducibility, research institutions, funders and publishers are requiring scientists to support their research by</p>
-<ol style="list-style-type: decimal">
-<li>submitting genomic data to accredited data repositories such as NCBI where data can be freely accessed</li>
-<li>providing data availability statements in publications pointing to their data</li>
-</ol>
-<p>To provide more insights into these practices here is an example of <a href="https://academic.oup.com/g3journal/pages/data-policy">data policy</a> from the <em>G3</em> journal and a <a href="https://academic.oup.com/g3journal/article/12/7/jkac122/6585877?searchresult=1#365097953">data availability statement</a> from the sagebrush genome <span class="citation">(<a href="#ref-Melton2022">Melton et al., 2022</a>)</span>.</p>
-</div>
-<div id="exercises" class="section level2" number="5.6">
-<h2><span class="header-section-number">5.6</span> Exercises</h2>
-<p>Here the goal is to get familiar with NCBI by doing the following exercises:</p>
-<ol style="list-style-type: decimal">
-<li>Navigate to <a href="https://www.ncbi.nlm.nih.gov/">NCBI</a> and start getting familiar with its structure and available databases.</li>
-<li>Questions associated with the sagebrush (<em>Artemisia tridentata</em>; Asteraceae) genome published by <span class="citation">Melton et al. (<a href="#ref-Melton2022">2022</a>)</span>:
+<p>To better understand these practices, review:</p>
 <ul>
-<li>What is the BioProject accession number?</li>
-<li>How many SRA experiments were produced?</li>
-<li>What type of sequencing was used to generate the SRA data?</li>
-<li>How much data in Gbases and Tbytes was generated for this project?</li>
-<li>What level is the genome assembly at?</li>
-<li>What is the genome size (in Gb)?</li>
-<li>What is the genome coverage?</li>
-<li>What assembly method was used to produce the assembly?</li>
-</ul></li>
-<li>Use <span class="citation">Li, Fan, et al. (<a href="#ref-Li2009">2009</a>)</span> and NCBI to determine how many genomes are available for the Giant panda and how they compare?</li>
-<li>Search your favorite organism in the Taxonomy database and determine what type of genomic data are available and if an assembly or genome exist for it.</li>
-</ol>
+<li>An example of a journal <a href="https://academic.oup.com/g3journal/pages/data-policy">data policy</a> from the journal <em>G3</em><br />
+</li>
+<li>A real <a href="https://academic.oup.com/g3journal/article/12/7/jkac122/6585877?searchresult=1#365097953">data availability statement</a> from the sagebrush genome study <span class="citation">(<a href="#ref-Melton2022">Melton et al., 2022</a>)</span></li>
+</ul>
+<p>These examples illustrate how researchers communicate where their data are stored and how other scientists can access them.</p>
+<hr />
 </div>
-<div id="mini2" class="section level2" number="5.7">
-<h2><span class="header-section-number">5.7</span> Mini-report 2 – Molecular biology databases</h2>
+<div id="exercises" class="section level2" number="5.7">
+<h2><span class="header-section-number">5.7</span> Exercises</h2>
+<p>The goal of these exercises is to help you become familiar with <strong>NCBI databases</strong> and understand how genomic data are linked to scientific publications.</p>
+<div id="explore-ncbi" class="section level3" number="5.7.1">
+<h3><span class="header-section-number">5.7.1</span> 1. Explore NCBI</h3>
+<p>Go to <a href="https://www.ncbi.nlm.nih.gov/">NCBI</a> and spend a few minutes exploring its structure.<br />
+Identify the main types of databases available (e.g., Nucleotide, Genome, SRA, BioProject, Taxonomy).</p>
+<hr />
+</div>
+<div id="investigating-the-sagebrush-genome-project" class="section level3" number="5.7.2">
+<h3><span class="header-section-number">5.7.2</span> 2. Investigating the Sagebrush Genome Project</h3>
+<p>Using the paper by <span class="citation">Melton et al. (<a href="#ref-Melton2022">2022</a>)</span> and NCBI resources, answer the following questions about the sagebrush (<em>Artemisia tridentata</em>; family Asteraceae) genome project:</p>
+<ul>
+<li>What is the <strong>BioProject accession number</strong>?<br />
+</li>
+<li>How many <strong>SRA experiments</strong> were generated?<br />
+</li>
+<li>What type(s) of <strong>sequencing technology</strong> were used to produce the SRA data?<br />
+</li>
+<li>How much sequencing data was generated (in <strong>Gbases</strong> and <strong>terabytes</strong>)?<br />
+</li>
+<li>What is the <strong>assembly level</strong> of the genome?<br />
+</li>
+<li>What is the reported <strong>genome size</strong> (in Gb)?<br />
+</li>
+<li>What is the estimated <strong>genome coverage</strong>?<br />
+</li>
+<li>What <strong>assembly method or software</strong> was used?</li>
+</ul>
+<hr />
+</div>
+<div id="comparing-genomes-in-the-giant-panda" class="section level3" number="5.7.3">
+<h3><span class="header-section-number">5.7.3</span> 3. Comparing Genomes in the Giant Panda</h3>
+<p>Using <span class="citation">Li, Fan, et al. (<a href="#ref-Li2009">2009</a>)</span> and NCBI:</p>
+<ul>
+<li>How many <strong>genome assemblies</strong> are currently available for the giant panda?<br />
+</li>
+<li>In what ways do these assemblies differ (e.g., assembly level, sequencing technology, date of release)?</li>
+</ul>
+<hr />
+</div>
+<div id="your-organism-of-interest" class="section level3" number="5.7.4">
+<h3><span class="header-section-number">5.7.4</span> 4. Your Organism of Interest</h3>
+<p>Search for your <strong>favorite organism</strong> in the <strong>NCBI Taxonomy</strong> database and explore its genomic resources.</p>
+<ul>
+<li>What types of <strong>genomic data</strong> are available (e.g., genome assembly, transcriptome, raw reads)?<br />
+</li>
+<li>Is a <strong>reference genome assembly</strong> available? If so, at what assembly level?</li>
+</ul>
+<p>Be prepared to briefly share what you found.</p>
+<hr />
+</div>
+</div>
+<div id="mini2" class="section level2" number="5.8">
+<h2><span class="header-section-number">5.8</span> Mini-Report 2 – Molecular biology databases</h2>
 <p>To have a full overview of available molecular biology databases and assess their contributions to genome annotation, students are tasked to produce individual mini-reports on the following molecular databases:</p>
 <ul>
 <li><strong>Molecular database 1:</strong> Protein sequences databases <span class="citation">(e.g., <a href="#ref-UniProt2014">Consortium, 2014</a>)</span>.</li>
@@ -990,12 +1077,13 @@ What <strong>sequence-based or computational approaches</strong> might help esti
 <li><strong>Molecular database 3:</strong> Metabolic pathways databases <span class="citation">(e.g., <a href="#ref-KEGG2022">Kanehisa et al., 2022</a>)</span>.</li>
 </ul>
 <p>More details on this assignment is available <a href="https://svenbuerki.github.io/Genomics-Bioinformatics/Mini_reports.html#mini2">here</a>.</p>
+<hr style="border: 1.5px solid #999; margin: 2em 0;">
 </div>
 </div>
 <div id="Chap4" class="section level1" number="6">
 <h1><span class="header-section-number">6</span> Chapter 4</h1>
 <div id="bioinformatics-toolkit-for-genomics" class="section level2" number="6.1">
-<h2><span class="header-section-number">6.1</span> Bioinformatics toolkit for genomics</h2>
+<h2><span class="header-section-number">6.1</span> Bioinformatics Toolkit for Genomics</h2>
 <p>Before getting into conducting bioinformatics analyses to <em>de novo</em> assemble a draft nuclear genome, we will devote time to learn computing procedures. Please click <a href="Tutorials.html">here</a> to access this material.</p>
 </div>
 <div id="aim-and-objectives" class="section level2" number="6.2">
