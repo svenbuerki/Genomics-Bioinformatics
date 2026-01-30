@@ -317,13 +317,13 @@ This integration allows comparative analyses of metabolic and regulatory systems
 
 ## Evaluation Rubric (25 points total)
 
-| Category | Points | Description |
-|--------|--------|-------------|
-| **Scientific Accuracy & Depth** | 8 | Demonstrates correct understanding of the database type and its role in genome annotation |
-| **Coverage of Assigned Topics** | 6 | Addresses all required components listed in the report structure |
-| **Critical Analysis** | 5 | Evaluates strengths, limitations, and practical uses of the database |
-| **Clarity & Organization** | 4 | Well-structured, logical flow, and clear writing |
-| **References & Citation Quality** | 2 | Appropriate use of peer-reviewed and authoritative sources |
+| Category | Description | Points |
+|----------|-------------|--------|
+| **Scientific Accuracy & Depth** | Demonstrates correct understanding of the database type and its role in genome annotation | 8 |
+| **Coverage of Assigned Topics** | Addresses all required components listed in the report structure | 6 |
+| **Critical Analysis** | Evaluates strengths, limitations, and practical uses of the database | 5 |
+| **Clarity & Organization** | Well-structured, logical flow, and clear writing | 4 |
+| **References & Citation Quality** | Appropriate use of peer-reviewed and authoritative sources | 2 |
 
 **Formatting penalties:**  
 Up to **–5 points** may be deducted for failure to follow formatting, naming, or submission guidelines.
@@ -498,7 +498,7 @@ This discussion highlights how scientists move from **genetic patterns → evolu
 
 This section provides additional theoretical background to help you better understand the concepts and methods used in **Mini-Report 3**. You are not expected to memorize every detail, but this material will support your interpretation of DNA barcoding results, phylogenetic analyses, and species delimitation in your report.
 
-### How Many Species Ere There On Earth?
+### How Many Species Are There On Earth?
 
 Projections of global biodiversity have ranged from 2 to 100 million species [@Larsen2017].
 
