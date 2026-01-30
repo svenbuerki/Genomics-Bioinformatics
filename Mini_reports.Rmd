@@ -330,111 +330,204 @@ Up to **–5 points** may be deducted for failure to follow formatting, naming, 
 
 <hr style="border: 1.5px solid #999; margin: 2em 0;">
 
-# Mini-Report 3 -- DNA-based Species Identification and Phylogenetic Inference {#mini3}
+# Mini-Report 3 — DNA-based Species Identification and Phylogenetic Inference {#mini3}
 
-## Learning outcomes
+## Learning Outcomes
 
-The following learning outcomes will be taught as part of this Mini-Report:
+The following learning outcomes will be covered as part of this Mini-Report:
 
-1. Process and clean DNA sequence electropherograms generated using the [Sanger sequencing approach](https://dnalc.cshl.edu/resources/animations/cycseq.html) (based on PCR amplifications).
-2. Validate DNA sequence and provide species working hypothesis by conducting BLAST similarity DNA sequences analyses. This will be based on DNA sequences deposited on [GenBank](https://www.ncbi.nlm.nih.gov/genbank/) [@GenBankP].
-3. Query GenBank and download DNA sequences for phylogenetic analyses. This will be done using `R` [@R] packages.
-4. Produce DNA multiple sequence alignments (containing both your target DNA sequences and those from GenBank). This will be done using `MUSCLE` [@edgar2004muscle] implemented in `MEGA` [@kumar2018mega].
-5. Infer phylogenetic analysis based on Maximum Likelihood criterion as implemented in RAxML [@Stamatakis2014]. This phylogenetic framework will be used to test and refine species working hypotheses using the phylogenetic species concept [@wheeler1999phylogenetic].
-6. Visualize and interpret phylogenetic analysis using `R` [@R] packages.
-7. Learn the terminology associated with DNA barcoding and phylogenetic analyses. Key definitions associated to the most used terms are available in the [Lexicon](Lexicon.html).
+- Interpret how DNA sequence data are used in published studies to investigate biological variation, species boundaries, and evolutionary relationships (based on the group activity discussion).
+- Learn the terminology associated with DNA barcoding and phylogenetic analyses. Key definitions are available in the [Lexicon](Lexicon.html).
+- Process and clean DNA sequence electropherograms generated using the [Sanger sequencing approach](https://dnalc.cshl.edu/resources/animations/cycseq.html) (from PCR amplifications). 
+- Validate DNA sequences and develop a **species working hypothesis** by conducting BLAST similarity searches. These analyses will be based on DNA sequences deposited in [GenBank](https://www.ncbi.nlm.nih.gov/genbank/) [@GenBankP].  
+- Query GenBank and download DNA sequences for phylogenetic analyses using `R` [@R] packages.  
+- Produce multiple DNA sequence alignments (including both your target DNA sequences and those retrieved from GenBank). This will be done using `MUSCLE` [@edgar2004muscle], implemented in `MEGA` [@kumar2018mega].  
+- Perform phylogenetic inference using the **Maximum Likelihood** criterion as implemented in RAxML [@Stamatakis2014]. This phylogenetic framework will be used to test and refine species working hypotheses under the phylogenetic species concept [@wheeler1999phylogenetic].  
+- Visualize and interpret phylogenetic results using `R` [@R] packages.  
+
+---
 
 ## Publications
 
-This mini-report is mostly based on the following publication:
+This mini-report is primarily based on the following publication:
 
-- @Ellestad2022AJB - **DNA barcoding and phylogenetics of Vanilla**
+- @Ellestad2022AJB — **DNA barcoding and phylogenetics of *Vanilla***
 
-In each section, references are provided to help you master the material taught in this assignment.
+Additional references are provided throughout each section to help you master the material covered in this assignment.
+
+---
 
 ## Schedule
 
-This report is subdivided into four parts:
+This report is divided into four parts:
 
-- [**Introduction:**](#IntroMR3) Provide introductions on key theoretical concepts, scientific questions, hypothesis (incl. prediction), methodology, data availability, and report structure and formatting. 
-- [**Part 1:**](#part1) Process and clean ITS DNA sequence electropherograms and infer species working hypothesis.
-- [**Part 2:**](#part2) DNA sequence retrieval and prepare data for analyses.
-- [**Part 3:**](#part3) DNA multiple sequence alignment and phylogenetic inference.
+- [**Group activity**](#grpactivity_vanilla): Collaborative reading and discussion of the publication that forms the basis of Mini-Report 3.  
+- [**Theoretical background**](#IntroMR3): Overview of key theoretical concepts, scientific questions, hypotheses (including predictions), methodology, data availability, and report structure and formatting.  
+- [**Part 1**](#part1): Process and clean ITS DNA sequence electropherograms and infer a species working hypothesis.  
+- [**Part 2**](#part2): Retrieve DNA sequences and prepare datasets for analysis.  
+- [**Part 3**](#part3): Perform multiple sequence alignment and phylogenetic inference.
 
-Please see the [Timetable](https://svenbuerki.github.io/Genomics-Bioinformatics/index.html#21_Timetable) for more details on the schedule. 
+## 🤝 Group Activity: Interpreting DNA Evidence in a Species Study {#grpactivity_vanilla}
 
-## Introduction {#IntroMR3}
+### Paper
+
+Ellestad *et al.* (2022). **Uncovering haplotype diversity in cultivated Mexican *Vanilla* species.** *American Journal of Botany*.  
+https://doi.org/10.1002/ajb2.16024
+
+---
+
+### Learning Outcome
+
+Students evaluate how DNA sequence data are used to interpret biological variation and species boundaries, preparing them for **Mini-Report 3** on DNA-based species identification and phylogenetic inference.
+
+---
+
+### Activity Overview
+
+In this **1 hour and 20 minutes** in-class group activity, students work in groups of **3–4** to investigate how researchers use DNA sequence data to understand biological diversity.
+
+The **goals** are to:
+
+- Identify the study’s research aims and guiding questions  
+- Understand how sequencing data are used to interpret biological variation  
+- Connect DNA barcoding and phylogenetics to species delimitation  
+- Develop evidence-based explanations for observed phenotypic and genetic patterns  
+
+---
+
+### Materials
+
+- @Ellestad2022AJB — **DNA barcoding and phylogenetics of *Vanilla***
+- [Lexicon](https://svenbuerki.github.io/Genomics-Bioinformatics/Lexicon.html)  
+- [Theoretical background](#IntroMR3) section, which includes additional resources on topics relevant to this group activity.
+ 
+---
+
+## Activity Structure <span style="color:gray;">(1 h 20 min)</span>
+
+### Part 1 — What Is This Study Trying to Explain? <span style="color:gray;">(20 minutes)</span>
+
+Groups read the **abstract and introduction**, then discuss:
+
+1. What biological problem or observation motivates this study?  
+2. What types of variation are the authors concerned with (morphological, genetic, geographic, etc.)?  
+3. Based on the introduction, what do you think the researchers are trying to determine about this variation?
+
+➡️ **Outcome of this section:**  
+Groups propose **one or more possible explanations** for why individuals or populations might differ.
+
+---
+
+### Part 2 — How Do the Authors Use DNA Data? <span style="color:gray;">(25 minutes)</span>
+
+Groups now examine the **methods and results**.
+
+Discuss:
+
+- Which DNA regions (markers) are sequenced?  
+- What sequencing approach is used?  
+- How do the authors analyze the data (e.g., alignments, haplotypes, phylogenetic trees)?  
+- What patterns do they look for in the genetic data?
+
+Then consider:
+
+👉 If biological differences reflect **underlying genetic lineages**, what patterns would you expect in the DNA results?  
+👉 If differences are **not strongly linked to genetic divergence**, what might the DNA results look like instead?
+
+*Do not worry about perfect terminology yet — focus on reasoning from the data.*
+
+---
+
+### Part 3 — From DNA Patterns to Biological Meaning <span style="color:gray;">(25 minutes)</span>
+
+Groups interpret the findings.
+
+Discuss:
+
+- Do the genetic results show clear, distinct lineages, or more mixed patterns?  
+- How do the authors relate DNA patterns to morphology or species identity?  
+- What explanations do the authors propose for the observed variation?  
+- How do concepts such as **DNA barcoding**, **phylogenetics**, and **monophyly** help interpret these results?
+
+➡️ At this stage, groups should be able to articulate **two contrasting biological interpretations** that could explain the observed variation.
+
+---
+
+### Part 4 — Group Synthesis and Preparation <span style="color:gray;">(15 minutes)</span>
+
+Groups prepare to share:
+
+- **Two key insights** about how DNA data inform biological interpretation  
+- **One proposed explanation** for the observed variation, supported by evidence from the paper  
+- Select **one or two group members** to speak during the discussion
+
+Encourage groups to reference specific figures or results.
+
+---
+
+### Part 5 — Whole-Class Debrief <span style="color:gray;">(15 minutes)</span>
+
+Groups share their interpretations. As a class, we compare:
+
+- Different explanations proposed by groups  
+- How DNA evidence supports or challenges each explanation  
+- How this study illustrates the role of DNA barcoding and phylogenetics in species delimitation  
+
+The discussion emphasizes how scientists move from **genetic patterns → evolutionary interpretation**, a key skill for Mini-Report 3.
+
+---
+
+## Theoretical background {#IntroMR3}
+
+This section provides additional theoretical background to help you better understand the concepts and methods used in **Mini-Report 3**. You are not expected to memorize every detail, but this material will support your interpretation of DNA barcoding results, phylogenetic analyses, and species delimitation in your report.
 
 ### How many species are there on Earth?
 
 Projections of global biodiversity have ranged from 2 to 100 million species [@Larsen2017].
 
-But these estimations are without accounting for cryptic species! See for instance @dentinger2014s for an example on porcini. In this study, the authors used DNA-sequencing to identify three species of mushroom contained within a commercial packet of dried Chinese porcini purchased in London. Surprisingly, all three have never been formally described by science and required new scientific names.
+However, these estimates often do not account for **cryptic species**. See, for instance, @dentinger2014s for an example involving porcini mushrooms. In that study, the authors used DNA sequencing to identify three species of mushroom contained within a commercial packet of dried Chinese porcini purchased in London. Surprisingly, none of these species had ever been formally described by science and all required new scientific names.
 
-@Larsen2017 recently published a keystone paper where they predicted **1 to 6 billion species on Earth**! This prediction was based on an average of 6 cryptic species per described species.
+@Larsen2017 later published a keystone paper predicting **1 to 6 billion species on Earth**. This estimate was based on an average of six cryptic species per described species.
 
-Overall, data presented here demonstrate that **most species on this planet are either poorly known or pending description**. 
+Overall, the data presented here demonstrate that **most species on this planet are either poorly known or still awaiting formal description**.
 
-In this context, the fields of genetics/genomics (more specifically [DNA barcoding](#barcode)) and phylogenetics have the potential to contribute to:
+In this context, the fields of genetics and genomics (more specifically [DNA barcoding](#barcode)) and phylogenetics have the potential to contribute to:
 
-- species identifications and naming (taxonomy).
-- infer evolutionary frameworks allowing developing working hypotheses on species boundaries, relationships and their spatio-temporal histories (e.g. knowing how did species cope with past climatic conditions will provide insights into their adaptive capacity to forecasted conditions). 
+- Species identification and naming (taxonomy)  
+- Inferring evolutionary frameworks that help develop working hypotheses on species boundaries, relationships, and their spatio-temporal histories (e.g., understanding how species coped with past climatic conditions can provide insights into their adaptive capacity under future climate scenarios)
 
-Approaches combining these two objectives were applied across lineages. See for instance, an article describing a new species belonging to the soapberry family (Sapindaceae) endemic to Fiji [@buerki2017alectryon]. In this study, the phylogeny is used to confirm the new taxon and place it within a larger evolutionary and biogeographical framework. Finally, this evidence is coupled with occurrence data to infer a species extinction risk following IUCN guidelines.
+Approaches combining these objectives have been applied across many lineages. See, for instance, a study describing a new species in the soapberry family (Sapindaceae) endemic to Fiji [@buerki2017alectryon]. In that study, phylogenetic analysis was used to confirm the new taxon and place it within a broader evolutionary and biogeographical framework. This evidence was then combined with occurrence data to infer extinction risk following IUCN guidelines.
+
+---
 
 ### DNA barcoding: Species identification {#barcode}
 
-The Consortium for the Barcode of Life ([CBOL](https://www.ibol.org/phase1/cbol/)) is an international initiative devoted to developing DNA barcoding as a global standard for the identification of biological species. CBOL has more than 130 Member Organizations from more than 40 countries [@CBOL].
+The Consortium for the Barcode of Life ([CBOL](https://www.ibol.org/phase1/cbol/)) is an international initiative devoted to developing DNA barcoding as a global standard for identifying biological species. CBOL includes more than 130 member organizations from over 40 countries [@CBOL].
 
-**DNA barcoding** is a method of species identification using a short section of DNA from a specific gene or genes. The premise of DNA barcoding is that, by comparison with a reference library of such DNA sections, an individual DNA sequence can be used to uniquely identify an organism to species. This is analogous to a supermarket scanner using the familiar black stripes of the UPC barcode to identify an item in its stock against its reference database [@CBOL]. DNA barcodes are sometimes used in an effort to identify unknown species, parts of an organism, or simply to catalog as many taxa as possible, or to compare with traditional taxonomy in an effort to determine species boundaries. For more details on DNA barcodes applied to plants, please see section [below](#vanbarcode) dedicated to vanilla.
+**DNA barcoding** is a method of species identification that uses a short, standardized region of DNA from one or more genes. The premise of DNA barcoding is that, by comparison with a reference library of sequences, an unknown DNA sequence can be used to identify an organism at the species level. This is analogous to a supermarket scanner using the black stripes of a UPC barcode to identify an item in its database [@CBOL].
 
-DNA barcoding has a wide range of applications from biodiversity surveys [e.g. @telfer2015biodiversity], illegal trade of wildlife [e.g. @gonccalves2015dna] to food security [e.g. @quinto2016dna]. The DNA barcoding approach has been reviewed by @deSalle2019. 
+DNA barcodes are used to identify unknown species, parts of organisms, or to catalog biodiversity. They can also be compared with traditional taxonomy to help define species boundaries. For more details on plant DNA barcoding, see the section [below](#vanbarcode) dedicated to *Vanilla*.
+
+DNA barcoding has a wide range of applications, including biodiversity surveys [e.g., @telfer2015biodiversity], monitoring illegal wildlife trade [e.g., @gonccalves2015dna], and food authentication [e.g., @quinto2016dna]. The approach has been comprehensively reviewed by @deSalle2019.
 
 #### Procedure
 
-A DNA barcoding approach is subdivided into four steps:
+A DNA barcoding workflow generally includes four steps:
 
-1. Isolate DNA from the target sample.
-2. Amplify the target DNA barcode region using PCR.
-3. Sequence the PCR products using either Sanger sequencing or NGS (mostly on Illumina platform).
-4. Compare the resulting sequences against reference databases to find the matching species. Here, we will be using DNA sequences from [GenBank](https://www.ncbi.nlm.nih.gov/genbank/) as our reference [@GenBankP]. See Chapter 3 for more details on GenBank.
+1. Isolate DNA from the target sample.  
+2. Amplify the target DNA barcode region using PCR.  
+3. Sequence the PCR products using either Sanger sequencing or next-generation sequencing (NGS; often on Illumina platforms).  
+4. Compare the resulting sequences against reference databases to identify matching species. In this course, we will use DNA sequences from [GenBank](https://www.ncbi.nlm.nih.gov/genbank/) as our reference database [@GenBankP]. See Chapter 3 for more details on GenBank.
+
+---
 
 ### Phylogenetic inference
 
-As described in @Masters2017, **phylogenetic inference is the practice of reconstructing the evolutionary history of related species by grouping them in successively more inclusive sets based on shared ancestry**. Homologous characters in independent lineages are similar because they have been inherited from a common ancestor, and they alone should be used in phylogenetic reconstructions. Homoplasies are characters that appear similar, but have evolved from different ancestral states. They may mislead interpretations of evolutionary history. Both molecular and morphological datasets are subject to obfuscation by homoplasy. **Methods of phylogenetic inference aim to distinguish between homologous (signal) and homoplastic (noise) resemblance.** Molecular datasets tend to be very large and are analyzed using statistical techniques that fit the data to models of molecular evolution. These methods are not well suited to morphological data, and combined analyses including both kinds of data tend to obscure the morphological signal. Rates of molecular change may be used to estimate divergence ages.
+As described in @Masters2017, **phylogenetic inference is the process of reconstructing the evolutionary history of related species by grouping them into successively more inclusive sets based on shared ancestry**. Homologous characters are similar because they are inherited from a common ancestor, and they are the primary source of information for phylogenetic reconstruction. In contrast, homoplasies are characters that appear similar but evolved independently from different ancestral states. Homoplasy can mislead interpretations of evolutionary history.
 
-In this mini-report, we will be focusing on inferring phylogenetic trees based on DNA sequences obtained through the DNA barcoding approach described [above](#barcode). 
+Both molecular and morphological datasets can be affected by homoplasy. **Phylogenetic methods aim to distinguish between homologous (signal) and homoplastic (noise) similarities.** Molecular datasets are often large and are analyzed using statistical methods
 
-#### Procedure
-
-A phylogenetic analysis is subdivided into four steps:
-
-1. Produce DNA sequences following steps 1 to 3 as described in [DNA barcoding section](#barcode).
-2. Produce DNA multiple sequence alignments.
-3. Test for best-fit model reflecting evolution of DNA region.
-4. Infer phylogenetic tree, which is usually based either on Maximum Likelihood and/or Bayesian criteria.
-
-## Introducing our model species: Vanilla {#vanilla}
-
-Like porcini [@dentinger2014s], **vanilla** is one of our most beloved spice, but we still know very little about its biology, taxonomy and evolution [see @Ellestadinpress for a review]. As part of a study aiming at inferring domestication processes in the genus *Vanilla* and species adaptation to drought, fieldwork was conducted in Mexico by Paige Ellestad (an EEB Ph.D. student at BSU) and her in-country partners.
-
-For her Ph.D. dissertation, Paige is applying a DNA barcoding approach coupled with phylogenetic inference (and ecological niche modeling) to answer the following questions:
-
-> Q1: What species of vanilla are cultivated in Mexico?
->
-> Q2: How are those species related and is there evidence of gene flow/hybridization?
->
-> Q3: What level of genetic diversity is there among each species?
-
-## Applied DNA barcodes for the vanilla project {#vanbarcode}
-
-To answer these questions, she sampled >30 locations (mostly plantations, but also wild populations) representing >60 samples and sequenced two DNA barcode regions widely used in plants: one chloroplastic (the coding [*rbcL*](https://www.ncbi.nlm.nih.gov/gene/844754) region) and one nuclear ribosomal (the ITS region, which stands for for "Internal Transcribed Spacer"). These two DNA regions are traditionally used by researchers as DNA barcodes supporting species delimitation and identifications. Since you are already familiar with *rbcL* [see @Hollingsworth2009 for more details], we will be providing more details on the ITS region. The nuclear ribosomal ITS region includes part of 18S, ITS1, 5.8S, ITS2 and part of 26S [see Figure \@ref(fig:ITS), @Cheng2016]. This region is repeated in tandem 1000 of times and duplicated across chromosomes in order to produce ribosomes, which are key to produce proteins. This latter DNA region is shared across kingdoms and plant specific primers have to be used otherwise we may be at risk of amplifying this region for symbiotic organisms [e.g. fungi, see @Cheng2016].
-
-```{r ITS, echo=FALSE, fig.align="center", fig.cap="Map of the ITS nuclear ribsomal region with primers (from Cheng et al, 2016).", fig.show="asis", out.width = '100%'}
-knitr::include_graphics("Images/ITS.png")
-```
-
-DNA extractions of leaf material were conducted at BSU using the Qiagen Plant Mini kit followed by PCR amplifications using plant specific primers [for instance, the IT4p and ITS5p primers for the ITS region; see @Cheng2016]. Sequencing was outsourced to [GENEWIZ](https://www.genewiz.com) and performed using Sanger sequencing technology. PCR amplicons/fragments were only sequenced using forward primers. As per provider, we are expecting high quality DNA sequencing read lengths of up to ca. 1000 bases. The company also mentions that a typical read would provide 800 bases with Phred score of 20.
+---
 
 ## Mini-Report 3 scientific questions {#sciq}
 
