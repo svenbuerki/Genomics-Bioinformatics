@@ -11,7 +11,7 @@
 
 <meta name="author" content="Sven Buerki - Boise State University" />
 
-<meta name="date" content="2026-01-29" />
+<meta name="date" content="2026-01-30" />
 
 <title>BIOL 497/597 - Genomics &amp; Bioinformatics</title>
 
@@ -383,7 +383,7 @@ div.tocify {
 <h1 class="title toc-ignore">BIOL 497/597 - Genomics &amp; Bioinformatics</h1>
 <h3 class="subtitle">Mini-Reports</h3>
 <h4 class="author">Sven Buerki - Boise State University</h4>
-<h4 class="date">2026-01-29</h4>
+<h4 class="date">2026-01-30</h4>
 
 </div>
 
@@ -789,20 +789,40 @@ Up to <strong>–5 points</strong> may be deducted for failure to follow formatt
 <h1><span class="header-section-number">4</span> Mini-Report 3 — DNA-based Species Identification and Phylogenetic Inference</h1>
 <div id="learning-outcomes" class="section level2" number="4.1">
 <h2><span class="header-section-number">4.1</span> Learning Outcomes</h2>
-<p>The following learning outcomes will be covered as part of this Mini-Report:</p>
+<p>This Mini-Report will help you develop conceptual understanding and practical skills in DNA-based species identification and phylogenetic inference.</p>
 <ul>
-<li>Interpret how DNA sequence data are used in published studies to investigate biological variation, species boundaries, and evolutionary relationships (based on the group activity discussion).</li>
-<li>Learn the terminology associated with DNA barcoding and phylogenetic analyses. Key definitions are available in the <a href="Lexicon.html">Lexicon</a>.</li>
-<li>Process and clean DNA sequence electropherograms generated using the <a href="https://dnalc.cshl.edu/resources/animations/cycseq.html">Sanger sequencing approach</a> (from PCR amplifications).</li>
-<li>Validate DNA sequences and develop a <strong>species working hypothesis</strong> by conducting BLAST similarity searches. These analyses will be based on DNA sequences deposited in <a href="https://www.ncbi.nlm.nih.gov/genbank/">GenBank</a> <span class="citation">(<a href="#ref-GenBankP">Benson et al., 2005</a>)</span>.<br />
-</li>
-<li>Query GenBank and download DNA sequences for phylogenetic analyses using <code>R</code> <span class="citation">(<a href="#ref-R">R Core Team, 2016</a>)</span> packages.<br />
-</li>
-<li>Produce multiple DNA sequence alignments (including both your target DNA sequences and those retrieved from GenBank). This will be done using <code>MUSCLE</code> <span class="citation">(<a href="#ref-edgar2004muscle">Edgar, 2004</a>)</span>, implemented in <code>MEGA</code> <span class="citation">(<a href="#ref-kumar2018mega">Kumar et al., 2018</a>)</span>.<br />
-</li>
-<li>Perform phylogenetic inference using the <strong>Maximum Likelihood</strong> criterion as implemented in RAxML <span class="citation">(<a href="#ref-Stamatakis2014">Stamatakis, 2014</a>)</span>. This phylogenetic framework will be used to test and refine species working hypotheses under the phylogenetic species concept <span class="citation">(<a href="#ref-wheeler1999phylogenetic">Wheeler, 1999</a>)</span>.<br />
-</li>
-<li>Visualize and interpret phylogenetic results using <code>R</code> <span class="citation">(<a href="#ref-R">R Core Team, 2016</a>)</span> packages.</li>
+<li><strong>Explain how DNA sequence data are used in scientific studies to investigate biological variation, species boundaries, and evolutionary relationships</strong>
+<ul>
+<li><em>How:</em> By analyzing and discussing <span class="citation">Ellestad et al. (<a href="#ref-Ellestad2022AJB">2022</a>)</span> during the <a href="#grpactivity_vanilla">group activity</a> and linking genetic evidence to biological interpretations.</li>
+</ul></li>
+<li><strong>Correctly use terminology associated with DNA barcoding and phylogenetic analyses</strong>
+<ul>
+<li><em>How:</em> By applying key terms in discussions, bioinformatics exercises, and your written report, and by consulting the <a href="Lexicon.html">Lexicon</a> throughout the assignment.</li>
+</ul></li>
+<li><strong>Process and curate raw DNA sequence data generated using Sanger sequencing</strong>
+<ul>
+<li><em>How:</em> By editing, trimming, and validating ITS DNA sequence electropherograms obtained from PCR products during in-class bioinformatics work.</li>
+</ul></li>
+<li><strong>Evaluate DNA sequence identity and formulate a species working hypothesis using similarity-based approaches</strong>
+<ul>
+<li><em>How:</em> By conducting BLAST searches against sequences in <a href="https://www.ncbi.nlm.nih.gov/genbank/">GenBank</a> <span class="citation">(<a href="#ref-GenBankP">Benson et al., 2005</a>)</span> and interpreting match quality, alignment metrics, and taxonomic patterns.</li>
+</ul></li>
+<li><strong>Retrieve and organize comparative DNA sequences for phylogenetic analysis</strong>
+<ul>
+<li><em>How:</em> By querying GenBank and downloading relevant sequences using <code>R</code> <span class="citation">(<a href="#ref-R">R Core Team, 2016</a>)</span> packages to construct your analysis dataset.</li>
+</ul></li>
+<li><strong>Construct multiple DNA sequence alignments of homologous regions</strong>
+<ul>
+<li><em>How:</em> By generating and refining alignments that include both your sequences and reference sequences using <code>MUSCLE</code> <span class="citation">(<a href="#ref-edgar2004muscle">Edgar, 2004</a>)</span> implemented in <code>MEGA</code> <span class="citation">(<a href="#ref-kumar2018mega">Kumar et al., 2018</a>)</span>.</li>
+</ul></li>
+<li><strong>Apply phylogenetic methods to infer evolutionary relationships</strong>
+<ul>
+<li><em>How:</em> By performing phylogenetic inference under the <strong>Maximum Likelihood</strong> criterion using RAxML <span class="citation">(<a href="#ref-Stamatakis2014">Stamatakis, 2014</a>)</span> and using the resulting trees to test and refine species hypotheses under the phylogenetic species concept <span class="citation">(<a href="#ref-wheeler1999phylogenetic">Wheeler, 1999</a>)</span>.</li>
+</ul></li>
+<li><strong>Interpret and communicate phylogenetic trees as evolutionary hypotheses</strong>
+<ul>
+<li><em>How:</em> By visualizing trees using <code>R</code> <span class="citation">(<a href="#ref-R">R Core Team, 2016</a>)</span> packages and explaining how tree structure relates to species identity, genetic divergence, and evolutionary relationships in your report.</li>
+</ul></li>
 </ul>
 <hr />
 </div>
@@ -815,56 +835,54 @@ Up to <strong>–5 points</strong> may be deducted for failure to follow formatt
 <p>Additional references are provided throughout each section to help you master the material covered in this assignment.</p>
 <hr />
 </div>
-<div id="schedule" class="section level2" number="4.3">
-<h2><span class="header-section-number">4.3</span> Schedule</h2>
-<p>This report is divided into four parts:</p>
+<div id="structure-1" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> Structure</h2>
+<p>This mini-report is organized into the following sections to guide you step by step through both the scientific concepts and the practical analyses:</p>
 <ul>
-<li><a href="#grpactivity_vanilla"><strong>Group activity</strong></a>: Collaborative reading and discussion of the publication that forms the basis of Mini-Report 3.<br />
-</li>
-<li><a href="#IntroMR3"><strong>Theoretical background</strong></a>: Overview of key theoretical concepts, scientific questions, hypotheses (including predictions), methodology, data availability, and report structure and formatting.<br />
-</li>
-<li><a href="#part1"><strong>Part 1</strong></a>: Process and clean ITS DNA sequence electropherograms and infer a species working hypothesis.<br />
+<li><p><a href="#grpactivity_vanilla"><strong>Group activity</strong></a>: You will collaboratively read and discuss the publication that forms the foundation of Mini-Report 3. This activity helps you understand the biological questions, study design, and types of DNA evidence used in species research.</p></li>
+<li><p><a href="#IntroMR3"><strong>Theoretical background</strong></a>: This section introduces the key concepts you need for the report, including scientific questions, hypotheses (and predictions), methodology, data availability, and report structure and formatting. Use this section as a reference while working on your assignment.</p></li>
+<li><p><strong>Bioinformatics:</strong> In this section, you will perform the bioinformatics analyses used to replicate parts of the study at the core of Mini-Report 3. These hands-on steps will help you connect theory to real data.</p>
+<ul>
+<li><a href="#part1"><strong>Part 1</strong></a>: Process and clean ITS DNA sequence electropherograms and develop a species working hypothesis.<br />
 </li>
 <li><a href="#part2"><strong>Part 2</strong></a>: Retrieve DNA sequences and prepare datasets for analysis.<br />
 </li>
 <li><a href="#part3"><strong>Part 3</strong></a>: Perform multiple sequence alignment and phylogenetic inference.</li>
+</ul></li>
+<li><p><a href="#report"><strong>Writing report</strong></a>: This section provides detailed guidelines to help you write and organize your individual mini-report.</p></li>
 </ul>
+<hr />
 </div>
 <div id="grpactivity_vanilla" class="section level2" number="4.4">
 <h2><span class="header-section-number">4.4</span> 🤝 Group Activity: Interpreting DNA Evidence in a Species Study</h2>
-<div id="paper" class="section level3" number="4.4.1">
-<h3><span class="header-section-number">4.4.1</span> Paper</h3>
-<p>Ellestad <em>et al.</em> (2022). <strong>Uncovering haplotype diversity in cultivated Mexican <em>Vanilla</em> species.</strong> <em>American Journal of Botany</em>.<br />
-<a href="https://doi.org/10.1002/ajb2.16024" class="uri">https://doi.org/10.1002/ajb2.16024</a></p>
+<div id="learning-outcome" class="section level3" number="4.4.1">
+<h3><span class="header-section-number">4.4.1</span> Learning Outcome</h3>
+<p>Students read and analyze <span class="citation">Ellestad et al. (<a href="#ref-Ellestad2022AJB">2022</a>)</span> to understand how DNA sequence data are used to interpret biological variation and species boundaries. This activity provides the <strong>scientific context</strong> for <strong>Mini-Report 3</strong>, in which you will replicate part of this study using Sanger sequence data.</p>
 <hr />
 </div>
-<div id="learning-outcome" class="section level3" number="4.4.2">
-<h3><span class="header-section-number">4.4.2</span> Learning Outcome</h3>
-<p>Students evaluate how DNA sequence data are used to interpret biological variation and species boundaries, preparing them for <strong>Mini-Report 3</strong> on DNA-based species identification and phylogenetic inference.</p>
-<hr />
-</div>
-<div id="activity-overview" class="section level3" number="4.4.3">
-<h3><span class="header-section-number">4.4.3</span> Activity Overview</h3>
-<p>In this <strong>1 hour and 20 minutes</strong> in-class group activity, students work in groups of <strong>3–4</strong> to investigate how researchers use DNA sequence data to understand biological diversity.</p>
-<p>The <strong>goals</strong> are to:</p>
+<div id="activity-overview" class="section level3" number="4.4.2">
+<h3><span class="header-section-number">4.4.2</span> Activity Overview</h3>
+<p>In this <strong>1 hour and 20 minutes</strong> in-class group activity, students work in groups of <strong>3–4</strong> to explore how researchers use DNA sequence data to understand biological diversity in <em>Vanilla</em>.</p>
+<p>The purpose of this activity is to help you:</p>
 <ul>
-<li>Identify the study’s research aims and guiding questions<br />
+<li>Understand the <strong>broader scientific questions</strong> addressed in the study<br />
 </li>
-<li>Understand how sequencing data are used to interpret biological variation<br />
+<li>See how different types of DNA data contribute to testing biological hypotheses<br />
 </li>
-<li>Connect DNA barcoding and phylogenetics to species delimitation<br />
+<li>Connect <strong>DNA barcoding</strong> and <strong>phylogenetics</strong> to species delimitation<br />
 </li>
-<li>Develop evidence-based explanations for observed phenotypic and genetic patterns</li>
+<li>Prepare to <strong>replicate part of this research workflow</strong> using Sanger sequencing data in Mini-Report 3</li>
 </ul>
 <hr />
 </div>
-<div id="materials" class="section level3" number="4.4.4">
-<h3><span class="header-section-number">4.4.4</span> Materials</h3>
+<div id="materials" class="section level3" number="4.4.3">
+<h3><span class="header-section-number">4.4.3</span> Materials</h3>
 <ul>
-<li><span class="citation">Ellestad et al. (<a href="#ref-Ellestad2022AJB">2022</a>)</span> — <strong>DNA barcoding and phylogenetics of <em>Vanilla</em></strong></li>
+<li><span class="citation">Ellestad et al. (<a href="#ref-Ellestad2022AJB">2022</a>)</span> — <strong>DNA barcoding and phylogenetics of <em>Vanilla</em></strong><br />
+</li>
 <li><a href="https://svenbuerki.github.io/Genomics-Bioinformatics/Lexicon.html">Lexicon</a><br />
 </li>
-<li><a href="#IntroMR3">Theoretical background</a> section, which includes additional resources on topics relevant to this group activity.</li>
+<li><a href="#IntroMR3">Theoretical background</a> section, which provides additional support on DNA barcoding and phylogenetic concepts</li>
 </ul>
 <hr />
 </div>
@@ -879,34 +897,38 @@ Up to <strong>–5 points</strong> may be deducted for failure to follow formatt
 </li>
 <li>What types of variation are the authors concerned with (morphological, genetic, geographic, etc.)?<br />
 </li>
-<li>Based on the introduction, what do you think the researchers are trying to determine about this variation?</li>
+<li>What are the main research questions?<br />
+</li>
+<li>Based on the introduction, what do you think is the <strong>working hypothesis</strong> of this study?</li>
 </ol>
 <p>➡️ <strong>Outcome of this section:</strong><br />
-Groups propose <strong>one or more possible explanations</strong> for why individuals or populations might differ.</p>
+Groups propose <strong>possible explanations</strong> for why individuals or populations might differ and identify what the study is trying to test.</p>
 <hr />
 </div>
-<div id="part-2-how-do-the-authors-use-dna-data-25-minutes" class="section level3" number="4.5.2">
-<h3><span class="header-section-number">4.5.2</span> Part 2 — How Do the Authors Use DNA Data? <span style="color:gray;">(25 minutes)</span></h3>
-<p>Groups now examine the <strong>methods and results</strong>.</p>
+<div id="part-2-how-do-the-authors-use-dna-data-to-test-their-hypothesis-25-minutes" class="section level3" number="4.5.2">
+<h3><span class="header-section-number">4.5.2</span> Part 2 — How Do the Authors Use DNA Data to Test Their Hypothesis? <span style="color:gray;">(25 minutes)</span></h3>
+<p>Groups examine the <strong>methods and results</strong>.</p>
 <p>Discuss:</p>
 <ul>
 <li>Which DNA regions (markers) are sequenced?<br />
 </li>
-<li>What sequencing approach is used?<br />
+<li>What sequencing approaches are used? If more than one is used, what is the role of each?<br />
+</li>
+<li>Which parts of the study rely on <strong>Sanger sequencing</strong>?<br />
 </li>
 <li>How do the authors analyze the data (e.g., alignments, haplotypes, phylogenetic trees)?<br />
 </li>
-<li>What patterns do they look for in the genetic data?</li>
+<li>What genetic patterns are they looking for to test their hypothesis?</li>
 </ul>
 <p>Then consider:</p>
 <p>👉 If biological differences reflect <strong>underlying genetic lineages</strong>, what patterns would you expect in the DNA results?<br />
 👉 If differences are <strong>not strongly linked to genetic divergence</strong>, what might the DNA results look like instead?</p>
-<p><em>Do not worry about perfect terminology yet — focus on reasoning from the data.</em></p>
+<p><em>Focus on reasoning from the data rather than perfect terminology.</em></p>
 <hr />
 </div>
 <div id="part-3-from-dna-patterns-to-biological-meaning-25-minutes" class="section level3" number="4.5.3">
 <h3><span class="header-section-number">4.5.3</span> Part 3 — From DNA Patterns to Biological Meaning <span style="color:gray;">(25 minutes)</span></h3>
-<p>Groups interpret the findings.</p>
+<p>Groups interpret the findings in a biological context.</p>
 <p>Discuss:</p>
 <ul>
 <li>Do the genetic results show clear, distinct lineages, or more mixed patterns?<br />
@@ -917,7 +939,7 @@ Groups propose <strong>one or more possible explanations</strong> for why indivi
 </li>
 <li>How do concepts such as <strong>DNA barcoding</strong>, <strong>phylogenetics</strong>, and <strong>monophyly</strong> help interpret these results?</li>
 </ul>
-<p>➡️ At this stage, groups should be able to articulate <strong>two contrasting biological interpretations</strong> that could explain the observed variation.</p>
+<p>➡️ By the end of this section, groups should be able to describe <strong>two contrasting biological interpretations</strong> that could explain the observed variation.</p>
 <hr />
 </div>
 <div id="part-4-group-synthesis-and-preparation-15-minutes" class="section level3" number="4.5.4">
@@ -926,11 +948,11 @@ Groups propose <strong>one or more possible explanations</strong> for why indivi
 <ul>
 <li><strong>Two key insights</strong> about how DNA data inform biological interpretation<br />
 </li>
-<li><strong>One proposed explanation</strong> for the observed variation, supported by evidence from the paper<br />
+<li><strong>One explanation</strong> for the observed variation, supported by evidence from the paper<br />
 </li>
-<li>Select <strong>one or two group members</strong> to speak during the discussion</li>
+<li>Identify <strong>one or two group members</strong> who will share the group’s ideas during the discussion</li>
 </ul>
-<p>Encourage groups to reference specific figures or results.</p>
+<p>Encourage groups to reference specific figures, tables, or results.</p>
 <hr />
 </div>
 <div id="part-5-whole-class-debrief-15-minutes" class="section level3" number="4.5.5">
@@ -941,17 +963,17 @@ Groups propose <strong>one or more possible explanations</strong> for why indivi
 </li>
 <li>How DNA evidence supports or challenges each explanation<br />
 </li>
-<li>How this study illustrates the role of DNA barcoding and phylogenetics in species delimitation</li>
+<li>How this study connects <strong>DNA barcoding</strong>, <strong>phylogenetics</strong>, and <strong>species delimitation</strong></li>
 </ul>
-<p>The discussion emphasizes how scientists move from <strong>genetic patterns → evolutionary interpretation</strong>, a key skill for Mini-Report 3.</p>
+<p>This discussion highlights how scientists move from <strong>genetic patterns → evolutionary interpretation</strong>, and prepares you to <strong>apply a similar approach using Sanger data</strong> in Mini-Report 3.</p>
 <hr />
 </div>
 </div>
 <div id="IntroMR3" class="section level2" number="4.6">
-<h2><span class="header-section-number">4.6</span> Theoretical background</h2>
+<h2><span class="header-section-number">4.6</span> Theoretical Background</h2>
 <p>This section provides additional theoretical background to help you better understand the concepts and methods used in <strong>Mini-Report 3</strong>. You are not expected to memorize every detail, but this material will support your interpretation of DNA barcoding results, phylogenetic analyses, and species delimitation in your report.</p>
-<div id="how-many-species-are-there-on-earth" class="section level3" number="4.6.1">
-<h3><span class="header-section-number">4.6.1</span> How many species are there on Earth?</h3>
+<div id="how-many-species-ere-there-on-earth" class="section level3" number="4.6.1">
+<h3><span class="header-section-number">4.6.1</span> How Many Species Ere There On Earth?</h3>
 <p>Projections of global biodiversity have ranged from 2 to 100 million species <span class="citation">(<a href="#ref-Larsen2017">Larsen et al., 2017</a>)</span>.</p>
 <p>However, these estimates often do not account for <strong>cryptic species</strong>. See, for instance, <span class="citation">Dentinger and Suz (<a href="#ref-dentinger2014s">2014</a>)</span> for an example involving porcini mushrooms. In that study, the authors used DNA sequencing to identify three species of mushroom contained within a commercial packet of dried Chinese porcini purchased in London. Surprisingly, none of these species had ever been formally described by science and all required new scientific names.</p>
 <p><span class="citation">Larsen et al. (<a href="#ref-Larsen2017">2017</a>)</span> later published a keystone paper predicting <strong>1 to 6 billion species on Earth</strong>. This estimate was based on an average of six cryptic species per described species.</p>
@@ -966,7 +988,7 @@ Groups propose <strong>one or more possible explanations</strong> for why indivi
 <hr />
 </div>
 <div id="barcode" class="section level3" number="4.6.2">
-<h3><span class="header-section-number">4.6.2</span> DNA barcoding: Species identification</h3>
+<h3><span class="header-section-number">4.6.2</span> DNA Barcoding: Species Identification</h3>
 <p>The Consortium for the Barcode of Life (<a href="https://www.ibol.org/phase1/cbol/">CBOL</a>) is an international initiative devoted to developing DNA barcoding as a global standard for identifying biological species. CBOL includes more than 130 member organizations from over 40 countries <span class="citation">(<a href="#ref-CBOL">CBOL, 2021</a>)</span>.</p>
 <p><strong>DNA barcoding</strong> is a method of species identification that uses a short, standardized region of DNA from one or more genes. The premise of DNA barcoding is that, by comparison with a reference library of sequences, an unknown DNA sequence can be used to identify an organism at the species level. This is analogous to a supermarket scanner using the black stripes of a UPC barcode to identify an item in its database <span class="citation">(<a href="#ref-CBOL">CBOL, 2021</a>)</span>.</p>
 <p>DNA barcodes are used to identify unknown species, parts of organisms, or to catalog biodiversity. They can also be compared with traditional taxonomy to help define species boundaries. For more details on plant DNA barcoding, see the section <a href="#vanbarcode">below</a> dedicated to <em>Vanilla</em>.</p>
@@ -987,14 +1009,14 @@ Groups propose <strong>one or more possible explanations</strong> for why indivi
 </div>
 </div>
 <div id="phylogenetic-inference" class="section level3" number="4.6.3">
-<h3><span class="header-section-number">4.6.3</span> Phylogenetic inference</h3>
+<h3><span class="header-section-number">4.6.3</span> Phylogenetic Inference</h3>
 <p>As described in <span class="citation">Masters and Pozzi (<a href="#ref-Masters2017">2017</a>)</span>, <strong>phylogenetic inference is the process of reconstructing the evolutionary history of related species by grouping them into successively more inclusive sets based on shared ancestry</strong>. Homologous characters are similar because they are inherited from a common ancestor, and they are the primary source of information for phylogenetic reconstruction. In contrast, homoplasies are characters that appear similar but evolved independently from different ancestral states. Homoplasy can mislead interpretations of evolutionary history.</p>
 <p>Both molecular and morphological datasets can be affected by homoplasy. <strong>Phylogenetic methods aim to distinguish between homologous (signal) and homoplastic (noise) similarities.</strong> Molecular datasets are often large and are analyzed using statistical methods</p>
 <hr />
 </div>
 </div>
 <div id="sciq" class="section level2" number="4.7">
-<h2><span class="header-section-number">4.7</span> Mini-Report 3 scientific questions</h2>
+<h2><span class="header-section-number">4.7</span> Mini-Report 3: Scientific Questions</h2>
 <p>For this assignment, students will investigate the following question:</p>
 <blockquote>
 <p>Q1: To what species of vanilla do the individuals presented in Figure <a href="#fig:van">4.1</a> belong to?</p>
@@ -1030,83 +1052,19 @@ Figure 4.1: Images of the four samples of vanilla collected in Mexico studied in
 <li>BLAST and RAxML Maximum Likelihood phylogenetic analyses (including bootstrap analysis to assess node supports) to identify species identity of target samples.</li>
 <li>Produce figures using <code>R</code> to test working hypothesis.</li>
 </ol>
-<p>Finally, we will intersect evidence from all our analyses (especially phylogenetic clustering combined with node supports and taxonomy of ITS sequences from GenBank) to test our hypothesis and infer species identity of our target individuals. Please see section <a href="#report">4.9</a> for more details our the formatting of the report.</p>
+<p>Finally, we will intersect evidence from all our analyses (especially phylogenetic clustering combined with node supports and taxonomy of ITS sequences from GenBank) to test our hypothesis and infer species identity of our target individuals. Please see section <a href="#report">4.12</a> for more details our the formatting of the report.</p>
 </div>
-<div id="report" class="section level2" number="4.9">
-<h2><span class="header-section-number">4.9</span> Writing your report</h2>
-<p>The instructor provides below information to complete the Mini-Report 3. All the material, data, code and references required to complete this report are provided here and are covered in class. In this context, students will have to focus on formatting their reports following guidelines presented here as well as making sure that their <code>R</code> code is working and ready to be shared.</p>
-<div id="apply-the-imrad-format-and-supply-r-code" class="section level3" number="4.9.1">
-<h3><span class="header-section-number">4.9.1</span> Apply the IMRAD format and supply R code</h3>
-<p>Your reports will be structured and organized following the <strong>IMMRAD</strong> format: <strong>I</strong>ntroduction, <strong>M</strong>aterial &amp; <strong>M</strong>ethods, <strong>R</strong>esults, and <strong>D</strong>iscussion. This format is widely used to report experimental research in many scientific disciplines. In addition, you will be complementing your reports with an <strong>Abstract</strong> (see below). Finally, since this research relies heavily on bioinformatics, students will complete their reports by supplying their commented <code>R</code> scripts.</p>
-</div>
-<div id="structure-of-mini-report-3" class="section level3" number="4.9.2">
-<h3><span class="header-section-number">4.9.2</span> Structure of Mini-Report 3</h3>
-<p>The instructor provides guidance on content for each section of your individual reports:</p>
-<ol style="list-style-type: decimal">
-<li><strong>Title &amp; author</strong>: Please supply a first page containing the title and author information.</li>
-<li><strong>Abstract</strong>: Provide a short text summarizing the i) objective(s), ii) methods (incl. sampling), iii) most important results and iv) major conclusions and significance of your research (maximum: 300 words).</li>
-<li><strong>Introduction</strong>: Summarize challenges associated to biodiversity research and benefit of DNA barcoding approach in tackling those issues (e.g. by rapidly identifying species, this approach supports species descriptions, monitoring and development of conservation strategies). Then, move on to talk about vanilla, your model organism, and provide the scientific question and hypothesis investigated in this report (see section <a href="#sciq">4.7</a>). Finally, finish this section with an overview of the applied methodology used to answer your questions.</li>
-<li><strong>Material &amp; Methods</strong>: This section should be subdivided into four subsections. Subsections a. and b. are associated to wet-lab analyses, whereas subsections c. and d. correspond to bioinformatic analyses. Please, make sure to cite references supporting your methods and report used bioinformatic tools (incl. references) together with their applied settings. Finally, you can also refer to your <code>R</code> code for further details. The subsections are as follows:
-<ol style="list-style-type: lower-alpha">
-<li>Sampling (see section <a href="#sciq">4.7</a>).</li>
-<li>DNA extraction and sequencing (see section <a href="#vanbarcode"><strong>??</strong></a>).</li>
-<li>BLAST analysis.</li>
-<li>Phylogenetic inference.<br />
-</li>
-</ol></li>
-<li><strong>Results</strong>: Results should be presented in the same order as presented in the Material &amp; Methods section. Tables, Figures and code are reported in this section (by directly embedding them in the text and providing captions). To speed-up the writing of this report, you don’t have to report on results associated to Sampling (a.) and DNA extraction and sequencing (b.) subsections, but rather focus on the BLAST analysis (c.) and phylogenetic inference (d.) subsections.<br />
-</li>
-<li><strong>Discussion</strong>: In your discussion, we are expecting you to collate all the evidence presented in the study to answer your scientific questions. In this context, please subdivide this section into three subsections named as follows:
-<ol style="list-style-type: lower-alpha">
-<li>To what species of vanilla do the individuals studied here belong to?</li>
-<li>How are those individuals related to each other?</li>
-<li>Conclusions and Perspectives.</li>
-</ol></li>
-<li><strong>References</strong>: Add a references section containing full citations of references cited in the text. Students can pick their preferred citation format, but references need to be consistently edited in the same fashion.</li>
-<li><strong>Appendix</strong>: Your <code>R</code> code has to be provided as an Appendix either by directly coping your code in the main document under this section or by providing the name and location of the <code>R</code> script in the Appendix section (e.g. by providing a text similar to this: “All the R code associated to this research can be downloaded at this path.”).</li>
-</ol>
-</div>
-<div id="submission-and-deadline" class="section level3" number="4.9.3">
-<h3><span class="header-section-number">4.9.3</span> Submission and deadline</h3>
-<p>Individual reports should be submitted in either Google Docs, Word or Rmarkdown formats (and if you decide to submit an additional file containing your R script, submit this file as an <code>.R</code> format). These files should be uploaded on the shared Google Drive in the <code>Mini_Report_3</code> folder in a subfolder entitled as follows: <code>Mini_Report_3_Surname</code>.</p>
-<p><strong>Upload your reports on the shared Google drive by the 29th of March 2024 before 5 PM MT.</strong></p>
-</div>
-</div>
-<div id="project-structure-and-data" class="section level2" number="4.10">
-<h2><span class="header-section-number">4.10</span> Project structure and data</h2>
-<p>To support mastering the learning outcomes, we will be using a subset of a DNA dataset focusing on the <a href="#vanilla">vanilla</a> spice (from the Orchidaceae family) published by <span class="citation">Ellestad et al. (<a href="#ref-Ellestad2022AJB">2022</a>)</span>.</p>
-<p>The data for this assignment are deposited on the shared <a href="https://drive.google.com/drive/folders/1iBMwP67FoSTMDX-EpXOlf8utP9k8tu8k?usp=sharing">Google Drive</a> in a folder entitled <code>DNA_barcoding</code> (located in <code>Mini_Report_3</code>). All students enrolled in this class have been granted access to this folder. The folder is subdivided into four sub-folders (see Figure <a href="#fig:datastr">4.2</a>) and contains a master spreadsheet <code>Vanilla_samples_records.xlsx</code> at its root:</p>
-<ul>
-<li><code>01_Field_images</code>: <code>jpeg</code> images of samples.</li>
-<li><code>02_Raw_ITS_data_ab1</code>: <code>.ab1</code> sequence electropherograms of ITS sequences.</li>
-<li><code>03_Processed_ITS_data_FASTA</code>: Folder where cleaned ITS sequences will be saved in <code>FASTA</code> format.</li>
-<li><code>04_Data_analyses</code>: Folder where we will be saving outputs of analyses conducted in this project.</li>
-<li><code>Vanilla_samples_records.xlsx</code> contains meta-data information about the samples. We will also update this file with information on species hypotheses.</li>
-<li><code>PART2_Vanilla.R</code> is an R script containing code for the part 2 of this mini-report.</li>
-</ul>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:datastr"></span>
-<img src="Images/DNA_barcoding_str.png" alt="Screenshot of the DNA_barcoding folder showing data structure for this project." width="90%" />
-<p class="caption">
-Figure 4.2: Screenshot of the DNA_barcoding folder showing data structure for this project.
-</p>
-</div>
-<div id="data-availability" class="section level3" number="4.10.1">
-<h3><span class="header-section-number">4.10.1</span> Data availability</h3>
-<p>The data availability statement associated with <span class="citation">Ellestad et al. (<a href="#ref-Ellestad2022AJB">2022</a>)</span> is as follows:</p>
-<p>All sequence data for this project are available at the National Center for Biotechnology Information (NCBI) under GenBank ITS sequences ON525161–ON525228, GenBank <em>rbcL</em> sequences ON531917–ON531986, BioProject accession no. PRJNA841950, and BioSample accession nos. SAMN28632719–SAMN28632734. All raw sequence files are available from the NCBI SRA database, nos. SRR19374405–SRR193744012, SRR19374414, SRR19374417, and SRR19374418. DNA alignments are available at Zenodo: <a href="https://doi.org/10.5281/zenodo.6577744" class="uri">https://doi.org/10.5281/zenodo.6577744</a></p>
-</div>
-</div>
-<div id="part1" class="section level2" number="4.11">
-<h2><span class="header-section-number">4.11</span> Part 1</h2>
-<div id="aim" class="section level3" number="4.11.1">
-<h3><span class="header-section-number">4.11.1</span> Aim</h3>
+<div id="part1" class="section level2" number="4.9">
+<h2><span class="header-section-number">4.9</span> Bioinformatics Part 1</h2>
+<div id="aim" class="section level3" number="4.9.1">
+<h3><span class="header-section-number">4.9.1</span> Aim</h3>
 <blockquote>
 <p>Process and clean ITS DNA sequence electropherograms and infer species working hypothesis.</p>
 </blockquote>
 </div>
-<div id="bioinformatic-tools" class="section level3" number="4.11.2">
-<h3><span class="header-section-number">4.11.2</span> Bioinformatic tools</h3>
-<p>The bioinformatic tools used in part 1 are as follows:</p>
+<div id="bioinformatics-tools" class="section level3" number="4.9.2">
+<h3><span class="header-section-number">4.9.2</span> Bioinformatics Tools</h3>
+<p>The bioinformatics tools used in part 1 are as follows:</p>
 <ol style="list-style-type: decimal">
 <li><code>FinchTV</code>: A popular desktop software developed by Geospiza, Inc. for viewing trace data from Sanger DNA Sequencing. <code>FinchTV</code> is freely available and operates on Windows and Mac platforms. Start by downloading and installing the software on your computers at this URL: <a href="https://digitalworldbiology.com/FinchTV" class="uri">https://digitalworldbiology.com/FinchTV</a></li>
 <li><code>BLAST</code>: The Basic Local Alignment Search Tool <span class="citation">(BLAST, <a href="#ref-ALTSCHUL1990403">Altschul et al., 1990</a>)</span> will be applied onto cleaned DNA sequences to:
@@ -1118,34 +1076,34 @@ Figure 4.2: Screenshot of the DNA_barcoding folder showing data structure for th
 </ol>
 <p>Although <code>BLAST</code> can be run locally, we will be using the web portal available here: <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi" class="uri">https://blast.ncbi.nlm.nih.gov/Blast.cgi</a></p>
 </div>
-<div id="overview-of-the-dna-sequence-data-cleaning-procedure" class="section level3" number="4.11.3">
-<h3><span class="header-section-number">4.11.3</span> Overview of the DNA sequence data cleaning procedure</h3>
+<div id="dna-sequence-data-cleaning-procedure" class="section level3" number="4.9.3">
+<h3><span class="header-section-number">4.9.3</span> DNA Sequence Data Cleaning Procedure</h3>
 <p>When evaluating <code>.ab1</code> files (= raw DNA data from an <a href="https://www.thermofisher.com/us/en/home/life-science/sequencing/sanger-sequencing/sanger-sequencing-technology-accessories.html">Applied Biosystems’ Sequencing instrument</a> containing an electropherogram showing the Phred scores and the DNA base sequence), you should first see the electropherogram and come to a conclusion whether your data can be considered of good quality or not.</p>
 <p>Good quality sequencing data/positions are characterized by:</p>
 <ul>
-<li>Well-defined peak resolution (bad resolution of the first 10-25 bases is acceptable; see Figure <a href="#fig:finchtv">4.3</a>). The Phred score is displayed at top of the window (see bars on Figure <a href="#fig:finchtv">4.3</a>).</li>
+<li>Well-defined peak resolution (bad resolution of the first 10-25 bases is acceptable; see Figure <a href="#fig:finchtv">4.2</a>). The Phred score is displayed at top of the window (see bars on Figure <a href="#fig:finchtv">4.2</a>).</li>
 <li>Uniform peak spacing.</li>
 <li>High signal-to-noise ratios.</li>
 </ul>
 <p>Bad quality sequencing data/positions are characterized by:</p>
 <ul>
-<li>Presence of “N”s in the sequence. Indeed, when the base-calling software is unable to accurately identify a nucleotide, it will score it as “N” (meaning that it can be any base; see Figure <a href="#fig:finchtv">4.3</a>). In this tutorial, we will open files individually and search for peaks scored as “N”s. If we can confidently correct those peaks/positions (to either “A/T/C/G or any other IUPAC code; see below) then we will edit the sequence accordingly. To keep track of changes, it is standard procedure to identify edited peaks/positions by using lower cases letters (instead of capital letters as set by default). See below for more details on cases of base polymorphism.</li>
+<li>Presence of “N”s in the sequence. Indeed, when the base-calling software is unable to accurately identify a nucleotide, it will score it as “N” (meaning that it can be any base; see Figure <a href="#fig:finchtv">4.2</a>). In this tutorial, we will open files individually and search for peaks scored as “N”s. If we can confidently correct those peaks/positions (to either “A/T/C/G or any other IUPAC code; see below) then we will edit the sequence accordingly. To keep track of changes, it is standard procedure to identify edited peaks/positions by using lower cases letters (instead of capital letters as set by default). See below for more details on cases of base polymorphism.</li>
 </ul>
 <p>We will be discussing this topic further during class.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:finchtv"></span>
 <img src="Images/FinchTV_snapshot.png" alt="Screenshot of FinchTV app." width="100%" />
 <p class="caption">
-Figure 4.3: Screenshot of FinchTV app.
+Figure 4.2: Screenshot of FinchTV app.
 </p>
 </div>
 </div>
-<div id="iupac-codes" class="section level3" number="4.11.4">
-<h3><span class="header-section-number">4.11.4</span> IUPAC codes</h3>
-<p>Nuclear DNA regions such as ITS could show evidence of recombination. This means that there could be polymorphism at a specific base [also know as single-nucleotide polymorphism or SNP; see <span class="citation">Poplin et al. (<a href="#ref-Poplin2018">2018</a>)</span> for bioinformatics technics to identify SNPs based on NGS data]. The signature of recombination in an electropherogram would be recognized by the occurrence of “peak under peak” (Figure <a href="#fig:peakunderpeak">4.4</a>). The International Union of Pure and Applied Chemistry (IUPAC) has defined a standard representation of DNA bases by single characters that specify either a single base (e.g. G for guanine, A for adenine) or a set of bases (e.g. R for either G or A). UCSC uses these single character codes to represent multiple observed alleles of single-base polymorphisms (Table <a href="#tab:IUPAC">4.1</a>).</p>
+<div id="iupac-codes" class="section level3" number="4.9.4">
+<h3><span class="header-section-number">4.9.4</span> IUPAC Codes</h3>
+<p>Nuclear DNA regions such as ITS could show evidence of recombination. This means that there could be polymorphism at a specific base [also know as single-nucleotide polymorphism or SNP; see <span class="citation">Poplin et al. (<a href="#ref-Poplin2018">2018</a>)</span> for bioinformatics technics to identify SNPs based on NGS data]. The signature of recombination in an electropherogram would be recognized by the occurrence of “peak under peak” (Figure <a href="#fig:peakunderpeak">4.3</a>). The International Union of Pure and Applied Chemistry (IUPAC) has defined a standard representation of DNA bases by single characters that specify either a single base (e.g. G for guanine, A for adenine) or a set of bases (e.g. R for either G or A). UCSC uses these single character codes to represent multiple observed alleles of single-base polymorphisms (Table <a href="#tab:IUPAC">4.1</a>).</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:peakunderpeak"></span>
 <img src="Images/peak_under_peak.png" alt="Screenshot of DNA sequence electropherogram showing signature of peak under peak suggesting recombination." width="20%" />
 <p class="caption">
-Figure 4.4: Screenshot of DNA sequence electropherogram showing signature of peak under peak suggesting recombination.
+Figure 4.3: Screenshot of DNA sequence electropherogram showing signature of peak under peak suggesting recombination.
 </p>
 </div>
 <table>
@@ -1224,85 +1182,85 @@ Figure 4.4: Screenshot of DNA sequence electropherogram showing signature of pea
 </tbody>
 </table>
 </div>
-<div id="step-by-step-protocol" class="section level3" number="4.11.5">
-<h3><span class="header-section-number">4.11.5</span> Step-by-step protocol</h3>
+<div id="step-by-step-protocol" class="section level3" number="4.9.5">
+<h3><span class="header-section-number">4.9.5</span> Step-by-step Protocol</h3>
 <p>Here, we will be using <code>its25-ITSp4.ab1</code> as an example for the analysis. This file is located in <code>DNA_barcoding/02_Raw_ITS_data_ab1</code>.</p>
 <ol style="list-style-type: decimal">
 <li>Copy the <code>DNA_barcoding/</code> folder onto your computers.</li>
 <li>Launch <code>FinchTV</code>.</li>
 <li>Open <code>.ab1</code> file (one at a time) using the <code>File --&gt; Open...</code> tab or by dragging your <code>.ab1</code> file in the main window.</li>
-<li>Make sure that the <code>Base Position Numbers</code>, <code>Base Calls</code> and <code>Quality Values</code> settings are ticked using the <code>View</code> tab (Figure <a href="#fig:finchtv">4.3</a>).</li>
-<li>Trim the first 10-20 bp of the sequence. This is done by selecting bases using the <code>Shift</code> command and then pressing <code>Delete</code> (Figure <a href="#fig:finchtvtrim">4.5</a>).</li>
+<li>Make sure that the <code>Base Position Numbers</code>, <code>Base Calls</code> and <code>Quality Values</code> settings are ticked using the <code>View</code> tab (Figure <a href="#fig:finchtv">4.2</a>).</li>
+<li>Trim the first 10-20 bp of the sequence. This is done by selecting bases using the <code>Shift</code> command and then pressing <code>Delete</code> (Figure <a href="#fig:finchtvtrim">4.4</a>).</li>
 </ol>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:finchtvtrim"></span>
 <img src="Images/Trimming_seq.png" alt="Screenshot of FinchTV app showing trimming procedure." width="90%" />
 <p class="caption">
-Figure 4.5: Screenshot of FinchTV app showing trimming procedure.
+Figure 4.4: Screenshot of FinchTV app showing trimming procedure.
 </p>
 </div>
 <ol start="6" style="list-style-type: decimal">
-<li>Scroll through the sequence and edit “N” peaks/positions by replacing those with lower cases “a/t/c/g”. If you are unable to call the nucleotide, do not edit the position. In the example, position 10 was edited to “g” (Figure <a href="#fig:finchtedit">4.6</a>).</li>
+<li>Scroll through the sequence and edit “N” peaks/positions by replacing those with lower cases “a/t/c/g”. If you are unable to call the nucleotide, do not edit the position. In the example, position 10 was edited to “g” (Figure <a href="#fig:finchtedit">4.5</a>).</li>
 </ol>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:finchtedit"></span>
 <img src="Images/Edit_sequence.png" alt="Screenshot of FinchTV app showing editing procedure." width="90%" />
 <p class="caption">
-Figure 4.6: Screenshot of FinchTV app showing editing procedure.
+Figure 4.5: Screenshot of FinchTV app showing editing procedure.
 </p>
 </div>
 <ol start="7" style="list-style-type: decimal">
-<li>Peaks at the end of the sequences will become more rounded and harder to call. It is therefore standard procedure to trim the last 10-30 bp/positions. Please trim these bp following the procedure explained above. In the example, the quality drops around position 670 (see Figure <a href="#fig:finchtvtrimend">4.7</a>).</li>
+<li>Peaks at the end of the sequences will become more rounded and harder to call. It is therefore standard procedure to trim the last 10-30 bp/positions. Please trim these bp following the procedure explained above. In the example, the quality drops around position 670 (see Figure <a href="#fig:finchtvtrimend">4.6</a>).</li>
 </ol>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:finchtvtrimend"></span>
 <img src="Images/Trim_end_sequence.png" alt="Screenshot of FinchTV app showing trimming procedure at the end of the sequence." width="90%" />
 <p class="caption">
-Figure 4.7: Screenshot of FinchTV app showing trimming procedure at the end of the sequence.
+Figure 4.6: Screenshot of FinchTV app showing trimming procedure at the end of the sequence.
 </p>
 </div>
 <ol start="8" style="list-style-type: decimal">
-<li>Save cleaned sequence in <code>FASTA</code> format in <code>03_Processed_ITS_data_FASTA</code>. Exporting the cleaned sequence is done by pressing <code>File -&gt; Export -&gt; DNA Sequence: FASTA</code>. Please do not rename file, leave it as proposed by <code>FinchTV</code>. The file is saved in interleaved FASTA format as shown in Figure <a href="#fig:fasta">4.8</a>.</li>
+<li>Save cleaned sequence in <code>FASTA</code> format in <code>03_Processed_ITS_data_FASTA</code>. Exporting the cleaned sequence is done by pressing <code>File -&gt; Export -&gt; DNA Sequence: FASTA</code>. Please do not rename file, leave it as proposed by <code>FinchTV</code>. The file is saved in interleaved FASTA format as shown in Figure <a href="#fig:fasta">4.7</a>.</li>
 </ol>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:fasta"></span>
 <img src="Images/FASTA.png" alt="Screenshot of cleaned FASTA sequence as outputted by FinchTV." width="80%" />
 <p class="caption">
-Figure 4.8: Screenshot of cleaned FASTA sequence as outputted by FinchTV.
+Figure 4.7: Screenshot of cleaned FASTA sequence as outputted by FinchTV.
 </p>
 </div>
 <ol start="9" style="list-style-type: decimal">
-<li>Open fasta file in a text editor and copy DNA sequence (including header starting with <code>&gt;</code>; see Figure <a href="#fig:blast1">4.9</a>).</li>
-<li>Go on the BLAST website by clicking <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastn&amp;PAGE_TYPE=BlastSearch&amp;LINK_LOC=blasthome">here</a> and copy your DNA sequence as shown in Figure <a href="#fig:blast1">4.9</a>. Click on the <code>BLAST</code> button to start your query.</li>
+<li>Open fasta file in a text editor and copy DNA sequence (including header starting with <code>&gt;</code>; see Figure <a href="#fig:blast1">4.8</a>).</li>
+<li>Go on the BLAST website by clicking <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastn&amp;PAGE_TYPE=BlastSearch&amp;LINK_LOC=blasthome">here</a> and copy your DNA sequence as shown in Figure <a href="#fig:blast1">4.8</a>. Click on the <code>BLAST</code> button to start your query.</li>
 </ol>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:blast1"></span>
 <img src="Images/BLAST1.png" alt="Screenshot of BLAST form where you copy content of its25-ITSp4.seq" width="90%" />
 <p class="caption">
-Figure 4.9: Screenshot of BLAST form where you copy content of its25-ITSp4.seq
+Figure 4.8: Screenshot of BLAST form where you copy content of its25-ITSp4.seq
 </p>
 </div>
 <ol start="11" style="list-style-type: decimal">
-<li>Inspect the BLAST output to make sure that the top hits are associated to <em>Vanilla</em> and refer to the right DNA region (Figure <a href="#fig:blastres">4.10</a>).</li>
+<li>Inspect the BLAST output to make sure that the top hits are associated to <em>Vanilla</em> and refer to the right DNA region (Figure <a href="#fig:blastres">4.9</a>).</li>
 </ol>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:blastres"></span>
 <img src="Images/BLAST.png" alt="Screenshot of BLAST search based on its25-ITSp4. Note that top hits are ITS sequences of Vanilla species." width="90%" />
 <p class="caption">
-Figure 4.10: Screenshot of BLAST search based on its25-ITSp4. Note that top hits are ITS sequences of Vanilla species.
+Figure 4.9: Screenshot of BLAST search based on its25-ITSp4. Note that top hits are ITS sequences of Vanilla species.
 </p>
 </div>
 <ol start="12" style="list-style-type: decimal">
-<li><p>Click on the <code>Distance tree of results</code> link to perform phylogenetic distance analysis showing position of your sequence compared to sequences available on GenBank (see Figure <a href="#fig:blastres">4.10</a>). This will open a new window.</p></li>
-<li><p>Expand tree to locate your DNA sequence by following procedure in Figure <a href="#fig:expandtree">4.11</a>.</p></li>
+<li><p>Click on the <code>Distance tree of results</code> link to perform phylogenetic distance analysis showing position of your sequence compared to sequences available on GenBank (see Figure <a href="#fig:blastres">4.9</a>). This will open a new window.</p></li>
+<li><p>Expand tree to locate your DNA sequence by following procedure in Figure <a href="#fig:expandtree">4.10</a>.</p></li>
 </ol>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:expandtree"></span>
 <img src="Images/ExpandTree.png" alt="Procedure to expand tree to show position of your DNA sequence in phylogeny." width="90%" />
 <p class="caption">
-Figure 4.11: Procedure to expand tree to show position of your DNA sequence in phylogeny.
+Figure 4.10: Procedure to expand tree to show position of your DNA sequence in phylogeny.
 </p>
 </div>
 <ol start="14" style="list-style-type: decimal">
-<li>Use the Zoom toggle to locate your DNA sequence on the tree (see Figure <a href="#fig:DNAtree">4.12</a>).</li>
+<li>Use the Zoom toggle to locate your DNA sequence on the tree (see Figure <a href="#fig:DNAtree">4.11</a>).</li>
 </ol>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:DNAtree"></span>
 <img src="Images/DNAtree.png" alt="Position of your DNA sequence on tree." width="90%" />
 <p class="caption">
-Figure 4.12: Position of your DNA sequence on tree.
+Figure 4.11: Position of your DNA sequence on tree.
 </p>
 </div>
 <ol start="15" style="list-style-type: decimal">
@@ -1311,16 +1269,16 @@ Figure 4.12: Position of your DNA sequence on tree.
 </ol>
 </div>
 </div>
-<div id="part2" class="section level2" number="4.12">
-<h2><span class="header-section-number">4.12</span> Part 2</h2>
-<div id="aim-1" class="section level3" number="4.12.1">
-<h3><span class="header-section-number">4.12.1</span> Aim</h3>
+<div id="part2" class="section level2" number="4.10">
+<h2><span class="header-section-number">4.10</span> Bioinformatics Part 2</h2>
+<div id="aim-1" class="section level3" number="4.10.1">
+<h3><span class="header-section-number">4.10.1</span> Aim</h3>
 <blockquote>
 <p>DNA sequence retrieval and prepare data for analyses.</p>
 </blockquote>
 </div>
-<div id="bioinformatic-tools-1" class="section level3" number="4.12.2">
-<h3><span class="header-section-number">4.12.2</span> Bioinformatic tools</h3>
+<div id="bioinformatics-tools-1" class="section level3" number="4.10.2">
+<h3><span class="header-section-number">4.10.2</span> Bioinformatics Tools</h3>
 <p>To execute Part 2, you need to install the following software and R packages on your computer:</p>
 <ul>
 <li><code>R</code>: <a href="https://www.r-project.org" class="uri">https://www.r-project.org</a></li>
@@ -1335,29 +1293,29 @@ Figure 4.12: Position of your DNA sequence on tree.
 </ul>
 <p>If you don’t know how to install an R package, don’t worry, this topic is covered <a href="#query">here</a>.</p>
 </div>
-<div id="r-tutorials" class="section level3" number="4.12.3">
-<h3><span class="header-section-number">4.12.3</span> R tutorials</h3>
+<div id="r-tutorials" class="section level3" number="4.10.3">
+<h3><span class="header-section-number">4.10.3</span> R Tutorials</h3>
 <p>Please find below two documents providing a comprehensive introduction to R:</p>
 <p>R for beginners (a tutorial by Emmanuel Paradis): <a href="https://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf" class="uri">https://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf</a>
 An introduction to R: <a href="https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf" class="uri">https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf</a></p>
 </div>
-<div id="rstudio" class="section level3" number="4.12.4">
-<h3><span class="header-section-number">4.12.4</span> RStudio</h3>
-<p>RStudio is an <strong>integrated development environment</strong> (IDE) that allows you to interact with R more readily. RStudio is similar to the standard RGUI, but it is considerably more user friendly. It has more drop-down menus, windows with multiple tabs, and many customization options (see Figure <a href="#fig:IDE">4.13</a>). Detailed information on using RStudio can be found at at <a href="https://support.rstudio.com/hc/en-us/sections/200107586-Using-RStudio">RStudio’s website</a>.</p>
+<div id="rstudio" class="section level3" number="4.10.4">
+<h3><span class="header-section-number">4.10.4</span> RStudio</h3>
+<p>RStudio is an <strong>integrated development environment</strong> (IDE) that allows you to interact with R more readily. RStudio is similar to the standard RGUI, but it is considerably more user friendly. It has more drop-down menus, windows with multiple tabs, and many customization options (see Figure <a href="#fig:IDE">4.12</a>). Detailed information on using RStudio can be found at at <a href="https://support.rstudio.com/hc/en-us/sections/200107586-Using-RStudio">RStudio’s website</a>.</p>
 <div class="figure"><span style="display:block;" id="fig:IDE"></span>
 <img src="Images/IDE.png" alt="Snapshot of the RStudio environment showing the four windows and their content." width="100%" />
 <p class="caption">
-Figure 4.13: Snapshot of the RStudio environment showing the four windows and their content.
+Figure 4.12: Snapshot of the RStudio environment showing the four windows and their content.
 </p>
 </div>
-<div id="editing-and-executing-code-in-rstudio" class="section level4" number="4.12.4.1">
-<h4><span class="header-section-number">4.12.4.1</span> Editing and Executing Code in RStudio</h4>
+<div id="editing-and-executing-code-in-rstudio" class="section level4" number="4.10.4.1">
+<h4><span class="header-section-number">4.10.4.1</span> Editing and Executing Code in RStudio</h4>
 <p>Please consult this <a href="https://support.rstudio.com/hc/en-us/articles/200484448-Editing-and-Executing-Code-in-the-RStudio-IDE">RStudio article</a> to learn more about procedures to edit and execute code in the RStudio environment.</p>
-<p><strong>Tip</strong>: To execute a line of code and send it to the Console you can press <code>Ctrl+Enter</code> on Windows or <code>Command+Enter</code> on Mac or use the Run toolbar button (see Figure <a href="#fig:IDE">4.13</a>).</p>
+<p><strong>Tip</strong>: To execute a line of code and send it to the Console you can press <code>Ctrl+Enter</code> on Windows or <code>Command+Enter</code> on Mac or use the Run toolbar button (see Figure <a href="#fig:IDE">4.12</a>).</p>
 </div>
 </div>
-<div id="introduction-to-r-built-in-functions" class="section level3" number="4.12.5">
-<h3><span class="header-section-number">4.12.5</span> Introduction to R built-in functions</h3>
+<div id="introduction-to-r-built-in-functions" class="section level3" number="4.10.5">
+<h3><span class="header-section-number">4.10.5</span> Introduction to R Built-in Functions</h3>
 <p>In this course, we will be using built-in R functions that are implemented in packages.</p>
 <p>Functions are useful when you want to perform a certain task multiple times. A function accepts input <strong>arguments</strong> and produces the output by executing valid R commands that are inside the function.</p>
 <p>Arguments have associated <strong>data types</strong> that need to be entered by the user to execute the function and retrieve its output(s).</p>
@@ -1386,8 +1344,8 @@ class(x)</code></pre>
 <pre class="r"><code># Pull up documentation for class function
 ?class()</code></pre>
 </div>
-<div id="analytical-workflow" class="section level3" number="4.12.6">
-<h3><span class="header-section-number">4.12.6</span> Analytical workflow</h3>
+<div id="analytical-workflow" class="section level3" number="4.10.6">
+<h3><span class="header-section-number">4.10.6</span> Analytical Workflow</h3>
 <p>To infer the ML phylogenetic analysis, the following workflow will be executed:</p>
 <ol style="list-style-type: decimal">
 <li>Expand sampling for phylogenetic analyses by downloading ITS DNA sequences of <em>Vanilla</em> species deposited on GenBank using the following approach:
@@ -1404,8 +1362,8 @@ class(x)</code></pre>
 </ol>
 <p>Protocols associated to each step within the workflow are detailed below.</p>
 </div>
-<div id="download-and-write-dna-sequences-and-retrieve-taxonomy" class="section level3" number="4.12.7">
-<h3><span class="header-section-number">4.12.7</span> Download and write DNA sequences and retrieve taxonomy</h3>
+<div id="download-dna-sequences-and-taxonomy-retrival" class="section level3" number="4.10.7">
+<h3><span class="header-section-number">4.10.7</span> Download DNA Sequences and Taxonomy Retrival</h3>
 <p>Here, we are demonstrating an approach to search GenBank for ITS sequences of <em>Vanilla</em> species using <em>rentrez</em> <span class="citation">(<a href="#ref-rentrez">Winter, 2017</a>)</span>. Students are tasked to study/examine and execute the code and finally adapt it to search for ITS sequences. The code is subdivided into the following steps:</p>
 <ol style="list-style-type: decimal">
 <li>Build a GenBank query. But prior to that we will load R package and set our working directory.</li>
@@ -1415,8 +1373,8 @@ class(x)</code></pre>
 <li>Write results in <code>FASTA</code> and <code>csv</code> formats.</li>
 </ol>
 </div>
-<div id="method-to-download-data-from-entrez" class="section level3" number="4.12.8">
-<h3><span class="header-section-number">4.12.8</span> Method to download data from Entrez</h3>
+<div id="download-data-from-entrez" class="section level3" number="4.10.8">
+<h3><span class="header-section-number">4.10.8</span> Download Data From Entrez</h3>
 <p>The following method (or pseudo-code) is applied to download (here referred to as “fetch”) data from Entrez using <em>rentrez</em> <span class="citation">(<a href="#ref-rentrez">Winter, 2017</a>)</span>:</p>
 <ol style="list-style-type: decimal">
 <li>Build GenBank query
@@ -1441,8 +1399,8 @@ class(x)</code></pre>
 </ul></li>
 </ol>
 </div>
-<div id="create-an-r-script" class="section level3" number="4.12.9">
-<h3><span class="header-section-number">4.12.9</span> Create an R script</h3>
+<div id="create-an-r-script" class="section level3" number="4.10.9">
+<h3><span class="header-section-number">4.10.9</span> Create an R Script</h3>
 <p>Before delving into the code, do the following:</p>
 <ol style="list-style-type: decimal">
 <li>Launch <code>RStudio</code>.</li>
@@ -1451,8 +1409,8 @@ class(x)</code></pre>
 </ol>
 <p>All the R code provided below will be copied into your newly saved <code>R</code> script and executed in class together.</p>
 </div>
-<div id="query" class="section level3" number="4.12.10">
-<h3><span class="header-section-number">4.12.10</span> Build a GenBank query</h3>
+<div id="query" class="section level3" number="4.10.10">
+<h3><span class="header-section-number">4.10.10</span> Build a GenBank Query</h3>
 <p>This R code uses <em>rentrez</em> functions to interact with <a href="https://www.ncbi.nlm.nih.gov/genbank/">GenBank</a> and the nucleotide database to remotely retrieve data based on your query.</p>
 <pre class="r"><code>###~~~
 #Check if package is installed if not then install it
@@ -1495,8 +1453,8 @@ org &lt;- &quot;Plants&quot;
 #Build query: sp AND DNA region
 query &lt;- paste0(sp,&quot; [All Fields] AND &quot;, DNA,&quot; [All Fields] &quot;, org, &quot; [filter]&quot;)</code></pre>
 </div>
-<div id="using-entrez-bollean-operators" class="section level3" number="4.12.11">
-<h3><span class="header-section-number">4.12.11</span> Using Entrez bollean operators</h3>
+<div id="using-entrez-bollean-operators" class="section level3" number="4.10.11">
+<h3><span class="header-section-number">4.10.11</span> Using Entrez Bollean Operators</h3>
 <p>Boolean operators provide a way of generating precise queries that produce well-defined sets of results. The Boolean operators used in <a href="https://www.ncbi.nlm.nih.gov/books/NBK3837/">Entrez</a> and how they work are as follows.</p>
 <ul>
 <li><strong>AND</strong>: Finds documents that contain terms on both sides of the operator terms, the intersection of both searches.</li>
@@ -1508,8 +1466,8 @@ query &lt;- paste0(sp,&quot; [All Fields] AND &quot;, DNA,&quot; [All Fields] &q
 <p>Entrez processes all Boolean operators in a left-to-right sequence. Enclosing individual concepts in parentheses changes this priority. The terms inside the parentheses are processed first as a unit and then incorporated into the overall strategy. For example, in the following search statement, the union of response element and promoter results is generated first and then is intersected with the result of the g1p3 search.</p>
 <p><code>g1p3 AND (response element OR promoter)</code></p>
 </div>
-<div id="retrieve-genbank-dna-sequences-matching-query" class="section level3" number="4.12.12">
-<h3><span class="header-section-number">4.12.12</span> Retrieve GenBank DNA sequences matching query</h3>
+<div id="retrieve-genbank-dna-sequences" class="section level3" number="4.10.12">
+<h3><span class="header-section-number">4.10.12</span> Retrieve GenBank DNA Sequences</h3>
 <pre class="r"><code>###~~~
 #Retrieve DNA accessions in GenBank
 ###~~~
@@ -1518,8 +1476,8 @@ GBresults &lt;- rentrez::entrez_search(db = &quot;nuccore&quot;, term = query, r
 #How may hits did we get
 print(GBresults$count)</code></pre>
 </div>
-<div id="fetch-meta-data-associated-to-sequences" class="section level3" number="4.12.13">
-<h3><span class="header-section-number">4.12.13</span> Fetch meta-data associated to sequences</h3>
+<div id="fetch-sequences-meta-data" class="section level3" number="4.10.13">
+<h3><span class="header-section-number">4.10.13</span> Fetch Sequences Meta-data</h3>
 <p>Even when you execute a query directly on the GenBank portal, there will always be sequences that do neither match your target taxon (here <em>Vanilla</em>) nor your target DNA region. In this context, it is paramount to retrieve meta-data associated to the DNA accessions (stored in <code>GBresults</code>) in order to clean-up your dataset prior to analyses (see next step).</p>
 <p>For each DNA sequence the following meta-data are gathered using functions implemented in <em>rentrez</em>:</p>
 <ul>
@@ -1608,8 +1566,8 @@ write.table(SEQ,
 ##                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  Sequence
 ## 1 CGCGGCTGAGGGCAACGCCACGCCGCGCGGGGCGTGCGGTCGTGGCCAATGATTAGGCGCGCGCGGCGCGCCGTGCAGGGCACAACGTTGCAACCCCGGGCGCGCGGTCGGGGGCACCGCGCCCCTGCGCACCGCCGCGGGCACCGCGCACCTGCGTGCGGTCCTGTGCACCGCGCAGGTTGGTTATGTTGGCTGATGAGGGGACAAAAAAGTGCAACTTTTTTCGGGATTTTTAGCGCTGCGGGCTGCTTCTGCACGGATGCGGCGACAACCAATTGGTAGTCTTGCCTCGGCGCATGATGGCATCGTCGCAAAAAAAAAAATCCGAGTTGCGGGCGTGTGCATCGCGCGCCTGACCCGGGCGTGGGCACCGCGCTCCGGCGTGGGGGCATGTTCATCGAGCTCCTGCTTGCGTGCTTTCGAACCGCGCTCCTGTTGGCTTGGCTATCCGCGCGTTCTCGGCGACTAGGTGGGCCGGCATCGTTGCGCTGCAGAACAGAGCAACTTTCGTCGGCATCTTTAGCCCTGTGTTCTCGCGAGGGGACCCAAAAGTGTAACTTTTTTTGGGATTTTTAGCGCCGCGGGCTGCTTCTGCTTGGATATGGTGACAACCCATTGGTAGTCTGCCTCGTCCCAAGATGCGATTGTCGCAATACACGATCGGAAATGTGGKCATGTTCATAACGCACCTGCGGGCGGGCATGTGCACGGCGCGCCGGCSCGTGGGCATTGGCACCGCGCTCCCGCGGGCCGTGGAGTGCACCGCCCCCCGCGCGCGGCGCGCGTCCGTGGGCACGGCTCGGGTGCGTGCGGCGCGACGTGAATGGCACCGCACCGCCGCGCGGATCGTCGATGGCACCGCGCCGCCGCGAGGGTCGCGTGGTCGTGTGCACCTCGCAGGCGGGCGCGGCGCGCCGTGGATTGAACCGCACCGTCGCCCGGGTCGCGCGGCGGTGTGCACCTCGGAGGCTCGCGCCGCGCTTGGAGCGCGATCGAGGGCGCCGCGCCGCGGCGCGCGGTCGTGCGACCCGCGTAAGCGCGCGAGGCGCGTCGGCGCAGGCACCGCGCCCCTACGCGCCCGGCGCGGCCGCGGGCACCGCGCGTCTGGGTGCTGGCCTTTGCGCCTCGCTCCTGCGCACGGGCATGTGCACCGCGCCCCAGCGCGCGGGCATCTCCCCGCGCCCCAGTGCGTGTGCATGTGGACTGCTCTCCCGCGCGCGGCAGCGTGCAACGCGCTCCTGCTGTTTTTTTTGTGGAGTGCGATGTGGTGCACTGTCTGAACTGCTGCCCTCTTCCATCTGCTTTGGGCTTTGTTTCTTAGTGGTGGTTCGTTTTGTCAATTTGGTTGGAGAAATGTGCAAACTCTTTTCGATGTTATGTCATATCTCCGGAGGGCCAATGTAGGGATGAGGTGTTGCTCAAATCGTGTCGTTTAAGCGGTGCAATTTTTGCTTGGCTCTTTGTCGGTTGGGCGTGATTTTCGCTTTGCATGTGGTGCGAGGTATCGCTTGTCGTGCTATGCGGGTGTTAGCCAATGCCTTCATCCCTAATTAGACCCTTTGCGCTTCCTGTTTTAAACATCGTTGAGGCAATTTGGGCTAATGGAGTTGGATTGGGGAGATGCCGTTTTTGCACAAGAGATGTTTGTTGTGGCGCTACTCTGTATGGCTTGGTCACCTCGTGGTGTGGTCTGTCAATACATGAGTAGGGCTCTGTCACTTCGTTGAACCTTCATACGGAGGAAGTCCGCATGTTGTTTTGCCTTTCTATCGGATGGGTAGGTTCCGTTCTATTATTTTTTATGGCGCCGCACGACTACGGTGTTGGAATGGTGGCGTTACGCGATGCCGTCGAACGCATGATCGTACATGCTCCCCTGTTGGCAAGGGCTCGGAAATCACACGTTTCGGTCATATCGTTCTCCAACAAGGAGGGTTGTCCCTGAGGAATGTTATTTGTCGAGAGGCAATGTTTCGGAACTTGGGCGATGGTATCCCAACCTGGGAGCATGCGCTCTTTCCTTTGTGGAGTATCGCCAGACACGACGAACATGTCAAATTACGACATGGGGTTTTGCTTGGCGTTTCATCATTGTATTGCTACCTGGTTGATCCTGCCAGTAGTCATATGCTTGTCTCAAAGATTAAGCCATGCATGTGTAAGTATGAACAATTTCAGACTGTGAAACTGCGAATGGCTCATTAAATCAGTTATAGTTTGTTTGATGGTACTTGCTACTCGGATAACCGTAGTAATTCTAGAGCTAATACGTGCACCAAACCCCGACTTTTGGAAGGGATGCATTTATTAGGTAAAAGGTCGACGCGGGCTTTTGCCCGGCTCCTTGACGATTCATGATAACTTGTCGGATCGCACGGCCTTCGTGCCGGCGATGCATCATTCGAATTTCTGCCCTATCAACTTTCGATGGTAGGATAGGGGCCTACCATGGTGGTGACGGGTGACGGAGAATTAGGGTTCGATTCCGGAGAGGGAGCCTGAGAGACGGCTACCACATCCAAGGAAGGCAGCAGGCGCGCAAATTACCCAATCCTGACACGGGGAGGTAGTGACAATAAATAACAATACCGGGCTCCACGAGTCTGGTAATTGGAATGAGTACAATCTAAATCCCTTAACGAGGATCCATTGGAGGGCAAGTCTGGTGCCAGCAGCCGCGGTAATTCCAGCTCCAATAGCGTATATTTAAGTTGTTGCAGTTAAAAAGCTCGTAGTTGGACCTTGGTTTGGGTCGGTCGGTCCGCCTTTTGGTGTGCACCGCCCGCCCTGATCCTTTTGTCGACGATGCGGTCTGGCCTTAGCTGGCCGGGTCGTGCCCTCGGCGTTGTTACTTTGAAGAAATTAGAGTGCTCAAAGCAAGCCCACGCTCTGGATACATTAGCATGGGATAACATCACAGGATTTCGATCCTATTGTGTTGGCCTTCGGGATCGGAGTAATGATTAAGAGGGACAGTCGTGGGCATTCGTATTTCATAGTCAGAGGTGAAATTCTTGGATTTATGAAAGACGAACCACTGCGAAAGCATTTGCCAAGGATGTTTTCATTAATCAAGAACGAAAGTTGGGGGCTCGAAGACGATCAGATACCGTCCTAGTCTCAACCATAAACGATGCCGACCAGGGATTGGCGGATGTTGCTCTTTGGACTCCGTCAGCACCTTATGAGAAATCAAAGTCTTTGGGTTCCGGGGGGAGTATGGTCGCAAGGCTGAAACTTAAAGGAATTGACGGAAGGGCACCACCAGGAGTGGAGCCTGCGGCTTAATTTGACTCAACACGGGAAAGCTTACCAGGTCCAGACATAGCAAGGATTGACAGATTGAGAGCTCTTTCTTGATTCTATGGGTGGTGGTGCATGGCCGTTCTTAGTTGGTGGAGCGATTTGTCTGGTTAATTCCGTTAACGAACGAGACCTCAGCTTGCTAACTAGCTATGCGGGGTGCAAGCCCTGTGGCCAGCTTCTTAGAGGGACTATGGCCGCTTAGGCCATGGAAGTTTGAGGCAATAACAGGTCTGTGATGCCCTTAGATGTTCTGGGCCGCACGCGCGCTACACTGATGTATTCAACGAGTCCATTGCCTTGGTCGAAAGGCCTGGGTAATCTTATGAAAATTTCATCGTGATGGGGATAGATCATTGCAATTGTTGGTCTTCAACGAGGAATTCCTAGTAAGCGCGAGTCATCAGCTCGCGTTGACTACGTCCCTGCCCTTTGTACACACCGCCCGTCGCTCCTACCGATTGAATGGTCCGGTGAAGTGTTCGGATCGCTGCGATGCGGGCGGTTTGCCGCGTGCGACTCGGCGAGAAGTCCACTGAACCTTATCATTTAGAGGAAGGAGAAGTCGTAACAAGGTTTCCGTAGGTGAACCTGCGGAAGGATCATTGACGAGAGGTTCGAACGATGGAACGATCTGTCCAACGCGTGGGAGTGCGACGGTTGTTCGATGTCGCGTTCTTTCGTAGCGCGTGCTCTCGCGATCACGCGGAGCTCGACGTTATGGGGGATAAACAAAAGCTTATGGGCGTGGTCAGGCGCCAAGGGAGAGCAAATGTTAGGCTGGCAAACGAGTATGCCGTGCGTCGTCAGGTCCATTGAGTCCTGGCAATCGAACGACTCTCGACAACGGATATCTTGGCTCTCGCATCGATGAAGAACGCAGCGAAATGCGATACGTGTTGTGAATTGTAGAATCCCGTGAACCATCCATTTTTTGAACGCAAGTTGCGCCCGAGGATGCAAGCCGAGGGCACGCCTGCATGGGCGTAATGCGACCCGTCGCTCCCTGCGGAAGCCTGGAATCTTTCGGTTTGGTTCCTCGGCCCCGTCGCGGAGGCGATTGATGGCACCCCGTGCGATGGCACGGCGTGTTGAAGCTTGGGGCGACGGTCGACTTCGACACGATACGAGGTGGACGCCACTGGCTGTCGTGGTGTTGGCCAGCAAGAATCGATGTTGTTGTGCGACGAGCAGATGCCCCGCATAGATCCTGCTCCGTCCTCCACGGTGTGGAATCGTGACCCCATGTTAGGTGAGGCTACCCGCCGAGTTTAAGCATATAAATAAGCGGAGGAGAAGGAACTTACAAGGATTCCCTTAGTAACGGCGAGCGAAACGGGACCAGCCCAGTTTGGAAATCGGGCAGCCTGAAGCCTGAATTGTAGTCTGGAGAGGCGTCCTCAGCGACGGATCGGGATCAAGTCCCCTGGAAAGGGGCGCCGGGGAGGGTGAGAGCCCCGTTCGGCCCGTACCCTGCTGCTACACGAGGCGCCGTCAACGAGTCGGGTTGTTTGGGAATGCAGCCCAAATTGGGTGGTAAATTCCGTCCAAGGCTAAATAATTGCGAGAGACCGATAGCGAACAAGTACCGCGAGGGAAAGATGAAAAGGACTTTGAAAAGAGAGTCAAAGAGTGCTTGAAATTGTCGGGAGGGAAGCAGATGGGGGCCGGCGGTGCGCCTCGGCTGGATGCAGAACGTCGAATGACGGTTTGCTGCACGGCTCGAGGAGCGGACCGTCTCGGGCCATCGCGGCGACCGGAGCCCGGGCGCACGTCGCTCGTGGAGAAATCGTCGGCGTGGCCGATCGCAATGCCCGCGCCATCGAGGCGTGCCACGCGGCACCGCGTGCATTGGTGATGGCCAGTGGGCTCCCCATCTGACCCGTCTTGAAACACGGACCAAGGAGTCTGACATGCTTGCGAGTCGACGGGTGGGCAAGCCCGGAAGGCGCAAGGAAGCTGATTGGTGGGATCCCCGTTTGAGGGGTGAGTCATCGACCGACCCAGATCTTTTGTGAAGGGTTCGAGTGAGAGCATGCCTGTCGGGACCCGAAAGATGGTGAACTATGCCTGAGCGGGGCGAAGCCAGAGGAAACTCTGGTGGAGGCCCGCAGCGATACTGACGTGCAAATCGTTCGTCTGACTTGGGTATAGGGGCGAAAGACTAATCGAACCATCTAGTAGCTGGTTCCCTTCGAAGTTTCCCTCAGGATAGCTGGAGCCACAGTCGGAGTTCTATCGGGTAAAGCCAATGATTAGAGGCATCGGGGGCACAATGCCCTCGACCTATTCTCAAACTTTAAATAGGTAGGAGGGCTCGGCTGCTTTGATGAGTTGAGCCAAGGAATCCAGGCTCCAAGTGGGCCATTTTTGGTAAGCAGAACTGGCGATGCGGGATGAACCGAAAGCCGGGTTACGGTGTCCAACTGCGCGCTAACCTAGAGCCCACAAAGGGTGTTGGTCGATTAAGACAGCAGGACGGTGGTCATGGAAGTTGAAATCCGCTAAGGAGTGTGTAACAACTCACCTGCCGAATCAACTAGCCCCGAAAATGGATGGCGCTTAAGCGTGCGACCCACACCTGGCCGTCGGTGCAATGCAAGGCCCCGACGAGTAGGAGGGTGCAACGGTCGCTGCAAAACGTGGGGCGTGAGCCCGCGTGGAGCGTCTGTTGGTGCAGATCTTGGTGGTAGTAGCAAATATTCAAATGAGAACTTTGAAGGCCGAAGGGGGGAAAGGTTCCATGTGAACGGCACTTGCACATGGGTTAGCCGATCCTAAGAGACGGGGGAAACCCGTCGGATAGTGCCATTCGGCACGAGCTTCGAAAGGGAGTCGAGTTAAAATTCTCGAGCCGGGATGTGGCGGTCGATGGCAACGTCAAGTGGTCCGGAGACGTCGGTGGGGGCCTCGGGAAGAGTTATCTTTTCTGCTTAACAGCCCATCGGCCCTGGAAACGGCTCAGCCGGAGGTAGGGCCAAGCGGTTGGAAGAGCACCGCATGTTGAGCGGTGTCCGATGCGCCCCTGGCGACCCTTGAAAATCCGGATGGCCGAGTGCCTTCCACGCCCGGTCGTACTCATAACCGCATCAGGTCTCCAAGGTGAACAGCCTCTGGTCGATGGAGCAATGTAGGCAAGGGAAGTCGGCAAAATGGATCCGTAACTTCGGGAAAAGGATTGGCTCTGAGGGTTGGGCACGGGGGTCCCAATCCCGAACCCATCGGCTGTCGGCGGACTGCTCGAGCTGCTTGCGCGGCGAGAGCGGGTCGACGCGTGCCGGCTGGGGGACGAATTGGGAGCGGCCCCTTCGGGGGCCTTCCCCGGGCGTCGAACAATCGACTCAGAACTGGTACGGACATGGGGAATCCGACTGTTTAATTAAAACAAAGCATTGCGATGGTCCTCGAGGATGCTCACGCAATGTGATTTCTGCCCAGTGCTCTGAATGTCAAAGTGAAGAAATTCAACCAAGCGCGGGTAAACGGCGGGAGTAACTATGACTCTCTTAAGGTAGCCAAATGCCTCGTCATCTAATTAGTGACGCGCATGAATGGATTAACGAGATTCCCACTGTCCCTGTCTACTATCCAGCGAAACCACAGCCAAGGGAACGGGCTTGGCAGAATCAGCGGGGAAAGAAGACCCTGTTGAGCTTGACTCTAGTCCGACTTTGTGAAATGACTTGAGAGGTGTAGCATAAGTGGGAGTCGGCGTGCCGACGGAATTGAAATACCACTACTTTTAACGTTATTTTACTTATTCCGTGAGACGGAGGCGGGGCCCAGCCCCTCCTTTTGGCTCCAAGTCTCGCCTCGGCGAGTCGATCCGGGCGGAAGACATTGTCAGGTGGGGAGTTTGGCTGGGGCGGCACATCTGTTAAAAGATAACGCAGGTGTCCTAAGATGAGCTCAACGAGAACAGAAATCTCGTGTGGAACAAAAGGGTAAAAGCTCGTTTGATTCTGATTTCCAGTACGAATACGAACCGTGAAAGCGTGGCCTATCGATCCTTTAGGCTTTCAGAATTTGAAGCTAGAGGTGTCAGAAAAGTTACCACAGGGATAACTGGCTTGTGGCAGCCAAGCGTTCATAGCGACGTTGCTTTTTGATCCTTCGATGTCGGCTCTTCCTATCATTGTGAAGCAGAATTCACCAAGTGTTGGATTGTTCACCCACCAATAGGGAACGTGAGCTGGGTTTAGACCGTCGTGAGACAGGTTAGTTTTACCCTACTGATGAATGTGTCGTGATAGTAATTCAACCTAGTACGAGAGGAACCGTTGATTCACACAATTGGTCATCGCGCTTGGTTGAAAAGCCAGTGGCGCGAAGCTATCGTGTGTAGGATTATGACTGAACGCCTCTAAGTCAGAATCCACGCTAAGATGCGACGCTTAGGCCTATCGTTCGCCTGTTGGCCTAAAGTAGGGGCTTGGCCCCCAAGGGCACGCGACCACGGGCTAGTCTGGTGTCATAGAAGGTTGGATGGCATGGGCCCCGTAAGAAATGATAGTTAAGAACGAACGATGGGTAGAATCCTTTGCAGACGACTTAAATTTGCGACGGGGCATTGTAAGTGGCAGAGTGGCCTTGCTGCCACGATCCACTGAGATCCAACCCTATGTTGCAGTAGATTCGTCCCCTTCTGCCGCAGAACACGAAGAGCTTGGTTTTTGGTTTTCTAAAGGGGGACCAAGCTCGCTTGCTCTACAGCTCTACTTATTGCGGTACTTTGTGCGGGTCCTGTGCAACTGGCCTTGCGATGCGTCCCTCGGTGGCCCTACCAATGTGTAAGGCTTAAGCCTGACATTGCACGATTCAGTTATCACAAACGTGAAATAGCTATGAAATGCTGAAAAAGGGTTTGAAAAATATCTGCTGGCTCTGTCTACGTGCACATAGAGGCTTGTCTGCACGCACTTTGGGGCTTGTTTGCGTGCACAGCAGCAACCTACGCGCGCTCCATGTTGGCACCAGAAAAGTGTAACTTTTTTCGGGATTTTCAGCGCTGCGGGCTGCTTCTGCATGGATGCGGTGACAACCTATTGGTAGTCTTACCTTGTGCTGCGTGCTGTCTGTGCACCGGGCCTGTTTGCGTGCACGGCAGCAACCTACGCGCGCTCCGTGTTGGCACCAGAAAAGTGTAACTTTTTTCGGGATTTTTAGCGCTGCGGGCTGCTTCTGCATGGATGCGGTGACAACCTATCGGTAGTCTTGCCTCAGCCCAAGATGGCATTGTCGCAAAACACGATCCGGATGGCGTGCATGGGCATCACGCTCCTGCACGCGGGCATGCGCATCCCGCCCGCCTGCGCCGCGCTCCTGCGTGGGGGAAAGTGTGCTTCTCGCTCCTGCGTGTTGGCCTATCCCCGCTTCTTCGGTCGCAAGGTGCGTCCCCCGCATCATGGTCTTGGAGAATCCTGTAACTTTCACCGAGATCATTAGCTATGCGGTCTTCATGAGTGGACCAAAAAGTGTAACTTTTTTCGGGATTTTTAGCGCTGCGGGCTGCGTCTGCATGGATGCGGTGGCAACCTATTGGTAGTCTTGCCTCTTCCCGAGGTGCGACCATCGCAATACACGATCCGGATGGCGTGCATGTGCATCACGCTCCAGCGATTGGGCCGGTGCGGCGATCCGTCGCGGGCACCGTTCCCTTGCTCGGAACGCGCGGCCGTGGGCACCGCGCTCTCGCGCTCGGTCCTGTGCGCCGCGCAAGTTAGCTCTGCGGGCTCGTGAGGGGACCGAAATTTGTAACTTTTTTCCGGATTTTTAGGGCCGCGGGCTGCTTCAGCATGGTTACGGTGACAACCTATTGGTAGTATTTGCACGTCCCGAGATGCGATCGTCTCAAAACACGTTCCGGATGGCGGTCGTGGTCATCACGCTCCTGCGTGTGGGCAAGCGCGCCGCGCGGCCCCCCGACGCACGAGCGCGCGGCGCGATCATTGGCTCTCCGGTCTCCACGAGGGGACAAAAAAGTGCAACTTTTTTCGGGATTTTCAGCGCTGCGGGCTGCTTCTGCATGGATGCGGTGACAGCCTTTTGGTAGTCTTACCTTGTGCACCGGGCCTGTTTGCGTGCACCGCTGCAACCAACGCGCGCTCCATGTTGGCACCAGAAAAGTGTAACTTTTTTCGGGACCTTTCAGCGCGGCGGG</code></pre>
 </div>
-<div id="reload-raw-gb-query-in-csv" class="section level3" number="4.12.14">
-<h3><span class="header-section-number">4.12.14</span> Reload raw GB query in csv</h3>
+<div id="reload-raw-gb-query-in-csv" class="section level3" number="4.10.14">
+<h3><span class="header-section-number">4.10.14</span> Reload raw GB query in csv</h3>
 <p>If you need to restart coding from the previous point, please execute the code below, which will load the Raw GB data from the <code>CSV</code> file saved in <code>04_Data_analyses/CSV</code>.</p>
 <p>To do so, do the following:</p>
 <ul>
@@ -1630,16 +1588,16 @@ RawGBDat2 &lt;- read.csv(paste0(&quot;04_Data_analyses/CSV/&quot;, SEQfileName),
 
 #Change name of object to make it compatible with code
 SEQ &lt;- RawGBDat2</code></pre>
-<div id="question" class="section level4" number="4.12.14.1">
-<h4><span class="header-section-number">4.12.14.1</span> Question</h4>
+<div id="question" class="section level4" number="4.10.14.1">
+<h4><span class="header-section-number">4.10.14.1</span> Question</h4>
 <blockquote>
 <p>Write code to determine how many DNA sequences where downloaded from GenBank?</p>
 </blockquote>
 <p>To answer this question, use <code>SEQ</code> as input.</p>
 </div>
 </div>
-<div id="tidy-dataset-based-on-meta-data" class="section level3" number="4.12.15">
-<h3><span class="header-section-number">4.12.15</span> Tidy dataset based on meta-data</h3>
+<div id="tidy-dataset-based-on-meta-data" class="section level3" number="4.10.15">
+<h3><span class="header-section-number">4.10.15</span> Tidy dataset based on meta-data</h3>
 <p>Here we apply filters to discard DNA sequences that are:</p>
 <ul>
 <li>Not belonging to the genus <em>Vanilla</em> OR to the target DNA barcode (here the ITS region).</li>
@@ -1693,8 +1651,8 @@ gene &lt;- gene[-which(as.numeric(as.vector(gene$Seq_length)) &lt; 500 | as.nume
 # Want these fields to be separated by &quot;_&quot; 
 # and need to include those in species field
 gene$Species &lt;- gsub(&quot; &quot;, &quot;_&quot;, gene$Species)</code></pre>
-<div id="questions" class="section level4" number="4.12.15.1">
-<h4><span class="header-section-number">4.12.15.1</span> Questions</h4>
+<div id="questions" class="section level4" number="4.10.15.1">
+<h4><span class="header-section-number">4.10.15.1</span> Questions</h4>
 <blockquote>
 <p>Q1: Write code to tell us how many DNA sequences were discarded through your filtering analyses?</p>
 </blockquote>
@@ -1706,8 +1664,8 @@ gene$Species &lt;- gsub(&quot; &quot;, &quot;_&quot;, gene$Species)</code></pre>
 </blockquote>
 </div>
 </div>
-<div id="write-results-of-query-in-fasta-and-csv-formats" class="section level3" number="4.12.16">
-<h3><span class="header-section-number">4.12.16</span> Write results of query in <code>FASTA</code> and <code>csv</code> formats</h3>
+<div id="write-results-of-query-in-fasta-and-csv-formats" class="section level3" number="4.10.16">
+<h3><span class="header-section-number">4.10.16</span> Write results of query in <code>FASTA</code> and <code>csv</code> formats</h3>
 <p>We are using <code>R</code> to generate a <code>FASTA</code> file with the DNA sequences from our GenBank query. To do that we are concatenating information from 3 columns in the <code>gene</code> object:
 - <code>gene$GenBankID</code>: Contains unique GenBank ID for DNA sequence.
 - <code>gene$Species</code>: Contains species taxonomy associated to sequence.
@@ -1747,8 +1705,8 @@ write.table(gene,
 ##                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    Sequence
 ## 1 AGAGGCGTGAATGATGGAACGATCTGTCCAACATGTGGGAGTGCGACAGTTCGATGTCGCCTTCTTCCGTAGCGCGTGCTCTTGCTTCGACGTGGAGCTCGACGCTACGGGGGATAAACAAAAGCTTATGGGCGTTGTCTGGCGCCAAGGGAGAGCAAATGTTCAAGCTGGCAAACGAGTGTGTTGTCGTCAGGTCCATTGAGTCCTGGCAATCGAACGACTCTCGACAACGGATATCTTGGCTCTCGCATCGATGAAGAACGCAGCTTGAAATGCGATACGTGTTGTGAATTGTAGAATCCCGTGAACCATCCATTTTTTGAACGCAAGTTGCGCCCGAGGATGCAAGCCGAGGGCACGCCTGCATGGGTGTAATGCGACCCGTCGCTCCTTGCGGAAGGCTGGAATCTTTGGTTTGGTTCCTCGTCCCCGTTGTGGAGGCGATTGATGGCACCCCGTGCAATAGCATGGCGTGTCGAAGTGTGGGGCGACGGTCGACTGTCGACATGATAAGAGGTGGGCAGCCACCGGCTGTTGTGGTGTTGGCCAGCAATAATCGATGTTGTCGTGCGACAAGCAGGTGCCCCGCATAGATCCAACTCCGTCCTCGATGGTGT</code></pre>
 </div>
-<div id="format-and-merge-individual-.seq-files-from-part-1-into-a-fasta-file" class="section level3" number="4.12.17">
-<h3><span class="header-section-number">4.12.17</span> Format and merge individual <code>.seq</code> files from Part 1 into a <code>FASTA</code> file</h3>
+<div id="format-and-merge-individual-.seq-files-from-part-1-into-a-fasta-file" class="section level3" number="4.10.17">
+<h3><span class="header-section-number">4.10.17</span> Format and merge individual <code>.seq</code> files from Part 1 into a <code>FASTA</code> file</h3>
 <p>In this section, we are focusing on developing an <code>R</code> code to format and merge our clean sequences from Part 1 by using the following approach:</p>
 <ol style="list-style-type: decimal">
 <li>Establish a list of all <code>.seq</code> files in folder <code>03_Processed_ITS_data_FASTA/</code> using <code>list.files()</code>.</li>
@@ -1798,16 +1756,16 @@ FileIDfastaSeq &lt;- paste(sp, DNA, gsub(&quot;-&quot;, &quot;_&quot;, Sys.Date(
 write.table(seqOUT, file = 
               paste(&quot;04_Data_analyses/FASTA/&quot;, 
                     FileIDfastaSeq, sep = &#39;&#39;), col.names = F, row.names = F, quote = F)</code></pre>
-<p>Please check that the format of your output file is as expected using a text editor (see Figure <a href="#fig:fastaall">4.14</a>).</p>
+<p>Please check that the format of your output file is as expected using a text editor (see Figure <a href="#fig:fastaall">4.13</a>).</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:fastaall"></span>
 <img src="Images/FASTA_single-gene.png" alt="Screenshot of merged FASTA file used as input for msa analysis." width="90%" />
 <p class="caption">
-Figure 4.14: Screenshot of merged FASTA file used as input for msa analysis.
+Figure 4.13: Screenshot of merged FASTA file used as input for msa analysis.
 </p>
 </div>
 </div>
-<div id="merge-fasta-objectsfiles-to-perform-multiple-sequence-alignment" class="section level3" number="4.12.18">
-<h3><span class="header-section-number">4.12.18</span> Merge <code>FASTA</code> objects/files to perform multiple sequence alignment</h3>
+<div id="merge-fasta-objectsfiles-to-perform-multiple-sequence-alignment" class="section level3" number="4.10.18">
+<h3><span class="header-section-number">4.10.18</span> Merge <code>FASTA</code> objects/files to perform multiple sequence alignment</h3>
 <p>Here, we are aiming at merging <code>FASTA</code> outputs to produce the input of the multiple sequence alignment. This step is pretty straightforward and involves using the <em>c()</em> function and writing the output.</p>
 <p>The objects containg the GenBank DNA sequences and your DNA sequences are <code>FASTAGB</code> and <code>seqOUT</code>, respectively.</p>
 <pre class="r"><code>###~~~
@@ -1831,24 +1789,24 @@ FileIDfastaALL &lt;- paste(sp, DNA, gsub(&quot;-&quot;, &quot;_&quot;, Sys.Date(
 write.table(FASTAall, file = 
               paste(&quot;04_Data_analyses/FASTA/&quot;, 
                     FileIDfastaALL, sep=&#39;&#39;), col.names = F, row.names = F, quote = F)</code></pre>
-<div id="question-1" class="section level4" number="4.12.18.1">
-<h4><span class="header-section-number">4.12.18.1</span> Question</h4>
+<div id="question-1" class="section level4" number="4.10.18.1">
+<h4><span class="header-section-number">4.10.18.1</span> Question</h4>
 <blockquote>
 <p>Why would you need to use readLines() instead of read.csv() to open a FASTA file?</p>
 </blockquote>
 </div>
 </div>
 </div>
-<div id="part3" class="section level2" number="4.13">
-<h2><span class="header-section-number">4.13</span> Part 3</h2>
-<div id="aim-2" class="section level3" number="4.13.1">
-<h3><span class="header-section-number">4.13.1</span> Aim</h3>
+<div id="part3" class="section level2" number="4.11">
+<h2><span class="header-section-number">4.11</span> Bioinformatics Part 3</h2>
+<div id="aim-2" class="section level3" number="4.11.1">
+<h3><span class="header-section-number">4.11.1</span> Aim</h3>
 <blockquote>
 <p>DNA multiple sequence alignment and phylogenetic inference.</p>
 </blockquote>
 </div>
-<div id="bioinformatic-tools-2" class="section level3" number="4.13.2">
-<h3><span class="header-section-number">4.13.2</span> Bioinformatic tools</h3>
+<div id="bioinformatics-tools-2" class="section level3" number="4.11.2">
+<h3><span class="header-section-number">4.11.2</span> Bioinformatics Tools</h3>
 <p>To execute Part 3, you need to install the following software and R packages on your computer:</p>
 <ul>
 <li><code>MEGA</code> <span class="citation">(<a href="#ref-kumar2018mega">Kumar et al., 2018</a>)</span>: Please download the GUI version of the software associated to your operating system at this URL:
@@ -1860,8 +1818,8 @@ write.table(FASTAall, file =
 </ul>
 <p>If you don’t remember how to install an R package, don’t worry, this topic was covered <a href="#query">here</a>.</p>
 </div>
-<div id="analytical-workflow-1" class="section level3" number="4.13.3">
-<h3><span class="header-section-number">4.13.3</span> Analytical workflow</h3>
+<div id="analytical-workflow-1" class="section level3" number="4.11.3">
+<h3><span class="header-section-number">4.11.3</span> Analytical Workflow</h3>
 <p>To infer the ML phylogenetic analysis, the following workflow will be executed: implemented:</p>
 <ol style="list-style-type: decimal">
 <li>Conduct the msa analysis using the <code>MUSCLE</code> algorithm <span class="citation">(<a href="#ref-edgar2004muscle">Edgar, 2004</a>)</span>. This algorithm is implemented in <code>MEGA</code>. The input data for this analysis is <code>Vanilla_internal transcribed spacer_2021_02_09_GenBank_seq_msa_input.fasta</code>, which is stored in <code>04_Data_analyses/FASTA/</code>.</li>
@@ -1870,74 +1828,74 @@ write.table(FASTAall, file =
 <li>Visualize phylogenetic tree and interpret results.</li>
 </ol>
 </div>
-<div id="conduct-msa-analysis" class="section level3" number="4.13.4">
-<h3><span class="header-section-number">4.13.4</span> Conduct msa analysis</h3>
-<div id="disclaimer" class="section level4" number="4.13.4.1">
-<h4><span class="header-section-number">4.13.4.1</span> Disclaimer</h4>
+<div id="conduct-msa-analysis" class="section level3" number="4.11.4">
+<h3><span class="header-section-number">4.11.4</span> Conduct MSA Analysis</h3>
+<div id="disclaimer" class="section level4" number="4.11.4.1">
+<h4><span class="header-section-number">4.11.4.1</span> Disclaimer</h4>
 <p>The analysis described below relies on <code>MEGA</code>; however you might be experiencing issues with the <code>.fasta</code> file outputted by this program (especially on Windows operating system). These issues might compromise downstream analyses, more specifically the RAxML inference and R code used to generate figures. Those issues are associated to changes in file encryption and changing formatting of samples names (i.e. replacing “_” by ” “). In the event that it happens to you, please switch over and use the online <code>MUSCLE</code> platform available at this URL: <a href="https://www.ebi.ac.uk/Tools/msa/muscle/" class="uri">https://www.ebi.ac.uk/Tools/msa/muscle/</a></p>
 <p><strong>WARNING:</strong> When you submit your job on the portal, do not forget to select <code>Pearson/FASTA</code> as output file format in step 2. In addition, the output will only be made available in a window and you will have to copy and past the whole content in a new file using your favorite text editor. The file should be saved and named as detailed in the step 8 of the section below.</p>
 </div>
-<div id="step-by-step-protocol-1" class="section level4" number="4.13.4.2">
-<h4><span class="header-section-number">4.13.4.2</span> Step-by-step protocol</h4>
+<div id="step-by-step-protocol-1" class="section level4" number="4.11.4.2">
+<h4><span class="header-section-number">4.11.4.2</span> Step-by-step Protocol</h4>
 <p>To conduct a multiple sequence alignment in <code>MEGA</code> do the following:</p>
 <ol style="list-style-type: decimal">
 <li>Launch <code>MEGA</code>.</li>
 <li>Load your input file (<code>Vanilla_internal transcribed spacer_2021_02_09_GenBank_seq_msa_input.fasta</code>) by clicking <code>File -&gt; Open A File/Session...</code> and selecting the right file.</li>
-<li>The program will ask you <code>How would you like...</code> and you will then click on the <code>Align</code> button. This will open a new window with your data (corresponding to an unaligned DNA matrix; see Figure <a href="#fig:unaligned">4.15</a>).</li>
+<li>The program will ask you <code>How would you like...</code> and you will then click on the <code>Align</code> button. This will open a new window with your data (corresponding to an unaligned DNA matrix; see Figure <a href="#fig:unaligned">4.14</a>).</li>
 </ol>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unaligned"></span>
 <img src="Images/UnalignedMEGA.png" alt="Screenshot of DNA matrix in MEGA." width="100%" />
 <p class="caption">
-Figure 4.15: Screenshot of DNA matrix in MEGA.
+Figure 4.14: Screenshot of DNA matrix in MEGA.
 </p>
 </div>
-<p>4.To start a <code>MUSCLE</code> analysis do has shown in Figure <a href="#fig:muscle">4.16</a> (<code>Alignment -&gt; Align by MUSCLE</code>. A window will open saying <code>Nothing selected for alignment. Select all?</code>, click the <code>OK</code> button. Further details on the <code>MUSCLE</code> algorithm can be found in <span class="citation">Edgar (<a href="#ref-edgar2004muscle">2004</a>)</span>.</p>
+<p>4.To start a <code>MUSCLE</code> analysis do has shown in Figure <a href="#fig:muscle">4.15</a> (<code>Alignment -&gt; Align by MUSCLE</code>. A window will open saying <code>Nothing selected for alignment. Select all?</code>, click the <code>OK</code> button. Further details on the <code>MUSCLE</code> algorithm can be found in <span class="citation">Edgar (<a href="#ref-edgar2004muscle">2004</a>)</span>.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:muscle"></span>
 <img src="Images/MUSCLEMega.png" alt="Screenshot showing how to start a MUSCLE analysis in MEGA." width="100%" />
 <p class="caption">
-Figure 4.16: Screenshot showing how to start a MUSCLE analysis in MEGA.
+Figure 4.15: Screenshot showing how to start a MUSCLE analysis in MEGA.
 </p>
 </div>
 <ol start="5" style="list-style-type: decimal">
-<li>A window showing settings associated with the analysis will appear as shown on Figure <a href="#fig:muscleset">4.17</a>. Please use the parameters set by default and click <code>OK</code> to start the analysis. The analysis should take ca. 5-10 minutes to complete.</li>
+<li>A window showing settings associated with the analysis will appear as shown on Figure <a href="#fig:muscleset">4.16</a>. Please use the parameters set by default and click <code>OK</code> to start the analysis. The analysis should take ca. 5-10 minutes to complete.</li>
 </ol>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:muscleset"></span>
 <img src="Images/MUSCLEMega_settings.png" alt="Screenshot showing MUSCLE settings in MEGA." width="100%" />
 <p class="caption">
-Figure 4.17: Screenshot showing MUSCLE settings in MEGA.
+Figure 4.16: Screenshot showing MUSCLE settings in MEGA.
 </p>
 </div>
 <ol start="6" style="list-style-type: decimal">
-<li>Once the analysis is completed, you will be able to inspect and edit the alignment. Please see Figure <a href="#fig:muscledone">4.18</a> for an example. Notice the gaps (<code>-</code>) that had to be incorporated to accommodate for differences in DNA sequences between samples. Your DNA sequences of <em>Vanilla</em> are at the bottom of the file.</li>
+<li>Once the analysis is completed, you will be able to inspect and edit the alignment. Please see Figure <a href="#fig:muscledone">4.17</a> for an example. Notice the gaps (<code>-</code>) that had to be incorporated to accommodate for differences in DNA sequences between samples. Your DNA sequences of <em>Vanilla</em> are at the bottom of the file.</li>
 </ol>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:muscledone"></span>
 <img src="Images/MUSCLEMega_done.png" alt="Screenshot showing MUSCLE alignment in MEGA." width="100%" />
 <p class="caption">
-Figure 4.18: Screenshot showing MUSCLE alignment in MEGA.
+Figure 4.17: Screenshot showing MUSCLE alignment in MEGA.
 </p>
 </div>
 <ol start="7" style="list-style-type: decimal">
-<li>Save the analysis in <code>FASTA</code> format by clicking <code>Data -&gt; Export Alignment -&gt; FASTA Format</code>. This procedure is also shown in Figure <a href="#fig:muscleexport">4.19</a>.</li>
+<li>Save the analysis in <code>FASTA</code> format by clicking <code>Data -&gt; Export Alignment -&gt; FASTA Format</code>. This procedure is also shown in Figure <a href="#fig:muscleexport">4.18</a>.</li>
 </ol>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:muscleexport"></span>
 <img src="Images/MUSCLEMega_export.png" alt="Screenshot showing how to export MUSCLE alignment into a FASTA format in MEGA." width="100%" />
 <p class="caption">
-Figure 4.19: Screenshot showing how to export MUSCLE alignment into a FASTA format in MEGA.
+Figure 4.18: Screenshot showing how to export MUSCLE alignment into a FASTA format in MEGA.
 </p>
 </div>
 <ol start="8" style="list-style-type: decimal">
-<li>Save the file in <code>04_Data_analyses/FASTA/</code> and adjust file name as follows: <code>_GenBank_seq_msa_output.fasta</code>. This procedure is shown in Figure <a href="#fig:musclefile">4.20</a>. Make sure to have your file extension set as <code>.fasta</code> otherwise you won’t be able to load your file during the <code>RAxML</code> analysis.</li>
+<li>Save the file in <code>04_Data_analyses/FASTA/</code> and adjust file name as follows: <code>_GenBank_seq_msa_output.fasta</code>. This procedure is shown in Figure <a href="#fig:musclefile">4.19</a>. Make sure to have your file extension set as <code>.fasta</code> otherwise you won’t be able to load your file during the <code>RAxML</code> analysis.</li>
 </ol>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:musclefile"></span>
 <img src="Images/MUSCLEMega_filename.png" alt="Screenshot showing how to save file in MEGA." width="100%" />
 <p class="caption">
-Figure 4.20: Screenshot showing how to save file in MEGA.
+Figure 4.19: Screenshot showing how to save file in MEGA.
 </p>
 </div>
 </div>
 </div>
-<div id="infer-ml-phylogenetic-tree-based-on-msa-file" class="section level3" number="4.13.5">
-<h3><span class="header-section-number">4.13.5</span> Infer ML phylogenetic tree based on msa file</h3>
+<div id="infer-ml-phylogenetic-tree" class="section level3" number="4.11.5">
+<h3><span class="header-section-number">4.11.5</span> Infer ML Phylogenetic Tree</h3>
 <p>The <code>RAxML</code> algorithm will be used to conduct the ML phylogenetic analysis and infer node statistical supports using the bootstrap procedure <span class="citation">(<a href="#ref-RaxML">Kozlov et al., 2019</a>)</span>. This algorithm has been implemented on a web service platform accessible at this URL:
 - <a href="https://raxml-ng.vital-it.ch/#/" class="uri">https://raxml-ng.vital-it.ch/#/</a></p>
 <p><strong>WARNING:</strong> If the RAxML web service platform is down, the instructor will run the analysis locally (on a Linux computer). Please click <a href="#RAxMLLoc">here</a> for more details on the procedure.</p>
@@ -1945,22 +1903,22 @@ Figure 4.20: Screenshot showing how to save file in MEGA.
 <ol style="list-style-type: decimal">
 <li>Go on the <a href="https://raxml-ng.vital-it.ch/#/">RAxML portal</a>.</li>
 <li>Select the output of the <code>MEGA</code> analysis (<code>*_GenBank_seq_msa_output.fasta</code>) stored in <code>04_Data_analyses/FASTA/</code> as input data.</li>
-<li>For the rest of the settings use default parameters with the exception of the <code>Bootstrapping settings</code> (see below). Settings have to be set as shown in Figure <a href="#fig:RAxML">4.21</a>.</li>
+<li>For the rest of the settings use default parameters with the exception of the <code>Bootstrapping settings</code> (see below). Settings have to be set as shown in Figure <a href="#fig:RAxML">4.20</a>.</li>
 </ol>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:RAxML"></span>
 <img src="Images/RAxML_online.png" alt="Screenshot showing Bootstrapping settings for the RAxML analysis." width="100%" />
 <p class="caption">
-Figure 4.21: Screenshot showing Bootstrapping settings for the RAxML analysis.
+Figure 4.20: Screenshot showing Bootstrapping settings for the RAxML analysis.
 </p>
 </div>
 <ol start="4" style="list-style-type: decimal">
 <li><p>Finally, don’t forget to provide your email before submitting the analysis. The analysis should take 1-5 hours to run. You will receive an email to download results or you can access results by using your unique URL.</p></li>
-<li><p>When your analysis is completed, download results (see Figure <a href="#fig:RAxMLresults">4.22</a>) and save it in <code>04_Data_analyses/Phylogenetic_analyses/</code>.</p></li>
+<li><p>When your analysis is completed, download results (see Figure <a href="#fig:RAxMLresults">4.21</a>) and save it in <code>04_Data_analyses/Phylogenetic_analyses/</code>.</p></li>
 </ol>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:RAxMLresults"></span>
 <img src="Images/RAxML_results.png" alt="Screenshot of RAxML portal showing results of your analysis. The best ML phylogenetic tree is also displayed." width="100%" />
 <p class="caption">
-Figure 4.22: Screenshot of RAxML portal showing results of your analysis. The best ML phylogenetic tree is also displayed.
+Figure 4.21: Screenshot of RAxML portal showing results of your analysis. The best ML phylogenetic tree is also displayed.
 </p>
 </div>
 <ol start="6" style="list-style-type: decimal">
@@ -1976,8 +1934,8 @@ Figure 4.22: Screenshot of RAxML portal showing results of your analysis. The be
 <li>You can open <code>result.raxml.support</code> in <code>FigTree</code> to visualize it and locate the four samples of vanilla from Mexico. We will learn how to process phylogenetic trees in R in the next section.</li>
 </ol>
 </div>
-<div id="RAxMLLoc" class="section level3" number="4.13.6">
-<h3><span class="header-section-number">4.13.6</span> Run RAxML locally</h3>
+<div id="RAxMLLoc" class="section level3" number="4.11.6">
+<h3><span class="header-section-number">4.11.6</span> Run RAxML Locally</h3>
 <p>Connect to Linux computer:</p>
 <pre class="bash"><code>ssh svenbuerki@XX.XX.XXX.XXX</code></pre>
 <p>Navigate to the right folder:</p>
@@ -2008,27 +1966,27 @@ Figure 4.22: Screenshot of RAxML portal showing results of your analysis. The be
 <p><code>DNA_barcoding &gt; 04_Data_analyses &gt; Phylogenetic_analyses &gt; RAxML_analysis</code></p>
 <p>Download the folder on your computer and save it under the same path.</p>
 </div>
-<div id="visualize-phylogenetic-tree-and-interpret-results" class="section level3" number="4.13.7">
-<h3><span class="header-section-number">4.13.7</span> Visualize phylogenetic tree and interpret results</h3>
-<div id="learning-outcomes-1" class="section level4" number="4.13.7.1">
-<h4><span class="header-section-number">4.13.7.1</span> Learning outcomes</h4>
+<div id="visualize-phylogenetic-tree-and-interpretion" class="section level3" number="4.11.7">
+<h3><span class="header-section-number">4.11.7</span> Visualize Phylogenetic Tree and Interpretion</h3>
+<div id="learning-outcomes-1" class="section level4" number="4.11.7.1">
+<h4><span class="header-section-number">4.11.7.1</span> Learning Outcomes</h4>
 <ul>
 <li>Learn the newick syntax to represent phylogenetic trees</li>
 <li>Produce figures of phylogenetic trees using <code>R</code> functions implemented in the <em>ape</em> package</li>
 </ul>
 </div>
-<div id="introduction-to-newick-tree-format" class="section level4" number="4.13.7.2">
-<h4><span class="header-section-number">4.13.7.2</span> Introduction to Newick tree format</h4>
+<div id="introduction-to-newick-tree-format" class="section level4" number="4.11.7.2">
+<h4><span class="header-section-number">4.11.7.2</span> Introduction to Newick Tree Format</h4>
 <p>The Newick Standard for representing trees in computer-readable form makes use of the <strong>correspondence between trees and nested parentheses</strong>. We owe this format to the British mathematician <a href="https://mathshistory.st-andrews.ac.uk/Biographies/Cayley/">Arthur Cayley</a>. Here we will be providing an overview of the Newick format using the R package <em>ape</em> <span class="citation">(<a href="#ref-ape">Paradis et al., 2004</a>)</span>.</p>
-<p>To produce the “dummy” phylogenetic tree displayed in Figure <a href="#fig:intronewick">4.23</a>, the following syntax should be applied:</p>
+<p>To produce the “dummy” phylogenetic tree displayed in Figure <a href="#fig:intronewick">4.22</a>, the following syntax should be applied:</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:intronewick"></span>
 <img src="Mini_reports_files/figure-html/intronewick-1.png" alt="Rooted tree showing relationsip between 4 species." width="100%" />
 <p class="caption">
-Figure 4.23: Rooted tree showing relationsip between 4 species.
+Figure 4.22: Rooted tree showing relationsip between 4 species.
 </p>
 </div>
-<div id="code-to-produce-your-first-phylogenetic-tree" class="section level5" number="4.13.7.2.1">
-<h5><span class="header-section-number">4.13.7.2.1</span> Code to produce your first phylogenetic tree</h5>
+<div id="coding-your-first-phylogenetic-tree" class="section level5" number="4.11.7.2.1">
+<h5><span class="header-section-number">4.11.7.2.1</span> Coding Your First Phylogenetic Tree</h5>
 <p>Before starting, create a new <code>R</code> script entitled <code>02_Part3_exercises.R</code> saved at the root of <code>DNA_barcoding</code>.</p>
 <pre class="r"><code>###~~~
 #Check if package is installed if not then install it
@@ -2071,9 +2029,9 @@ plot(ape::read.tree(text=tr1))</code></pre>
 <li>The bottommost node in the tree is an interior node, not a tip.</li>
 <li>Interior nodes are represented by a pair of matched parentheses (<code>()</code>). Between them are representations of the nodes that are immediately descended from that node, separated by commas (<code>,</code>).</li>
 <li>Tips (or samples) are represented by their names. A name can be any string of printable characters except blanks, colons, semicolons, parentheses, and square brackets.</li>
-<li>Because you may want to include a blank in a tip name, it is assumed that an underscore character (<code>_</code>) stands for a blank; any of these in a name will be converted to a blank when it is read in (see code above and Figure <a href="#fig:intronewick">4.23</a> for more details).</li>
+<li>Because you may want to include a blank in a tip name, it is assumed that an underscore character (<code>_</code>) stands for a blank; any of these in a name will be converted to a blank when it is read in (see code above and Figure <a href="#fig:intronewick">4.22</a> for more details).</li>
 </ul>
-<p><strong>Branch lengths</strong> (representing e.g. molecular substitutions, which can be turned into time in a dated phylogenetic tree) can be incorporated into a tree by putting a real number, with or without decimal point, after a node and preceded by a colon (<code>:</code>). This represents the length of the branch immediately below that node. Thus, the above tree might have lengths represented as in Figure <a href="#fig:newickbrlens">4.24</a>.</p>
+<p><strong>Branch lengths</strong> (representing e.g. molecular substitutions, which can be turned into time in a dated phylogenetic tree) can be incorporated into a tree by putting a real number, with or without decimal point, after a node and preceded by a colon (<code>:</code>). This represents the length of the branch immediately below that node. Thus, the above tree might have lengths represented as in Figure <a href="#fig:newickbrlens">4.23</a>.</p>
 <pre class="r"><code>###~~~
 #Tree in Newick format with branch lengths
 ###~~~
@@ -2087,10 +2045,10 @@ plot(ape::read.tree(text=tr2))</code></pre>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:newickbrlens"></span>
 <img src="Mini_reports_files/figure-html/newickbrlens-1.png" alt="Rooted tree showing relationsip between 4 species with branch lengths." width="100%" />
 <p class="caption">
-Figure 4.24: Rooted tree showing relationsip between 4 species with branch lengths.
+Figure 4.23: Rooted tree showing relationsip between 4 species with branch lengths.
 </p>
 </div>
-<p>Now, we can finally add <strong>node supports</strong> (inferred using e.g. the bootstrap approach in the case of the vanilla Maximum Likelihood analysis conducted here) by simply adding values after each closing parenthesis. This is done as follows and displayed in Figure <a href="#fig:newickbrlensnode">4.25</a>:</p>
+<p>Now, we can finally add <strong>node supports</strong> (inferred using e.g. the bootstrap approach in the case of the vanilla Maximum Likelihood analysis conducted here) by simply adding values after each closing parenthesis. This is done as follows and displayed in Figure <a href="#fig:newickbrlensnode">4.24</a>:</p>
 <pre class="r"><code>###~~~
 #Tree in Newick format with branch lengths and node supports
 ###~~~
@@ -2105,14 +2063,14 @@ plot(ape::read.tree(text=tr3), show.node.label = TRUE)</code></pre>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:newickbrlensnode"></span>
 <img src="Mini_reports_files/figure-html/newickbrlensnode-1.png" alt="Rooted tree showing relationsip between 4 species with branch lengths and node supports." width="100%" />
 <p class="caption">
-Figure 4.25: Rooted tree showing relationsip between 4 species with branch lengths and node supports.
+Figure 4.24: Rooted tree showing relationsip between 4 species with branch lengths and node supports.
 </p>
 </div>
 </div>
 </div>
-<div id="phylo-class-and-phylogenetic-tree-in-r" class="section level4" number="4.13.7.3">
-<h4><span class="header-section-number">4.13.7.3</span> <code>phylo</code> class and phylogenetic tree in R</h4>
-<p>Here, we will be introducing the <code>phylo</code> class implemented in R packages dealing with phylogenetic analyses. To study this topic, we will be using the phylogenetic tree with branch lengths and node supports (see Figure <a href="#fig:newickbrlensnode">4.25</a>).</p>
+<div id="the-phylo-class-and-phylogenetic-trees-in-r" class="section level4" number="4.11.7.3">
+<h4><span class="header-section-number">4.11.7.3</span> The <code>phylo</code> Class and Phylogenetic Trees in R</h4>
+<p>Here, we will be introducing the <code>phylo</code> class implemented in R packages dealing with phylogenetic analyses. To study this topic, we will be using the phylogenetic tree with branch lengths and node supports (see Figure <a href="#fig:newickbrlensnode">4.24</a>).</p>
 <pre class="r"><code>###~~~
 #Tree in Newick format with branch lengths and node supports
 ###~~~
@@ -2160,16 +2118,16 @@ tr$node.label</code></pre>
 tr$edge.length</code></pre>
 <pre><code>## [1] 2.0 4.0 4.2 1.0 2.0 3.0</code></pre>
 </div>
-<div id="challenge" class="section level4" number="4.13.7.4">
-<h4><span class="header-section-number">4.13.7.4</span> Challenge</h4>
+<div id="challenge" class="section level4" number="4.11.7.4">
+<h4><span class="header-section-number">4.11.7.4</span> Challenge</h4>
 <blockquote>
 <p>Using this knowledge, draw and code a phylogenetic tree with 8 samples (tips) containing branch lengths and node supports</p>
 </blockquote>
 <p>This challenge is done in small groups and each group will take turn to (<em>i</em>) draw their phylogenetic tree on the white board, and (<em>ii</em>) code it using the newick syntax.</p>
 <p><strong>Tip:</strong> To make sure that your phylogenetic tree is correct, code it and execute it in <code>R</code> using the <em>ape</em> functions shown above.</p>
 </div>
-<div id="vanilla-phylogenetic-tree" class="section level4" number="4.13.7.5">
-<h4><span class="header-section-number">4.13.7.5</span> Vanilla phylogenetic tree</h4>
+<div id="vanilla-phylogenetic-tree" class="section level4" number="4.11.7.5">
+<h4><span class="header-section-number">4.11.7.5</span> Vanilla Phylogenetic Tree</h4>
 <p>In this section, we will be analyzing the output of the RAxML analysis focusing on <code>result.raxml.support</code>, which contains the phylogenetic tree with node supports (here obtained through the bootstrap method). The file is stored in <code>04_Data_analyses/Phylogenetic_analysis/RAxML_analysis</code>.</p>
 <p>Our analyses are divided into seven steps:</p>
 <ol style="list-style-type: decimal">
@@ -2177,12 +2135,12 @@ tr$edge.length</code></pre>
 <li>Discard bootstrap values &lt; 50% since these nodes are not statistically supported. This is done by finding nodes matching this criterion (in <code>ITS$node.label</code>) and replacing their values by nothing (<code>""</code>).</li>
 <li>Rename tips to facilitate reading. Since all accessions belong to same genus, we will replace “<em>Vanilla</em>” by “<em>V.</em>”.</li>
 <li>Root phylogenetic tree with outgroup taxon (using the <em>ape::root()</em> function). Analyses conducted by Paige <span class="citation">(<a href="#ref-Ellestad2022AJB">Ellestad et al., 2022</a>)</span> showed that <em>Vanilla inodora</em> (represented by the sample <code>1789804116_Vanilla_inodora</code>) is a suitable outgroup taxon.</li>
-<li>Ladderize and plot phylogenetic tree (using <em>ape::ladderize()</em> and <em>ape::plot.phylo()</em> functions; see Figure <a href="#fig:Vantreeall">4.26</a>). We will also color in red the tips associated with your vanilla samples to improve readability.</li>
-<li>Extract subtree containing our vanilla samples (using <em>ape::getMRCA()</em> and <em>ape::extract.clade()</em> functions) and plot tree (this time using the radial plotting mode; see Figure <a href="#fig:Vantreesub">4.27</a>). To better visualize your vanilla samples, we will plot a red circle next to their tips (using the <em>ape::tiplabels()</em> function) and rename them based on Figure <a href="#fig:van">4.1</a>.</li>
+<li>Ladderize and plot phylogenetic tree (using <em>ape::ladderize()</em> and <em>ape::plot.phylo()</em> functions; see Figure <a href="#fig:Vantreeall">4.25</a>). We will also color in red the tips associated with your vanilla samples to improve readability.</li>
+<li>Extract subtree containing our vanilla samples (using <em>ape::getMRCA()</em> and <em>ape::extract.clade()</em> functions) and plot tree (this time using the radial plotting mode; see Figure <a href="#fig:Vantreesub">4.26</a>). To better visualize your vanilla samples, we will plot a red circle next to their tips (using the <em>ape::tiplabels()</em> function) and rename them based on Figure <a href="#fig:van">4.1</a>.</li>
 <li>Export phylogenetic tree from step 6 in <code>pdf</code> format.</li>
 </ol>
-<div id="code-to-generate-figures-of-the-phylogenetic-tree" class="section level5" number="4.13.7.5.1">
-<h5><span class="header-section-number">4.13.7.5.1</span> Code to generate figures of the phylogenetic tree</h5>
+<div id="code-to-generate-figures-of-the-phylogenetic-tree" class="section level5" number="4.11.7.5.1">
+<h5><span class="header-section-number">4.11.7.5.1</span> Code to generate figures of the phylogenetic tree</h5>
 <p>Before starting, create a new <code>R</code> script entitled <code>03_Part3_PhyloFig.R</code> saved at the root of <code>DNA_barcoding</code>.</p>
 <pre class="r"><code>###~~~
 #1. Load Vanilla RAxML ITS tree
@@ -2237,7 +2195,7 @@ ape::plot.phylo(ITS, cex=.3, tip.color = tipcol, show.node.label = TRUE, align.t
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:Vantreeall"></span>
 <img src="Mini_reports_files/figure-html/Vantreeall-1.png" alt="RaxML ITS rooted phylogenetic tree of species of Vanilla." width="100%" />
 <p class="caption">
-Figure 4.26: RaxML ITS rooted phylogenetic tree of species of Vanilla.
+Figure 4.25: RaxML ITS rooted phylogenetic tree of species of Vanilla.
 </p>
 </div>
 <pre class="r"><code>###~~~
@@ -2267,7 +2225,7 @@ ape::tiplabels(tip = grep(&quot;^PE&quot;, VanITS$tip.label), pch = 16, col = &q
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:Vantreesub"></span>
 <img src="Mini_reports_files/figure-html/Vantreesub-1.png" alt="RAxML ITS phylogenetic tree with focus on clade containing all accessions of vanilla studied here." width="100%" />
 <p class="caption">
-Figure 4.27: RAxML ITS phylogenetic tree with focus on clade containing all accessions of vanilla studied here.
+Figure 4.26: RAxML ITS phylogenetic tree with focus on clade containing all accessions of vanilla studied here.
 </p>
 </div>
 <pre class="r"><code>###~~~
@@ -2289,8 +2247,8 @@ dev.off()</code></pre>
 </div>
 </div>
 </div>
-<div id="discussion" class="section level3" number="4.13.8">
-<h3><span class="header-section-number">4.13.8</span> Discussion</h3>
+<div id="discussion" class="section level3" number="4.11.8">
+<h3><span class="header-section-number">4.11.8</span> Discussion</h3>
 <p>Click on the button below to inspect the final <em>Vanilla</em> phylogenetic tree (in <code>pdf</code> format) and answer this scientific question:</p>
 <blockquote>
 <p>What species do the samples of vanilla analyzed here belong to (see Figure <a href="#fig:van">4.1</a>) and <strong>why</strong>?</p>
@@ -2305,6 +2263,70 @@ Vanilla subtree
 </embed>
 </object>
 </div>
+</div>
+</div>
+<div id="report" class="section level2" number="4.12">
+<h2><span class="header-section-number">4.12</span> Writing your report</h2>
+<p>The instructor provides below information to complete the Mini-Report 3. All the material, data, code and references required to complete this report are provided here and are covered in class. In this context, students will have to focus on formatting their reports following guidelines presented here as well as making sure that their <code>R</code> code is working and ready to be shared.</p>
+<div id="apply-the-imrad-format-and-supply-code" class="section level3" number="4.12.1">
+<h3><span class="header-section-number">4.12.1</span> Apply the IMRAD Format and Supply Code</h3>
+<p>Your reports will be structured and organized following the <strong>IMMRAD</strong> format: <strong>I</strong>ntroduction, <strong>M</strong>aterial &amp; <strong>M</strong>ethods, <strong>R</strong>esults, and <strong>D</strong>iscussion. This format is widely used to report experimental research in many scientific disciplines. In addition, you will be complementing your reports with an <strong>Abstract</strong> (see below). Finally, since this research relies heavily on bioinformatics, students will complete their reports by supplying their commented <code>R</code> scripts.</p>
+</div>
+<div id="structure-of-mini-report-3" class="section level3" number="4.12.2">
+<h3><span class="header-section-number">4.12.2</span> Structure of Mini-Report 3</h3>
+<p>The instructor provides guidance on content for each section of your individual reports:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Title &amp; author</strong>: Please supply a first page containing the title and author information.</li>
+<li><strong>Abstract</strong>: Provide a short text summarizing the i) objective(s), ii) methods (incl. sampling), iii) most important results and iv) major conclusions and significance of your research (maximum: 300 words).</li>
+<li><strong>Introduction</strong>: Summarize challenges associated to biodiversity research and benefit of DNA barcoding approach in tackling those issues (e.g. by rapidly identifying species, this approach supports species descriptions, monitoring and development of conservation strategies). Then, move on to talk about vanilla, your model organism, and provide the scientific question and hypothesis investigated in this report (see section <a href="#sciq">4.7</a>). Finally, finish this section with an overview of the applied methodology used to answer your questions.</li>
+<li><strong>Material &amp; Methods</strong>: This section should be subdivided into four subsections. Subsections a. and b. are associated to wet-lab analyses, whereas subsections c. and d. correspond to bioinformatic analyses. Please, make sure to cite references supporting your methods and report used bioinformatic tools (incl. references) together with their applied settings. Finally, you can also refer to your <code>R</code> code for further details. The subsections are as follows:
+<ol style="list-style-type: lower-alpha">
+<li>Sampling (see section <a href="#sciq">4.7</a>).</li>
+<li>DNA extraction and sequencing (see section <a href="#vanbarcode"><strong>??</strong></a>).</li>
+<li>BLAST analysis.</li>
+<li>Phylogenetic inference.<br />
+</li>
+</ol></li>
+<li><strong>Results</strong>: Results should be presented in the same order as presented in the Material &amp; Methods section. Tables, Figures and code are reported in this section (by directly embedding them in the text and providing captions). To speed-up the writing of this report, you don’t have to report on results associated to Sampling (a.) and DNA extraction and sequencing (b.) subsections, but rather focus on the BLAST analysis (c.) and phylogenetic inference (d.) subsections.<br />
+</li>
+<li><strong>Discussion</strong>: In your discussion, we are expecting you to collate all the evidence presented in the study to answer your scientific questions. In this context, please subdivide this section into three subsections named as follows:
+<ol style="list-style-type: lower-alpha">
+<li>To what species of vanilla do the individuals studied here belong to?</li>
+<li>How are those individuals related to each other?</li>
+<li>Conclusions and Perspectives.</li>
+</ol></li>
+<li><strong>References</strong>: Add a references section containing full citations of references cited in the text. Students can pick their preferred citation format, but references need to be consistently edited in the same fashion.</li>
+<li><strong>Appendix</strong>: Your <code>R</code> code has to be provided as an Appendix either by directly coping your code in the main document under this section or by providing the name and location of the <code>R</code> script in the Appendix section (e.g. by providing a text similar to this: “All the R code associated to this research can be downloaded at this path.”).</li>
+</ol>
+</div>
+<div id="submission-and-deadline" class="section level3" number="4.12.3">
+<h3><span class="header-section-number">4.12.3</span> Submission and Deadline</h3>
+<p>Individual reports should be submitted in either Google Docs, Word or Rmarkdown formats (and if you decide to submit an additional file containing your R script, submit this file as an <code>.R</code> format). These files should be uploaded on the shared Google Drive in the <code>Mini_Report_3</code> folder in a subfolder entitled as follows: <code>Mini_Report_3_Surname</code>.</p>
+<p>The deadline for your report submission is available <a href="https://svenbuerki.github.io/Genomics-Bioinformatics/Timetable.html#2_Assignment_Deadlines">here</a>.</p>
+</div>
+</div>
+<div id="project-structure-and-data" class="section level2" number="4.13">
+<h2><span class="header-section-number">4.13</span> Project Structure and Data</h2>
+<p>To support mastering the learning outcomes, we will be using a subset of a DNA dataset focusing on the <a href="#vanilla">vanilla</a> spice (from the Orchidaceae family) published by <span class="citation">Ellestad et al. (<a href="#ref-Ellestad2022AJB">2022</a>)</span>.</p>
+<p>The data for this assignment are deposited on the shared <a href="https://drive.google.com/drive/folders/1iBMwP67FoSTMDX-EpXOlf8utP9k8tu8k?usp=sharing">Google Drive</a> in a folder entitled <code>DNA_barcoding</code> (located in <code>Mini_Report_3</code>). All students enrolled in this class have been granted access to this folder. The folder is subdivided into four sub-folders (see Figure <a href="#fig:datastr">4.27</a>) and contains a master spreadsheet <code>Vanilla_samples_records.xlsx</code> at its root:</p>
+<ul>
+<li><code>01_Field_images</code>: <code>jpeg</code> images of samples.</li>
+<li><code>02_Raw_ITS_data_ab1</code>: <code>.ab1</code> sequence electropherograms of ITS sequences.</li>
+<li><code>03_Processed_ITS_data_FASTA</code>: Folder where cleaned ITS sequences will be saved in <code>FASTA</code> format.</li>
+<li><code>04_Data_analyses</code>: Folder where we will be saving outputs of analyses conducted in this project.</li>
+<li><code>Vanilla_samples_records.xlsx</code> contains meta-data information about the samples. We will also update this file with information on species hypotheses.</li>
+<li><code>PART2_Vanilla.R</code> is an R script containing code for the part 2 of this mini-report.</li>
+</ul>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:datastr"></span>
+<img src="Images/DNA_barcoding_str.png" alt="Screenshot of the DNA_barcoding folder showing data structure for this project." width="90%" />
+<p class="caption">
+Figure 4.27: Screenshot of the DNA_barcoding folder showing data structure for this project.
+</p>
+</div>
+<div id="data-availability" class="section level3" number="4.13.1">
+<h3><span class="header-section-number">4.13.1</span> Data Availability</h3>
+<p>The data availability statement associated with <span class="citation">Ellestad et al. (<a href="#ref-Ellestad2022AJB">2022</a>)</span> is as follows:</p>
+<p>All sequence data for this project are available at the National Center for Biotechnology Information (NCBI) under GenBank ITS sequences ON525161–ON525228, GenBank <em>rbcL</em> sequences ON531917–ON531986, BioProject accession no. PRJNA841950, and BioSample accession nos. SAMN28632719–SAMN28632734. All raw sequence files are available from the NCBI SRA database, nos. SRR19374405–SRR193744012, SRR19374414, SRR19374417, and SRR19374418. DNA alignments are available at Zenodo: <a href="https://doi.org/10.5281/zenodo.6577744" class="uri">https://doi.org/10.5281/zenodo.6577744</a></p>
 </div>
 </div>
 </div>
