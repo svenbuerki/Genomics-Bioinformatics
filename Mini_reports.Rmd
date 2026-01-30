@@ -360,6 +360,8 @@ This Mini-Report will help you develop conceptual understanding and practical sk
 - **Interpret and communicate phylogenetic trees as evolutionary hypotheses**  
   - *How:* By visualizing trees using `R` [@R] packages and explaining how tree structure relates to species identity, genetic divergence, and evolutionary relationships in your report.
 
+The skills you develop here using Sanger sequence data will prepare you to work with next-generation sequencing data in [Chapter 4](https://svenbuerki.github.io/Genomics-Bioinformatics/Chapters.html#6_Chapter_4) and to carry out the analyses for your [group lab report](https://svenbuerki.github.io/Genomics-Bioinformatics/Mining_draft_genome.html).
+
 ---
 
 ## Publications
