@@ -220,7 +220,7 @@ Students will be assessed on their ability to research, synthesize, and communic
 
 # Mini-Report 2 — Molecular Biology Databases {#mini2}
 
-To develop a comprehensive understanding of molecular biology databases and their role in genome annotation, students will produce **individual mini-reports** on one of the following major database categories:
+This mandatory assignment contributes directly to the learning outcomes of [**Chapter 3**](https://svenbuerki.github.io/Genomics-Bioinformatics/Chapters.html#5_Chapter_3). To develop a comprehensive understanding of molecular biology databases and their role in genome annotation, students will produce an **individual mini-report** on one of the following major database categories:
 
 - **Molecular database 1:** [Protein sequence databases](#prot) [e.g., @UniProt2014]  
 - **Molecular database 2:** [Gene Ontology databases](#GO) [e.g., @GO2020] 
@@ -234,7 +234,7 @@ Each student is assigned one molecular database category (see the [Google spread
 
 This **individual assignment is mandatory and graded**. Treat this task as an opportunity to deepen your understanding of how biological databases support genome annotation while strengthening your scientific writing skills.
 
-Time is allocated in class on week 4, to work on this assignment. Reports are due on **February 18, 2026**, and must be uploaded to the shared [Google Drive](https://drive.google.com/drive/folders/1BFZFJeR8tW8N7QLfngqIVbjqEkDuIyWj?usp=sharing) in the `Mini_Report_2` folder.
+Time is allocated in class on week 5, to work on this assignment. Reports are due on **February 20, 2026** (by 5PM MT), and must be uploaded to the shared [Google Drive](https://drive.google.com/drive/folders/1BFZFJeR8tW8N7QLfngqIVbjqEkDuIyWj?usp=sharing) in the `Mini_Report_2` folder.
 
 ---
 
@@ -272,7 +272,7 @@ Follow the **same formatting guidelines** used for **Mini-Report 1**.
 
 ## Resources
 
-The instructor provides the following summaries to help you begin. Use these, along with external literature and web resources, to build your report. All claims must be supported with **proper citations**, following the guidelines used in Mini-Report 1.
+The instructor provides the following summaries to help you begin. You are encouraged to use information presented in [**Chapter 3**](https://svenbuerki.github.io/Genomics-Bioinformatics/Chapters.html#5_Chapter_3), together with external literature and web resources, to build your report. All claims must be supported with **proper citations**, following the guidelines used in Mini-Report 1.
 
 ---
 
