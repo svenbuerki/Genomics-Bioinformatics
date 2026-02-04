@@ -113,7 +113,7 @@ datesclass <- subset(dates, dates$Weekday %in% c("Wednesday"))
 # Add week ID (from 1 to 16) to object from step 4
 ###~~~
 #Create weekID vector and add it in front of dataframe
-datesclass <- data.frame(WeekID = sort(rep(seq(from=1, to=16, by=1), 1)), datesclass)
+datesclass <- data.frame(Week = sort(rep(seq(from=1, to=16, by=1), 1)), datesclass)
 
 ###~~~
 # Exclude dates falling during holiday break
