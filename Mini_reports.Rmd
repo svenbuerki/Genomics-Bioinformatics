@@ -369,7 +369,7 @@ The skills you develop here using Sanger sequence data will prepare you to work 
 This mini-report is primarily based on the following publication:
 
 - @Ellestad2022AJB — **DNA barcoding and phylogenetics of *Vanilla***
-
+  - Online publication:  https://doi.org/10.1002/ajb2.16024
 Additional references are provided throughout each section to help you master the material covered in this assignment.
 
 ---
@@ -414,7 +414,7 @@ The purpose of this activity is to help you:
 
 ### Materials
 
-- @Ellestad2022AJB — **DNA barcoding and phylogenetics of *Vanilla***  
+- @Ellestad2022AJB — [**DNA barcoding and phylogenetics of Vanilla**](https://doi.org/10.1002/ajb2.16024) 
 - [Lexicon](https://svenbuerki.github.io/Genomics-Bioinformatics/Lexicon.html)  
 - [Theoretical background](#IntroMR3) section, which provides additional support on DNA barcoding and phylogenetic concepts  
 
@@ -424,7 +424,7 @@ The purpose of this activity is to help you:
 
 ### Part 1 — What Is This Study Trying to Explain? <span style="color:gray;">(20 minutes)</span>
 
-Groups read the **abstract and introduction**, then discuss:
+Groups [read](https://doi.org/10.1002/ajb2.16024) the **abstract and introduction**, then discuss:
 
 1. What biological problem or observation motivates this study?  
 2. What types of variation are the authors concerned with (morphological, genetic, geographic, etc.)?  
