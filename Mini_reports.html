@@ -839,21 +839,24 @@ Additional references are provided throughout each section to help you master th
 </ul>
 <hr />
 </div>
-<div id="structure-1" class="section level2" number="4.3">
-<h2><span class="header-section-number">4.3</span> Structure</h2>
-<p>This mini-report is organized into the following sections to guide you step by step through both the scientific concepts and the practical analyses:</p>
+<div id="workflow-and-scientific-focus" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> Workflow and Scientific Focus</h2>
+<p>This mini-report guides you step by step through a real research-style investigation, combining scientific reasoning with hands-on bioinformatics analyses. Throughout this project, you will work with DNA barcode data to determine the species identity of several vanilla samples and interpret your findings in an evolutionary framework.</p>
+<p>The assignment is organized into the following sections:</p>
 <ul>
-<li><p><a href="#grpactivity_vanilla"><strong>Group activity</strong></a>: You will collaboratively read and discuss the publication that forms the foundation of Mini-Report 3. This activity helps you understand the biological questions, study design, and types of DNA evidence used in species research.</p></li>
-<li><p><a href="#IntroMR3"><strong>Theoretical background</strong></a>: This section introduces the key concepts you need for the report, including scientific questions, hypotheses (and predictions), methodology, data availability, and report structure and formatting. Use this section as a reference while working on your assignment.</p></li>
-<li><p><strong>Bioinformatics:</strong> In this section, you will perform the bioinformatics analyses used to replicate parts of the study at the core of Mini-Report 3. These hands-on steps will help you connect theory to real data.</p>
+<li><p><a href="#grpactivity_vanilla"><strong>Group activity</strong></a>: You will collaboratively read and discuss the publication that forms the foundation of Mini-Report 3. This activity introduces the biological context, research questions, and types of DNA evidence used to study species boundaries.</p></li>
+<li><p><a href="#IntroMR3"><strong>Theoretical background</strong></a>: This section presents the key concepts needed for the report, including scientific questions, hypotheses (and predictions), methodology, data availability, and report structure and formatting. Use it as a reference while completing your analyses and writing your report.</p></li>
+<li><p><a href="#sciq"><strong>Scientific question and analytical framework</strong></a>: In this section, you will learn about the scientific question and hypothesis investigated in this assignment.</p></li>
+<li><p><strong>Bioinformatics analyses:</strong> You will perform the analytical steps used to replicate part of a published study. These hands-on activities connect theory to real DNA sequence data.</p>
 <ul>
+<li><a href="#datastrworkflow"><strong>Data structure and workflow</strong></a>: Overview of the data used in this assignment and the project organization supporting your analyses.</li>
 <li><a href="#part1"><strong>Part 1</strong></a>: Process and clean ITS DNA sequence electropherograms and develop a species working hypothesis.<br />
 </li>
-<li><a href="#part2"><strong>Part 2</strong></a>: Retrieve DNA sequences and prepare datasets for analysis.<br />
+<li><a href="#part2"><strong>Part 2</strong></a>: Retrieve DNA sequences and prepare comparative datasets.<br />
 </li>
 <li><a href="#part3"><strong>Part 3</strong></a>: Perform multiple sequence alignment and phylogenetic inference.</li>
 </ul></li>
-<li><p><a href="#report"><strong>Writing report</strong></a>: This section provides detailed guidelines to help you write and organize your individual mini-report.</p></li>
+<li><p><a href="#report"><strong>Writing the report</strong></a>: This section provides detailed guidelines to help you write and organize your individual mini-report, including how to interpret and present your results as scientific evidence.</p></li>
 </ul>
 <hr />
 </div>
@@ -1019,43 +1022,182 @@ Groups propose <strong>possible explanations</strong> for why individuals or pop
 </div>
 </div>
 <div id="sciq" class="section level2" number="4.7">
-<h2><span class="header-section-number">4.7</span> Mini-Report 3: Scientific Questions</h2>
-<p>For this assignment, students will investigate the following question:</p>
+<h2><span class="header-section-number">4.7</span> Scientific Question</h2>
+<p>In this assignment, you will investigate the following question:</p>
 <blockquote>
-<p>Q1: To what species of vanilla do the individuals presented in Figure <a href="#fig:van">4.1</a> belong to?</p>
+<p><strong>To which species of <em>Vanilla</em> do the individuals presented in Figure <a href="#fig:van">4.1</a> belong?</strong></p>
 </blockquote>
-<p>To answer these questions, <strong>we will be focusing on four samples/individuals of vanilla (see Figure <a href="#fig:van">4.1</a>) and their associated ITS sequence data as well as ITS sequences deposited on GenBank</strong>. See the <a href="#sciprocess">scientific process section</a> below for more details.</p>
+<p>To address this question, you will work with <strong>four vanilla samples</strong> (Figure <a href="#fig:van">4.1</a>) and their associated ITS DNA barcode sequences, along with ITS sequences from related species available in GenBank. Additional details about the scientific reasoning behind this investigation are provided in the <a href="#sciprocess">Scientific process section</a>.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:van"></span>
 <img src="Images/Vanilla_samples.png" alt="Images of the four samples of vanilla collected in Mexico studied in this project." width="100%" />
 <p class="caption">
 Figure 4.1: Images of the four samples of vanilla collected in Mexico studied in this project.
 </p>
 </div>
-<p>Throughout this project, we will be referring to these vanilla samples/individuals as follows (see Figure <a href="#fig:van">4.1</a>):</p>
+<p>Throughout the project, these vanilla individuals will be referred to as:</p>
 <ul>
-<li><em>PE25</em>, <em>PE44</em>, <em>PE49</em> and <em>PE50</em>.</li>
+<li><em>PE25</em><br />
+</li>
+<li><em>PE44</em><br />
+</li>
+<li><em>PE49</em><br />
+</li>
+<li><em>PE50</em></li>
+</ul>
+<div id="sciprocess" class="section level3" number="4.7.1">
+<h3><span class="header-section-number">4.7.1</span> Question, Hypothesis, and Methodology</h3>
+<p>Our overarching research question is:</p>
+<blockquote>
+<p><strong>To which species of <em>Vanilla</em> do the individuals presented in Figure <a href="#fig:van">4.1</a> belong?</strong></p>
+</blockquote>
+<p>Based on the background information provided earlier, we will test the following <strong>hypothesis</strong>:</p>
+<blockquote>
+<p>The four individuals belong to the same species (<em>Vanilla planifolia</em>), and the observed phenotypic differences are due to phenotypic plasticity (responses to contrasting environmental conditions) rather than evolutionary divergence.</p>
+</blockquote>
+<p>We will evaluate this hypothesis using the <strong>phylogenetic species concept</strong> <span class="citation">(<a href="#ref-wheeler1999phylogenetic">Wheeler, 1999</a>)</span>, particularly the criterion of <strong>monophyly</strong>.</p>
+<p><strong>Prediction:</strong><br />
+If the hypothesis is correct, all four individuals will cluster together in a single, well-supported monophyletic clade with reference sequences of <em>V. planifolia</em>.</p>
+<p>To test this prediction, we will compare ITS barcode sequences generated for our four samples with ITS sequences from related species available in GenBank.</p>
+</div>
+<div id="methodological-overview" class="section level3" number="4.7.2">
+<h3><span class="header-section-number">4.7.2</span> Methodological Overview</h3>
+<p>Your analyses will follow these main steps:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Generate ITS barcode data</strong> for the four target individuals using PCR and Sanger sequencing (raw data are provided).<br />
+</li>
+<li><strong>Assemble a comparative ITS dataset</strong> by retrieving reference sequences from GenBank using <code>R</code>.<br />
+</li>
+<li><strong>Conduct similarity and phylogenetic analyses</strong>
+<ul>
+<li>Use BLAST to assess sequence similarity<br />
+</li>
+<li>Infer evolutionary relationships using Maximum Likelihood phylogenetic analysis in RAxML (including bootstrap support)<br />
+</li>
+</ul></li>
+<li><strong>Visualize and interpret phylogenetic trees</strong> using <code>R</code> to evaluate whether the samples form a monophyletic group and to test the working hypothesis.</li>
+</ol>
+<p>Finally, you will integrate evidence from sequence similarity, phylogenetic clustering, bootstrap support values, and taxonomic information from GenBank to determine the most likely species identity of your samples. See Section <a href="#report">4.12</a> for guidelines on how to present and interpret this evidence in your report.</p>
+<hr />
+</div>
+</div>
+<div id="datastrworkflow" class="section level2" number="4.8">
+<h2><span class="header-section-number">4.8</span> Data Structure and Workflow</h2>
+<p>The data for Mini-Report 3 are deposited on Google Drive in the <a href="https://drive.google.com/drive/folders/1iBMwP67FoSTMDX-EpXOlf8utP9k8tu8k?usp=drive_link"><code>DNA_barcoding</code></a> folder.</p>
+<p>This folder contains all data and working files required for your assignment. The directory is organized to reflect the typical workflow of a DNA barcoding project, moving from raw biological material to analyzed sequence data.</p>
+<div id="folder-structure" class="section level3" number="4.8.1">
+<h3><span class="header-section-number">4.8.1</span> 📁 Folder Structure</h3>
+<div id="field_images" class="section level4" number="4.8.1.1">
+<h4><span class="header-section-number">4.8.1.1</span> <code>01_Field_images</code></h4>
+<p>Photographs of the sampled plants used in this project.</p>
+<p>These images:</p>
+<ul>
+<li>Provide <strong>morphological context</strong> for the samples<br />
+</li>
+<li>Help connect <strong>physical specimens</strong> to the DNA sequences you will analyze<br />
+</li>
+<li>May be useful when discussing <strong>species identity</strong> in your report</li>
 </ul>
 </div>
-<div id="sciprocess" class="section level2" number="4.8">
-<h2><span class="header-section-number">4.8</span> Question, hypothesis, and methodology</h2>
-<p>Our overachieving question is as follows:</p>
-<blockquote>
-<p>To what species of vanilla do individuals presented in Figure <a href="#fig:van">4.1</a> belong to?</p>
-</blockquote>
-<p>Based on evidence detailed above, our <strong>hypothesis</strong> is the following:</p>
-<blockquote>
-<p>Individuals belong to the same species (<em>V. planifolia</em>) and thr observed phenotypic variation is due to phenotypic plasticity (= exhibiting responses to contrasting climates).</p>
-</blockquote>
-<p>To test our hypothesis, we are applying the <strong>phylogenetic species concept</strong> <span class="citation">(<a href="#ref-wheeler1999phylogenetic">Wheeler, 1999</a>)</span> (mainly criterion of monophyly) using DNA barcoding data analyzed using a phylogenetic approach. If our hypothesis is correct, then we <strong>predict</strong> that all the individuals will form a monophyletic clade and fall with other samples belonging to <em>V. planifolia</em>.</p>
-<p>To test this hypothesis, we have generated ITS barcode data for individuals in Figure <a href="#fig:van">4.1</a> and aim at comparing them with data from GenBank (= reference data).</p>
-<p>Our <strong>analyses</strong> will be done using the following methodology:</p>
+<div id="raw_its_data_ab1" class="section level4" number="4.8.1.2">
+<h4><span class="header-section-number">4.8.1.2</span> <code>02_Raw_ITS_data_ab1</code></h4>
+<p>Raw <strong>Sanger sequencing chromatogram files</strong> (<code>.ab1</code> format).</p>
+<p>These files:</p>
+<ul>
+<li>Contain the <strong>original electropherogram data</strong> generated from ITS PCR products<br />
+</li>
+<li>Must be <strong>opened, inspected, and edited</strong> using software such as <strong>FinchTV</strong><br />
+</li>
+<li>Represent your <strong>starting point</strong> for sequence cleaning and validation</li>
+</ul>
+<p>🔬 <strong>Your task in Part 1 begins here</strong></p>
+</div>
+<div id="processed_its_data_fasta" class="section level4" number="4.8.1.3">
+<h4><span class="header-section-number">4.8.1.3</span> <code>03_Processed_ITS_data_FASTA</code></h4>
+<p>This is where <strong>you will save your cleaned DNA sequences</strong>.</p>
+<p>After processing the <code>.ab1</code> files, you should:</p>
 <ol style="list-style-type: decimal">
-<li>Produce ITS barcodes for target individuals using PCR and Sanger sequencing (= raw data are provided on Google Drive).</li>
-<li>Assembly of reference ITS data available on GenBank using <code>R</code>.</li>
-<li>BLAST and RAxML Maximum Likelihood phylogenetic analyses (including bootstrap analysis to assess node supports) to identify species identity of target samples.</li>
-<li>Produce figures using <code>R</code> to test working hypothesis.</li>
+<li>Trim low-quality ends<br />
+</li>
+<li>Remove ambiguous base calls where possible<br />
+</li>
+<li>Export the cleaned sequences in <strong>FASTA format</strong></li>
 </ol>
-<p>Finally, we will intersect evidence from all our analyses (especially phylogenetic clustering combined with node supports and taxonomy of ITS sequences from GenBank) to test our hypothesis and infer species identity of our target individuals. Please see section <a href="#report">4.12</a> for more details our the formatting of the report.</p>
+<p>Each file in this folder should contain:</p>
+<ul>
+<li>A <strong>clear sequence name</strong> (including your sample ID)<br />
+</li>
+<li>The <strong>edited ITS DNA sequence</strong></li>
+</ul>
+<p>These sequences will be used later for:</p>
+<ul>
+<li>BLAST searches<br />
+</li>
+<li>Building datasets for phylogenetic analysis</li>
+</ul>
+</div>
+<div id="data_analyses" class="section level4" number="4.8.1.4">
+<h4><span class="header-section-number">4.8.1.4</span> <code>04_Data_analyses</code></h4>
+<p>This folder will contain files generated during downstream analyses.</p>
+<p>Examples include:</p>
+<ul>
+<li>BLAST results<br />
+</li>
+<li>Alignment files<br />
+</li>
+<li>Phylogenetic trees<br />
+</li>
+<li>Any intermediate or final analysis outputs</li>
+</ul>
+<p>📊 Think of this as the folder for <strong>results and derived data</strong>, not raw data.</p>
+</div>
+<div id="part2_vanilla.r" class="section level4" number="4.8.1.5">
+<h4><span class="header-section-number">4.8.1.5</span> <code>PART2_Vanilla.R</code></h4>
+<p>R script used in <strong>Part 2</strong> of the project.</p>
+<p>You will use this script to:</p>
+<ul>
+<li>Retrieve DNA sequences from GenBank<br />
+</li>
+<li>Prepare datasets for phylogenetic analyses</li>
+</ul>
+<p>You do <strong>not</strong> need this file yet for Part 1, but keep it in this directory for later steps in Mini-Report 3.</p>
+</div>
+</div>
+<div id="workflow-overview" class="section level3" number="4.8.2">
+<h3><span class="header-section-number">4.8.2</span> 🧬 Workflow Overview</h3>
+<p>This folder structure follows the logical progression of a DNA barcoding study:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Specimen context</strong> → <code>01_Field_images</code><br />
+</li>
+<li><strong>Raw sequence data</strong> → <code>02_Raw_ITS_data_ab1</code><br />
+</li>
+<li><strong>Cleaned DNA sequences</strong> → <code>03_Processed_ITS_data_FASTA</code><br />
+</li>
+<li><strong>Analyses and results</strong> → <code>04_Data_analyses</code></li>
+</ol>
+<p>Understanding this workflow will help you:</p>
+<ul>
+<li>Keep your data organized<br />
+</li>
+<li>Maintain reproducibility<br />
+</li>
+<li>Clearly explain your methods in Mini-Report 3</li>
+</ul>
+</div>
+<div id="good-data-practices" class="section level3" number="4.8.3">
+<h3><span class="header-section-number">4.8.3</span> ✅ Good Data Practices</h3>
+<ul>
+<li>Do <strong>not modify</strong> files in <code>02_Raw_ITS_data_ab1</code><br />
+</li>
+<li>Always keep an <strong>original raw-data copy</strong> untouched<br />
+</li>
+<li>Use <strong>clear and consistent file names</strong> when saving processed sequences<br />
+</li>
+<li>Keep analysis outputs inside <code>04_Data_analyses</code></li>
+</ul>
+<p>Good organization is part of good science.</p>
+<p>If you are unsure where a file belongs, ask yourself:<br />
+<strong>Is this raw data, processed data, or analysis output?</strong></p>
+</div>
 </div>
 <div id="part1" class="section level2" number="4.9">
 <h2><span class="header-section-number">4.9</span> Bioinformatics Part 1</h2>
