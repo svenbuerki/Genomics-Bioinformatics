@@ -370,6 +370,7 @@ This mini-report is primarily based on the following publication:
 
 - @Ellestad2022AJB — **DNA barcoding and phylogenetics of *Vanilla***
   - Online publication:  https://doi.org/10.1002/ajb2.16024
+
 Additional references are provided throughout each section to help you master the material covered in this assignment.
 
 ---
@@ -553,7 +554,7 @@ Both molecular and morphological datasets can be affected by homoplasy. **Phylog
 
 ---
 
-## Scientific Question {#sciq}
+## Scientific Question and Analytical Framework {#sciq}
 
 In this assignment, you will investigate the following question:
 
