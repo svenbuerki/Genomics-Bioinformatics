@@ -765,8 +765,8 @@ knitr::kable(IUPAC, caption = "IUPAC codes used to score base polymorphism. This
 
 Here, we will be using `its25-ITSp4.ab1` as an example for the analysis. This file is located in `DNA_barcoding/02_Raw_ITS_data_ab1`.  
 
-1. Copy the `DNA_barcoding/` folder onto your computers.
-2. Launch `FinchTV`.
+1. Download the [`DNA_barcoding/`](https://drive.google.com/drive/folders/1iBMwP67FoSTMDX-EpXOlf8utP9k8tu8k?usp=drive_link) folder onto your computers.
+2. Launch `FinchTV`. To download it, click [here](https://digitalworldbiology.com/FinchTV).
 3. Open `.ab1` file (one at a time) using the `File --> Open...` tab or by dragging your `.ab1` file in the main window. 
 4. Make sure that the `Base Position Numbers`, `Base Calls` and `Quality Values` settings are ticked using the `View` tab (Figure \@ref(fig:finchtv)).
 5. Trim the first 10-20 bp of the sequence. This is done by selecting bases using the `Shift` command and then pressing `Delete` (Figure \@ref(fig:finchtvtrim)).
