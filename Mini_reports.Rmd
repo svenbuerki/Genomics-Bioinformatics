@@ -377,23 +377,21 @@ Additional references are provided throughout each section to help you master th
 
 ## Workflow and Scientific Focus
 
-This mini-report guides you step by step through a real research-style investigation, combining scientific reasoning with hands-on bioinformatics analyses. Throughout this project, you will work with DNA barcode data to determine the species identity of several vanilla samples and interpret your findings in an evolutionary framework.
+This mini-report guides you step by step through a research-style investigation, combining scientific reasoning with hands-on bioinformatics analyses. Throughout this project, you will work with DNA barcode data to determine the species identity of several vanilla samples and interpret your findings within an evolutionary framework.
 
 The assignment is organized into the following sections:
 
 - [**Group activity**](#grpactivity_vanilla): You will collaboratively read and discuss the publication that forms the foundation of Mini-Report 3. This activity introduces the biological context, research questions, and types of DNA evidence used to study species boundaries.
-
-- [**Theoretical background**](#IntroMR3): This section presents the key concepts needed for the report, including scientific questions, hypotheses (and predictions), methodology, data availability, and report structure and formatting. Use it as a reference while completing your analyses and writing your report.
-
-- [**Scientific question and analytical framework**](#sciq): In this section, you will learn about the scientific question and hypothesis investigated in this assignment.
-
+- [**Theoretical background**](#IntroMR3): This section presents the key concepts needed for the report, including scientific questions, hypotheses (and predictions), methodology, data availability, and report structure and formatting. Use this section as a reference while completing your analyses and writing your report.
+- [**Scientific question and analytical framework**](#sciq): This section introduces the specific scientific question, hypothesis, and analytical approach that you will investigate in this assignment.
 - **Bioinformatics analyses:** You will perform the analytical steps used to replicate part of a published study. These hands-on activities connect theory to real DNA sequence data.
     - [**Data structure and workflow**](#datastrworkflow): Overview of the data used in this assignment and the project organization supporting your analyses.
     - [**Part 1**](#part1): Process and clean ITS DNA sequence electropherograms and develop a species working hypothesis.  
     - [**Part 2**](#part2): Retrieve DNA sequences and prepare comparative datasets.  
     - [**Part 3**](#part3): Perform multiple sequence alignment and phylogenetic inference.
-
 - [**Writing the report**](#report): This section provides detailed guidelines to help you write and organize your individual mini-report, including how to interpret and present your results as scientific evidence.
+- [**Evaluation rubrics**](#minireport3rubrics): This section describes the criteria and rubrics used to evaluate your mini-report.
+
 
 ---
 
@@ -1849,6 +1847,61 @@ The instructor provides guidance on content for each section of your individual 
 Individual reports should be submitted in either Google Docs, Word or Rmarkdown formats (and if you decide to submit an additional file containing your R script, submit this file as an `.R` format). These files should be uploaded on the shared Google Drive in the `Mini_Report_3` folder in a subfolder entitled as follows: `Mini_Report_3_Surname`.
 
 The deadline for your report submission is available [here](https://svenbuerki.github.io/Genomics-Bioinformatics/Timetable.html#2_Assignment_Deadlines). 
+
+
+## Evaluation Rubrics (Total: 50 points) {#minireport3rubrics}
+
+Students will be assessed on their ability to conduct DNA barcode–based species identification and phylogenetic inference and communicate their findings in a scientific report using a standard structure.
+
+| Criteria | Description | Points |
+|---|---|---|
+| **Introduction & Scientific Context** | Clearly presents the biological background, research question, and hypothesis. Demonstrates understanding of DNA barcoding, phylogenetics, and species identification. | 8 |
+| **Materials & Methods** | Clearly and accurately describes sequence processing, BLAST analyses, dataset assembly, alignment, and phylogenetic inference. Methods are complete, logical, and reproducible. | 10 |
+| **Results** | Presents results clearly and objectively, including BLAST results, alignments, and phylogenetic trees. Figures and tables are properly labeled, referenced, and described in the text. | 12 |
+| **Discussion & Biological Interpretation** | Interprets results correctly using phylogenetic evidence. Evaluates the hypothesis, explains species identity, and discusses biological meaning and limitations. | 12 |
+| **Clarity, Organization & Writing Quality** | Report is well structured, clearly written, and follows scientific writing conventions. Terminology is used appropriately. | 4 |
+| **References & Citation Quality** | Appropriate and consistent use of scientific references, including GenBank and relevant literature. | 4 |
+
+**Total: 50 points**
+
+---
+
+### Formatting Penalties
+
+Because formatting and adherence to scientific guidelines are essential professional skills:
+
+- Up to **–10 points (20% of total score)** may be deducted for failure to follow formatting and submission guidelines.
+
+Examples include:
+
+- Missing required sections  
+- Incorrect formatting (font, spacing, margins)  
+- Missing or improperly labeled figures  
+- Missing citations  
+- Exceeding length limits  
+- Incorrect file naming or submission location  
+
+Penalty severity will reflect the extent of the issue.
+
+---
+
+### Late Submission Penalties
+
+- Please see [Syllabus](https://svenbuerki.github.io/Genomics-Bioinformatics/index.html#184_Late_Work_Policy) for late work policy.
+
+---
+
+### Notes
+
+- Reports must follow the required scientific structure:
+  - Introduction  
+  - Materials & Methods  
+  - Results  
+  - Discussion  
+  - References  
+
+- All figures must be referenced and interpreted in the text.
+- All sources must be properly cited.
 
 ## Project Structure and Data
 
