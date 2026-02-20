@@ -1,7 +1,7 @@
 ---
 title: "BIOL 497/597 - Genomics & Bioinformatics"
 subtitle: "Lab: Mining sagebrush draft genome"
-author: "Sven Buerki - Boise State University"
+author: "Sven Buerki & Anthony Melton - Boise State University"
 date: "`r Sys.Date()`"
 output:
   bookdown::html_document2: 
@@ -24,248 +24,6 @@ $(document).ready(function() {
   $('#header').css('margin-right', '120px')
 });
 ```
-
-# Goal
-
-The goal of this group lab report is to learn how to **mine a draft genome to identify, extract, annotate, and validate a target protein-coding gene using bioinformatics tools**. Through this investigation, you will gain practical experience working with genome assemblies and interpreting genomic data in a biological context, preparing you for genome-scale analyses in modern genomics.
-
----
-
-# Learning Outcomes
-
-As part of this lab, students will learn how to **mine a draft genome to identify, extract, annotate, and validate a target protein-coding gene**, and interpret their findings in a biological context. Specifically, students will:
-
-1. **Identify and extract target gene sequences from a draft Illumina genome assembly**, applying genome mining approaches to locate coding regions of interest.
-2. **Predict and annotate gene structure**, including coding regions and gene features, to generate biologically meaningful gene models.
-3. **Reconstruct protein sequences from annotated genes** and interpret their structural and functional characteristics.
-4. **Validate gene identity and infer protein function** by comparing reconstructed sequences with reference databases and evaluating the strength of the evidence.
-5. Learn how to remotely access and work on a Unix-based computing environment to support genome mining analyses (see [Tutorials](Tutorials.html)).
-6. Use Unix and `R` tools to organize data, execute analyses, and support the extraction, annotation, and validation of genes (see [Tutorials](Tutorials.html) and [Mini-Report 3](Mini_reports.html)).
-
----
-
-# Publication
-
-This lab report is primarily based on the following publication:
-
-- @Melton2021 — **A draft genome provides hypotheses on drought tolerance in a keystone plant species in Western North America threatened by climate change**
-  - Online publication:  https://doi.org/10.1002/ece3.8245
-
-Additional references are provided throughout each section to help you master the material covered in this assignment.
-
----
-
-# Lab Report Workflow: Genome Mining, Gene Annotation, and Validation
-
-This lab report guides you step by step through a research-style investigation that combines scientific reasoning with hands-on bioinformatics analyses. You will work with a draft genome to identify, extract, annotate, and validate target genes, and interpret your findings in a biological context.
-
-The assignment is organized into the following sections:
-
-- [**Group activity**](#grpactivity_genome): You will collaboratively read and discuss the publication that forms the foundation of this lab report. This activity introduces the scientific context, research question, and genomic resources used in the study.
-- [**Introduction**](#intro): This section presents the key concepts needed for the report, including the scientific question, hypothesis (and predictions), methodology, data availability, and report structure and formatting. Use this section as a reference while completing your analyses and writing your report.
-- [**Objectives and Scientific Question**](#objlabreport): This section introduces the specific objectives and scientific question that you will investigate in this assignment.
-- **Bioinformatics analyses:** In this section, you will perform the analytical steps required to mine a draft genome and characterize target genes. These hands-on activities connect theory to real genomic data.
-    - [**Data Structure and Workflow**](#datastrworkflow): Overview of the data used in this assignment and the project organization supporting your analyses.
-    - [**Module 1**](#mod1): Set up your working environment and identify scaffolds containing AQP genes.
-    - [**Module 2**](#mod2): Extract the scaffolds identified in Module 1 and identify **O**pen **R**eading **F**rames (ORFs).
-    - [**Module 3**](#mod3): Annotate ORFs and assemble AQP protein sequence(s).
-    - [**Module 4**](#mod4): Validate AQP protein sequences and infer their function(s).
-    - [**Data Interpretation**](#interpretation): Guidance to help you interpret your results and prepare for the remaining lab group activities.
-    - [**Your Turn**](#yourturn): Your group will apply the workflow and interpret the data for your assigned scaffold.
-- [**Group Lab Report**](#report): This section provides detailed guidelines to help you write and organize your group lab report.
-- [**Group Lab Oral Presentation**](#grplabpresentation): This section provides detailed guidelines to help you prepare your group oral presentation.
-- [**Evaluation Rubrics**](#rubrics): This section describes the criteria used to evaluate your lab report and oral presentation.
-
----
-
-# 🤝 Group Activity: Investigating a Draft Genome Study and Its Genomic Resources {#grpactivity_genome}
-
-## Learning Outcomes
-
-By completing this activity, you will:
-
-- Explain the scientific question addressed in a draft genome publication.
-- Describe how researchers generate, assemble, and analyze draft genome data.
-- Locate genomic datasets associated with a publication using NCBI databases.
-- Interpret how draft genome assemblies are used to investigate biological questions.
-- Prepare to mine and analyze a draft genome as part of the Lab Group Report.
-
----
-
-## Activity Overview
-
-In this **1 hour and 40 minutes** group activity, you will work in groups of **3–4 students** to investigate the publication at the core of your **Lab Group Report**:
-
-@Melton2021
-
-This activity will help you:
-
-- Understand the biological motivation of the study
-- Examine how the draft genome was generated and analyzed
-- Locate and explore the genomic data on NCBI
-- Prepare to use and mine this genome yourselves
-
----
-
-## Materials
-
-- @Melton2021 — Draft genome publication
-- [NCBI](https://www.ncbi.nlm.nih.gov/)
-- [Lexicon](Lexicon.html)
-
----
-
-## Part 1 — What Biological Question Does This Study Address? <span style="color:gray;">(20 minutes)</span>
-
-As a group, read the **Abstract** and **Introduction**, then discuss:
-
-1. What organism is being studied?
-2. What makes this organism biologically or scientifically interesting?
-3. What is the main scientific question or objective of this study?
-4. Why is generating a draft genome important for answering this question?
-5. What types of downstream analyses do the authors intend to perform using this genome?
-
-**Group Outcome:**
-
-Write a brief summary (2–3 sentences):
-
-> What question does this study address, and why is a draft genome needed to answer it?
-
----
-
-## Part 2 — How Was the Draft Genome Generated and Used? <span style="color:gray;">(30 minutes)</span>
-
-Now read the relevant parts of the **Methods** and **Results** sections.
-
-Discuss the following:
-
-### Genome sequencing
-
-- What sequencing technology was used?
-- Why is this technology appropriate for draft genome assembly?
-
-### Genome assembly
-
-- What is a draft genome assembly?
-- What information is provided about assembly quality (e.g., genome size, scaffold number)?
-
-### Genome mining and gene analysis
-
-- What types of genes or genomic features do the authors investigate?
-- Why are these genes important?
-
-- How does the genome assembly allow the authors to extract and analyze these genes?
-
-**Group Outcome:**
-
-Explain in your own words:
-
-> How did the authors go from raw sequencing data to biological discoveries?
-
----
-
-## Part 3 — Locating the Raw Genomic Data on NCBI <span style="color:gray;">(25 minutes)</span>
-
-**Goal:** Learn how to locate and interpret genomic data associated with a published study.
-
-You will use the **Data Availability Statement** of the publication to locate the genomic resources.
-
-### Identify accession numbers from the paper
-
-Locate and record:
-
-- BioProject accession number:
-- Raw sequencing reads accession number(s) (SRA):
-- Draft genome assembly accession number:
-
-### Explore the BioProject
-
-Go to:
-
-https://www.ncbi.nlm.nih.gov
-
-Select **BioProject** and enter the accession number.
-
-Discuss:
-
-- What is the goal of this BioProject?
-- What organism is associated with it?
-- What types of data are included?
-
-### Examine the raw sequencing reads
-
-Locate the **SRA data**.
-
-Discuss:
-
-- How many sequencing runs are available?
-- What sequencing platform was used?
-- How much data was generated?
-- Why are these raw reads important?
-
-### Examine the draft genome assembly
-
-Locate the **genome assembly record**.
-
-Discuss:
-
-- What is the genome size?
-- How many scaffolds does the assembly contain?
-- What is the assembly level?
-- Why is this called a *draft* genome?
-
-### Group Reflection
-
-Discuss:
-
-- Why is it important that these data are publicly available?
-- How will you use this genome assembly in your lab project?
-
----
-
-## Part 4 — Connecting This Study to Your Lab Project <span style="color:gray;">(15 minutes)</span>
-
-Now think about your upcoming **Lab Group Report**.
-
-Discuss:
-
-- What types of genes will you be searching for in this genome?
-- Why is genome mining possible only after genome assembly?
-- What types of analyses will be required to:
-  - extract genes?
-  - annotate genes?
-  - validate gene identity and function?
-
-**Group Outcome:**
-
-Write:
-
-> What will you be able to discover by mining this genome?
-
----
-
-## Part 5 — Whole-Class Discussion <span style="color:gray;">(10 minutes)</span>
-
-We will conclude with a class discussion.
-
-Each group will share:
-
-- One key insight about the scientific goal of the study
-- One important feature of the genome assembly
-- One way the genome will be used in your lab project
-
-## Why This Activity Matters
-
-This activity prepares you to:
-
-- Work with real genomic data
-- Understand how draft genomes are produced
-- Locate and interpret genomic datasets
-- Mine genomes to extract and analyze genes
-
-These skills are essential for your **Lab Group Report**.
-
----
 
 # Introduction {#intro}
 
@@ -301,11 +59,21 @@ Genes from each subfamily tend to move water or other substrate depending on the
 knitr::include_graphics("Images/NIP5-1_At_Sc466867.png")
 ```
 
----
+# Learning outcomes
 
-# Objectives and Scientific Question {#objlabreport}
+As part of this lab, students will gain the following learning outcomes:
 
-The instructor teaches students to conduct analyses by going over each module in class demonstrating the approach to mine genome for target gene and go over steps to assemble and validate protein product. Then, each group will be assigned a scaffold (from the *de novo* genome assembly) and they will have to conduct analyses presented in modules 2 to 4 on their own to answer the following question:
+1. Learn protocol to remotely access to a unix-based computer (see [Tutorials](Tutorials.html)).
+2. Learn unix-based commands to organize projects and execute code (see [Tutorials](Tutorials.html)).
+3. Provide introduction to running R code and developing your own R code (this topic was also partially covered in [Mini-Report 3](Mini_reports.html)).
+4. Study protocols to mine Illumina *de novo* draft genome (at scaffold level) for target genes.
+5. Predict and annotate genes recovered from genome mining process.
+6. Reconstruct protein sequences of annotated genes.
+7. Validate protein sequence and predict function. 
+
+# Objectives and scientific question
+
+Instructors teach students to conduct analyses by going over each module in class demonstrating the approach to mine genome for target gene and go over steps to assemble and validate protein product. Then, each group will be assigned a scaffold (from the *de novo* genome assembly) and they will have to conduct analyses presented in modules 2 to 4 on their own to answer the following question:
 
 > What Aquaporin protein coding sequence is "hidden" in your assigned scaffold?
 
@@ -325,9 +93,36 @@ The `FASTA` file with scaffolds sequences can be downloaded [here](Data/Scaffold
 
 Let's complete the training first going by through each module and then students will be working in groups to replicate these analyses to their assigned scaffold.
 
----
+# Group lab report (TOTAL: 150 points) {#report}
 
-# Data Structure and Workflow {#datastrworkflow}
+The instructor provides below information to complete the group report. All the material, data, code and references required to complete this report are provided here and are covered in class. In this context, students will have to focus on formatting their reports following guidelines presented here as well as making sure that their code is working and ready to be shared. Please DON'T FORGET TO PROVIDE REFERENCES FOR SOFTWARE/PACKAGES cited in the Material & Methods section.
+
+## Apply the IMRAD format and supply data and code
+
+Your group reports will be structured and organized following the **IMMRAD** format: **I**ntroduction, **M**aterial & **M**ethods, **R**esults, and **D**iscussion. This format is widely used to report experimental research in many scientific disciplines. In addition, you will be complementing your reports with an **Abstract**. Finally, since this research relies heavily on bioinformatics, students will complete their reports by supplying their data and commented code/scripts. Please see [Mini-Report 3](https://svenbuerki.github.io/Genomics-Bioinformatics/Mini_reports.html#46_Writing_your_report) for more details.
+
+## Report deadline
+
+Group reports should be uploaded on the shared Google Drive by **April 26th 2024** before 5 pm MT.
+
+# Group lab oral presentation (TOTAL: 50 points)
+
+Students will use their lab reports to prepare 10 minutes presentations (+ 5 minutes for questions) taking place on **April 26th 2024** (during class time).
+
+The instructor expects each student to take part to the presentation and to be involved in answering questions.
+
+Presentations will have to be deposited in advance onto a shared Google Drive folder or be sent to the instructor prior to the presentation.
+
+# Analytical workflow
+
+Overall, our analytical workflow is subdivided into 4 modules as follows:
+
+- [**Module 1:**](#mod1) Set-up environment and identify scaffolds containing AQP genes
+- [**Module 2:**](#mod2) Extract scaffolds identified in module 1 and find **O**pen **R**eading **F**rames
+- [**Module 3:**](#mod3) Annotate ORFs and assemble AQP protein(s)
+- [**Module 4:**](#mod4) Validate AQP protein sequences and infer their function(s)
+
+# Project structure
 
 ## Where are the data located?
 
@@ -342,8 +137,6 @@ All the data associated to this project are located on your individual account i
 ## How do I access the data and run analyses?
 
 To access the data and run the analyses, please remotely connect to your dedicated computer using `ssh` protocol. Your credentials are available [here](https://docs.google.com/document/d/1t0DdQBes42Gzo8XWgc9JL2xEGjv1kbfoVE7Vznx6C9I/edit).
-
----
 
 # Module 1 {#mod1}
 
@@ -575,8 +368,6 @@ write.csv(x = blast.hits.to.extract, file = "Unique_Filtered_Blast_Hit_Info.csv"
 ```
 
 8. Quit R (using *quit()*) and inspect the content of `Unique_Filtered_Blast_Hit_Info.csv` using e.g. `vim`.
-
----
 
 # Module 2 {#mod2}
 
@@ -887,8 +678,6 @@ knitr::include_graphics("Images/Scaffold151535_ORFs_annotated.png")
 
 Write an `R` code based on `ORFs_report/Scaffold151535_ORFs.csv` to answer the questions.  
 
----
-
 # Module 3 {#mod3}
 
 ## Objectives
@@ -1033,8 +822,6 @@ ORFs2protSeq(fastaAA, ORFsToCat, stopCodon)
 
 4. Amend the above code to save the output of *ORFs2protSeq()* in a `FASTA` file located at a specific path on your remote computer
 
----
-
 # Module 4 {#mod4}
 
 ## Objectives
@@ -1164,11 +951,9 @@ knitr::include_graphics("Images/Phyre2_output.png")
 ```
 4. Note that although the AQP protein sequence is not complete, the analysis still modeled it correctly and predicted that it belonged to the PIP subfamily (see Figure \@ref(fig:phyreoutput)). 
 
----
+# Discussion and Conclusions
 
-# Data Interpretation {#interpretation}
-
-> Based on the analyses and data gathered in this lab, what are your interpretations and conclusions on the Aquaporin gene/protein located on `Scaffold151535`?
+> Based on the analyses and data gathered in this lab, what are your thoughts and conclusions on the Aquaporin gene/protein located on `Scaffold151535`?
 
 Examples of questions that we could ask ourselves to answer the above question are:
 
@@ -1179,9 +964,7 @@ Examples of questions that we could ask ourselves to answer the above question a
 
 Based on these latter evidence, **do you think that the Aquaporin protein sequence is complete?** The instructor invites you to consult @Melton2021 for more information allowing answering these questions and come to a conclusion.
 
----
-
-# Your Turn! {#yourturn}
+# Your turn!
 
 Each group is now working as a team to reproduce the analyses presented here on their assigned scaffold.
 
@@ -1194,97 +977,5 @@ The `FASTA` file with scaffolds sequences can be downloaded [here](Data/Scaffold
 - **Group 1**: Scaffold106379.
 - **Group 2**: Scaffold254734.
 - **Group 3**: Scaffold348135.
-
----
-
-# Group Lab Report (TOTAL: 150 points) {#report}
-
-The instructor provides below information to complete the group report. All the material, data, code and references required to complete this report are provided here and are covered in class. In this context, students will have to focus on formatting their reports following guidelines presented here as well as making sure that their code is working and ready to be shared. Please DON'T FORGET TO PROVIDE REFERENCES FOR SOFTWARE/PACKAGES cited in the Material & Methods section.
-
-## Apply the IMRAD format and supply data and code
-
-Your group reports will be structured and organized following the **IMMRAD** format: **I**ntroduction, **M**aterial & **M**ethods, **R**esults, and **D**iscussion. This format is widely used to report experimental research in many scientific disciplines. In addition, you will be complementing your reports with an **Abstract**. Finally, since this research relies heavily on bioinformatics, students will complete their reports by supplying their data and commented code/scripts. Please see [Mini-Report 3](https://svenbuerki.github.io/Genomics-Bioinformatics/Mini_reports.html#46_Writing_your_report) for more details.
-
-## Report Deadline
-
-Please see [here](https://svenbuerki.github.io/Genomics-Bioinformatics/Timetable.html#2_Assignment_Deadlines) for details on the deadline for this mandatory group assignment.
-
----
-
-# Group Lab Oral Presentation (TOTAL: 50 points) {#grplabpresentation}
-
-Students will use their lab reports to prepare 10 minutes presentations (+ 5 minutes for questions) taking place on **April 29th 2026** (during class time).
-
-The instructor expects each student to take part to the presentation and to be involved in answering questions.
-
-Presentations will have to be deposited in advance onto a shared Google Drive folder or be sent to the instructor prior to the presentation.
-
-# Evaluation Rubrics {#rubrics}
-
-## Group Lab Report (Total: 150 points)
-
-Your group lab report will be evaluated based on your ability to communicate a genome mining investigation clearly, accurately, and professionally using the **IMRAD format** (Introduction, Materials & Methods, Results, Discussion), and by providing **reproducible data and code**.
-
-Each section is evaluated independently as outlined below.
-
-### Abstract (10 points)
-
-| Criteria | Description | Points |
-|--------|-------------|--------|
-| Summary of study | Clearly summarizes the research question, methods, key results, and conclusions | 10 |
-
-### Introduction (25 points)
-
-| Criteria | Description | Points |
-|--------|-------------|--------|
-| Scientific context and background | Clearly explains genome mining, gene annotation, and validation in the context of the study organism and target gene family | 10 |
-| Research question and objectives | Clearly states the scientific question, objectives, and biological relevance of the investigation | 10 |
-| Clarity and organization | Logical structure, clear writing, and appropriate use of scientific terminology | 5 |
-
-### Materials & Methods (35 points)
-
-| Criteria | Description | Points |
-|--------|-------------|--------|
-| Description of analytical workflow | Clearly and accurately describes genome mining, scaffold extraction, ORF prediction, annotation, and validation procedures | 15 |
-| Reproducibility and transparency | Methods are described with sufficient detail to allow replication, including software, versions, parameters, and databases used | 10 |
-| Code quality and documentation | Code/scripts are complete, functional, well-organized, and appropriately commented | 5 |
-| Software and database citations | Proper citation of software, packages, and databases used | 5 |
-
-### Results (35 points)
-
-| Criteria | Description | Points |
-|--------|-------------|--------|
-| Presentation of genome mining results | Clearly presents scaffold identification, ORF prediction, gene annotation, and validation results | 15 |
-| Figures and tables | Figures and tables are clear, correctly labeled, and effectively support the findings | 10 |
-| Accuracy and completeness | Results are accurate, complete, and presented without interpretation | 10 |
-
-### Discussion (35 points)
-
-| Criteria | Description | Points |
-|--------|-------------|--------|
-| Interpretation of findings | Clearly explains the biological meaning of the identified and validated genes | 15 |
-| Integration with scientific context | Connects findings to genome biology, gene function, and the original research question | 10 |
-| Critical thinking | Discusses limitations, uncertainties, and potential future directions | 5 |
-| Clarity and organization | Logical flow and clear scientific writing | 5 |
-
-### Reproducibility: Data and Code Submission (10 points)
-
-| Criteria | Description | Points |
-|--------|-------------|--------|
-| Data submission | Required data files are complete, organized, and accessible | 5 |
-| Code submission | Scripts are functional, organized, and allow reproduction of analyses | 5 |
-
-### Formatting and Submission Penalties
-
-The following penalties may be applied:
-
-| Issue | Penalty |
-|------|---------|
-| Failure to follow formatting guidelines | Up to −15 points |
-| Missing or incomplete code/data | Up to −15 points |
-| Missing references or improper citation | Up to −10 points |
-| Late submission | see [Late Work Policy](https://svenbuerki.github.io/Genomics-Bioinformatics/index.html#18_Course_Policies) |
-
----
 
 # References
