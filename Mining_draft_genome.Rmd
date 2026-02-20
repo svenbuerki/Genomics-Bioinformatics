@@ -1197,13 +1197,15 @@ The `FASTA` file with scaffolds sequences can be downloaded [here](Data/Scaffold
 
 ---
 
-# Group Lab Report (TOTAL: 150 points) {#report}
+# Group Lab Report Rubric (TOTAL: 150 points) {#report}
 
 The instructor provides below information to complete the group report. All the material, data, code and references required to complete this report are provided here and are covered in class. In this context, students will have to focus on formatting their reports following guidelines presented here as well as making sure that their code is working and ready to be shared. Please DON'T FORGET TO PROVIDE REFERENCES FOR SOFTWARE/PACKAGES cited in the Material & Methods section.
 
 ## Apply the IMRAD format and supply data and code
 
 Your group reports will be structured and organized following the **IMMRAD** format: **I**ntroduction, **M**aterial & **M**ethods, **R**esults, and **D**iscussion. This format is widely used to report experimental research in many scientific disciplines. In addition, you will be complementing your reports with an **Abstract**. Finally, since this research relies heavily on bioinformatics, students will complete their reports by supplying their data and commented code/scripts. Please see [Mini-Report 3](https://svenbuerki.github.io/Genomics-Bioinformatics/Mini_reports.html#46_Writing_your_report) for more details.
+
+Please see [evaluation rubrics](#rubrics) for more information on grading.
 
 ## Report Deadline
 
@@ -1217,7 +1219,7 @@ Students will use their lab reports to prepare 10 minutes presentations (+ 5 min
 
 The instructor expects each student to take part to the presentation and to be involved in answering questions.
 
-Presentations will have to be deposited in advance onto a shared Google Drive folder or be sent to the instructor prior to the presentation.
+Presentations will have to be deposited in advance onto a shared Google Drive folder. Please see [evaluation rubrics](#rubrics) for more information on grading.
 
 # Evaluation Rubrics {#rubrics}
 
@@ -1284,6 +1286,60 @@ The following penalties may be applied:
 | Missing or incomplete code/data | Up to −15 points |
 | Missing references or improper citation | Up to −10 points |
 | Late submission | see [Late Work Policy](https://svenbuerki.github.io/Genomics-Bioinformatics/index.html#18_Course_Policies) |
+
+## Group Lab Oral Presentation Rubric (Total: 50 points)
+
+**Presentation:** 10 minutes + 5 minutes for questions  
+**Expectations:** All group members actively participate and respond to questions. Presentations must be submitted in advance to the shared Google Drive folder or sent to the instructor.
+
+The presentation will be evaluated on how clearly and professionally the group **communicates their research following the scientific process (IMRAD structure)** and engages the audience.
+
+### Introduction & Background (10 points)
+
+| Criteria | Description | Points |
+|----------|-------------|--------|
+| Scientific context | Explains the relevant genome biology, gene annotation, and study organism clearly, providing necessary background | 5 |
+| Research question & objectives | Clearly states the research question, objectives, and biological relevance | 3 |
+| Clarity and engagement | Information is logically organized, concise, and engages the audience | 2 |
+
+### Materials & Methods (10 points)
+
+| Criteria | Description | Points |
+|----------|-------------|--------|
+| Explanation of workflow | Clearly describes genome mining, ORF prediction, annotation, and validation steps appropriate for oral communication | 5 |
+| Reproducibility and transparency | Describes tools, software, and databases used with enough detail for comprehension | 3 |
+| Clarity & conciseness | Methods are presented in an understandable, well-structured way for the audience | 2 |
+
+### Results (12 points)
+
+| Criteria | Description | Points |
+|----------|-------------|--------|
+| Presentation of findings | Results are clearly explained, including scaffold identification, gene annotation, and validation | 5 |
+| Visual aids | Figures, tables, and slides are clear, correctly labeled, and enhance audience understanding | 4 |
+| Accuracy & completeness | Results are accurate and complete, presented without misinterpretation | 3 |
+
+### Discussion & Interpretation (10 points)
+
+| Criteria | Description | Points |
+|----------|-------------|--------|
+| Interpretation of findings | Clearly explains biological significance and connects to research question | 5 |
+| Integration with context | Connects results to genome biology, gene function, or broader implications | 3 |
+| Critical thinking | Discusses limitations, uncertainties, and potential next steps | 2 |
+
+### Communication & Engagement (8 points)
+
+| Criteria | Description | Points |
+|----------|-------------|--------|
+| Participation | All group members contribute and respond to questions | 3 |
+| Clarity & delivery | Speech is clear, confident, and well-paced; avoids excessive reading from slides | 3 |
+| Audience engagement | Effectively engages listeners, maintains attention, and handles questions professionally | 2 |
+
+### Formatting and Submission Penalties (Optional)
+
+| Issue | Penalty |
+|-------|---------|
+| Exceeding 10-minute presentation time | Up to −3 points |
+| Failing to present | see [Late Work Policy](https://svenbuerki.github.io/Genomics-Bioinformatics/index.html#18_Course_Policies) |
 
 ---
 
