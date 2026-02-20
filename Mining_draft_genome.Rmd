@@ -1223,6 +1223,8 @@ Presentations will have to be deposited in advance onto a shared Google Drive fo
 
 # Evaluation Rubrics {#rubrics}
 
+This section provides the evaluation rubrics for both your group lab reports and oral presentations. Please review them carefully before submitting your final group report and preparing your oral presentation.
+
 ## Group Lab Report (Total: 150 points)
 
 Your group lab report will be evaluated based on your ability to communicate a genome mining investigation clearly, accurately, and professionally using the **IMRAD format** (Introduction, Materials & Methods, Results, Discussion), and by providing **reproducible data and code**.
