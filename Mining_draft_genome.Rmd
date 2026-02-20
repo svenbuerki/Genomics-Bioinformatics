@@ -1345,4 +1345,8 @@ The presentation will be evaluated on how clearly and professionally the group *
 
 ---
 
+# Acknowledgements
+
+The instructor would like to thank Dr Anthony Melton (University of Montevallo, Montevallo, AL) for his incredible support with the analyses presented in this group activity.
+
 # References
