@@ -827,7 +827,7 @@ knitr::include_graphics("Images/DNAtree.png")
 
 ### Aim
 
-> DNA sequence retrieval and prepare data for analyses.
+> Retrieve DNA sequences and prepare data for analyses.
 
 ### Bioinformatics Tools
 
@@ -841,14 +841,14 @@ To execute Part 2, you need to install the following software and R packages on 
 
 If you don't know how to install an R package, don't worry, this topic is covered [here](#query).
 
-### R Tutorials
+#### R Tutorials
 
 Please find below two documents providing a comprehensive introduction to R:
 
 R for beginners (a tutorial by Emmanuel Paradis): https://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf
 An introduction to R: https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf
 
-### RStudio
+#### RStudio
 
 RStudio is an **integrated development environment** (IDE) that allows you to interact with R more readily. RStudio is similar to the standard RGUI, but it is considerably more user friendly. It has more drop-down menus, windows with multiple tabs, and many customization options (see Figure \@ref(fig:IDE)). Detailed information on using RStudio can be found at at [RStudio’s website](https://support.rstudio.com/hc/en-us/sections/200107586-Using-RStudio).
 
@@ -856,13 +856,13 @@ RStudio is an **integrated development environment** (IDE) that allows you to in
 knitr::include_graphics("Images/IDE.png")
 ```
 
-#### Editing and Executing Code in RStudio
+##### Editing and Executing Code in RStudio
 
 Please consult this [RStudio article](https://support.rstudio.com/hc/en-us/articles/200484448-Editing-and-Executing-Code-in-the-RStudio-IDE) to learn more about procedures to edit and execute code in the RStudio environment.
 
 **Tip**: To execute a line of code and send it to the Console you can press `Ctrl+Enter` on Windows or `Command+Enter` on Mac or use the Run toolbar button (see Figure \@ref(fig:IDE)).
 
-### Introduction to R Built-in Functions
+#### Introduction to R Built-in Functions
 
 In this course, we will be using built-in R functions that are implemented in packages.
 
@@ -906,31 +906,42 @@ Finally, you can retrieve the **documentation** associated with a built-in funct
 
 ### Analytical Workflow 
 
-To infer the ML phylogenetic analysis, the following workflow will be executed:
+To perform the Maximum Likelihood (ML) phylogenetic analysis, the following workflow will be implemented:
 
-1. Expand sampling for phylogenetic analyses by downloading ITS DNA sequences of *Vanilla* species deposited on GenBank using the following approach: 
-    - Use functions from the *rentrez* `R` package [@rentrez] to download DNA sequences and metadata. 
-    - Build a table with species taxonomy associated to GenBank accessions. 
-    - Clean the data and save outputs in `FASTA` and `csv` formats.
-2. Format and merge individual `.seq` files from Part 1 into a `FASTA` object/file using the following approach: 
-    - Create a list of all `.seq` files, open them individually and merge them into one object (ultimately saved as a file) using a `for` loop.
-3. Merge `FASTA` objects/files from steps 1 and 2 to perform a multiple sequence alignment (msa).
+1. Expand taxon sampling for phylogenetic analyses by downloading ITS DNA sequences of *Vanilla* species deposited in GenBank using the following approach:  
+    - Use functions from the *rentrez* `R` package [@rentrez] to download DNA sequences and associated metadata.  
+    - Build a table linking species taxonomy to GenBank accession numbers.  
+    - Clean the dataset and save the outputs in `FASTA` and `csv` formats.  
 
-Protocols associated to each step within the workflow are detailed below.
+2. Format and merge individual `.seq` files generated in Part 1 into a single `FASTA` file using the following approach:  
+    - Create a list of all `.seq` files.  
+    - Read each file and merge the sequences into a single object using a `for` loop.  
+    - Export the merged sequences as a `FASTA` file.  
 
-### Download DNA Sequences and Taxonomy Retrival
+3. Combine the `FASTA` files generated in steps 1 and 2 and perform a multiple sequence alignment (MSA).
 
-Here, we are demonstrating an approach to search GenBank for ITS sequences of *Vanilla* species using *rentrez* [@rentrez]. Students are tasked to study/examine and execute the code and finally adapt it to search for ITS sequences. The code is subdivided into the following steps:
+Detailed protocols associated with each step of this workflow are provided in the sections below.
 
-1. Build a GenBank query. But prior to that we will load R package and set our working directory.
-2. Retrieve DNA sequences matching query deposited on GenBank.
-3. Fetch meta-data associated to sequences.
-4. Tidy dataset based on meta-data.
-5. Write results in `FASTA` and `csv` formats.
+### Guided Bioinformatics Workflow
 
-### Download Data From Entrez
+In this section, you will learn how to search [GenBank](https://www.ncbi.nlm.nih.gov/genbank/) for ITS sequences of *Vanilla* species using the *rentrez* `R` package [@rentrez], and how to merge these reference data with your own sequences generated in [Part 1](#part1).
 
-The following method (or pseudo-code) is applied to download (here referred to as "fetch") data from Entrez using *rentrez* [@rentrez]:
+You are expected to **carefully review, run, and understand the code**, and then **adapt it to retrieve the ITS sequences required for your analysis**. The workflow is organized into the following steps:
+
+1. [Get familiar with the required R packages and workflow structure](#introentrez)  
+2. [Load packages and create a GenBank search query](#query)  
+3. [Download DNA sequences from GenBank](#retrieveDNAseq)  
+4. [Retrieve and examine sequence metadata](#fetchmetadata)  
+5. [Clean and organize the dataset using metadata](#tidydata)  
+6. [Export cleaned datasets in `FASTA` and `csv` formats](#writeresults)  
+7. [Combine your `.seq` files into a single `FASTA` file](#mergepart1)
+8. [Merge all sequences and prepare the dataset for multiple sequence alignment](#mergeformsa)  
+
+#### Get Familiar with Required R Packages and Workflow Structure {#introentrez}
+
+##### Overview of the Approach
+
+The following pseudo-code is applied to download (here referred to as "fetch") data from Entrez using the R *rentrez* package [@rentrez]:
 
 1. Build GenBank query
     - **Function:** *paste0()*
@@ -943,17 +954,17 @@ The following method (or pseudo-code) is applied to download (here referred to a
 5. Fetch additional data
     - **Function:** *rentrez::entrez_fetch()*
 
-### Create an R Script
+##### Create an R Script
 
 Before delving into the code, do the following:
 
 1. Launch `RStudio`.
 2. Create a new `.R` script (`File > R Script`).
-3. Save the `.R` script at the root of your project (`DNA_barcoding/`) with the following name `01_PART2.R`.
+3. Save the `.R` script at the root of your project (`DNA_barcoding/`) with the following name `01_PART2_YOUR_NAME.R`.
 
-All the R code provided below will be copied into your newly saved `R` script and executed in class together.
+All the R code provided below will be copied into your newly saved `R` script and executed in class together. The full R script can be downloaded on [Google Drive](https://drive.google.com/drive/folders/1iBMwP67FoSTMDX-EpXOlf8utP9k8tu8k?usp=drive_link).
 
-### Build a GenBank Query {#query}
+#### Load Packages and Build a GenBank Query {#query}
 
 This R code uses *rentrez* functions to interact with [GenBank](https://www.ncbi.nlm.nih.gov/genbank/) and the nucleotide database to remotely retrieve data based on your query.
 
@@ -1000,7 +1011,7 @@ org <- "Plants"
 query <- paste0(sp," [All Fields] AND ", DNA," [All Fields] ", org, " [filter]")
 ```
 
-### Using Entrez Bollean Operators 
+##### Using Entrez Bollean Operators 
 
 Boolean operators provide a way of generating precise queries that produce well-defined sets of results. The Boolean operators used in [Entrez](https://www.ncbi.nlm.nih.gov/books/NBK3837/) and how they work are as follows.
 
@@ -1016,7 +1027,9 @@ Entrez processes all Boolean operators in a left-to-right sequence. Enclosing in
 
 `g1p3 AND (response element OR promoter)`
 
-### Retrieve GenBank DNA Sequences
+#### Retrieve GenBank DNA Sequences {#retrieveDNAseq}
+
+This code enables automatically retrieving DNA sequences based on our query.
 
 ```{r retrieve, eval=F}
 ###~~~
@@ -1028,7 +1041,7 @@ GBresults <- rentrez::entrez_search(db = "nuccore", term = query, retmax = 50000
 print(GBresults$count)
 ```
 
-### Fetch Sequences Meta-data
+#### Fetch Sequences Meta-data {#fetchmetadata}
 
 Even when you execute a query directly on the GenBank portal, there will always be sequences that do neither match your target taxon (here *Vanilla*) nor your target DNA region. In this context, it is paramount to retrieve meta-data associated to the DNA accessions (stored in `GBresults`) in order to clean-up your dataset prior to analyses (see next step).
 
@@ -1127,7 +1140,7 @@ print(paste0("GenBank query retrieved ", dim(RawGBDat)[1], " DNA sequences."))
 #Snapshot of matrix
 head(RawGBDat, n = 1)
 ```
-### Reload raw GB query in csv
+##### Reload raw GB query in csv
 
 If you need to restart coding from the previous point, please execute the code below, which will load the Raw GB data from the `CSV` file saved in `04_Data_analyses/CSV`.
 
@@ -1159,7 +1172,7 @@ SEQ <- RawGBDat2
 
 To answer this question, use `SEQ` as input.
 
-### Tidy dataset based on meta-data
+#### Tidy the Dataset Based on Meta-data {#tidydata}
 
 Here we apply filters to discard DNA sequences that are:
 
@@ -1226,7 +1239,7 @@ gene$Species <- gsub(" ", "_", gene$Species)
 
 > Q3: Write code to determine if your sampling is skewed towards specific taxa? If yes, which ones? 
 
-### Write results of query in `FASTA` and `csv` formats 
+#### Write Results in `FASTA` and `csv` Formats {#writeresults}
 
 We are using `R` to generate a `FASTA` file with the DNA sequences from our GenBank query. To do that we are concatenating information from 3 columns in the `gene` object:
 - `gene$GenBankID`: Contains unique GenBank ID for DNA sequence.
@@ -1275,7 +1288,7 @@ print(paste0("After cleaning ", dim(RawGBDat2)[1], " DNA sequences remain."))
 head(RawGBDat2, n = 1)
 ```
 
-### Format and merge individual `.seq` files from Part 1 into a `FASTA` file
+#### Format and Merge `.seq` Files Into a `FASTA` File {#mergepart1}
 
 In this section, we are focusing on developing an `R` code to format and merge our clean sequences from Part 1 by using the following approach:
 
@@ -1337,9 +1350,9 @@ Please check that the format of your output file is as expected using a text edi
 knitr::include_graphics("Images/FASTA_single-gene.png")
 ```
 
-### Merge `FASTA` objects/files to perform multiple sequence alignment
+#### Merge Datasets to Perform Multiple Sequence Alignment {#mergeformsa}
 
-Here, we are aiming at merging `FASTA` outputs to produce the input of the multiple sequence alignment. This step is pretty straightforward and involves using the *c()* function and writing the output.
+Here, we are aiming at merging `FASTA` outputs to produce the input of the multiple sequence alignment ([part 3](#part3)). This step is pretty straightforward and involves using the *c()* function and writing the output.
 
 The objects containg the GenBank DNA sequences and your DNA sequences are `FASTAGB` and `seqOUT`, respectively. 
 
@@ -1375,7 +1388,7 @@ write.table(FASTAall, file =
 
 ### Aim
 
-> DNA multiple sequence alignment and phylogenetic inference.
+> Conduct DNA multiple sequence alignment and phylogenetic inference.
 
 ### Bioinformatics Tools
 
@@ -1392,19 +1405,19 @@ If you don't remember how to install an R package, don't worry, this topic was c
 
 To infer the ML phylogenetic analysis, the following workflow will be executed: implemented:
 
-1. Conduct the msa analysis using the `MUSCLE` algorithm [@edgar2004muscle]. This algorithm is implemented in `MEGA`. The input data for this analysis is `Vanilla_internal transcribed spacer_2021_02_09_GenBank_seq_msa_input.fasta`, which is stored in `04_Data_analyses/FASTA/`.
+1. [Conduct the msa analysis using the `MUSCLE` algorithm [@edgar2004muscle]](#msa). 
+  + This algorithm is implemented in `MEGA`. The input data for this analysis is `Vanilla_internal transcribed spacer_2021_02_09_GenBank_seq_msa_input.fasta`, which is stored in `04_Data_analyses/FASTA/`.
 2. Check and manually edit msa. This will be done in `MEGA`.
 3. Infer ML phylogenetic tree based on msa file. This will be done using the `RAxML` algorithm (available on a web platform).
 4. Visualize phylogenetic tree and interpret results. 
 
-### Conduct MSA Analysis
+### Conduct MSA Analysis {#msa}
 
 #### Disclaimer
 
 The analysis described below relies on `MEGA`; however you might be experiencing issues with the `.fasta` file outputted by this program (especially on Windows operating system). These issues might compromise downstream analyses, more specifically the RAxML inference and R code used to generate figures. Those issues are associated to changes in file encryption and changing formatting of samples names (i.e. replacing "_" by " "). In the event that it happens to you, please switch over and use the online `MUSCLE` platform available at this URL: https://www.ebi.ac.uk/Tools/msa/muscle/  
 
 **WARNING:** When you submit your job on the portal, do not forget to select `Pearson/FASTA` as output file format in step 2. In addition, the output will only be made available in a window and you will have to copy and past the whole content in a new file using your favorite text editor. The file should be saved and named as detailed in the step 8 of the section below.  
-
 
 #### Step-by-step Protocol 
 
