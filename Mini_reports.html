@@ -1492,17 +1492,17 @@ class(x)</code></pre>
 </div>
 <div id="analytical-workflow" class="section level3" number="4.10.3">
 <h3><span class="header-section-number">4.10.3</span> Analytical Workflow</h3>
-<p>To perform the Maximum Likelihood (ML) phylogenetic analysis, the following workflow will be implemented:</p>
+<p>To prepare for the Maximum Likelihood (ML) phylogenetic analysis conducted in <a href="#part3">Part 3</a>, you will implement the following analytical workflow:</p>
 <ol style="list-style-type: decimal">
-<li>Expand taxon sampling for phylogenetic analyses by downloading ITS DNA sequences of <em>Vanilla</em> species deposited in GenBank using the following approach:
+<li><strong>Expand taxon sampling</strong> for phylogenetic analyses by downloading ITS DNA sequences of <em>Vanilla</em> species deposited in GenBank:
 <ul>
-<li>Use functions from the <em>rentrez</em> <code>R</code> package <span class="citation">(<a href="#ref-rentrez">Winter, 2017</a>)</span> to download DNA sequences and associated metadata.<br />
+<li>Use functions from the <em>rentrez</em> <code>R</code> package <span class="citation">(<a href="#ref-rentrez">Winter, 2017</a>)</span> to retrieve DNA sequences and associated metadata.<br />
 </li>
 <li>Build a table linking species taxonomy to GenBank accession numbers.<br />
 </li>
-<li>Clean the dataset and save the outputs in <code>FASTA</code> and <code>csv</code> formats.</li>
+<li>Clean and curate the dataset, and export the results in <code>FASTA</code> and <code>csv</code> formats.</li>
 </ul></li>
-<li>Format and merge individual <code>.seq</code> files generated in Part 1 into a single <code>FASTA</code> file using the following approach:
+<li><strong>Format and merge your ITS sequences</strong> generated in Part 1 into a single <code>FASTA</code> file:
 <ul>
 <li>Create a list of all <code>.seq</code> files.<br />
 </li>
@@ -1510,16 +1510,22 @@ class(x)</code></pre>
 </li>
 <li>Export the merged sequences as a <code>FASTA</code> file.</li>
 </ul></li>
-<li>Combine the <code>FASTA</code> files generated in steps 1 and 2 and perform a multiple sequence alignment (MSA).</li>
+<li><strong>Combine and prepare the full dataset for phylogenetic analysis:</strong>
+<ul>
+<li>Merge the reference sequences from GenBank with your sequences.<br />
+</li>
+<li>Perform a multiple sequence alignment (MSA) to prepare the dataset for phylogenetic inference.</li>
+</ul></li>
 </ol>
-<p>Detailed protocols associated with each step of this workflow are provided in the sections below.</p>
+<p>Detailed protocols for each step are provided in the sections below. These steps will prepare the complete, curated dataset required to infer evolutionary relationships and test your species hypothesis.</p>
 </div>
 <div id="guided-bioinformatics-workflow" class="section level3" number="4.10.4">
 <h3><span class="header-section-number">4.10.4</span> Guided Bioinformatics Workflow</h3>
 <p>In this section, you will learn how to search <a href="https://www.ncbi.nlm.nih.gov/genbank/">GenBank</a> for ITS sequences of <em>Vanilla</em> species using the <em>rentrez</em> <code>R</code> package <span class="citation">(<a href="#ref-rentrez">Winter, 2017</a>)</span>, and how to merge these reference data with your own sequences generated in <a href="#part1">Part 1</a>.</p>
-<p>You are expected to <strong>carefully review, run, and understand the code</strong>, and then <strong>adapt it to retrieve the ITS sequences required for your analysis</strong>. The workflow is organized into the following steps:</p>
+<p>These analyses will be conducted <strong>collaboratively in class in small groups composed of both undergraduate and graduate students</strong>. This group structure is designed to promote <strong>peer-to-peer learning</strong>, allowing students to support each other in developing bioinformatics skills, troubleshooting code, and interpreting results. By working together and discussing each step, all students will gain the practical and conceptual knowledge needed to independently perform similar analyses in future assignments.</p>
+<p>During these sessions, you are expected to <strong>actively participate</strong>, <strong>carefully review and run the code</strong>, and <strong>adapt it to retrieve and prepare the ITS sequences required for your analysis</strong>. The workflow is organized into the following steps:</p>
 <ol style="list-style-type: decimal">
-<li><a href="#introentrez">Get familiar with the required R packages and workflow structure</a><br />
+<li><a href="#introentrez">Get familiar with the required R package and workflow structure</a><br />
 </li>
 <li><a href="#query">Load packages and create a GenBank search query</a><br />
 </li>
@@ -1531,20 +1537,23 @@ class(x)</code></pre>
 </li>
 <li><a href="#writeresults">Export cleaned datasets in <code>FASTA</code> and <code>csv</code> formats</a><br />
 </li>
-<li><a href="#mergepart1">Combine your <code>.seq</code> files into a single <code>FASTA</code> file</a></li>
+<li><a href="#mergepart1">Combine your <code>.seq</code> files into a single <code>FASTA</code> file</a><br />
+</li>
 <li><a href="#mergeformsa">Merge all sequences and prepare the dataset for multiple sequence alignment</a></li>
 </ol>
+<hr />
 <div id="introentrez" class="section level4" number="4.10.4.1">
-<h4><span class="header-section-number">4.10.4.1</span> Get Familiar with Required R Packages and Workflow Structure</h4>
+<h4><span class="header-section-number">4.10.4.1</span> Get Familiar with the Required R Package and Workflow Structure</h4>
 <div id="overview-of-the-approach" class="section level5" number="4.10.4.1.1">
 <h5><span class="header-section-number">4.10.4.1.1</span> Overview of the Approach</h5>
-<p>The following pseudo-code is applied to download (here referred to as “fetch”) data from Entrez using the R <em>rentrez</em> package <span class="citation">(<a href="#ref-rentrez">Winter, 2017</a>)</span>:</p>
+<p>As a group, you will implement the following workflow to download (here referred to as “fetch”) and prepare DNA sequence data from GenBank using the <em>rentrez</em> <code>R</code> package <span class="citation">(<a href="#ref-rentrez">Winter, 2017</a>)</span>. Each step will be explained in class, and you will execute and discuss the code together to ensure that everyone understands both the purpose and function of each command.</p>
+<p>The following pseudo-code summarizes the process:</p>
 <ol style="list-style-type: decimal">
-<li>Build GenBank query
+<li>Build a GenBank query
 <ul>
 <li><strong>Function:</strong> <em>paste0()</em></li>
 </ul></li>
-<li>Search GenBank using query to retrieve unique IDs associated to target DNA sequences
+<li>Search GenBank using the query to retrieve unique IDs associated with target DNA sequences
 <ul>
 <li><strong>Function:</strong> <em>rentrez::entrez_search()</em></li>
 </ul></li>
@@ -1552,25 +1561,29 @@ class(x)</code></pre>
 <ul>
 <li><strong>Function:</strong> <em>rentrez::entrez_fetch()</em></li>
 </ul></li>
-<li>Link GenBank database with other databases (e.g., Taxonomy) to retrieve unique IDs of additional data associated with DNA sequences
+<li>Link the GenBank database with other databases (e.g., Taxonomy) to retrieve unique IDs of additional data associated with the DNA sequences
 <ul>
 <li><strong>Function:</strong> <em>rentrez::entrez_link()</em></li>
 </ul></li>
-<li>Fetch additional data
+<li>Fetch additional metadata associated with the sequences
 <ul>
 <li><strong>Function:</strong> <em>rentrez::entrez_fetch()</em></li>
 </ul></li>
 </ol>
+<p>This structured approach will allow you to build a curated dataset suitable for downstream phylogenetic analyses.</p>
 </div>
 <div id="create-an-r-script" class="section level5" number="4.10.4.1.2">
 <h5><span class="header-section-number">4.10.4.1.2</span> Create an R Script</h5>
-<p>Before delving into the code, do the following:</p>
+<p>Before delving into the code, complete the following steps:</p>
 <ol style="list-style-type: decimal">
-<li>Launch <code>RStudio</code>.</li>
-<li>Create a new <code>.R</code> script (<code>File &gt; R Script</code>).</li>
-<li>Save the <code>.R</code> script at the root of your project (<code>DNA_barcoding/</code>) with the following name <code>01_PART2_YOUR_NAME.R</code>.</li>
+<li><p>Launch <code>RStudio</code>.<br />
+</p></li>
+<li><p>Create a new <code>.R</code> script (<code>File &gt; New File &gt; R Script</code>).<br />
+</p></li>
+<li><p>Save the <code>.R</code> script in the root of your project folder (<code>DNA_barcoding/</code>) using the following naming format:</p>
+<p><code>01_PART2_YOUR_NAME.R</code></p></li>
 </ol>
-<p>All the R code provided below will be copied into your newly saved <code>R</code> script and executed in class together. The full R script can be downloaded on <a href="https://drive.google.com/drive/folders/1iBMwP67FoSTMDX-EpXOlf8utP9k8tu8k?usp=drive_link">Google Drive</a>.</p>
+<p>All the R code provided below will be copied into this script and executed <strong>collaboratively during class sessions</strong>, with time allocated for discussion, troubleshooting, and interpretation. The full R script is also available on <a href="https://drive.google.com/drive/folders/1iBMwP67FoSTMDX-EpXOlf8utP9k8tu8k?usp=drive_link">Google Drive</a>.</p>
 </div>
 </div>
 <div id="query" class="section level4" number="4.10.4.2">
@@ -1757,9 +1770,8 @@ SEQ &lt;- RawGBDat2</code></pre>
 <div id="question" class="section level4" number="4.10.4.5">
 <h4><span class="header-section-number">4.10.4.5</span> Question</h4>
 <blockquote>
-<p>Write code to determine how many DNA sequences where downloaded from GenBank?</p>
+<p>How many ITS DNA sequences where downloaded from GenBank? Write some R code to find out the answer and use the <code>SEQ</code> object as input.</p>
 </blockquote>
-<p>To answer this question, use <code>SEQ</code> as input.</p>
 </div>
 <div id="tidydata" class="section level4" number="4.10.4.6">
 <h4><span class="header-section-number">4.10.4.6</span> Tidy the Dataset Based on Meta-data</h4>
@@ -1819,14 +1831,15 @@ gene$Species &lt;- gsub(&quot; &quot;, &quot;_&quot;, gene$Species)</code></pre>
 </div>
 <div id="questions" class="section level4" number="4.10.4.7">
 <h4><span class="header-section-number">4.10.4.7</span> Questions</h4>
+<p>Write and execute <code>R</code> code to answer the following questions based on your filtered dataset:</p>
 <blockquote>
-<p>Q1: Write code to tell us how many DNA sequences were discarded through your filtering analyses?</p>
+<p><strong>Q1.</strong> How many DNA sequences were discarded during your filtering steps?</p>
 </blockquote>
 <blockquote>
-<p>Q2: Write code to determine how many taxa of Vanilla are in your sampling?</p>
+<p><strong>Q2.</strong> How many <em>Vanilla</em> taxa (species) are included in your final sampling?</p>
 </blockquote>
 <blockquote>
-<p>Q3: Write code to determine if your sampling is skewed towards specific taxa? If yes, which ones?</p>
+<p><strong>Q3.</strong> Is your sampling biased toward specific taxa? If yes, which taxa are overrepresented?</p>
 </blockquote>
 </div>
 <div id="writeresults" class="section level4" number="4.10.4.8">
@@ -1958,7 +1971,7 @@ write.table(FASTAall, file =
 <div id="question-1" class="section level4" number="4.10.4.11">
 <h4><span class="header-section-number">4.10.4.11</span> Question</h4>
 <blockquote>
-<p>Why would you need to use readLines() instead of read.csv() to open a FASTA file?</p>
+<p>Why is <code>readLines()</code> more appropriate than <code>read.csv()</code> for opening a FASTA file? What does this tell you about the structure of FASTA files compared with <code>.csv</code> files?</p>
 </blockquote>
 </div>
 </div>

@@ -906,63 +906,79 @@ Finally, you can retrieve the **documentation** associated with a built-in funct
 
 ### Analytical Workflow 
 
-To perform the Maximum Likelihood (ML) phylogenetic analysis, the following workflow will be implemented:
+To prepare for the Maximum Likelihood (ML) phylogenetic analysis conducted in [Part 3](#part3), you will implement the following analytical workflow:
 
-1. Expand taxon sampling for phylogenetic analyses by downloading ITS DNA sequences of *Vanilla* species deposited in GenBank using the following approach:  
-    - Use functions from the *rentrez* `R` package [@rentrez] to download DNA sequences and associated metadata.  
+1. **Expand taxon sampling** for phylogenetic analyses by downloading ITS DNA sequences of *Vanilla* species deposited in GenBank:  
+    - Use functions from the *rentrez* `R` package [@rentrez] to retrieve DNA sequences and associated metadata.  
     - Build a table linking species taxonomy to GenBank accession numbers.  
-    - Clean the dataset and save the outputs in `FASTA` and `csv` formats.  
+    - Clean and curate the dataset, and export the results in `FASTA` and `csv` formats.  
 
-2. Format and merge individual `.seq` files generated in Part 1 into a single `FASTA` file using the following approach:  
+2. **Format and merge your ITS sequences** generated in Part 1 into a single `FASTA` file:  
     - Create a list of all `.seq` files.  
     - Read each file and merge the sequences into a single object using a `for` loop.  
     - Export the merged sequences as a `FASTA` file.  
 
-3. Combine the `FASTA` files generated in steps 1 and 2 and perform a multiple sequence alignment (MSA).
+3. **Combine and prepare the full dataset for phylogenetic analysis:**  
+    - Merge the reference sequences from GenBank with your sequences.  
+    - Perform a multiple sequence alignment (MSA) to prepare the dataset for phylogenetic inference.
 
-Detailed protocols associated with each step of this workflow are provided in the sections below.
+Detailed protocols for each step are provided in the sections below. These steps will prepare the complete, curated dataset required to infer evolutionary relationships and test your species hypothesis.
 
 ### Guided Bioinformatics Workflow
 
 In this section, you will learn how to search [GenBank](https://www.ncbi.nlm.nih.gov/genbank/) for ITS sequences of *Vanilla* species using the *rentrez* `R` package [@rentrez], and how to merge these reference data with your own sequences generated in [Part 1](#part1).
 
-You are expected to **carefully review, run, and understand the code**, and then **adapt it to retrieve the ITS sequences required for your analysis**. The workflow is organized into the following steps:
+These analyses will be conducted **collaboratively in class in small groups composed of both undergraduate and graduate students**. This group structure is designed to promote **peer-to-peer learning**, allowing students to support each other in developing bioinformatics skills, troubleshooting code, and interpreting results. By working together and discussing each step, all students will gain the practical and conceptual knowledge needed to independently perform similar analyses in future assignments.
 
-1. [Get familiar with the required R packages and workflow structure](#introentrez)  
+During these sessions, you are expected to **actively participate**, **carefully review and run the code**, and **adapt it to retrieve and prepare the ITS sequences required for your analysis**. The workflow is organized into the following steps:
+
+1. [Get familiar with the required R package and workflow structure](#introentrez)  
 2. [Load packages and create a GenBank search query](#query)  
 3. [Download DNA sequences from GenBank](#retrieveDNAseq)  
 4. [Retrieve and examine sequence metadata](#fetchmetadata)  
 5. [Clean and organize the dataset using metadata](#tidydata)  
 6. [Export cleaned datasets in `FASTA` and `csv` formats](#writeresults)  
-7. [Combine your `.seq` files into a single `FASTA` file](#mergepart1)
+7. [Combine your `.seq` files into a single `FASTA` file](#mergepart1)  
 8. [Merge all sequences and prepare the dataset for multiple sequence alignment](#mergeformsa)  
 
-#### Get Familiar with Required R Packages and Workflow Structure {#introentrez}
+---
+
+#### Get Familiar with the Required R Package and Workflow Structure {#introentrez}
 
 ##### Overview of the Approach
 
-The following pseudo-code is applied to download (here referred to as "fetch") data from Entrez using the R *rentrez* package [@rentrez]:
+As a group, you will implement the following workflow to download (here referred to as "fetch") and prepare DNA sequence data from GenBank using the *rentrez* `R` package [@rentrez]. Each step will be explained in class, and you will execute and discuss the code together to ensure that everyone understands both the purpose and function of each command.
 
-1. Build GenBank query
-    - **Function:** *paste0()*
-2. Search GenBank using query to retrieve unique IDs associated to target DNA sequences
-    - **Function:** *rentrez::entrez_search()* 
-3. Fetch GenBank DNA sequences using unique IDs
-    - **Function:** *rentrez::entrez_fetch()*
-4. Link GenBank database with other databases (e.g., Taxonomy) to retrieve unique IDs of additional data associated with DNA sequences
-    - **Function:** *rentrez::entrez_link()*
-5. Fetch additional data
-    - **Function:** *rentrez::entrez_fetch()*
+The following pseudo-code summarizes the process:
+
+1. Build a GenBank query  
+   - **Function:** *paste0()*  
+
+2. Search GenBank using the query to retrieve unique IDs associated with target DNA sequences  
+   - **Function:** *rentrez::entrez_search()*  
+
+3. Fetch GenBank DNA sequences using unique IDs  
+   - **Function:** *rentrez::entrez_fetch()*  
+
+4. Link the GenBank database with other databases (e.g., Taxonomy) to retrieve unique IDs of additional data associated with the DNA sequences  
+   - **Function:** *rentrez::entrez_link()*  
+
+5. Fetch additional metadata associated with the sequences  
+   - **Function:** *rentrez::entrez_fetch()*  
+
+This structured approach will allow you to build a curated dataset suitable for downstream phylogenetic analyses.
 
 ##### Create an R Script
 
-Before delving into the code, do the following:
+Before delving into the code, complete the following steps:
 
-1. Launch `RStudio`.
-2. Create a new `.R` script (`File > R Script`).
-3. Save the `.R` script at the root of your project (`DNA_barcoding/`) with the following name `01_PART2_YOUR_NAME.R`.
+1. Launch `RStudio`.  
+2. Create a new `.R` script (`File > New File > R Script`).  
+3. Save the `.R` script in the root of your project folder (`DNA_barcoding/`) using the following naming format:  
 
-All the R code provided below will be copied into your newly saved `R` script and executed in class together. The full R script can be downloaded on [Google Drive](https://drive.google.com/drive/folders/1iBMwP67FoSTMDX-EpXOlf8utP9k8tu8k?usp=drive_link).
+   `01_PART2_YOUR_NAME.R`
+
+All the R code provided below will be copied into this script and executed **collaboratively during class sessions**, with time allocated for discussion, troubleshooting, and interpretation. The full R script is also available on [Google Drive](https://drive.google.com/drive/folders/1iBMwP67FoSTMDX-EpXOlf8utP9k8tu8k?usp=drive_link).
 
 #### Load Packages and Build a GenBank Query {#query}
 
@@ -1168,9 +1184,7 @@ SEQ <- RawGBDat2
 
 #### Question
 
-> Write code to determine how many DNA sequences where downloaded from GenBank?
-
-To answer this question, use `SEQ` as input.
+> How many ITS DNA sequences where downloaded from GenBank? Write some R code to find out the answer and use the `SEQ` object as input.
 
 #### Tidy the Dataset Based on Meta-data {#tidydata}
 
@@ -1233,11 +1247,13 @@ gene$Species <- gsub(" ", "_", gene$Species)
 
 #### Questions
 
-> Q1: Write code to tell us how many DNA sequences were discarded through your filtering analyses?
+Write and execute `R` code to answer the following questions based on your filtered dataset:
 
-> Q2: Write code to determine how many taxa of Vanilla are in your sampling?
+> **Q1.** How many DNA sequences were discarded during your filtering steps?
 
-> Q3: Write code to determine if your sampling is skewed towards specific taxa? If yes, which ones? 
+> **Q2.** How many *Vanilla* taxa (species) are included in your final sampling?
+
+> **Q3.** Is your sampling biased toward specific taxa? If yes, which taxa are overrepresented?
 
 #### Write Results in `FASTA` and `csv` Formats {#writeresults}
 
@@ -1382,7 +1398,7 @@ write.table(FASTAall, file =
 
 #### Question
 
-> Why would you need to use readLines() instead of read.csv() to open a FASTA file?  
+> Why is `readLines()` more appropriate than `read.csv()` for opening a FASTA file? What does this tell you about the structure of FASTA files compared with `.csv` files?
 
 ## Bioinformatics Part 3 {#part3}
 
