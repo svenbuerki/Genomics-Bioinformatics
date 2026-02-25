@@ -1575,14 +1575,28 @@ class(x)</code></pre>
 <div id="create-an-r-script" class="section level5" number="4.10.4.1.2">
 <h5><span class="header-section-number">4.10.4.1.2</span> Create an R Script</h5>
 <p>Before delving into the code, complete the following steps:</p>
+<blockquote>
+<p><strong>Important:</strong> Before starting, make sure you have downloaded the <code>DNA_barcoding</code> folder from <a href="https://drive.google.com/drive/folders/1iBMwP67FoSTMDX-EpXOlf8utP9k8tu8k?usp=drive_link">Google Drive</a> and saved it on your computer. All analyses for Mini-Report 3 will be conducted within this folder. You will also need to adjust the <code>setwd()</code> command provided in the code below so that it matches the location of this folder on your system.</p>
+</blockquote>
 <ol style="list-style-type: decimal">
 <li><p>Launch <code>RStudio</code>.<br />
 </p></li>
 <li><p>Create a new <code>.R</code> script (<code>File &gt; New File &gt; R Script</code>).<br />
 </p></li>
-<li><p>Save the <code>.R</code> script in the root of your project folder (<code>DNA_barcoding/</code>) using the following naming format:</p>
+<li><p>Save the <code>.R</code> script at the <strong>root of your project folder</strong> (<code>DNA_barcoding/</code>) using the following naming format:</p>
 <p><code>01_PART2_YOUR_NAME.R</code></p></li>
+<li><p>Open the script and update the <code>setwd()</code> command so that it points to the correct path of your <code>DNA_barcoding</code> folder on your computer (see the R code below).</p></li>
 </ol>
+<blockquote>
+<p>⚠️ <strong>Troubleshooting tip:</strong><br />
+The most common error at this stage is:<br />
+<code>Error in file(file, "r") : cannot open the connection</code></p>
+<p>This error almost always means that your <strong>working directory is incorrect</strong>.</p>
+<p>To fix this:
+- Verify that the <code>DNA_barcoding</code> folder is on your computer<br />
+- Confirm that your <code>.R</code> script is saved inside this folder<br />
+- Carefully update the <code>setwd()</code> path so it exactly matches your folder location</p>
+</blockquote>
 <p>All the R code provided below will be copied into this script and executed <strong>collaboratively during class sessions</strong>, with time allocated for discussion, troubleshooting, and interpretation. The full R script is also available on <a href="https://drive.google.com/drive/folders/1iBMwP67FoSTMDX-EpXOlf8utP9k8tu8k?usp=drive_link">Google Drive</a>.</p>
 </div>
 </div>

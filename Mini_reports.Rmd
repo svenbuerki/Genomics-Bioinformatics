@@ -972,11 +972,26 @@ This structured approach will allow you to build a curated dataset suitable for 
 
 Before delving into the code, complete the following steps:
 
+> **Important:** Before starting, make sure you have downloaded the `DNA_barcoding` folder from [Google Drive](https://drive.google.com/drive/folders/1iBMwP67FoSTMDX-EpXOlf8utP9k8tu8k?usp=drive_link) and saved it on your computer. All analyses for Mini-Report 3 will be conducted within this folder. You will also need to adjust the `setwd()` command provided in the code below so that it matches the location of this folder on your system.
+
 1. Launch `RStudio`.  
 2. Create a new `.R` script (`File > New File > R Script`).  
-3. Save the `.R` script in the root of your project folder (`DNA_barcoding/`) using the following naming format:  
+3. Save the `.R` script at the **root of your project folder** (`DNA_barcoding/`) using the following naming format:  
 
    `01_PART2_YOUR_NAME.R`
+
+4. Open the script and update the `setwd()` command so that it points to the correct path of your `DNA_barcoding` folder on your computer (see the R code below).
+
+> ⚠️ **Troubleshooting tip:**  
+> The most common error at this stage is:  
+> `Error in file(file, "r") : cannot open the connection`  
+>
+> This error almost always means that your **working directory is incorrect**.  
+>
+> To fix this:
+> - Verify that the `DNA_barcoding` folder is on your computer  
+> - Confirm that your `.R` script is saved inside this folder  
+> - Carefully update the `setwd()` path so it exactly matches your folder location  
 
 All the R code provided below will be copied into this script and executed **collaboratively during class sessions**, with time allocated for discussion, troubleshooting, and interpretation. The full R script is also available on [Google Drive](https://drive.google.com/drive/folders/1iBMwP67FoSTMDX-EpXOlf8utP9k8tu8k?usp=drive_link).
 
