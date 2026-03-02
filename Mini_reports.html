@@ -2371,7 +2371,7 @@ tr$edge.length</code></pre>
 </div>
 <div id="vanilla-phylogenetic-tree" class="section level4" number="4.11.7.5">
 <h4><span class="header-section-number">4.11.7.5</span> Vanilla Phylogenetic Tree</h4>
-<p>In this section, we will be analyzing the output of the RAxML analysis focusing on <code>result.raxml.support</code>, which contains the phylogenetic tree with node supports (here obtained through the bootstrap method). The file is stored in <code>04_Data_analyses/Phylogenetic_analysis/RAxML_analysis</code>.</p>
+<p>In this section, we will be analyzing the output of the RAxML analysis focusing on <code>Vanilla_ML.raxml.support</code>, which contains the phylogenetic tree with node supports (here obtained through the bootstrap method). The file is stored in <code>04_Data_analyses/Phylogenetic_analysis/RAxML_analysis</code>.</p>
 <p>Our analyses are divided into seven steps:</p>
 <ol style="list-style-type: decimal">
 <li>Load ITS tree using the <em>ape::read.tree()</em> function.</li>
@@ -2388,23 +2388,25 @@ tr$edge.length</code></pre>
 <pre class="r"><code>###~~~
 #1. Load Vanilla RAxML ITS tree
 ###~~~
-#Please adjust path based on your computer (= delete &quot;Data/&quot;)
-ITS &lt;- ape::read.tree(file=&quot;Data/04_Data_analyses/Phylogenetic_analyses/RAxML_analysis/RAxML_bipartitions.Vanilla_ML.tre&quot;)
+#Please adjust path based on your computer
+ITS &lt;- ape::read.tree(file=&quot;Data/04_Data_analyses/Phylogenetic_analyses/RAxML_analysis/Vanilla_ML.raxml.support&quot;)
+
+#ITS &lt;- ape::read.tree(file=&quot;Data/04_Data_analyses/Phylogenetic_analyses/RAxML_analysis/RAxML_bipartitions.Vanilla_ML.tre&quot;) # This is the file from last year
 
 ###~~~
 #2. Discard bootstrap values &lt; 50%
 ###~~~
 #Find nodes with low statistical supports
 ITS$node.label[which(as.numeric(ITS$node.label) &lt; 50)]</code></pre>
-<pre><code>##   [1] &quot;32&quot; &quot;5&quot;  &quot;0&quot;  &quot;18&quot; &quot;9&quot;  &quot;1&quot;  &quot;6&quot;  &quot;0&quot;  &quot;0&quot;  &quot;12&quot; &quot;29&quot; &quot;2&quot;  &quot;26&quot; &quot;33&quot; &quot;26&quot;
-##  [16] &quot;32&quot; &quot;14&quot; &quot;14&quot; &quot;19&quot; &quot;11&quot; &quot;0&quot;  &quot;3&quot;  &quot;1&quot;  &quot;1&quot;  &quot;7&quot;  &quot;4&quot;  &quot;15&quot; &quot;16&quot; &quot;15&quot; &quot;5&quot; 
-##  [31] &quot;19&quot; &quot;10&quot; &quot;13&quot; &quot;7&quot;  &quot;3&quot;  &quot;34&quot; &quot;16&quot; &quot;3&quot;  &quot;2&quot;  &quot;2&quot;  &quot;9&quot;  &quot;31&quot; &quot;19&quot; &quot;28&quot; &quot;6&quot; 
-##  [46] &quot;3&quot;  &quot;9&quot;  &quot;24&quot; &quot;4&quot;  &quot;3&quot;  &quot;7&quot;  &quot;30&quot; &quot;24&quot; &quot;34&quot; &quot;30&quot; &quot;16&quot; &quot;17&quot; &quot;28&quot; &quot;23&quot; &quot;39&quot;
-##  [61] &quot;44&quot; &quot;38&quot; &quot;19&quot; &quot;45&quot; &quot;28&quot; &quot;28&quot; &quot;7&quot;  &quot;5&quot;  &quot;22&quot; &quot;45&quot; &quot;31&quot; &quot;35&quot; &quot;34&quot; &quot;38&quot; &quot;6&quot; 
-##  [76] &quot;6&quot;  &quot;27&quot; &quot;1&quot;  &quot;0&quot;  &quot;6&quot;  &quot;1&quot;  &quot;5&quot;  &quot;0&quot;  &quot;15&quot; &quot;3&quot;  &quot;42&quot; &quot;16&quot; &quot;7&quot;  &quot;11&quot; &quot;10&quot;
-##  [91] &quot;21&quot; &quot;35&quot; &quot;1&quot;  &quot;0&quot;  &quot;0&quot;  &quot;0&quot;  &quot;1&quot;  &quot;5&quot;  &quot;5&quot;  &quot;26&quot; &quot;23&quot; &quot;25&quot; &quot;38&quot; &quot;9&quot;  &quot;16&quot;
-## [106] &quot;22&quot; &quot;21&quot; &quot;2&quot;  &quot;1&quot;  &quot;0&quot;  &quot;0&quot;  &quot;0&quot;  &quot;0&quot;  &quot;0&quot;  &quot;0&quot;  &quot;0&quot;  &quot;0&quot;  &quot;0&quot;  &quot;0&quot;  &quot;0&quot; 
-## [121] &quot;1&quot;  &quot;20&quot; &quot;28&quot; &quot;37&quot;</code></pre>
+<pre><code>##   [1] &quot;47&quot; &quot;38&quot; &quot;34&quot; &quot;23&quot; &quot;19&quot; &quot;45&quot; &quot;49&quot; &quot;19&quot; &quot;34&quot; &quot;18&quot; &quot;14&quot; &quot;3&quot;  &quot;26&quot; &quot;26&quot; &quot;14&quot;
+##  [16] &quot;20&quot; &quot;45&quot; &quot;21&quot; &quot;43&quot; &quot;22&quot; &quot;13&quot; &quot;10&quot; &quot;2&quot;  &quot;16&quot; &quot;40&quot; &quot;44&quot; &quot;48&quot; &quot;26&quot; &quot;23&quot; &quot;13&quot;
+##  [31] &quot;26&quot; &quot;21&quot; &quot;6&quot;  &quot;14&quot; &quot;17&quot; &quot;38&quot; &quot;27&quot; &quot;6&quot;  &quot;1&quot;  &quot;5&quot;  &quot;6&quot;  &quot;9&quot;  &quot;6&quot;  &quot;1&quot;  &quot;1&quot; 
+##  [46] &quot;0&quot;  &quot;0&quot;  &quot;5&quot;  &quot;6&quot;  &quot;0&quot;  &quot;1&quot;  &quot;2&quot;  &quot;4&quot;  &quot;45&quot; &quot;2&quot;  &quot;2&quot;  &quot;1&quot;  &quot;0&quot;  &quot;0&quot;  &quot;1&quot; 
+##  [61] &quot;8&quot;  &quot;44&quot; &quot;47&quot; &quot;13&quot; &quot;3&quot;  &quot;4&quot;  &quot;7&quot;  &quot;10&quot; &quot;20&quot; &quot;22&quot; &quot;37&quot; &quot;37&quot; &quot;34&quot; &quot;44&quot; &quot;35&quot;
+##  [76] &quot;18&quot; &quot;13&quot; &quot;37&quot; &quot;45&quot; &quot;44&quot; &quot;13&quot; &quot;15&quot; &quot;8&quot;  &quot;0&quot;  &quot;0&quot;  &quot;0&quot;  &quot;0&quot;  &quot;0&quot;  &quot;2&quot;  &quot;0&quot; 
+##  [91] &quot;13&quot; &quot;8&quot;  &quot;9&quot;  &quot;29&quot; &quot;17&quot; &quot;5&quot;  &quot;3&quot;  &quot;1&quot;  &quot;1&quot;  &quot;1&quot;  &quot;5&quot;  &quot;2&quot;  &quot;21&quot; &quot;40&quot; &quot;21&quot;
+## [106] &quot;6&quot;  &quot;10&quot; &quot;34&quot; &quot;39&quot; &quot;20&quot; &quot;17&quot; &quot;45&quot; &quot;5&quot;  &quot;0&quot;  &quot;0&quot;  &quot;0&quot;  &quot;0&quot;  &quot;0&quot;  &quot;2&quot;  &quot;0&quot; 
+## [121] &quot;0&quot;  &quot;0&quot;  &quot;0&quot;  &quot;0&quot;  &quot;0&quot;  &quot;0&quot;  &quot;0&quot;  &quot;0&quot;  &quot;0&quot;  &quot;0&quot;  &quot;2&quot;  &quot;20&quot;</code></pre>
 <pre class="r"><code>#Replace/overwrite values by &quot;&quot;
 ITS$node.label[which(as.numeric(ITS$node.label) &lt; 50)] &lt;- &quot;&quot;
 

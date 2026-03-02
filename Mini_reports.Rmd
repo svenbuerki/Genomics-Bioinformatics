@@ -1776,7 +1776,7 @@ This challenge is done in small groups and each group will take turn to (*i*) dr
 
 #### Vanilla Phylogenetic Tree 
 
-In this section, we will be analyzing the output of the RAxML analysis focusing on `result.raxml.support`, which contains the phylogenetic tree with node supports (here obtained through the bootstrap method). The file is stored in `04_Data_analyses/Phylogenetic_analysis/RAxML_analysis`.   
+In this section, we will be analyzing the output of the RAxML analysis focusing on `Vanilla_ML.raxml.support`, which contains the phylogenetic tree with node supports (here obtained through the bootstrap method). The file is stored in `04_Data_analyses/Phylogenetic_analysis/RAxML_analysis`.   
 
 Our analyses are divided into seven steps:
 
@@ -1796,8 +1796,10 @@ Before starting, create a new `R` script entitled `03_Part3_PhyloFig.R` saved at
 ###~~~
 #1. Load Vanilla RAxML ITS tree
 ###~~~
-#Please adjust path based on your computer (= delete "Data/")
-ITS <- ape::read.tree(file="Data/04_Data_analyses/Phylogenetic_analyses/RAxML_analysis/RAxML_bipartitions.Vanilla_ML.tre")
+#Please adjust path based on your computer
+ITS <- ape::read.tree(file="Data/04_Data_analyses/Phylogenetic_analyses/RAxML_analysis/Vanilla_ML.raxml.support")
+
+#ITS <- ape::read.tree(file="Data/04_Data_analyses/Phylogenetic_analyses/RAxML_analysis/RAxML_bipartitions.Vanilla_ML.tre") # This is the file from last year
 
 ###~~~
 #2. Discard bootstrap values < 50%
