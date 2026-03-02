@@ -11,7 +11,7 @@
 
 <meta name="author" content="Sven Buerki - Boise State University" />
 
-<meta name="date" content="2026-02-24" />
+<meta name="date" content="2026-03-02" />
 
 <title>BIOL 497/597 - Genomics &amp; Bioinformatics</title>
 
@@ -383,7 +383,7 @@ div.tocify {
 <h1 class="title toc-ignore">BIOL 497/597 - Genomics &amp; Bioinformatics</h1>
 <h3 class="subtitle">Mini-Reports</h3>
 <h4 class="author">Sven Buerki - Boise State University</h4>
-<h4 class="date">2026-02-24</h4>
+<h4 class="date">2026-03-02</h4>
 
 </div>
 
@@ -2133,36 +2133,81 @@ Figure 4.21: Screenshot of RAxML portal showing results of your analysis. The be
 </ol>
 </div>
 <div id="RAxMLLoc" class="section level3" number="4.11.6">
-<h3><span class="header-section-number">4.11.6</span> Run RAxML Locally</h3>
-<p>Connect to Linux computer:</p>
-<pre class="bash"><code>ssh svenbuerki@XX.XX.XXX.XXX</code></pre>
-<p>Navigate to the right folder:</p>
-<pre class="bash"><code>cd /media/SeaGate/Mini_Report_3/RAxML_analysis/</code></pre>
-<p>Run the RAxML analysis locally:</p>
-<p>This analysis is done on the output of the MUSCLE analysis
-<code>Vanilla_internal\ transcribed\ spacer_2024_02_20_GenBank_seq_msa_output.fas</code></p>
-<pre class="bash"><code>raxmlHPC-PTHREADS -T 20 -f a -m GTRGAMMA -p 12345 -o 1789804116_Vanilla_inodora -x 12345 -# 100 -s Vanilla_internal\ transcribed\ spacer_2024_02_20_GenBank_seq_msa_output.fas -n Vanilla_ML.tre</code></pre>
-<p><strong>Arguments</strong> - Short definitions</p>
+<h3><span class="header-section-number">4.11.6</span> Run Phylogenetic Analysis Locally</h3>
+<p>Unfortunately, the server running RAxML is currently down and students cannot use it for this assignment. To address this issue, the instructor is providing commands below to automatically align your FASTA file from <a href="#part2">Part 2</a> and then perform the RAxML phylogenetic analysis. These analyses will be conducted on MacStudio computers as follows:</p>
+<div id="remotely-connect-to-computer" class="section level4" number="4.11.6.1">
+<h4><span class="header-section-number">4.11.6.1</span> Remotely Connect to Computer</h4>
+<p>This is accomplished using the <code>ssh</code> (Secure Shell) protocol. Additional information about this protocol can be found <a href="https://svenbuerki.github.io/Genomics-Bioinformatics/Tutorials.html">here</a>, and understanding <code>ssh</code> will be essential for completing your <a href="https://svenbuerki.github.io/Genomics-Bioinformatics/Mining_draft_genome.html">Lab report</a>.</p>
+<p><strong>To connect to MacStudio:</strong></p>
+<pre class="bash"><code>ssh buerkilab@XX.XX.XXX.XXX</code></pre>
+</div>
+<div id="navigate-to-project-folder" class="section level4" number="4.11.6.2">
+<h4><span class="header-section-number">4.11.6.2</span> Navigate to Project Folder</h4>
+<pre class="bash"><code># Navigate to project folder
+cd /Users/buerkilab/Documents/Genomics_and_Bioinformatics/RAxML_analysis</code></pre>
+</div>
+<div id="conduct-multiple-sequence-alignment" class="section level4" number="4.11.6.3">
+<h4><span class="header-section-number">4.11.6.3</span> Conduct Multiple Sequence Alignment</h4>
+<p>We are using MAFFT to align ITS sequences from <a href="#part2">Part 2</a>.</p>
+<pre class="bash"><code>mafft --maxiterate 1000 --localpair &quot;Vanilla_internal transcribed spacer_2026_02_17_GenBank_seq_msa_input.fasta&quot; &gt; &quot;Vanilla_internal transcribed spacer_2026_02_17_GenBank_seq_msa_output.fasta&quot;</code></pre>
+<div id="analysis-parameters" class="section level5" number="4.11.6.3.1">
+<h5><span class="header-section-number">4.11.6.3.1</span> Analysis Parameters</h5>
 <ul>
-<li><code>-T</code> : number of threads</li>
-<li><code>-m</code> : molecular model to build the phylogenetic tree</li>
-<li><code>-o</code> : outgroup taxon to root analysis</li>
-<li><code>-p</code> and <code>-x</code> : seed numbers for analysis</li>
-<li><code>-#</code> : number of bootstrap analyses</li>
-<li><code>-s</code> : input file in FASTA format</li>
-<li><code>-n</code> : output file</li>
-</ul>
-<p><strong>Output files</strong></p>
+<li><p><code>--maxiterate 1000</code>: Performs up to 1000 iterations of refinement to improve alignment accuracy. This iterative process helps optimize the alignment by repeatedly refining poorly aligned regions.</p></li>
+<li><p><code>--localpair</code>: Uses a local pairwise alignment algorithm that is more accurate for sequences with similar lengths (like ITS sequences). This method:</p>
 <ul>
-<li>All 1000 bootstrapped trees : <code>RAxML_bootstrap.Vanilla_ML.tre</code></li>
-<li>Best-scoring ML tree : <code>RAxML_bestTree.Vanilla_ML.tre</code></li>
-<li>Best-scoring ML tree with support values : <code>RAxML_bipartitions.Vanilla_ML.tre</code> (FILE FOR NEXT ANALYSES)</li>
-<li>Best-scoring ML tree with support values as branch labels : <code>RAxML_bipartitionsBranchLabels.Vanilla_ML.tre</code></li>
+<li>Identifies homologous regions more precisely</li>
+<li>Is particularly effective for conserved gene regions like ITS</li>
+<li>Provides higher accuracy than the default global alignment method</li>
+</ul></li>
 </ul>
+<p><strong>Why these settings for ITS sequences:</strong></p>
+<ul>
+<li>ITS (Internal Transcribed Spacer) regions contain both conserved and variable regions</li>
+<li>The <code>--localpair</code> method excels at aligning sequences with mixed conservation patterns</li>
+<li>High iteration count (<code>1000</code>) ensures optimal alignment quality for phylogenetic analysis</li>
+<li>These parameters balance accuracy with reasonable computation time</li>
+</ul>
+<p><strong>Expected output:</strong> The aligned sequences will be saved as <code>Vanilla_internal transcribed spacer_2026_02_17_GenBank_seq_msa_output.fasta</code> and will be used as input for the subsequent RAxML phylogenetic analysis.</p>
+</div>
+</div>
+<div id="run-raxml-analysis" class="section level4" number="4.11.6.4">
+<h4><span class="header-section-number">4.11.6.4</span> Run RAxML Analysis</h4>
+<p>The maximum likelihood phylogenetic analysis (including bootstrap analyses to determine node supports) is performed using RAxML-NG with the following command:</p>
+<pre class="bash"><code># Run 
+raxml-ng --all --msa &quot;Vanilla_internal transcribed spacer_2026_02_17_GenBank_seq_msa_output.fasta&quot; --model GTR+G --prefix Vanilla_ML --seed 12345 --threads 20 --bs-trees 100 --outgroup 1789804116_Vanilla_inodora --force</code></pre>
+<div id="analysis-parameters-1" class="section level5" number="4.11.6.4.1">
+<h5><span class="header-section-number">4.11.6.4.1</span> Analysis Parameters</h5>
+<ul>
+<li><code>--all</code>: Performs both ML tree search and bootstrap analysis in a single run</li>
+<li><code>--msa</code>: Specifies the input multiple sequence alignment file</li>
+<li><code>--model GTR+G</code>: Uses the General Time Reversible substitution model with gamma-distributed rate variation among sites</li>
+<li><code>--prefix Vanilla_ML</code>: Sets the prefix for all output files</li>
+<li><code>--seed 12345</code>: Sets random seed for reproducible results</li>
+<li><code>--threads 20</code>: Uses 20 CPU threads for parallel processing</li>
+<li><code>--bs-trees 100</code>: Performs 100 bootstrap replicates for statistical support</li>
+<li><code>--outgroup</code>: Specifies the outgroup taxon for rooting the tree</li>
+<li><code>--force</code>: Forces analysis to proceed despite duplicate sequences in the dataset</li>
+</ul>
+</div>
+<div id="output-files" class="section level5" number="4.11.6.4.2">
+<h5><span class="header-section-number">4.11.6.4.2</span> Output Files</h5>
+<ul>
+<li>All 100 bootstrapped trees : <code>Vanilla_ML.raxml.bootstraps</code></li>
+<li>Best-scoring ML tree : <code>Vanilla_ML.raxml.bestTree</code></li>
+<li>Best-scoring ML tree with support values : <code>Vanilla_ML.raxml.support</code> <strong>(FILE FOR NEXT ANALYSES)</strong></li>
+<li>Best-scoring ML tree with support values as branch labels : <code>Vanilla_ML.raxml.support</code></li>
+<li>Analysis log and statistics : <code>Vanilla_ML.raxml.log</code></li>
+<li>All ML trees from different starting points : <code>Vanilla_ML.raxml.mlTrees</code></li>
+<li>Starting tree used for ML search : <code>Vanilla_ML.raxml.startTree</code></li>
+</ul>
+<p><strong>Note</strong>: In RAxML-NG, the <code>.raxml.support</code> file contains the best ML tree with bootstrap support values displayed as standard node support values, which serves the same purpose as both the <code>RAxML_bipartitions</code> and <code>RAxML_bipartitionsBranchLabels</code> files from original RAxML (this is important if you did the analysis a shown above).</p>
 <p><strong>Files on Google Drive</strong></p>
 <p>The output files are available on Google Drive at this path:</p>
 <p><code>DNA_barcoding &gt; 04_Data_analyses &gt; Phylogenetic_analyses &gt; RAxML_analysis</code></p>
 <p>Download the folder on your computer and save it under the same path.</p>
+</div>
+</div>
 </div>
 <div id="visualize-phylogenetic-tree-and-interpretion" class="section level3" number="4.11.7">
 <h3><span class="header-section-number">4.11.7</span> Visualize Phylogenetic Tree and Interpretion</h3>

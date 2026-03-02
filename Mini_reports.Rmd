@@ -1526,45 +1526,85 @@ knitr::include_graphics("Images/RAxML_results.png")
     - `sequenceAlignment.fasta`: Your input aligned FASTA file. 
 7. You can open `result.raxml.support` in `FigTree` to visualize it and locate the four samples of vanilla from Mexico. We will learn how to process phylogenetic trees in R in the next section.
 
-### Run RAxML Locally {#RAxMLLoc}
+### Run Phylogenetic Analysis Locally {#RAxMLLoc}
 
-Connect to Linux computer:
+Unfortunately, the server running RAxML is currently down and students cannot use it for this assignment. To address this issue, the instructor is providing commands below to automatically align your FASTA file from [Part 2](#part2) and then perform the RAxML phylogenetic analysis. These analyses will be conducted on MacStudio computers as follows:
 
-```{bash, eval = F}
-ssh svenbuerki@XX.XX.XXX.XXX
-```
+#### Remotely Connect to Computer
 
-Navigate to the right folder:
+This is accomplished using the `ssh` (Secure Shell) protocol. Additional information about this protocol can be found [here](https://svenbuerki.github.io/Genomics-Bioinformatics/Tutorials.html), and understanding `ssh` will be essential for completing your [Lab report](https://svenbuerki.github.io/Genomics-Bioinformatics/Mining_draft_genome.html).
 
-```{bash, eval = F}
-cd /media/SeaGate/Mini_Report_3/RAxML_analysis/
-```
-
-Run the RAxML analysis locally:
-
-This analysis is done on the output of the MUSCLE analysis
-`Vanilla_internal\ transcribed\ spacer_2024_02_20_GenBank_seq_msa_output.fas`
+**To connect to MacStudio:**
 
 ```{bash, eval = F}
-raxmlHPC-PTHREADS -T 20 -f a -m GTRGAMMA -p 12345 -o 1789804116_Vanilla_inodora -x 12345 -# 100 -s Vanilla_internal\ transcribed\ spacer_2024_02_20_GenBank_seq_msa_output.fas -n Vanilla_ML.tre
+ssh buerkilab@XX.XX.XXX.XXX
 ```
 
-**Arguments** - Short definitions
+#### Navigate to Project Folder
 
-  - `-T` : number of threads
-  - `-m` : molecular model to build the phylogenetic tree
-  - `-o` : outgroup taxon to root analysis
-  - `-p` and `-x` : seed numbers for analysis
-  - `-#` : number of bootstrap analyses 
-  - `-s` : input file in FASTA format
-  - `-n` : output file
+```{bash, eval = F}
+# Navigate to project folder
+cd /Users/buerkilab/Documents/Genomics_and_Bioinformatics/RAxML_analysis
+```
 
-**Output files**
+#### Conduct Multiple Sequence Alignment
 
-  - All 1000 bootstrapped trees : `RAxML_bootstrap.Vanilla_ML.tre`
-  - Best-scoring ML tree : `RAxML_bestTree.Vanilla_ML.tre`
-  - Best-scoring ML tree with support values : `RAxML_bipartitions.Vanilla_ML.tre` (FILE FOR NEXT ANALYSES)
-  - Best-scoring ML tree with support values as branch labels : `RAxML_bipartitionsBranchLabels.Vanilla_ML.tre`
+We are using MAFFT to align ITS sequences from [Part 2](#part2). 
+
+```{bash, eval = F}
+mafft --maxiterate 1000 --localpair "Vanilla_internal transcribed spacer_2026_02_17_GenBank_seq_msa_input.fasta" > "Vanilla_internal transcribed spacer_2026_02_17_GenBank_seq_msa_output.fasta"
+```
+
+##### Analysis Parameters
+
+- `--maxiterate 1000`: Performs up to 1000 iterations of refinement to improve alignment accuracy. This iterative process helps optimize the alignment by repeatedly refining poorly aligned regions.
+
+- `--localpair`: Uses a local pairwise alignment algorithm that is more accurate for sequences with similar lengths (like ITS sequences). This method:
+  - Identifies homologous regions more precisely
+  - Is particularly effective for conserved gene regions like ITS
+  - Provides higher accuracy than the default global alignment method
+
+**Why these settings for ITS sequences:**
+
+- ITS (Internal Transcribed Spacer) regions contain both conserved and variable regions
+- The `--localpair` method excels at aligning sequences with mixed conservation patterns
+- High iteration count (`1000`) ensures optimal alignment quality for phylogenetic analysis
+- These parameters balance accuracy with reasonable computation time
+
+**Expected output:** The aligned sequences will be saved as `Vanilla_internal transcribed spacer_2026_02_17_GenBank_seq_msa_output.fasta` and will be used as input for the subsequent RAxML phylogenetic analysis.
+
+#### Run RAxML Analysis
+
+The maximum likelihood phylogenetic analysis (including bootstrap analyses to determine node supports) is performed using RAxML-NG with the following command:
+
+```{bash, eval = F}
+# Run 
+raxml-ng --all --msa "Vanilla_internal transcribed spacer_2026_02_17_GenBank_seq_msa_output.fasta" --model GTR+G --prefix Vanilla_ML --seed 12345 --threads 20 --bs-trees 100 --outgroup 1789804116_Vanilla_inodora --force
+```
+
+##### Analysis Parameters
+
+- `--all`: Performs both ML tree search and bootstrap analysis in a single run
+- `--msa`: Specifies the input multiple sequence alignment file
+- `--model GTR+G`: Uses the General Time Reversible substitution model with gamma-distributed rate variation among sites
+- `--prefix Vanilla_ML`: Sets the prefix for all output files
+- `--seed 12345`: Sets random seed for reproducible results
+- `--threads 20`: Uses 20 CPU threads for parallel processing
+- `--bs-trees 100`: Performs 100 bootstrap replicates for statistical support
+- `--outgroup`: Specifies the outgroup taxon for rooting the tree
+- `--force`: Forces analysis to proceed despite duplicate sequences in the dataset
+
+##### Output Files
+
+  - All 100 bootstrapped trees : `Vanilla_ML.raxml.bootstraps`
+  - Best-scoring ML tree : `Vanilla_ML.raxml.bestTree`
+  - Best-scoring ML tree with support values : `Vanilla_ML.raxml.support` **(FILE FOR NEXT ANALYSES)**
+  - Best-scoring ML tree with support values as branch labels : `Vanilla_ML.raxml.support`
+  - Analysis log and statistics : `Vanilla_ML.raxml.log`
+  - All ML trees from different starting points : `Vanilla_ML.raxml.mlTrees`
+  - Starting tree used for ML search : `Vanilla_ML.raxml.startTree`
+
+**Note**: In RAxML-NG, the `.raxml.support` file contains the best ML tree with bootstrap support values displayed as standard node support values, which serves the same purpose as both the `RAxML_bipartitions` and `RAxML_bipartitionsBranchLabels` files from original RAxML (this is important if you did the analysis a shown above).
 
 **Files on Google Drive**
 
