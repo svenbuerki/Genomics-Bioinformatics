@@ -1623,7 +1623,7 @@ Download the folder on your computer and save it under the same path.
 
 #### Introduction to Newick Tree Format
 
-The Newick Standard for representing trees in computer-readable form makes use of the **correspondence between trees and nested parentheses**. We owe this format to the British mathematician [Arthur Cayley](https://mathshistory.st-andrews.ac.uk/Biographies/Cayley/). Here we will be providing an overview of the Newick format using the R package *ape* [@ape].
+The Newick Standard for representing trees in computer-readable form makes use of the **correspondence between trees and nested parentheses**. We can trace the mathematical foundations of tree representation to the work of British mathematician [Arthur Cayley](https://mathshistory.st-andrews.ac.uk/Biographies/Cayley/), though the specific Newick format was developed by researchers including Joe Felsenstein at Newick's restaurant in Dover, New Hampshire, USA in 1986. Here we will provide an overview of the Newick format using the R package *ape* [@ape].
 
 To produce the "dummy" phylogenetic tree displayed in Figure \@ref(fig:intronewick), the following syntax should be applied:
 
@@ -1680,7 +1680,7 @@ tr1 <- "(A._speciosa,(B._dimorpha,(C._elegans,D._viridis)));"
 plot(ape::read.tree(text=tr1))
 ```
 
-Some considerations associated to the syntax:
+Some considerations associated with the syntax:
 
 - The tree ends with a semicolon (`;`). 
 - The bottommost node in the tree is an interior node, not a tip. 
@@ -1688,7 +1688,9 @@ Some considerations associated to the syntax:
 - Tips (or samples) are represented by their names. A name can be any string of printable characters except blanks, colons, semicolons, parentheses, and square brackets. 
 - Because you may want to include a blank in a tip name, it is assumed that an underscore character (`_`) stands for a blank; any of these in a name will be converted to a blank when it is read in (see code above and Figure \@ref(fig:intronewick) for more details).
 
-**Branch lengths** (representing e.g. molecular substitutions, which can be turned into time in a dated phylogenetic tree) can be incorporated into a tree by putting a real number, with or without decimal point, after a node and preceded by a colon (`:`). This represents the length of the branch immediately below that node. Thus, the above tree might have lengths represented as in Figure \@ref(fig:newickbrlens).
+##### Adding Branch Length to Your Phylogenetic Tree
+
+**Branch lengths** (representing e.g., molecular substitutions, which can be turned into time in a dated phylogenetic tree) can be incorporated into a tree by putting a real number, with or without a decimal point, after a node and preceded by a colon (`:`). This represents the length of the branch immediately below that node. Thus, the above tree might have lengths represented as in Figure \@ref(fig:newickbrlens).
 
 ```{r newickbrlens, eval=T, echo=T, fig.align="center", fig.cap="Rooted tree showing relationsip between 4 species with branch lengths.", fig.show="asis", out.width = '100%'}
 ###~~~
@@ -1703,7 +1705,26 @@ tr2 <- "(A._speciosa:2.0,(B._dimorpha:4.2,(C._elegans:2.0,D._viridis:3.0):1):4.0
 plot(ape::read.tree(text=tr2))
 ```
 
-Now, we can finally add **node supports** (inferred using e.g. the bootstrap approach in the case of the vanilla Maximum Likelihood analysis conducted here) by simply adding values after each closing parenthesis. This is done as follows and displayed in Figure \@ref(fig:newickbrlensnode):
+**Dissecting the Example Tree**
+
+To better understand the syntax, let us read the tree from inside out:
+
+1. `(C._elegans:2.0,D._viridis:3.0):1`
+   - C._elegans and D._viridis are sister species
+   - C._elegans has a branch length of 2.0
+   - D._viridis has a branch length of 3.0
+   - Their common ancestor has a branch length of 1.0
+2. `(B._dimorpha:4.2,(C._elegans:2.0,D._viridis:3.0):1)`
+   - B._dimorpha is sister to the (C._elegans, D._viridis) clade
+   - B._dimorpha has a branch length of 4.2
+3. `(A._speciosa:2.0,(B._dimorpha:4.2,(C._elegans:2.0,D._viridis:3.0):1):4.0)`
+   - A._speciosa is sister to all other taxa
+   - A._speciosa has a branch length of 2.0
+   - The branch leading to the (B._dimorpha, (C._elegans, D._viridis)) clade has length 4.0
+
+##### Adding Node Supports to Your Phylogenetic Tree
+
+Now, we can finally add **node supports** (inferred using e.g., the bootstrap approach in the case of the Vanilla maximum likelihood analysis conducted here) by simply adding values after each closing parenthesis. This is done as follows and displayed in Figure \@ref(fig:newickbrlensnode):
 
 ```{r newickbrlensnode, eval=T, echo=T, fig.align="center", fig.cap="Rooted tree showing relationsip between 4 species with branch lengths and node supports.", fig.show="asis", out.width = '100%'}
 ###~~~
@@ -1719,9 +1740,40 @@ tr3 <- "(A._speciosa:2.0,(B._dimorpha:4.2,(C._elegans:2.0,D._viridis:3.0)60:1)90
 plot(ape::read.tree(text=tr3), show.node.label = TRUE)
 ```
 
+**Dissecting the Example Tree**
+
+To better understand the syntax, let us read the tree from inside out:
+
+1. `(C._elegans:2.0,D._viridis:3.0)60:1`
+   - C._elegans and D._viridis are sister species
+   - C._elegans has a branch length of 2.0
+   - D._viridis has a branch length of 3.0
+   - Their common ancestor has a bootstrap support of 60%
+   - The branch leading to their common ancestor has a length of 1.0
+2. `(B._dimorpha:4.2,(C._elegans:2.0,D._viridis:3.0)60:1)90:4.0`
+   - B._dimorpha is sister to the (C._elegans, D._viridis) clade
+   - B._dimorpha has a branch length of 4.2
+   - This grouping has a bootstrap support of 90%
+   - The branch leading to this clade has a length of 4.0
+3. `(A._speciosa:2.0,(B._dimorpha:4.2,(C._elegans:2.0,D._viridis:3.0)60:1)90:4.0)100`
+   - A._speciosa is sister to all other taxa
+   - A._speciosa has a branch length of 2.0
+   - The root node has a bootstrap support of 100%
+   - This represents the entire tree structure
+
+**Bootstrap Support Interpretation:**
+
+- **60%**: Moderate support for the (C._elegans, D._viridis) relationship
+- **90%**: Strong support for the grouping of B._dimorpha with (C._elegans, D._viridis)
+- **100%**: Maximum support for the overall tree topology
+
+**Note:** Bootstrap values represent the percentage of bootstrap replicates that recovered the same grouping. Values ≥70% are generally considered moderate support, while values ≥95% indicate strong statistical support.
+
+
+
 #### The `phylo` Class and Phylogenetic Trees in R
 
-Here, we will be introducing the `phylo` class implemented in R packages dealing with phylogenetic analyses. To study this topic, we will be using the phylogenetic tree with branch lengths and node supports (see Figure \@ref(fig:newickbrlensnode)).  
+Here, we will introduce the `phylo` class implemented in R packages dealing with phylogenetic analyses. To study this topic, we will use the phylogenetic tree with branch lengths and node supports (see Figure \@ref(fig:newickbrlensnode)).
 
 ```{r phyloclass, eval=T, echo=T}
 ###~~~
@@ -1741,13 +1793,13 @@ tr
 class(tr)
 ```
 
-`phylo` class objects (here `tr`) are lists allowing to access multiple attributes associated to the phylogenetic tree. Three of these lists are especially useful to us:
+`phylo` class objects (here `tr`) are lists that allow access to multiple attributes associated with the phylogenetic tree. Three of these lists are especially useful to us:
 
 - `tr$tip.label`: Vector with tip labels.
 - `tr$node.label`: Vector with node labels.
 - `tr$edge.length`: Vector with branch lengths.
 
-Here, are the details with our example:
+Here are the details with our example:
 
 ```{r trattributes, echo=T, eval=T}
 ###~~~
@@ -1768,11 +1820,11 @@ tr$edge.length
 
 #### Challenge
 
-> Using this knowledge, draw and code a phylogenetic tree with 8 samples (tips) containing branch lengths and node supports
+> Using this knowledge, draw and code a phylogenetic tree with 8 samples (tips) containing branch lengths and node supports.
 
-This challenge is done in small groups and each group will take turn to (*i*) draw their phylogenetic tree on the white board, and (*ii*) code it using the newick syntax.
+This challenge is done in small groups and each group will take turns to (*i*) draw their phylogenetic tree on the white board, and (*ii*) code it using the Newick syntax.
 
-**Tip:** To make sure that your phylogenetic tree is correct, code it and execute it in `R` using the *ape* functions shown above.  
+**Tip:** To make sure that your phylogenetic tree is correct, code it and execute it in `R` using the *ape* functions shown above.
 
 #### Vanilla Phylogenetic Tree 
 
