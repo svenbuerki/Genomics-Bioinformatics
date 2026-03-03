@@ -11,7 +11,7 @@
 
 <meta name="author" content="Sven Buerki - Boise State University" />
 
-<meta name="date" content="2026-02-20" />
+<meta name="date" content="2026-03-03" />
 
 <title>BIOL 497/597 - Genomics &amp; Bioinformatics</title>
 
@@ -383,7 +383,7 @@ div.tocify {
 <h1 class="title toc-ignore">BIOL 497/597 - Genomics &amp; Bioinformatics</h1>
 <h3 class="subtitle">Lab: Mining sagebrush draft genome</h3>
 <h4 class="author">Sven Buerki - Boise State University</h4>
-<h4 class="date">2026-02-20</h4>
+<h4 class="date">2026-03-03</h4>
 
 </div>
 
@@ -699,20 +699,47 @@ Figure 6.2: Example of a 3D model of an Aquaporin protein recovered in the sageb
 </div>
 </div>
 <div id="datastrworkflow" class="section level1" number="8">
-<h1><span class="header-section-number">8</span> Data Structure and Workflow</h1>
-<div id="where-are-the-data-located" class="section level2" number="8.1">
-<h2><span class="header-section-number">8.1</span> Where are the data located?</h2>
-<p>All the data associated to this project are located on your individual account in the <code>DraftGenomeMineR/</code> folder. This folder is located in <code>~/DraftGenomeMineR</code>. Your <a href="https://docs.google.com/document/d/1t0DdQBes42Gzo8XWgc9JL2xEGjv1kbfoVE7Vznx6C9I/edit">account detail</a> are available here.</p>
-<p><strong>Key files:</strong></p>
+<h1><span class="header-section-number">8</span> Groups and Data Structure</h1>
+<div id="group-organization-and-structure" class="section level2" number="8.1">
+<h2><span class="header-section-number">8.1</span> Group Organization and Structure</h2>
+<p>Each group will be composed of <strong>5 to 6 students</strong>, mixing undergraduate with graduate students to promote peer learning and knowledge exchange. Each group will be split into <strong>two subgroups</strong> that work independently on the same analyses. The goal of this structure is to foster fact-checking by comparing results obtained between the two subgroups, ensuring accuracy and reproducibility of findings.</p>
+</div>
+<div id="group-accounts" class="section level2" number="8.2">
+<h2><span class="header-section-number">8.2</span> Group Accounts</h2>
+<p>You will be accessing Linux computers to run your analyses using the <code>ssh</code> protocol. Details on your <a href="https://docs.google.com/document/d/1t0DdQBes42Gzo8XWgc9JL2xEGjv1kbfoVE7Vznx6C9I/edit">account information</a> are available here.</p>
+</div>
+<div id="group-collaboration-guidelines" class="section level2" number="8.3">
+<h2><span class="header-section-number">8.3</span> Group Collaboration Guidelines</h2>
 <ul>
-<li><code>Draft_Genome_Assembly.fasta</code>: Sagebrush draft genome assembly (at scaffold level).</li>
-<li><code>FASTAs/PIP1_3.fa</code>: Reference containing <em>PIP1</em> gene (AA) for BLAST analysis. This data will be used to find Aquaporin genes in the draft genome.</li>
-<li>Scripts related to each module are located in <code>Lesson_Modules/</code>.</li>
+<li>Each group has <strong>four accounts</strong> to facilitate collaboration between subgroups</li>
+<li>All accounts in a group share the same computational resources</li>
+<li>Coordinate within your subgroup to avoid conflicts when running intensive analyses</li>
+<li>Compare results between subgroups to verify accuracy and identify potential issues</li>
+<li>Subgroups should work independently initially, then collaborate during result comparison phases</li>
+</ul>
+<div id="technical-notes" class="section level3" number="8.3.1">
+<h3><span class="header-section-number">8.3.1</span> Technical Notes</h3>
+<ul>
+<li>All accounts use the same password for simplicity</li>
+<li>Accounts have access to bioinformatics software and tools needed for course analyses</li>
+<li>File permissions allow collaboration between group accounts on the same machine</li>
+<li>Contact the instructor if you experience connection issues</li>
 </ul>
 </div>
-<div id="how-do-i-access-the-data-and-run-analyses" class="section level2" number="8.2">
-<h2><span class="header-section-number">8.2</span> How do I access the data and run analyses?</h2>
-<p>To access the data and run the analyses, please remotely connect to your dedicated computer using <code>ssh</code> protocol. Your credentials are available <a href="https://docs.google.com/document/d/1t0DdQBes42Gzo8XWgc9JL2xEGjv1kbfoVE7Vznx6C9I/edit">here</a>.</p>
+</div>
+<div id="where-are-the-data-located" class="section level2" number="8.4">
+<h2><span class="header-section-number">8.4</span> Where are the data located?</h2>
+<p>All the data associated with this project are located on your individual account in the <code>DraftGenomeMineR/</code> folder. This folder is located in <code>~/DraftGenomeMineR</code>.</p>
+<p><strong>Key files:</strong></p>
+<ul>
+<li><code>Draft_Genome_Assembly.fasta</code>: Sagebrush draft genome assembly (at scaffold level)</li>
+<li><code>FASTAs/PIP1_3.fa</code>: Reference containing <em>PIP1</em> gene (AA) for BLAST analysis. This data will be used to find Aquaporin genes in the draft genome</li>
+<li>Scripts related to each module are located in <code>Lesson_Modules/</code></li>
+</ul>
+</div>
+<div id="how-do-i-access-the-data-and-run-analyses" class="section level2" number="8.5">
+<h2><span class="header-section-number">8.5</span> How do I access the data and run analyses?</h2>
+<p>To access the data and run the analyses, please remotely connect to your dedicated computer using the <code>ssh</code> protocol. Your credentials are available <a href="https://docs.google.com/document/d/1t0DdQBes42Gzo8XWgc9JL2xEGjv1kbfoVE7Vznx6C9I/edit">here</a>.</p>
 <hr />
 </div>
 </div>
