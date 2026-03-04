@@ -1657,6 +1657,16 @@ tr1 <- "(A._speciosa,(B._dimorpha,(C._elegans,D._viridis)));"
 plot(read.tree(text=tr1))
 ```
 
+#### Ground Rules
+
+Before we start, let's examine some considerations associated with the syntax to encode phylogenetic trees:
+
+- The tree ends with a semicolon (`;`). 
+- The bottommost node in the tree is an interior node (referred to as the "root"), not a tip. 
+- Interior nodes are represented by a pair of matched parentheses (`()`). Between them are representations of the nodes that are immediately descended from that node, separated by commas (`,`). 
+- Tips (or samples) are represented by their names. A name can be any string of printable characters except blanks, colons, semicolons, parentheses, and square brackets. 
+- Because you may want to include a blank in a tip name, it is assumed that an underscore character (`_`) stands for a blank; any of these in a name will be converted to a blank when it is read in (see code above and Figure \@ref(fig:intronewick) for more details).
+
 ##### Coding Your First Phylogenetic Tree
 
 Before starting, create a new `R` script entitled `02_Part3_exercises.R` saved at the root of `DNA_barcoding`. 
@@ -1679,16 +1689,6 @@ if("ape" %in% rownames(installed.packages()) == FALSE){
 library(ape)
 
 ###~~~
-#Set working directory
-###~~~
-#Set working directory to path leading to DNA_barcoding folder
-# WARNING: This path as to be adapted to match your computer
-setwd("~/Documents/Class_Genomics&Bioinfo_Spring/DNA_barcoding/")
-
-#Check that working directory is set correctly
-getwd()
-
-###~~~
 #Your first tree in Newick format
 ###~~~
 tr1 <- "(A._speciosa,(B._dimorpha,(C._elegans,D._viridis)));"
@@ -1699,13 +1699,7 @@ tr1 <- "(A._speciosa,(B._dimorpha,(C._elegans,D._viridis)));"
 plot(ape::read.tree(text=tr1))
 ```
 
-Some considerations associated with the syntax:
-
-- The tree ends with a semicolon (`;`). 
-- The bottommost node in the tree is an interior node, not a tip. 
-- Interior nodes are represented by a pair of matched parentheses (`()`). Between them are representations of the nodes that are immediately descended from that node, separated by commas (`,`). 
-- Tips (or samples) are represented by their names. A name can be any string of printable characters except blanks, colons, semicolons, parentheses, and square brackets. 
-- Because you may want to include a blank in a tip name, it is assumed that an underscore character (`_`) stands for a blank; any of these in a name will be converted to a blank when it is read in (see code above and Figure \@ref(fig:intronewick) for more details).
+> **Note:** We will keep editing this R script in the following sections adding phylogenetic trees with branch lengths and node supports.
 
 ##### Adding Branch Length to Your Phylogenetic Tree
 

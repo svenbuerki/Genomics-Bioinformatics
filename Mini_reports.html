@@ -11,7 +11,7 @@
 
 <meta name="author" content="Sven Buerki - Boise State University" />
 
-<meta name="date" content="2026-03-03" />
+<meta name="date" content="2026-03-04" />
 
 <title>BIOL 497/597 - Genomics &amp; Bioinformatics</title>
 
@@ -383,7 +383,7 @@ div.tocify {
 <h1 class="title toc-ignore">BIOL 497/597 - Genomics &amp; Bioinformatics</h1>
 <h3 class="subtitle">Mini-Reports</h3>
 <h4 class="author">Sven Buerki - Boise State University</h4>
-<h4 class="date">2026-03-03</h4>
+<h4 class="date">2026-03-04</h4>
 
 </div>
 
@@ -2249,8 +2249,19 @@ raxml-ng --all --msa &quot;Vanilla_internal transcribed spacer_2026_02_17_GenBan
 Figure 4.23: Rooted tree showing relationsip between 4 species.
 </p>
 </div>
-<div id="coding-your-first-phylogenetic-tree" class="section level5" number="4.11.7.2.1">
-<h5><span class="header-section-number">4.11.7.2.1</span> Coding Your First Phylogenetic Tree</h5>
+</div>
+<div id="ground-rules" class="section level4" number="4.11.7.3">
+<h4><span class="header-section-number">4.11.7.3</span> Ground Rules</h4>
+<p>Before we start, let’s examine some considerations associated with the syntax to encode phylogenetic trees:</p>
+<ul>
+<li>The tree ends with a semicolon (<code>;</code>).</li>
+<li>The bottommost node in the tree is an interior node (referred to as the “root”), not a tip.</li>
+<li>Interior nodes are represented by a pair of matched parentheses (<code>()</code>). Between them are representations of the nodes that are immediately descended from that node, separated by commas (<code>,</code>).</li>
+<li>Tips (or samples) are represented by their names. A name can be any string of printable characters except blanks, colons, semicolons, parentheses, and square brackets.</li>
+<li>Because you may want to include a blank in a tip name, it is assumed that an underscore character (<code>_</code>) stands for a blank; any of these in a name will be converted to a blank when it is read in (see code above and Figure <a href="#fig:intronewick">4.23</a> for more details).</li>
+</ul>
+<div id="coding-your-first-phylogenetic-tree" class="section level5" number="4.11.7.3.1">
+<h5><span class="header-section-number">4.11.7.3.1</span> Coding Your First Phylogenetic Tree</h5>
 <p>Before starting, create a new <code>R</code> script entitled <code>02_Part3_exercises.R</code> saved at the root of <code>DNA_barcoding</code>.</p>
 <pre class="r"><code>###~~~
 #Check if package is installed if not then install it
@@ -2269,16 +2280,6 @@ if(&quot;ape&quot; %in% rownames(installed.packages()) == FALSE){
 library(ape)
 
 ###~~~
-#Set working directory
-###~~~
-#Set working directory to path leading to DNA_barcoding folder
-# WARNING: This path as to be adapted to match your computer
-setwd(&quot;~/Documents/Class_Genomics&amp;Bioinfo_Spring/DNA_barcoding/&quot;)
-
-#Check that working directory is set correctly
-getwd()
-
-###~~~
 #Your first tree in Newick format
 ###~~~
 tr1 &lt;- &quot;(A._speciosa,(B._dimorpha,(C._elegans,D._viridis)));&quot;
@@ -2287,17 +2288,12 @@ tr1 &lt;- &quot;(A._speciosa,(B._dimorpha,(C._elegans,D._viridis)));&quot;
 #Plot your tree with ape package
 ###~~~
 plot(ape::read.tree(text=tr1))</code></pre>
-<p>Some considerations associated with the syntax:</p>
-<ul>
-<li>The tree ends with a semicolon (<code>;</code>).</li>
-<li>The bottommost node in the tree is an interior node, not a tip.</li>
-<li>Interior nodes are represented by a pair of matched parentheses (<code>()</code>). Between them are representations of the nodes that are immediately descended from that node, separated by commas (<code>,</code>).</li>
-<li>Tips (or samples) are represented by their names. A name can be any string of printable characters except blanks, colons, semicolons, parentheses, and square brackets.</li>
-<li>Because you may want to include a blank in a tip name, it is assumed that an underscore character (<code>_</code>) stands for a blank; any of these in a name will be converted to a blank when it is read in (see code above and Figure <a href="#fig:intronewick">4.23</a> for more details).</li>
-</ul>
+<blockquote>
+<p><strong>Note:</strong> We will keep editing this R script in the following sections adding phylogenetic trees with branch lengths and node supports.</p>
+</blockquote>
 </div>
-<div id="adding-branch-length-to-your-phylogenetic-tree" class="section level5" number="4.11.7.2.2">
-<h5><span class="header-section-number">4.11.7.2.2</span> Adding Branch Length to Your Phylogenetic Tree</h5>
+<div id="adding-branch-length-to-your-phylogenetic-tree" class="section level5" number="4.11.7.3.2">
+<h5><span class="header-section-number">4.11.7.3.2</span> Adding Branch Length to Your Phylogenetic Tree</h5>
 <p><strong>Branch lengths</strong> (representing e.g., molecular substitutions, which can be turned into time in a dated phylogenetic tree) can be incorporated into a tree by putting a real number, with or without a decimal point, after a node and preceded by a colon (<code>:</code>). This represents the length of the branch immediately below that node. Thus, the above tree might have lengths represented as in Figure <a href="#fig:newickbrlens">4.24</a>.</p>
 <pre class="r"><code>###~~~
 #Tree in Newick format with branch lengths
@@ -2338,8 +2334,8 @@ Figure 4.24: Rooted tree showing relationsip between 4 species with branch lengt
 </ul></li>
 </ol>
 </div>
-<div id="adding-node-supports-to-your-phylogenetic-tree" class="section level5" number="4.11.7.2.3">
-<h5><span class="header-section-number">4.11.7.2.3</span> Adding Node Supports to Your Phylogenetic Tree</h5>
+<div id="adding-node-supports-to-your-phylogenetic-tree" class="section level5" number="4.11.7.3.3">
+<h5><span class="header-section-number">4.11.7.3.3</span> Adding Node Supports to Your Phylogenetic Tree</h5>
 <p>Now, we can finally add <strong>node supports</strong> (inferred using e.g., the bootstrap approach in the case of the Vanilla maximum likelihood analysis conducted here) by simply adding values after each closing parenthesis. This is done as follows and displayed in Figure <a href="#fig:newickbrlensnode">4.25</a>:</p>
 <pre class="r"><code>###~~~
 #Tree in Newick format with branch lengths and node supports
@@ -2393,8 +2389,8 @@ Figure 4.25: Rooted tree showing relationsip between 4 species with branch lengt
 <p><strong>Note:</strong> Bootstrap values represent the percentage of bootstrap replicates that recovered the same grouping. Values ≥70% are generally considered moderate support, while values ≥95% indicate strong statistical support.</p>
 </div>
 </div>
-<div id="the-phylo-class-and-phylogenetic-trees-in-r" class="section level4" number="4.11.7.3">
-<h4><span class="header-section-number">4.11.7.3</span> The <code>phylo</code> Class and Phylogenetic Trees in R</h4>
+<div id="the-phylo-class-and-phylogenetic-trees-in-r" class="section level4" number="4.11.7.4">
+<h4><span class="header-section-number">4.11.7.4</span> The <code>phylo</code> Class and Phylogenetic Trees in R</h4>
 <p>Here, we will introduce the <code>phylo</code> class implemented in R packages dealing with phylogenetic analyses. To study this topic, we will use the phylogenetic tree with branch lengths and node supports (see Figure <a href="#fig:newickbrlensnode">4.25</a>).</p>
 <pre class="r"><code>###~~~
 #Tree in Newick format with branch lengths and node supports
@@ -2443,16 +2439,16 @@ tr$node.label</code></pre>
 tr$edge.length</code></pre>
 <pre><code>## [1] 2.0 4.0 4.2 1.0 2.0 3.0</code></pre>
 </div>
-<div id="challenge" class="section level4" number="4.11.7.4">
-<h4><span class="header-section-number">4.11.7.4</span> Challenge</h4>
+<div id="challenge" class="section level4" number="4.11.7.5">
+<h4><span class="header-section-number">4.11.7.5</span> Challenge</h4>
 <blockquote>
 <p>Using this knowledge, draw and code a phylogenetic tree with 8 samples (tips) containing branch lengths and node supports.</p>
 </blockquote>
 <p>This challenge is done in small groups and each group will take turns to (<em>i</em>) draw their phylogenetic tree on the white board, and (<em>ii</em>) code it using the Newick syntax.</p>
 <p><strong>Tip:</strong> To make sure that your phylogenetic tree is correct, code it and execute it in <code>R</code> using the <em>ape</em> functions shown above.</p>
 </div>
-<div id="vanilla-phylogenetic-tree" class="section level4" number="4.11.7.5">
-<h4><span class="header-section-number">4.11.7.5</span> Vanilla Phylogenetic Tree</h4>
+<div id="vanilla-phylogenetic-tree" class="section level4" number="4.11.7.6">
+<h4><span class="header-section-number">4.11.7.6</span> Vanilla Phylogenetic Tree</h4>
 <p>In this section, we will be analyzing the output of the RAxML analysis focusing on <code>Vanilla_ML.raxml.support</code>, which contains the phylogenetic tree with node supports (here obtained through the bootstrap method). The file is stored in <code>04_Data_analyses/Phylogenetic_analysis/RAxML_analysis</code>.</p>
 <p>Our analyses are divided into seven steps:</p>
 <ol style="list-style-type: decimal">
@@ -2464,8 +2460,8 @@ tr$edge.length</code></pre>
 <li>Extract subtree containing our vanilla samples (using <em>ape::getMRCA()</em> and <em>ape::extract.clade()</em> functions) and plot tree (this time using the radial plotting mode; see Figure <a href="#fig:Vantreesub">4.27</a>). To better visualize your vanilla samples, we will plot a red circle next to their tips (using the <em>ape::tiplabels()</em> function) and rename them based on Figure <a href="#fig:van">4.1</a>.</li>
 <li>Export phylogenetic tree from step 6 in <code>pdf</code> format.</li>
 </ol>
-<div id="code-to-generate-figures-of-the-phylogenetic-tree" class="section level5" number="4.11.7.5.1">
-<h5><span class="header-section-number">4.11.7.5.1</span> Code to generate figures of the phylogenetic tree</h5>
+<div id="code-to-generate-figures-of-the-phylogenetic-tree" class="section level5" number="4.11.7.6.1">
+<h5><span class="header-section-number">4.11.7.6.1</span> Code to generate figures of the phylogenetic tree</h5>
 <p>Before starting, create a new <code>R</code> script entitled <code>03_Part3_PhyloFig.R</code> saved at the root of <code>DNA_barcoding</code>.</p>
 <pre class="r"><code>###~~~
 #1. Load Vanilla RAxML ITS tree
