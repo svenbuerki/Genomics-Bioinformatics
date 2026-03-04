@@ -11,7 +11,7 @@
 
 <meta name="author" content="Sven Buerki - Boise State University" />
 
-<meta name="date" content="2026-03-02" />
+<meta name="date" content="2026-03-03" />
 
 <title>BIOL 497/597 - Genomics &amp; Bioinformatics</title>
 
@@ -383,7 +383,7 @@ div.tocify {
 <h1 class="title toc-ignore">BIOL 497/597 - Genomics &amp; Bioinformatics</h1>
 <h3 class="subtitle">Mini-Reports</h3>
 <h4 class="author">Sven Buerki - Boise State University</h4>
-<h4 class="date">2026-03-02</h4>
+<h4 class="date">2026-03-03</h4>
 
 </div>
 
@@ -1017,9 +1017,19 @@ Groups propose <strong>possible explanations</strong> for why individuals or pop
 </div>
 <div id="phylogenetic-inference" class="section level3" number="4.6.3">
 <h3><span class="header-section-number">4.6.3</span> Phylogenetic Inference</h3>
-<p>As described in <span class="citation">Masters and Pozzi (<a href="#ref-Masters2017">2017</a>)</span>, <strong>phylogenetic inference is the process of reconstructing the evolutionary history of related species by grouping them into successively more inclusive sets based on shared ancestry</strong>. Homologous characters are similar because they are inherited from a common ancestor, and they are the primary source of information for phylogenetic reconstruction. In contrast, homoplasies are characters that appear similar but evolved independently from different ancestral states. Homoplasy can mislead interpretations of evolutionary history.</p>
-<p>Both molecular and morphological datasets can be affected by homoplasy. <strong>Phylogenetic methods aim to distinguish between homologous (signal) and homoplastic (noise) similarities.</strong> Molecular datasets are often large and are analyzed using statistical methods</p>
+<p>As described in <span class="citation">Masters and Pozzi (<a href="#ref-Masters2017">2017</a>)</span>, <strong>phylogenetic inference is the practice of reconstructing the evolutionary history of related species by grouping them in successively more inclusive sets based on shared ancestry</strong>. Homologous characters in independent lineages are similar because they have been inherited from a common ancestor, and they alone should be used in phylogenetic reconstructions. Homoplasies are characters that appear similar, but have evolved from different ancestral states. They may mislead interpretations of evolutionary history. Both molecular and morphological datasets are subject to obfuscation by homoplasy. <strong>Methods of phylogenetic inference aim to distinguish between homologous (signal) and homoplastic (noise) resemblance.</strong> Molecular datasets tend to be very large and are analyzed using statistical techniques that fit the data to models of molecular evolution. These methods are not well suited to morphological data, and combined analyses including both kinds of data tend to obscure the morphological signal. Rates of molecular change may be used to estimate divergence ages.</p>
+<p>In this mini-report, we will be focusing on inferring phylogenetic trees based on DNA sequences obtained through the DNA barcoding approach described <a href="#barcode">above</a>.</p>
+<div id="procedure-1" class="section level4" number="4.6.3.1">
+<h4><span class="header-section-number">4.6.3.1</span> Procedure</h4>
+<p>A phylogenetic analysis is subdivided into four steps:</p>
+<ol style="list-style-type: decimal">
+<li>Produce DNA sequences following steps 1 to 3 as described in <a href="#barcode">DNA barcoding section</a>.</li>
+<li>Produce DNA multiple sequence alignments.</li>
+<li>Test for best-fit model reflecting evolution of DNA region.</li>
+<li>Infer phylogenetic tree, which is usually based either on Maximum Likelihood and/or Bayesian criteria.</li>
+</ol>
 <hr />
+</div>
 </div>
 </div>
 <div id="sciq" class="section level2" number="4.7">
@@ -1028,7 +1038,7 @@ Groups propose <strong>possible explanations</strong> for why individuals or pop
 <blockquote>
 <p><strong>To which species of <em>Vanilla</em> do the individuals presented in Figure <a href="#fig:van">4.1</a> belong?</strong></p>
 </blockquote>
-<p>To address this question, you will work with <strong>four vanilla samples</strong> (Figure <a href="#fig:van">4.1</a>) and their associated ITS DNA barcode sequences, along with ITS sequences from related species available in GenBank. Additional details about the scientific reasoning behind this investigation are provided in the <a href="#sciprocess">Scientific process section</a>.</p>
+<p>To address our question, you will work with <strong>four vanilla samples</strong> (Figure <a href="#fig:van">4.1</a>) and their associated ITS DNA barcode sequences, along with ITS sequences from related species available in GenBank. Additional details about the scientific reasoning behind this investigation are provided in the <a href="#sciprocess">Scientific process section</a>.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:van"></span>
 <img src="Images/Vanilla_samples.png" alt="Images of the four samples of vanilla collected in Mexico studied in this project." width="100%" />
 <p class="caption">
@@ -1045,8 +1055,19 @@ Figure 4.1: Images of the four samples of vanilla collected in Mexico studied in
 </li>
 <li><em>PE50</em></li>
 </ul>
-<div id="sciprocess" class="section level3" number="4.7.1">
-<h3><span class="header-section-number">4.7.1</span> Question, Hypothesis, and Methodology</h3>
+<div id="brief-material-methods" class="section level3" number="4.7.1">
+<h3><span class="header-section-number">4.7.1</span> Brief Material &amp; Methods</h3>
+<p>To investigate their questions <span class="citation">Ellestad et al. (<a href="#ref-Ellestad2022AJB">2022</a>)</span> sampled &gt;30 locations (mostly plantations, but also wild populations) representing &gt;60 samples and sequenced two DNA barcode regions widely used in plants: one chloroplastic (the coding <a href="https://www.ncbi.nlm.nih.gov/gene/844754"><em>rbcL</em></a> region) and one nuclear ribosomal (the ITS region, which stands for “Internal Transcribed Spacer”). These two DNA regions are traditionally used by researchers as DNA barcodes supporting species delimitation and identification. Since you are already familiar with <em>rbcL</em> <span class="citation">(see <a href="#ref-Hollingsworth2009">Hollingsworth et al., 2009</a> for more details)</span>, we will provide more details on the ITS region. The nuclear ribosomal ITS region includes part of 18S, ITS1, 5.8S, ITS2 and part of 26S <span class="citation">(see Figure <a href="#fig:ITS">4.2</a>, <a href="#ref-Cheng2016">Cheng et al., 2016</a>)</span>. This region is repeated in tandem thousands of times and duplicated across chromosomes in order to produce ribosomes, which are key to protein production. This latter DNA region is shared across kingdoms and plant-specific primers have to be used otherwise we may be at risk of amplifying this region for symbiotic organisms <span class="citation">(e.g. fungi, see <a href="#ref-Cheng2016">Cheng et al., 2016</a>)</span>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:ITS"></span>
+<img src="Images/ITS.png" alt="Map of the ITS nuclear ribsomal region with primers (from Cheng et al, 2016)." width="100%" />
+<p class="caption">
+Figure 4.2: Map of the ITS nuclear ribsomal region with primers (from Cheng et al, 2016).
+</p>
+</div>
+<p>DNA extractions of leaf material were conducted at BSU using the Qiagen Plant Mini kit followed by PCR amplifications using plant specific primers [for instance, the IT4p and ITS5p primers for the ITS region; see <span class="citation">Cheng et al. (<a href="#ref-Cheng2016">2016</a>)</span>]. Sequencing was outsourced to <a href="https://www.genewiz.com">GENEWIZ</a> and performed using Sanger sequencing technology. PCR amplicons/fragments were only sequenced using forward primers. As per provider, we are expecting high quality DNA sequencing read lengths of up to ca. 1000 bases. The company also mentions that a typical read would provide 800 bases with Phred score of 20.</p>
+</div>
+<div id="sciprocess" class="section level3" number="4.7.2">
+<h3><span class="header-section-number">4.7.2</span> Question, Hypothesis, and Methodology</h3>
 <p>Our overarching research question is:</p>
 <blockquote>
 <p><strong>To which species of <em>Vanilla</em> do the individuals presented in Figure <a href="#fig:van">4.1</a> belong?</strong></p>
@@ -1060,8 +1081,8 @@ Figure 4.1: Images of the four samples of vanilla collected in Mexico studied in
 If the hypothesis is correct, all four individuals will cluster together in a single, well-supported monophyletic clade with reference sequences of <em>V. planifolia</em>.</p>
 <p>To test this prediction, we will compare ITS barcode sequences generated for our four samples with ITS sequences from related species available in GenBank.</p>
 </div>
-<div id="methodological-overview" class="section level3" number="4.7.2">
-<h3><span class="header-section-number">4.7.2</span> Methodological Overview</h3>
+<div id="methodological-overview" class="section level3" number="4.7.3">
+<h3><span class="header-section-number">4.7.3</span> Methodological Overview</h3>
 <p>Your analyses will follow these main steps:</p>
 <ol style="list-style-type: decimal">
 <li><strong>Generate ITS barcode data</strong> for the four target individuals using PCR and Sanger sequencing (raw data are provided).<br />
@@ -1227,29 +1248,29 @@ If the hypothesis is correct, all four individuals will cluster together in a si
 <p>When evaluating <code>.ab1</code> files (= raw DNA data from an <a href="https://www.thermofisher.com/us/en/home/life-science/sequencing/sanger-sequencing/sanger-sequencing-technology-accessories.html">Applied Biosystems’ Sequencing instrument</a> containing an electropherogram showing the Phred scores and the DNA base sequence), you should first see the electropherogram and come to a conclusion whether your data can be considered of good quality or not.</p>
 <p>Good quality sequencing data/positions are characterized by:</p>
 <ul>
-<li>Well-defined peak resolution (bad resolution of the first 10-25 bases is acceptable; see Figure <a href="#fig:finchtv">4.2</a>). The Phred score is displayed at top of the window (see bars on Figure <a href="#fig:finchtv">4.2</a>).</li>
+<li>Well-defined peak resolution (bad resolution of the first 10-25 bases is acceptable; see Figure <a href="#fig:finchtv">4.3</a>). The Phred score is displayed at top of the window (see bars on Figure <a href="#fig:finchtv">4.3</a>).</li>
 <li>Uniform peak spacing.</li>
 <li>High signal-to-noise ratios.</li>
 </ul>
 <p>Bad quality sequencing data/positions are characterized by:</p>
 <ul>
-<li>Presence of “N”s in the sequence. Indeed, when the base-calling software is unable to accurately identify a nucleotide, it will score it as “N” (meaning that it can be any base; see Figure <a href="#fig:finchtv">4.2</a>). In this tutorial, we will open files individually and search for peaks scored as “N”s. If we can confidently correct those peaks/positions (to either “A/T/C/G or any other IUPAC code; see below) then we will edit the sequence accordingly. To keep track of changes, it is standard procedure to identify edited peaks/positions by using lower cases letters (instead of capital letters as set by default). See below for more details on cases of base polymorphism.</li>
+<li>Presence of “N”s in the sequence. Indeed, when the base-calling software is unable to accurately identify a nucleotide, it will score it as “N” (meaning that it can be any base; see Figure <a href="#fig:finchtv">4.3</a>). In this tutorial, we will open files individually and search for peaks scored as “N”s. If we can confidently correct those peaks/positions (to either “A/T/C/G or any other IUPAC code; see below) then we will edit the sequence accordingly. To keep track of changes, it is standard procedure to identify edited peaks/positions by using lower cases letters (instead of capital letters as set by default). See below for more details on cases of base polymorphism.</li>
 </ul>
 <p>We will be discussing this topic further during class.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:finchtv"></span>
 <img src="Images/FinchTV_snapshot.png" alt="Screenshot of FinchTV app." width="100%" />
 <p class="caption">
-Figure 4.2: Screenshot of FinchTV app.
+Figure 4.3: Screenshot of FinchTV app.
 </p>
 </div>
 </div>
 <div id="iupac-codes" class="section level3" number="4.9.4">
 <h3><span class="header-section-number">4.9.4</span> IUPAC Codes</h3>
-<p>Nuclear DNA regions such as ITS could show evidence of recombination. This means that there could be polymorphism at a specific base [also know as single-nucleotide polymorphism or SNP; see <span class="citation">Poplin et al. (<a href="#ref-Poplin2018">2018</a>)</span> for bioinformatics technics to identify SNPs based on NGS data]. The signature of recombination in an electropherogram would be recognized by the occurrence of “peak under peak” (Figure <a href="#fig:peakunderpeak">4.3</a>). The International Union of Pure and Applied Chemistry (IUPAC) has defined a standard representation of DNA bases by single characters that specify either a single base (e.g. G for guanine, A for adenine) or a set of bases (e.g. R for either G or A). UCSC uses these single character codes to represent multiple observed alleles of single-base polymorphisms (Table <a href="#tab:IUPAC">4.1</a>).</p>
+<p>Nuclear DNA regions such as ITS could show evidence of recombination. This means that there could be polymorphism at a specific base [also know as single-nucleotide polymorphism or SNP; see <span class="citation">Poplin et al. (<a href="#ref-Poplin2018">2018</a>)</span> for bioinformatics technics to identify SNPs based on NGS data]. The signature of recombination in an electropherogram would be recognized by the occurrence of “peak under peak” (Figure <a href="#fig:peakunderpeak">4.4</a>). The International Union of Pure and Applied Chemistry (IUPAC) has defined a standard representation of DNA bases by single characters that specify either a single base (e.g. G for guanine, A for adenine) or a set of bases (e.g. R for either G or A). UCSC uses these single character codes to represent multiple observed alleles of single-base polymorphisms (Table <a href="#tab:IUPAC">4.1</a>).</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:peakunderpeak"></span>
 <img src="Images/peak_under_peak.png" alt="Screenshot of DNA sequence electropherogram showing signature of peak under peak suggesting recombination." width="20%" />
 <p class="caption">
-Figure 4.3: Screenshot of DNA sequence electropherogram showing signature of peak under peak suggesting recombination.
+Figure 4.4: Screenshot of DNA sequence electropherogram showing signature of peak under peak suggesting recombination.
 </p>
 </div>
 <table>
@@ -1335,78 +1356,78 @@ Figure 4.3: Screenshot of DNA sequence electropherogram showing signature of pea
 <li>Download the <a href="https://drive.google.com/drive/folders/1iBMwP67FoSTMDX-EpXOlf8utP9k8tu8k?usp=drive_link"><code>DNA_barcoding/</code></a> folder onto your computers.</li>
 <li>Launch <code>FinchTV</code>. To download it, click <a href="https://digitalworldbiology.com/FinchTV">here</a>.</li>
 <li>Open <code>.ab1</code> file (one at a time) using the <code>File --&gt; Open...</code> tab or by dragging your <code>.ab1</code> file in the main window.</li>
-<li>Make sure that the <code>Base Position Numbers</code>, <code>Base Calls</code> and <code>Quality Values</code> settings are ticked using the <code>View</code> tab (Figure <a href="#fig:finchtv">4.2</a>).</li>
-<li>Trim the first 10-20 bp of the sequence. This is done by selecting bases using the <code>Shift</code> command and then pressing <code>Delete</code> (Figure <a href="#fig:finchtvtrim">4.4</a>).</li>
+<li>Make sure that the <code>Base Position Numbers</code>, <code>Base Calls</code> and <code>Quality Values</code> settings are ticked using the <code>View</code> tab (Figure <a href="#fig:finchtv">4.3</a>).</li>
+<li>Trim the first 10-20 bp of the sequence. This is done by selecting bases using the <code>Shift</code> command and then pressing <code>Delete</code> (Figure <a href="#fig:finchtvtrim">4.5</a>).</li>
 </ol>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:finchtvtrim"></span>
 <img src="Images/Trimming_seq.png" alt="Screenshot of FinchTV app showing trimming procedure." width="90%" />
 <p class="caption">
-Figure 4.4: Screenshot of FinchTV app showing trimming procedure.
+Figure 4.5: Screenshot of FinchTV app showing trimming procedure.
 </p>
 </div>
 <ol start="6" style="list-style-type: decimal">
-<li>Scroll through the sequence and edit “N” peaks/positions by replacing those with lower cases “a/t/c/g”. If you are unable to call the nucleotide, do not edit the position. In the example, position 10 was edited to “g” (Figure <a href="#fig:finchtedit">4.5</a>).</li>
+<li>Scroll through the sequence and edit “N” peaks/positions by replacing those with lower cases “a/t/c/g”. If you are unable to call the nucleotide, do not edit the position. In the example, position 10 was edited to “g” (Figure <a href="#fig:finchtedit">4.6</a>).</li>
 </ol>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:finchtedit"></span>
 <img src="Images/Edit_sequence.png" alt="Screenshot of FinchTV app showing editing procedure." width="90%" />
 <p class="caption">
-Figure 4.5: Screenshot of FinchTV app showing editing procedure.
+Figure 4.6: Screenshot of FinchTV app showing editing procedure.
 </p>
 </div>
 <ol start="7" style="list-style-type: decimal">
-<li>Peaks at the end of the sequences will become more rounded and harder to call. It is therefore standard procedure to trim the last 10-30 bp/positions. Please trim these bp following the procedure explained above. In the example, the quality drops around position 670 (see Figure <a href="#fig:finchtvtrimend">4.6</a>).</li>
+<li>Peaks at the end of the sequences will become more rounded and harder to call. It is therefore standard procedure to trim the last 10-30 bp/positions. Please trim these bp following the procedure explained above. In the example, the quality drops around position 670 (see Figure <a href="#fig:finchtvtrimend">4.7</a>).</li>
 </ol>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:finchtvtrimend"></span>
 <img src="Images/Trim_end_sequence.png" alt="Screenshot of FinchTV app showing trimming procedure at the end of the sequence." width="90%" />
 <p class="caption">
-Figure 4.6: Screenshot of FinchTV app showing trimming procedure at the end of the sequence.
+Figure 4.7: Screenshot of FinchTV app showing trimming procedure at the end of the sequence.
 </p>
 </div>
 <ol start="8" style="list-style-type: decimal">
-<li>Save cleaned sequence in <code>FASTA</code> format in <code>03_Processed_ITS_data_FASTA</code>. Exporting the cleaned sequence is done by pressing <code>File -&gt; Export -&gt; DNA Sequence: FASTA</code>. Please do not rename file, leave it as proposed by <code>FinchTV</code>. The file is saved in interleaved FASTA format as shown in Figure <a href="#fig:fasta">4.7</a>.</li>
+<li>Save cleaned sequence in <code>FASTA</code> format in <code>03_Processed_ITS_data_FASTA</code>. Exporting the cleaned sequence is done by pressing <code>File -&gt; Export -&gt; DNA Sequence: FASTA</code>. Please do not rename file, leave it as proposed by <code>FinchTV</code>. The file is saved in interleaved FASTA format as shown in Figure <a href="#fig:fasta">4.8</a>.</li>
 </ol>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:fasta"></span>
 <img src="Images/FASTA.png" alt="Screenshot of cleaned FASTA sequence as outputted by FinchTV." width="80%" />
 <p class="caption">
-Figure 4.7: Screenshot of cleaned FASTA sequence as outputted by FinchTV.
+Figure 4.8: Screenshot of cleaned FASTA sequence as outputted by FinchTV.
 </p>
 </div>
 <ol start="9" style="list-style-type: decimal">
-<li>Open fasta file in a text editor and copy DNA sequence (including header starting with <code>&gt;</code>; see Figure <a href="#fig:blast1">4.8</a>).</li>
-<li>Go on the BLAST website by clicking <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastn&amp;PAGE_TYPE=BlastSearch&amp;LINK_LOC=blasthome">here</a> and copy your DNA sequence as shown in Figure <a href="#fig:blast1">4.8</a>. Click on the <code>BLAST</code> button to start your query.</li>
+<li>Open fasta file in a text editor and copy DNA sequence (including header starting with <code>&gt;</code>; see Figure <a href="#fig:blast1">4.9</a>).</li>
+<li>Go on the BLAST website by clicking <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastn&amp;PAGE_TYPE=BlastSearch&amp;LINK_LOC=blasthome">here</a> and copy your DNA sequence as shown in Figure <a href="#fig:blast1">4.9</a>. Click on the <code>BLAST</code> button to start your query.</li>
 </ol>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:blast1"></span>
 <img src="Images/BLAST1.png" alt="Screenshot of BLAST form where you copy content of its25-ITSp4.seq" width="90%" />
 <p class="caption">
-Figure 4.8: Screenshot of BLAST form where you copy content of its25-ITSp4.seq
+Figure 4.9: Screenshot of BLAST form where you copy content of its25-ITSp4.seq
 </p>
 </div>
 <ol start="11" style="list-style-type: decimal">
-<li>Inspect the BLAST output to make sure that the top hits are associated to <em>Vanilla</em> and refer to the right DNA region (Figure <a href="#fig:blastres">4.9</a>).</li>
+<li>Inspect the BLAST output to make sure that the top hits are associated to <em>Vanilla</em> and refer to the right DNA region (Figure <a href="#fig:blastres">4.10</a>).</li>
 </ol>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:blastres"></span>
 <img src="Images/BLAST.png" alt="Screenshot of BLAST search based on its25-ITSp4. Note that top hits are ITS sequences of Vanilla species." width="90%" />
 <p class="caption">
-Figure 4.9: Screenshot of BLAST search based on its25-ITSp4. Note that top hits are ITS sequences of Vanilla species.
+Figure 4.10: Screenshot of BLAST search based on its25-ITSp4. Note that top hits are ITS sequences of Vanilla species.
 </p>
 </div>
 <ol start="12" style="list-style-type: decimal">
-<li><p>Click on the <code>Distance tree of results</code> link to perform phylogenetic distance analysis showing position of your sequence compared to sequences available on GenBank (see Figure <a href="#fig:blastres">4.9</a>). This will open a new window.</p></li>
-<li><p>Expand tree to locate your DNA sequence by following procedure in Figure <a href="#fig:expandtree">4.10</a>.</p></li>
+<li><p>Click on the <code>Distance tree of results</code> link to perform phylogenetic distance analysis showing position of your sequence compared to sequences available on GenBank (see Figure <a href="#fig:blastres">4.10</a>). This will open a new window.</p></li>
+<li><p>Expand tree to locate your DNA sequence by following procedure in Figure <a href="#fig:expandtree">4.11</a>.</p></li>
 </ol>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:expandtree"></span>
 <img src="Images/ExpandTree.png" alt="Procedure to expand tree to show position of your DNA sequence in phylogeny." width="90%" />
 <p class="caption">
-Figure 4.10: Procedure to expand tree to show position of your DNA sequence in phylogeny.
+Figure 4.11: Procedure to expand tree to show position of your DNA sequence in phylogeny.
 </p>
 </div>
 <ol start="14" style="list-style-type: decimal">
-<li>Use the Zoom toggle to locate your DNA sequence on the tree (see Figure <a href="#fig:DNAtree">4.11</a>).</li>
+<li>Use the Zoom toggle to locate your DNA sequence on the tree (see Figure <a href="#fig:DNAtree">4.12</a>).</li>
 </ol>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:DNAtree"></span>
 <img src="Images/DNAtree.png" alt="Position of your DNA sequence on tree." width="90%" />
 <p class="caption">
-Figure 4.11: Position of your DNA sequence on tree.
+Figure 4.12: Position of your DNA sequence on tree.
 </p>
 </div>
 <ol start="15" style="list-style-type: decimal">
@@ -1446,17 +1467,17 @@ An introduction to R: <a href="https://cran.r-project.org/doc/manuals/r-release/
 </div>
 <div id="rstudio" class="section level4" number="4.10.2.2">
 <h4><span class="header-section-number">4.10.2.2</span> RStudio</h4>
-<p>RStudio is an <strong>integrated development environment</strong> (IDE) that allows you to interact with R more readily. RStudio is similar to the standard RGUI, but it is considerably more user friendly. It has more drop-down menus, windows with multiple tabs, and many customization options (see Figure <a href="#fig:IDE">4.12</a>). Detailed information on using RStudio can be found at at <a href="https://support.rstudio.com/hc/en-us/sections/200107586-Using-RStudio">RStudio’s website</a>.</p>
+<p>RStudio is an <strong>integrated development environment</strong> (IDE) that allows you to interact with R more readily. RStudio is similar to the standard RGUI, but it is considerably more user friendly. It has more drop-down menus, windows with multiple tabs, and many customization options (see Figure <a href="#fig:IDE">4.13</a>). Detailed information on using RStudio can be found at at <a href="https://support.rstudio.com/hc/en-us/sections/200107586-Using-RStudio">RStudio’s website</a>.</p>
 <div class="figure"><span style="display:block;" id="fig:IDE"></span>
 <img src="Images/IDE.png" alt="Snapshot of the RStudio environment showing the four windows and their content." width="100%" />
 <p class="caption">
-Figure 4.12: Snapshot of the RStudio environment showing the four windows and their content.
+Figure 4.13: Snapshot of the RStudio environment showing the four windows and their content.
 </p>
 </div>
 <div id="editing-and-executing-code-in-rstudio" class="section level5" number="4.10.2.2.1">
 <h5><span class="header-section-number">4.10.2.2.1</span> Editing and Executing Code in RStudio</h5>
 <p>Please consult this <a href="https://support.rstudio.com/hc/en-us/articles/200484448-Editing-and-Executing-Code-in-the-RStudio-IDE">RStudio article</a> to learn more about procedures to edit and execute code in the RStudio environment.</p>
-<p><strong>Tip</strong>: To execute a line of code and send it to the Console you can press <code>Ctrl+Enter</code> on Windows or <code>Command+Enter</code> on Mac or use the Run toolbar button (see Figure <a href="#fig:IDE">4.12</a>).</p>
+<p><strong>Tip</strong>: To execute a line of code and send it to the Console you can press <code>Ctrl+Enter</code> on Windows or <code>Command+Enter</code> on Mac or use the Run toolbar button (see Figure <a href="#fig:IDE">4.13</a>).</p>
 </div>
 </div>
 <div id="introduction-to-r-built-in-functions" class="section level4" number="4.10.2.3">
@@ -1948,11 +1969,11 @@ FileIDfastaSeq &lt;- paste(sp, DNA, gsub(&quot;-&quot;, &quot;_&quot;, Sys.Date(
 write.table(seqOUT, file = 
               paste(&quot;04_Data_analyses/FASTA/&quot;, 
                     FileIDfastaSeq, sep = &#39;&#39;), col.names = F, row.names = F, quote = F)</code></pre>
-<p>Please check that the format of your output file is as expected using a text editor (see Figure <a href="#fig:fastaall">4.13</a>).</p>
+<p>Please check that the format of your output file is as expected using a text editor (see Figure <a href="#fig:fastaall">4.14</a>).</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:fastaall"></span>
 <img src="Images/FASTA_single-gene.png" alt="Screenshot of merged FASTA file used as input for msa analysis." width="90%" />
 <p class="caption">
-Figure 4.13: Screenshot of merged FASTA file used as input for msa analysis.
+Figure 4.14: Screenshot of merged FASTA file used as input for msa analysis.
 </p>
 </div>
 </div>
@@ -2039,55 +2060,55 @@ write.table(FASTAall, file =
 <ol style="list-style-type: decimal">
 <li>Launch <code>MEGA</code>.</li>
 <li>Load your input file (<code>Vanilla_internal transcribed spacer_2021_02_09_GenBank_seq_msa_input.fasta</code>) by clicking <code>File -&gt; Open A File/Session...</code> and selecting the right file.</li>
-<li>The program will ask you <code>How would you like...</code> and you will then click on the <code>Align</code> button. This will open a new window with your data (corresponding to an unaligned DNA matrix; see Figure <a href="#fig:unaligned">4.14</a>).</li>
+<li>The program will ask you <code>How would you like...</code> and you will then click on the <code>Align</code> button. This will open a new window with your data (corresponding to an unaligned DNA matrix; see Figure <a href="#fig:unaligned">4.15</a>).</li>
 </ol>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unaligned"></span>
 <img src="Images/UnalignedMEGA.png" alt="Screenshot of DNA matrix in MEGA." width="100%" />
 <p class="caption">
-Figure 4.14: Screenshot of DNA matrix in MEGA.
+Figure 4.15: Screenshot of DNA matrix in MEGA.
 </p>
 </div>
-<p>4.To start a <code>MUSCLE</code> analysis do has shown in Figure <a href="#fig:muscle">4.15</a> (<code>Alignment -&gt; Align by MUSCLE</code>. A window will open saying <code>Nothing selected for alignment. Select all?</code>, click the <code>OK</code> button. Further details on the <code>MUSCLE</code> algorithm can be found in <span class="citation">Edgar (<a href="#ref-edgar2004muscle">2004</a>)</span>.</p>
+<p>4.To start a <code>MUSCLE</code> analysis do has shown in Figure <a href="#fig:muscle">4.16</a> (<code>Alignment -&gt; Align by MUSCLE</code>. A window will open saying <code>Nothing selected for alignment. Select all?</code>, click the <code>OK</code> button. Further details on the <code>MUSCLE</code> algorithm can be found in <span class="citation">Edgar (<a href="#ref-edgar2004muscle">2004</a>)</span>.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:muscle"></span>
 <img src="Images/MUSCLEMega.png" alt="Screenshot showing how to start a MUSCLE analysis in MEGA." width="100%" />
 <p class="caption">
-Figure 4.15: Screenshot showing how to start a MUSCLE analysis in MEGA.
+Figure 4.16: Screenshot showing how to start a MUSCLE analysis in MEGA.
 </p>
 </div>
 <ol start="5" style="list-style-type: decimal">
-<li>A window showing settings associated with the analysis will appear as shown on Figure <a href="#fig:muscleset">4.16</a>. Please use the parameters set by default and click <code>OK</code> to start the analysis. The analysis should take ca. 5-10 minutes to complete.</li>
+<li>A window showing settings associated with the analysis will appear as shown on Figure <a href="#fig:muscleset">4.17</a>. Please use the parameters set by default and click <code>OK</code> to start the analysis. The analysis should take ca. 5-10 minutes to complete.</li>
 </ol>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:muscleset"></span>
 <img src="Images/MUSCLEMega_settings.png" alt="Screenshot showing MUSCLE settings in MEGA." width="100%" />
 <p class="caption">
-Figure 4.16: Screenshot showing MUSCLE settings in MEGA.
+Figure 4.17: Screenshot showing MUSCLE settings in MEGA.
 </p>
 </div>
 <ol start="6" style="list-style-type: decimal">
-<li>Once the analysis is completed, you will be able to inspect and edit the alignment. Please see Figure <a href="#fig:muscledone">4.17</a> for an example. Notice the gaps (<code>-</code>) that had to be incorporated to accommodate for differences in DNA sequences between samples. Your DNA sequences of <em>Vanilla</em> are at the bottom of the file.</li>
+<li>Once the analysis is completed, you will be able to inspect and edit the alignment. Please see Figure <a href="#fig:muscledone">4.18</a> for an example. Notice the gaps (<code>-</code>) that had to be incorporated to accommodate for differences in DNA sequences between samples. Your DNA sequences of <em>Vanilla</em> are at the bottom of the file.</li>
 </ol>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:muscledone"></span>
 <img src="Images/MUSCLEMega_done.png" alt="Screenshot showing MUSCLE alignment in MEGA." width="100%" />
 <p class="caption">
-Figure 4.17: Screenshot showing MUSCLE alignment in MEGA.
+Figure 4.18: Screenshot showing MUSCLE alignment in MEGA.
 </p>
 </div>
 <ol start="7" style="list-style-type: decimal">
-<li>Save the analysis in <code>FASTA</code> format by clicking <code>Data -&gt; Export Alignment -&gt; FASTA Format</code>. This procedure is also shown in Figure <a href="#fig:muscleexport">4.18</a>.</li>
+<li>Save the analysis in <code>FASTA</code> format by clicking <code>Data -&gt; Export Alignment -&gt; FASTA Format</code>. This procedure is also shown in Figure <a href="#fig:muscleexport">4.19</a>.</li>
 </ol>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:muscleexport"></span>
 <img src="Images/MUSCLEMega_export.png" alt="Screenshot showing how to export MUSCLE alignment into a FASTA format in MEGA." width="100%" />
 <p class="caption">
-Figure 4.18: Screenshot showing how to export MUSCLE alignment into a FASTA format in MEGA.
+Figure 4.19: Screenshot showing how to export MUSCLE alignment into a FASTA format in MEGA.
 </p>
 </div>
 <ol start="8" style="list-style-type: decimal">
-<li>Save the file in <code>04_Data_analyses/FASTA/</code> and adjust file name as follows: <code>_GenBank_seq_msa_output.fasta</code>. This procedure is shown in Figure <a href="#fig:musclefile">4.19</a>. Make sure to have your file extension set as <code>.fasta</code> otherwise you won’t be able to load your file during the <code>RAxML</code> analysis.</li>
+<li>Save the file in <code>04_Data_analyses/FASTA/</code> and adjust file name as follows: <code>_GenBank_seq_msa_output.fasta</code>. This procedure is shown in Figure <a href="#fig:musclefile">4.20</a>. Make sure to have your file extension set as <code>.fasta</code> otherwise you won’t be able to load your file during the <code>RAxML</code> analysis.</li>
 </ol>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:musclefile"></span>
 <img src="Images/MUSCLEMega_filename.png" alt="Screenshot showing how to save file in MEGA." width="100%" />
 <p class="caption">
-Figure 4.19: Screenshot showing how to save file in MEGA.
+Figure 4.20: Screenshot showing how to save file in MEGA.
 </p>
 </div>
 </div>
@@ -2101,22 +2122,22 @@ Figure 4.19: Screenshot showing how to save file in MEGA.
 <ol style="list-style-type: decimal">
 <li>Go on the <a href="https://raxml-ng.vital-it.ch/#/">RAxML portal</a>.</li>
 <li>Select the output of the <code>MEGA</code> analysis (<code>*_GenBank_seq_msa_output.fasta</code>) stored in <code>04_Data_analyses/FASTA/</code> as input data.</li>
-<li>For the rest of the settings use default parameters with the exception of the <code>Bootstrapping settings</code> (see below). Settings have to be set as shown in Figure <a href="#fig:RAxML">4.20</a>.</li>
+<li>For the rest of the settings use default parameters with the exception of the <code>Bootstrapping settings</code> (see below). Settings have to be set as shown in Figure <a href="#fig:RAxML">4.21</a>.</li>
 </ol>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:RAxML"></span>
 <img src="Images/RAxML_online.png" alt="Screenshot showing Bootstrapping settings for the RAxML analysis." width="100%" />
 <p class="caption">
-Figure 4.20: Screenshot showing Bootstrapping settings for the RAxML analysis.
+Figure 4.21: Screenshot showing Bootstrapping settings for the RAxML analysis.
 </p>
 </div>
 <ol start="4" style="list-style-type: decimal">
 <li><p>Finally, don’t forget to provide your email before submitting the analysis. The analysis should take 1-5 hours to run. You will receive an email to download results or you can access results by using your unique URL.</p></li>
-<li><p>When your analysis is completed, download results (see Figure <a href="#fig:RAxMLresults">4.21</a>) and save it in <code>04_Data_analyses/Phylogenetic_analyses/</code>.</p></li>
+<li><p>When your analysis is completed, download results (see Figure <a href="#fig:RAxMLresults">4.22</a>) and save it in <code>04_Data_analyses/Phylogenetic_analyses/</code>.</p></li>
 </ol>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:RAxMLresults"></span>
 <img src="Images/RAxML_results.png" alt="Screenshot of RAxML portal showing results of your analysis. The best ML phylogenetic tree is also displayed." width="100%" />
 <p class="caption">
-Figure 4.21: Screenshot of RAxML portal showing results of your analysis. The best ML phylogenetic tree is also displayed.
+Figure 4.22: Screenshot of RAxML portal showing results of your analysis. The best ML phylogenetic tree is also displayed.
 </p>
 </div>
 <ol start="6" style="list-style-type: decimal">
@@ -2221,11 +2242,11 @@ raxml-ng --all --msa &quot;Vanilla_internal transcribed spacer_2026_02_17_GenBan
 <div id="introduction-to-newick-tree-format" class="section level4" number="4.11.7.2">
 <h4><span class="header-section-number">4.11.7.2</span> Introduction to Newick Tree Format</h4>
 <p>The Newick Standard for representing trees in computer-readable form makes use of the <strong>correspondence between trees and nested parentheses</strong>. We can trace the mathematical foundations of tree representation to the work of British mathematician <a href="https://mathshistory.st-andrews.ac.uk/Biographies/Cayley/">Arthur Cayley</a>, though the specific Newick format was developed by researchers including Joe Felsenstein at Newick’s restaurant in Dover, New Hampshire, USA in 1986. Here we will provide an overview of the Newick format using the R package <em>ape</em> <span class="citation">(<a href="#ref-ape">Paradis et al., 2004</a>)</span>.</p>
-<p>To produce the “dummy” phylogenetic tree displayed in Figure <a href="#fig:intronewick">4.22</a>, the following syntax should be applied:</p>
+<p>To produce the “dummy” phylogenetic tree displayed in Figure <a href="#fig:intronewick">4.23</a>, the following syntax should be applied:</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:intronewick"></span>
 <img src="Mini_reports_files/figure-html/intronewick-1.png" alt="Rooted tree showing relationsip between 4 species." width="100%" />
 <p class="caption">
-Figure 4.22: Rooted tree showing relationsip between 4 species.
+Figure 4.23: Rooted tree showing relationsip between 4 species.
 </p>
 </div>
 <div id="coding-your-first-phylogenetic-tree" class="section level5" number="4.11.7.2.1">
@@ -2272,12 +2293,12 @@ plot(ape::read.tree(text=tr1))</code></pre>
 <li>The bottommost node in the tree is an interior node, not a tip.</li>
 <li>Interior nodes are represented by a pair of matched parentheses (<code>()</code>). Between them are representations of the nodes that are immediately descended from that node, separated by commas (<code>,</code>).</li>
 <li>Tips (or samples) are represented by their names. A name can be any string of printable characters except blanks, colons, semicolons, parentheses, and square brackets.</li>
-<li>Because you may want to include a blank in a tip name, it is assumed that an underscore character (<code>_</code>) stands for a blank; any of these in a name will be converted to a blank when it is read in (see code above and Figure <a href="#fig:intronewick">4.22</a> for more details).</li>
+<li>Because you may want to include a blank in a tip name, it is assumed that an underscore character (<code>_</code>) stands for a blank; any of these in a name will be converted to a blank when it is read in (see code above and Figure <a href="#fig:intronewick">4.23</a> for more details).</li>
 </ul>
 </div>
 <div id="adding-branch-length-to-your-phylogenetic-tree" class="section level5" number="4.11.7.2.2">
 <h5><span class="header-section-number">4.11.7.2.2</span> Adding Branch Length to Your Phylogenetic Tree</h5>
-<p><strong>Branch lengths</strong> (representing e.g., molecular substitutions, which can be turned into time in a dated phylogenetic tree) can be incorporated into a tree by putting a real number, with or without a decimal point, after a node and preceded by a colon (<code>:</code>). This represents the length of the branch immediately below that node. Thus, the above tree might have lengths represented as in Figure <a href="#fig:newickbrlens">4.23</a>.</p>
+<p><strong>Branch lengths</strong> (representing e.g., molecular substitutions, which can be turned into time in a dated phylogenetic tree) can be incorporated into a tree by putting a real number, with or without a decimal point, after a node and preceded by a colon (<code>:</code>). This represents the length of the branch immediately below that node. Thus, the above tree might have lengths represented as in Figure <a href="#fig:newickbrlens">4.24</a>.</p>
 <pre class="r"><code>###~~~
 #Tree in Newick format with branch lengths
 ###~~~
@@ -2291,7 +2312,7 @@ plot(ape::read.tree(text=tr2))</code></pre>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:newickbrlens"></span>
 <img src="Mini_reports_files/figure-html/newickbrlens-1.png" alt="Rooted tree showing relationsip between 4 species with branch lengths." width="100%" />
 <p class="caption">
-Figure 4.23: Rooted tree showing relationsip between 4 species with branch lengths.
+Figure 4.24: Rooted tree showing relationsip between 4 species with branch lengths.
 </p>
 </div>
 <p><strong>Dissecting the Example Tree</strong></p>
@@ -2319,7 +2340,7 @@ Figure 4.23: Rooted tree showing relationsip between 4 species with branch lengt
 </div>
 <div id="adding-node-supports-to-your-phylogenetic-tree" class="section level5" number="4.11.7.2.3">
 <h5><span class="header-section-number">4.11.7.2.3</span> Adding Node Supports to Your Phylogenetic Tree</h5>
-<p>Now, we can finally add <strong>node supports</strong> (inferred using e.g., the bootstrap approach in the case of the Vanilla maximum likelihood analysis conducted here) by simply adding values after each closing parenthesis. This is done as follows and displayed in Figure <a href="#fig:newickbrlensnode">4.24</a>:</p>
+<p>Now, we can finally add <strong>node supports</strong> (inferred using e.g., the bootstrap approach in the case of the Vanilla maximum likelihood analysis conducted here) by simply adding values after each closing parenthesis. This is done as follows and displayed in Figure <a href="#fig:newickbrlensnode">4.25</a>:</p>
 <pre class="r"><code>###~~~
 #Tree in Newick format with branch lengths and node supports
 ###~~~
@@ -2334,7 +2355,7 @@ plot(ape::read.tree(text=tr3), show.node.label = TRUE)</code></pre>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:newickbrlensnode"></span>
 <img src="Mini_reports_files/figure-html/newickbrlensnode-1.png" alt="Rooted tree showing relationsip between 4 species with branch lengths and node supports." width="100%" />
 <p class="caption">
-Figure 4.24: Rooted tree showing relationsip between 4 species with branch lengths and node supports.
+Figure 4.25: Rooted tree showing relationsip between 4 species with branch lengths and node supports.
 </p>
 </div>
 <p><strong>Dissecting the Example Tree</strong></p>
@@ -2374,7 +2395,7 @@ Figure 4.24: Rooted tree showing relationsip between 4 species with branch lengt
 </div>
 <div id="the-phylo-class-and-phylogenetic-trees-in-r" class="section level4" number="4.11.7.3">
 <h4><span class="header-section-number">4.11.7.3</span> The <code>phylo</code> Class and Phylogenetic Trees in R</h4>
-<p>Here, we will introduce the <code>phylo</code> class implemented in R packages dealing with phylogenetic analyses. To study this topic, we will use the phylogenetic tree with branch lengths and node supports (see Figure <a href="#fig:newickbrlensnode">4.24</a>).</p>
+<p>Here, we will introduce the <code>phylo</code> class implemented in R packages dealing with phylogenetic analyses. To study this topic, we will use the phylogenetic tree with branch lengths and node supports (see Figure <a href="#fig:newickbrlensnode">4.25</a>).</p>
 <pre class="r"><code>###~~~
 #Tree in Newick format with branch lengths and node supports
 ###~~~
@@ -2439,8 +2460,8 @@ tr$edge.length</code></pre>
 <li>Discard bootstrap values &lt; 50% since these nodes are not statistically supported. This is done by finding nodes matching this criterion (in <code>ITS$node.label</code>) and replacing their values by nothing (<code>""</code>).</li>
 <li>Rename tips to facilitate reading. Since all accessions belong to same genus, we will replace “<em>Vanilla</em>” by “<em>V.</em>”.</li>
 <li>Root phylogenetic tree with outgroup taxon (using the <em>ape::root()</em> function). Analyses conducted by Paige <span class="citation">(<a href="#ref-Ellestad2022AJB">Ellestad et al., 2022</a>)</span> showed that <em>Vanilla inodora</em> (represented by the sample <code>1789804116_Vanilla_inodora</code>) is a suitable outgroup taxon.</li>
-<li>Ladderize and plot phylogenetic tree (using <em>ape::ladderize()</em> and <em>ape::plot.phylo()</em> functions; see Figure <a href="#fig:Vantreeall">4.25</a>). We will also color in red the tips associated with your vanilla samples to improve readability.</li>
-<li>Extract subtree containing our vanilla samples (using <em>ape::getMRCA()</em> and <em>ape::extract.clade()</em> functions) and plot tree (this time using the radial plotting mode; see Figure <a href="#fig:Vantreesub">4.26</a>). To better visualize your vanilla samples, we will plot a red circle next to their tips (using the <em>ape::tiplabels()</em> function) and rename them based on Figure <a href="#fig:van">4.1</a>.</li>
+<li>Ladderize and plot phylogenetic tree (using <em>ape::ladderize()</em> and <em>ape::plot.phylo()</em> functions; see Figure <a href="#fig:Vantreeall">4.26</a>). We will also color in red the tips associated with your vanilla samples to improve readability.</li>
+<li>Extract subtree containing our vanilla samples (using <em>ape::getMRCA()</em> and <em>ape::extract.clade()</em> functions) and plot tree (this time using the radial plotting mode; see Figure <a href="#fig:Vantreesub">4.27</a>). To better visualize your vanilla samples, we will plot a red circle next to their tips (using the <em>ape::tiplabels()</em> function) and rename them based on Figure <a href="#fig:van">4.1</a>.</li>
 <li>Export phylogenetic tree from step 6 in <code>pdf</code> format.</li>
 </ol>
 <div id="code-to-generate-figures-of-the-phylogenetic-tree" class="section level5" number="4.11.7.5.1">
@@ -2501,7 +2522,7 @@ ape::plot.phylo(ITS, cex=.3, tip.color = tipcol, show.node.label = TRUE, align.t
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:Vantreeall"></span>
 <img src="Mini_reports_files/figure-html/Vantreeall-1.png" alt="RaxML ITS rooted phylogenetic tree of species of Vanilla." width="100%" />
 <p class="caption">
-Figure 4.25: RaxML ITS rooted phylogenetic tree of species of Vanilla.
+Figure 4.26: RaxML ITS rooted phylogenetic tree of species of Vanilla.
 </p>
 </div>
 <pre class="r"><code>###~~~
@@ -2531,7 +2552,7 @@ ape::tiplabels(tip = grep(&quot;^PE&quot;, VanITS$tip.label), pch = 16, col = &q
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:Vantreesub"></span>
 <img src="Mini_reports_files/figure-html/Vantreesub-1.png" alt="RAxML ITS phylogenetic tree with focus on clade containing all accessions of vanilla studied here." width="100%" />
 <p class="caption">
-Figure 4.26: RAxML ITS phylogenetic tree with focus on clade containing all accessions of vanilla studied here.
+Figure 4.27: RAxML ITS phylogenetic tree with focus on clade containing all accessions of vanilla studied here.
 </p>
 </div>
 <pre class="r"><code>###~~~
@@ -2715,7 +2736,7 @@ Vanilla subtree
 <div id="project-structure-and-data" class="section level2" number="4.14">
 <h2><span class="header-section-number">4.14</span> Project Structure and Data</h2>
 <p>To support mastering the learning outcomes, we will be using a subset of a DNA dataset focusing on the <a href="#vanilla">vanilla</a> spice (from the Orchidaceae family) published by <span class="citation">Ellestad et al. (<a href="#ref-Ellestad2022AJB">2022</a>)</span>.</p>
-<p>The data for this assignment are deposited on the shared <a href="https://drive.google.com/drive/folders/1iBMwP67FoSTMDX-EpXOlf8utP9k8tu8k?usp=sharing">Google Drive</a> in a folder entitled <code>DNA_barcoding</code> (located in <code>Mini_Report_3</code>). All students enrolled in this class have been granted access to this folder. The folder is subdivided into four sub-folders (see Figure <a href="#fig:datastr">4.27</a>) and contains a master spreadsheet <code>Vanilla_samples_records.xlsx</code> at its root:</p>
+<p>The data for this assignment are deposited on the shared <a href="https://drive.google.com/drive/folders/1iBMwP67FoSTMDX-EpXOlf8utP9k8tu8k?usp=sharing">Google Drive</a> in a folder entitled <code>DNA_barcoding</code> (located in <code>Mini_Report_3</code>). All students enrolled in this class have been granted access to this folder. The folder is subdivided into four sub-folders (see Figure <a href="#fig:datastr">4.28</a>) and contains a master spreadsheet <code>Vanilla_samples_records.xlsx</code> at its root:</p>
 <ul>
 <li><code>01_Field_images</code>: <code>jpeg</code> images of samples.</li>
 <li><code>02_Raw_ITS_data_ab1</code>: <code>.ab1</code> sequence electropherograms of ITS sequences.</li>
@@ -2727,7 +2748,7 @@ Vanilla subtree
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:datastr"></span>
 <img src="Images/DNA_barcoding_str.png" alt="Screenshot of the DNA_barcoding folder showing data structure for this project." width="90%" />
 <p class="caption">
-Figure 4.27: Screenshot of the DNA_barcoding folder showing data structure for this project.
+Figure 4.28: Screenshot of the DNA_barcoding folder showing data structure for this project.
 </p>
 </div>
 <div id="data-availability" class="section level3" number="4.14.1">
@@ -2752,6 +2773,9 @@ Figure 4.27: Screenshot of the DNA_barcoding folder showing data structure for t
 <div id="ref-CBOL" class="csl-entry">
 <span class="smallcaps">CBOL</span>. 2021. International barcode of life: DNA barcoding. Available at: <a href="https://ibol.org/about/dna-barcoding/">https://ibol.org/about/dna-barcoding/</a>.
 </div>
+<div id="ref-Cheng2016" class="csl-entry">
+<span class="smallcaps">Cheng, T.</span>, <span class="smallcaps">C. Xu</span>, <span class="smallcaps">L. Lei</span>, <span class="smallcaps">C. Li</span>, <span class="smallcaps">Y. Zhang</span>, and <span class="smallcaps">S. Zhou</span>. 2016. Barcoding the kingdom plantae: New PCR primers for ITS regions of plants with improved universality and specificity. <em>Molecular Ecology Resources</em> 16: 138–149. Available at: <a href="https://onlinelibrary.wiley.com/doi/abs/10.1111/1755-0998.12438">https://onlinelibrary.wiley.com/doi/abs/10.1111/1755-0998.12438</a>.
+</div>
 <div id="ref-GO2020" class="csl-entry">
 <span class="smallcaps">Consortium, T.G.O.</span> 2020. <span class="nocase">The Gene Ontology resource: enriching a GOld mine</span>. <em>Nucleic Acids Research</em> 49: D325–D334. Available at: <a href="https://doi.org/10.1093/nar/gkaa1113">https://doi.org/10.1093/nar/gkaa1113</a>.
 </div>
@@ -2772,6 +2796,9 @@ Figure 4.27: Screenshot of the DNA_barcoding folder showing data structure for t
 </div>
 <div id="ref-gonccalves2015dna" class="csl-entry">
 <span class="smallcaps">Gonçalves, P.F.</span>, <span class="smallcaps">A.R. Oliveira-Marques</span>, <span class="smallcaps">T.E. Matsumoto</span>, and <span class="smallcaps">C.Y. Miyaki</span>. 2015. DNA barcoding identifies illegal parrot trade. <em>Journal of Heredity</em> 106: 560–564.
+</div>
+<div id="ref-Hollingsworth2009" class="csl-entry">
+<span class="smallcaps">Hollingsworth, P.M.</span>, <span class="smallcaps">L.L. Forrest</span>, <span class="smallcaps">J.L. Spouge</span>, <span class="smallcaps">M. Hajibabaei</span>, <span class="smallcaps">S. Ratnasingham</span>, <span class="smallcaps">M. van der Bank</span>, <span class="smallcaps">M.W. Chase</span>, et al. 2009. A DNA barcode for land plants. <em>Proceedings of the National Academy of Sciences</em> 106: 12794–12797. Available at: <a href="https://www.pnas.org/content/106/31/12794">https://www.pnas.org/content/106/31/12794</a>.
 </div>
 <div id="ref-KEGG2022" class="csl-entry">
 <span class="smallcaps">Kanehisa, M.</span>, <span class="smallcaps">M. Furumichi</span>, <span class="smallcaps">Y. Sato</span>, <span class="smallcaps">M. Kawashima</span>, and <span class="smallcaps">M. Ishiguro-Watanabe</span>. 2022. <span class="nocase">KEGG for taxonomy-based analysis of pathways and genomes</span>. <em>Nucleic Acids Research</em> 51: D587–D592. Available at: <a href="https://doi.org/10.1093/nar/gkac963">https://doi.org/10.1093/nar/gkac963</a>.

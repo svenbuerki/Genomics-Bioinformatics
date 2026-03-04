@@ -546,9 +546,18 @@ A DNA barcoding workflow generally includes four steps:
 
 ### Phylogenetic Inference
 
-As described in @Masters2017, **phylogenetic inference is the process of reconstructing the evolutionary history of related species by grouping them into successively more inclusive sets based on shared ancestry**. Homologous characters are similar because they are inherited from a common ancestor, and they are the primary source of information for phylogenetic reconstruction. In contrast, homoplasies are characters that appear similar but evolved independently from different ancestral states. Homoplasy can mislead interpretations of evolutionary history.
+As described in @Masters2017, **phylogenetic inference is the practice of reconstructing the evolutionary history of related species by grouping them in successively more inclusive sets based on shared ancestry**. Homologous characters in independent lineages are similar because they have been inherited from a common ancestor, and they alone should be used in phylogenetic reconstructions. Homoplasies are characters that appear similar, but have evolved from different ancestral states. They may mislead interpretations of evolutionary history. Both molecular and morphological datasets are subject to obfuscation by homoplasy. **Methods of phylogenetic inference aim to distinguish between homologous (signal) and homoplastic (noise) resemblance.** Molecular datasets tend to be very large and are analyzed using statistical techniques that fit the data to models of molecular evolution. These methods are not well suited to morphological data, and combined analyses including both kinds of data tend to obscure the morphological signal. Rates of molecular change may be used to estimate divergence ages.
 
-Both molecular and morphological datasets can be affected by homoplasy. **Phylogenetic methods aim to distinguish between homologous (signal) and homoplastic (noise) similarities.** Molecular datasets are often large and are analyzed using statistical methods
+In this mini-report, we will be focusing on inferring phylogenetic trees based on DNA sequences obtained through the DNA barcoding approach described [above](#barcode). 
+
+#### Procedure
+
+A phylogenetic analysis is subdivided into four steps:
+
+1. Produce DNA sequences following steps 1 to 3 as described in [DNA barcoding section](#barcode).
+2. Produce DNA multiple sequence alignments.
+3. Test for best-fit model reflecting evolution of DNA region.
+4. Infer phylogenetic tree, which is usually based either on Maximum Likelihood and/or Bayesian criteria.
 
 ---
 
@@ -558,7 +567,7 @@ In this assignment, you will investigate the following question:
 
 > **To which species of *Vanilla* do the individuals presented in Figure \@ref(fig:van) belong?**
 
-To address this question, you will work with **four vanilla samples** (Figure \@ref(fig:van)) and their associated ITS DNA barcode sequences, along with ITS sequences from related species available in GenBank. Additional details about the scientific reasoning behind this investigation are provided in the [Scientific process section](#sciprocess).
+To address our question, you will work with **four vanilla samples** (Figure \@ref(fig:van)) and their associated ITS DNA barcode sequences, along with ITS sequences from related species available in GenBank. Additional details about the scientific reasoning behind this investigation are provided in the [Scientific process section](#sciprocess).
 
 ```{r van, echo=FALSE, fig.align="center", fig.cap="Images of the four samples of vanilla collected in Mexico studied in this project.", fig.show="asis", out.width='100%'}
 knitr::include_graphics("Images/Vanilla_samples.png")
@@ -570,6 +579,16 @@ Throughout the project, these vanilla individuals will be referred to as:
 - *PE44*  
 - *PE49*  
 - *PE50*
+
+### Brief Material & Methods
+
+To investigate their questions @Ellestad2022AJB sampled >30 locations (mostly plantations, but also wild populations) representing >60 samples and sequenced two DNA barcode regions widely used in plants: one chloroplastic (the coding [*rbcL*](https://www.ncbi.nlm.nih.gov/gene/844754) region) and one nuclear ribosomal (the ITS region, which stands for "Internal Transcribed Spacer"). These two DNA regions are traditionally used by researchers as DNA barcodes supporting species delimitation and identification. Since you are already familiar with *rbcL* [see @Hollingsworth2009 for more details], we will provide more details on the ITS region. The nuclear ribosomal ITS region includes part of 18S, ITS1, 5.8S, ITS2 and part of 26S [see Figure \@ref(fig:ITS), @Cheng2016]. This region is repeated in tandem thousands of times and duplicated across chromosomes in order to produce ribosomes, which are key to protein production. This latter DNA region is shared across kingdoms and plant-specific primers have to be used otherwise we may be at risk of amplifying this region for symbiotic organisms [e.g. fungi, see @Cheng2016].
+
+```{r ITS, echo=FALSE, fig.align="center", fig.cap="Map of the ITS nuclear ribsomal region with primers (from Cheng et al, 2016).", fig.show="asis", out.width = '100%'}
+knitr::include_graphics("Images/ITS.png")
+```
+
+DNA extractions of leaf material were conducted at BSU using the Qiagen Plant Mini kit followed by PCR amplifications using plant specific primers [for instance, the IT4p and ITS5p primers for the ITS region; see @Cheng2016]. Sequencing was outsourced to [GENEWIZ](https://www.genewiz.com) and performed using Sanger sequencing technology. PCR amplicons/fragments were only sequenced using forward primers. As per provider, we are expecting high quality DNA sequencing read lengths of up to ca. 1000 bases. The company also mentions that a typical read would provide 800 bases with Phred score of 20.
 
 ### Question, Hypothesis, and Methodology {#sciprocess}
 
