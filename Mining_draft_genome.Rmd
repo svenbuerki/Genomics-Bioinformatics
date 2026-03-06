@@ -110,6 +110,7 @@ This activity will help you:
 ## Materials
 
 - @Melton2021 — Draft genome publication
+  - Available at: https://onlinelibrary.wiley.com/doi/abs/10.1002/ece3.8245
 - [NCBI](https://www.ncbi.nlm.nih.gov/)
 - [Lexicon](Lexicon.html)
 
