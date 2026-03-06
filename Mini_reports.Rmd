@@ -389,6 +389,7 @@ The assignment is organized into the following sections:
     - [**Part 1**](#part1): Process and clean ITS DNA sequence electropherograms and develop a species working hypothesis.  
     - [**Part 2**](#part2): Retrieve DNA sequences and prepare comparative datasets.  
     - [**Part 3**](#part3): Perform multiple sequence alignment and phylogenetic inference.
+- [**Group Activity: Phylogenetic Data Interpretation Workshop**](#groupdiscussionminireport3): This collaborative data interpretation exercise is designed as a **rapid analysis workshop** where students reflect on their results in light of their working hypothesis and core scientific question. 
 - [**Writing the report**](#report): This section provides detailed guidelines to help you write and organize your individual mini-report, including how to interpret and present your results as scientific evidence.
 - [**Evaluation rubrics**](#minireport3rubrics): This section describes the criteria and rubrics used to evaluate your mini-report.
 
@@ -1948,8 +1949,6 @@ ape::tiplabels(tip = grep("^PE", VanITS$tip.label), pch = 16, col = "red", offse
 dev.off()
 ```
 
-### Discussion
-
 Click on the button below to inspect the final *Vanilla* phylogenetic tree (in `pdf` format) and answer this scientific question:
 
 >What species do the samples of vanilla analyzed here belong to (see Figure \@ref(fig:van)) and **why**?
@@ -1964,6 +1963,148 @@ Click on the button below to inspect the final *Vanilla* phylogenetic tree (in `
     </embed>
 </object>
 </div>
+
+## 🤝 Group Activity: Phylogenetic Data Interpretation Workshop {#groupdiscussionminireport3}
+
+### Learning Outcomes
+
+- Practice rapid interpretation of phylogenetic trees as evolutionary hypotheses
+- Develop skills in connecting molecular evidence to hypothesis testing and species identification
+- Evaluate results against initial working hypotheses and research questions
+- Strengthen efficient scientific argumentation and peer review abilities
+- Prepare content for the Discussion section of Mini-Report 3
+
+---
+
+### Activity Overview
+
+This collaborative data interpretation exercise is designed as a **rapid analysis workshop** where students reflect on their results in light of their working hypothesis and core scientific question. 
+
+Groups will quickly work through key analytical steps to extract essential information from their results and practice efficient data interpretation skills. This fast-paced approach mirrors real research scenarios where scientists must rapidly synthesize multiple lines of evidence to test hypotheses and draw conclusions. 
+
+Students are encouraged to carefully document their outcomes in a summary sheet that will serve as the foundation for writing their Mini-Report 3 discussion section.
+
+---
+
+### Materials
+
+- @Ellestad2022AJB — [**DNA barcoding and phylogenetics of Vanilla**](https://doi.org/10.1002/ajb2.16024) 
+- [Lexicon](https://svenbuerki.github.io/Genomics-Bioinformatics/Lexicon.html)  
+- Data and results from Mini-Report 3
+
+---
+
+### Activity Structure <span style="color:gray;">(45 minutes)</span>
+
+**Setup:** Divide class into groups of 3-4 students each. All groups will work through the same four activities and maintain a shared bullet-point summary sheet.
+
+#### **Phase 1: Rapid Sequential Analysis <span style="color:gray;">(32 minutes)</span>**
+
+All groups work through these four activities in sequence (8 minutes each):
+
+##### Activity 1: BLAST Results vs. Working Hypothesis (8 minutes)
+
+- **Materials:** Sample BLAST output table, vanilla DNA sequence data, initial working hypothesis
+- **Task:** Rapidly analyze BLAST results against your initial species identification hypothesis
+
+**Group Discussion Points:**
+
+- Do BLAST results support or contradict your working hypothesis?
+- What similarity percentages suggest species-level matches?
+- How do you interpret conflicting BLAST results?
+- Which reference species show strongest matches and why?
+
+**Bullet-Point Summary (groups record):**
+
+- Working hypothesis supported/rejected: ___________
+- Species hypothesis based on BLAST: ___________
+- Supporting evidence (similarity %, E-values): ___________
+- Confidence level (high/medium/low): ___________
+- Unexpected findings: ___________
+
+##### Activity 2: Phylogenetic Evidence and Hypothesis Testing (8 minutes)
+
+- **Materials:** Vanilla phylogenetic tree(s)
+- **Task:** Quickly interpret phylogenetic relationships in context of your research question
+
+**Group Discussion Points:**
+
+- Do phylogenetic relationships support your species hypothesis?
+- Which samples cluster together as sister taxa and what does this mean?
+- What do bootstrap values tell us about relationship confidence?
+- How do results address your core scientific question about vanilla species identity?
+
+**Bullet-Point Summary (groups record):**
+
+- Phylogenetic support for hypothesis: ___________
+- Closest relatives of our samples: ___________
+- Bootstrap support values: ___________
+- New insights about relationships: ___________
+
+##### Activity 3: Hypothesis Refinement and Evidence Integration (8 minutes)
+
+- **Materials:** Combined BLAST and phylogenetic results, original research question
+- **Task:** Rapidly integrate molecular evidence to refine hypothesis and answer research question
+
+**Group Discussion Points:**
+
+- Do BLAST and phylogenetic results agree with each other and your hypothesis?
+- How do you resolve conflicting evidence?
+- What does the combined evidence tell us about vanilla species identity?
+- How confident are you in answering your original research question?
+
+**Bullet-Point Summary (groups record):**
+
+- Revised species identification: ___________
+- Supporting evidence types: ___________
+- Areas of agreement between methods: ___________
+- Remaining uncertainties: ___________
+- Answer to research question: ___________
+
+##### Activity 4: Scientific Conclusions and Hypothesis Evaluation (8 minutes)
+
+- **Materials:** Argument structure template, research question framework
+- **Task:** Rapidly structure conclusions that directly address your research question and hypothesis
+
+**Group Discussion Points:**
+
+- What is your final answer to the research question?
+- How strongly does evidence support or reject your working hypothesis?
+- What are the broader implications of your findings?
+- What limitations affect your conclusions?
+
+**Bullet-Point Summary (groups record):**
+
+- Final conclusion about species identity: ___________
+- Hypothesis outcome (supported/rejected/modified): ___________
+- Three strongest pieces of evidence: ___________
+- Acknowledged limitations: ___________
+- Broader significance: ___________
+
+---
+
+#### **Phase 2: Whole Class Synthesis & Feedback (13 minutes)**
+
+##### Rapid Group Sharing Round (8 minutes)
+
+Each group shares key findings (2 minutes per group):
+
+- **How results compared to initial working hypothesis**
+- **Final answer to the research question**
+- **Strongest supporting evidence**
+- **Most surprising finding or challenge**
+
+##### Class Discussion & Integration (5 minutes)
+
+**Facilitator leads synthesis:**
+
+- How did results compare to initial expectations across groups?
+- What evidence types were most reliable for hypothesis testing?
+- How do you handle when results don't match your hypothesis?
+- What does this teach us about the scientific process?
+- Preview of how this connects to [Discussion section writing](#report)
+
+---
 
 ## Writing your report {#report}
 

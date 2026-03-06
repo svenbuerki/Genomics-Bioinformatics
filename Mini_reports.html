@@ -11,7 +11,7 @@
 
 <meta name="author" content="Sven Buerki - Boise State University" />
 
-<meta name="date" content="2026-03-04" />
+<meta name="date" content="2026-03-06" />
 
 <title>BIOL 497/597 - Genomics &amp; Bioinformatics</title>
 
@@ -383,7 +383,7 @@ div.tocify {
 <h1 class="title toc-ignore">BIOL 497/597 - Genomics &amp; Bioinformatics</h1>
 <h3 class="subtitle">Mini-Reports</h3>
 <h4 class="author">Sven Buerki - Boise State University</h4>
-<h4 class="date">2026-03-04</h4>
+<h4 class="date">2026-03-06</h4>
 
 </div>
 
@@ -856,6 +856,7 @@ Up to <strong>–5 points</strong> may be deducted for failure to follow formatt
 </li>
 <li><a href="#part3"><strong>Part 3</strong></a>: Perform multiple sequence alignment and phylogenetic inference.</li>
 </ul></li>
+<li><a href="#groupdiscussionminireport3"><strong>Group Activity: Phylogenetic Data Interpretation Workshop</strong></a>: This collaborative data interpretation exercise is designed as a <strong>rapid analysis workshop</strong> where students reflect on their results in light of their working hypothesis and core scientific question.</li>
 <li><a href="#report"><strong>Writing the report</strong></a>: This section provides detailed guidelines to help you write and organize your individual mini-report, including how to interpret and present your results as scientific evidence.</li>
 <li><a href="#minireport3rubrics"><strong>Evaluation rubrics</strong></a>: This section describes the criteria and rubrics used to evaluate your mini-report.</li>
 </ul>
@@ -1098,7 +1099,7 @@ If the hypothesis is correct, all four individuals will cluster together in a si
 </ul></li>
 <li><strong>Visualize and interpret phylogenetic trees</strong> using <code>R</code> to evaluate whether the samples form a monophyletic group and to test the working hypothesis.</li>
 </ol>
-<p>Finally, you will integrate evidence from sequence similarity, phylogenetic clustering, bootstrap support values, and taxonomic information from GenBank to determine the most likely species identity of your samples. See Section <a href="#report">4.12</a> for guidelines on how to present and interpret this evidence in your report.</p>
+<p>Finally, you will integrate evidence from sequence similarity, phylogenetic clustering, bootstrap support values, and taxonomic information from GenBank to determine the most likely species identity of your samples. See Section <a href="#report">4.13</a> for guidelines on how to present and interpret this evidence in your report.</p>
 <hr />
 </div>
 </div>
@@ -2567,11 +2568,6 @@ ape::tiplabels(tip = grep(&quot;^PE&quot;, VanITS$tip.label), pch = 16, col = &q
 dev.off()</code></pre>
 <pre><code>## quartz_off_screen 
 ##                 2</code></pre>
-</div>
-</div>
-</div>
-<div id="discussion" class="section level3" number="4.11.8">
-<h3><span class="header-section-number">4.11.8</span> Discussion</h3>
 <p>Click on the button below to inspect the final <em>Vanilla</em> phylogenetic tree (in <code>pdf</code> format) and answer this scientific question:</p>
 <blockquote>
 <p>What species do the samples of vanilla analyzed here belong to (see Figure <a href="#fig:van">4.1</a>) and <strong>why</strong>?</p>
@@ -2588,15 +2584,169 @@ Vanilla subtree
 </div>
 </div>
 </div>
-<div id="report" class="section level2" number="4.12">
-<h2><span class="header-section-number">4.12</span> Writing your report</h2>
+</div>
+</div>
+<div id="groupdiscussionminireport3" class="section level2" number="4.12">
+<h2><span class="header-section-number">4.12</span> 🤝 Group Activity: Phylogenetic Data Interpretation Workshop</h2>
+<div id="learning-outcomes-2" class="section level3" number="4.12.1">
+<h3><span class="header-section-number">4.12.1</span> Learning Outcomes</h3>
+<ul>
+<li>Practice rapid interpretation of phylogenetic trees as evolutionary hypotheses</li>
+<li>Develop skills in connecting molecular evidence to hypothesis testing and species identification</li>
+<li>Evaluate results against initial working hypotheses and research questions</li>
+<li>Strengthen efficient scientific argumentation and peer review abilities</li>
+<li>Prepare content for the Discussion section of Mini-Report 3</li>
+</ul>
+<hr />
+</div>
+<div id="activity-overview-1" class="section level3" number="4.12.2">
+<h3><span class="header-section-number">4.12.2</span> Activity Overview</h3>
+<p>This collaborative data interpretation exercise is designed as a <strong>rapid analysis workshop</strong> where students reflect on their results in light of their working hypothesis and core scientific question.</p>
+<p>Groups will quickly work through key analytical steps to extract essential information from their results and practice efficient data interpretation skills. This fast-paced approach mirrors real research scenarios where scientists must rapidly synthesize multiple lines of evidence to test hypotheses and draw conclusions.</p>
+<p>Students are encouraged to carefully document their outcomes in a summary sheet that will serve as the foundation for writing their Mini-Report 3 discussion section.</p>
+<hr />
+</div>
+<div id="materials-1" class="section level3" number="4.12.3">
+<h3><span class="header-section-number">4.12.3</span> Materials</h3>
+<ul>
+<li><span class="citation">Ellestad et al. (<a href="#ref-Ellestad2022AJB">2022</a>)</span> — <a href="https://doi.org/10.1002/ajb2.16024"><strong>DNA barcoding and phylogenetics of Vanilla</strong></a></li>
+<li><a href="https://svenbuerki.github.io/Genomics-Bioinformatics/Lexicon.html">Lexicon</a><br />
+</li>
+<li>Data and results from Mini-Report 3</li>
+</ul>
+<hr />
+</div>
+<div id="activity-structure-45-minutes" class="section level3" number="4.12.4">
+<h3><span class="header-section-number">4.12.4</span> Activity Structure <span style="color:gray;">(45 minutes)</span></h3>
+<p><strong>Setup:</strong> Divide class into groups of 3-4 students each. All groups will work through the same four activities and maintain a shared bullet-point summary sheet.</p>
+<div id="phase-1-rapid-sequential-analysis-32-minutes" class="section level4" number="4.12.4.1">
+<h4><span class="header-section-number">4.12.4.1</span> <strong>Phase 1: Rapid Sequential Analysis <span style="color:gray;">(32 minutes)</span></strong></h4>
+<p>All groups work through these four activities in sequence (8 minutes each):</p>
+<div id="activity-1-blast-results-vs.-working-hypothesis-8-minutes" class="section level5" number="4.12.4.1.1">
+<h5><span class="header-section-number">4.12.4.1.1</span> Activity 1: BLAST Results vs. Working Hypothesis (8 minutes)</h5>
+<ul>
+<li><strong>Materials:</strong> Sample BLAST output table, vanilla DNA sequence data, initial working hypothesis</li>
+<li><strong>Task:</strong> Rapidly analyze BLAST results against your initial species identification hypothesis</li>
+</ul>
+<p><strong>Group Discussion Points:</strong></p>
+<ul>
+<li>Do BLAST results support or contradict your working hypothesis?</li>
+<li>What similarity percentages suggest species-level matches?</li>
+<li>How do you interpret conflicting BLAST results?</li>
+<li>Which reference species show strongest matches and why?</li>
+</ul>
+<p><strong>Bullet-Point Summary (groups record):</strong></p>
+<ul>
+<li>Working hypothesis supported/rejected: ___________</li>
+<li>Species hypothesis based on BLAST: ___________</li>
+<li>Supporting evidence (similarity %, E-values): ___________</li>
+<li>Confidence level (high/medium/low): ___________</li>
+<li>Unexpected findings: ___________</li>
+</ul>
+</div>
+<div id="activity-2-phylogenetic-evidence-and-hypothesis-testing-8-minutes" class="section level5" number="4.12.4.1.2">
+<h5><span class="header-section-number">4.12.4.1.2</span> Activity 2: Phylogenetic Evidence and Hypothesis Testing (8 minutes)</h5>
+<ul>
+<li><strong>Materials:</strong> Vanilla phylogenetic tree(s)</li>
+<li><strong>Task:</strong> Quickly interpret phylogenetic relationships in context of your research question</li>
+</ul>
+<p><strong>Group Discussion Points:</strong></p>
+<ul>
+<li>Do phylogenetic relationships support your species hypothesis?</li>
+<li>Which samples cluster together as sister taxa and what does this mean?</li>
+<li>What do bootstrap values tell us about relationship confidence?</li>
+<li>How do results address your core scientific question about vanilla species identity?</li>
+</ul>
+<p><strong>Bullet-Point Summary (groups record):</strong></p>
+<ul>
+<li>Phylogenetic support for hypothesis: ___________</li>
+<li>Closest relatives of our samples: ___________</li>
+<li>Bootstrap support values: ___________</li>
+<li>New insights about relationships: ___________</li>
+</ul>
+</div>
+<div id="activity-3-hypothesis-refinement-and-evidence-integration-8-minutes" class="section level5" number="4.12.4.1.3">
+<h5><span class="header-section-number">4.12.4.1.3</span> Activity 3: Hypothesis Refinement and Evidence Integration (8 minutes)</h5>
+<ul>
+<li><strong>Materials:</strong> Combined BLAST and phylogenetic results, original research question</li>
+<li><strong>Task:</strong> Rapidly integrate molecular evidence to refine hypothesis and answer research question</li>
+</ul>
+<p><strong>Group Discussion Points:</strong></p>
+<ul>
+<li>Do BLAST and phylogenetic results agree with each other and your hypothesis?</li>
+<li>How do you resolve conflicting evidence?</li>
+<li>What does the combined evidence tell us about vanilla species identity?</li>
+<li>How confident are you in answering your original research question?</li>
+</ul>
+<p><strong>Bullet-Point Summary (groups record):</strong></p>
+<ul>
+<li>Revised species identification: ___________</li>
+<li>Supporting evidence types: ___________</li>
+<li>Areas of agreement between methods: ___________</li>
+<li>Remaining uncertainties: ___________</li>
+<li>Answer to research question: ___________</li>
+</ul>
+</div>
+<div id="activity-4-scientific-conclusions-and-hypothesis-evaluation-8-minutes" class="section level5" number="4.12.4.1.4">
+<h5><span class="header-section-number">4.12.4.1.4</span> Activity 4: Scientific Conclusions and Hypothesis Evaluation (8 minutes)</h5>
+<ul>
+<li><strong>Materials:</strong> Argument structure template, research question framework</li>
+<li><strong>Task:</strong> Rapidly structure conclusions that directly address your research question and hypothesis</li>
+</ul>
+<p><strong>Group Discussion Points:</strong></p>
+<ul>
+<li>What is your final answer to the research question?</li>
+<li>How strongly does evidence support or reject your working hypothesis?</li>
+<li>What are the broader implications of your findings?</li>
+<li>What limitations affect your conclusions?</li>
+</ul>
+<p><strong>Bullet-Point Summary (groups record):</strong></p>
+<ul>
+<li>Final conclusion about species identity: ___________</li>
+<li>Hypothesis outcome (supported/rejected/modified): ___________</li>
+<li>Three strongest pieces of evidence: ___________</li>
+<li>Acknowledged limitations: ___________</li>
+<li>Broader significance: ___________</li>
+</ul>
+<hr />
+</div>
+</div>
+<div id="phase-2-whole-class-synthesis-feedback-13-minutes" class="section level4" number="4.12.4.2">
+<h4><span class="header-section-number">4.12.4.2</span> <strong>Phase 2: Whole Class Synthesis &amp; Feedback (13 minutes)</strong></h4>
+<div id="rapid-group-sharing-round-8-minutes" class="section level5" number="4.12.4.2.1">
+<h5><span class="header-section-number">4.12.4.2.1</span> Rapid Group Sharing Round (8 minutes)</h5>
+<p>Each group shares key findings (2 minutes per group):</p>
+<ul>
+<li><strong>How results compared to initial working hypothesis</strong></li>
+<li><strong>Final answer to the research question</strong></li>
+<li><strong>Strongest supporting evidence</strong></li>
+<li><strong>Most surprising finding or challenge</strong></li>
+</ul>
+</div>
+<div id="class-discussion-integration-5-minutes" class="section level5" number="4.12.4.2.2">
+<h5><span class="header-section-number">4.12.4.2.2</span> Class Discussion &amp; Integration (5 minutes)</h5>
+<p><strong>Facilitator leads synthesis:</strong></p>
+<ul>
+<li>How did results compare to initial expectations across groups?</li>
+<li>What evidence types were most reliable for hypothesis testing?</li>
+<li>How do you handle when results don’t match your hypothesis?</li>
+<li>What does this teach us about the scientific process?</li>
+<li>Preview of how this connects to <a href="#report">Discussion section writing</a></li>
+</ul>
+<hr />
+</div>
+</div>
+</div>
+</div>
+<div id="report" class="section level2" number="4.13">
+<h2><span class="header-section-number">4.13</span> Writing your report</h2>
 <p>The instructor provides below information to complete the Mini-Report 3. All the material, data, code and references required to complete this report are provided here and are covered in class. In this context, students will have to focus on formatting their reports following guidelines presented here as well as making sure that their <code>R</code> code is working and ready to be shared.</p>
-<div id="apply-the-imrad-format-and-supply-code" class="section level3" number="4.12.1">
-<h3><span class="header-section-number">4.12.1</span> Apply the IMRAD Format and Supply Code</h3>
+<div id="apply-the-imrad-format-and-supply-code" class="section level3" number="4.13.1">
+<h3><span class="header-section-number">4.13.1</span> Apply the IMRAD Format and Supply Code</h3>
 <p>Your reports will be structured and organized following the <strong>IMMRAD</strong> format: <strong>I</strong>ntroduction, <strong>M</strong>aterial &amp; <strong>M</strong>ethods, <strong>R</strong>esults, and <strong>D</strong>iscussion. This format is widely used to report experimental research in many scientific disciplines. In addition, you will be complementing your reports with an <strong>Abstract</strong> (see below). Finally, since this research relies heavily on bioinformatics, students will complete their reports by supplying their commented <code>R</code> scripts.</p>
 </div>
-<div id="structure-of-mini-report-3" class="section level3" number="4.12.2">
-<h3><span class="header-section-number">4.12.2</span> Structure of Mini-Report 3</h3>
+<div id="structure-of-mini-report-3" class="section level3" number="4.13.2">
+<h3><span class="header-section-number">4.13.2</span> Structure of Mini-Report 3</h3>
 <p>The instructor provides guidance on content for each section of your individual reports:</p>
 <ol style="list-style-type: decimal">
 <li><strong>Title &amp; author</strong>: Please supply a first page containing the title and author information.</li>
@@ -2622,14 +2772,14 @@ Vanilla subtree
 <li><strong>Appendix</strong>: Your <code>R</code> code has to be provided as an Appendix either by directly coping your code in the main document under this section or by providing the name and location of the <code>R</code> script in the Appendix section (e.g. by providing a text similar to this: “All the R code associated to this research can be downloaded at this path.”).</li>
 </ol>
 </div>
-<div id="submission-and-deadline" class="section level3" number="4.12.3">
-<h3><span class="header-section-number">4.12.3</span> Submission and Deadline</h3>
+<div id="submission-and-deadline" class="section level3" number="4.13.3">
+<h3><span class="header-section-number">4.13.3</span> Submission and Deadline</h3>
 <p>Individual reports should be submitted in either Google Docs, Word or Rmarkdown formats (and if you decide to submit an additional file containing your R script, submit this file as an <code>.R</code> format). These files should be uploaded on the shared Google Drive in the <code>Mini_Report_3</code> folder in a subfolder entitled as follows: <code>Mini_Report_3_Surname</code>.</p>
 <p>The deadline for your report submission is available <a href="https://svenbuerki.github.io/Genomics-Bioinformatics/Timetable.html#2_Assignment_Deadlines">here</a>.</p>
 </div>
 </div>
-<div id="minireport3rubrics" class="section level2" number="4.13">
-<h2><span class="header-section-number">4.13</span> Evaluation Rubrics (Total: 50 points)</h2>
+<div id="minireport3rubrics" class="section level2" number="4.14">
+<h2><span class="header-section-number">4.14</span> Evaluation Rubrics (Total: 50 points)</h2>
 <p>Students will be assessed on their ability to conduct DNA barcode–based species identification and phylogenetic inference and communicate their findings in a scientific report using a standard structure.</p>
 <table>
 <colgroup>
@@ -2679,8 +2829,8 @@ Vanilla subtree
 </table>
 <p><strong>Total: 50 points</strong></p>
 <hr />
-<div id="formatting-penalties" class="section level3" number="4.13.1">
-<h3><span class="header-section-number">4.13.1</span> Formatting Penalties</h3>
+<div id="formatting-penalties" class="section level3" number="4.14.1">
+<h3><span class="header-section-number">4.14.1</span> Formatting Penalties</h3>
 <p>Because formatting and adherence to scientific guidelines are essential professional skills:</p>
 <ul>
 <li>Up to <strong>–10 points (20% of total score)</strong> may be deducted for failure to follow formatting and submission guidelines.</li>
@@ -2702,15 +2852,15 @@ Vanilla subtree
 <p>Penalty severity will reflect the extent of the issue.</p>
 <hr />
 </div>
-<div id="late-submission-penalties" class="section level3" number="4.13.2">
-<h3><span class="header-section-number">4.13.2</span> Late Submission Penalties</h3>
+<div id="late-submission-penalties" class="section level3" number="4.14.2">
+<h3><span class="header-section-number">4.14.2</span> Late Submission Penalties</h3>
 <ul>
 <li>Please see <a href="https://svenbuerki.github.io/Genomics-Bioinformatics/index.html#184_Late_Work_Policy">Syllabus</a> for late work policy.</li>
 </ul>
 <hr />
 </div>
-<div id="notes" class="section level3" number="4.13.3">
-<h3><span class="header-section-number">4.13.3</span> Notes</h3>
+<div id="notes" class="section level3" number="4.14.3">
+<h3><span class="header-section-number">4.14.3</span> Notes</h3>
 <ul>
 <li>Reports must follow the required scientific structure:
 <ul>
@@ -2729,8 +2879,8 @@ Vanilla subtree
 </ul>
 </div>
 </div>
-<div id="project-structure-and-data" class="section level2" number="4.14">
-<h2><span class="header-section-number">4.14</span> Project Structure and Data</h2>
+<div id="project-structure-and-data" class="section level2" number="4.15">
+<h2><span class="header-section-number">4.15</span> Project Structure and Data</h2>
 <p>To support mastering the learning outcomes, we will be using a subset of a DNA dataset focusing on the <a href="#vanilla">vanilla</a> spice (from the Orchidaceae family) published by <span class="citation">Ellestad et al. (<a href="#ref-Ellestad2022AJB">2022</a>)</span>.</p>
 <p>The data for this assignment are deposited on the shared <a href="https://drive.google.com/drive/folders/1iBMwP67FoSTMDX-EpXOlf8utP9k8tu8k?usp=sharing">Google Drive</a> in a folder entitled <code>DNA_barcoding</code> (located in <code>Mini_Report_3</code>). All students enrolled in this class have been granted access to this folder. The folder is subdivided into four sub-folders (see Figure <a href="#fig:datastr">4.28</a>) and contains a master spreadsheet <code>Vanilla_samples_records.xlsx</code> at its root:</p>
 <ul>
@@ -2747,8 +2897,8 @@ Vanilla subtree
 Figure 4.28: Screenshot of the DNA_barcoding folder showing data structure for this project.
 </p>
 </div>
-<div id="data-availability" class="section level3" number="4.14.1">
-<h3><span class="header-section-number">4.14.1</span> Data Availability</h3>
+<div id="data-availability" class="section level3" number="4.15.1">
+<h3><span class="header-section-number">4.15.1</span> Data Availability</h3>
 <p>The data availability statement associated with <span class="citation">Ellestad et al. (<a href="#ref-Ellestad2022AJB">2022</a>)</span> is as follows:</p>
 <p>All sequence data for this project are available at the National Center for Biotechnology Information (NCBI) under GenBank ITS sequences ON525161–ON525228, GenBank <em>rbcL</em> sequences ON531917–ON531986, BioProject accession no. PRJNA841950, and BioSample accession nos. SAMN28632719–SAMN28632734. All raw sequence files are available from the NCBI SRA database, nos. SRR19374405–SRR193744012, SRR19374414, SRR19374417, and SRR19374418. DNA alignments are available at Zenodo: <a href="https://doi.org/10.5281/zenodo.6577744" class="uri">https://doi.org/10.5281/zenodo.6577744</a></p>
 </div>
