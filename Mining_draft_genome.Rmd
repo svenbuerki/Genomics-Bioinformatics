@@ -82,37 +82,44 @@ The assignment is organized into the following sections:
 
 ## Learning Outcomes
 
-By completing this activity, you will:
+By the end of this activity, you will be able to:
 
-- Explain the scientific question addressed in a draft genome publication.
-- Describe how researchers generate, assemble, and analyze draft genome data.
-- Locate genomic datasets associated with a publication using NCBI databases.
-- Interpret how draft genome assemblies are used to investigate biological questions.
-- Prepare to mine and analyze a draft genome as part of the Lab Group Report.
+- Explain the scientific question addressed in a draft genome publication  
+- Describe how researchers generate, assemble, and analyze draft genome data  
+- Locate genomic datasets associated with a publication using NCBI databases  
+- Interpret how draft genome assemblies are used to investigate biological questions  
+- Prepare to mine and analyze a draft genome as part of your [**Group Lab Report**](#report)
 
 ---
 
 ## Activity Overview
 
-In this **1 hour and 40 minutes** group activity, you will work in groups of **3–4 students** to investigate the publication at the core of your **Lab Group Report**:
+In this **1 hour and 40 minute** group activity, you will work in groups of **3–4 students** to investigate the publication that forms the foundation of your **Group Lab Report**: @Melton2021
 
-@Melton2021
+Through this activity, you will:
 
-This activity will help you:
+- Explore the biological motivation and research question of the study  
+- Examine how the draft genome was generated and analyzed  
+- Locate and investigate the associated genomic datasets on NCBI  
+- Prepare to use and mine this genome yourselves in the upcoming lab analyses
 
-- Understand the biological motivation of the study
-- Examine how the draft genome was generated and analyzed
-- Locate and explore the genomic data on NCBI
-- Prepare to use and mine this genome yourselves
+This activity will help you understand how genomic datasets are generated, organized, and shared in public repositories. It will also prepare you to navigate these resources and apply similar approaches when mining the draft genome analyzed in your **Group Lab Report**.
 
 ---
 
 ## Materials
 
-- @Melton2021 — Draft genome publication
-  - Available at: https://onlinelibrary.wiley.com/doi/abs/10.1002/ece3.8245
-- [NCBI](https://www.ncbi.nlm.nih.gov/)
-- [Lexicon](Lexicon.html)
+- @Melton2021 — Draft genome publication  
+  - Available at: https://onlinelibrary.wiley.com/doi/abs/10.1002/ece3.8245  
+- [NCBI](https://www.ncbi.nlm.nih.gov/) — National Center for Biotechnology Information (genomic databases and tools)
+- Genomic resources associated with the study on NCBI:
+  - <u>BioProject</u> — umbrella record describing the overall sequencing project  
+    https://www.ncbi.nlm.nih.gov/bioproject/722258  
+  - <u>Sequence Read Archive (SRA)</u> — raw sequencing reads generated for the project  
+    https://www.ncbi.nlm.nih.gov/sra?linkname=bioproject_sra_all&from_uid=722258  
+  - <u>Genome Assembly</u> — assembled draft genome produced from the raw reads  
+    https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_023558565.1/  
+- [Lexicon](Lexicon.html) — reference definitions for key genomics and bioinformatics terms
 
 ---
 
@@ -154,7 +161,6 @@ Discuss the following:
 
 - What types of genes or genomic features do the authors investigate?
 - Why are these genes important?
-
 - How does the genome assembly allow the authors to extract and analyze these genes?
 
 **Group Outcome:**
@@ -169,15 +175,15 @@ Explain in your own words:
 
 **Goal:** Learn how to locate and interpret genomic data associated with a published study.
 
-You will use the **Data Availability Statement** of the publication to locate the genomic resources.
+You will use the **Data Availability Statement** of the [publication](https://onlinelibrary.wiley.com/doi/full/10.1002/ece3.8245) to locate the genomic resources.
 
 ### Identify accession numbers from the paper
 
 Locate and record:
 
-- BioProject accession number:
-- Raw sequencing reads accession number(s) (SRA):
-- Draft genome assembly accession number:
+- [BioProject](https://www.ncbi.nlm.nih.gov/bioproject/722258) accession number: ___________
+- Raw sequencing reads accession number(s) ([SRA](https://www.ncbi.nlm.nih.gov/sra?linkname=bioproject_sra_all&from_uid=722258)): ___________
+- [Draft genome assembly accession number](https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_023558565.1/): ___________
 
 ### Explore the BioProject
 
@@ -190,7 +196,7 @@ Select **BioProject** and enter the accession number.
 Discuss:
 
 - What is the goal of this BioProject?
-- What organism is associated with it?
+- What organism (referred to as [BioSample](https://www.ncbi.nlm.nih.gov/biosample?Db=biosample&DbFrom=bioproject&Cmd=Link&LinkName=bioproject_biosample&LinkReadableName=BioSample&ordinalpos=1&IdsFromResult=722258) in NCBI) is associated with it?
 - What types of data are included?
 
 ### Examine the raw sequencing reads

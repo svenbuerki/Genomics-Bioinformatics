@@ -11,7 +11,7 @@
 
 <meta name="author" content="Sven Buerki - Boise State University" />
 
-<meta name="date" content="2026-03-06" />
+<meta name="date" content="2026-03-11" />
 
 <title>BIOL 497/597 - Genomics &amp; Bioinformatics</title>
 
@@ -383,7 +383,7 @@ div.tocify {
 <h1 class="title toc-ignore">BIOL 497/597 - Genomics &amp; Bioinformatics</h1>
 <h3 class="subtitle">Lab: Mining sagebrush draft genome</h3>
 <h4 class="author">Sven Buerki - Boise State University</h4>
-<h4 class="date">2026-03-06</h4>
+<h4 class="date">2026-03-11</h4>
 
 </div>
 
@@ -452,27 +452,34 @@ $(document).ready(function() {
 <h1><span class="header-section-number">5</span> 🤝 Group Activity: Investigating a Draft Genome Study and Its Genomic Resources</h1>
 <div id="learning-outcomes-1" class="section level2" number="5.1">
 <h2><span class="header-section-number">5.1</span> Learning Outcomes</h2>
-<p>By completing this activity, you will:</p>
+<p>By the end of this activity, you will be able to:</p>
 <ul>
-<li>Explain the scientific question addressed in a draft genome publication.</li>
-<li>Describe how researchers generate, assemble, and analyze draft genome data.</li>
-<li>Locate genomic datasets associated with a publication using NCBI databases.</li>
-<li>Interpret how draft genome assemblies are used to investigate biological questions.</li>
-<li>Prepare to mine and analyze a draft genome as part of the Lab Group Report.</li>
+<li>Explain the scientific question addressed in a draft genome publication<br />
+</li>
+<li>Describe how researchers generate, assemble, and analyze draft genome data<br />
+</li>
+<li>Locate genomic datasets associated with a publication using NCBI databases<br />
+</li>
+<li>Interpret how draft genome assemblies are used to investigate biological questions<br />
+</li>
+<li>Prepare to mine and analyze a draft genome as part of your <a href="#report"><strong>Group Lab Report</strong></a></li>
 </ul>
 <hr />
 </div>
 <div id="activity-overview" class="section level2" number="5.2">
 <h2><span class="header-section-number">5.2</span> Activity Overview</h2>
-<p>In this <strong>1 hour and 40 minutes</strong> group activity, you will work in groups of <strong>3–4 students</strong> to investigate the publication at the core of your <strong>Lab Group Report</strong>:</p>
-<p><span class="citation">Melton et al. (<a href="#ref-Melton2021">2021</a>)</span></p>
-<p>This activity will help you:</p>
+<p>In this <strong>1 hour and 40 minute</strong> group activity, you will work in groups of <strong>3–4 students</strong> to investigate the publication that forms the foundation of your <strong>Group Lab Report</strong>: <span class="citation">Melton et al. (<a href="#ref-Melton2021">2021</a>)</span></p>
+<p>Through this activity, you will:</p>
 <ul>
-<li>Understand the biological motivation of the study</li>
-<li>Examine how the draft genome was generated and analyzed</li>
-<li>Locate and explore the genomic data on NCBI</li>
-<li>Prepare to use and mine this genome yourselves</li>
+<li>Explore the biological motivation and research question of the study<br />
+</li>
+<li>Examine how the draft genome was generated and analyzed<br />
+</li>
+<li>Locate and investigate the associated genomic datasets on NCBI<br />
+</li>
+<li>Prepare to use and mine this genome yourselves in the upcoming lab analyses</li>
 </ul>
+<p>This activity will help you understand how genomic datasets are generated, organized, and shared in public repositories. It will also prepare you to navigate these resources and apply similar approaches when mining the draft genome analyzed in your <strong>Group Lab Report</strong>.</p>
 <hr />
 </div>
 <div id="materials" class="section level2" number="5.3">
@@ -480,10 +487,23 @@ $(document).ready(function() {
 <ul>
 <li><span class="citation">Melton et al. (<a href="#ref-Melton2021">2021</a>)</span> — Draft genome publication
 <ul>
-<li>Available at: <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/ece3.8245" class="uri">https://onlinelibrary.wiley.com/doi/abs/10.1002/ece3.8245</a></li>
+<li>Available at: <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/ece3.8245" class="uri">https://onlinelibrary.wiley.com/doi/abs/10.1002/ece3.8245</a><br />
+</li>
 </ul></li>
-<li><a href="https://www.ncbi.nlm.nih.gov/">NCBI</a></li>
-<li><a href="Lexicon.html">Lexicon</a></li>
+<li><a href="https://www.ncbi.nlm.nih.gov/">NCBI</a> — National Center for Biotechnology Information (genomic databases and tools)</li>
+<li>Genomic resources associated with the study on NCBI:
+<ul>
+<li><u>BioProject</u> — umbrella record describing the overall sequencing project<br />
+<a href="https://www.ncbi.nlm.nih.gov/bioproject/722258" class="uri">https://www.ncbi.nlm.nih.gov/bioproject/722258</a><br />
+</li>
+<li><u>Sequence Read Archive (SRA)</u> — raw sequencing reads generated for the project<br />
+<a href="https://www.ncbi.nlm.nih.gov/sra?linkname=bioproject_sra_all&amp;from_uid=722258" class="uri">https://www.ncbi.nlm.nih.gov/sra?linkname=bioproject_sra_all&amp;from_uid=722258</a><br />
+</li>
+<li><u>Genome Assembly</u> — assembled draft genome produced from the raw reads<br />
+<a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_023558565.1/" class="uri">https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_023558565.1/</a><br />
+</li>
+</ul></li>
+<li><a href="Lexicon.html">Lexicon</a> — reference definitions for key genomics and bioinformatics terms</li>
 </ul>
 <hr />
 </div>
@@ -525,9 +545,9 @@ $(document).ready(function() {
 <div id="genome-mining-and-gene-analysis" class="section level3" number="5.5.3">
 <h3><span class="header-section-number">5.5.3</span> Genome mining and gene analysis</h3>
 <ul>
-<li><p>What types of genes or genomic features do the authors investigate?</p></li>
-<li><p>Why are these genes important?</p></li>
-<li><p>How does the genome assembly allow the authors to extract and analyze these genes?</p></li>
+<li>What types of genes or genomic features do the authors investigate?</li>
+<li>Why are these genes important?</li>
+<li>How does the genome assembly allow the authors to extract and analyze these genes?</li>
 </ul>
 <p><strong>Group Outcome:</strong></p>
 <p>Explain in your own words:</p>
@@ -540,14 +560,14 @@ $(document).ready(function() {
 <div id="part-3-locating-the-raw-genomic-data-on-ncbi-25-minutes" class="section level2" number="5.6">
 <h2><span class="header-section-number">5.6</span> Part 3 — Locating the Raw Genomic Data on NCBI <span style="color:gray;">(25 minutes)</span></h2>
 <p><strong>Goal:</strong> Learn how to locate and interpret genomic data associated with a published study.</p>
-<p>You will use the <strong>Data Availability Statement</strong> of the publication to locate the genomic resources.</p>
+<p>You will use the <strong>Data Availability Statement</strong> of the <a href="https://onlinelibrary.wiley.com/doi/full/10.1002/ece3.8245">publication</a> to locate the genomic resources.</p>
 <div id="identify-accession-numbers-from-the-paper" class="section level3" number="5.6.1">
 <h3><span class="header-section-number">5.6.1</span> Identify accession numbers from the paper</h3>
 <p>Locate and record:</p>
 <ul>
-<li>BioProject accession number:</li>
-<li>Raw sequencing reads accession number(s) (SRA):</li>
-<li>Draft genome assembly accession number:</li>
+<li><a href="https://www.ncbi.nlm.nih.gov/bioproject/722258">BioProject</a> accession number: ___________</li>
+<li>Raw sequencing reads accession number(s) (<a href="https://www.ncbi.nlm.nih.gov/sra?linkname=bioproject_sra_all&amp;from_uid=722258">SRA</a>): ___________</li>
+<li><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_023558565.1/">Draft genome assembly accession number</a>: ___________</li>
 </ul>
 </div>
 <div id="explore-the-bioproject" class="section level3" number="5.6.2">
@@ -558,7 +578,7 @@ $(document).ready(function() {
 <p>Discuss:</p>
 <ul>
 <li>What is the goal of this BioProject?</li>
-<li>What organism is associated with it?</li>
+<li>What organism (referred to as <a href="https://www.ncbi.nlm.nih.gov/biosample?Db=biosample&amp;DbFrom=bioproject&amp;Cmd=Link&amp;LinkName=bioproject_biosample&amp;LinkReadableName=BioSample&amp;ordinalpos=1&amp;IdsFromResult=722258">BioSample</a> in NCBI) is associated with it?</li>
 <li>What types of data are included?</li>
 </ul>
 </div>
