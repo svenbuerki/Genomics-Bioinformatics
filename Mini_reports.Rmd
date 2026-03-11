@@ -1968,11 +1968,13 @@ Click on the button below to inspect the final *Vanilla* phylogenetic tree (in `
 
 ### Learning Outcomes
 
-- Practice rapid interpretation of phylogenetic trees as evolutionary hypotheses
-- Develop skills in connecting molecular evidence to hypothesis testing and species identification
-- Evaluate results against initial working hypotheses and research questions
-- Strengthen efficient scientific argumentation and peer review abilities
-- Prepare content for the Discussion section of Mini-Report 3
+By the end of this activity, you will be able to:
+
+- Rapidly interpret phylogenetic trees as evolutionary hypotheses  
+- Connect molecular evidence to hypothesis testing and species identification  
+- Evaluate your results in relation to the initial working hypothesis and research question  
+- Strengthen your ability to construct clear scientific arguments and engage in peer discussion
+- Develop ideas and evidence that will support the **Discussion** section of your Mini-Report 3
 
 ---
 
@@ -2096,13 +2098,15 @@ Each group shares key findings (2 minutes per group):
 
 ##### Class Discussion & Integration (5 minutes)
 
-**Facilitator leads synthesis:**
+During this short class discussion, you will reflect on your results and connect them to the broader scientific process.
 
-- How did results compare to initial expectations across groups?
-- What evidence types were most reliable for hypothesis testing?
-- How do you handle when results don't match your hypothesis?
-- What does this teach us about the scientific process?
-- Preview of how this connects to [Discussion section writing](#report)
+Discussion prompts:
+
+- How did your results compare with your initial expectations or working hypothesis?
+- What types of evidence were most reliable for testing your hypothesis?
+- How should scientists interpret results that do not support their original hypothesis?
+- What does this exercise illustrate about how the scientific process works in practice?
+- How will these insights help you write the [Discussion section](#report) of your Mini-Report 3?
 
 ---
 
