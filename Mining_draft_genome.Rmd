@@ -62,6 +62,7 @@ This lab report guides you step by step through a research-style investigation t
 The assignment is organized into the following sections:
 
 - [**Group activity**](#grpactivity_genome): You will collaboratively read and discuss the publication that forms the foundation of this lab report. This activity introduces the scientific context, research question, and genomic resources used in the study.
+- [**Remote Computing and Bash Tutorials**](https://svenbuerki.github.io/Genomics-Bioinformatics/Tutorials.html): This section introduces the core computational tools used in this lab, including remote access (`ssh`), job management (`tmux`), and Bash command-line workflows.
 - [**Introduction**](#intro): This section presents the key concepts needed for the report, including the scientific question, hypothesis (and predictions), methodology, data availability, and report structure and formatting. Use this section as a reference while completing your analyses and writing your report.
 - [**Objectives and Scientific Question**](#objlabreport): This section introduces the specific objectives and scientific question that you will investigate in this assignment.
 - **Bioinformatics analyses:** In this section, you will perform the analytical steps required to mine a draft genome and characterize target genes. These hands-on activities connect theory to real genomic data.
