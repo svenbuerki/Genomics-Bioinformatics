@@ -10,9 +10,9 @@
 
 
 
-<meta name="date" content="2024-03-06" />
+<meta name="date" content="2026-03-12" />
 
-<title>Tutorials</title>
+<title>Remote Computing and Bash Tutorials</title>
 
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -322,13 +322,13 @@ div.tocify {
   <a href="index.html">Home</a>
 </li>
 <li>
-  <a href="Timetable.html">Timetable</a>
+  <a href="Timetable.html">Schedule</a>
 </li>
 <li>
   <a href="Chapters.html">Chapters</a>
 </li>
 <li>
-  <a href="Mini_reports.html">Mini-reports</a>
+  <a href="Mini_reports.html">Mini-Reports</a>
 </li>
 <li>
   <a href="Mining_draft_genome.html">Lab.</a>
@@ -340,7 +340,7 @@ div.tocify {
   <a href="Lexicon.html">Lexicon</a>
 </li>
 <li>
-  <a href="R_Functions.html">R functions</a>
+  <a href="R_Functions.html">R Functions</a>
 </li>
 <li>
   <a href="References.html">References</a>
@@ -357,9 +357,9 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Tutorials</h1>
-<h3 class="subtitle">Bioinformatics toolkit for genomics</h3>
-<h4 class="date">2024-03-06</h4>
+<h1 class="title toc-ignore">Remote Computing and Bash Tutorials</h1>
+<h3 class="subtitle">Bioinformatics Toolkit for Genomics Analyses</h3>
+<h4 class="date">2026-03-12</h4>
 
 </div>
 
@@ -372,346 +372,277 @@ $(document).ready(function() {
 </script>
 <div id="introduction" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> Introduction</h1>
-<p>This webpage contains several tutorials providing introductions to different facets of the Linux operating system here focusing on the <a href="https://en.wikipedia.org/wiki/Ubuntu">Ubuntu</a> distribution. Information presented here are especially relevant for <a href="https://svenbuerki.github.io/Genomics-Bioinformatics/Chapters.html#6_Chapter_4">Chapter 4</a> and the <a href="https://svenbuerki.github.io/Genomics-Bioinformatics/Mining_draft_genome.html">Lab assignment</a>.</p>
+<p>This webpage provides tutorials introducing <strong>remote computing and command-line tools commonly used in genomics and bioinformatics</strong>.
+The tutorials focus on practical workflows using Linux computers running the <a href="https://en.wikipedia.org/wiki/Ubuntu">Ubuntu</a> distribution.</p>
+<p>The material presented here is especially relevant for:</p>
+<ul>
+<li>The <a href="https://svenbuerki.github.io/Genomics-Bioinformatics/Mining_draft_genome.html">Lab assignment</a></li>
+<li><a href="https://svenbuerki.github.io/Genomics-Bioinformatics/Chapters.html#6_Chapter_4">Chapter 4</a></li>
+</ul>
+<p>These tutorials will help you develop the computational skills required to <strong>connect to remote computers, manage long analyses, and navigate the command-line environment used in genomics research</strong>.</p>
 </div>
 <div id="learning-outcomes" class="section level1" number="2">
-<h1><span class="header-section-number">2</span> Learning outcomes</h1>
+<h1><span class="header-section-number">2</span> Learning Outcomes</h1>
+<p>After completing these tutorials, you will be able to:</p>
 <ol style="list-style-type: decimal">
-<li>Learn procedure to <a href="#remote">remotely access</a> linux computers using the <code>ssh</code> protocol.</li>
-<li>Learn procedure to <a href="#runjob">safely run computer jobs</a> using the <code>tmux</code> protocol.</li>
-<li>Learn <a href="#lcmd">Linux commands</a> to conduct genomic analyses.</li>
+<li>Remotely access Linux computers using the <code>ssh</code> protocol.</li>
+<li>Safely run long analyses (aka computer jobs) using <code>tmux</code> sessions.</li>
+<li>Use common <strong>Bash command-line tools</strong> to organize files and perform genomics analyses.</li>
 </ol>
 </div>
-<div id="your-computer-accounts" class="section level1" number="3">
-<h1><span class="header-section-number">3</span> Your computer accounts</h1>
-<p>Details on your Linux computer accounts and their IP addresses are summarized in this <a href="https://docs.google.com/document/d/1t0DdQBes42Gzo8XWgc9JL2xEGjv1kbfoVE7Vznx6C9I/edit?usp=sharing">Google document</a>. Your assigned user ID are provided in this <a href="https://docs.google.com/spreadsheets/d/1cRM1yasUfDa98ecyz_-RxUOw8cU4wkQx4O5Wxw3y4yU/edit?usp=sharing">spreadsheet</a>.</p>
-</div>
-<div id="remote" class="section level1" number="4">
-<h1><span class="header-section-number">4</span> Remotely access Linux computers</h1>
-<p>To remotely access your assigned Linux computer accounts using <code>ssh</code> protocol, you need to know:</p>
+<div id="structure" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Structure</h1>
+<p>These tutorials are organized to guide you through the essential steps required to work on remote Linux computers and conduct genomics analyses using the command line.</p>
+<p>The material is structured into the following sections:</p>
 <ol style="list-style-type: decimal">
-<li>Your user ID and password (see <a href="https://docs.google.com/document/d/1t0DdQBes42Gzo8XWgc9JL2xEGjv1kbfoVE7Vznx6C9I/edit?usp=sharing">Google document</a>).</li>
-<li>The IP address of the computer you want to connect to. If you want to remotely access the lab computers from a Windows machine, please read the protocol described <a href="#Putty">below</a> before going any further into this document.</li>
-</ol>
-<p><strong>Warning:</strong> If you are accessing the Linux computers outside of BSU campus, you will need to use the VPN protocol.</p>
-<div id="what-is-an-ip-address" class="section level2" number="4.1">
-<h2><span class="header-section-number">4.1</span> What is an IP address?</h2>
-<p>An <strong>I</strong>nternet <strong>P</strong>rotocol address is a numerical label such as 192.0.2.1 that is connected to a computer network that uses the Internet Protocol for communication. An IP address serves two main functions:</p>
-<ol style="list-style-type: decimal">
-<li>Network interface identification</li>
-<li>Location addressing</li>
+<li><p><a href="#remote"><strong>Remotely access Linux computers</strong></a>:<br />
+In this section, you will learn how to connect to remote computers using the <code>ssh</code> protocol and understand the basic concepts required for secure remote access.</p></li>
+<li><p><a href="#runjob"><strong>Safely run computer jobs</strong></a>:<br />
+This section introduces the <code>tmux</code> tool, which allows you to run and manage long computational jobs in persistent terminal sessions.</p></li>
+<li><p><a href="#lcmd"><strong>Bash command-line reference</strong></a>:<br />
+This section provides a practical overview of commonly used Bash commands to navigate the file system, manage files, and support genomics analyses.</p></li>
 </ol>
 </div>
-<div id="how-to-find-the-ip-address" class="section level2" number="4.2">
-<h2><span class="header-section-number">4.2</span> How to find the IP address?</h2>
-<p>The procedure summarized here allows retrieving the computer IP address on the Ubuntu operating system (16.04 LTS; Figure <a href="#fig:IP">4.1</a>):</p>
+<div id="your-computer-accounts" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Your Computer Accounts</h1>
+<p>Details on your Linux computer accounts and their IP addresses are summarized in this <a href="https://docs.google.com/document/d/1t0DdQBes42Gzo8XWgc9JL2xEGjv1kbfoVE7Vznx6C9I/edit?usp=sharing">Google document</a>.</p>
+<p>Your assigned user IDs for each group are provided in this <a href="https://docs.google.com/spreadsheets/d/1cRM1yasUfDa98ecyz_-RxUOw8cU4wkQx4O5Wxw3y4yU/edit?usp=sharing">spreadsheet</a>.</p>
+</div>
+<div id="remote" class="section level1" number="5">
+<h1><span class="header-section-number">5</span> Remotely Access Computers</h1>
+<p>To remotely access your assigned Linux computer accounts using the <code>ssh</code> protocol, you need the following information:</p>
 <ol style="list-style-type: decimal">
-<li>Open the <code>System Settings</code> app located on the left side bar of the desktop.</li>
-<li>Select the <code>Network</code> tab located under the Hardware section.</li>
-<li>Select the second <code>Wired</code> tab (related to WiFi connection) located on the left side of the window.</li>
-<li>The computer IP address is found under the <code>IPv4 Address</code> argument located on the left side of the window.</li>
+<li>Your <strong>user ID and password</strong> (see the <a href="https://docs.google.com/document/d/1t0DdQBes42Gzo8XWgc9JL2xEGjv1kbfoVE7Vznx6C9I/edit?usp=sharing">Google document</a>).</li>
+<li>The <strong>IP address</strong> of the computer you want to connect to.</li>
+</ol>
+<p>If you want to remotely access the lab computers from a Windows machine, please read the protocol described <a href="#Putty">below</a> before continuing.</p>
+<p><strong>Important:</strong> If you are accessing the Linux computers <strong>outside of the BSU campus network</strong>, you will need to connect through the <strong>BSU VPN</strong>.</p>
+<div id="what-is-an-ip-address" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> What is an IP Address?</h2>
+<p>An <strong>Internet Protocol (IP) address</strong> is a numerical label assigned to each device connected to a computer network that uses the Internet Protocol for communication.</p>
+<p>An IP address serves two main functions:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Network interface identification</strong></li>
+<li><strong>Location addressing</strong></li>
+</ol>
+</div>
+<div id="how-to-find-the-ip-address" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> How to Find the IP Address?</h2>
+<p>The procedure summarized here shows how to retrieve a computer’s IP address on the Ubuntu operating system (Figure <span class="citation">(<a href="#ref-ref"><strong>ref?</strong></a>)</span>(fig:IP)):</p>
+<ol style="list-style-type: decimal">
+<li>Open the <code>System Settings</code> application from the desktop sidebar.</li>
+<li>Select the <code>Network</code> tab located under the <strong>Hardware</strong> section.</li>
+<li>Select the <code>Wired</code> tab.</li>
+<li>The computer’s IP address appears under the <strong>IPv4 Address</strong> field.</li>
 </ol>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:IP"></span>
-<img src="Images/IP_Ubuntu.png" alt="Screenshot of Ubuntu desktop showing how to retrieve IP address." width="100%" />
+<img src="Images/IP_Ubuntu.png" alt="Screenshot of Ubuntu desktop showing how to retrieve the IP address." width="100%" />
 <p class="caption">
-Figure 4.1: Screenshot of Ubuntu desktop showing how to retrieve IP address.
+Figure 5.1: Screenshot of Ubuntu desktop showing how to retrieve the IP address.
 </p>
 </div>
-<div id="command-lines-to-get-ip-address" class="section level3" number="4.2.1">
-<h3><span class="header-section-number">4.2.1</span> Command lines to get IP address</h3>
-<p>On a Linux OS, you can get the IP address of the computer by typing the following commands in a Terminal:</p>
-<pre class="bash"><code>#Get IP address
-# Option 1
+<div id="command-lines-to-get-the-ip-address" class="section level3" number="5.2.1">
+<h3><span class="header-section-number">5.2.1</span> Command Lines to Get the IP Address</h3>
+<p>You can also retrieve the IP address from the command line by typing the following commands in a Terminal:</p>
+<pre class="bash"><code># Get IP address
 hostname -I | awk &#39;{print $1}&#39;
-# Option 2
 ip a
-# Option 3 (also works on Mac)
 ifconfig -a</code></pre>
 </div>
 </div>
-<div id="the-ssh-protocol" class="section level2" number="4.3">
-<h2><span class="header-section-number">4.3</span> The <code>ssh</code> protocol</h2>
-<p>The <code>ssh</code> protocol (also referred to as <strong>S</strong>ecure <strong>Sh</strong>ell) is a method for secure remote login from one computer to another (Figure <a href="#fig:sshFig">4.2</a>). It provides several alternative options for strong authentication, and it protects communications security and integrity with strong encryption.</p>
+<div id="the-ssh-protocol" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> The <code>ssh</code> Protocol</h2>
+<p>The <strong>Secure Shell (<code>ssh</code>) protocol</strong> is a method used for secure remote login from one computer to another (Figure <span class="citation">(<a href="#ref-ref"><strong>ref?</strong></a>)</span>(fig:sshFig)).
+It protects communication using strong encryption and allows users to remotely execute commands on another machine.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:sshFig"></span>
-<img src="Images/SSH_Preview.png" alt="Overview of ssh protocol. Credit: https://www.wallarm.com/what/what-is-ssh-protocol" width="80%" />
+<img src="Images/SSH_Preview.png" alt="Overview of ssh protocol." width="80%" />
 <p class="caption">
-Figure 4.2: Overview of ssh protocol. Credit: <a href="https://www.wallarm.com/what/what-is-ssh-protocol" class="uri">https://www.wallarm.com/what/what-is-ssh-protocol</a>
+Figure 5.2: Overview of ssh protocol.
 </p>
 </div>
-<p>Once you have gathered all required information (i.e., IP address and username) and installed <a href="#Putty">Putty</a> if you have a Windows operating system, please open a <code>Terminal</code> or command prompt window and type the following command to remotely access your account using the <code>ssh</code> protocol (see Figure <a href="#fig:ssh">4.3</a>):</p>
+<p>Once you have gathered the required information (IP address and username), open a <strong>Terminal</strong> and type:</p>
 <pre class="bash"><code># General command
-$ ssh USER_ID@IP
+ssh USER_ID@IP
 
-# Remotely access computer from Group Z 
-# You will also have to enter your password when prompted
-$ ssh bioinformatics@132.178.143.53</code></pre>
+# Example
+ssh bioinformatics@132.178.143.53</code></pre>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:ssh"></span>
-<img src="Images/ssh_screen.png" alt="Screenshot of Terminal showing commands to remotely access computer of group 3." width="80%" />
+<img src="Images/ssh_screen.png" alt="Example of an ssh connection from a Terminal." width="80%" />
 <p class="caption">
-Figure 4.3: Screenshot of Terminal showing commands to remotely access computer of group 3.
+Figure 5.3: Example of an ssh connection from a Terminal.
 </p>
 </div>
 </div>
-<div id="Putty" class="section level2" number="4.4">
-<h2><span class="header-section-number">4.4</span> Install Putty on Windows</h2>
-<p>Putty is one of the best software used on Windows to remotely access computers. Download the program at this URL <a href="http://www.putty.org" class="uri">http://www.putty.org</a> and follow instructions to install it on your computer.</p>
-<p>When you launch Putty, a configuration window will pop up and you will enter i) your credentials (e.g. <code>user@IP</code>) in the <code>Host Name (or IP address)</code> box, ii) set the <code>Port</code> to 22 and iii) make sure the connection type is set to <code>ssh</code> (Figure <a href="#fig:Putty">4.4</a>). The full documentation for this software is available <a href="https://the.earth.li/~sgtatham/putty/0.76/htmldoc/">here</a>.</p>
+<div id="Putty" class="section level2" number="5.4">
+<h2><span class="header-section-number">5.4</span> Install Putty on Windows</h2>
+<p>If you are using Windows, you can use <strong>Putty</strong> to establish SSH connections.</p>
+<p>Download the software here:
+<a href="http://www.putty.org">http://www.putty.org</a></p>
+<p>When launching Putty:</p>
+<ol style="list-style-type: decimal">
+<li>Enter <code>user@IP</code> in the <strong>Host Name</strong> field.</li>
+<li>Set <strong>Port</strong> to <code>22</code>.</li>
+<li>Select <strong>SSH</strong> as the connection type.</li>
+</ol>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:Putty"></span>
-<img src="Images/putty-session-config.png" alt="Screenshot of Putty Configuration window to establish ssh connection." width="60%" />
+<img src="Images/putty-session-config.png" alt="Putty configuration window." width="60%" />
 <p class="caption">
-Figure 4.4: Screenshot of Putty Configuration window to establish ssh connection.
+Figure 5.4: Putty configuration window.
 </p>
 </div>
 </div>
-<div id="exercises" class="section level2" number="4.5">
-<h2><span class="header-section-number">4.5</span> Exercises</h2>
+<div id="exercises" class="section level2" number="5.5">
+<h2><span class="header-section-number">5.5</span> Exercises</h2>
 <ol style="list-style-type: decimal">
-<li>Retrieve your user ID and IP address</li>
-<li>Remotely connect to your account using the <code>ssh</code> protocol</li>
-<li>Exit your remote terminal session using <code>exit</code></li>
+<li>Retrieve your <strong>user ID</strong> and <strong>IP address</strong>.</li>
+<li>Connect to your account using <code>ssh</code>.</li>
+<li>Exit the remote session using <code>exit</code>.</li>
 </ol>
 </div>
 </div>
-<div id="runjob" class="section level1" number="5">
-<h1><span class="header-section-number">5</span> Safely run computer jobs</h1>
-<p>Some of the analyses that we will be conducting in this class will take several days to be completed. In this case, it is paramount to run those analyses in a safe environment. By safe, we mean <strong>making sure that analyses will not be inadvertently cut</strong> either by yourself or by other users (and trust me it happens!). In this section, we will be reviewing protocols implemented in <code>tmux</code> to run and access multiple parallel terminal sessions.</p>
-<div id="the-tmux-protocol" class="section level2" number="5.1">
-<h2><span class="header-section-number">5.1</span> The <code>tmux</code> protocol</h2>
-<p><code>tmux</code> is an open-source <strong>t</strong>erminal <strong>mu</strong>ltiple<strong>x</strong>er for Unix-like operating systems. It allows multiple terminal sessions to be accessed simultaneously in a single window. It is useful for running more than one command-line program at the same time. As long as the user knows the unique ID of their <code>tmux</code> session, the <code>tmux</code> session will be accessible by anybody and remain open after closing your <code>ssh</code> connection. For those reasons, <strong>the <code>tmux</code> protocol is very useful when multiple users are sharing the same account and/or want to work remotely</strong>.</p>
-<p>This software is installed by default on the Linux operating system, but it can also be installed on Mac OS using the following command:</p>
-<pre class="bash"><code>$ brew install tmux</code></pre>
-</div>
-<div id="how-to-operate-tmux-sessions" class="section level2" number="5.2">
-<h2><span class="header-section-number">5.2</span> How to operate <code>tmux</code> sessions</h2>
-<p>In this section, we will learn how to create, exit, rename, list, access, and terminate <code>tmux</code> sessions.</p>
-<div id="create-a-new-session" class="section level3" number="5.2.1">
-<h3><span class="header-section-number">5.2.1</span> Create a new session</h3>
-<p>To <strong>create</strong> a new <code>tmux</code> session using the <code>Terminal</code> type:</p>
-<pre class="bash"><code>$ tmux</code></pre>
-</div>
-<div id="exit-a-new-session" class="section level3" number="5.2.2">
-<h3><span class="header-section-number">5.2.2</span> Exit a new session</h3>
-<p>Once you have started your job, you can safely <strong>exit</strong> the <code>tmux</code> session without killing your job by typing the following combination of keystrokes:</p>
-<pre class="bash"><code>Ctrl+b and d</code></pre>
-<p>At this point, you could safely log off of your remote session (by typing <code>exit</code> in the Terminal), while knowing that your analysis would keep running safely inside the <code>tmux</code> session.</p>
-</div>
-<div id="access-your-session" class="section level3" number="5.2.3">
-<h3><span class="header-section-number">5.2.3</span> Access your session</h3>
-<p>To <strong>access</strong> a <code>tmux</code> session and check the status of your analysis, do it as follows:</p>
-<pre class="bash"><code>$ tmux attach</code></pre>
-</div>
-<div id="name-your-session" class="section level3" number="5.2.4">
-<h3><span class="header-section-number">5.2.4</span> Name your session</h3>
-<p>The command executed above implies that there is only one <code>tmux</code> session running on your computer. If you intend to <strong>run multiple side-by-side sessions, you should name each session</strong> using the following command:</p>
-<pre class="bash"><code># Create the session
-$ tmux 
-
-# Rename the session for future access (type this combination of keystrokes)
-Ctrl+b and $</code></pre>
-<p>One you have executed the commands, you will be able to <strong>rename your session</strong> as wished and when you are finished type <code>Return</code> or <code>Enter</code> to complete the task (Figure <a href="#fig:tmuxrename">5.1</a>).</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:tmuxrename"></span>
-<img src="Images/tmux_rename.png" alt="Screenshot of Terminal showing procedure to rename a tmux session (here JOB1)." width="80%" />
-<p class="caption">
-Figure 5.1: Screenshot of Terminal showing procedure to rename a tmux session (here JOB1).
-</p>
-</div>
-</div>
-<div id="create-and-rename-a-session" class="section level3" number="5.2.5">
-<h3><span class="header-section-number">5.2.5</span> Create and rename a session</h3>
-<p>You can also <strong>create a new session and directly name it</strong> as follows:</p>
-<pre class="bash"><code>#General command
-$ tmux new -s session_name
-
-#Example 
-$ tmux new -s JOB2</code></pre>
-</div>
-<div id="list-all-sessions" class="section level3" number="5.2.6">
-<h3><span class="header-section-number">5.2.6</span> List all sessions</h3>
-<p>You can get a <strong>list of all running <code>tmux</code> sessions</strong> by using the following command (<a href="#fig:tmuxsession">5.2</a>):</p>
-<pre class="bash"><code>$ tmux list-sessions </code></pre>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:tmuxsession"></span>
-<img src="Images/tmux_access_session.png" alt="Screenshot of Terminal showing tmux command to access a specific session, here JOB1." width="80%" />
-<p class="caption">
-Figure 5.2: Screenshot of Terminal showing tmux command to access a specific session, here JOB1.
-</p>
-</div>
-</div>
-<div id="access-a-specific-session" class="section level3" number="5.2.7">
-<h3><span class="header-section-number">5.2.7</span> Access a specific session</h3>
-<p>To access a <code>tmux</code> session type the following command (Figure <a href="#fig:tmuxsession">5.2</a>):</p>
-<pre class="bash"><code>#General command
-$ tmux attach -t ID_Session 
-#To access JOB1 do
-$ tmux attach -t JOB1</code></pre>
-</div>
-<div id="terminate-a-session" class="section level3" number="5.2.8">
-<h3><span class="header-section-number">5.2.8</span> Terminate a session</h3>
-<p>You can <strong>terminate</strong> a <code>tmux</code> session by accessing it using commands provided above and then type the inline <code>exit</code> command. This will bring you back to the main Terminal and show that your <code>tmux</code> session was terminated as shown in Figure <a href="#fig:tmuxterm">5.3</a>.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:tmuxterm"></span>
-<img src="Images/tmux_terminate.png" alt="Screenshot of Terminal showing tmux command to access a specific session (here JOB1) and the result after terminating the session (using the exit command)." width="80%" />
-<p class="caption">
-Figure 5.3: Screenshot of Terminal showing tmux command to access a specific session (here JOB1) and the result after terminating the session (using the exit command).
-</p>
-</div>
-</div>
-<div id="kill-a-specific-session" class="section level3" number="5.2.9">
-<h3><span class="header-section-number">5.2.9</span> Kill a specific session</h3>
-<p>Finally, you can also <strong>kill a session</strong> without accessing it as follows:</p>
-<pre class="bash"><code>#General command
-$ tmux kill-session -t ID_Session
-
-#To kill JOB2 do
-$ tmux kill-session -t JOB2</code></pre>
-<p><strong>Warning:</strong> Apply caution when applying this procedure since it will kill the <code>tmux</code> session and job with limited abilities to recover ongoing data.</p>
-</div>
-</div>
-<div id="exercises-1" class="section level2" number="5.3">
-<h2><span class="header-section-number">5.3</span> Exercises</h2>
-<p>Please do the following short exercises on your assigned computer account (see ) to get accustomed with the material presented in this document.</p>
-<ol style="list-style-type: decimal">
-<li>Retrieve your user ID and IP address</li>
-<li>Remotely connect to your account using the <code>ssh</code> protocol</li>
-<li>Create a new <code>tmux</code> session and rename it <code>Bio1</code></li>
-<li>Access the <code>Bio1 tmux</code> session</li>
-<li>Terminate the <code>Bio1 tmux</code> session and confirm that it has been properly terminated (using a learned <code>tmux</code> command)</li>
-</ol>
-</div>
-</div>
-<div id="lcmd" class="section level1" number="6">
-<h1><span class="header-section-number">6</span> Linux commands</h1>
-<p>Please find below common Linux commands. These commands will help you navigate in the Terminal and support your genomics analyses.</p>
-<div id="file-system" class="section level2" number="6.1">
-<h2><span class="header-section-number">6.1</span> <a name="file-system"></a>File System</h2>
-<p><code>ls</code> — list items in current directory.<br />
-<code>ls -l</code> — list items in current directory and show in long format to see permissions, size, and modification date.<br />
-<code>ls -a</code> — list all items in current directory, including hidden files.<br />
-<code>ls -F</code> — list all items in current directory and show directories with a slash and executable with a star.<br />
-<code>ls dir</code> — list all items in directory dir.<br />
-<code>cd dir</code> — change directory to dir.<br />
-<code>cd ..</code> — go up one directory.<br />
-<code>cd /</code> — go to the root directory.<br />
-<code>cd ~</code> — go to to your home directory.<br />
-<code>cd -</code> — go to the last directory you were just in.<br />
-<code>pwd</code> — show present working directory.<br />
-<code>mkdir dir</code> — make new directory called dir.<br />
-<code>rm file</code> — remove file.<br />
-<code>rm -r dir</code> — remove directory dir recursively.<br />
-<code>cp file1 file2</code> — copy file1 to file2.<br />
-<code>cp -r dir1 dir2</code> — copy directory dir1 to dir2 recursively.<br />
-<code>mv file1 file2</code> — move (rename) file1 to file2.<br />
-<code>mv file1 ~/file1</code> — move file1 from the current directory to user’s home directory.<br />
-<code>cat file</code> — output the contents of file.<br />
-<code>less file</code> — view file with page navigation.<br />
-<code>head file</code> — output the first 10 lines of file.<br />
-<code>tail file</code> — output the last 10 lines of file.<br />
-<code>tail -f file</code> — output the contents of file as it grows, starting with the last 10 lines.<br />
-<code>vim file</code> — edit file using vim text editor.</p>
-</div>
-<div id="system" class="section level2" number="6.2">
-<h2><span class="header-section-number">6.2</span> <a name="system"></a>System</h2>
-<p><code>shutdown</code> — shut down machine.<br />
-<code>reboot</code> — restart machine.<br />
-<code>exit</code> — exit terminal session.<br />
-<code>date</code> — show the current date and time.<br />
-<code>whoami</code> — who you are logged in as.<br />
-<code>man</code> command — show the manual for command.<br />
-<code>df</code> — show disk usage. Use <code>df -h</code> to have in human readable format.
-<code>du</code> — show directory space usage.<br />
-<code>free</code> — show memory and swap usage.<br />
-<code>whereis app</code> — show possible locations of app.<br />
-<code>which app</code> — show which app will be run by default.</p>
-</div>
-<div id="process-management" class="section level2" number="6.3">
-<h2><span class="header-section-number">6.3</span> Process Management</h2>
-<p><code>ps</code> — display your currently active processes.<br />
-<code>top</code> — display all running processes.<br />
-<code>htop</code> - display all running processes and CPU usage.
-<code>kill PID</code> — kill process id PID. Use <code>top</code> to identify PID.<br />
-<code>kill -9 PID</code> — force kill process id PID.</p>
-</div>
-<div id="permissions" class="section level2" number="6.4">
-<h2><span class="header-section-number">6.4</span> Permissions</h2>
-<p><code>ls -l</code> — list items in current directory and show permissions.<br />
-<code>chmod ugo file</code> — change permissions of file to ugo - is the user’s permissions, is the group’s permissions, and is everyone else’s permissions. The values of , , and can be any number between 0 and 7.</p>
+<div id="runjob" class="section level1" number="6">
+<h1><span class="header-section-number">6</span> Safely Run Computer Jobs</h1>
+<p>Some analyses performed in genomics can take <strong>several hours or even days</strong> to complete.
+To avoid interrupting these analyses, it is important to run them in a <strong>persistent terminal environment</strong>.</p>
+<p>The tool we will use for this purpose is <strong><code>tmux</code></strong>, which allows multiple terminal sessions to run simultaneously.</p>
+<div id="the-tmux-protocol" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> The <code>tmux</code> protocol</h2>
+<p><code>tmux</code> is a <strong>terminal multiplexer</strong> for Unix-like systems.
+It allows users to create multiple independent terminal sessions within a single window.</p>
+<p>Key advantages:</p>
 <ul>
-<li>7 — full permissions.</li>
-<li>6 — read and write only.</li>
-<li>5 — read and execute only.</li>
-<li>4 — read only.</li>
-<li>3 — write and execute only.</li>
-<li>2 — write only.</li>
-<li>1 — execute only.</li>
-<li>0 — no permissions.</li>
+<li>Run long analyses safely</li>
+<li>Disconnect from a remote computer without stopping jobs</li>
+<li>Manage multiple command-line tasks simultaneously</li>
 </ul>
-<p>Examples of <code>chmod</code> settings:</p>
+<div id="install-tmux-on-mac" class="section level3" number="6.1.1">
+<h3><span class="header-section-number">6.1.1</span> Install <code>tmux</code> on Mac</h3>
+<pre class="bash"><code>brew install tmux</code></pre>
+</div>
+</div>
+<div id="how-to-operate-tmux-sessions" class="section level2" number="6.2">
+<h2><span class="header-section-number">6.2</span> How to Operate <code>tmux</code> Sessions</h2>
+<div id="create-a-new-session" class="section level3" number="6.2.1">
+<h3><span class="header-section-number">6.2.1</span> Create a New Session</h3>
+<pre class="bash"><code>tmux</code></pre>
+</div>
+<div id="detach-from-a-session" class="section level3" number="6.2.2">
+<h3><span class="header-section-number">6.2.2</span> Detach from a Session</h3>
+<p>Press:</p>
+<pre><code>Ctrl+b then d</code></pre>
+</div>
+<div id="reattach-to-a-session" class="section level3" number="6.2.3">
+<h3><span class="header-section-number">6.2.3</span> Reattach to a Session</h3>
+<pre class="bash"><code>tmux attach</code></pre>
+</div>
+<div id="create-and-name-a-session" class="section level3" number="6.2.4">
+<h3><span class="header-section-number">6.2.4</span> Create and Name a Session</h3>
+<pre class="bash"><code>tmux new -s JOB1</code></pre>
+</div>
+<div id="list-sessions" class="section level3" number="6.2.5">
+<h3><span class="header-section-number">6.2.5</span> List Sessions</h3>
+<pre class="bash"><code>tmux list-sessions</code></pre>
+</div>
+<div id="attach-to-a-specific-session" class="section level3" number="6.2.6">
+<h3><span class="header-section-number">6.2.6</span> Attach to a Specific Session</h3>
+<pre class="bash"><code>tmux attach -t JOB1</code></pre>
+</div>
+<div id="kill-a-session" class="section level3" number="6.2.7">
+<h3><span class="header-section-number">6.2.7</span> Kill a Session</h3>
+<pre class="bash"><code>tmux kill-session -t JOB1</code></pre>
+<p><strong>Warning:</strong> Killing a session will terminate any running analysis.</p>
+</div>
+</div>
+</div>
+<div id="lcmd" class="section level1" number="7">
+<h1><span class="header-section-number">7</span> Bash Command-Line Reference</h1>
+<p>Below is a collection of common <strong>Bash commands</strong> used to navigate the file system and manage computational analyses.</p>
+<div id="file-system" class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> File System</h2>
 <ul>
-<li><code>chmod 600 file</code> — you can read and write - good for files.</li>
-<li><code>chmod 700 file</code> — you can read, write, and execute - good for scripts.</li>
-<li><code>chmod 644 file</code> — you can read and write, and everyone else can only read - good for web pages.</li>
-<li><code>chmod 755 file</code> — you can read, write, and execute, and everyone else can read and execute - good for programs that you want to share.</li>
+<li><code>ls</code> — list files in a directory<br />
+</li>
+<li><code>cd</code> — change directory<br />
+</li>
+<li><code>pwd</code> — print working directory<br />
+</li>
+<li><code>mkdir</code> — create a directory<br />
+</li>
+<li><code>rm</code> — remove a file<br />
+</li>
+<li><code>cp</code> — copy files<br />
+</li>
+<li><code>mv</code> — move or rename files<br />
+</li>
+<li><code>cat</code> — display file contents<br />
+</li>
+<li><code>less</code> — view files page by page<br />
+</li>
+<li><code>head</code> — show the first lines of a file<br />
+</li>
+<li><code>tail</code> — show the last lines of a file</li>
 </ul>
 </div>
-<div id="networking" class="section level2" number="6.5">
-<h2><span class="header-section-number">6.5</span> Networking</h2>
-<p><code>wget file</code> — download a file. It can also be a file deposited on a website.<br />
-<code>curl file</code> — download a file.<br />
-<code>scp user@host:file dir</code> — secure copy a file from remote server to the dir directory on your machine.<br />
-<code>scp file user@host:dir</code> — secure copy a file from your machine to the dir directory on a remote server.<br />
-<code>scp -r user@host:dir dir</code> — secure copy the directory dir from remote server to the directory dir on your machine.<br />
-<code>ssh user@host</code> — connect to host (IP address) as user.<br />
-<code>ping host</code> — ping host and output results.<br />
-<code>whois domain</code> — get information for domain.<br />
-<code>lsof -i tcp:1337</code> — list all processes running on port 1337.</p>
+<div id="system" class="section level2" number="7.2">
+<h2><span class="header-section-number">7.2</span> System</h2>
+<ul>
+<li><code>whoami</code> — display current user</li>
+<li><code>date</code> — display date and time</li>
+<li><code>exit</code> — exit terminal</li>
+<li><code>df -h</code> — disk usage</li>
+<li><code>free</code> — memory usage</li>
+</ul>
 </div>
-<div id="searching" class="section level2" number="6.6">
-<h2><span class="header-section-number">6.6</span> Searching</h2>
-<p><code>grep pattern files</code> — search for pattern in files.<br />
-<code>grep -r pattern dir</code> — search recursively for pattern in dir.<br />
-<code>grep -rn pattern dir</code> — search recursively for pattern in dir and show the line number found.<br />
-<code>grep -r pattern dir --include='*.ext</code> — search recursively for pattern in dir and only search in files with .ext extension.<br />
-<code>find file</code> — find all instances of file in real system.<br />
-<code>locate file</code> — find all instances of file using indexed database built from the updatedb command. Much faster than find.<br />
-<code>sed -i 's/day/night/g' file</code> — find all occurrences of day in a file and replace them with night - s means substitute and g means global - sed also supports regular expressions.</p>
+<div id="process-management" class="section level2" number="7.3">
+<h2><span class="header-section-number">7.3</span> Process Management</h2>
+<ul>
+<li><code>ps</code> — list active processes</li>
+<li><code>top</code> — show running processes</li>
+<li><code>htop</code> — interactive process viewer</li>
+<li><code>kill PID</code> — terminate process</li>
+</ul>
 </div>
-<div id="compression" class="section level2" number="6.7">
-<h2><span class="header-section-number">6.7</span> Compression</h2>
-<p><code>tar cf file.tar files</code> — create a tar named file.tar containing files.<br />
-<code>tar xf file.tar</code> — extract the files from file.tar.<br />
-<code>tar czf file.tar.gz files</code> — create a tar with Gzip compression.<br />
-<code>tar xzf file.tar.gz</code> — extract a tar using Gzip.<br />
-<code>gzip file</code> — compresses file and renames it to file.gz.<br />
-<code>gzip -d file.gz</code> — decompresses file.gz back to file.</p>
+<div id="networking" class="section level2" number="7.4">
+<h2><span class="header-section-number">7.4</span> Networking</h2>
+<ul>
+<li><code>ssh user@host</code> — connect to remote host</li>
+<li><code>scp</code> — transfer files between machines</li>
+<li><code>wget</code> — download files</li>
+<li><code>curl</code> — download files</li>
+</ul>
 </div>
-<div id="exercises-2" class="section level2" number="6.8">
-<h2><span class="header-section-number">6.8</span> Exercises</h2>
-<p>To practice the material learned so far and gain confidence before pursuing our genomic journey, please do the following exercises:</p>
+<div id="searching" class="section level2" number="7.5">
+<h2><span class="header-section-number">7.5</span> Searching</h2>
+<ul>
+<li><code>grep</code> — search text patterns</li>
+<li><code>find</code> — locate files</li>
+<li><code>sed</code> — text substitution</li>
+</ul>
+</div>
+<div id="compression" class="section level2" number="7.6">
+<h2><span class="header-section-number">7.6</span> Compression</h2>
+<ul>
+<li><code>tar</code> — archive files</li>
+<li><code>gzip</code> — compress files</li>
+</ul>
+</div>
+</div>
+<div id="exercises-1" class="section level1" number="8">
+<h1><span class="header-section-number">8</span> Exercises</h1>
+<p>To practice the skills introduced in this tutorial:</p>
 <ol style="list-style-type: decimal">
-<li>Remotely connect to your account using <code>ssh</code></li>
-<li>List the content of the home directory (<code>~</code>) using <code>ls</code></li>
-<li>Navigate to <code>Documents/</code> using <code>cd</code></li>
-<li>Create a new folder entitled <code>My_jobs</code> using <code>mkdir</code> and use <code>ls</code> to check that it was created.</li>
-<li>Navigate in <code>My_jobs/</code></li>
-<li>Create a new text file entitled <code>README.txt</code> using <code>vim</code>. This will open a new window to edit your file</li>
-<li>Edit your text file as follows:
-<ul>
-<li>Type <code>Shift</code> and <code>i</code> to go into <code>insert</code> mode</li>
-<li>Type the following text: “Hello!”</li>
-<li>Exit the <code>insert</code> mode by hitting <code>Esc</code></li>
-<li>Save and exit text file by typing this command: <code>:wq!</code></li>
-<li>This bring you back to your folder</li>
-</ul></li>
-<li>Check that your file exists and that it has a size (= not empty) by using <code>ls -alh</code>
-<ul>
-<li>What is the size of <code>README.txt</code> in kilo bytes?</li>
-</ul></li>
-<li>Delete <code>README.txt</code> using <code>rm</code></li>
-<li>Check that <code>README.txt</code> has been deleted</li>
-<li>Go back to the home directory using <code>cd ..</code></li>
-<li>Remove <code>My_jobs/</code> using <code>rm -r</code></li>
-<li>Check that <code>My_jobs/</code> has been deleted</li>
-<li>Exit your remote terminal session using <code>exit</code></li>
+<li>Connect to your account using <code>ssh</code>.</li>
+<li>List the contents of your home directory using <code>ls</code>.</li>
+<li>Navigate to <code>Documents/</code> using <code>cd</code>.</li>
+<li>Create a directory named <code>My_jobs</code>.</li>
+<li>Enter the directory.</li>
+<li>Create a file named <code>README.txt</code> using <code>vim</code>.</li>
+<li>Add the text <strong>Hello!</strong> to the file.</li>
+<li>Verify the file exists using <code>ls -alh</code>.</li>
+<li>Delete the file using <code>rm</code>.</li>
+<li>Remove the directory using <code>rm -r</code>.</li>
+<li>Exit your remote session using <code>exit</code>.</li>
 </ol>
-</div>
 </div>
 
 
