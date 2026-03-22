@@ -11,7 +11,7 @@
 
 <meta name="author" content="Sven Buerki - Boise State University" />
 
-<meta name="date" content="2026-03-11" />
+<meta name="date" content="2026-03-22" />
 
 <title>BIOL 497/597 - Genomics &amp; Bioinformatics</title>
 
@@ -383,7 +383,7 @@ div.tocify {
 <h1 class="title toc-ignore">BIOL 497/597 - Genomics &amp; Bioinformatics</h1>
 <h3 class="subtitle">Mini-Reports</h3>
 <h4 class="author">Sven Buerki - Boise State University</h4>
-<h4 class="date">2026-03-11</h4>
+<h4 class="date">2026-03-22</h4>
 
 </div>
 
@@ -2754,31 +2754,47 @@ Vanilla subtree
 <h3><span class="header-section-number">4.13.2</span> Structure of Mini-Report 3</h3>
 <p>The instructor provides guidance on content for each section of your individual reports:</p>
 <ol style="list-style-type: decimal">
-<li><strong>Title &amp; author</strong>: Please supply a first page containing the title and author information.</li>
-<li><strong>Abstract</strong>: Provide a short text summarizing the i) objective(s), ii) methods (incl. sampling), iii) most important results and iv) major conclusions and significance of your research (maximum: 300 words).</li>
-<li><strong>Introduction</strong>: Summarize challenges associated to biodiversity research and benefit of DNA barcoding approach in tackling those issues (e.g. by rapidly identifying species, this approach supports species descriptions, monitoring and development of conservation strategies). Then, move on to talk about vanilla, your model organism, and provide the scientific question and hypothesis investigated in this report (see section <a href="#sciq">4.7</a>). Finally, finish this section with an overview of the applied methodology used to answer your questions.</li>
-<li><strong>Material &amp; Methods</strong>: This section should be subdivided into four subsections. Subsections a. and b. are associated to wet-lab analyses, whereas subsections c. and d. correspond to bioinformatic analyses. Please, make sure to cite references supporting your methods and report used bioinformatic tools (incl. references) together with their applied settings. Finally, you can also refer to your <code>R</code> code for further details. The subsections are as follows:
+<li><strong>Title &amp; author</strong>: Please provide a first page containing the title and author information.</li>
+<li><strong>Abstract</strong>: Provide a concise summary of i) the objective(s), ii) methods (including sampling), iii) key results, and iv) major conclusions and significance of your research (maximum: 300 words).</li>
+<li><strong>Introduction</strong>: Begin by summarizing key challenges associated with biodiversity research and highlight the benefits of DNA barcoding in addressing these issues (e.g. rapid species identification, support for species descriptions, and contributions to monitoring and conservation strategies). Then introduce <em>vanilla</em> as your model organism, and clearly state the scientific question and hypothesis investigated in this report (see section <a href="#sciq">4.7</a>). Conclude with a brief overview of the methodological approach used to address your research question.</li>
+<li><strong>Material &amp; Methods</strong>: This section should be subdivided into four subsections. Subsections (a) and (b) relate to wet-lab procedures, whereas (c) and (d) correspond to bioinformatic analyses. Ensure that you cite appropriate references supporting your methods and report all bioinformatic tools used (including references and relevant parameter settings). You may also refer to your <code>R</code> code for additional details.
 <ol style="list-style-type: lower-alpha">
-<li>Sampling (see section <a href="#sciq">4.7</a>).</li>
-<li>DNA extraction and sequencing (see section <a href="#vanbarcode"><strong>??</strong></a>).</li>
-<li>BLAST analysis.</li>
-<li>Phylogenetic inference.<br />
+<li><strong>Sampling</strong> (see section <a href="#sciq">4.7</a>)<br />
+</li>
+<li><strong>DNA extraction and sequencing</strong>: You should cite <span class="citation">Ellestad et al. (<a href="#ref-Ellestad2022AJB">2022</a>)</span> as the source of the protocol used to generate your raw sequencing data. You are <strong>not expected to reproduce the full experimental protocol in detail</strong>. Instead, provide a <strong>clear and concise summary</strong> of the methodology, demonstrating your understanding of how the data were generated. This should include:</li>
+</ol>
+<ul>
+<li>A brief description of DNA extraction and PCR amplification<br />
+</li>
+<li>A stronger emphasis on the <strong>Sanger sequencing workflow</strong>, including how sequences were produced and processed into raw data<br />
+The focus of this subsection should be on explaining the origin and nature of your sequencing data, rather than providing exhaustive laboratory detail.</li>
+</ul>
+<ol start="3" style="list-style-type: lower-alpha">
+<li><strong>BLAST analysis</strong><br />
+</li>
+<li><strong>Phylogenetic inference</strong></li>
+</ol></li>
+<li><strong>Results</strong>: Present results in the same order as described in the Material &amp; Methods section. Tables, figures, and code should be embedded directly in the text with appropriate captions. To streamline your report, you are <strong>not required</strong> to report results for Sampling (a) and DNA extraction and sequencing (b); instead, focus on the results from BLAST analysis (c) and phylogenetic inference (d).</li>
+<li><strong>Discussion</strong>: In this section, synthesize the evidence generated in your study to answer your scientific questions. Structure the discussion into the following subsections:
+<ol style="list-style-type: lower-alpha">
+<li>To what species of vanilla do the individuals studied here belong?<br />
+</li>
+<li>How are those individuals related to each other?<br />
+</li>
+<li>Conclusions and Perspectives<br />
 </li>
 </ol></li>
-<li><strong>Results</strong>: Results should be presented in the same order as presented in the Material &amp; Methods section. Tables, Figures and code are reported in this section (by directly embedding them in the text and providing captions). To speed-up the writing of this report, you don’t have to report on results associated to Sampling (a.) and DNA extraction and sequencing (b.) subsections, but rather focus on the BLAST analysis (c.) and phylogenetic inference (d.) subsections.<br />
-</li>
-<li><strong>Discussion</strong>: In your discussion, we are expecting you to collate all the evidence presented in the study to answer your scientific questions. In this context, please subdivide this section into three subsections named as follows:
-<ol style="list-style-type: lower-alpha">
-<li>To what species of vanilla do the individuals studied here belong to?</li>
-<li>How are those individuals related to each other?</li>
-<li>Conclusions and Perspectives.</li>
-</ol></li>
-<li><strong>References</strong>: Add a references section containing full citations of references cited in the text. Students can pick their preferred citation format, but references need to be consistently edited in the same fashion.</li>
-<li><strong>Appendix</strong>: Your <code>R</code> code has to be provided as an Appendix either by directly coping your code in the main document under this section or by providing the name and location of the <code>R</code> script in the Appendix section (e.g. by providing a text similar to this: “All the R code associated to this research can be downloaded at this path.”).</li>
+<li><strong>References</strong>: Include a complete list of all references cited in the text. You may use any citation style, but formatting must be consistent throughout.</li>
+<li><strong>Appendix</strong>: Your <code>R</code> code must be provided in the Appendix. This can be done either by directly including the code in this section or by specifying the name and location of the script (e.g. “All R code associated with this research is available at: [path]”).</li>
 </ol>
 </div>
-<div id="submission-and-deadline" class="section level3" number="4.13.3">
-<h3><span class="header-section-number">4.13.3</span> Submission and Deadline</h3>
+<div id="report-length-and-style" class="section level3" number="4.13.3">
+<h3><span class="header-section-number">4.13.3</span> Report Length and Style</h3>
+<p>There is no strict minimum length requirement for this report. However, your writing should be <strong>scientifically accurate, clear, and concise</strong>.</p>
+<p>As a general guideline, the report <strong>must not exceed 5,000 words</strong>, which is in line with the length of many scientific articles. Writing succinctly and avoiding unnecessary detail is part of good scientific practice.</p>
+</div>
+<div id="submission-and-deadline" class="section level3" number="4.13.4">
+<h3><span class="header-section-number">4.13.4</span> Submission and Deadline</h3>
 <p>Individual reports should be submitted in either Google Docs, Word or Rmarkdown formats (and if you decide to submit an additional file containing your R script, submit this file as an <code>.R</code> format). These files should be uploaded on the shared Google Drive in the <code>Mini_Report_3</code> folder in a subfolder entitled as follows: <code>Mini_Report_3_Surname</code>.</p>
 <p>The deadline for your report submission is available <a href="https://svenbuerki.github.io/Genomics-Bioinformatics/Timetable.html#2_Assignment_Deadlines">here</a>.</p>
 </div>

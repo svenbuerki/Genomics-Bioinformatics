@@ -2122,21 +2122,30 @@ Your reports will be structured and organized following the **IMMRAD** format: *
 
 The instructor provides guidance on content for each section of your individual reports:
 
-1. **Title & author**: Please supply a first page containing the title and author information.
-2. **Abstract**: Provide a short text summarizing the i) objective(s), ii) methods (incl. sampling), iii) most important results and iv) major conclusions and significance of your research (maximum: 300 words).
-3. **Introduction**: Summarize challenges associated to biodiversity research and benefit of DNA barcoding approach in tackling those issues (e.g. by rapidly identifying species, this approach supports species descriptions, monitoring and development of conservation strategies). Then, move on to talk about vanilla, your model organism, and provide the scientific question and hypothesis investigated in this report (see section \@ref(sciq)). Finally, finish this section with an overview of the applied methodology used to answer your questions.
-4. **Material & Methods**: This section should be subdivided into four subsections. Subsections a. and b. are associated to wet-lab analyses, whereas subsections c. and d. correspond to bioinformatic analyses. Please, make sure to cite references supporting your methods and report used bioinformatic tools (incl. references) together with their applied settings. Finally, you can also refer to your `R` code for further details. The subsections are as follows:
-    a. Sampling (see section \@ref(sciq)).
-    b. DNA extraction and sequencing (see section \@ref(vanbarcode)).
-    c. BLAST analysis.
-    d. Phylogenetic inference.  
-5. **Results**: Results should be presented in the same order as presented in the Material & Methods section. Tables, Figures and code are reported in this section (by directly embedding them in the text and providing captions). To speed-up the writing of this report, you don't have to report on results associated to Sampling (a.) and DNA extraction and sequencing (b.) subsections, but rather focus on the BLAST analysis (c.) and phylogenetic inference (d.) subsections.  
-6. **Discussion**: In your discussion, we are expecting you to collate all the evidence presented in the study to answer your scientific questions. In this context, please subdivide this section into three subsections named as follows:
-    a. To what species of vanilla do the individuals studied here belong to?
-    b. How are those individuals related to each other?
-    c. Conclusions and Perspectives. 
-7. **References**: Add a references section containing full citations of references cited in the text. Students can pick their preferred citation format, but references need to be consistently edited in the same fashion.
-8. **Appendix**: Your `R` code has to be provided as an Appendix either by directly coping your code in the main document under this section or by providing the name and location of the `R` script in the Appendix section (e.g. by providing a text similar to this: "All the R code associated to this research can be downloaded at this path."). 
+1. **Title & author**: Please provide a first page containing the title and author information.
+2. **Abstract**: Provide a concise summary of i) the objective(s), ii) methods (including sampling), iii) key results, and iv) major conclusions and significance of your research (maximum: 300 words).
+3. **Introduction**: Begin by summarizing key challenges associated with biodiversity research and highlight the benefits of DNA barcoding in addressing these issues (e.g. rapid species identification, support for species descriptions, and contributions to monitoring and conservation strategies). Then introduce *vanilla* as your model organism, and clearly state the scientific question and hypothesis investigated in this report (see section \@ref(sciq)). Conclude with a brief overview of the methodological approach used to address your research question.
+4. **Material & Methods**: This section should be subdivided into four subsections. Subsections (a) and (b) relate to wet-lab procedures, whereas (c) and (d) correspond to bioinformatic analyses. Ensure that you cite appropriate references supporting your methods and report all bioinformatic tools used (including references and relevant parameter settings). You may also refer to your `R` code for additional details.
+   a. **Sampling** (see section \@ref(sciq))  
+   b. **DNA extraction and sequencing**: You should cite @Ellestad2022AJB as the source of the protocol used to generate your raw sequencing data. You are **not expected to reproduce the full experimental protocol in detail**. Instead, provide a **clear and concise summary** of the methodology, demonstrating your understanding of how the data were generated. This should include:
+   - A brief description of DNA extraction and PCR amplification  
+   - A stronger emphasis on the **Sanger sequencing workflow**, including how sequences were produced and processed into raw data  
+   The focus of this subsection should be on explaining the origin and nature of your sequencing data, rather than providing exhaustive laboratory detail.
+   c. **BLAST analysis**  
+   d. **Phylogenetic inference**
+5. **Results**: Present results in the same order as described in the Material & Methods section. Tables, figures, and code should be embedded directly in the text with appropriate captions. To streamline your report, you are **not required** to report results for Sampling (a) and DNA extraction and sequencing (b); instead, focus on the results from BLAST analysis (c) and phylogenetic inference (d).
+6. **Discussion**: In this section, synthesize the evidence generated in your study to answer your scientific questions. Structure the discussion into the following subsections:
+   a. To what species of vanilla do the individuals studied here belong?  
+   b. How are those individuals related to each other?  
+   c. Conclusions and Perspectives  
+7. **References**: Include a complete list of all references cited in the text. You may use any citation style, but formatting must be consistent throughout.
+8. **Appendix**: Your `R` code must be provided in the Appendix. This can be done either by directly including the code in this section or by specifying the name and location of the script (e.g. “All R code associated with this research is available at: [path]”).
+
+### Report Length and Style
+
+There is no strict minimum length requirement for this report. However, your writing should be **scientifically accurate, clear, and concise**.
+
+As a general guideline, the report **must not exceed 5,000 words**, which is in line with the length of many scientific articles. Writing succinctly and avoiding unnecessary detail is part of good scientific practice.
 
 ### Submission and Deadline
 
