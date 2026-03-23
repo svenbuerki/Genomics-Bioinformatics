@@ -301,7 +301,7 @@ By the end of this activity, you should be able to:
 
 ## Activity Overview
 
-In this **1 hour and 30 minute** group activity, you will work in groups of **3–4 students** to develop a strategy for identifying aquaporin genes in a draft genome—using a **“Where’s Waldo?” analogy**.
+In this **1 hour and 30 minute** group activity, you will work in the [groups](https://docs.google.com/spreadsheets/d/1cRM1yasUfDa98ecyz_-RxUOw8cU4wkQx4O5Wxw3y4yU/edit?usp=sharing) assigned for this lab to develop a strategy for identifying aquaporin genes in a draft genome using a **“Where’s Waldo?” analogy**.
 
 Just as finding Waldo requires knowing his defining features (striped shirt, glasses, hat), identifying genes in a genome requires understanding the **diagnostic characteristics** of the target gene family.
 
