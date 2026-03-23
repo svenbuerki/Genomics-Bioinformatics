@@ -57,31 +57,41 @@ Additional references are provided throughout each section to help you master th
 
 # Lab Report Workflow: Genome Mining, Gene Annotation, and Validation
 
-This lab report guides you step by step through a research-style investigation that combines scientific reasoning with hands-on bioinformatics analyses. You will work with a draft genome to identify, extract, annotate, and validate target genes, and interpret your findings in a biological context.
+This lab report guides you through a **research-style investigation** that integrates scientific reasoning with hands-on bioinformatics analyses. You will work with a draft genome to identify, extract, annotate, and validate aquaporin (AQP) genes, and interpret your findings in a biological context.
 
 The assignment is organized into the following sections:
 
-- [**Group activity**](#grpactivity_genome): You will collaboratively read and discuss the publication that forms the foundation of this lab report. This activity introduces the scientific context, research question, and genomic resources used in the study.
-- [**Remote Computing and Bash Tutorials**](https://svenbuerki.github.io/Genomics-Bioinformatics/Tutorials.html): This section introduces the core computational tools used in this lab, including remote access (`ssh`), job management (`tmux`), and Bash command-line workflows.
-- [**Introduction**](#intro): This section presents the key concepts needed for the report, including the scientific question, hypothesis (and predictions), methodology, data availability, and report structure and formatting. Use this section as a reference while completing your analyses and writing your report.
-- [**Objectives and Scientific Question**](#objlabreport): This section introduces the specific objectives and scientific question that you will investigate in this assignment.
-- **Bioinformatics analyses:** In this section, you will perform the analytical steps required to mine a draft genome and characterize target genes. These hands-on activities connect theory to real genomic data.
-    - [**Data Structure and Workflow**](#datastrworkflow): Overview of the data used in this assignment and the project organization supporting your analyses.
-    - [**Module 1**](#mod1): Set up your working environment and identify scaffolds containing AQP genes.
-    - [**Module 2**](#mod2): Extract the scaffolds identified in Module 1 and identify **O**pen **R**eading **F**rames (ORFs).
-    - [**Module 3**](#mod3): Annotate ORFs and assemble AQP protein sequence(s).
-    - [**Module 4**](#mod4): Validate AQP protein sequences and infer their function(s).
-    - [**Data Interpretation**](#interpretation): Guidance to help you interpret your results and prepare for the remaining lab group activities.
-    - [**Your Turn**](#yourturn): Your group will apply the workflow and interpret the data for your assigned scaffold.
-- [**Group Lab Report**](#report): This section provides detailed guidelines to help you write and organize your group lab report.
-- [**Group Lab Oral Presentation**](#grplabpresentation): This section provides detailed guidelines to help you prepare your group oral presentation.
-- [**Evaluation Rubrics**](#rubrics): This section describes the criteria used to evaluate your lab report and oral presentation.
-
+- [**Group Activity 1: Investigating a Draft Genome Study and Its Genomic Resources**](#grpactivity_genome)  
+  You will collaboratively read and discuss the publication that forms the foundation of this lab report. This activity introduces the biological background, research question, and genomic resources generated in the study.
+- [**Group Activity 2: “Where’s Waldo?” – Designing a Genome Mining Strategy**](#waldo)  
+  Building on the first activity, you will develop the theoretical framework needed to identify aquaporin genes in a draft genome. Using the Waldo analogy, you will define the key features of AQPs and design a bioinformatics strategy to locate them in genomic data.
+- [**Remote Computing and Bash Tutorials**](https://svenbuerki.github.io/Genomics-Bioinformatics/Tutorials.html)  
+  This section introduces the core computational tools used in this lab, including remote access (`ssh`), job management (`tmux`), and Bash command-line workflows.
+- [**Introduction**](#intro)  
+  This section presents the key concepts needed for the report, including the scientific question, hypothesis (and predictions), methodology, data availability, and report structure. Use this section as a reference throughout your analyses and writing.
+- [**Objectives and Scientific Question**](#objlabreport)  
+  This section defines the specific objectives and research question you will investigate in this assignment.
+- **Bioinformatics Analyses**  
+  In this section, you will perform the analytical steps required to mine a draft genome and characterize aquaporin genes. These hands-on modules connect theory to real genomic data.
+  - [**Data Structure and Workflow**](#datastrworkflow): Overview of the dataset and project organization  
+  - [**Module 1**](#mod1): Set up your working environment and identify scaffolds containing AQP genes  
+  - [**Module 2**](#mod2): Extract candidate scaffolds and identify **O**pen **R**eading **F**rames (ORFs)  
+  - [**Module 3**](#mod3): Annotate ORFs and reconstruct AQP protein sequence(s)  
+  - [**Module 4**](#mod4): Validate AQP protein sequences and infer their function(s)  
+  - [**Data Interpretation**](#interpretation): Guidance for interpreting results and preparing for downstream activities  
+  - [**Your Turn**](#yourturn): Apply the workflow and interpret results for your assigned scaffold  
+- [**Group Lab Report**](#report)  
+  Detailed guidelines for writing and organizing your group lab report.
+- [**Group Lab Oral Presentation**](#grplabpresentation)  
+  Guidelines for preparing and delivering your group presentation.
+- [**Evaluation Rubrics**](#rubrics)  
+  Criteria used to assess your lab report and oral presentation.
+  
 ---
 
-# 🤝 Group Activity: Investigating a Draft Genome Study and Its Genomic Resources {#grpactivity_genome}
+# 🤝 Group Activity 1: Investigating a Draft Genome Study and Its Genomic Resources {#grpactivity_genome}
 
-## Learning Outcomes
+## 🧬 Learning Outcomes
 
 By the end of this activity, you will be able to:
 
@@ -272,6 +282,229 @@ This activity prepares you to:
 - Mine genomes to extract and analyze genes
 
 These skills are essential for your **Lab Group Report**.
+
+---
+
+# 🤝 Group Activity 2: “Where’s Waldo?” – Designing a Genome Mining Strategy {#waldo}
+
+## 🧬 Learning Objectives
+
+By the end of this activity, you should be able to:
+
+- Describe key structural and functional features of aquaporin proteins  
+- Distinguish major aquaporin subfamilies (e.g., PIP, TIP, NIP, SIP)  
+- Design a bioinformatics strategy to identify aquaporin genes in a draft genome  
+- Justify tool selection (e.g., BLAST, gene prediction, annotation)  
+- Recognize challenges associated with mining genes from draft assemblies  
+
+---
+
+## Activity Overview
+
+In this **1 hour and 30 minute** group activity, you will work in groups of **3–4 students** to develop a strategy for identifying aquaporin genes in a draft genome—using a **“Where’s Waldo?” analogy**.
+
+Just as finding Waldo requires knowing his defining features (striped shirt, glasses, hat), identifying genes in a genome requires understanding the **diagnostic characteristics** of the target gene family.
+
+This activity is inspired by the study: @Melton2021
+
+Through this activity, you will:
+
+- Characterize the biological features of aquaporin proteins and their subfamilies (PIP, TIP, NIP, SIP)  
+- Identify the key “signature features” that distinguish aquaporins from other proteins  
+- Develop a **bioinformatics strategy** to locate aquaporin genes in a draft genome (FASTA format)  
+- Evaluate which tools (e.g., BLAST, gene prediction, annotation) are appropriate at each step
+- Anticipate challenges associated with mining genes from draft genome assemblies  
+
+Rather than directly running analyses, you will focus on **designing a logical and justified pipeline** that you will later apply in your lab work.
+
+This activity will prepare you to:
+
+- Think critically about how genes are identified in unannotated genomes  
+- Understand how protein knowledge guides genome mining  
+- Apply similar strategies when working on your **Group Lab Report**
+
+---
+
+## Materials
+
+- @Melton2021 — Aquaporin-focused draft genome study  
+  - Available at: https://onlinelibrary.wiley.com/doi/abs/10.1002/ece3.8245  
+- Course notes and [Introduction](#intro) section — Aquaporin structure, function, and subfamilies  
+- [NCBI](https://www.ncbi.nlm.nih.gov/) — for reference on sequence databases and BLAST tools  
+- [Lexicon](Lexicon.html) — reference definitions for key genomics and bioinformatics terms  
+
+---
+
+## 🔍 Context: Where’s Waldo Meets Genomics <span style="color:gray;">(5 minutes)</span>
+
+Finding a gene in a genome is like finding Waldo in a crowded illustration.
+
+To find Waldo, you need to know:
+
+- What he looks like (striped shirt, glasses, hat)  
+- How he differs from others  
+- Where he is likely to appear  
+
+Similarly, to find aquaporin genes in a genome, you need to know:
+
+- Their defining sequence and structural features  
+- How they differ from other membrane proteins  
+- What tools can detect those features in DNA sequences  
+
+👉 **Goal:** Develop a strategy to identify aquaporin genes from a draft genome assembly (FASTA format). This will be fundamental to conduct the bioinformatics analyses.
+
+---
+
+## Part 1 – What Does “Waldo” Look Like? <span style="color:gray;">(30 minutes)</span>
+
+### Task 1.1 – Protein Family Characteristics
+
+Using:
+
+- @Melton2021  
+- Your course notes  
+
+Answer:
+
+1. What is the main biological function of aquaporins?  
+2. What type of protein are they (e.g., membrane, soluble)?  
+3. What is their typical size (approximate amino acid length)?  
+
+---
+
+### Task 1.2 – Diagnostic Features
+
+List **at least 3 key features** that define aquaporins:
+
+- Structural features:  
+- Conserved motifs:  
+- Transmembrane domains:  
+
+💡 Hint: Think of these as “Waldo’s stripes and hat”.
+
+### Task 1.3 – Signature Motifs
+
+1. What are the **NPA motifs**?  
+2. How many are typically present?  
+3. Why are they important?  
+
+### Task 1.4 – Subfamilies
+
+Fill in the table:
+
+| Subfamily | Full Name | Localization | Key Features |
+|----------|----------|-------------|--------------|
+| PIP      |          |             |              |
+| TIP      |          |             |              |
+| NIP      |          |             |              |
+| SIP      |          |             |              |
+
+### Reflection
+
+👉 What are the **minimum features** needed to confidently recognize an aquaporin?
+
+---
+
+## Part 2 – Where to Look? <span style="color:gray;">(20 minutes)</span>
+
+You are given:
+
+- A **draft genome assembly (FASTA format)**  
+- No annotation  
+
+### Task 2.1 – The Challenge
+
+Discuss:
+
+- Why is it harder to find genes in a genome than in a protein database?  
+- What complications arise from draft assemblies?  
+
+### Task 2.2 – Strategy Brainstorm
+
+List possible approaches:
+
+- Sequence similarity:  
+- Motif detection:  
+- Gene prediction:  
+
+👉 Which approach would you start with and why?
+
+### Task 2.3 – BLAST as a First Step
+
+1. What type of BLAST would you use?  
+   - BLASTn  
+   - BLASTp  
+   - tBLASTn  
+
+2. Justify your answer.  
+
+3. What would you use as a query?  
+
+---
+
+## Part 3 – Building Your Strategy <span style="color:gray;">(25 minutes)</span>
+
+### Task 3.1 – Step Ordering
+
+Put the following steps in logical order:
+
+- Identify candidate regions  
+- Extract genomic sequences  
+- Validate protein structure  
+- Perform BLAST search  
+- Annotate exon-intron structure  
+- Translate sequences  
+
+### Task 3.2 – Fill in the Pipeline
+
+Complete the workflow:
+
+1. Start with: __________________________  
+2. Then: _______________________________  
+3. Then: _______________________________  
+4. Then: _______________________________  
+5. Final validation: ____________________  
+
+### Task 3.3 – Validation Criteria
+
+How will you confirm a candidate is truly an aquaporin?
+
+List at least 4 criteria:
+
+- Presence of:  
+- Sequence similarity threshold:  
+- Structural features:  
+- Length range:  
+
+---
+
+## Part 4 – Challenges and Limitations <span style="color:gray;">(10 minutes)</span>
+
+### Task 4.1 – Potential Pitfalls
+
+Identify at least 3 challenges:
+
+- Fragmented genes  
+- Assembly errors  
+- False positives  
+
+### Task 4.2 – Improving Confidence
+
+What could you add?
+
+- Transcriptome data?  
+- Phylogenetic analysis?  
+- Domain prediction tools?  
+
+---
+
+## 🧠 Final Reflection <span style="color:gray;">(5 minutes)</span>
+
+In 2–3 sentences:
+
+👉 How is finding aquaporins in a genome similar to finding Waldo?  
+
+👉 What makes bioinformatics both powerful and uncertain?  
 
 ---
 
