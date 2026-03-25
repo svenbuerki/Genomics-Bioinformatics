@@ -125,7 +125,8 @@ This activity will help you understand how genomic datasets are generated, organ
 - [NCBI](https://www.ncbi.nlm.nih.gov/) — National Center for Biotechnology Information (genomic databases and tools)
 - Genomic resources associated with the study on NCBI:
   - <u>BioProject</u> — umbrella record describing the overall sequencing project  
-    https://www.ncbi.nlm.nih.gov/bioproject/722258  
+    https://www.ncbi.nlm.nih.gov/bioproject/722258
+    https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_021014915.1/
   - <u>Sequence Read Archive (SRA)</u> — raw sequencing reads generated for the project  
     https://www.ncbi.nlm.nih.gov/sra?linkname=bioproject_sra_all&from_uid=722258  
   - <u>Genome Assembly</u> — assembled draft genome produced from the raw reads  
