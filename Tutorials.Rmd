@@ -103,7 +103,7 @@ An IP address serves two main functions:
 
 ## How to Find the IP Address?
 
-The procedure summarized here shows how to retrieve a computer’s IP address on the Ubuntu operating system (Figure @ref(fig:IP)):
+The procedure summarized here shows how to retrieve a computer’s IP address on the Ubuntu operating system (Figure \@ref(fig:IP)):
 
 1. Open the `System Settings` application from the desktop sidebar.
 2. Select the `Network` tab located under the **Hardware** section.
@@ -127,7 +127,7 @@ ifconfig -a
 
 ## The `ssh` Protocol
 
-The **Secure Shell (`ssh`) protocol** is a method used for secure remote login from one computer to another (Figure @ref(fig:sshFig)).
+The **Secure Shell (`ssh`) protocol** is a method used for secure remote login from one computer to another (Figure \@ref(fig:sshFig)).
 It protects communication using strong encryption and allows users to remotely execute commands on another machine.
 
 ```{r sshFig, echo=FALSE, fig.align="center", fig.cap="Overview of ssh protocol.", fig.show="asis", out.width = '80%'}
@@ -155,7 +155,7 @@ If you are using Windows, you can use **Putty** to establish SSH connections.
 Download the software here:
 [http://www.putty.org](http://www.putty.org)
 
-When launching Putty:
+When launching Putty (Figure \@ref(fig:Putty)):
 
 1. Enter `user@IP` in the **Host Name** field.
 2. Set **Port** to `22`.
