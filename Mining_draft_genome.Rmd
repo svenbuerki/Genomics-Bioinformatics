@@ -61,31 +61,38 @@ This lab report guides you through a **research-style investigation** that integ
 
 The assignment is organized into the following sections:
 
-- [**Group Activity 1: Investigating a Draft Genome Study and Its Genomic Resources**](#grpactivity_genome)  
+* [**Group Activity 1: Investigating a Draft Genome Study and Its Genomic Resources**](#grpactivity_genome)
   You will collaboratively read and discuss the publication that forms the foundation of this lab report. This activity introduces the biological background, research question, and genomic resources generated in the study.
-- [**Group Activity 2: “Where’s Waldo?” – Designing a Genome Mining Strategy**](#waldo)  
+* [**Group Activity 2: “Where’s Waldo?” – Designing a Genome Mining Strategy**](#waldo)
   Building on the first activity, you will develop the theoretical framework needed to identify aquaporin genes in a draft genome. Using the Waldo analogy, you will define the key features of AQPs and design a bioinformatics strategy to locate them in genomic data.
-- [**Remote Computing and Bash Tutorials**](https://svenbuerki.github.io/Genomics-Bioinformatics/Tutorials.html)  
+* [**Remote Computing and Bash Tutorials**](https://svenbuerki.github.io/Genomics-Bioinformatics/Tutorials.html)
   This section introduces the core computational tools used in this lab, including remote access (`ssh`), job management (`tmux`), and Bash command-line workflows.
-- [**Introduction**](#intro)  
+* [**Introduction**](#intro)
   This section presents the key concepts needed for the report, including the scientific question, hypothesis (and predictions), methodology, data availability, and report structure. Use this section as a reference throughout your analyses and writing.
-- [**Objectives and Scientific Question**](#objlabreport)  
+* [**Objectives and Scientific Question**](#objlabreport)
   This section defines the specific objectives and research question you will investigate in this assignment.
-- **Bioinformatics Analyses**  
-  In this section, you will perform the analytical steps required to mine a draft genome and characterize aquaporin genes. These hands-on modules connect theory to real genomic data.
-  - [**Data Structure and Workflow**](#datastrworkflow): Overview of the dataset and project organization  
-  - [**Module 1**](#mod1): Set up your working environment and identify scaffolds containing AQP genes  
-  - [**Module 2**](#mod2): Extract candidate scaffolds and identify **O**pen **R**eading **F**rames (ORFs)  
-  - [**Module 3**](#mod3): Annotate ORFs and reconstruct AQP protein sequence(s)  
-  - [**Module 4**](#mod4): Validate AQP protein sequences and infer their function(s)  
-  - [**Data Interpretation**](#interpretation): Guidance for interpreting results and preparing for downstream activities  
-  - [**Your Turn**](#yourturn): Apply the workflow and interpret results for your assigned scaffold  
-- [**Group Lab Report**](#report)  
+* **Bioinformatics Analyses**
+  In this section, you will perform the analytical steps required to mine a draft genome and characterize aquaporin genes.
+
+  The analyses are structured in two stages:
+  
+  * First, you will work collaboratively on a **shared dataset** to build the theoretical understanding and practical skills required for genome mining, gene annotation, and validation.
+  * Then, each group will be assigned a **specific scaffold**, which you will independently analyze to **identify, annotate, and characterize your aquaporin gene**.
+  These hands-on modules connect theory to real genomic data and progressively build your confidence in applying bioinformatics workflows.
+  * [**Data Structure and Workflow**](#datastrworkflow): Overview of the dataset and project organization
+  * [**Module 1**](#mod1): Set up your working environment and identify scaffolds containing AQP genes
+  * [**Module 2**](#mod2): Extract candidate scaffolds and identify **O**pen **R**eading **F**rames (ORFs)
+  * [**Module 3**](#mod3): Annotate ORFs and reconstruct AQP protein sequence(s)
+  * [**Module 4**](#mod4): Validate AQP protein sequences and infer their function(s)
+  * [**Data Interpretation**](#interpretation): Guidance for interpreting results and preparing for downstream activities
+  * [**Your Turn**](#yourturn): Apply the workflow to your assigned scaffold and interpret your results
+* [**Group Lab Report**](#report)
   Detailed guidelines for writing and organizing your group lab report.
-- [**Group Lab Oral Presentation**](#grplabpresentation)  
+* [**Group Lab Oral Presentation**](#grplabpresentation)
   Guidelines for preparing and delivering your group presentation.
-- [**Evaluation Rubrics**](#rubrics)  
+* [**Evaluation Rubrics**](#rubrics)
   Criteria used to assess your lab report and oral presentation.
+
   
 ---
 
@@ -573,41 +580,64 @@ Let's complete the training first going by through each module and then students
 
 ## Group Organization and Structure
 
-Each group will be composed of **5 to 6 students**, mixing undergraduate with graduate students to promote peer learning and knowledge exchange. Each group will be split into **two subgroups** that work independently on the same analyses. The goal of this structure is to foster fact-checking by comparing results obtained between the two subgroups, ensuring accuracy and reproducibility of findings.
+Each group is composed of **5 to 6 students**, with a mix of undergraduate and graduate students to promote peer learning and knowledge exchange.
+
+Each group is divided into **two subgroups (A and B)**. Both subgroups will perform the **same analyses in parallel**, working independently at first.
+
+This structure is designed to:
+
+* Encourage **fact-checking** by comparing results between subgroups
+* Improve **accuracy and reproducibility**
+* Build **confidence** in computational results through independent validation
+
+---
 
 ## Group Accounts
 
-You will be accessing Linux computers to run your analyses using the `ssh` protocol. Details on your [account information](https://docs.google.com/document/d/1t0DdQBes42Gzo8XWgc9JL2xEGjv1kbfoVE7Vznx6C9I/edit) are available here.
+Each group has been assigned **two accounts**:
+
+* **One account for Subgroup A**
+* **One account for Subgroup B**
+
+Each subgroup must use its assigned account to complete the exercises.
+
+You will access the Linux systems using the `ssh` protocol. Details on your [account information](https://docs.google.com/document/d/1t0DdQBes42Gzo8XWgc9JL2xEGjv1kbfoVE7Vznx6C9I/edit) are available here.
+
+---
 
 ## Group Collaboration Guidelines
 
-- Each group has **four accounts** to facilitate collaboration between subgroups
-- All accounts in a group share the same computational resources
-- Coordinate within your subgroup to avoid conflicts when running intensive analyses
-- Compare results between subgroups to verify accuracy and identify potential issues
-- Subgroups should work independently initially, then collaborate during result comparison phases
+* Each subgroup works **independently** using its assigned account
+* Analyses are conducted **in parallel** by Subgroup A and Subgroup B
+* All accounts within a group share the same computational resources
+* Coordinate within your subgroup to avoid conflicts when running intensive jobs
+* After completing tasks, **compare results between subgroups** to verify accuracy
+* Discuss and resolve any discrepancies before moving forward
+
+---
 
 ### Technical Notes
 
-- All accounts use the same password for simplicity
-- Accounts have access to bioinformatics software and tools needed for course analyses
-- File permissions allow collaboration between group accounts on the same machine
-- Contact the instructor if you experience connection issues
+* All accounts use the same password for simplicity
+* Accounts have access to the bioinformatics software required for the course
+* File permissions allow collaboration within each account environment
+* Contact the instructor if you experience connection issues
+
+---
 
 ## Where are the data located?
 
-All the data associated with this project are located on your individual account in the `DraftGenomeMineR/` folder. This folder is located in `~/DraftGenomeMineR`. 
+All data associated with this project are located in your account in the `DraftGenomeMineR/` directory:
+
+```
+~/DraftGenomeMineR
+```
 
 **Key files:**
 
-- `Draft_Genome_Assembly.fasta`: Sagebrush draft genome assembly (at scaffold level)
-- `FASTAs/PIP1_3.fa`: Reference containing *PIP1* gene (AA) for BLAST analysis. This data will be used to find Aquaporin genes in the draft genome
-- Scripts related to each module are located in `Lesson_Modules/`
-
-## How do I access the data and run analyses?
-
-To access the data and run the analyses, please remotely connect to your dedicated computer using the `ssh` protocol. Your credentials are available [here](https://docs.google.com/document/d/1t0DdQBes42Gzo8XWgc9JL2xEGjv1kbfoVE7Vznx6C9I/edit).
-
+* `Draft_Genome_Assembly.fasta`: Sagebrush draft genome assembly (scaffold level)
+* `FASTAs/PIP1_3.fa`: Reference file containing the *PIP1* protein sequence for BLAST analysis
+* `Lesson_Modules/`: Scripts associated with each module
 
 ---
 
