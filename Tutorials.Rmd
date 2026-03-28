@@ -59,23 +59,25 @@ After completing these tutorials, you will be able to:
 2. Safely run long analyses (aka computer jobs) using `tmux` sessions.
 3. Use common **Bash command-line tools** to organize files and perform genomics analyses.
 
-# Structure
+## Workflow
 
-These tutorials are organized to guide you through the essential steps required to work on remote Linux computers and conduct genomics analyses using the command line.
+These tutorials are organized to guide you through the essential steps required to work on remote Linux systems and perform genomics analyses using the command line.
 
 The material is structured into the following sections:
 
-1. [**Remotely access Linux computers**](#remote):  
+1. [**Remotely access Linux computers**](#remote)
    In this section, you will learn how to connect to remote computers using the `ssh` protocol and understand the basic concepts required for secure remote access.
 
-2. [**Safely run computer jobs**](#runjob):  
+2. [**Safely run computer jobs**](#runjob)
    This section introduces the `tmux` tool, which allows you to run and manage long computational jobs in persistent terminal sessions.
 
-3. [**Bash command-line reference**](#lcmd):  
-   This section provides a practical overview of commonly used Bash commands to navigate the file system, manage files, and support genomics analyses.
+3. [**Bash command-line reference**](#lcmd)
+   This section provides a practical overview of commonly used Bash commands for navigating the file system, managing files, and supporting genomics analyses.
 
+4. [**Group Exercises: Building a Shared Bioinformatics Workflow**](#grpactexe)
+   This section provides group activities to help you apply and reinforce the skills learned throughout these tutorials.
 
-# Your Computer Accounts
+# Your Computer Accounts {#grpaccounts}
 
 Details on your Linux computer accounts and their IP addresses are summarized in this [Google document](https://docs.google.com/document/d/1t0DdQBes42Gzo8XWgc9JL2xEGjv1kbfoVE7Vznx6C9I/edit?usp=sharing).
 
@@ -164,12 +166,6 @@ When launching Putty (Figure \@ref(fig:Putty)):
 ```{r Putty, echo=FALSE, fig.align="center", fig.cap="Putty configuration window.", fig.show="asis", out.width = '60%'}
 knitr::include_graphics("Images/putty-session-config.png")
 ```
-
-## Exercises
-
-1. Retrieve your **user ID** and **IP address**.
-2. Connect to your account using `ssh`.
-3. Exit the remote session using `exit`.
 
 # Safely Run Computer Jobs {#runjob}
 
@@ -294,18 +290,194 @@ Below is a collection of common **Bash commands** used to navigate the file syst
 - `tar` — archive files
 - `gzip` — compress files
 
-# Exercises
+# 🤝 Group Exercises: Building a Shared Bioinformatics Workflow {#grpactexe}
 
-To practice the skills introduced in this tutorial:
+## Learning Outcomes
 
-1. Connect to your account using `ssh`.
-2. List the contents of your home directory using `ls`.
-3. Navigate to `Documents/` using `cd`.
-4. Create a directory named `My_jobs`.
-5. Enter the directory.
-6. Create a file named `README.txt` using `vim`.
-7. Add the text **Hello!** to the file.
-8. Verify the file exists using `ls -alh`.
-9. Delete the file using `rm`.
-10. Remove the directory using `rm -r`.
-11. Exit your remote session using `exit`.
+These exercises reinforce:
+
+* Remote computing skills (`ssh`)
+* Linux navigation and file management
+* Safe job execution using `tmux`
+* **Collaborative bioinformatics workflows**
+
+---
+
+## Activity Overview
+
+In this **50-minute** group activity, you will work in groups of **5–6 students**, divided into **two subgroups (A and B)**, to build and manage a shared bioinformatics workspace on a remote Linux system.
+
+Through this activity, you will:
+
+* Practice connecting to a remote system using `ssh`
+* Navigate and manage files using essential Linux commands
+* Collaboratively create and organize a shared working directory
+* Create, verify, and delete files within a shared environment
+* Use `tmux` to safely run and manage persistent computational jobs
+* Develop communication and coordination skills required in real-world bioinformatics workflows
+
+This activity is designed to simulate how bioinformatics teams collaborate on shared computing infrastructure. You will experience the importance of clear communication, careful file management, and responsible use of shared resources.
+
+By the end of this session, you will be prepared to confidently work on remote systems, manage your own analysis environment, and collaborate effectively on computational genomics projects.
+
+---
+
+## Materials
+
+- [**Your Computer Accounts**](#grpaccounts)
+- [**How to Remotely access Linux computers**](#remote)
+- [**Ho to Safely run computer jobs**](#runjob)
+- [**Bash command-line reference**](#lcmd)
+
+---
+
+## Instructions
+
+These exercises are designed to simulate real-world bioinformatics collaboration.
+
+You will work in:
+
+* **3 groups** (5–6 students each)
+* Each group has:
+  * **2 accounts**
+  * **1 per subgroup (A and B)**
+
+⚠️ **Important:**
+
+* Only **ONE terminal session per subgroup**
+* You must **coordinate, communicate, and trust each other**
+* Mistakes affect everyone — just like in real research
+
+---
+
+## Phase 1 — Establishing Access (Trust & Communication) <span style="color:gray;">(15 minutes)</span>
+
+**Goal:** Successfully access your shared system
+
+### Tasks
+
+1. Connect to the remote server using `ssh`. See [here](#grpaccounts) for account details. Once you have gathered the required information (IP address and username), open a **Terminal** and type (see here if you use [Putty](#Putty)):
+
+```{bash eval=F}
+# General command
+ssh USER_ID@IP
+
+# Example
+ssh bio_40@132.178.143.53
+```
+
+2. Confirm your identity and current directory:
+
+```{bash, eval=FALSE}
+# Retrieve your username
+whoami
+
+# Retrieve your current path
+pwd
+```
+
+👉 **Deliverable:**
+Shared notes describing the login procedure
+
+---
+
+## Phase 2 — Shared Workspace Construction (Coordination) <span style="color:gray;">(15 minutes)</span>
+
+**Goal:** Build a common working directory
+
+### Tasks
+
+1. Navigate to your home directory
+
+```{bash, eval=FALSE}
+cd ~
+```
+
+2. Create a new folder:
+
+```{bash, eval=FALSE}
+mkdir Tutorial_genomics
+```
+
+3. Verify the directory structure:
+
+```{bash, eval=FALSE}
+# Basic listing
+ls
+
+# Detailed listing
+ls -lh
+```
+
+4. Create and remove a test file inside the folder:
+
+```{bash, eval=FALSE}
+# Move into the directory
+cd Tutorial_genomics
+
+# Create a test file
+touch test_file.txt
+
+# Verify it exists
+ls -lh
+
+# Remove the file
+rm test_file.txt
+
+# Confirm deletion
+ls
+```
+
+👉 **Discussion:**
+
+* What are the differences between `ls` and `ls -lh`?
+* Why does directory structure matter in genomics pipelines?
+* Why is it important to verify file creation and deletion?
+
+---
+
+## Phase 3 — Safe Job Execution (Shared Responsibility) <span style="color:gray;">(15 minutes)</span>
+
+**Goal:** Run persistent jobs safely using `tmux`
+
+### Tasks
+
+1. Start a `tmux` session:
+
+```{bash, eval=FALSE}
+tmux new -s GENOMICS_JOB
+```
+
+2. Run a dummy job:
+
+```{bash, eval=FALSE}
+sleep 300
+```
+
+3. Detach from the session:
+
+```
+Ctrl + b, then d
+```
+
+4. Reattach to the session:
+
+```{bash, eval=FALSE}
+tmux attach -t GENOMICS_JOB
+```
+
+👉 **Discussion:**
+
+* Why is `tmux` essential in genomics workflows?
+* What could happen if a long job is run without it?
+
+---
+
+## Phase 4 — Reflection (Building Trust) <span style="color:gray;">(5 minutes)</span>
+
+### Group Discussion
+
+1. What worked well in your collaboration?
+2. Where did communication break down?
+3. Did you trust the other subgroup?
+4. What would happen in a real research project?

@@ -10,7 +10,7 @@
 
 
 
-<meta name="date" content="2026-03-25" />
+<meta name="date" content="2026-03-28" />
 
 <title>Remote Computing and Bash Tutorials</title>
 
@@ -359,7 +359,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Remote Computing and Bash Tutorials</h1>
 <h3 class="subtitle">Bioinformatics Toolkit for Genomics Analyses</h3>
-<h4 class="date">2026-03-25</h4>
+<h4 class="date">2026-03-28</h4>
 
 </div>
 
@@ -389,27 +389,29 @@ The tutorials focus on practical workflows using Linux computers running the <a 
 <li>Safely run long analyses (aka computer jobs) using <code>tmux</code> sessions.</li>
 <li>Use common <strong>Bash command-line tools</strong> to organize files and perform genomics analyses.</li>
 </ol>
-</div>
-<div id="structure" class="section level1" number="3">
-<h1><span class="header-section-number">3</span> Structure</h1>
-<p>These tutorials are organized to guide you through the essential steps required to work on remote Linux computers and conduct genomics analyses using the command line.</p>
+<div id="workflow" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Workflow</h2>
+<p>These tutorials are organized to guide you through the essential steps required to work on remote Linux systems and perform genomics analyses using the command line.</p>
 <p>The material is structured into the following sections:</p>
 <ol style="list-style-type: decimal">
-<li><p><a href="#remote"><strong>Remotely access Linux computers</strong></a>:<br />
+<li><p><a href="#remote"><strong>Remotely access Linux computers</strong></a>
 In this section, you will learn how to connect to remote computers using the <code>ssh</code> protocol and understand the basic concepts required for secure remote access.</p></li>
-<li><p><a href="#runjob"><strong>Safely run computer jobs</strong></a>:<br />
+<li><p><a href="#runjob"><strong>Safely run computer jobs</strong></a>
 This section introduces the <code>tmux</code> tool, which allows you to run and manage long computational jobs in persistent terminal sessions.</p></li>
-<li><p><a href="#lcmd"><strong>Bash command-line reference</strong></a>:<br />
-This section provides a practical overview of commonly used Bash commands to navigate the file system, manage files, and support genomics analyses.</p></li>
+<li><p><a href="#lcmd"><strong>Bash command-line reference</strong></a>
+This section provides a practical overview of commonly used Bash commands for navigating the file system, managing files, and supporting genomics analyses.</p></li>
+<li><p><a href="#grpactexe"><strong>Group Exercises: Building a Shared Bioinformatics Workflow</strong></a>
+This section provides group activities to help you apply and reinforce the skills learned throughout these tutorials.</p></li>
 </ol>
 </div>
-<div id="your-computer-accounts" class="section level1" number="4">
-<h1><span class="header-section-number">4</span> Your Computer Accounts</h1>
+</div>
+<div id="grpaccounts" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Your Computer Accounts</h1>
 <p>Details on your Linux computer accounts and their IP addresses are summarized in this <a href="https://docs.google.com/document/d/1t0DdQBes42Gzo8XWgc9JL2xEGjv1kbfoVE7Vznx6C9I/edit?usp=sharing">Google document</a>.</p>
 <p>Your assigned user IDs for each group are provided in this <a href="https://docs.google.com/spreadsheets/d/1cRM1yasUfDa98ecyz_-RxUOw8cU4wkQx4O5Wxw3y4yU/edit?usp=sharing">spreadsheet</a>.</p>
 </div>
-<div id="remote" class="section level1" number="5">
-<h1><span class="header-section-number">5</span> Remotely Access Computers</h1>
+<div id="remote" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Remotely Access Computers</h1>
 <p>To remotely access your assigned Linux computer accounts using the <code>ssh</code> protocol, you need the following information:</p>
 <ol style="list-style-type: decimal">
 <li>Your <strong>user ID and password</strong> (see the <a href="https://docs.google.com/document/d/1t0DdQBes42Gzo8XWgc9JL2xEGjv1kbfoVE7Vznx6C9I/edit?usp=sharing">Google document</a>).</li>
@@ -417,8 +419,8 @@ This section provides a practical overview of commonly used Bash commands to nav
 </ol>
 <p>If you want to remotely access the lab computers from a Windows machine, please read the protocol described <a href="#Putty">below</a> before continuing.</p>
 <p><strong>Important:</strong> If you are accessing the Linux computers <strong>outside of the BSU campus network</strong>, you will need to connect through the <strong>BSU VPN</strong>.</p>
-<div id="what-is-an-ip-address" class="section level2" number="5.1">
-<h2><span class="header-section-number">5.1</span> What is an IP Address?</h2>
+<div id="what-is-an-ip-address" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> What is an IP Address?</h2>
 <p>An <strong>Internet Protocol (IP) address</strong> is a numerical label assigned to each device connected to a computer network that uses the Internet Protocol for communication.</p>
 <p>An IP address serves two main functions:</p>
 <ol style="list-style-type: decimal">
@@ -426,9 +428,9 @@ This section provides a practical overview of commonly used Bash commands to nav
 <li><strong>Location addressing</strong></li>
 </ol>
 </div>
-<div id="how-to-find-the-ip-address" class="section level2" number="5.2">
-<h2><span class="header-section-number">5.2</span> How to Find the IP Address?</h2>
-<p>The procedure summarized here shows how to retrieve a computer’s IP address on the Ubuntu operating system (Figure <a href="#fig:IP">5.1</a>):</p>
+<div id="how-to-find-the-ip-address" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> How to Find the IP Address?</h2>
+<p>The procedure summarized here shows how to retrieve a computer’s IP address on the Ubuntu operating system (Figure <a href="#fig:IP">4.1</a>):</p>
 <ol style="list-style-type: decimal">
 <li>Open the <code>System Settings</code> application from the desktop sidebar.</li>
 <li>Select the <code>Network</code> tab located under the <strong>Hardware</strong> section.</li>
@@ -438,11 +440,11 @@ This section provides a practical overview of commonly used Bash commands to nav
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:IP"></span>
 <img src="Images/IP_Ubuntu.png" alt="Screenshot of Ubuntu desktop showing how to retrieve the IP address." width="100%" />
 <p class="caption">
-Figure 5.1: Screenshot of Ubuntu desktop showing how to retrieve the IP address.
+Figure 4.1: Screenshot of Ubuntu desktop showing how to retrieve the IP address.
 </p>
 </div>
-<div id="command-lines-to-get-the-ip-address" class="section level3" number="5.2.1">
-<h3><span class="header-section-number">5.2.1</span> Command Lines to Get the IP Address</h3>
+<div id="command-lines-to-get-the-ip-address" class="section level3" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> Command Lines to Get the IP Address</h3>
 <p>You can also retrieve the IP address from the command line by typing the following commands in a Terminal:</p>
 <pre class="bash"><code># Get IP address
 hostname -I | awk &#39;{print $1}&#39;
@@ -450,14 +452,14 @@ ip a
 ifconfig -a</code></pre>
 </div>
 </div>
-<div id="the-ssh-protocol" class="section level2" number="5.3">
-<h2><span class="header-section-number">5.3</span> The <code>ssh</code> Protocol</h2>
-<p>The <strong>Secure Shell (<code>ssh</code>) protocol</strong> is a method used for secure remote login from one computer to another (Figure <a href="#fig:sshFig">5.2</a>).
+<div id="the-ssh-protocol" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> The <code>ssh</code> Protocol</h2>
+<p>The <strong>Secure Shell (<code>ssh</code>) protocol</strong> is a method used for secure remote login from one computer to another (Figure <a href="#fig:sshFig">4.2</a>).
 It protects communication using strong encryption and allows users to remotely execute commands on another machine.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:sshFig"></span>
 <img src="Images/SSH_Preview.png" alt="Overview of ssh protocol." width="80%" />
 <p class="caption">
-Figure 5.2: Overview of ssh protocol.
+Figure 4.2: Overview of ssh protocol.
 </p>
 </div>
 <p>Once you have gathered the required information (IP address and username), open a <strong>Terminal</strong> and type:</p>
@@ -469,16 +471,16 @@ ssh bioinformatics@132.178.143.53</code></pre>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:ssh"></span>
 <img src="Images/ssh_screen.png" alt="Example of an ssh connection from a Terminal." width="80%" />
 <p class="caption">
-Figure 5.3: Example of an ssh connection from a Terminal.
+Figure 4.3: Example of an ssh connection from a Terminal.
 </p>
 </div>
 </div>
-<div id="Putty" class="section level2" number="5.4">
-<h2><span class="header-section-number">5.4</span> Install Putty on Windows</h2>
+<div id="Putty" class="section level2" number="4.4">
+<h2><span class="header-section-number">4.4</span> Install Putty on Windows</h2>
 <p>If you are using Windows, you can use <strong>Putty</strong> to establish SSH connections.</p>
 <p>Download the software here:
 <a href="http://www.putty.org">http://www.putty.org</a></p>
-<p>When launching Putty (Figure <a href="#fig:Putty">5.4</a>):</p>
+<p>When launching Putty (Figure <a href="#fig:Putty">4.4</a>):</p>
 <ol style="list-style-type: decimal">
 <li>Enter <code>user@IP</code> in the <strong>Host Name</strong> field.</li>
 <li>Set <strong>Port</strong> to <code>22</code>.</li>
@@ -487,26 +489,18 @@ Figure 5.3: Example of an ssh connection from a Terminal.
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:Putty"></span>
 <img src="Images/putty-session-config.png" alt="Putty configuration window." width="60%" />
 <p class="caption">
-Figure 5.4: Putty configuration window.
+Figure 4.4: Putty configuration window.
 </p>
 </div>
 </div>
-<div id="exercises" class="section level2" number="5.5">
-<h2><span class="header-section-number">5.5</span> Exercises</h2>
-<ol style="list-style-type: decimal">
-<li>Retrieve your <strong>user ID</strong> and <strong>IP address</strong>.</li>
-<li>Connect to your account using <code>ssh</code>.</li>
-<li>Exit the remote session using <code>exit</code>.</li>
-</ol>
 </div>
-</div>
-<div id="runjob" class="section level1" number="6">
-<h1><span class="header-section-number">6</span> Safely Run Computer Jobs</h1>
+<div id="runjob" class="section level1" number="5">
+<h1><span class="header-section-number">5</span> Safely Run Computer Jobs</h1>
 <p>Some analyses performed in genomics can take <strong>several hours or even days</strong> to complete.
 To avoid interrupting these analyses, it is important to run them in a <strong>persistent terminal environment</strong>.</p>
 <p>The tool we will use for this purpose is <strong><code>tmux</code></strong>, which allows multiple terminal sessions to run simultaneously.</p>
-<div id="the-tmux-protocol" class="section level2" number="6.1">
-<h2><span class="header-section-number">6.1</span> The <code>tmux</code> protocol</h2>
+<div id="the-tmux-protocol" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> The <code>tmux</code> protocol</h2>
 <p><code>tmux</code> is a <strong>terminal multiplexer</strong> for Unix-like systems.
 It allows users to create multiple independent terminal sessions within a single window.</p>
 <p>Key advantages:</p>
@@ -515,50 +509,50 @@ It allows users to create multiple independent terminal sessions within a single
 <li>Disconnect from a remote computer without stopping jobs</li>
 <li>Manage multiple command-line tasks simultaneously</li>
 </ul>
-<div id="install-tmux-on-mac" class="section level3" number="6.1.1">
-<h3><span class="header-section-number">6.1.1</span> Install <code>tmux</code> on Mac</h3>
+<div id="install-tmux-on-mac" class="section level3" number="5.1.1">
+<h3><span class="header-section-number">5.1.1</span> Install <code>tmux</code> on Mac</h3>
 <pre class="bash"><code>brew install tmux</code></pre>
 </div>
 </div>
-<div id="how-to-operate-tmux-sessions" class="section level2" number="6.2">
-<h2><span class="header-section-number">6.2</span> How to Operate <code>tmux</code> Sessions</h2>
-<div id="create-a-new-session" class="section level3" number="6.2.1">
-<h3><span class="header-section-number">6.2.1</span> Create a New Session</h3>
+<div id="how-to-operate-tmux-sessions" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> How to Operate <code>tmux</code> Sessions</h2>
+<div id="create-a-new-session" class="section level3" number="5.2.1">
+<h3><span class="header-section-number">5.2.1</span> Create a New Session</h3>
 <pre class="bash"><code>tmux</code></pre>
 </div>
-<div id="detach-from-a-session" class="section level3" number="6.2.2">
-<h3><span class="header-section-number">6.2.2</span> Detach from a Session</h3>
+<div id="detach-from-a-session" class="section level3" number="5.2.2">
+<h3><span class="header-section-number">5.2.2</span> Detach from a Session</h3>
 <p>Press:</p>
 <pre><code>Ctrl+b then d</code></pre>
 </div>
-<div id="reattach-to-a-session" class="section level3" number="6.2.3">
-<h3><span class="header-section-number">6.2.3</span> Reattach to a Session</h3>
+<div id="reattach-to-a-session" class="section level3" number="5.2.3">
+<h3><span class="header-section-number">5.2.3</span> Reattach to a Session</h3>
 <pre class="bash"><code>tmux attach</code></pre>
 </div>
-<div id="create-and-name-a-session" class="section level3" number="6.2.4">
-<h3><span class="header-section-number">6.2.4</span> Create and Name a Session</h3>
+<div id="create-and-name-a-session" class="section level3" number="5.2.4">
+<h3><span class="header-section-number">5.2.4</span> Create and Name a Session</h3>
 <pre class="bash"><code>tmux new -s JOB1</code></pre>
 </div>
-<div id="list-sessions" class="section level3" number="6.2.5">
-<h3><span class="header-section-number">6.2.5</span> List Sessions</h3>
+<div id="list-sessions" class="section level3" number="5.2.5">
+<h3><span class="header-section-number">5.2.5</span> List Sessions</h3>
 <pre class="bash"><code>tmux list-sessions</code></pre>
 </div>
-<div id="attach-to-a-specific-session" class="section level3" number="6.2.6">
-<h3><span class="header-section-number">6.2.6</span> Attach to a Specific Session</h3>
+<div id="attach-to-a-specific-session" class="section level3" number="5.2.6">
+<h3><span class="header-section-number">5.2.6</span> Attach to a Specific Session</h3>
 <pre class="bash"><code>tmux attach -t JOB1</code></pre>
 </div>
-<div id="kill-a-session" class="section level3" number="6.2.7">
-<h3><span class="header-section-number">6.2.7</span> Kill a Session</h3>
+<div id="kill-a-session" class="section level3" number="5.2.7">
+<h3><span class="header-section-number">5.2.7</span> Kill a Session</h3>
 <pre class="bash"><code>tmux kill-session -t JOB1</code></pre>
 <p><strong>Warning:</strong> Killing a session will terminate any running analysis.</p>
 </div>
 </div>
 </div>
-<div id="lcmd" class="section level1" number="7">
-<h1><span class="header-section-number">7</span> Bash Command-Line Reference</h1>
+<div id="lcmd" class="section level1" number="6">
+<h1><span class="header-section-number">6</span> Bash Command-Line Reference</h1>
 <p>Below is a collection of common <strong>Bash commands</strong> used to navigate the file system and manage computational analyses.</p>
-<div id="file-system" class="section level2" number="7.1">
-<h2><span class="header-section-number">7.1</span> File System</h2>
+<div id="file-system" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> File System</h2>
 <ul>
 <li><code>ls</code> — list files in a directory<br />
 </li>
@@ -583,8 +577,8 @@ It allows users to create multiple independent terminal sessions within a single
 <li><code>tail</code> — show the last lines of a file</li>
 </ul>
 </div>
-<div id="system" class="section level2" number="7.2">
-<h2><span class="header-section-number">7.2</span> System</h2>
+<div id="system" class="section level2" number="6.2">
+<h2><span class="header-section-number">6.2</span> System</h2>
 <ul>
 <li><code>whoami</code> — display current user</li>
 <li><code>date</code> — display date and time</li>
@@ -593,8 +587,8 @@ It allows users to create multiple independent terminal sessions within a single
 <li><code>free</code> — memory usage</li>
 </ul>
 </div>
-<div id="process-management" class="section level2" number="7.3">
-<h2><span class="header-section-number">7.3</span> Process Management</h2>
+<div id="process-management" class="section level2" number="6.3">
+<h2><span class="header-section-number">6.3</span> Process Management</h2>
 <ul>
 <li><code>ps</code> — list active processes</li>
 <li><code>top</code> — show running processes</li>
@@ -602,8 +596,8 @@ It allows users to create multiple independent terminal sessions within a single
 <li><code>kill PID</code> — terminate process</li>
 </ul>
 </div>
-<div id="networking" class="section level2" number="7.4">
-<h2><span class="header-section-number">7.4</span> Networking</h2>
+<div id="networking" class="section level2" number="6.4">
+<h2><span class="header-section-number">6.4</span> Networking</h2>
 <ul>
 <li><code>ssh user@host</code> — connect to remote host</li>
 <li><code>scp</code> — transfer files between machines</li>
@@ -611,38 +605,195 @@ It allows users to create multiple independent terminal sessions within a single
 <li><code>curl</code> — download files</li>
 </ul>
 </div>
-<div id="searching" class="section level2" number="7.5">
-<h2><span class="header-section-number">7.5</span> Searching</h2>
+<div id="searching" class="section level2" number="6.5">
+<h2><span class="header-section-number">6.5</span> Searching</h2>
 <ul>
 <li><code>grep</code> — search text patterns</li>
 <li><code>find</code> — locate files</li>
 <li><code>sed</code> — text substitution</li>
 </ul>
 </div>
-<div id="compression" class="section level2" number="7.6">
-<h2><span class="header-section-number">7.6</span> Compression</h2>
+<div id="compression" class="section level2" number="6.6">
+<h2><span class="header-section-number">6.6</span> Compression</h2>
 <ul>
 <li><code>tar</code> — archive files</li>
 <li><code>gzip</code> — compress files</li>
 </ul>
 </div>
 </div>
-<div id="exercises-1" class="section level1" number="8">
-<h1><span class="header-section-number">8</span> Exercises</h1>
-<p>To practice the skills introduced in this tutorial:</p>
+<div id="grpactexe" class="section level1" number="7">
+<h1><span class="header-section-number">7</span> 🤝 Group Exercises: Building a Shared Bioinformatics Workflow</h1>
+<div id="learning-outcomes-1" class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> Learning Outcomes</h2>
+<p>These exercises reinforce:</p>
+<ul>
+<li>Remote computing skills (<code>ssh</code>)</li>
+<li>Linux navigation and file management</li>
+<li>Safe job execution using <code>tmux</code></li>
+<li><strong>Collaborative bioinformatics workflows</strong></li>
+</ul>
+<hr />
+</div>
+<div id="activity-overview" class="section level2" number="7.2">
+<h2><span class="header-section-number">7.2</span> Activity Overview</h2>
+<p>In this <strong>50-minute</strong> group activity, you will work in groups of <strong>5–6 students</strong>, divided into <strong>two subgroups (A and B)</strong>, to build and manage a shared bioinformatics workspace on a remote Linux system.</p>
+<p>Through this activity, you will:</p>
+<ul>
+<li>Practice connecting to a remote system using <code>ssh</code></li>
+<li>Navigate and manage files using essential Linux commands</li>
+<li>Collaboratively create and organize a shared working directory</li>
+<li>Create, verify, and delete files within a shared environment</li>
+<li>Use <code>tmux</code> to safely run and manage persistent computational jobs</li>
+<li>Develop communication and coordination skills required in real-world bioinformatics workflows</li>
+</ul>
+<p>This activity is designed to simulate how bioinformatics teams collaborate on shared computing infrastructure. You will experience the importance of clear communication, careful file management, and responsible use of shared resources.</p>
+<p>By the end of this session, you will be prepared to confidently work on remote systems, manage your own analysis environment, and collaborate effectively on computational genomics projects.</p>
+<hr />
+</div>
+<div id="materials" class="section level2" number="7.3">
+<h2><span class="header-section-number">7.3</span> Materials</h2>
+<ul>
+<li><a href="#grpaccounts"><strong>Your Computer Accounts</strong></a></li>
+<li><a href="#remote"><strong>How to Remotely access Linux computers</strong></a></li>
+<li><a href="#runjob"><strong>Ho to Safely run computer jobs</strong></a></li>
+<li><a href="#lcmd"><strong>Bash command-line reference</strong></a></li>
+</ul>
+<hr />
+</div>
+<div id="instructions" class="section level2" number="7.4">
+<h2><span class="header-section-number">7.4</span> Instructions</h2>
+<p>These exercises are designed to simulate real-world bioinformatics collaboration.</p>
+<p>You will work in:</p>
+<ul>
+<li><strong>3 groups</strong> (5–6 students each)</li>
+<li>Each group has:
+<ul>
+<li><strong>2 accounts</strong></li>
+<li><strong>1 per subgroup (A and B)</strong></li>
+</ul></li>
+</ul>
+<p>⚠️ <strong>Important:</strong></p>
+<ul>
+<li>Only <strong>ONE terminal session per subgroup</strong></li>
+<li>You must <strong>coordinate, communicate, and trust each other</strong></li>
+<li>Mistakes affect everyone — just like in real research</li>
+</ul>
+<hr />
+</div>
+<div id="phase-1-establishing-access-trust-communication-15-minutes" class="section level2" number="7.5">
+<h2><span class="header-section-number">7.5</span> Phase 1 — Establishing Access (Trust &amp; Communication) <span style="color:gray;">(15 minutes)</span></h2>
+<p><strong>Goal:</strong> Successfully access your shared system</p>
+<div id="tasks" class="section level3" number="7.5.1">
+<h3><span class="header-section-number">7.5.1</span> Tasks</h3>
 <ol style="list-style-type: decimal">
-<li>Connect to your account using <code>ssh</code>.</li>
-<li>List the contents of your home directory using <code>ls</code>.</li>
-<li>Navigate to <code>Documents/</code> using <code>cd</code>.</li>
-<li>Create a directory named <code>My_jobs</code>.</li>
-<li>Enter the directory.</li>
-<li>Create a file named <code>README.txt</code> using <code>vim</code>.</li>
-<li>Add the text <strong>Hello!</strong> to the file.</li>
-<li>Verify the file exists using <code>ls -alh</code>.</li>
-<li>Delete the file using <code>rm</code>.</li>
-<li>Remove the directory using <code>rm -r</code>.</li>
-<li>Exit your remote session using <code>exit</code>.</li>
+<li>Connect to the remote server using <code>ssh</code>. See <a href="#grpaccounts">here</a> for account details. Once you have gathered the required information (IP address and username), open a <strong>Terminal</strong> and type (see here if you use <a href="#Putty">Putty</a>):</li>
 </ol>
+<pre class="bash"><code># General command
+ssh USER_ID@IP
+
+# Example
+ssh bio_40@132.178.143.53</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Confirm your identity and current directory:</li>
+</ol>
+<pre class="bash"><code># Retrieve your username
+whoami
+
+# Retrieve your current path
+pwd</code></pre>
+<p>👉 <strong>Deliverable:</strong>
+Shared notes describing the login procedure</p>
+<hr />
+</div>
+</div>
+<div id="phase-2-shared-workspace-construction-coordination-15-minutes" class="section level2" number="7.6">
+<h2><span class="header-section-number">7.6</span> Phase 2 — Shared Workspace Construction (Coordination) <span style="color:gray;">(15 minutes)</span></h2>
+<p><strong>Goal:</strong> Build a common working directory</p>
+<div id="tasks-1" class="section level3" number="7.6.1">
+<h3><span class="header-section-number">7.6.1</span> Tasks</h3>
+<ol style="list-style-type: decimal">
+<li>Navigate to your home directory</li>
+</ol>
+<pre class="bash"><code>cd ~</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Create a new folder:</li>
+</ol>
+<pre class="bash"><code>mkdir Tutorial_genomics</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>Verify the directory structure:</li>
+</ol>
+<pre class="bash"><code># Basic listing
+ls
+
+# Detailed listing
+ls -lh</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>Create and remove a test file inside the folder:</li>
+</ol>
+<pre class="bash"><code># Move into the directory
+cd Tutorial_genomics
+
+# Create a test file
+touch test_file.txt
+
+# Verify it exists
+ls -lh
+
+# Remove the file
+rm test_file.txt
+
+# Confirm deletion
+ls</code></pre>
+<p>👉 <strong>Discussion:</strong></p>
+<ul>
+<li>What are the differences between <code>ls</code> and <code>ls -lh</code>?</li>
+<li>Why does directory structure matter in genomics pipelines?</li>
+<li>Why is it important to verify file creation and deletion?</li>
+</ul>
+<hr />
+</div>
+</div>
+<div id="phase-3-safe-job-execution-shared-responsibility-15-minutes" class="section level2" number="7.7">
+<h2><span class="header-section-number">7.7</span> Phase 3 — Safe Job Execution (Shared Responsibility) <span style="color:gray;">(15 minutes)</span></h2>
+<p><strong>Goal:</strong> Run persistent jobs safely using <code>tmux</code></p>
+<div id="tasks-2" class="section level3" number="7.7.1">
+<h3><span class="header-section-number">7.7.1</span> Tasks</h3>
+<ol style="list-style-type: decimal">
+<li>Start a <code>tmux</code> session:</li>
+</ol>
+<pre class="bash"><code>tmux new -s GENOMICS_JOB</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Run a dummy job:</li>
+</ol>
+<pre class="bash"><code>sleep 300</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>Detach from the session:</li>
+</ol>
+<pre><code>Ctrl + b, then d</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>Reattach to the session:</li>
+</ol>
+<pre class="bash"><code>tmux attach -t GENOMICS_JOB</code></pre>
+<p>👉 <strong>Discussion:</strong></p>
+<ul>
+<li>Why is <code>tmux</code> essential in genomics workflows?</li>
+<li>What could happen if a long job is run without it?</li>
+</ul>
+<hr />
+</div>
+</div>
+<div id="phase-4-reflection-building-trust-5-minutes" class="section level2" number="7.8">
+<h2><span class="header-section-number">7.8</span> Phase 4 — Reflection (Building Trust) <span style="color:gray;">(5 minutes)</span></h2>
+<div id="group-discussion" class="section level3" number="7.8.1">
+<h3><span class="header-section-number">7.8.1</span> Group Discussion</h3>
+<ol style="list-style-type: decimal">
+<li>What worked well in your collaboration?</li>
+<li>Where did communication break down?</li>
+<li>Did you trust the other subgroup?</li>
+<li>What would happen in a real research project?</li>
+</ol>
+</div>
+</div>
 </div>
 
 
