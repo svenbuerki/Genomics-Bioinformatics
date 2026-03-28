@@ -701,6 +701,10 @@ whoami
 
 # Retrieve your current path
 pwd</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>Exit the <code>ssh</code> connection:</li>
+</ol>
+<pre class="bash"><code>exit</code></pre>
 <p>👉 <strong>Deliverable:</strong>
 Shared notes describing the login procedure</p>
 <hr />
@@ -712,14 +716,15 @@ Shared notes describing the login procedure</p>
 <div id="tasks-1" class="section level3" number="7.6.1">
 <h3><span class="header-section-number">7.6.1</span> Tasks</h3>
 <ol style="list-style-type: decimal">
-<li>Navigate to your home directory</li>
+<li><p>Connect to the remote server using <code>ssh</code></p></li>
+<li><p>Navigate to your home directory</p></li>
 </ol>
 <pre class="bash"><code>cd ~</code></pre>
-<ol start="2" style="list-style-type: decimal">
+<ol start="3" style="list-style-type: decimal">
 <li>Create a new folder:</li>
 </ol>
 <pre class="bash"><code>mkdir Tutorial_genomics</code></pre>
-<ol start="3" style="list-style-type: decimal">
+<ol start="4" style="list-style-type: decimal">
 <li>Verify the directory structure:</li>
 </ol>
 <pre class="bash"><code># Basic listing
@@ -727,7 +732,7 @@ ls
 
 # Detailed listing
 ls -lh</code></pre>
-<ol start="4" style="list-style-type: decimal">
+<ol start="5" style="list-style-type: decimal">
 <li>Create and remove a test file inside the folder:</li>
 </ol>
 <pre class="bash"><code># Move into the directory
@@ -744,6 +749,9 @@ rm test_file.txt
 
 # Confirm deletion
 ls</code></pre>
+<ol start="6" style="list-style-type: decimal">
+<li>Exit the <code>ssh</code> connection</li>
+</ol>
 <p>👉 <strong>Discussion:</strong></p>
 <ul>
 <li>What are the differences between <code>ls</code> and <code>ls -lh</code>?</li>
@@ -759,21 +767,25 @@ ls</code></pre>
 <div id="tasks-2" class="section level3" number="7.7.1">
 <h3><span class="header-section-number">7.7.1</span> Tasks</h3>
 <ol style="list-style-type: decimal">
-<li>Start a <code>tmux</code> session:</li>
+<li><p>Connect to the remote server using <code>ssh</code></p></li>
+<li><p>Start a <code>tmux</code> session:</p></li>
 </ol>
 <pre class="bash"><code>tmux new -s GENOMICS_JOB</code></pre>
-<ol start="2" style="list-style-type: decimal">
+<ol start="3" style="list-style-type: decimal">
 <li>Run a dummy job:</li>
 </ol>
 <pre class="bash"><code>sleep 300</code></pre>
-<ol start="3" style="list-style-type: decimal">
+<ol start="4" style="list-style-type: decimal">
 <li>Detach from the session:</li>
 </ol>
 <pre><code>Ctrl + b, then d</code></pre>
-<ol start="4" style="list-style-type: decimal">
+<ol start="5" style="list-style-type: decimal">
 <li>Reattach to the session:</li>
 </ol>
 <pre class="bash"><code>tmux attach -t GENOMICS_JOB</code></pre>
+<ol start="6" style="list-style-type: decimal">
+<li>Exit the <code>ssh</code> connection</li>
+</ol>
 <p>👉 <strong>Discussion:</strong></p>
 <ul>
 <li>Why is <code>tmux</code> essential in genomics workflows?</li>

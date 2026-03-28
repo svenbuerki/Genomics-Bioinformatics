@@ -376,6 +376,12 @@ whoami
 pwd
 ```
 
+3. Exit the `ssh` connection:
+
+```{bash, eval=FALSE}
+exit
+```
+
 👉 **Deliverable:**
 Shared notes describing the login procedure
 
@@ -387,19 +393,21 @@ Shared notes describing the login procedure
 
 ### Tasks
 
-1. Navigate to your home directory
+1. Connect to the remote server using `ssh`
+
+2. Navigate to your home directory
 
 ```{bash, eval=FALSE}
 cd ~
 ```
 
-2. Create a new folder:
+3. Create a new folder:
 
 ```{bash, eval=FALSE}
 mkdir Tutorial_genomics
 ```
 
-3. Verify the directory structure:
+4. Verify the directory structure:
 
 ```{bash, eval=FALSE}
 # Basic listing
@@ -409,7 +417,7 @@ ls
 ls -lh
 ```
 
-4. Create and remove a test file inside the folder:
+5. Create and remove a test file inside the folder:
 
 ```{bash, eval=FALSE}
 # Move into the directory
@@ -428,6 +436,8 @@ rm test_file.txt
 ls
 ```
 
+6. Exit the `ssh` connection
+
 👉 **Discussion:**
 
 * What are the differences between `ls` and `ls -lh`?
@@ -442,29 +452,33 @@ ls
 
 ### Tasks
 
-1. Start a `tmux` session:
+1. Connect to the remote server using `ssh`
+
+2. Start a `tmux` session:
 
 ```{bash, eval=FALSE}
 tmux new -s GENOMICS_JOB
 ```
 
-2. Run a dummy job:
+3. Run a dummy job:
 
 ```{bash, eval=FALSE}
 sleep 300
 ```
 
-3. Detach from the session:
+4. Detach from the session:
 
 ```
 Ctrl + b, then d
 ```
 
-4. Reattach to the session:
+5. Reattach to the session:
 
 ```{bash, eval=FALSE}
 tmux attach -t GENOMICS_JOB
 ```
+
+6. Exit the `ssh` connection 
 
 👉 **Discussion:**
 
