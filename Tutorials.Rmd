@@ -77,11 +77,47 @@ The material is structured into the following sections:
 4. [**Group Exercises: Building a Shared Bioinformatics Workflow**](#grpactexe)
    This section provides group activities to help you apply and reinforce the skills learned throughout these tutorials.
 
-# Your Computer Accounts {#grpaccounts}
+# Groups {#grpaccounts}
 
-Details on your Linux computer accounts and their IP addresses are summarized in this [Google document](https://docs.google.com/document/d/1t0DdQBes42Gzo8XWgc9JL2xEGjv1kbfoVE7Vznx6C9I/edit?usp=sharing).
+## Group Organization and Structure
 
-Your assigned user IDs for each group are provided in this [spreadsheet](https://docs.google.com/spreadsheets/d/1cRM1yasUfDa98ecyz_-RxUOw8cU4wkQx4O5Wxw3y4yU/edit?usp=sharing).
+Each group is composed of **5 to 6 students**, with a mix of undergraduate and graduate students to promote peer learning and knowledge exchange.
+
+Each group is divided into **two subgroups (A and B)**. Both subgroups will perform the **same analyses in parallel**, working independently at first.
+
+This structure is designed to:
+
+* Encourage **fact-checking** by comparing results between subgroups
+* Improve **accuracy and reproducibility**
+* Build **confidence** in computational results through independent validation
+
+## Group Accounts
+
+Each group has been assigned **two accounts**:
+
+* **One account for Subgroup A**
+* **One account for Subgroup B**
+
+Each subgroup must use its assigned account to complete the group activities.
+
+You will access the Linux systems using the `ssh` protocol. Details on your [account information](https://docs.google.com/document/d/1t0DdQBes42Gzo8XWgc9JL2xEGjv1kbfoVE7Vznx6C9I/edit) are available here.
+
+## Group Collaboration Guidelines
+
+* Each subgroup works **independently** using its assigned account
+* Analyses are conducted **in parallel** by Subgroup A and Subgroup B
+* All accounts within a group share the same computational resources
+* Coordinate within your subgroup to avoid conflicts when running intensive jobs
+* After completing tasks, **compare results between subgroups** to verify accuracy
+* Discuss and resolve any discrepancies before moving forward
+
+### Technical Notes
+
+* All accounts use the same password for simplicity
+* Accounts have access to the bioinformatics software required for the course
+* File permissions allow collaboration within each account environment
+* Contact the instructor if you experience connection issues
+
 
 # Remotely Access Computers {#remote}
 
