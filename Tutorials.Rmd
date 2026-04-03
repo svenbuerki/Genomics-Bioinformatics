@@ -59,23 +59,29 @@ After completing these tutorials, you will be able to:
 2. Safely run long analyses (aka computer jobs) using `tmux` sessions.
 3. Use common **Bash command-line tools** to organize files and perform genomics analyses.
 
-## Workflow
+# Workflow
 
 These tutorials are organized to guide you through the essential steps required to work on remote Linux systems and perform genomics analyses using the command line.
 
 The material is structured into the following sections:
 
-1. [**Remotely access Linux computers**](#remote)
+1. [**Remotely access Linux computers**](#remote)  
    In this section, you will learn how to connect to remote computers using the `ssh` protocol and understand the basic concepts required for secure remote access.
 
-2. [**Safely run computer jobs**](#runjob)
+2. [**Safely run computer jobs**](#runjob)  
    This section introduces the `tmux` tool, which allows you to run and manage long computational jobs in persistent terminal sessions.
 
-3. [**Bash command-line reference**](#lcmd)
+3. [**Bash command-line reference**](#lcmd)  
    This section provides a practical overview of commonly used Bash commands for navigating the file system, managing files, and supporting genomics analyses.
 
-4. [**Group Exercises: Building a Shared Bioinformatics Workflow**](#grpactexe)
-   This section provides group activities to help you apply and reinforce the skills learned throughout these tutorials.
+4. [**File Exchange**](#fileexch)  
+   This section provides a practical overview of how to conduct file exchange using FileZilla.
+
+5. [**Group Exercises 1: Building a Shared Bioinformatics Workflow**](#grpactexe)  
+   This section provides group activities to help you learn and master skills related to remotely accessing Linux computers, running safe jobs, and using Bash commands.
+
+6. [**Group Exercises 2: File Exchange Using FileZilla**](#filezilla)  
+   This section provides group activities to help you learn how to transfer files between your computer and a remote server.
 
 # Groups {#grpaccounts}
 
@@ -326,7 +332,109 @@ Below is a collection of common **Bash commands** used to navigate the file syst
 - `tar` — archive files
 - `gzip` — compress files
 
-# 🤝 Group Exercises: Building a Shared Bioinformatics Workflow {#grpactexe}
+# File Exchange {#fileexch}
+
+## Learning Objectives
+
+By the end of this section, you will be able to:
+
+- Explain what SFTP is and why it is used  
+- Connect to a remote server using FileZilla  
+- Transfer files between your local computer and a remote system  
+- Verify successful file transfers  
+
+## Why File Transfer Matters
+
+In bioinformatics, analyses are often conducted on remote computing systems, while data visualization and reporting are performed locally. Efficient and reliable file transfer is therefore essential for:
+
+- Moving input datasets to remote systems  
+- Retrieving analysis results  
+- Sharing files between collaborators  
+
+Developing good file management and transfer practices is critical for ensuring **reproducibility** and **data integrity**.
+
+## What is SFTP?
+
+**SFTP (Secure File Transfer Protocol)** is a network protocol used to securely transfer files between your local computer and a remote server.
+
+Unlike older file transfer methods (such as FTP), SFTP encrypts both the **data** and the **login credentials** during transmission. This ensures that your files and passwords are protected from unauthorized access.
+
+### Key Features of SFTP
+
+- **Secure communication**: All data is encrypted  
+- **Authentication**: Requires a username and password (or SSH key)  
+- **Reliable transfers**: Reduces the risk of data corruption  
+- **Integration with SSH**: Uses the same protocol as `ssh` (port 22)  
+
+## SFTP in FileZilla
+
+FileZilla is a graphical SFTP client that simplifies file transfer between your computer and a remote server.
+
+When you connect using FileZilla:
+
+- You are using **SFTP by default** (when connecting via port `22`)  
+- Your connection is secured using the same system as your `ssh` login  
+- You can upload and download files using a **drag-and-drop interface**  
+
+### Why SFTP is Important in Bioinformatics
+
+- Protects sensitive datasets and research results  
+- Ensures secure access to remote computing systems  
+- Enables efficient transfer of large genomic datasets  
+
+In this course, you will use SFTP through FileZilla to move data between your local computer and remote Linux systems.
+
+## Download and Install FileZilla
+
+FileZilla is a free, open-source SFTP client available for Windows, macOS, and Linux.
+
+### Steps
+
+1. Go to the official FileZilla website:  
+   https://filezilla-project.org/
+2. Click **Download FileZilla Client**
+3. Select the version for your operating system:
+   - Windows  
+   - macOS  
+   - Linux  
+4. Run the installer and follow the installation instructions  
+5. Launch FileZilla after installation  
+
+**Notes:**
+
+- Select the **FileZilla Client**, not the Server version  
+- Avoid installing optional bundled software if prompted  
+- Administrator privileges may be required  
+
+## Connecting with FileZilla {#connectFileZilla}
+
+### Connection Details
+
+To connect using FileZilla, you will need:
+
+- **Host**: your remote server address  
+- **Username**: your assigned account  
+- **Password**: your assigned password  
+- **Port**: `22` (SFTP)  
+
+### FileZilla Interface Overview
+
+Once connected, the FileZilla interface is divided into several panels:
+
+- **Quickconnect bar (top)**: Enter host, username, password, and port  
+- **Left panel**: Local file system (your computer)  
+- **Right panel**: Remote file system (server)  
+- **Bottom panel**: File transfer queue and status  
+
+## Good Practices for File Transfer
+
+- Always **verify files after transfer** (e.g., check file size or contents)  
+- Use **clear and consistent file names**  
+- Keep your directories **well organized**  
+- Avoid overwriting important files unless intended  
+- Transfer only necessary files to reduce clutter  
+
+# 🤝 Group Exercises 1: Building a Shared Bioinformatics Workflow {#grpactexe}
 
 ## Learning Outcomes
 
@@ -531,3 +639,100 @@ tmux attach -t GENOMICS_JOB
 2. Where did communication break down?
 3. Did you trust the other subgroup?
 4. What would happen in a real research project?
+
+
+# 🤝 Group Exercises 2: File Exchange Using FileZilla {#filezilla}
+
+## Learning Outcomes
+
+By completing these exercises, you will be able to:
+
+* Transfer files between your local computer and a remote Linux system
+* Connect to a remote server using an SFTP client (FileZilla)
+* Organize files for bioinformatics workflows
+* Verify successful file transfers
+
+## Activity Overview
+
+In this **25-minute** group activity, you will work in groups of **5–6 students**, divided into **two subgroups (A and B)**, to learn how to transfer files between your local computer and the remote system, and verify file integrity.
+
+The key takeaways from this activity are as follows:
+
+* File transfer is a critical component of bioinformatics workflows
+* Always verify file integrity after transfer
+* Maintain clear file naming conventions to avoid confusion
+* Combine graphical tools (FileZilla) with command-line tools for flexibility
+
+---
+
+## Tasks
+
+### Prepare a File Locally
+
+Each subgroup should:
+
+* Create a simple text file on your computer (e.g., `groupA_test.txt` or `groupB_test.txt`)
+* Add the following content:
+
+```{bash, eval = F}
+This is a test file for file transfer.
+Subgroup: A or B
+```
+
+### Upload the File to the Remote Server
+
+Using FileZilla:
+
+* Navigate to your home directory on the remote system
+* Upload your file into the folder:
+
+```{bash, eval = F}
+~/Tutorial_genomics
+```
+
+#### Steps
+
+To upload your file to the remote server, do the following steps:
+
+1. Open FileZilla. See [here](#connectFileZilla) for more detials on how to use FileZilla.
+2. Enter your connection details in the Quickconnect bar. See [here](#grpaccounts) for account details.
+3. Click **Quickconnect**
+4. Navigate:
+
+   * Local files (left)
+   * Remote files (right)
+
+### Verify the File on the Remote System
+
+Connect via `ssh` and run:
+
+```{bash, eval = F}
+cd ~/Tutorial_genomics
+ls -lh
+cat groupA_test.txt   # or groupB_test.txt
+```
+
+### Modify and Download the File
+
+* Edit the file on the remote system using a command-line editor (e.g., `vim`, `nano`):
+
+```{bash, eval=FALSE}
+vim groupA_test.txt
+```
+
+* Add one additional line, save, and exit
+
+### Download the Updated File
+
+* Use FileZilla to download the modified file back to your local computer
+
+### Confirm Changes Locally
+
+* Open the downloaded file
+* Verify that your modification is present
+
+### Discussion
+
+* What are the advantages of using FileZilla compared to the command line?
+* When would command-line tools (e.g., `scp`, `rsync`) be preferable?
+* How can file mismanagement impact reproducibility in bioinformatics?

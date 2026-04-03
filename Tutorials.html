@@ -10,7 +10,7 @@
 
 
 
-<meta name="date" content="2026-04-01" />
+<meta name="date" content="2026-04-03" />
 
 <title>Remote Computing and Bash Tutorials</title>
 
@@ -359,7 +359,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Remote Computing and Bash Tutorials</h1>
 <h3 class="subtitle">Bioinformatics Toolkit for Genomics Analyses</h3>
-<h4 class="date">2026-04-01</h4>
+<h4 class="date">2026-04-03</h4>
 
 </div>
 
@@ -389,26 +389,30 @@ The tutorials focus on practical workflows using Linux computers running the <a 
 <li>Safely run long analyses (aka computer jobs) using <code>tmux</code> sessions.</li>
 <li>Use common <strong>Bash command-line tools</strong> to organize files and perform genomics analyses.</li>
 </ol>
-<div id="workflow" class="section level2" number="2.1">
-<h2><span class="header-section-number">2.1</span> Workflow</h2>
+</div>
+<div id="workflow" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Workflow</h1>
 <p>These tutorials are organized to guide you through the essential steps required to work on remote Linux systems and perform genomics analyses using the command line.</p>
 <p>The material is structured into the following sections:</p>
 <ol style="list-style-type: decimal">
-<li><p><a href="#remote"><strong>Remotely access Linux computers</strong></a>
+<li><p><a href="#remote"><strong>Remotely access Linux computers</strong></a><br />
 In this section, you will learn how to connect to remote computers using the <code>ssh</code> protocol and understand the basic concepts required for secure remote access.</p></li>
-<li><p><a href="#runjob"><strong>Safely run computer jobs</strong></a>
+<li><p><a href="#runjob"><strong>Safely run computer jobs</strong></a><br />
 This section introduces the <code>tmux</code> tool, which allows you to run and manage long computational jobs in persistent terminal sessions.</p></li>
-<li><p><a href="#lcmd"><strong>Bash command-line reference</strong></a>
+<li><p><a href="#lcmd"><strong>Bash command-line reference</strong></a><br />
 This section provides a practical overview of commonly used Bash commands for navigating the file system, managing files, and supporting genomics analyses.</p></li>
-<li><p><a href="#grpactexe"><strong>Group Exercises: Building a Shared Bioinformatics Workflow</strong></a>
-This section provides group activities to help you apply and reinforce the skills learned throughout these tutorials.</p></li>
+<li><p><a href="#fileexch"><strong>File Exchange</strong></a><br />
+This section provides a practical overview of how to conduct file exchange using FileZilla.</p></li>
+<li><p><a href="#grpactexe"><strong>Group Exercises 1: Building a Shared Bioinformatics Workflow</strong></a><br />
+This section provides group activities to help you learn and master skills related to remotely accessing Linux computers, running safe jobs, and using Bash commands.</p></li>
+<li><p><a href="#filezilla"><strong>Group Exercises 2: File Exchange Using FileZilla</strong></a><br />
+This section provides group activities to help you learn how to transfer files between your computer and a remote server.</p></li>
 </ol>
 </div>
-</div>
-<div id="grpaccounts" class="section level1" number="3">
-<h1><span class="header-section-number">3</span> Groups</h1>
-<div id="group-organization-and-structure" class="section level2" number="3.1">
-<h2><span class="header-section-number">3.1</span> Group Organization and Structure</h2>
+<div id="grpaccounts" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Groups</h1>
+<div id="group-organization-and-structure" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Group Organization and Structure</h2>
 <p>Each group is composed of <strong>5 to 6 students</strong>, with a mix of undergraduate and graduate students to promote peer learning and knowledge exchange.</p>
 <p>Each group is divided into <strong>two subgroups (A and B)</strong>. Both subgroups will perform the <strong>same analyses in parallel</strong>, working independently at first.</p>
 <p>This structure is designed to:</p>
@@ -418,8 +422,8 @@ This section provides group activities to help you apply and reinforce the skill
 <li>Build <strong>confidence</strong> in computational results through independent validation</li>
 </ul>
 </div>
-<div id="group-accounts" class="section level2" number="3.2">
-<h2><span class="header-section-number">3.2</span> Group Accounts</h2>
+<div id="group-accounts" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Group Accounts</h2>
 <p>Each group has been assigned <strong>two accounts</strong>:</p>
 <ul>
 <li><strong>One account for Subgroup A</strong></li>
@@ -428,8 +432,8 @@ This section provides group activities to help you apply and reinforce the skill
 <p>Each subgroup must use its assigned account to complete the group activities.</p>
 <p>You will access the Linux systems using the <code>ssh</code> protocol. Details on your <a href="https://docs.google.com/document/d/1t0DdQBes42Gzo8XWgc9JL2xEGjv1kbfoVE7Vznx6C9I/edit">account information</a> are available here.</p>
 </div>
-<div id="group-collaboration-guidelines" class="section level2" number="3.3">
-<h2><span class="header-section-number">3.3</span> Group Collaboration Guidelines</h2>
+<div id="group-collaboration-guidelines" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> Group Collaboration Guidelines</h2>
 <ul>
 <li>Each subgroup works <strong>independently</strong> using its assigned account</li>
 <li>Analyses are conducted <strong>in parallel</strong> by Subgroup A and Subgroup B</li>
@@ -438,8 +442,8 @@ This section provides group activities to help you apply and reinforce the skill
 <li>After completing tasks, <strong>compare results between subgroups</strong> to verify accuracy</li>
 <li>Discuss and resolve any discrepancies before moving forward</li>
 </ul>
-<div id="technical-notes" class="section level3" number="3.3.1">
-<h3><span class="header-section-number">3.3.1</span> Technical Notes</h3>
+<div id="technical-notes" class="section level3" number="4.3.1">
+<h3><span class="header-section-number">4.3.1</span> Technical Notes</h3>
 <ul>
 <li>All accounts use the same password for simplicity</li>
 <li>Accounts have access to the bioinformatics software required for the course</li>
@@ -449,8 +453,8 @@ This section provides group activities to help you apply and reinforce the skill
 </div>
 </div>
 </div>
-<div id="remote" class="section level1" number="4">
-<h1><span class="header-section-number">4</span> Remotely Access Computers</h1>
+<div id="remote" class="section level1" number="5">
+<h1><span class="header-section-number">5</span> Remotely Access Computers</h1>
 <p>To remotely access your assigned Linux computer accounts using the <code>ssh</code> protocol, you need the following information:</p>
 <ol style="list-style-type: decimal">
 <li>Your <strong>user ID and password</strong> (see the <a href="https://docs.google.com/document/d/1t0DdQBes42Gzo8XWgc9JL2xEGjv1kbfoVE7Vznx6C9I/edit?usp=sharing">Google document</a>).</li>
@@ -458,8 +462,8 @@ This section provides group activities to help you apply and reinforce the skill
 </ol>
 <p>If you want to remotely access the lab computers from a Windows machine, please read the protocol described <a href="#Putty">below</a> before continuing.</p>
 <p><strong>Important:</strong> If you are accessing the Linux computers <strong>outside of the BSU campus network</strong>, you will need to connect through the <strong>BSU VPN</strong>.</p>
-<div id="what-is-an-ip-address" class="section level2" number="4.1">
-<h2><span class="header-section-number">4.1</span> What is an IP Address?</h2>
+<div id="what-is-an-ip-address" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> What is an IP Address?</h2>
 <p>An <strong>Internet Protocol (IP) address</strong> is a numerical label assigned to each device connected to a computer network that uses the Internet Protocol for communication.</p>
 <p>An IP address serves two main functions:</p>
 <ol style="list-style-type: decimal">
@@ -467,9 +471,9 @@ This section provides group activities to help you apply and reinforce the skill
 <li><strong>Location addressing</strong></li>
 </ol>
 </div>
-<div id="how-to-find-the-ip-address" class="section level2" number="4.2">
-<h2><span class="header-section-number">4.2</span> How to Find the IP Address?</h2>
-<p>The procedure summarized here shows how to retrieve a computer’s IP address on the Ubuntu operating system (Figure <a href="#fig:IP">4.1</a>):</p>
+<div id="how-to-find-the-ip-address" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> How to Find the IP Address?</h2>
+<p>The procedure summarized here shows how to retrieve a computer’s IP address on the Ubuntu operating system (Figure <a href="#fig:IP">5.1</a>):</p>
 <ol style="list-style-type: decimal">
 <li>Open the <code>System Settings</code> application from the desktop sidebar.</li>
 <li>Select the <code>Network</code> tab located under the <strong>Hardware</strong> section.</li>
@@ -479,11 +483,11 @@ This section provides group activities to help you apply and reinforce the skill
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:IP"></span>
 <img src="Images/IP_Ubuntu.png" alt="Screenshot of Ubuntu desktop showing how to retrieve the IP address." width="100%" />
 <p class="caption">
-Figure 4.1: Screenshot of Ubuntu desktop showing how to retrieve the IP address.
+Figure 5.1: Screenshot of Ubuntu desktop showing how to retrieve the IP address.
 </p>
 </div>
-<div id="command-lines-to-get-the-ip-address" class="section level3" number="4.2.1">
-<h3><span class="header-section-number">4.2.1</span> Command Lines to Get the IP Address</h3>
+<div id="command-lines-to-get-the-ip-address" class="section level3" number="5.2.1">
+<h3><span class="header-section-number">5.2.1</span> Command Lines to Get the IP Address</h3>
 <p>You can also retrieve the IP address from the command line by typing the following commands in a Terminal:</p>
 <pre class="bash"><code># Get IP address
 hostname -I | awk &#39;{print $1}&#39;
@@ -491,14 +495,14 @@ ip a
 ifconfig -a</code></pre>
 </div>
 </div>
-<div id="the-ssh-protocol" class="section level2" number="4.3">
-<h2><span class="header-section-number">4.3</span> The <code>ssh</code> Protocol</h2>
-<p>The <strong>Secure Shell (<code>ssh</code>) protocol</strong> is a method used for secure remote login from one computer to another (Figure <a href="#fig:sshFig">4.2</a>).
+<div id="the-ssh-protocol" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> The <code>ssh</code> Protocol</h2>
+<p>The <strong>Secure Shell (<code>ssh</code>) protocol</strong> is a method used for secure remote login from one computer to another (Figure <a href="#fig:sshFig">5.2</a>).
 It protects communication using strong encryption and allows users to remotely execute commands on another machine.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:sshFig"></span>
 <img src="Images/SSH_Preview.png" alt="Overview of ssh protocol." width="80%" />
 <p class="caption">
-Figure 4.2: Overview of ssh protocol.
+Figure 5.2: Overview of ssh protocol.
 </p>
 </div>
 <p>Once you have gathered the required information (IP address and username), open a <strong>Terminal</strong> and type:</p>
@@ -510,16 +514,16 @@ ssh bioinformatics@132.178.143.53</code></pre>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:ssh"></span>
 <img src="Images/ssh_screen.png" alt="Example of an ssh connection from a Terminal." width="80%" />
 <p class="caption">
-Figure 4.3: Example of an ssh connection from a Terminal.
+Figure 5.3: Example of an ssh connection from a Terminal.
 </p>
 </div>
 </div>
-<div id="Putty" class="section level2" number="4.4">
-<h2><span class="header-section-number">4.4</span> Install Putty on Windows</h2>
+<div id="Putty" class="section level2" number="5.4">
+<h2><span class="header-section-number">5.4</span> Install Putty on Windows</h2>
 <p>If you are using Windows, you can use <strong>Putty</strong> to establish SSH connections.</p>
 <p>Download the software here:
 <a href="http://www.putty.org">http://www.putty.org</a></p>
-<p>When launching Putty (Figure <a href="#fig:Putty">4.4</a>):</p>
+<p>When launching Putty (Figure <a href="#fig:Putty">5.4</a>):</p>
 <ol style="list-style-type: decimal">
 <li>Enter <code>user@IP</code> in the <strong>Host Name</strong> field.</li>
 <li>Set <strong>Port</strong> to <code>22</code>.</li>
@@ -528,18 +532,18 @@ Figure 4.3: Example of an ssh connection from a Terminal.
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:Putty"></span>
 <img src="Images/putty-session-config.png" alt="Putty configuration window." width="60%" />
 <p class="caption">
-Figure 4.4: Putty configuration window.
+Figure 5.4: Putty configuration window.
 </p>
 </div>
 </div>
 </div>
-<div id="runjob" class="section level1" number="5">
-<h1><span class="header-section-number">5</span> Safely Run Computer Jobs</h1>
+<div id="runjob" class="section level1" number="6">
+<h1><span class="header-section-number">6</span> Safely Run Computer Jobs</h1>
 <p>Some analyses performed in genomics can take <strong>several hours or even days</strong> to complete.
 To avoid interrupting these analyses, it is important to run them in a <strong>persistent terminal environment</strong>.</p>
 <p>The tool we will use for this purpose is <strong><code>tmux</code></strong>, which allows multiple terminal sessions to run simultaneously.</p>
-<div id="the-tmux-protocol" class="section level2" number="5.1">
-<h2><span class="header-section-number">5.1</span> The <code>tmux</code> protocol</h2>
+<div id="the-tmux-protocol" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> The <code>tmux</code> protocol</h2>
 <p><code>tmux</code> is a <strong>terminal multiplexer</strong> for Unix-like systems.
 It allows users to create multiple independent terminal sessions within a single window.</p>
 <p>Key advantages:</p>
@@ -548,50 +552,50 @@ It allows users to create multiple independent terminal sessions within a single
 <li>Disconnect from a remote computer without stopping jobs</li>
 <li>Manage multiple command-line tasks simultaneously</li>
 </ul>
-<div id="install-tmux-on-mac" class="section level3" number="5.1.1">
-<h3><span class="header-section-number">5.1.1</span> Install <code>tmux</code> on Mac</h3>
+<div id="install-tmux-on-mac" class="section level3" number="6.1.1">
+<h3><span class="header-section-number">6.1.1</span> Install <code>tmux</code> on Mac</h3>
 <pre class="bash"><code>brew install tmux</code></pre>
 </div>
 </div>
-<div id="how-to-operate-tmux-sessions" class="section level2" number="5.2">
-<h2><span class="header-section-number">5.2</span> How to Operate <code>tmux</code> Sessions</h2>
-<div id="create-a-new-session" class="section level3" number="5.2.1">
-<h3><span class="header-section-number">5.2.1</span> Create a New Session</h3>
+<div id="how-to-operate-tmux-sessions" class="section level2" number="6.2">
+<h2><span class="header-section-number">6.2</span> How to Operate <code>tmux</code> Sessions</h2>
+<div id="create-a-new-session" class="section level3" number="6.2.1">
+<h3><span class="header-section-number">6.2.1</span> Create a New Session</h3>
 <pre class="bash"><code>tmux</code></pre>
 </div>
-<div id="detach-from-a-session" class="section level3" number="5.2.2">
-<h3><span class="header-section-number">5.2.2</span> Detach from a Session</h3>
+<div id="detach-from-a-session" class="section level3" number="6.2.2">
+<h3><span class="header-section-number">6.2.2</span> Detach from a Session</h3>
 <p>Press:</p>
 <pre><code>Ctrl+b then d</code></pre>
 </div>
-<div id="reattach-to-a-session" class="section level3" number="5.2.3">
-<h3><span class="header-section-number">5.2.3</span> Reattach to a Session</h3>
+<div id="reattach-to-a-session" class="section level3" number="6.2.3">
+<h3><span class="header-section-number">6.2.3</span> Reattach to a Session</h3>
 <pre class="bash"><code>tmux attach</code></pre>
 </div>
-<div id="create-and-name-a-session" class="section level3" number="5.2.4">
-<h3><span class="header-section-number">5.2.4</span> Create and Name a Session</h3>
+<div id="create-and-name-a-session" class="section level3" number="6.2.4">
+<h3><span class="header-section-number">6.2.4</span> Create and Name a Session</h3>
 <pre class="bash"><code>tmux new -s JOB1</code></pre>
 </div>
-<div id="list-sessions" class="section level3" number="5.2.5">
-<h3><span class="header-section-number">5.2.5</span> List Sessions</h3>
+<div id="list-sessions" class="section level3" number="6.2.5">
+<h3><span class="header-section-number">6.2.5</span> List Sessions</h3>
 <pre class="bash"><code>tmux list-sessions</code></pre>
 </div>
-<div id="attach-to-a-specific-session" class="section level3" number="5.2.6">
-<h3><span class="header-section-number">5.2.6</span> Attach to a Specific Session</h3>
+<div id="attach-to-a-specific-session" class="section level3" number="6.2.6">
+<h3><span class="header-section-number">6.2.6</span> Attach to a Specific Session</h3>
 <pre class="bash"><code>tmux attach -t JOB1</code></pre>
 </div>
-<div id="kill-a-session" class="section level3" number="5.2.7">
-<h3><span class="header-section-number">5.2.7</span> Kill a Session</h3>
+<div id="kill-a-session" class="section level3" number="6.2.7">
+<h3><span class="header-section-number">6.2.7</span> Kill a Session</h3>
 <pre class="bash"><code>tmux kill-session -t JOB1</code></pre>
 <p><strong>Warning:</strong> Killing a session will terminate any running analysis.</p>
 </div>
 </div>
 </div>
-<div id="lcmd" class="section level1" number="6">
-<h1><span class="header-section-number">6</span> Bash Command-Line Reference</h1>
+<div id="lcmd" class="section level1" number="7">
+<h1><span class="header-section-number">7</span> Bash Command-Line Reference</h1>
 <p>Below is a collection of common <strong>Bash commands</strong> used to navigate the file system and manage computational analyses.</p>
-<div id="file-system" class="section level2" number="6.1">
-<h2><span class="header-section-number">6.1</span> File System</h2>
+<div id="file-system" class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> File System</h2>
 <ul>
 <li><code>ls</code> — list files in a directory<br />
 </li>
@@ -616,8 +620,8 @@ It allows users to create multiple independent terminal sessions within a single
 <li><code>tail</code> — show the last lines of a file</li>
 </ul>
 </div>
-<div id="system" class="section level2" number="6.2">
-<h2><span class="header-section-number">6.2</span> System</h2>
+<div id="system" class="section level2" number="7.2">
+<h2><span class="header-section-number">7.2</span> System</h2>
 <ul>
 <li><code>whoami</code> — display current user</li>
 <li><code>date</code> — display date and time</li>
@@ -626,8 +630,8 @@ It allows users to create multiple independent terminal sessions within a single
 <li><code>free</code> — memory usage</li>
 </ul>
 </div>
-<div id="process-management" class="section level2" number="6.3">
-<h2><span class="header-section-number">6.3</span> Process Management</h2>
+<div id="process-management" class="section level2" number="7.3">
+<h2><span class="header-section-number">7.3</span> Process Management</h2>
 <ul>
 <li><code>ps</code> — list active processes</li>
 <li><code>top</code> — show running processes</li>
@@ -635,8 +639,8 @@ It allows users to create multiple independent terminal sessions within a single
 <li><code>kill PID</code> — terminate process</li>
 </ul>
 </div>
-<div id="networking" class="section level2" number="6.4">
-<h2><span class="header-section-number">6.4</span> Networking</h2>
+<div id="networking" class="section level2" number="7.4">
+<h2><span class="header-section-number">7.4</span> Networking</h2>
 <ul>
 <li><code>ssh user@host</code> — connect to remote host</li>
 <li><code>scp</code> — transfer files between machines</li>
@@ -644,26 +648,169 @@ It allows users to create multiple independent terminal sessions within a single
 <li><code>curl</code> — download files</li>
 </ul>
 </div>
-<div id="searching" class="section level2" number="6.5">
-<h2><span class="header-section-number">6.5</span> Searching</h2>
+<div id="searching" class="section level2" number="7.5">
+<h2><span class="header-section-number">7.5</span> Searching</h2>
 <ul>
 <li><code>grep</code> — search text patterns</li>
 <li><code>find</code> — locate files</li>
 <li><code>sed</code> — text substitution</li>
 </ul>
 </div>
-<div id="compression" class="section level2" number="6.6">
-<h2><span class="header-section-number">6.6</span> Compression</h2>
+<div id="compression" class="section level2" number="7.6">
+<h2><span class="header-section-number">7.6</span> Compression</h2>
 <ul>
 <li><code>tar</code> — archive files</li>
 <li><code>gzip</code> — compress files</li>
 </ul>
 </div>
 </div>
-<div id="grpactexe" class="section level1" number="7">
-<h1><span class="header-section-number">7</span> 🤝 Group Exercises: Building a Shared Bioinformatics Workflow</h1>
-<div id="learning-outcomes-1" class="section level2" number="7.1">
-<h2><span class="header-section-number">7.1</span> Learning Outcomes</h2>
+<div id="fileexch" class="section level1" number="8">
+<h1><span class="header-section-number">8</span> File Exchange</h1>
+<div id="learning-objectives" class="section level2" number="8.1">
+<h2><span class="header-section-number">8.1</span> Learning Objectives</h2>
+<p>By the end of this section, you will be able to:</p>
+<ul>
+<li>Explain what SFTP is and why it is used<br />
+</li>
+<li>Connect to a remote server using FileZilla<br />
+</li>
+<li>Transfer files between your local computer and a remote system<br />
+</li>
+<li>Verify successful file transfers</li>
+</ul>
+</div>
+<div id="why-file-transfer-matters" class="section level2" number="8.2">
+<h2><span class="header-section-number">8.2</span> Why File Transfer Matters</h2>
+<p>In bioinformatics, analyses are often conducted on remote computing systems, while data visualization and reporting are performed locally. Efficient and reliable file transfer is therefore essential for:</p>
+<ul>
+<li>Moving input datasets to remote systems<br />
+</li>
+<li>Retrieving analysis results<br />
+</li>
+<li>Sharing files between collaborators</li>
+</ul>
+<p>Developing good file management and transfer practices is critical for ensuring <strong>reproducibility</strong> and <strong>data integrity</strong>.</p>
+</div>
+<div id="what-is-sftp" class="section level2" number="8.3">
+<h2><span class="header-section-number">8.3</span> What is SFTP?</h2>
+<p><strong>SFTP (Secure File Transfer Protocol)</strong> is a network protocol used to securely transfer files between your local computer and a remote server.</p>
+<p>Unlike older file transfer methods (such as FTP), SFTP encrypts both the <strong>data</strong> and the <strong>login credentials</strong> during transmission. This ensures that your files and passwords are protected from unauthorized access.</p>
+<div id="key-features-of-sftp" class="section level3" number="8.3.1">
+<h3><span class="header-section-number">8.3.1</span> Key Features of SFTP</h3>
+<ul>
+<li><strong>Secure communication</strong>: All data is encrypted<br />
+</li>
+<li><strong>Authentication</strong>: Requires a username and password (or SSH key)<br />
+</li>
+<li><strong>Reliable transfers</strong>: Reduces the risk of data corruption<br />
+</li>
+<li><strong>Integration with SSH</strong>: Uses the same protocol as <code>ssh</code> (port 22)</li>
+</ul>
+</div>
+</div>
+<div id="sftp-in-filezilla" class="section level2" number="8.4">
+<h2><span class="header-section-number">8.4</span> SFTP in FileZilla</h2>
+<p>FileZilla is a graphical SFTP client that simplifies file transfer between your computer and a remote server.</p>
+<p>When you connect using FileZilla:</p>
+<ul>
+<li>You are using <strong>SFTP by default</strong> (when connecting via port <code>22</code>)<br />
+</li>
+<li>Your connection is secured using the same system as your <code>ssh</code> login<br />
+</li>
+<li>You can upload and download files using a <strong>drag-and-drop interface</strong></li>
+</ul>
+<div id="why-sftp-is-important-in-bioinformatics" class="section level3" number="8.4.1">
+<h3><span class="header-section-number">8.4.1</span> Why SFTP is Important in Bioinformatics</h3>
+<ul>
+<li>Protects sensitive datasets and research results<br />
+</li>
+<li>Ensures secure access to remote computing systems<br />
+</li>
+<li>Enables efficient transfer of large genomic datasets</li>
+</ul>
+<p>In this course, you will use SFTP through FileZilla to move data between your local computer and remote Linux systems.</p>
+</div>
+</div>
+<div id="download-and-install-filezilla" class="section level2" number="8.5">
+<h2><span class="header-section-number">8.5</span> Download and Install FileZilla</h2>
+<p>FileZilla is a free, open-source SFTP client available for Windows, macOS, and Linux.</p>
+<div id="steps" class="section level3" number="8.5.1">
+<h3><span class="header-section-number">8.5.1</span> Steps</h3>
+<ol style="list-style-type: decimal">
+<li>Go to the official FileZilla website:<br />
+<a href="https://filezilla-project.org/" class="uri">https://filezilla-project.org/</a></li>
+<li>Click <strong>Download FileZilla Client</strong></li>
+<li>Select the version for your operating system:
+<ul>
+<li>Windows<br />
+</li>
+<li>macOS<br />
+</li>
+<li>Linux<br />
+</li>
+</ul></li>
+<li>Run the installer and follow the installation instructions<br />
+</li>
+<li>Launch FileZilla after installation</li>
+</ol>
+<p><strong>Notes:</strong></p>
+<ul>
+<li>Select the <strong>FileZilla Client</strong>, not the Server version<br />
+</li>
+<li>Avoid installing optional bundled software if prompted<br />
+</li>
+<li>Administrator privileges may be required</li>
+</ul>
+</div>
+</div>
+<div id="connectFileZilla" class="section level2" number="8.6">
+<h2><span class="header-section-number">8.6</span> Connecting with FileZilla</h2>
+<div id="connection-details" class="section level3" number="8.6.1">
+<h3><span class="header-section-number">8.6.1</span> Connection Details</h3>
+<p>To connect using FileZilla, you will need:</p>
+<ul>
+<li><strong>Host</strong>: your remote server address<br />
+</li>
+<li><strong>Username</strong>: your assigned account<br />
+</li>
+<li><strong>Password</strong>: your assigned password<br />
+</li>
+<li><strong>Port</strong>: <code>22</code> (SFTP)</li>
+</ul>
+</div>
+<div id="filezilla-interface-overview" class="section level3" number="8.6.2">
+<h3><span class="header-section-number">8.6.2</span> FileZilla Interface Overview</h3>
+<p>Once connected, the FileZilla interface is divided into several panels:</p>
+<ul>
+<li><strong>Quickconnect bar (top)</strong>: Enter host, username, password, and port<br />
+</li>
+<li><strong>Left panel</strong>: Local file system (your computer)<br />
+</li>
+<li><strong>Right panel</strong>: Remote file system (server)<br />
+</li>
+<li><strong>Bottom panel</strong>: File transfer queue and status</li>
+</ul>
+</div>
+</div>
+<div id="good-practices-for-file-transfer" class="section level2" number="8.7">
+<h2><span class="header-section-number">8.7</span> Good Practices for File Transfer</h2>
+<ul>
+<li>Always <strong>verify files after transfer</strong> (e.g., check file size or contents)<br />
+</li>
+<li>Use <strong>clear and consistent file names</strong><br />
+</li>
+<li>Keep your directories <strong>well organized</strong><br />
+</li>
+<li>Avoid overwriting important files unless intended<br />
+</li>
+<li>Transfer only necessary files to reduce clutter</li>
+</ul>
+</div>
+</div>
+<div id="grpactexe" class="section level1" number="9">
+<h1><span class="header-section-number">9</span> 🤝 Group Exercises 1: Building a Shared Bioinformatics Workflow</h1>
+<div id="learning-outcomes-1" class="section level2" number="9.1">
+<h2><span class="header-section-number">9.1</span> Learning Outcomes</h2>
 <p>These exercises reinforce:</p>
 <ul>
 <li>Remote computing skills (<code>ssh</code>)</li>
@@ -673,8 +820,8 @@ It allows users to create multiple independent terminal sessions within a single
 </ul>
 <hr />
 </div>
-<div id="activity-overview" class="section level2" number="7.2">
-<h2><span class="header-section-number">7.2</span> Activity Overview</h2>
+<div id="activity-overview" class="section level2" number="9.2">
+<h2><span class="header-section-number">9.2</span> Activity Overview</h2>
 <p>In this <strong>50-minute</strong> group activity, you will work in groups of <strong>5–6 students</strong>, divided into <strong>two subgroups (A and B)</strong>, to build and manage a shared bioinformatics workspace on a remote Linux system.</p>
 <p>Through this activity, you will:</p>
 <ul>
@@ -689,8 +836,8 @@ It allows users to create multiple independent terminal sessions within a single
 <p>By the end of this session, you will be prepared to confidently work on remote systems, manage your own analysis environment, and collaborate effectively on computational genomics projects.</p>
 <hr />
 </div>
-<div id="materials" class="section level2" number="7.3">
-<h2><span class="header-section-number">7.3</span> Materials</h2>
+<div id="materials" class="section level2" number="9.3">
+<h2><span class="header-section-number">9.3</span> Materials</h2>
 <ul>
 <li><a href="#grpaccounts"><strong>Your Computer Accounts</strong></a></li>
 <li><a href="#remote"><strong>How to Remotely access Linux computers</strong></a></li>
@@ -699,8 +846,8 @@ It allows users to create multiple independent terminal sessions within a single
 </ul>
 <hr />
 </div>
-<div id="instructions" class="section level2" number="7.4">
-<h2><span class="header-section-number">7.4</span> Instructions</h2>
+<div id="instructions" class="section level2" number="9.4">
+<h2><span class="header-section-number">9.4</span> Instructions</h2>
 <p>These exercises are designed to simulate real-world bioinformatics collaboration.</p>
 <p>You will work in:</p>
 <ul>
@@ -719,11 +866,11 @@ It allows users to create multiple independent terminal sessions within a single
 </ul>
 <hr />
 </div>
-<div id="phase-1-establishing-access-trust-communication-15-minutes" class="section level2" number="7.5">
-<h2><span class="header-section-number">7.5</span> Phase 1 — Establishing Access (Trust &amp; Communication) <span style="color:gray;">(15 minutes)</span></h2>
+<div id="phase-1-establishing-access-trust-communication-15-minutes" class="section level2" number="9.5">
+<h2><span class="header-section-number">9.5</span> Phase 1 — Establishing Access (Trust &amp; Communication) <span style="color:gray;">(15 minutes)</span></h2>
 <p><strong>Goal:</strong> Successfully access your shared system</p>
-<div id="tasks" class="section level3" number="7.5.1">
-<h3><span class="header-section-number">7.5.1</span> Tasks</h3>
+<div id="tasks" class="section level3" number="9.5.1">
+<h3><span class="header-section-number">9.5.1</span> Tasks</h3>
 <ol style="list-style-type: decimal">
 <li>Connect to the remote server using <code>ssh</code>. See <a href="#grpaccounts">here</a> for account details. Once you have gathered the required information (IP address and username), open a <strong>Terminal</strong> and type (see here if you use <a href="#Putty">Putty</a>):</li>
 </ol>
@@ -749,11 +896,11 @@ Shared notes describing the login procedure</p>
 <hr />
 </div>
 </div>
-<div id="phase-2-shared-workspace-construction-coordination-15-minutes" class="section level2" number="7.6">
-<h2><span class="header-section-number">7.6</span> Phase 2 — Shared Workspace Construction (Coordination) <span style="color:gray;">(15 minutes)</span></h2>
+<div id="phase-2-shared-workspace-construction-coordination-15-minutes" class="section level2" number="9.6">
+<h2><span class="header-section-number">9.6</span> Phase 2 — Shared Workspace Construction (Coordination) <span style="color:gray;">(15 minutes)</span></h2>
 <p><strong>Goal:</strong> Build a common working directory</p>
-<div id="tasks-1" class="section level3" number="7.6.1">
-<h3><span class="header-section-number">7.6.1</span> Tasks</h3>
+<div id="tasks-1" class="section level3" number="9.6.1">
+<h3><span class="header-section-number">9.6.1</span> Tasks</h3>
 <ol style="list-style-type: decimal">
 <li><p>Connect to the remote server using <code>ssh</code></p></li>
 <li><p>Navigate to your home directory</p></li>
@@ -800,11 +947,11 @@ ls</code></pre>
 <hr />
 </div>
 </div>
-<div id="phase-3-safe-job-execution-shared-responsibility-15-minutes" class="section level2" number="7.7">
-<h2><span class="header-section-number">7.7</span> Phase 3 — Safe Job Execution (Shared Responsibility) <span style="color:gray;">(15 minutes)</span></h2>
+<div id="phase-3-safe-job-execution-shared-responsibility-15-minutes" class="section level2" number="9.7">
+<h2><span class="header-section-number">9.7</span> Phase 3 — Safe Job Execution (Shared Responsibility) <span style="color:gray;">(15 minutes)</span></h2>
 <p><strong>Goal:</strong> Run persistent jobs safely using <code>tmux</code></p>
-<div id="tasks-2" class="section level3" number="7.7.1">
-<h3><span class="header-section-number">7.7.1</span> Tasks</h3>
+<div id="tasks-2" class="section level3" number="9.7.1">
+<h3><span class="header-section-number">9.7.1</span> Tasks</h3>
 <ol style="list-style-type: decimal">
 <li><p>Connect to the remote server using <code>ssh</code></p></li>
 <li><p>Start a <code>tmux</code> session:</p></li>
@@ -833,16 +980,115 @@ ls</code></pre>
 <hr />
 </div>
 </div>
-<div id="phase-4-reflection-building-trust-5-minutes" class="section level2" number="7.8">
-<h2><span class="header-section-number">7.8</span> Phase 4 — Reflection (Building Trust) <span style="color:gray;">(5 minutes)</span></h2>
-<div id="group-discussion" class="section level3" number="7.8.1">
-<h3><span class="header-section-number">7.8.1</span> Group Discussion</h3>
+<div id="phase-4-reflection-building-trust-5-minutes" class="section level2" number="9.8">
+<h2><span class="header-section-number">9.8</span> Phase 4 — Reflection (Building Trust) <span style="color:gray;">(5 minutes)</span></h2>
+<div id="group-discussion" class="section level3" number="9.8.1">
+<h3><span class="header-section-number">9.8.1</span> Group Discussion</h3>
 <ol style="list-style-type: decimal">
 <li>What worked well in your collaboration?</li>
 <li>Where did communication break down?</li>
 <li>Did you trust the other subgroup?</li>
 <li>What would happen in a real research project?</li>
 </ol>
+</div>
+</div>
+</div>
+<div id="filezilla" class="section level1" number="10">
+<h1><span class="header-section-number">10</span> 🤝 Group Exercises 2: File Exchange Using FileZilla</h1>
+<div id="learning-outcomes-2" class="section level2" number="10.1">
+<h2><span class="header-section-number">10.1</span> Learning Outcomes</h2>
+<p>By completing these exercises, you will be able to:</p>
+<ul>
+<li>Transfer files between your local computer and a remote Linux system</li>
+<li>Connect to a remote server using an SFTP client (FileZilla)</li>
+<li>Organize files for bioinformatics workflows</li>
+<li>Verify successful file transfers</li>
+</ul>
+</div>
+<div id="activity-overview-1" class="section level2" number="10.2">
+<h2><span class="header-section-number">10.2</span> Activity Overview</h2>
+<p>In this <strong>25-minute</strong> group activity, you will work in groups of <strong>5–6 students</strong>, divided into <strong>two subgroups (A and B)</strong>, to learn how to transfer files between your local computer and the remote system, and verify file integrity.</p>
+<p>The key takeaways from this activity are as follows:</p>
+<ul>
+<li>File transfer is a critical component of bioinformatics workflows</li>
+<li>Always verify file integrity after transfer</li>
+<li>Maintain clear file naming conventions to avoid confusion</li>
+<li>Combine graphical tools (FileZilla) with command-line tools for flexibility</li>
+</ul>
+<hr />
+</div>
+<div id="tasks-3" class="section level2" number="10.3">
+<h2><span class="header-section-number">10.3</span> Tasks</h2>
+<div id="prepare-a-file-locally" class="section level3" number="10.3.1">
+<h3><span class="header-section-number">10.3.1</span> Prepare a File Locally</h3>
+<p>Each subgroup should:</p>
+<ul>
+<li>Create a simple text file on your computer (e.g., <code>groupA_test.txt</code> or <code>groupB_test.txt</code>)</li>
+<li>Add the following content:</li>
+</ul>
+<pre class="bash"><code>This is a test file for file transfer.
+Subgroup: A or B</code></pre>
+</div>
+<div id="upload-the-file-to-the-remote-server" class="section level3" number="10.3.2">
+<h3><span class="header-section-number">10.3.2</span> Upload the File to the Remote Server</h3>
+<p>Using FileZilla:</p>
+<ul>
+<li>Navigate to your home directory on the remote system</li>
+<li>Upload your file into the folder:</li>
+</ul>
+<pre class="bash"><code>~/Tutorial_genomics</code></pre>
+<div id="steps-1" class="section level4" number="10.3.2.1">
+<h4><span class="header-section-number">10.3.2.1</span> Steps</h4>
+<p>To upload your file to the remote server, do the following steps:</p>
+<ol style="list-style-type: decimal">
+<li><p>Open FileZilla. See <a href="#connectFileZilla">here</a> for more detials on how to use FileZilla.</p></li>
+<li><p>Enter your connection details in the Quickconnect bar. See <a href="#grpaccounts">here</a> for account details.</p></li>
+<li><p>Click <strong>Quickconnect</strong></p></li>
+<li><p>Navigate:</p>
+<ul>
+<li>Local files (left)</li>
+<li>Remote files (right)</li>
+</ul></li>
+</ol>
+</div>
+</div>
+<div id="verify-the-file-on-the-remote-system" class="section level3" number="10.3.3">
+<h3><span class="header-section-number">10.3.3</span> Verify the File on the Remote System</h3>
+<p>Connect via <code>ssh</code> and run:</p>
+<pre class="bash"><code>cd ~/Tutorial_genomics
+ls -lh
+cat groupA_test.txt   # or groupB_test.txt</code></pre>
+</div>
+<div id="modify-and-download-the-file" class="section level3" number="10.3.4">
+<h3><span class="header-section-number">10.3.4</span> Modify and Download the File</h3>
+<ul>
+<li>Edit the file on the remote system using a command-line editor (e.g., <code>vim</code>, <code>nano</code>):</li>
+</ul>
+<pre class="bash"><code>vim groupA_test.txt</code></pre>
+<ul>
+<li>Add one additional line, save, and exit</li>
+</ul>
+</div>
+<div id="download-the-updated-file" class="section level3" number="10.3.5">
+<h3><span class="header-section-number">10.3.5</span> Download the Updated File</h3>
+<ul>
+<li>Use FileZilla to download the modified file back to your local computer</li>
+</ul>
+</div>
+<div id="confirm-changes-locally" class="section level3" number="10.3.6">
+<h3><span class="header-section-number">10.3.6</span> Confirm Changes Locally</h3>
+<ul>
+<li>Open the downloaded file</li>
+<li>Verify that your modification is present</li>
+</ul>
+</div>
+<div id="discussion" class="section level3" number="10.3.7">
+<h3><span class="header-section-number">10.3.7</span> Discussion</h3>
+<ul>
+<li>What are the advantages of using FileZilla compared to the command line?</li>
+<li>When would command-line tools (e.g., <code>scp</code>, <code>rsync</code>) be preferable?</li>
+<li>How can file mismanagement impact reproducibility in bioinformatics?</li>
+</ul>
 </div>
 </div>
 </div>
