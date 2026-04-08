@@ -11,7 +11,7 @@
 
 <meta name="author" content="Sven Buerki - Boise State University" />
 
-<meta name="date" content="2026-03-28" />
+<meta name="date" content="2026-04-08" />
 
 <title>BIOL 497/597 - Genomics &amp; Bioinformatics</title>
 
@@ -383,7 +383,7 @@ div.tocify {
 <h1 class="title toc-ignore">BIOL 497/597 - Genomics &amp; Bioinformatics</h1>
 <h3 class="subtitle">Lab: Mining sagebrush draft genome</h3>
 <h4 class="author">Sven Buerki - Boise State University</h4>
-<h4 class="date">2026-03-28</h4>
+<h4 class="date">2026-04-08</h4>
 
 </div>
 
@@ -1629,7 +1629,9 @@ Figure 11.1: Map of predicted ORFs along scaffold151535.
 <h2><span class="header-section-number">12.2</span> Annotate ORFs using online protein BLAST tool</h2>
 <div id="input-file-for-protein-blast-analysis" class="section level3" number="12.2.1">
 <h3><span class="header-section-number">12.2.1</span> Input file for protein BLAST analysis</h3>
-<p>The <code>FASTA</code> file <code>Scaffold151535_ORFs.fa</code> (see Figure <a href="#fig:scafAAseqFASTA">12.1</a>) containing AA sequences of ORFs identified in <a href="#mod2">module 2</a> is available on the shared <a href="https://drive.google.com/drive/folders/1d0TSt_M-wAVmNPPfMnXtxD8_fnfK7jQr?usp=sharing">Google Drive</a> or on <a href="Data/Scaffold151535_ORFs.fa">GitHub</a>.</p>
+<p>The FASTA file <code>Scaffold151535_ORFs.fa</code> (see Figure <a href="#fig:scafAAseqFASTA">12.1</a>) contains amino acid (AA) sequences of open reading frames (ORFs) identified in <a href="#mod2">Module 2</a>.</p>
+<p>This file is located in the directory <code>~/DraftGenomeMineR/AA_ORFs</code>. It can also be downloaded from the shared <a href="https://drive.google.com/drive/folders/1d0TSt_M-wAVmNPPfMnXtxD8_fnfK7jQr?usp=sharing">Google Drive</a> or from <a href="Data/Scaffold151535_ORFs.fa">GitHub</a>.</p>
+<p>Alternatively, you can use FileZilla to transfer the file from your Linux machine to your local computer.</p>
 <div class="figure"><span style="display:block;" id="fig:scafAAseqFASTA"></span>
 <img src="Images/Scaffolds_AA_seq_ORFs.png" alt="FASTA file containing all AA sequences for ORFs inferred along scaffold. See module 2 for more details." width="100%" />
 <p class="caption">
@@ -1682,7 +1684,7 @@ Figure 12.3: Output of the protein BLAST analysis. Use the dropdown button to se
 <li>The code <strong>checks that all the ORFs declared in <code>ORFsToCat</code> exists in the FASTA file</strong> (= declared in <code>fastaAA</code>) and stops and return an error message pertaining to this issue if they are not all present in the file.</li>
 </ol>
 <p>Finally, the UDF as a logical argument entitled <code>stopCodon</code> allowing to declare whether stop codons (represented by <code>*</code>) are present in the AA sequences (in your <code>FASTA</code> file). Here it is especially convenient since <strong>the concatenated protein sequence should not contain stop codons for our subsequent analyses</strong>. See UDF below for more details.</p>
-<p>The function is provided below for you to inspect.</p>
+<p>The function is provided below for you to inspect and understand the approach and its implementation. <strong>Do not include this code in your script</strong>, as it is intended for reference purposes only.</p>
 <pre class="r"><code>###~~~~
 #ORFs2protSeq - A UDF to produce a protein sequence from ORFs
 # Arguments:

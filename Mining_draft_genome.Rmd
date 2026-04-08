@@ -1198,7 +1198,11 @@ In this module, we are conducting the following tasks:
 
 ### Input file for protein BLAST analysis
 
-The `FASTA` file `Scaffold151535_ORFs.fa` (see Figure \@ref(fig:scafAAseqFASTA)) containing AA sequences of ORFs identified in [module 2](#mod2) is available on the shared [Google Drive](https://drive.google.com/drive/folders/1d0TSt_M-wAVmNPPfMnXtxD8_fnfK7jQr?usp=sharing) or on [GitHub](Data/Scaffold151535_ORFs.fa).  
+The FASTA file `Scaffold151535_ORFs.fa` (see Figure \@ref(fig:scafAAseqFASTA)) contains amino acid (AA) sequences of open reading frames (ORFs) identified in [Module 2](#mod2). 
+
+This file is located in the directory `~/DraftGenomeMineR/AA_ORFs`. It can also be downloaded from the shared [Google Drive](https://drive.google.com/drive/folders/1d0TSt_M-wAVmNPPfMnXtxD8_fnfK7jQr?usp=sharing) or from [GitHub](Data/Scaffold151535_ORFs.fa). 
+
+Alternatively, you can use FileZilla to transfer the file from your Linux machine to your local computer.
 
 ```{r scafAAseqFASTA, echo=FALSE, fig.cap="FASTA file containing all AA sequences for ORFs inferred along scaffold. See module 2 for more details.", out.width = '100%', fig.pos= "h"}
 knitr::include_graphics("Images/Scaffolds_AA_seq_ORFs.png")
@@ -1239,7 +1243,7 @@ In this UDF, defensive programming has been implemented 2-ways:
 
 Finally, the UDF as a logical argument entitled `stopCodon` allowing to declare whether stop codons (represented by `*`) are present in the AA sequences (in your `FASTA` file). Here it is especially convenient since **the concatenated protein sequence should not contain stop codons for our subsequent analyses**. See UDF below for more details.
 
-The function is provided below for you to inspect.
+The function is provided below for you to inspect and understand the approach and its implementation. **Do not include this code in your script**, as it is intended for reference purposes only.
 
 ```{r eval = T, echo = T, warning = F}
 ###~~~~
