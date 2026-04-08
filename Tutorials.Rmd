@@ -736,3 +736,7 @@ vim groupA_test.txt
 * What are the advantages of using FileZilla compared to the command line?
 * When would command-line tools (e.g., `scp`, `rsync`) be preferable?
 * How can file mismanagement impact reproducibility in bioinformatics?
+
+### Next Step
+
+Use the protocol you just learned to transfer the ORF map from Module 2 to your local computer.
