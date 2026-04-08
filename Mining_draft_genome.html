@@ -1766,8 +1766,9 @@ ORFs2protSeq(fastaAA, ORFsToCat, stopCodon)</code></pre>
 ## [1] &quot;&gt;Protein_sequence_from_Scaffold151535_ORF_1|Scaffold151535_ORF_13|Scaffold151535_ORF_2\nMSSKPEIFEISSNDSTSSDSITSPWSSYFPSTYSNSVSKKSTAARSGKKVSTSVNPPVTTQALSMTSKRTQVLGLPTKENYAKITAKGKGKRTLTMEYLTILPEASALFNICLIGWSVMNFIGWASKYLRSLLAICSRARANFSMGAMHLCMHVCNEMLLVSVKIKLLVFIHHQCQNTTWYIVTCLDLTYQLNSYFKHKQKTQLHTFPTL&quot;</code></pre>
 <pre><code>## [1] &quot;&gt;Protein_sequence_from_Scaffold151535_ORF_1|Scaffold151535_ORF_13|Scaffold151535_ORF_2\nMSSKPEIFEISSNDSTSSDSITSPWSSYFPSTYSNSVSKKSTAARSGKKVSTSVNPPVTTQALSMTSKRTQVLGLPTKENYAKITAKGKGKRTLTMEYLTILPEASALFNICLIGWSVMNFIGWASKYLRSLLAICSRARANFSMGAMHLCMHVCNEMLLVSVKIKLLVFIHHQCQNTTWYIVTCLDLTYQLNSYFKHKQKTQLHTFPTL&quot;</code></pre>
 <ol start="4" style="list-style-type: decimal">
-<li>Amend the above code to save the output of <em>ORFs2protSeq()</em> in a <code>FASTA</code> file located at a specific path on your remote computer</li>
+<li>Modify the code above to save the output of <em>ORFs2protSeq()</em> as a <code>FASTA</code> file at a specified path on your remote computer. The input file <code>Scaffold151535_ORFs.fa</code> is located in <code>~/DraftGenomeMineR/AA_ORFs</code>. When modifying the code provided above, you may use the <code>write.table()</code> function to save the protein sequences in the same directory. For additional guidance, refer to step 2 of Section 11.3.2.</li>
 </ol>
+<p><strong>Note:</strong> The code provided above is for reference only to help you understand the approach and its implementation. <strong>Do not include it directly in your script.</strong></p>
 <hr />
 </div>
 </div>
@@ -1776,7 +1777,7 @@ ORFs2protSeq(fastaAA, ORFsToCat, stopCodon)</code></pre>
 <h1><span class="header-section-number">13</span> Module 4</h1>
 <div id="objectives-3" class="section level2" number="13.1">
 <h2><span class="header-section-number">13.1</span> Objectives</h2>
-<p>The objectives of this module are to validate the AQP protein sequences obtained in <a href="#mod3">module 3</a> and infer its function. This will be done by conducting the following analyses:</p>
+<p>The objectives of this module are to validate the AQP protein sequences obtained in <a href="#mod3">module 3</a> (available in <code>~/DraftGenomeMineR/AA_ORFs</code>) and infer its function. This will be done by conducting the following analyses:</p>
 <ol style="list-style-type: decimal">
 <li>Predict the number of protein transmembrane helices based on the approach implemented in <a href="http://www.cbs.dtu.dk/services/TMHMM/">TMHMM</a> <span class="citation">(<a href="#ref-krogh2001predicting">Krogh et al., 2001</a>)</span>. This approach relies on <a href="https://www.sciencedirect.com/topics/biochemistry-genetics-and-molecular-biology/hidden-markov-model">Hidden Markov Models</a>.</li>
 <li>Identify NPA motifs using an <code>R</code> script relying on <em>Biostring</em> <span class="citation">(<a href="#ref-Biostrings">Pagès et al., 2019</a>)</span> and <em>IRanges</em> <span class="citation">(<a href="#ref-IRanges">Lawrence et al., 2013</a>)</span> packages.</li>
