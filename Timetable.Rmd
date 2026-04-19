@@ -79,9 +79,12 @@ knitr::kable(deadlines,  caption = "Deadlines of graded assignments for Genomics
 ```
 
 <div class="info">
-  <p><strong>💡 Information</strong></p>
+  <p><strong>💡 Information: Extra Credit</strong></p>
   <ul>
-    <li>Extra credit assignments will be announced later in the semester. Deadlines will be posted here.</li>
+    <li>The extra credit assignment (15 points total) is due on May 1, 2026 at 5:00 PM MT.</li>
+    <li>Submit a single document with your responses to the three personalized questions by email to svenbuerki@boisestate.edu.</li>
+    <li>These three personalized questions are part of Mini-Report 3.</li>
+    <li>Late submissions will not be graded.</li>
   </ul>
 </div>
 
