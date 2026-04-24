@@ -1519,7 +1519,7 @@ Please see [here](https://svenbuerki.github.io/Genomics-Bioinformatics/Timetable
 
 Students will use their lab reports to prepare a **15-minute group presentation** (+ 5 minutes for questions), scheduled for **April 29th, 2026** (during class time).
 
-This assignment requires groups to clearly communicate their research following the **scientific process (IMRAD structure)**. Additional details on presentation format, slide organization, and expectations are provided in the sections below and in the [evaluation rubrics](#rubrics).
+This assignment requires groups to clearly communicate their research following the **scientific process (IMRAD structure)**. Additional details on presentation format, slide organization, and expectations are provided in the sections below and in the [evaluation rubrics](#rubrics). The **evaluation form** used to grade this assignment can be downloaded [here](Data/Evaluation_forms/Oral_Presentation_Evaluation_Form_template.pdf).
 
 **Participation:** All group members are expected to actively contribute to the presentation and participate in answering questions.
 
@@ -1597,17 +1597,19 @@ The following penalties may be applied:
 
 ## Group Lab Oral Presentation Rubric (Total: 50 points) {#oralpresentation}
 
-**Presentation:** 15 minutes + 5 minutes for questions  
+**Presentation Length:** 15 minutes, plus 5 minutes for questions
 
-**Slide Guidelines:** Presentations should follow the **IMRAD structure** (Introduction, Methods & Materials, Results, and Discussion) and be limited to a **maximum of 6 slides total** (not including animations or transitions). As a guideline, allocate approximately:
+**Slide Guidelines:** Presentations should follow the **IMRAD structure** (Introduction, Methods and Materials, Results, and Discussion) and be limited to a **maximum of 6 slides total** (excluding animations and transitions). As a guideline, allocate approximately:
 
-- Introduction: up to 2 slides  
-- Methods & Materials: up to 2 slides  
-- Results & Discussion: up to 2 slides  
+* Introduction: up to 2 slides
+* Methods and Materials: up to 2 slides
+* Results and Discussion: up to 2 slides
 
 **Expectations:** All group members must actively participate in the presentation and be prepared to respond to questions. Presentations must be submitted in advance to the shared Google Drive folder or sent to the instructor.
 
-The presentation will be evaluated on how clearly and professionally the group **communicates their research following the scientific process (IMRAD structure)**, adheres to the slide guidelines, and engages the audience.
+The presentation will be evaluated based on how clearly and professionally the group **communicates its research using the scientific process (IMRAD structure)**, adheres to the slide guidelines, and engages the audience.
+
+The **evaluation form** used to grade this assignment can be downloaded [here](Data/Evaluation_forms/Oral_Presentation_Evaluation_Form_template.pdf).
 
 ### Introduction & Background (10 points)
 
